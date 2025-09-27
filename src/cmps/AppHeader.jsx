@@ -24,14 +24,14 @@ export function AppHeader() {
 				<NavLink to="/" className="logo">
 					E2E Demo
 				</NavLink>
-				<NavLink to="about">About</NavLink>
-				<NavLink to="car">Cars</NavLink>
+				{/* <NavLink to="about">About</NavLink> */}
 				<NavLink to="stay">Stays</NavLink>
-				<NavLink to="chat">Chat</NavLink>
-				<NavLink to="review">Review</NavLink>
+				{/* <NavLink to="chat">Chat</NavLink> */}
+				<NavLink to="messages">Messages</NavLink>
 
                 {user?.isAdmin && <NavLink to="/admin">Admin</NavLink>}
 
+				<NavLink to="become-a-host" className="host-link">Become a host</NavLink>
 				{!user && <NavLink to="auth/login" className="login-link">Login</NavLink>}
 				{user && (
 					<div className="user-info">
@@ -39,7 +39,6 @@ export function AppHeader() {
 							{user.imgUrl && <img src={user.imgUrl} />}
 							{user.fullname}
 						</Link>
-						<span className="score">{user.score?.toLocaleString()}</span>
 						<button onClick={onLogout}>logout</button>
 					</div>
 				)}
