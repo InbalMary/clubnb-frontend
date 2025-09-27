@@ -17,17 +17,18 @@
 @import "./pages/HostDetails.css";
 @import "./pages/ListingEdit.css";
 
+
+/* Cmps */
 @import "cmps/AppHeader";
 @import "cmps/AppFooter";
 @import "cmps/UserMsg";
 
-/* Cmps */
 @import "cmps/LoginSignup";
 @import "cmps/Chat";
 @import "cmps/stay/StayList";
 @import "cmps/stay/StayPreview";
 @import "cmps/stay/StayFilter";
 
-@import "cmps/review/ReviewEdit";
-@import "cmps/review/ReviewList";
-@import "cmps/review/ReviewPreview";
+@import "cmps/msg/MsgEdit";
+@import "cmps/msg/MsgList";
+@import "cmps/msg/MsgPreview";
