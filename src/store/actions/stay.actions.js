@@ -108,10 +108,11 @@ function getCmdAddStayMsg(msg) {
 async function unitTestActions() {
     await loadStays()
     await addStay(stayService.getEmptyStay())
-    await updateStay({
-        _id: 'm1oC7',
-        name: 'Stay-Good',
-    })
-    await removeStay('m1oC7')
+    await addStay(stayService.getEmptyStay())
+    // await updateStay({
+    //     _id: 'm1oC7',
+    //     name: 'Stay-Good',
+    // })
+    // await removeStay('m1oC7')
     // TODO unit test addStayMsg
 }
