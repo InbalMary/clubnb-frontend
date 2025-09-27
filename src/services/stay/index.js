@@ -10,7 +10,7 @@ function getEmptyStay() {
         _id: '',
 		name: makeId(),
 		price: getRandomIntInclusive(80, 240),
-		msgs: [],
+		reviews: [],
 	}
 }
 

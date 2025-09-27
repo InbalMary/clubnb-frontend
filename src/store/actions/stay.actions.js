@@ -1,6 +1,6 @@
 import { stayService } from '../../services/stay'
 import { store } from '../store'
-import { ADD_STAY, REMOVE_STAY, SET_STAYS, SET_STAY, UPDATE_STAY, ADD_STAY_MSG } from '../reducers/stay.reducer'
+import { ADD_STAY, REMOVE_STAY, SET_STAYS, SET_STAY, UPDATE_STAY, ADD_STAY_REVIEW } from '../reducers/stay.reducer'
 
 export async function loadStays(filterBy) {
     try {
@@ -55,13 +55,13 @@ export async function updateStay(stay) {
     }
 }
 
-export async function addStayMsg(stayId, txt) {
+export async function addStayReview(stayId, txt) {
     try {
-        const msg = await stayService.addStayMsg(stayId, txt)
-        store.dispatch(getCmdAddStayMsg(msg))
-        return msg
+        const review = await stayService.addStayReview(stayId, txt)
+        store.dispatch(getCmdAddStayReview(review))
+        return review
     } catch (err) {
-        console.log('Cannot add stay msg', err)
+        console.log('Cannot add stay review', err)
         throw err
     }
 }
@@ -97,22 +97,22 @@ function getCmdUpdateStay(stay) {
         stay
     }
 }
-function getCmdAddStayMsg(msg) {
+function getCmdAddStayReview(review) {
     return {
-        type: ADD_STAY_MSG,
-        msg
+        type: ADD_STAY_REVIEW,
+        review
     }
 }
 
 // unitTestActions()
 async function unitTestActions() {
     await loadStays()
-    await addStay(stayService.getEmptyStay())
+    await addStay([stayService.getEmptyStay()])
     await addStay(stayService.getEmptyStay())
     // await updateStay({
     //     _id: 'm1oC7',
     //     name: 'Stay-Good',
     // })
     // await removeStay('m1oC7')
-    // TODO unit test addStayMsg
+    // TODO unit test addStayReview
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import { loadStays, addStay, updateStay, removeStay, addStayMsg } from '../store/actions/stay.actions'
+import { loadStays, addStay, updateStay, removeStay, addStayReview } from '../store/actions/stay.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { stayService } from '../services/stay/'

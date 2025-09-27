@@ -10,7 +10,7 @@ export const stayService = {
     getById,
     save,
     remove,
-    addStayMsg
+    addStayReview
 }
 window.cs = stayService
 
@@ -62,24 +62,24 @@ async function save(stay) {
             price: stay.price,
             // Later, owner is set by the backend
             owner: userService.getLoggedinUser(),
-            msgs: []
+            reviews: []
         }
         savedStay = await storageService.post(STORAGE_KEY, stayToSave)
     }
     return savedStay
 }
 
-async function addStayMsg(stayId, txt) {
+async function addStayReview(stayId, txt) {
     // Later, this is all done by the backend
     const stay = await getById(stayId)
 
-    const msg = {
+    const review = {
         id: makeId(),
         by: userService.getLoggedinUser(),
         txt
     }
-    stay.msgs.push(msg)
+    stay.reviews.push(review)
     await storageService.put(STORAGE_KEY, stay)
 
-    return msg
+    return review
 }

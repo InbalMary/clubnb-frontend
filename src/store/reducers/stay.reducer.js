@@ -3,7 +3,7 @@ export const SET_STAY = 'SET_STAY'
 export const REMOVE_STAY = 'REMOVE_STAY'
 export const ADD_STAY = 'ADD_STAY'
 export const UPDATE_STAY = 'UPDATE_STAY'
-export const ADD_STAY_MSG = 'ADD_STAY_MSG'
+export const ADD_STAY_REVIEW = 'ADD_STAY_REVIEW'
 
 const initialState = {
     stays: [],
@@ -32,9 +32,9 @@ export function stayReducer(state = initialState, action) {
             stays = state.stays.map(stay => (stay._id === action.stay._id) ? action.stay : stay)
             newState = { ...state, stays }
             break
-        case ADD_STAY_MSG:
-            if (action.msg && state.stay) {
-                newState = { ...state, stay: { ...state.stay, msgs: [...state.stay.msgs || [], action.msg] } }
+        case ADD_STAY_REVIEW:
+            if (action.review && state.stay) {
+                newState = { ...state, stay: { ...state.stay, reviews: [...state.stay.reviews || [], action.review] } }
                 break
             }
         default:
@@ -46,8 +46,8 @@ export function stayReducer(state = initialState, action) {
 
 function unitTestReducer() {
     var state = initialState
-    const stay1 = { _id: 'b101', name: 'Stay ' + parseInt('' + Math.random() * 10), price: 12, owner: null, msgs: [] }
-    const stay2 = { _id: 'b102', name: 'Stay ' + parseInt('' + Math.random() * 10), price: 13, owner: null, msgs: [] }
+    const stay1 = { _id: 'b101', name: 'Stay ' + parseInt('' + Math.random() * 10), price: 12, owner: null, reviews: [] }
+    const stay2 = { _id: 'b102', name: 'Stay ' + parseInt('' + Math.random() * 10), price: 13, owner: null, reviews: [] }
 
     state = stayReducer(state, { type: SET_STAYS, stays: [stay1] })
     console.log('After SET_STAYS:', state)
@@ -64,8 +64,8 @@ function unitTestReducer() {
     state = stayReducer(state, { type: SET_STAY, stay: stay1 })
     console.log('After SET_STAY:', state)
 
-    const msg = { id: 'm' + parseInt('' + Math.random() * 100), txt: 'Some msg', by: { _id: 'u123', fullname: 'test' } }
-    state = stayReducer(state, { type: ADD_STAY_MSG, stayId: stay1._id, msg })
-    console.log('After ADD_STAY_MSG:', state)
+    const review = { id: 'm' + parseInt('' + Math.random() * 100), txt: 'Some review', by: { _id: 'u123', fullname: 'test' } }
+    state = stayReducer(state, { type: ADD_STAY_REVIEW, stayId: stay1._id, review })
+    console.log('After ADD_STAY_REVIEW:', state)
 }
 

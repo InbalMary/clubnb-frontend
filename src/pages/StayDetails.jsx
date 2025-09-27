@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { loadStay, addStayMsg } from '../store/actions/stay.actions'
+import { loadStay, addStayReview } from '../store/actions/stay.actions'
 
 
 export function StayDetails() {
@@ -16,12 +16,12 @@ export function StayDetails() {
     loadStay(stayId)
   }, [stayId])
 
-  async function onAddStayMsg(stayId) {
+  async function onAddStayReview(stayId) {
     try {
-        await addStayMsg(stayId, 'bla bla ' + parseInt(Math.random()*10))
-        showSuccessMsg(`Stay msg added`)
+        await addStayReview(stayId, 'bla bla ' + parseInt(Math.random()*10))
+        showSuccessMsg(`Stay review added`)
     } catch (err) {
-        showErrorMsg('Cannot add stay msg')
+        showErrorMsg('Cannot add stay review')
     }        
 
 }
@@ -36,7 +36,7 @@ export function StayDetails() {
         <pre> {JSON.stringify(stay, null, 2)} </pre>
       </div>
       }
-      <button onClick={() => { onAddStayMsg(stay._id) }}>Add stay msg</button>
+      <button onClick={() => { onAddStayReview(stay._id) }}>Add stay review</button>
 
     </section>
   )
