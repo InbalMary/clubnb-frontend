@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 
 import { userService } from '../services/user'
 import { login, signup } from '../store/actions/user.actions'
-import { ImgUploader } from '../cmps/ImgUploader'
+import { ImgUploader } from './ImgUploader'
 
 export function LoginSignup() {
     return (

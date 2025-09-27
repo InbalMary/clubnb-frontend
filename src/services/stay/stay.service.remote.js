@@ -5,7 +5,7 @@ export const stayService = {
     getById,
     save,
     remove,
-    addStayMsg
+    addStayReview
 }
 
 async function query(filterBy = { txt: '', minPrice: 0 }) {
@@ -29,7 +29,7 @@ async function save(stay) {
     return savedStay
 }
 
-async function addStayMsg(stayId, txt) {
-    const savedMsg = await httpService.post(`stay/${stayId}/msg`, {txt})
-    return savedMsg
+async function addStayReview(stayId, txt) {
+    const savedReview = await httpService.post(`stay/${stayId}/review`, {txt})
+    return savedReview
 }

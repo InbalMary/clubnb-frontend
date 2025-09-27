@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { NavLink, Outlet, useParams } from 'react-router-dom'
 
 import { loadUser } from '../store/actions/user.actions'
 import { store } from '../store/store'
@@ -31,14 +31,22 @@ export function UserDetails() {
 
   return (
     <section className="user-details">
-      <h1>User Details</h1>
+      <h1>User Profile</h1>
+
       {user && <div>
         <h3>
           {user.fullname}
         </h3>
         <img src={user.imgUrl} style={{ width: '100px' }} />
         <pre> {JSON.stringify(user, null, 2)} </pre>
-      </div>}
+        <div>
+          my reviews
+        </div>
+        <div>
+          reviews i've written
+        </div>
+              </div>}
     </section>
   )
 }
+
