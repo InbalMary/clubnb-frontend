@@ -51,3 +51,26 @@ export function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
 }
+
+export function formatStayDates(startDate, endDate) {
+    const start = new Date(startDate)
+    const end = new Date(endDate)
+
+    const options = { month: 'short', day: 'numeric' } //Oct 10
+
+    const startMonth = start.toLocaleDateString('en-US', { month: 'short' }) // Oct
+    //if dates are within the same month
+    if (start.getMonth() === end.getMonth()) {
+        return `${startMonth} ${start.getDate()}-${end.getDate()}` //Oct 10-15
+    }
+    //if dates are across months
+    return `${start.toLocaleDateString('en-US', options)}-${end.toLocaleDateString('en-US', options)}` // Sep 30 - Oct 2
+}
+
+export function calculateNights(startDate, endDate) {
+    const start = new Date(startDate)
+    const end = new Date(endDate)
+    const diffInMs = end - start
+    //convert Ms to days
+    return diffInMs / (1000 * 60 * 60 * 24) // res: number of nights
+}
