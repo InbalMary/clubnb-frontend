@@ -6,6 +6,10 @@ import { demoStays } from '../../data/demo-stays'
 
 const STORAGE_KEY = 'stay'
 
+if (!localStorage.getItem(STORAGE_KEY)) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(demoStays))
+}
+
 export const stayService = {
     query,
     getById,
@@ -18,12 +22,7 @@ window.cs = stayService
 
 async function query(filterBy = { txt: '', minPrice: 0 }) {
     var stays = await storageService.query(STORAGE_KEY)
-
-    if (!stays || !stays.lenght) {
-        console.log('No stays found, getting demo data...')
-        stays = demoStays
-        stays.forEach(stay => storageService.post(STORAGE_KEY, stay))
-    }
+    console.log('Stays found in storage:', stays)
 
     const { txt, minPrice, sortField, sortDir } = filterBy
 
@@ -91,3 +90,5 @@ async function addStayReview(stayId, txt) {
 
     return review
 }
+
+
