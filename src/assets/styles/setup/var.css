@@ -23,6 +23,12 @@
   --gray4: #EBEBEB;
   /* header-btns-hover */
   --gray5: #E5E5E5;
+  /* border-color */
+  --gray6: #DDDDDD;
+
+  /* Main bg */
+  --white: #FFFFFF;
+
 
   --success: rgb(41, 189, 73);
   --error: rgb(216, 59, 59);

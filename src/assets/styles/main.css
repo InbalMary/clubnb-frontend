@@ -32,3 +32,5 @@
 @import "cmps/msg/MsgEdit";
 @import "cmps/msg/MsgList";
 @import "cmps/msg/MsgPreview";
+
+@import "cmps/msg/SearchBar";
