@@ -1,6 +1,9 @@
 :root {
   --primary-clr: #ff385c;
 
+  /*Reserve button hover gradiant*/
+  --reserve-btn-hover: radial-gradient(circle at center, #FF385C 0%, #E61E4D 27.5%, #E31C5F 40%, #D70466 57.5%, #BD1E59 75%, #BD1E59 100%);
+
   --clr1: #ce2e6c;
   --clr2: #4f3a65;
   --clr3: #574f7d;
@@ -9,10 +12,17 @@
 
   --clr1-light: color-mix(in lab, var(--clr1), white 15%);
 
-  --gray1: #ddd;
-  --gray2: #aaa;
-  --gray3: #777;
-  --gray4: #333;
+  /*Text colors From air bnb*/
+  /*btn Bg color*/
+  --gray1: #F7F7F7;
+  /*Lighter text color*/
+  --gray2: #6A6A6A;
+  /*Most of the text color in the website*/
+  --gray3: #222222;
+  /* header-bg */
+  --gray4: #EBEBEB;
+  /* header-btns-hover */
+  --gray5: #E5E5E5;
 
   --success: rgb(41, 189, 73);
   --error: rgb(216, 59, 59);
