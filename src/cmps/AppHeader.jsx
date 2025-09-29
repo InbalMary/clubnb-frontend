@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/actions/user.actions'
 import { appHeaderSvg } from './Svgs'
+import { SearchBar } from './SearchBar'
 
 export function AppHeader() {
 	const user = useSelector(storeState => storeState.userModule.user)
@@ -21,7 +22,7 @@ export function AppHeader() {
 
 	return (
 		<header className="app-header full">
-			<nav>
+			<nav className='nav-bar'>
 				<NavLink to="/" className="logo-header">
 					<span className="icon">{appHeaderSvg.logo}</span>
 					<span className="brand">airbnb</span>
@@ -60,6 +61,9 @@ export function AppHeader() {
 					</div>
 				)} */}
 			</nav>
+
+			<SearchBar />
+				
 		</header>
 	)
 }
