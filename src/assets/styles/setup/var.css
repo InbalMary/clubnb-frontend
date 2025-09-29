@@ -19,7 +19,10 @@
   --gray2: #6A6A6A;
   /*Most of the text color in the website*/
   --gray3: #222222;
-
+  /* header-bg */
+  --gray4: #EBEBEB;
+  /* header-btns-hover */
+  --gray5: #E5E5E5;
 
   --success: rgb(41, 189, 73);
   --error: rgb(216, 59, 59);
