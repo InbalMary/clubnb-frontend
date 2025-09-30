@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+.stay-details,
+.main-content {
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    .bold {
+        font-family: cereal-light;
+        font-weight: bolder;
+    }
+
+    div.border {
+        border-top-color: var(--gray6);
+        border-top-width: 1px !important;
+        border-top-style: solid !important;
+    }
+
+    span.dot {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    span.dot::before {
+        content: "•";
+        font-size: 15px;
+    }
+
+    span.link {
+        text-decoration: underline;
+    }
+
+    .details-imgs {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        max-height: 556px;
+        gap: 8px;
+        border-radius: 10px;
+        overflow: hidden;
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        & .img-1 {
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+
+
+    }
+
+    .details-container>.content>.main-info>.mini-stay-info {
+        .stay-name {
+            font-family: cereal-light;
+            font-weight: 900;
+        }
+
+        .capacity {
+            /* font-family: "Nunito Sans", sans-serif; */
+            font-family: cereal-regular;
+            font-weight: normal;
+        }
+
+        .rating>* {
+            font-family: cereal-light;
+            font-weight: bolder;
+        }
+
+        .mini-host {
+            img.host-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 20% 10%;
+                width: 50px;
+                height: 50px;
+                overflow: hidden;
+                border-radius: 50%;
+            }
+        }
+
+        .highlights {}
+    }
+
+    .bedrooms .bedroom {
+        border-color: var(--gray6);
+        border-width: 1px !important;
+        border-style: solid !important;
+        border-radius: 12px;
+    }
+}

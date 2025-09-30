@@ -20,9 +20,9 @@
   /*Most of the text color in the website*/
   --gray3: #222222;
   /* header-bg */
-  --gray4: #EBEBEB;
+  --gray4: rgb(235, 235, 235);
   /* header-btns-hover */
-  --gray5: #E5E5E5;
+  --gray5: rgb(229, 229, 229);
   /* border-color */
   --gray6: #DDDDDD;
 
