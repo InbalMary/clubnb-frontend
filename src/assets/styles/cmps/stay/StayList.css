@@ -8,3 +8,20 @@
     justify-content: start;
 
 }
+
+.stay-list-title {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 32px;
+    margin-bottom: 0;
+    font-size: 20px;
+    color: var(--gray3);
+    cursor: pointer;
+    font-family: cereal-medium;
+    font-weight: 500;
+}
+
+.right-pointer {
+    width: 0.6em;
+    height: 0.6em;
+}
