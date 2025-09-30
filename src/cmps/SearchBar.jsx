@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { appHeaderSvg } from "./Svgs";
 import { WhereAutocomplete } from "./WhereAutocomplete";
+import { DateSelector } from "./DateSelector";
+import { DateRangePicker } from "./DateRangePicker";
+import { useDateRange } from "../customHooks/useDateRange";
 
 export function SearchBar() {
     const [activeModal, setActiveModal] = useState(null)
+    const { dateRange, setDateRange } = useDateRange()
 
     const destinations = [
         {
@@ -43,6 +47,10 @@ export function SearchBar() {
         },
     ]
 
+    const handleDateComplete = (range) => {
+        setDateRange(range)
+    }
+
     return (
         <div className="search-bar-wrapper">
             <div className="search-item-container">
@@ -50,23 +58,21 @@ export function SearchBar() {
 
                 <div className="search-divider"></div>
 
-                <div
-                    className={`search-section search-section-date ${activeModal === 'checkin' ? 'active' : ''}`}
-                    onClick={() => setActiveModal("checkin")}
-                >
-                    <div className="search-label">Check in</div>
-                    <div className="search-placeholder">Add dates</div>
-                </div>
+                <DateSelector
+                    label="Check in"
+                    date={dateRange.from}
+                    isActive={activeModal === 'checkin'}
+                    onClick={() => setActiveModal('checkin')}
+                />
 
                 <div className="search-divider"></div>
 
-                <div
-                    className={`search-section search-section-date ${activeModal === 'checkout' ? 'active' : ''}`}
-                    onClick={() => setActiveModal("checkout")}
-                >
-                    <div className="search-label">Check out</div>
-                    <div className="search-placeholder">Add dates</div>
-                </div>
+                <DateSelector
+                    label="Check out"
+                    date={dateRange.to}
+                    isActive={activeModal === 'checkout'}
+                    onClick={() => setActiveModal('checkout')}
+                />
 
                 <div className="search-divider"></div>
 
@@ -78,7 +84,6 @@ export function SearchBar() {
                         <div className="search-label">Who</div>
                         <div className="search-placeholder">Add guests</div>
                     </div>
-
                     <button className="search-button">
                         <span>{appHeaderSvg.search}</span>
                         <span className="search-button-text">Search</span>
@@ -86,16 +91,12 @@ export function SearchBar() {
                 </div>
             </div>
 
-            {activeModal === "checkin" && (
-                <div className="modal-content">
-                    <p className="modal-text">Date picker will go here</p>
-                </div>
-            )}
-
-            {activeModal === "checkout" && (
-                <div className="modal-content">
-                    <p className="modal-text">Date picker will go here</p>
-                </div>
+            {(activeModal === "checkin" || activeModal === "checkout") && (
+                <DateRangePicker
+                    value={dateRange}
+                    onComplete={handleDateComplete}
+                    onClose={() => setActiveModal(null)}
+                />
             )}
 
             {activeModal === "who" && (

@@ -34,5 +34,6 @@
 @import "cmps/msg/MsgList";
 @import "cmps/msg/MsgPreview";
 
-@import "cmps/msg/SearchBar";
-@import "cmps/msg/WhereAutocomplete";
+@import "cmps/SearchBar";
+@import "cmps/WhereAutocomplete";
+@import "cmps/DatePicker";

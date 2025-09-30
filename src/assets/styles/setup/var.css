@@ -25,6 +25,8 @@
   --gray5: rgb(229, 229, 229);
   /* border-color */
   --gray6: #DDDDDD;
+  /* scroller color */
+  --gray7: #C1C1C1;
 
   /* Main bg */
   --white: #FFFFFF;

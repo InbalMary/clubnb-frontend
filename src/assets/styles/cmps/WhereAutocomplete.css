@@ -91,7 +91,6 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .suggestions-dropdown {
@@ -99,7 +98,7 @@
   overflow-x: hidden;
   padding: 2rem 0;
   scrollbar-width: thin;
-  scrollbar-color: var(--gray6) transparent;
+  scrollbar-color: var(--gray7) ;
 }
 
 .suggestions-dropdown-header {
@@ -132,14 +131,13 @@
   height: 3rem;
   min-width: 3rem;
   min-height: 3rem;
-  border-radius: 75rem;
+  border-radius: 0.75rem;
   background-color: var(--gray1);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid var(--gray4);
 }
 
 .suggestion-icon svg {
