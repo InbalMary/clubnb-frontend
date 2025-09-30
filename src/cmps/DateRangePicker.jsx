@@ -1,26 +1,20 @@
 import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 
-export function DateRangePicker({ onComplete, initialFocus = 'checkin' }) {
-    const [dateRange, setDateRange] = useState({ from: undefined, to: undefined })
+export function DateRangePicker({ onComplete, initialFocus = 'checkin', value }) {
     const [focusedInput, setFocusedInput] = useState(initialFocus)
 
     const handleDateSelect = (range) => {
         if (!range) {
-            setDateRange({ from: undefined, to: undefined })
             setFocusedInput('checkin')
             return
         }
 
         if (focusedInput === 'checkin') {
-            setDateRange({ from: range.from, to: undefined })
+            onComplete?.({ from: range.from, to: undefined })
             setFocusedInput('checkout')
-        }
-        else if (focusedInput === 'checkout' && range.from && range.to) {
-            setDateRange(range)
-            setTimeout(() => {
-                onComplete?.(range)
-            }, 200)
+        } else if (focusedInput === 'checkout' && range.from && range.to) {
+            onComplete?.(range)
         }
     }
 
@@ -28,7 +22,7 @@ export function DateRangePicker({ onComplete, initialFocus = 'checkin' }) {
         <div className="date-modal-content">
             <DayPicker
                 mode="range"
-                selected={dateRange}
+                selected={value}
                 onSelect={handleDateSelect}
                 numberOfMonths={2}
                 disabled={{ before: new Date() }}

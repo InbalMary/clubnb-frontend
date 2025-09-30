@@ -93,7 +93,13 @@ export function SearchBar() {
             </div>
 
             {(activeModal === "checkin" || activeModal === "checkout") && (
-                <DateRangePicker onComplete={handleDatePickerComplete} />
+                <DateRangePicker
+                    value={dateRange}
+                    onComplete={(range) => {
+                        setDateRange(range)
+                        if (range.from && range.to) setActiveModal(null)
+                    }}
+                />
             )}
 
             {activeModal === "who" && (
