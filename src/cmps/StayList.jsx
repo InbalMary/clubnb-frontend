@@ -2,6 +2,8 @@ import { useRef } from 'react'
 import { userService } from '../services/user'
 import { StayPreview } from './stayPreview'
 import rightPointer from '../assets/svgs/right-pointer.svg'
+import arrowRight from '../assets/svgs/right-carousel.svg'
+import arrowLeft from '../assets/svgs/left-carousel.svg'
 
 export function StayList({ stays }) {
     const rowRefs = useRef([]) // Make a ref that will hold an array of row <ul> elements
@@ -11,7 +13,6 @@ export function StayList({ stays }) {
     function scrollRow(rowEl, direction) {
         if (rowEl) {
             rowEl.scrollLeft += direction * 250 // move by one card width? scrollLeft a built-in property
-            console.log('scrollLeft:', rowEl.scrollLeft)
         }
     }
 
@@ -28,8 +29,12 @@ export function StayList({ stays }) {
                                 <img src={rightPointer} className='right-pointer' />
                             </h3>
                             <div className='carousel-controls'>
-                                <button onClick={() => scrollRow(rowRefs.current[idx], -1)}>‹</button>
-                                <button onClick={() => scrollRow(rowRefs.current[idx], 1)}>›</button>
+                                <button onClick={() => scrollRow(rowRefs.current[idx], -1)}>
+                                    <img src={arrowLeft} alt="Scroll left" className='carousel-icon' />
+                                </button>
+                                <button onClick={() => scrollRow(rowRefs.current[idx], 1)}>
+                                    <img src={arrowRight} alt="Scroll right" className='carousel-icon' />
+                                </button>
                             </div>
                         </div>
                         <ul
