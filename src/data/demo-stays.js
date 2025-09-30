@@ -146,5 +146,270 @@ export const demoStays = [
         },
         "reviews": [],
         "likedByUsers": []
+    },
+    {
+        "_id": "622f337a75c7d36e498aaafd",
+        "name": "Modern Loft in Lisbon",
+        "type": "Apartments",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=11",
+            "https://picsum.photos/300/200?random=12"
+        ],
+        "price": 120,
+        "summary": "Stylish loft near the river with great city views.",
+        "capacity": 3,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-10-05",
+        "endDate": "2025-10-10",
+        "host": {
+            "_id": "622f3403e36c59e6164faf01",
+            "fullname": "João",
+            "location": "Lisbon, Portugal",
+            "isSuperhost": true
+        },
+        "loc": {
+            "country": "Portugal",
+            "city": "Lisbon",
+            "address": "Lisbon, Portugal"
+        },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "622f337a75c7d36e498aaafe",
+        "name": "Countryside Cottage",
+        "type": "Cottages",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=13",
+            "https://picsum.photos/300/200?random=14"
+        ],
+        "price": 80,
+        "summary": "Cozy retreat surrounded by nature, perfect for relaxation.",
+        "capacity": 5,
+        "bathrooms": 1,
+        "bedrooms": 2,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-11-02",
+        "endDate": "2025-11-07",
+        "host": {
+            "_id": "622f3403e36c59e6164faf02",
+            "fullname": "Anna",
+            "location": "Bavaria, Germany"
+        },
+        "loc": {
+            "country": "Germany",
+            "city": "Munich",
+            "address": "Bavarian countryside"
+        },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "622f337a75c7d36e498aaaff",
+        "name": "Tokyo Central Apartment",
+        "type": "City stays",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=15",
+            "https://picsum.photos/300/200?random=16"
+        ],
+        "price": 150,
+        "summary": "Central Tokyo apartment close to Shibuya and transport hubs.",
+        "capacity": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-12-01",
+        "endDate": "2025-12-05",
+        "host": {
+            "_id": "622f3403e36c59e6164faf03",
+            "fullname": "Takumi",
+            "location": "Tokyo, Japan"
+        },
+        "loc": {
+            "country": "Japan",
+            "city": "Tokyo",
+            "address": "Shibuya, Tokyo, Japan"
+        },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "622f337a75c7d36e498aab00",
+        "name": "Seaside Villa in Greece",
+        "type": "Villas",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=17",
+            "https://picsum.photos/300/200?random=18"
+        ],
+        "price": 250,
+        "summary": "Beautiful villa with a private pool and ocean views.",
+        "capacity": 6,
+        "bathrooms": 2,
+        "bedrooms": 3,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-07-15",
+        "endDate": "2025-07-20",
+        "host": {
+            "_id": "622f3403e36c59e6164faf04",
+            "fullname": "Eleni",
+            "location": "Santorini, Greece",
+            "isSuperhost": true
+        },
+        "loc": {
+            "country": "Greece",
+            "city": "Santorini",
+            "address": "Santorini, Greece"
+        },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "622f337a75c7d36e498aab01",
+        "name": "Beach Hut in Goa",
+        "type": "Beach huts",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=19",
+            "https://picsum.photos/300/200?random=20"
+        ],
+        "price": 45,
+        "summary": "Simple beach hut just steps away from the Arabian Sea.",
+        "capacity": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-08-03",
+        "endDate": "2025-08-08",
+        "host": {
+            "_id": "622f3403e36c59e6164faf05",
+            "fullname": "Rahul",
+            "location": "Goa, India"
+        },
+        "loc": {
+            "country": "India",
+            "city": "Goa",
+            "address": "Goa, India"
+        },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "622f337a75c7d36e498aab02",
+        "name": "Alpine Chalet",
+        "type": "Chalets",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=21",
+            "https://picsum.photos/300/200?random=22"
+        ],
+        "price": 180,
+        "summary": "Classic wooden chalet surrounded by snowy peaks.",
+        "capacity": 7,
+        "bathrooms": 2,
+        "bedrooms": 3,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-12-20",
+        "endDate": "2025-12-27",
+        "host": {
+            "_id": "622f3403e36c59e6164faf06",
+            "fullname": "Hans",
+            "location": "Zermatt, Switzerland"
+        },
+        "loc": {
+            "country": "Switzerland",
+            "city": "Zermatt",
+            "address": "Zermatt, Switzerland"
+        },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "622f337a75c7d36e498aab03",
+        "name": "Rustic Barn Stay",
+        "type": "Farm stays",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=23",
+            "https://picsum.photos/300/200?random=24"
+        ],
+        "price": 70,
+        "summary": "Converted barn with countryside charm.",
+        "capacity": 4,
+        "bathrooms": 1,
+        "bedrooms": 2,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-09-12",
+        "endDate": "2025-09-15",
+        "host": {
+            "_id": "622f3403e36c59e6164faf07",
+            "fullname": "Emily",
+            "location": "Cotswolds, UK"
+        },
+        "loc": {
+            "country": "United Kingdom",
+            "city": "Oxford",
+            "address": "Cotswolds, UK"
+        },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "622f337a75c7d36e498aab04",
+        "name": "Desert Camp Tent",
+        "type": "Campers",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=25",
+            "https://picsum.photos/300/200?random=26"
+        ],
+        "price": 55,
+        "summary": "Experience desert nights under the stars.",
+        "capacity": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Private room",
+        "startDate": "2025-11-15",
+        "endDate": "2025-11-17",
+        "host": {
+            "_id": "622f3403e36c59e6164faf08",
+            "fullname": "Said",
+            "location": "Merzouga, Morocco"
+        },
+        "loc": {
+            "country": "Morocco",
+            "city": "Merzouga",
+            "address": "Merzouga, Morocco"
+        },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "622f337a75c7d36e498aab05",
+        "name": "New York Studio",
+        "type": "City stays",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=27",
+            "https://picsum.photos/300/200?random=28"
+        ],
+        "price": 200,
+        "summary": "Compact yet stylish studio in Manhattan.",
+        "capacity": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-12-05",
+        "endDate": "2025-12-10",
+        "host": {
+            "_id": "622f3403e36c59e6164faf09",
+            "fullname": "Alex",
+            "location": "New York, USA"
+        },
+        "loc": {
+            "country": "United States",
+            "city": "New York",
+            "address": "Manhattan, NY"
+        },
+        "reviews": [],
+        "likedByUsers": []
     }
+
+
 ]

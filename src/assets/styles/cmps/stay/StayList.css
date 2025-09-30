@@ -3,20 +3,8 @@
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--min-column-size), 1fr));
-    gap: .5em;
+    gap: .5rem;
+    justify-items: stretch;
+    justify-content: start;
 
-    & li {
-        display: grid;
-        grid-template-columns: max-content auto;
-        padding: .5em;
-        background-color: var(--clr2);
-
-        .actions {
-            justify-self: end;
-
-            & button {
-                padding: .3em .5em;
-            }
-        }
-    }
 }

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { formatStayDates, calculateNights } from '../services/util.service.js'
+import emptyHeart from '../assets/svgs/empty-heart.svg'
 
 export function StayPreview({ stay }) {
     // console.log('Stay received in StayPreview:', stay)
@@ -14,14 +15,16 @@ export function StayPreview({ stay }) {
 
     return <article className="stay-preview">
         <div className='stay-image-wrapper'>
-            <Link to={`/stay/${stay._id}`}>{stay.name}
+            <Link to={`/stay/${stay._id}`} className='stay-link'>
                 <img
                     src={stay.imgUrl || 'https://picsum.photos/200/200?random=1'}
                     alt={stay.name}
                     className='stay-image'
                 />
             </Link>
-            <button className='heart-btn' aria-label='Add to wishlist'>♡</button>
+            <button className='heart-btn' aria-label='Add to wishlist'>
+                <img src={emptyHeart} alt='Wishlist' className="heart-icon" />
+            </button>
         </div>
         <div className='stay-info'>
             <header>
