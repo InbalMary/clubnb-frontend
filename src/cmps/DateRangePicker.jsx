@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { DayPicker } from "react-day-picker";
 
-export function DateRangePicker({ onComplete, initialFocus = 'checkin', value }) {
+export function DateRangePicker({ onComplete, initialFocus = 'checkin', value, onClose }) {
     const [focusedInput, setFocusedInput] = useState(initialFocus)
+    const containerRef = useRef(null)
 
     const handleDateSelect = (range) => {
         if (!range) return
@@ -27,8 +28,20 @@ export function DateRangePicker({ onComplete, initialFocus = 'checkin', value })
         today: 'rdp-day_today',
     }
 
+    useEffect(() => {
+        const handleClickOutside = (ev) => {
+            if (containerRef.current && !containerRef.current.contains(ev.target)) {
+                onClose?.()
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+    }, [onClose])
+
     return (
-        <div className="date-modal-content">
+        <div className="date-modal-content" ref={containerRef}>
             <DayPicker
                 mode="range"
                 selected={value}

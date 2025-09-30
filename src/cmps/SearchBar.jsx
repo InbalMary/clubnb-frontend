@@ -95,6 +95,7 @@ export function SearchBar() {
                 <DateRangePicker
                     value={dateRange}
                     onComplete={handleDateComplete}
+                    onClose={() => setActiveModal(null)}
                 />
             )}
 
