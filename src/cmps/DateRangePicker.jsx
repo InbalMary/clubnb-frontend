@@ -5,17 +5,26 @@ export function DateRangePicker({ onComplete, initialFocus = 'checkin', value })
     const [focusedInput, setFocusedInput] = useState(initialFocus)
 
     const handleDateSelect = (range) => {
-        if (!range) {
-            setFocusedInput('checkin')
-            return
-        }
+        if (!range) return
 
         if (focusedInput === 'checkin') {
-            onComplete?.({ from: range.from, to: undefined })
+            onComplete?.({ from: range.from, to: value.to ?? undefined })
             setFocusedInput('checkout')
-        } else if (focusedInput === 'checkout' && range.from && range.to) {
-            onComplete?.(range)
+        } else if (focusedInput === 'checkout') {
+            onComplete?.({ from: value.from, to: range.to ?? range.from })
         }
+    }
+    const modifiers = {
+        checkin: value.from,
+        checkout: value.to,
+        range: { from: value.from, to: value.to }
+    }
+
+    const modifiersClassNames = {
+        checkin: 'rdp-day_checkin',
+        checkout: 'rdp-day_checkout',
+        range: 'rdp-day_range',
+        today: 'rdp-day_today',
     }
 
     return (
@@ -26,10 +35,8 @@ export function DateRangePicker({ onComplete, initialFocus = 'checkin', value })
                 onSelect={handleDateSelect}
                 numberOfMonths={2}
                 disabled={{ before: new Date() }}
-                modifiersClassNames={{
-                    selected: 'rdp-day_selected',
-                    today: 'rdp-day_today',
-                }}
+                modifiers={modifiers}
+                modifiersClassNames={modifiersClassNames}
             />
         </div>
     )

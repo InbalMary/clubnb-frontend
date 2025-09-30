@@ -47,9 +47,8 @@ export function SearchBar() {
         },
     ]
 
-    function handleDatePickerComplete(range) {
+    const handleDateComplete = (range) => {
         setDateRange(range)
-        setActiveModal(null)
     }
 
     return (
@@ -95,10 +94,7 @@ export function SearchBar() {
             {(activeModal === "checkin" || activeModal === "checkout") && (
                 <DateRangePicker
                     value={dateRange}
-                    onComplete={(range) => {
-                        setDateRange(range)
-                        if (range.from && range.to) setActiveModal(null)
-                    }}
+                    onComplete={handleDateComplete}
                 />
             )}
 
