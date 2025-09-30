@@ -1,17 +1,19 @@
+import { useRef } from 'react'
 import { userService } from '../services/user'
 import { StayPreview } from './stayPreview'
 import rightPointer from '../assets/svgs/right-pointer.svg'
 
-export function StayList({ stays, onRemoveStay, onUpdateStay }) {
+export function StayList({ stays }) {
+    const rowRefs = useRef([]) // Make a ref that will hold an array of row <ul> elements
     const demoTitles = ['Featured Stays', 'Top Rated', 'Beachfront', 'City Escapes', 'Nature Retreats']
 
-    // function shouldShowActionBtns(stay) {
-    //     const user = userService.getLoggedinUser()
-
-    //     if (!user) return false
-    //     if (user.isAdmin) return true
-    //     return stay.owner?._id === user._id
-    // }
+    //Function to scroll one row left/right
+    function scrollRow(rowEl, direction) {
+        if (rowEl) {
+            rowEl.scrollLeft += direction * 250 // move by one card width? scrollLeft a built-in property
+            console.log('scrollLeft:', rowEl.scrollLeft)
+        }
+    }
 
     return (
         <section className='stay-list-section'>
@@ -21,10 +23,19 @@ export function StayList({ stays, onRemoveStay, onUpdateStay }) {
 
                 return (
                     <div className='stay-row' key={title}>
-                        <h3 className="stay-list-title">{title}
-                            <img src={rightPointer} className='right-pointer' />
-                        </h3>
-                        <ul className="stay-list">
+                        <div className='stay-row-header'>
+                            <h3 className="stay-list-title">{title}
+                                <img src={rightPointer} className='right-pointer' />
+                            </h3>
+                            <div className='carousel-controls'>
+                                <button onClick={() => scrollRow(rowRefs.current[idx], -1)}>‹</button>
+                                <button onClick={() => scrollRow(rowRefs.current[idx], 1)}>›</button>
+                            </div>
+                        </div>
+                        <ul
+                            ref={el => (rowRefs.current[idx] = el)} //el is the DOM element <ul> React gives during rendering.
+                            className="stay-list"
+                        >
                             {rowStays.map(stay => // what cards go inside the row
                                 <li key={stay._id}>
                                     <StayPreview stay={stay} />
