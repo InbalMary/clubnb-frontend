@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export function WhereAutocomplete({ destinations, className = "", isOpen, onOpenChange }) {
+export function WhereAutocomplete({ destinations, className = "", isOpen, onOpenChange, onDestinationSelect }) {
     const [whereQuery, setQuery] = useState("")
     const [suggestions, setSuggestions] = useState(destinations)
 
@@ -10,6 +10,7 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
         setQuery(dest.name)
         setSuggestions([])
         onOpenChange(false)
+        onDestinationSelect?.(dest)
     }
 
     const handleInputChange = (ev) => {

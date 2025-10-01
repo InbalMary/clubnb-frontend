@@ -10,6 +10,7 @@ export function SearchBar() {
     const [activeModal, setActiveModal] = useState(null)
     const { dateRange, setDateRange } = useDateRange()
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
+    const [destination, setDestination] = useState(null)
 
     const searchBarRef = useRef(null)
 
@@ -72,6 +73,20 @@ export function SearchBar() {
         }
     }
 
+    const handleDestinationSelect = (dest) => {
+        setDestination(dest)
+    }
+
+    const handleSearch = () => {
+        const filters = {
+            destination,
+            dateRange,
+            guests
+        }
+        console.log('Search filters:', filters)
+        setActiveModal(null)
+    }
+
     return (
         <div className="search-bar-wrapper" ref={searchBarRef}>
             <div className="search-item-container">
@@ -79,6 +94,7 @@ export function SearchBar() {
                     destinations={destinations}
                     isOpen={activeModal === 'where'}
                     onOpenChange={(open) => setActiveModal(open ? 'where' : null)}
+                    onDestinationSelect={handleDestinationSelect}
                 />
 
                 <div className="search-divider"></div>
@@ -109,11 +125,26 @@ export function SearchBar() {
                         <div className="search-label">Who</div>
                         <div className="search-placeholder">Add guests</div>
                     </div>
-                    <button className="search-button">
+                    <button
+                        className="search-button"
+                        onClick={(ev) => {
+                            ev.stopPropagation()
+                            handleSearch()
+                        }}
+                    >
                         <span>{appHeaderSvg.search}</span>
                         <span className="search-button-text">Search</span>
                     </button>
                 </div>
+
+                {activeModal === "who" && (
+                    <div className="guest-modal-content">
+                        <GuestSelector
+                            onGuestsChange={setGuests}
+                            initialGuests={guests}
+                        />
+                    </div>
+                )}
             </div>
 
             {(activeModal === "checkin" || activeModal === "checkout") && (
@@ -122,15 +153,6 @@ export function SearchBar() {
                         value={dateRange}
                         onComplete={handleDateComplete}
                         activeField={activeModal}
-                    />
-                </div>
-            )}
-
-            {activeModal === "who" && (
-                <div className="guest-modal-content">
-                    <GuestSelector
-                        onGuestsChange={setGuests}
-                        initialGuests={guests}
                     />
                 </div>
             )}
