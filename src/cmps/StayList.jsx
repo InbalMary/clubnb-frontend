@@ -1,10 +1,7 @@
 import { useRef } from 'react'
 import { StayPreview } from './stayPreview'
 import { Carousel } from './Carousel'
-
-import rightPointer from '../assets/svgs/right-pointer.svg'
-import arrowRight from '../assets/svgs/right-carousel.svg'
-import arrowLeft from '../assets/svgs/left-carousel.svg'
+import { svgControls } from './Svgs'
 
 export function StayList({ stays }) {
     const firstCardRef = useRef(null)
@@ -26,15 +23,15 @@ export function StayList({ stays }) {
                             renderControls={({ scrollState, scrollRow }) => (
                                 <div className='stay-row-header'>
                                     <h3 className="stay-list-title">{type}
-                                        <img src={rightPointer} className='right-pointer' />
+                                        <span className='right-pointer'>{svgControls.chevronRight}</span>
                                     </h3>
 
                                     <div className="carousel-controls">
                                         <button disabled={scrollState.atStart} onClick={() => scrollRow(-1)}>
-                                            <img src={arrowLeft} alt="Scroll left" className='carousel-icon' />
+                                            <span className='carousel-icon'>{svgControls.chevronLeft}</span>
                                         </button>
                                         <button disabled={scrollState.atEnd} onClick={() => scrollRow(1)}>
-                                            <img src={arrowRight} alt="Scroll right" className='carousel-icon' />
+                                            <span className='carousel-icon'>{svgControls.chevronRight}</span>
                                         </button>
                                     </div>
                                 </div>
@@ -53,6 +50,4 @@ export function StayList({ stays }) {
     )
 }
 
-{/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style={{ display: "block", height: "16px", width: "16px"}}>
 
-</svg> */}

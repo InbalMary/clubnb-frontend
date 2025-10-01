@@ -15,9 +15,20 @@
     font-weight: 500;
 }
 
+.right-pointer svg {
+    display: block;
+    fill: none;
+    height: 12px;
+    width: 12px;
+    stroke: currentcolor;
+    stroke-width: 5.33333;
+    overflow: visible;
+}
+
 .right-pointer {
-    width: 0.6em;
-    height: 0.6em;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.15rem;
 }
 
 .stay-row {

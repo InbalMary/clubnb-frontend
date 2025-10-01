@@ -46,9 +46,8 @@
     border: 1px solid var(--gray4);
 
     /*temporary until change to svg:*/
-    .carousel-icon {
-        filter: grayscale(100%);
-        opacity: 0.4;
+    .carousel-icon svg {
+        stroke: var(--gray7)
     }
 }
 
@@ -63,7 +62,12 @@
     transition: transform 0.2s ease, border 0.2s ease;
 }
 
-.carousel-icon {
-    width: 12px;
+.carousel-icon svg {
+    display: block;
+    fill: none;
     height: 12px;
+    width: 12px;
+    stroke: currentcolor;
+    stroke-width: 4;
+    overflow: visible;
 }
