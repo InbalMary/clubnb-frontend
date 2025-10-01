@@ -4,10 +4,13 @@ import { WhereAutocomplete } from "./WhereAutocomplete";
 import { DateSelector } from "./DateSelector";
 import { DateRangePicker } from "./DateRangePicker";
 import { useDateRange } from "../customHooks/useDateRange";
+import { GuestSelector } from "./GuestSelector";
 
 export function SearchBar() {
     const [activeModal, setActiveModal] = useState(null)
     const { dateRange, setDateRange } = useDateRange()
+    const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
+
     const searchBarRef = useRef(null)
 
     const destinations = [
@@ -124,8 +127,11 @@ export function SearchBar() {
             )}
 
             {activeModal === "who" && (
-                <div className="modal-content">
-                    <p className="modal-text">Guest selector will go here</p>
+                <div className="guest-modal-content">
+                    <GuestSelector
+                        onGuestsChange={setGuests}
+                        initialGuests={guests}
+                    />
                 </div>
             )}
         </div>
