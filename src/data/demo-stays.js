@@ -1,415 +1,465 @@
 export const demoStays = [
+
+    // ---- City stays (8) ----
+
     {
-        "_id": "622f337a75c7d36e498aaaf8",
-        "name": "Westin Kaanapali KORVN 2BR",
-        "type": "National parks",
-        "imgUrls": [
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436294/mvhb3iazpiar6duvy9we.jpg"
-        ],
-        "price": 595,
-        "summary": "Westin Kaanapali Ocean Resort Villas North timeshare - ocean view and pools right outside your door.",
-        "capacity": 8,
-        "bathrooms": 2,
-        "bedrooms": 2,
-        "roomType": "Entire home/apt",
-        "startDate": "2025-10-15",
-        "endDate": "2025-10-20",
-        "host": {
-            "_id": "622f3403e36c59e6164faf93",
-            "fullname": "Patty And Beckett",
-            "location": "Eureka, California, United States",
-            "isSuperhost": true
-        },
-        "loc": {
-            "country": "United States",
-            "city": "Maui",
-            "address": "Lahaina, HI, United States"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aaaf9",
-        "name": "Belle chambre à côté Metro Papineau",
-        "type": "Campers",
-        "imgUrls": [
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg",
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437033/rhw6gycttaimzocc1poz.jpg"
-        ],
-        "price": 30,
-        "summary": "Private room in a modern apartment close to downtown Montreal with great access to public transport.",
-        "capacity": 2,
-        "bathrooms": 1,
-        "bedrooms": 1,
-        "roomType": "Private room",
-        "startDate": "2025-11-01",
-        "endDate": "2025-11-05",
-        "host": {
-            "_id": "622f3401e36c59e6164fabab",
-            "fullname": "Angel",
-            "location": "Montreal, Québec, Canada"
-        },
-        "loc": {
-            "country": "Canada",
-            "city": "Montreal",
-            "address": "Montréal, QC, Canada"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aaafa",
-        "name": "M&M Space MM2 - Central Apartment",
-        "type": "Campers",
-        "imgUrls": [
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436861/xrxhgsif3ekhxgn8irlm.jpg",
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437017/gjyzgdjngyrhfrj2loxz.jpg"
-        ],
-        "price": 65,
-        "summary": "Beautifully located apartment near Porto's historic center and public transport.",
-        "capacity": 4,
-        "bathrooms": 1,
-        "bedrooms": 2,
-        "roomType": "Entire home/apt",
-        "startDate": "2025-09-25",
-        "endDate": "2025-09-30",
-        "host": {
-            "_id": "622f3403e36c59e6164fb266",
-            "fullname": "Maria",
-            "location": "Porto, Porto District, Portugal",
-            "isSuperhost": true
-        },
-        "loc": {
-            "country": "Portugal",
-            "city": "Porto",
-            "address": "Porto, Porto, Portugal"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aaafb",
-        "name": "Fresh and modern 1BR in Bed-Stuy",
-        "type": "National parks",
-        "imgUrls": [
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436912/xle8ueqxjeazbs4bp09p.jpg",
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436460/qi3vkpts37b4k0dedosc.jpg"
-        ],
-        "price": 79,
-        "summary": "Spacious, art-filled one-bedroom apartment close to Manhattan with great local cafes and shops.",
-        "capacity": 2,
-        "bathrooms": 1,
-        "bedrooms": 1,
-        "roomType": "Entire home/apt",
-        "startDate": "2025-12-10",
-        "endDate": "2025-12-15",
-        "host": {
-            "_id": "622f3402e36c59e6164fac46",
-            "fullname": "Shaila & Alex",
-            "location": "New York, United States",
-            "isSuperhost": true
-        },
-        "loc": {
-            "country": "United States",
-            "city": "New York",
-            "address": "Brooklyn, NY, United States"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aaafc",
-        "name": "Habitación centro de Barcelona",
-        "type": "Shared homes",
-        "imgUrls": [
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436983/pivldxmrxssnhyzixhes.jpg",
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436394/kscsvxyn0uro9tjhefeb.jpg"
-        ],
-        "price": 40,
-        "summary": "Private room in the heart of Barcelona, near museums, shopping, and public transport.",
-        "capacity": 2,
-        "bathrooms": 1,
-        "bedrooms": 1,
-        "roomType": "Private room",
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-23",
-        "host": {
-            "_id": "622f3407e36c59e6164fbdae",
-            "fullname": "Marián",
-            "location": "Barcelona, Catalonia, Spain"
-        },
-        "loc": {
-            "country": "Spain",
-            "city": "Barcelona",
-            "address": "Barcelona, Catalunya, Spain"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aaafd",
-        "name": "Modern Loft in Lisbon",
-        "type": "Apartments",
-        "imgUrls": [
-            "https://picsum.photos/300/200?random=11",
-            "https://picsum.photos/300/200?random=12"
-        ],
-        "price": 120,
-        "summary": "Stylish loft near the river with great city views.",
-        "capacity": 3,
-        "bathrooms": 1,
-        "bedrooms": 1,
-        "roomType": "Entire home/apt",
-        "startDate": "2025-10-05",
-        "endDate": "2025-10-10",
-        "host": {
-            "_id": "622f3403e36c59e6164faf01",
-            "fullname": "João",
-            "location": "Lisbon, Portugal",
-            "isSuperhost": true
-        },
-        "loc": {
-            "country": "Portugal",
-            "city": "Lisbon",
-            "address": "Lisbon, Portugal"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aaafe",
-        "name": "Countryside Cottage",
-        "type": "Cottages",
-        "imgUrls": [
-            "https://picsum.photos/300/200?random=13",
-            "https://picsum.photos/300/200?random=14"
-        ],
-        "price": 80,
-        "summary": "Cozy retreat surrounded by nature, perfect for relaxation.",
-        "capacity": 5,
-        "bathrooms": 1,
-        "bedrooms": 2,
-        "roomType": "Entire home/apt",
-        "startDate": "2025-11-02",
-        "endDate": "2025-11-07",
-        "host": {
-            "_id": "622f3403e36c59e6164faf02",
-            "fullname": "Anna",
-            "location": "Bavaria, Germany"
-        },
-        "loc": {
-            "country": "Germany",
-            "city": "Munich",
-            "address": "Bavarian countryside"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aaaff",
-        "name": "Tokyo Central Apartment",
+        "_id": "city-001",
+        "name": "Tokyo Shibuya Apartment",
         "type": "City stays",
-        "imgUrls": [
-            "https://picsum.photos/300/200?random=15",
-            "https://picsum.photos/300/200?random=16"
-        ],
+        "imgUrls": ["https://picsum.photos/300/200?random=101"],
         "price": 150,
-        "summary": "Central Tokyo apartment close to Shibuya and transport hubs.",
+        "summary": "Compact Tokyo apartment near Shibuya Crossing.",
         "capacity": 2,
         "bathrooms": 1,
         "bedrooms": 1,
         "roomType": "Entire home/apt",
         "startDate": "2025-12-01",
         "endDate": "2025-12-05",
-        "host": {
-            "_id": "622f3403e36c59e6164faf03",
-            "fullname": "Takumi",
-            "location": "Tokyo, Japan"
-        },
-        "loc": {
-            "country": "Japan",
-            "city": "Tokyo",
-            "address": "Shibuya, Tokyo, Japan"
-        },
+        "host": { "_id": "host-city-1", "fullname": "Takumi", "location": "Tokyo, Japan" },
+        "loc": { "country": "Japan", "city": "Tokyo", "address": "Shibuya, Tokyo" },
         "reviews": [],
         "likedByUsers": []
     },
     {
-        "_id": "622f337a75c7d36e498aab00",
-        "name": "Seaside Villa in Greece",
-        "type": "Villas",
-        "imgUrls": [
-            "https://picsum.photos/300/200?random=17",
-            "https://picsum.photos/300/200?random=18"
-        ],
-        "price": 250,
-        "summary": "Beautiful villa with a private pool and ocean views.",
-        "capacity": 6,
-        "bathrooms": 2,
-        "bedrooms": 3,
-        "roomType": "Entire home/apt",
-        "startDate": "2025-07-15",
-        "endDate": "2025-07-20",
-        "host": {
-            "_id": "622f3403e36c59e6164faf04",
-            "fullname": "Eleni",
-            "location": "Santorini, Greece",
-            "isSuperhost": true
-        },
-        "loc": {
-            "country": "Greece",
-            "city": "Santorini",
-            "address": "Santorini, Greece"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aab01",
-        "name": "Beach Hut in Goa",
-        "type": "Beach huts",
-        "imgUrls": [
-            "https://picsum.photos/300/200?random=19",
-            "https://picsum.photos/300/200?random=20"
-        ],
-        "price": 45,
-        "summary": "Simple beach hut just steps away from the Arabian Sea.",
-        "capacity": 2,
-        "bathrooms": 1,
-        "bedrooms": 1,
-        "roomType": "Entire home/apt",
-        "startDate": "2025-08-03",
-        "endDate": "2025-08-08",
-        "host": {
-            "_id": "622f3403e36c59e6164faf05",
-            "fullname": "Rahul",
-            "location": "Goa, India"
-        },
-        "loc": {
-            "country": "India",
-            "city": "Goa",
-            "address": "Goa, India"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aab02",
-        "name": "Alpine Chalet",
-        "type": "Chalets",
-        "imgUrls": [
-            "https://picsum.photos/300/200?random=21",
-            "https://picsum.photos/300/200?random=22"
-        ],
-        "price": 180,
-        "summary": "Classic wooden chalet surrounded by snowy peaks.",
-        "capacity": 7,
-        "bathrooms": 2,
-        "bedrooms": 3,
-        "roomType": "Entire home/apt",
-        "startDate": "2025-12-20",
-        "endDate": "2025-12-27",
-        "host": {
-            "_id": "622f3403e36c59e6164faf06",
-            "fullname": "Hans",
-            "location": "Zermatt, Switzerland"
-        },
-        "loc": {
-            "country": "Switzerland",
-            "city": "Zermatt",
-            "address": "Zermatt, Switzerland"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aab03",
-        "name": "Rustic Barn Stay",
-        "type": "Farm stays",
-        "imgUrls": [
-            "https://picsum.photos/300/200?random=23",
-            "https://picsum.photos/300/200?random=24"
-        ],
-        "price": 70,
-        "summary": "Converted barn with countryside charm.",
-        "capacity": 4,
-        "bathrooms": 1,
-        "bedrooms": 2,
-        "roomType": "Entire home/apt",
-        "startDate": "2025-09-12",
-        "endDate": "2025-09-15",
-        "host": {
-            "_id": "622f3403e36c59e6164faf07",
-            "fullname": "Emily",
-            "location": "Cotswolds, UK"
-        },
-        "loc": {
-            "country": "United Kingdom",
-            "city": "Oxford",
-            "address": "Cotswolds, UK"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aab04",
-        "name": "Desert Camp Tent",
-        "type": "Campers",
-        "imgUrls": [
-            "https://picsum.photos/300/200?random=25",
-            "https://picsum.photos/300/200?random=26"
-        ],
-        "price": 55,
-        "summary": "Experience desert nights under the stars.",
-        "capacity": 2,
-        "bathrooms": 1,
-        "bedrooms": 1,
-        "roomType": "Private room",
-        "startDate": "2025-11-15",
-        "endDate": "2025-11-17",
-        "host": {
-            "_id": "622f3403e36c59e6164faf08",
-            "fullname": "Said",
-            "location": "Merzouga, Morocco"
-        },
-        "loc": {
-            "country": "Morocco",
-            "city": "Merzouga",
-            "address": "Merzouga, Morocco"
-        },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "622f337a75c7d36e498aab05",
-        "name": "New York Studio",
+        "_id": "city-002",
+        "name": "Paris Loft with Balcony",
         "type": "City stays",
-        "imgUrls": [
-            "https://picsum.photos/300/200?random=27",
-            "https://picsum.photos/300/200?random=28"
-        ],
+        "imgUrls": ["https://picsum.photos/300/200?random=102"],
+        "price": 220,
+        "summary": "Romantic loft in central Paris with Eiffel Tower view.",
+        "capacity": 3,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-11-20",
+        "endDate": "2025-11-25",
+        "host": { "_id": "host-city-2", "fullname": "Claire", "location": "Paris, France" },
+        "loc": { "country": "France", "city": "Paris", "address": "Rue de Rivoli, Paris" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "city-003",
+        "name": "Berlin Modern Flat",
+        "type": "City stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=103"],
+        "price": 180,
+        "summary": "Stylish flat in Kreuzberg, Berlin.",
+        "capacity": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-09-15",
+        "endDate": "2025-09-20",
+        "host": { "_id": "host-city-3", "fullname": "Jonas", "location": "Berlin, Germany" },
+        "loc": { "country": "Germany", "city": "Berlin", "address": "Kreuzberg, Berlin" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "city-004",
+        "name": "Barcelona Central Studio",
+        "type": "City stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=104"],
+        "price": 160,
+        "summary": "Studio apartment near Las Ramblas.",
+        "capacity": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-10-12",
+        "endDate": "2025-10-18",
+        "host": { "_id": "host-city-4", "fullname": "Maria", "location": "Barcelona, Spain" },
+        "loc": { "country": "Spain", "city": "Barcelona", "address": "Las Ramblas, Barcelona" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "city-005",
+        "name": "London Soho Flat",
+        "type": "City stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=105"],
+        "price": 240,
+        "summary": "Trendy flat in the heart of Soho.",
+        "capacity": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-11-02",
+        "endDate": "2025-11-07",
+        "host": { "_id": "host-city-5", "fullname": "Emily", "location": "London, UK" },
+        "loc": { "country": "United Kingdom", "city": "London", "address": "Soho, London" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "city-006",
+        "name": "New York Downtown Studio",
+        "type": "City stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=106"],
         "price": 200,
-        "summary": "Compact yet stylish studio in Manhattan.",
+        "summary": "Studio in downtown Manhattan near Wall Street.",
         "capacity": 2,
         "bathrooms": 1,
         "bedrooms": 1,
         "roomType": "Entire home/apt",
         "startDate": "2025-12-05",
         "endDate": "2025-12-10",
-        "host": {
-            "_id": "622f3403e36c59e6164faf09",
-            "fullname": "Alex",
-            "location": "New York, USA"
-        },
-        "loc": {
-            "country": "United States",
-            "city": "New York",
-            "address": "Manhattan, NY"
-        },
+        "host": { "_id": "host-city-6", "fullname": "Alex", "location": "New York, USA" },
+        "loc": { "country": "USA", "city": "New York", "address": "Wall Street, NYC" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "city-007",
+        "name": "Rome Historic Apartment",
+        "type": "City stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=107"],
+        "price": 190,
+        "summary": "Apartment in Trastevere with rustic charm.",
+        "capacity": 3,
+        "bathrooms": 1,
+        "bedrooms": 2,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-09-25",
+        "endDate": "2025-09-30",
+        "host": { "_id": "host-city-7", "fullname": "Marco", "location": "Rome, Italy" },
+        "loc": { "country": "Italy", "city": "Rome", "address": "Trastevere, Rome" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "city-008",
+        "name": "Dubai Marina Apartment",
+        "type": "City stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=108"],
+        "price": 260,
+        "summary": "High-rise apartment with marina views.",
+        "capacity": 4,
+        "bathrooms": 2,
+        "bedrooms": 2,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-08-15",
+        "endDate": "2025-08-20",
+        "host": { "_id": "host-city-8", "fullname": "Omar", "location": "Dubai, UAE" },
+        "loc": { "country": "UAE", "city": "Dubai", "address": "Dubai Marina" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+
+    {
+        "_id": "beach-001",
+        "name": "Barcelona Beach Flat",
+        "type": "Beach stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=201"],
+        "price": 180,
+        "summary": "Sunny apartment steps from Barceloneta beach.",
+        "capacity": 4,
+        "bathrooms": 1,
+        "bedrooms": 2,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-07-10",
+        "endDate": "2025-07-15",
+        "host": { "_id": "host-beach-1", "fullname": "Maria", "location": "Barcelona, Spain" },
+        "loc": { "country": "Spain", "city": "Barcelona", "address": "Barceloneta, Barcelona" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "beach-002",
+        "name": "Miami Oceanview Condo",
+        "type": "Beach stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=202"],
+        "price": 220,
+        "summary": "Oceanfront apartment with sweeping Miami Beach views.",
+        "capacity": 3,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-08-01",
+        "endDate": "2025-08-06",
+        "host": { "_id": "host-beach-2", "fullname": "Sophia", "location": "Miami, USA" },
+        "loc": { "country": "USA", "city": "Miami", "address": "Miami Beach, FL" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "beach-003",
+        "name": "Goa Beach Retreat",
+        "type": "Beach stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=203"],
+        "price": 95,
+        "summary": "Relaxing retreat hut steps away from the Arabian Sea.",
+        "capacity": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-09-03",
+        "endDate": "2025-09-08",
+        "host": { "_id": "host-beach-3", "fullname": "Rahul", "location": "Goa, India" },
+        "loc": { "country": "India", "city": "Goa", "address": "Goa Beachfront" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "beach-004",
+        "name": "Sydney Bondi Apartment",
+        "type": "Beach stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=204"],
+        "price": 240,
+        "summary": "Modern apartment overlooking Bondi Beach.",
+        "capacity": 4,
+        "bathrooms": 2,
+        "bedrooms": 2,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-12-01",
+        "endDate": "2025-12-07",
+        "host": { "_id": "host-beach-4", "fullname": "Sophie", "location": "Sydney, Australia" },
+        "loc": { "country": "Australia", "city": "Sydney", "address": "Bondi Beach, Sydney" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "beach-005",
+        "name": "Santorini Cliffside Apartment",
+        "type": "Beach stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=205"],
+        "price": 280,
+        "summary": "Cliffside apartment with sweeping views of the Aegean Sea.",
+        "capacity": 3,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-06-20",
+        "endDate": "2025-06-25",
+        "host": { "_id": "host-beach-5", "fullname": "Eleni", "location": "Santorini, Greece" },
+        "loc": { "country": "Greece", "city": "Santorini", "address": "Oia, Santorini" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "beach-006",
+        "name": "Rio Copacabana Flat",
+        "type": "Beach stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=206"],
+        "price": 160,
+        "summary": "Flat with rooftop pool near Copacabana Beach.",
+        "capacity": 3,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-11-10",
+        "endDate": "2025-11-15",
+        "host": { "_id": "host-beach-6", "fullname": "Carlos", "location": "Rio de Janeiro, Brazil" },
+        "loc": { "country": "Brazil", "city": "Rio de Janeiro", "address": "Copacabana, Rio" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "beach-007",
+        "name": "Malibu Ocean Villa",
+        "type": "Beach stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=207"],
+        "price": 350,
+        "summary": "Spacious villa with direct beach access in Malibu.",
+        "capacity": 6,
+        "bathrooms": 2,
+        "bedrooms": 3,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-07-15",
+        "endDate": "2025-07-21",
+        "host": { "_id": "host-beach-7", "fullname": "Anna", "location": "California, USA" },
+        "loc": { "country": "USA", "city": "Malibu", "address": "Malibu Beach" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "beach-008",
+        "name": "Bali Beach Bungalow",
+        "type": "Beach stays",
+        "imgUrls": ["https://picsum.photos/300/200?random=208"],
+        "price": 120,
+        "summary": "Traditional bungalow surrounded by palm trees, steps from the ocean.",
+        "capacity": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-05-20",
+        "endDate": "2025-05-25",
+        "host": { "_id": "host-beach-8", "fullname": "Nyoman", "location": "Bali, Indonesia" },
+        "loc": { "country": "Indonesia", "city": "Denpasar", "address": "Sanur Beach, Bali" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    // Villas (8 demo stays)
+
+    {
+        "_id": "villa001",
+        "name": "Santorini Cliff Villa",
+        "type": "Villas",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=301",
+            "https://picsum.photos/300/200?random=302"
+        ],
+        "price": 320,
+        "summary": "Luxury villa perched on the cliffs with infinity pool and Aegean views.",
+        "capacity": 6,
+        "bathrooms": 3,
+        "bedrooms": 3,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-07-15",
+        "endDate": "2025-07-20",
+        "host": { "_id": "hostV1", "fullname": "Nikos", "location": "Santorini, Greece", "isSuperhost": true },
+        "loc": { "country": "Greece", "city": "Santorini", "address": "Oia, Santorini" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "villa002",
+        "name": "Bali Jungle Villa",
+        "type": "Villas",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=303",
+            "https://picsum.photos/300/200?random=304"
+        ],
+        "price": 270,
+        "summary": "Secluded villa surrounded by lush rainforest with private plunge pool.",
+        "capacity": 4,
+        "bathrooms": 2,
+        "bedrooms": 2,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-08-12",
+        "endDate": "2025-08-19",
+        "host": { "_id": "hostV2", "fullname": "Ayu", "location": "Ubud, Bali" },
+        "loc": { "country": "Indonesia", "city": "Bali", "address": "Ubud, Bali" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "villa003",
+        "name": "Amalfi Coast Villa",
+        "type": "Villas",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=305",
+            "https://picsum.photos/300/200?random=306"
+        ],
+        "price": 400,
+        "summary": "Elegant villa with panoramic sea views and terraced gardens.",
+        "capacity": 7,
+        "bathrooms": 3,
+        "bedrooms": 4,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-09-10",
+        "endDate": "2025-09-17",
+        "host": { "_id": "hostV3", "fullname": "Giulia", "location": "Amalfi, Italy" },
+        "loc": { "country": "Italy", "city": "Amalfi", "address": "Positano, Amalfi Coast" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "villa004",
+        "name": "Phuket Oceanfront Villa",
+        "type": "Villas",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=307",
+            "https://picsum.photos/300/200?random=308"
+        ],
+        "price": 280,
+        "summary": "Spacious villa with direct beach access and modern amenities.",
+        "capacity": 6,
+        "bathrooms": 2,
+        "bedrooms": 3,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-10-05",
+        "endDate": "2025-10-12",
+        "host": { "_id": "hostV4", "fullname": "Somchai", "location": "Phuket, Thailand" },
+        "loc": { "country": "Thailand", "city": "Phuket", "address": "Patong Beach, Phuket" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "villa005",
+        "name": "Tuscany Vineyard Villa",
+        "type": "Villas",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=309",
+            "https://picsum.photos/300/200?random=310"
+        ],
+        "price": 350,
+        "summary": "Traditional Tuscan villa with private vineyard and rustic charm.",
+        "capacity": 8,
+        "bathrooms": 3,
+        "bedrooms": 4,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-05-20",
+        "endDate": "2025-05-27",
+        "host": { "_id": "hostV5", "fullname": "Marco", "location": "Tuscany, Italy" },
+        "loc": { "country": "Italy", "city": "Tuscany", "address": "Chianti, Tuscany" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "villa006",
+        "name": "Ibiza Party Villa",
+        "type": "Villas",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=311",
+            "https://picsum.photos/300/200?random=312"
+        ],
+        "price": 450,
+        "summary": "Modern villa with pool, rooftop deck and soundproof party room.",
+        "capacity": 10,
+        "bathrooms": 4,
+        "bedrooms": 5,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-06-01",
+        "endDate": "2025-06-08",
+        "host": { "_id": "hostV6", "fullname": "Lucia", "location": "Ibiza, Spain" },
+        "loc": { "country": "Spain", "city": "Ibiza", "address": "Ibiza Town, Spain" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "villa007",
+        "name": "Dubai Desert Villa",
+        "type": "Villas",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=313",
+            "https://picsum.photos/300/200?random=314"
+        ],
+        "price": 500,
+        "summary": "Ultra-modern desert villa with private dune safari access.",
+        "capacity": 6,
+        "bathrooms": 3,
+        "bedrooms": 3,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-12-01",
+        "endDate": "2025-12-08",
+        "host": { "_id": "hostV7", "fullname": "Omar", "location": "Dubai, UAE" },
+        "loc": { "country": "UAE", "city": "Dubai", "address": "Al Marmoom Desert" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "villa008",
+        "name": "Malibu Beach Villa",
+        "type": "Villas",
+        "imgUrls": [
+            "https://picsum.photos/300/200?random=315",
+            "https://picsum.photos/300/200?random=316"
+        ],
+        "price": 600,
+        "summary": "Exclusive beachfront villa in Malibu with panoramic ocean views.",
+        "capacity": 8,
+        "bathrooms": 4,
+        "bedrooms": 4,
+        "roomType": "Entire home/apt",
+        "startDate": "2025-07-25",
+        "endDate": "2025-08-01",
+        "host": { "_id": "hostV8", "fullname": "Jessica", "location": "Malibu, USA" },
+        "loc": { "country": "United States", "city": "Malibu", "address": "Pacific Coast Hwy, Malibu" },
         "reviews": [],
         "likedByUsers": []
     }
-
 
 ]
