@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import arrowRight from '../assets/svgs/right-carousel.svg'
-import arrowLeft from '../assets/svgs/left-carousel.svg'
 
-export function Carousel({ children, renderControls }) {
+export function Carousel({ children, renderControls, firstCardRef }) {
     const rowRef = useRef(null) //  Make a ref that will hold a single <ul> element, a row
     const [scrollState, setScrollState] = useState({ atStart: true, atEnd: false })// tracking which row can scroll left/right
 
@@ -12,9 +10,9 @@ export function Carousel({ children, renderControls }) {
         if (!rowEl) return
 
         const atStart = rowEl.scrollLeft <= 0
-        const atEnd = rowEl.scrollLeft + rowEl.clientWidth >= rowEl.scrollWidth
+        const atEnd = rowEl.scrollLeft + rowEl.clientWidth >= rowEl.scrollWidth - 2
         //rowEl.clientWidth: visible width of the row.
-        //rowEl.scrollWidth: full width of all children combined.
+        //rowEl.scrollWidth: full width of all children combined. -2 to avoid fractions
         //scrollLeft = built-in. how many pixels the content is scrolled from its left edge (0 = fully left, increases as you scroll right)
         setScrollState({ atStart, atEnd })
         // console.log('Updated scrollState:', { atStart, atEnd })
@@ -23,9 +21,17 @@ export function Carousel({ children, renderControls }) {
     //Function to scroll one row left/right
     function scrollRow(direction) {
         const rowEl = rowRef.current
-        if (rowEl) {
+        const cardEl = firstCardRef?.current
+        // console.log('cardEl:', cardEl)
+        if (rowEl && cardEl) {
             // console.log('scrollRow called, direction:', direction, 'current scrollLeft:', rowEl.scrollLeft)
-            rowEl.scrollLeft += direction * 250 // move by one card width. 
+            const style = window.getComputedStyle(cardEl)
+            const cardWidth =
+                cardEl.offsetWidth +
+                parseFloat(style.marginRight) +
+                parseFloat(style.marginLeft)
+
+            rowEl.scrollLeft += direction * (cardWidth * 2) // move by two cards width. 
             updateScroll() // after moving, refresh the state
         }
     }
