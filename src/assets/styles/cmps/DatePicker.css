@@ -219,3 +219,24 @@
   color: var(--gray3);
   font-weight: 400;
 }
+
+.search-section-date:not(.active):hover {
+  background-color: var(--gray4);
+  border-radius: 40px;
+}
+
+.search-item-container:has(.search-section-date.active) {
+  background-color: var(--gray4);
+}
+
+.search-section-date.active {
+  background-color: var(--white);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 40px;
+  z-index: 10;
+}
+
+.search-section-date.active + .search-divider,
+.search-divider:has(+ .search-section-date.active) {
+  opacity: 0;
+}
