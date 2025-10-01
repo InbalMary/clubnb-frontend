@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { appHeaderSvg } from "./Svgs";
 import { WhereAutocomplete } from "./WhereAutocomplete";
 import { DateSelector } from "./DateSelector";
@@ -8,6 +8,7 @@ import { useDateRange } from "../customHooks/useDateRange";
 export function SearchBar() {
     const [activeModal, setActiveModal] = useState(null)
     const { dateRange, setDateRange } = useDateRange()
+    const searchBarRef = useRef(null)
 
     const destinations = [
         {
@@ -47,14 +48,35 @@ export function SearchBar() {
         },
     ]
 
+    useEffect(() => {
+        function handleClickOutside(event) {
+            const isInsideSearch = searchBarRef.current?.contains(event.target)
+            const isInsideModal = event.target.closest('.modal') || event.target.closest('.modal-content')
+
+            if (!isInsideSearch && !isInsideModal) {
+                setActiveModal(null)
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => document.removeEventListener("mousedown", handleClickOutside)
+    }, [])
+
     const handleDateComplete = (range) => {
         setDateRange(range)
+
+        if (activeModal === 'checkin' && range.from && !range.to) {
+            setActiveModal('checkout')
+        }
     }
 
     return (
-        <div className="search-bar-wrapper">
+        <div className="search-bar-wrapper" ref={searchBarRef}>
             <div className="search-item-container">
-                <WhereAutocomplete destinations={destinations} />
+                <WhereAutocomplete
+                    destinations={destinations}
+                    isOpen={activeModal === 'where'}
+                    onOpenChange={(open) => setActiveModal(open ? 'where' : null)}
+                />
 
                 <div className="search-divider"></div>
 
@@ -92,11 +114,13 @@ export function SearchBar() {
             </div>
 
             {(activeModal === "checkin" || activeModal === "checkout") && (
-                <DateRangePicker
-                    value={dateRange}
-                    onComplete={handleDateComplete}
-                    onClose={() => setActiveModal(null)}
-                />
+                <div className="modal">
+                    <DateRangePicker
+                        value={dateRange}
+                        onComplete={handleDateComplete}
+                        activeField={activeModal}
+                    />
+                </div>
             )}
 
             {activeModal === "who" && (
