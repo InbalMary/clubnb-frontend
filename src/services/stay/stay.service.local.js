@@ -2,8 +2,13 @@
 import { storageService } from '../async-storage.service'
 import { makeId } from '../util.service'
 import { userService } from '../user'
+import { demoStays } from '../../data/demo-stays'
 
 const STORAGE_KEY = 'stay'
+
+if (!localStorage.getItem(STORAGE_KEY)) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(demoStays))
+}
 
 export const stayService = {
     query,
@@ -17,6 +22,8 @@ window.cs = stayService
 
 async function query(filterBy = { txt: '', minPrice: 0 }) {
     var stays = await storageService.query(STORAGE_KEY)
+    console.log('Stays found in storage:', stays)
+
     const { txt, minPrice, sortField, sortDir } = filterBy
 
     if (txt) {
@@ -26,16 +33,16 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
     if (minPrice) {
         stays = stays.filter(stay => stay.price >= minPrice)
     }
-    if(sortField === 'name'){
-        stays.sort((stay1, stay2) => 
+    if (sortField === 'name') {
+        stays.sort((stay1, stay2) =>
             stay1[sortField].localeCompare(stay2[sortField]) * +sortDir)
     }
-    if(sortField === 'price'){
-        stays.sort((stay1, stay2) => 
+    if (sortField === 'price') {
+        stays.sort((stay1, stay2) =>
             (stay1[sortField] - stay2[sortField]) * +sortDir)
     }
-    
-    stays = stays.map(({ _id, name, price, owner }) => ({ _id, name, price, owner }))
+
+    stays = stays.map(({ _id, name, price, owner, startDate, endDate, imgUrl }) => ({ _id, name, price, owner, startDate, endDate, imgUrl }))
     return stays
 }
 
@@ -83,3 +90,5 @@ async function addStayReview(stayId, txt) {
 
     return review
 }
+
+

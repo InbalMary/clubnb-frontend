@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
-export function WhereAutocomplete({ destinations, className = "" }) {
+export function WhereAutocomplete({ destinations, className = "", isOpen, onOpenChange, onDestinationSelect }) {
     const [whereQuery, setQuery] = useState("")
-    const [isOpen, setIsOpen] = useState(false)
     const [suggestions, setSuggestions] = useState(destinations)
 
     const containerRef = useRef(null)
@@ -10,7 +9,8 @@ export function WhereAutocomplete({ destinations, className = "" }) {
     const handleSelect = (dest) => {
         setQuery(dest.name)
         setSuggestions([])
-        setIsOpen(false)
+        onOpenChange(false)
+        onDestinationSelect?.(dest)
     }
 
     const handleInputChange = (ev) => {
@@ -27,27 +27,12 @@ export function WhereAutocomplete({ destinations, className = "" }) {
         }
     }
 
-    useEffect(() => {
-        if (!isOpen) return;
-
-        const handleClickOutside = (ev) => {
-            if (containerRef.current && !containerRef.current.contains(ev.target)) {
-                setIsOpen(false)
-            }
-        }
-
-        document.addEventListener("mousedown", handleClickOutside)
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside)
-        }
-    }, [isOpen])
-
     return (
         <div
             className={`search-section search-section-where ${isOpen ? "active" : ""}`}
             ref={containerRef}
             onClick={() => {
-                setIsOpen(true)
+                onOpenChange(true)
                 setSuggestions(destinations)
             }}
         >
@@ -59,7 +44,7 @@ export function WhereAutocomplete({ destinations, className = "" }) {
                 value={whereQuery}
                 onChange={handleInputChange}
                 onFocus={() => {
-                    setIsOpen(true)
+                    onOpenChange(true)
                     setSuggestions(destinations)
                 }}
             />

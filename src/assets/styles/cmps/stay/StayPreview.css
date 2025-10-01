@@ -1,13 +1,61 @@
 .stay-preview {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 250px;
+    /* width: 11.41rem; */
+    line-height: 16px;
     color: var(--gray2);
+}
 
-    > header {
-        font-size: 1.2em;
-        color: var(--gray1);
-    }
+.stay-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
-    & p {
-        margin-block: 0 0.2rem;
-        font-size: .9em;
+.stay-image {
+    border-radius: 20px;
+    width: 100%;
+}
+
+.heart-btn {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 13px;
+
+    transition: border-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.3);
+        transform: scale(1.1);
+        background: none;
     }
+}
+
+.heart-icon {
+    width: 24px;
+    height: 24px;
+}
+
+
+.stay-name {
+    color: var(--gray3);
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.stay-dates,
+.stay-details {
+    font-size: 12px;
+    margin-block: 0 0.2rem;
+}
+
+.heart-btn {
+    top: 8px;
+    right: 8px;
 }
