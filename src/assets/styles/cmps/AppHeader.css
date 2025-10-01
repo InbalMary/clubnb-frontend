@@ -1,30 +1,108 @@
 .app-header {
     display: flex;
-    min-height: 3.5rem;
+    flex-direction: column;
+    min-height: 12.5rem;
 
-    background-color: var(--clr4);
-    padding: .8rem 1rem;
-    
+    background-color: var(--gray1);
+    padding: 0.5rem 3rem;
+
     & nav {
         display: flex;
         width: 100%;
         align-items: center;
         gap: 1em;
-        
         font-size: .8em;
 
         .active {
             color: var(--clr1);
         }
 
-        .logo {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-inline-end: 2em;
+        > :last-child {
+            margin-left: auto;
         }
 
-        .login-link {
-            margin-inline-start: auto;
+        .logo-header {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-clr);
+            gap: 6px;
+        }
+
+        .logo-header .icon svg {
+            height: 32px;
+            display: block;
+        }
+
+        .logo-header .brand {
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            height: 80px;
+        }
+
+        .host-link {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: normal;
+            color: var(--gray3);
+            background-color: transparent;
+            text-decoration: none;
+            padding: 0.625rem 0.875rem;
+            border-radius: 24px;
+            transition: background-color 0.15s ease;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .host-link:hover {
+            background-color: var(--gray4);
+        }
+
+        .header-actions button:has(.change-lng),
+        .header-actions button:has(.hamburger) {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--gray4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            padding: 0;
+            margin-inline-start: 0.75rem;
+        }
+
+        .header-actions button:has(.hamburger):hover {
+            background-color: var(--gray5);
+        }
+
+        .header-actions button:has(.change-lng):hover {
+            background-color: var(--gray5);
+        }
+
+        .hamburger,
+        .change-lng {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger svg,
+        .change-lng svg {
+            width: 16px;
+            height: 16px;
+            display: block;
+            color: #222222;
         }
 
         & button {

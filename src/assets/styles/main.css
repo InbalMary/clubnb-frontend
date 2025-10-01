@@ -16,6 +16,7 @@
 @import "./pages/BecomeHostForm.css";
 @import "./pages/HostDetails.css";
 @import "./pages/ListingEdit.css";
+@import "./pages/StayDetails.css";
 
 
 /* Cmps */
@@ -32,3 +33,7 @@
 @import "cmps/msg/MsgEdit";
 @import "cmps/msg/MsgList";
 @import "cmps/msg/MsgPreview";
+
+@import "cmps/SearchBar";
+@import "cmps/WhereAutocomplete";
+@import "cmps/DatePicker";
