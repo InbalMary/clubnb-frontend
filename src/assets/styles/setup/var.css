@@ -19,7 +19,7 @@
   --gray2: #6A6A6A;
   /*Most of the text color in the website*/
   --gray3: #222222;
-  <<<<<<< HEAD=======
+
   /* header-bg */
   --gray4: rgb(235, 235, 235);
   /* header-btns-hover */
@@ -29,12 +29,12 @@
   /* scroller color */
   --gray7: #C1C1C1;
 
-  =======
+
   /*btn Bg color2*/
   --gray8: #F2F2F2;
 
   /* Main bg */
   --white: #FFFFFF;
-  >>>>>>>main --success: rgb(41, 189, 73);
+  --success: rgb(41, 189, 73);
   --error: rgb(216, 59, 59);
 }
