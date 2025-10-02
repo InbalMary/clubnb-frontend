@@ -1,10 +1,8 @@
-import { useRef } from 'react'
 import { StayPreview } from './stayPreview'
 import { Carousel } from './Carousel'
 import { svgControls } from './Svgs'
 
 export function StayList({ stays }) {
-    const firstCardRef = useRef(null)
     const categories = [...new Set(stays.map(stay => stay.type))]
 
     return (
@@ -19,7 +17,6 @@ export function StayList({ stays }) {
                             Carousel will call this function, giving us its scroll state + scroll logic.
                             Whatever JSX we return here gets rendered inside Carousel. */}
                         <Carousel
-                            firstCardRef={firstCardRef}
                             renderControls={({ scrollState, scrollRow }) => (
                                 <div className='stay-row-header'>
                                     <h3 className="stay-list-title">{type}
@@ -37,8 +34,8 @@ export function StayList({ stays }) {
                                 </div>
                             )}
                         >
-                            {rowStays.map((stay, idx) => (
-                                <li key={stay._id} ref={idx === 0 ? firstCardRef : null}>
+                            {rowStays.map((stay) => (
+                                <li key={stay._id}>
                                     <StayPreview stay={stay} />
                                 </li>
                             ))}
