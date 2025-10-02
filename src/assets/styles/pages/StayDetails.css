@@ -1,38 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 
-.stay-details,
+.stay-details>* {
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
 .main-content {
+
     h1 {
-        font-size: 26px;
+        font-size: 1.625rem;
+        line-height: 1.875rem;
     }
 
     h2 {
-        font-size: 22px;
+        font-size: 1.375rem;
+        line-height: 1.925rem;
+        font-weight: 600;
     }
 
     h3 {
-        font-size: 16px;
+        font-size: .875rem;
     }
 
     .bold {
-        font-family: cereal-light;
+        font-family: cereal-regular;
         font-weight: bolder;
-    }
-
-    div.border {
-        border-top-color: var(--gray6);
-        border-top-width: 1px !important;
-        border-top-style: solid !important;
     }
 
     span.dot {
         display: inline-block;
-        margin: 0 5px;
+    }
+
+    .light {
+        color: var(--gray2);
+        font-size: 14px;
     }
 
     span.dot::before {
         content: "•";
-        font-size: 15px;
+        font-size: 13px;
     }
 
     span.link {
@@ -59,47 +65,147 @@
             grid-row: span 2;
             grid-column: span 2;
         }
-
-
     }
 
-    .details-container>.content>.main-info>.mini-stay-info {
-        .stay-name {
-            font-family: cereal-light;
-            font-weight: 900;
+    .details-container .content .main-info {
+        .first-block {
+            padding-block: 2rem;
         }
 
-        .capacity {
-            /* font-family: "Nunito Sans", sans-serif; */
-            font-family: cereal-regular;
-            font-weight: normal;
-        }
+        .rating {
+            font-family: cereal-medium;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: .5rem;
 
-        .rating>* {
-            font-family: cereal-light;
-            font-weight: bolder;
+            span.avg {
+                font-size: 17px;
+            }
         }
 
         .mini-host {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            padding-block: 1.5rem;
+
             img.host-img {
-                width: 100%;
-                height: 100%;
                 object-fit: cover;
                 object-position: 20% 10%;
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
                 overflow: hidden;
                 border-radius: 50%;
             }
         }
 
-        .highlights {}
+        .highlights {
+            padding-block: 2rem;
+
+            li {
+                display: flex;
+                flex-direction: row;
+                gap: 2rem;
+                padding-bottom: 1.5rem;
+            }
+
+            li:last-child {
+                padding-bottom: 0;
+            }
+        }
+
+        .summary {
+            padding-block: 2rem;
+            line-height: 22px;
+        }
+
+        .beds-container {
+            padding-block: 2rem;
+
+            .bedrooms {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                padding: 8px;
+
+                .bedroom {
+                    display: flex;
+                    flex-direction: column;
+
+                    div {
+                        margin-top: 1.2rem;
+                    }
+
+                    div.img {
+                        max-height: 210px;
+                        max-width: 315px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            overflow: hidden;
+                            border-radius: 8px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .amenities-container {
+            padding-block: 2rem;
+
+            h2 {
+                padding-block-end: 1.5rem;
+            }
+
+            .amenities-short-list {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-auto-flow: row;
+
+                li {
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 1rem;
+                    padding-bottom: 2rem;
+                }
+            }
+        }
+
+        .rating.big {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            span.dot.bold::before {
+                font-size: 1.575rem;
+            }
+
+            .bold,
+            .avg.bold {
+
+                font-size: 1.575rem;
+            }
+        }
     }
 
-    .bedrooms .bedroom {
-        border-color: var(--gray6);
-        border-width: 1px !important;
-        border-style: solid !important;
-        border-radius: 12px;
+    .types-list {
+
+        .type {
+            padding-bottom: 2rem;
+
+            h3 {
+                padding-block: 1rem;
+            }
+
+            .amenities-list .amenity {
+                padding-block: 1.5rem;
+                gap: 1rem;
+            }
+        }
     }
+
+
 }

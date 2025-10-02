@@ -1,14 +1,21 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { DateRangePicker } from "../cmps/DateRangePicker"
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { loadStay, addStayReview } from '../store/actions/stay.actions'
 
-import { amenitiesSvg } from '../cmps/Svgs'
+import { amenitiesSvg, reviewSvgs } from '../cmps/Svgs'
 import { LongTxt } from '../cmps/LongTxt'
 import { getRandomItems } from '../services/util.service'
+import { Modal } from '../cmps/Modal'
+import { useDateRange } from '../customHooks/useDateRange'
+import { DayPicker } from 'react-day-picker'
+import { ReDateRangePicker } from '../cmps/ReDateRangePicker'
+// import { useDateRange } from '../customHooks/useDateRange'
+// import { DateSelector } from '../cmps/DateSelector'
 
 const demoStay = {
   _id: "Ytcqd",
@@ -22,15 +29,23 @@ const demoStay = {
     "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg"
   ],
   price: 595,
-  summary: `Westin Kaanapali Ocean Resort Villas North 
-  timeshare - Pay resort: $14-20/day, stays under 7 night $38/res - 
-  Inquire about availability, I review then offer/approve 
-  if available :) - READ \"The Space\" for cleaning/etc 
-  AND brief explanation about timeshare reservations - 
-  Want guaranteed view for additional cost? Must be weekly
-   rental, other restrictions - Wheelchair accessible / ADA,
-    call resort directly to ensure U receive. If U need ADA 
-    U MUST inform us BEFORE booking.`,
+  summary: `Experience the comfort of the Westin Kaanapali Ocean Resort Villas North in a beautifully maintained timeshare unit on Maui’s stunning Kaanapali Beach. Ideal for couples or solo travelers looking for a peaceful, resort-style getaway.
+
+This unit includes access to premium resort amenities and is ADA/wheelchair accessible (please confirm with the resort directly to ensure your needs are met).
+
+Please note:
+
+A daily resort fee applies:
+
+$14–$20/day for stays 7+ nights
+
+$38/day for stays under 7 nights
+
+Availability is limited and must be approved after inquiry — we’ll review your request and confirm if available.
+
+For guaranteed views, only weekly rentals are eligible and may incur additional charges.
+
+We recommend reading the full “The Space” section for important details about cleaning, timeshare booking, and reservation processes.`,
   rooms: [
     { roomType: 'bedroom', bedType: 'double bed', imgUrl: "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436952/aef9ajipinpjhkley1e3.jpg" },
     { roomType: 'living room', bedType: 'sofa', imgUrl: "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg" },
@@ -51,9 +66,10 @@ const demoStay = {
     "Disabled parking spot", "Wide clearance to bed", "Wide entryway", "Waterfront", "Beachfront"
   ],
   highlights: [
-    { main: 'Stylish space', sub: 'Guests loved the stylish decor and comfortable layout.', imgUrl: 'https://res.cloudinary.com/dfacuc12l/image/upload/design.jpeg' },
-    { main: 'Fully equipped kitchen', sub: 'Guests appreciated the well-stocked kitchen for home-cooked meals.', imgUrl: 'https://res.cloudinary.com/dfacuc12l/image/upload/breakfast.jpeg' },
-    { main: 'Well-equipped for long stays', sub: 'Guests who stayed a month or longer rated this place 5 stars.', imgUrl: 'https://res.cloudinary.com/dfacuc12l/image/upload/skiing.jpeg' }],
+    { main: 'Dive right in', sub: 'This is one of the few places in the area with a pool.', imgUrl: amenitiesSvg.locaion.pool },
+    { main: 'Fully equipped kitchen', sub: 'Guests appreciated the well-stocked kitchen for home-cooked meals.', imgUrl: amenitiesSvg.kitchen.kitchen },
+    { main: 'Well-equipped for long stays', sub: 'Guests who stayed a month or longer rated this place 5 stars.', imgUrl: amenitiesSvg.services.longStay }
+  ],
   roomType: "Entire home/apt",
   host: {
     _id: "622f3403e36c59e6164faf93",
@@ -254,6 +270,30 @@ export function StayDetails() {
   const { stayId } = useParams()
   const stay = useSelector(storeState => storeState.stayModule.stay)
 
+  const { dateRange, setDateRange } = useDateRange()
+  const [modalType, setModalType] = useState(null)
+
+  const modifiers = {
+    checkin: dateRange.from,
+    checkout: dateRange.to,
+    range: dateRange.from && dateRange.to ? { from: dateRange.from, to: dateRange.to } : undefined
+  }
+  useEffect(() => {
+  }, [modifiers]
+  )
+
+
+  const handleDateComplete = (range) => {
+    setDateRange(range)
+  }
+
+  function formatName(str) {
+    return str
+      .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // Add space between lowercase and uppercase letters
+      .replace(/([A-Z])/, (match) => match.toLowerCase()) // Lowercase all the uppercase letters
+      .replace(/(^.)/, (match) => match.toUpperCase()) // Capitalize the first letter
+  }
+
   function getAvgRate(reviews) {
     let totalSum = 0
     let totalReviews = 0
@@ -339,16 +379,11 @@ export function StayDetails() {
 
   function getAmenitiesData(amenitiesSvgs) {
 
-    const categories = ['bathroom', 'bedroom', 'bookingOptions', 'essentials', 'family', 'features', 'kitchen', 'location',
+    const categories = ['bathroom', 'bedroom', 'bookingOptions', 'essentials', 'family', 'features', 'kitchen', 'locaion',
       'outdoor', 'parking', 'safety', 'services', 'notIncluded']
+
     const amenitiesArr = []
 
-    const formatName = (str) => {
-      return str
-        .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // Add space between lowercase and uppercase letters
-        .replace(/([A-Z])/, (match) => match.toLowerCase()) // Lowercase all the uppercase letters
-        .replace(/(^.)/, (match) => match.toUpperCase()) // Capitalize the first letter
-    }
     categories.forEach(category => {
       // If category exists in amenitiesSvgs
       if (amenitiesSvgs[category]) {
@@ -364,11 +399,21 @@ export function StayDetails() {
         })
       }
     })
-
     return amenitiesArr
-
   }
   const amenitiesData = getAmenitiesData(amenitiesSvg)
+  // console.log('amenitiesData:', amenitiesData)
+
+  const groupedAmenities = amenitiesData.reduce((acc, amenity) => {
+    const { type } = amenity
+    if (!acc[type]) {
+      acc[type] = []
+    }
+    acc[type].push(amenity)
+    return acc
+  }, {})
+
+  // console.log('groupedAmenities:', groupedAmenities)
 
   useEffect(() => {
     loadStay(stayId)
@@ -390,67 +435,84 @@ export function StayDetails() {
           <div className="details-container">
             <div className="content">
 
-              <section className="main-info modal">
+              <section className="main-info">
 
-                <div className="mini-stay-info">
+                <div className="first-block">
+
                   <h2 className="stay-name">{demoStay.roomType} in {demoStay.loc.city},  {demoStay.loc.country}</h2>
                   <div className="capacity">
 
-                    <span>{demoStay.guests} {demoStay.guests === 1 ? "guest" : "guests"}</span>
-                    <span className="dot" />
-                    <span>{demoStay.bedrooms} {demoStay.bedrooms === 1 ? "bedroom" : "bedrooms"}</span>
-                    <span className="dot" />
-                    <span>{demoStay.beds} {demoStay.beds === 1 ? "bed" : "beds"}</span>
-                    <span className="dot" />
-                    <span>{demoStay.bathrooms} {demoStay.bathrooms === 1 ? "bathroom" : "bathrooms"}</span>
+                    <span className="">{demoStay.guests} {demoStay.guests === 1 ? "guest" : "guests"}</span>
+                    <span className="dot " />
+                    <span className="">{demoStay.bedrooms} {demoStay.bedrooms === 1 ? "bedroom" : "bedrooms"}</span>
+                    <span className="dot " />
+                    <span className="">{demoStay.beds} {demoStay.beds === 1 ? "bed" : "beds"}</span>
+                    <span className="dot " />
+                    <span className="">{demoStay.bathrooms} {demoStay.bathrooms === 1 ? "bathroom" : "bathrooms"}</span>
                   </div>
-                  <div className="rating flex">
+                  <div className="rating">
                     <span className="rate">{amenitiesSvg.rate}</span>
-                    <span>{getAvgRate(demoStay.reviews)}</span>
+                    <span className="avg">{getAvgRate(demoStay.reviews)}</span>
                     <span className="dot" />
                     <span className="link"><Link to={`stay/${demoStay._id}/review`}>{demoStay.reviews.length} {demoStay.reviews.length === 1 ? 'review' : 'reviews'}</Link></span>
                   </div>
-                  <div className="border"></div>
+                </div>
 
-                  <div className="mini-host flex">
-                    <img className="host-img" src={demoStay.host.pictureUrl} />
-                    <span>
-                      <h3>Hosted by {demoStay.host.fullname}</h3>
-                      <span> {demoStay.host.isSuperhost ? "Superhost" : ''}<span className="dot" />{getHostingTime(demoStay.host)} hosting</span>
-                    </span>
-                  </div>
-                  <div className="border"></div>
+                <div className="border"></div>
+
+                <div className="mini-host flex">
+                  <img className="host-img" src={demoStay.host.pictureUrl} />
+                  <span>
+                    <h3>Hosted by {demoStay.host.fullname}</h3>
+                    <span className="light"> {demoStay.host.isSuperhost ? "Superhost" : ''} <span className="dot light" /> </span>
+                    <span className="light">{getHostingTime(demoStay.host)} hosting</span>
+                  </span>
+                </div>
+                <div className="border"></div>
 
 
-                  <div className="highlights">
-                    <ul>
-                      {demoStay.highlights.map(hightLight =>
-                        <li key={hightLight.main}>
+                <div className="highlights">
+                  <ul>
+                    {demoStay.highlights.map(hightLight =>
+                      <li key={hightLight.main}>
+                        <span className="highlight-icon">{hightLight.imgUrl}</span>
+                        <div>
                           <h3>{hightLight.main}</h3>
-                          {/* <img src={hightLight.imgUrl} /> */}
-                          hightlight-svg
-                          <span> {hightLight.sub}</span>
-                        </li>
-                      )}
-                    </ul>
-                  </div>
-                  <div className="border"></div>
-                  <LongTxt children={demoStay.summary} length={250} />
-                  <div className="border"></div>
+                          <span className="light"> {hightLight.sub}</span>
+                        </div>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+                <div className="border"></div>
 
+                <span className="summary">
+                  <LongTxt children={demoStay.summary} length={250} />
+                  <button className="open-modal" onClick={() => setModalType('summary')}>
+                    Show more
+                  </button>
+                </span>
+
+                <div className="border"></div>
+
+                <div className="beds-container">
+                  <h2>Where you'll sleep</h2>
                   <div className="bedrooms">
-                    <h2>Where you'll sleep</h2>
                     {demoStay.rooms.map((room, idx) =>
                       <div key={room + idx} className="bedroom">
-                        <img key={room.imgUrl} src={room.imgUrl} />
+                        <div className="img">
+                          <img key={room.imgUrl} src={room.imgUrl || amenitiesSvg.bedroom.doubleBed} />
+                        </div>
                         <div key={room.roomType} className="bold">{capitalizeFirst(room.roomType)}</div>
-                        <span key={room.bedType}>1 {room.bedType}</span>
+                        <span className="light" key={room.bedType}>1 {room.bedType}</span>
                       </div>
                     )}
                   </div>
-                  <div className="border"></div>
+                </div>
+                <div className="border"></div>
 
-                  <div className="amenities">
+                <div className="amenities">
+                  <div className="amenities-container">
                     <h2>What this place offers</h2>
 
                     <ul className="amenities-short-list">
@@ -527,6 +589,17 @@ export function StayDetails() {
                     </Modal>
 
                   </div>
+                </div>
+                <div className="border"></div>
+
+                <div className="details-calendar" >
+
+                  <ReDateRangePicker
+                    value={dateRange}
+                    onComplete={handleDateComplete}
+                  />
+                </div>
+                <div className="border"></div>
                 <div className="rating-container">
 
                   <div className="rating big">
@@ -563,10 +636,10 @@ export function StayDetails() {
               </section>
             </div>
           </div>
-        </div>
+        </div >
 
 
-      </section>
-    </div>
+      </section >
+    </div >
   )
 }

@@ -82,7 +82,7 @@ export function getRandomItems(array) {
     for (let i = 0; i < 10; i++) {
         if (availableItems.length === 0) break; // Break if we run out of items
         const idx = getRandomIntInclusive(0, availableItems.length - 1);
-        result.push(availableItems.splice(idx, 1)[0]); // Remove the item from the availableItems
+        result.push(availableItems.splice(idx, 1)[0]) // Remove the item from the availableItems
     }
 
     return result
