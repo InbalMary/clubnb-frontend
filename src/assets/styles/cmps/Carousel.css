@@ -14,10 +14,12 @@
     max-width: 100%;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
+    /* container forces scroll to stop only at item snap points. touch friendly */
 }
 
 .carousel-list>li {
     scroll-snap-align: start;
+    /* each card’s left edge is the snap point */
 }
 
 .carousel-controls {
