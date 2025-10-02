@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import { Routes, Route } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
@@ -18,12 +18,34 @@ import { UserMsg } from './cmps/UserMsg.jsx'
 import { LoginSignup, Login, Signup } from './cmps/LoginSignup.jsx'
 import { BecomeHostForm } from './pages/BecomeHostForm.jsx'
 import { ListingEdit } from './pages/ListingEdit.jsx'
+import { CompactHeader } from './cmps/CompactHeader.jsx'
 
 
 export function RootCmp() {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [initialModal, setInitialModal] = useState(null);
+
+    const handleSearchClick = (modalType) => {
+        setInitialModal(modalType);
+        setIsExpanded(true);
+    };
+
+    const handleCollapse = () => {
+        setIsExpanded(false);
+        setInitialModal(null);
+    };
+
     return (
         <div className="main-container">
-            <AppHeader />
+            {!isExpanded ? (
+                <CompactHeader onSearchClick={handleSearchClick} />
+            ) : (
+                <AppHeader 
+                    initialModal={initialModal} 
+                    onCollapse={handleCollapse}
+                />
+            )}
+            {/* <AppHeader /> */}
             <UserMsg />
 
             <main>
