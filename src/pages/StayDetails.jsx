@@ -271,6 +271,55 @@ export function StayDetails() {
     return roundedAverage
   }
 
+  function getAvgRateForCtgs(reviews, svgs) {
+    const totalPerCtg = {}
+    const countPerCtg = {}
+    const overallRatingCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
+
+    let total = 0
+    let numCtgs = 0
+
+    reviews.forEach(review => {
+      const rate = review.rate
+      if (!rate) return
+
+      for (let category in rate) {
+        const rating = rate[category]
+
+        if (!totalPerCtg[category]) {
+          totalPerCtg[category] = 0
+          countPerCtg[category] = 0
+        }
+
+        totalPerCtg[category] += rating
+        countPerCtg[category] += 1
+
+        total += rating
+        numCtgs += 1
+      }
+    })
+
+    if (numCtgs > 0) {
+      const avg = total / numCtgs
+      const roundedAvg = Math.round(avg)
+      if (overallRatingCounts[roundedAvg] !== undefined) {
+        overallRatingCounts[roundedAvg] += 1
+      }
+    }
+
+    const avgRateArr = Object.keys(totalPerCtg).map(category => {
+      const avg = parseFloat((totalPerCtg[category] / countPerCtg[category]).toFixed(2))
+      return {
+        category,
+        formattedName: formatName(category),
+        avg,
+        svg: svgs?.[category] || null
+      }
+    })
+
+    return { avgRateArr, overallRatingCounts }
+  }
+
   function getHostingTime(host) {
     const currentDate = new Date(Date.now())
     const signupDate = new Date(host.signupDate)
@@ -478,6 +527,38 @@ export function StayDetails() {
                     </Modal>
 
                   </div>
+                <div className="rating-container">
+
+                  <div className="rating big">
+                    <span className="rate bold">{amenitiesSvg.bigRate}</span>
+                    <span className="avg bold">{getAvgRate(demoStay.reviews)} </span>
+                    <span className="dot bold" />
+                    <span className="bold"> {demoStay.reviews.length} {demoStay.reviews.length === 1 ? 'review' : 'reviews'}</span>
+                  </div>
+
+                  <section className="rating-categories">
+
+                    <ul>
+                      {
+                        getAvgRateForCtgs(demoStay.reviews, reviewSvgs).avgRateArr.map((item, index) => {
+                          return (
+
+                            <li key={index}>
+                              {item.svg && <span className="svg-icon">{item.svg}</span>}
+
+                              <span className="review-category">
+                                {item.formattedName}
+                              </span>
+                              <span className="avg-value">{item.avg}</span>
+
+                            </li>
+                          )
+                        }
+                        )}
+                    </ul>
+
+                  </section>
+
                 </div>
               </section>
             </div>
