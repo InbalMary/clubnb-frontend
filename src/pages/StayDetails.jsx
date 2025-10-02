@@ -417,20 +417,66 @@ export function StayDetails() {
                           )
                         })}
                     </ul>
-{/* modal open */}
-                    <button>Show all {amenitiesData.length} amenities</button>
-                    {/* <ul className="amenities-list">
-                      {amenitiesData.map(amenity => {
-                        return (
-                          <li className="amenity flex" key={amenity.name}>
-                            <span key={amenity.name + 1}>
-                              {amenity.svgUrl}
-                            </span>
-                            <span>{amenity.name}</span>
-                          </li>
-                        )
-                      })}
-                    </ul> */}
+
+                    <button onClick={() => setModalType('amenities')} className="open-modal">Show all {amenitiesData.length} amenities</button>
+
+
+                    <Modal
+                      isOpen={modalType !== null}
+                      onClose={() => setModalType(null)}
+                      header={<button onClick={() => setModalType(null)} className="close-modal">{amenitiesSvg.x}</button>}>
+
+                      {modalType === 'amenities' && (
+
+                        <>
+                          <h2>What this place offers</h2>
+
+                          <ul className="types-list">
+                            {
+                              Object.entries(groupedAmenities).map(([type, amenities]) => (
+                                <li className="type" key={type}>
+
+                                  <h3>{capitalizeFirst(type)}</h3>
+                                  <ul className="amenities-list">
+                                    {amenities.map(amenity => {
+                                      return (
+                                        <>
+                                          <li className="amenity flex" key={amenity.name}>
+                                            <span key={amenity.name + 1}>
+                                              {amenity.svgUrl}
+                                            </span>
+                                            <span>{amenity.name}</span>
+                                          </li>
+                                          <div className="border"></div>
+                                        </>
+                                      )
+                                    })}
+                                  </ul>
+                                </li>
+                              ))
+
+                            }
+                          </ul>
+                        </>
+                      )
+                      }
+
+                      {modalType === 'summary' &&
+                        <>
+                          <h1>About this place</h1>
+
+                          {<div className="summary">
+                            {demoStay.summary
+                              .split('\n')
+                              .filter(line => line.trim() !== '')
+                              .map((line, idx) => (
+                                <p key={idx}>{line.trim()}</p>
+                              ))}
+                          </div>}
+                        </>
+                      }
+                    </Modal>
+
                   </div>
                 </div>
               </section>

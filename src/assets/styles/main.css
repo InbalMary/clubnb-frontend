@@ -26,6 +26,7 @@
 
 @import "cmps/LoginSignup";
 @import "cmps/Chat";
+@import "cmps/Modal.css";
 @import "cmps/stay/StayList";
 @import "cmps/stay/StayPreview";
 @import "cmps/stay/StayFilter";
@@ -37,4 +38,5 @@
 @import "cmps/SearchBar";
 @import "cmps/WhereAutocomplete";
 @import "cmps/DatePicker";
+@import "cmps/ReDateRangePicker.css";
 @import "cmps/GuestSelector";
