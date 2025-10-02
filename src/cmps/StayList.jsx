@@ -1,80 +1,53 @@
-import { useState, useEffect, useRef } from 'react'
-
-import { userService } from '../services/user'
+import { useRef } from 'react'
 import { StayPreview } from './stayPreview'
-
-import rightPointer from '../assets/svgs/right-pointer.svg'
-import arrowRight from '../assets/svgs/right-carousel.svg'
-import arrowLeft from '../assets/svgs/left-carousel.svg'
+import { Carousel } from './Carousel'
+import { svgControls } from './Svgs'
 
 export function StayList({ stays }) {
-    const rowRefs = useRef([]) // Make a ref that will hold an array of row <ul> elements
-    const [scrollState, setScrollState] = useState([])// [{ scrollStart, scrollEnd }, ...]tracking which row can scroll left/right
-    const demoTitles = ['Featured Stays', 'Top Rated', 'Beachfront', 'City Escapes', 'Nature Retreats']
-
-    function updateScroll(idx) {
-        const rowEl = rowRefs.current[idx]
-        if (!rowEl) return
-
-        const isScrollStart = rowEl.scrollLeft <= 0
-        const isScrollEnd = rowEl.scrollLeft + rowEl.clientWidth >= rowEl.scrollWidth
-        //clientWidth = the visible width of the element, the window. built-in
-        //scrollWidth = the total width of the scrollable content, all the cards. built-in
-        setScrollState(prev => {
-            const rowsCopy = [...prev] // copy old rows array
-            rowsCopy[idx] = { start: isScrollStart, end: isScrollEnd }
-            return rowsCopy //replace with updated copy
-        })
-    }
-
-    //Function to scroll one row left/right
-    function scrollRow(rowEl, direction) {
-        if (rowEl) {
-            rowEl.scrollLeft += direction * 250 // move by one card width? scrollLeft a built-in property
-        }
-    }
+    const firstCardRef = useRef(null)
+    const categories = [...new Set(stays.map(stay => stay.type))]
 
     return (
         <section className='stay-list-section'>
-            {demoTitles.map((title, idx) => { //how many rows and which header each row gets
-                const rowStays = stays.slice(idx * 7, idx * 7 + 7)
+            {categories.map(type => {
+                const rowStays = stays.filter(stay => stay.type === type)
                 if (!rowStays.length) return null
 
-
                 return (
-                    <div className='stay-row' key={title}>
-                        <div className='stay-row-header'>
-                            <h3 className="stay-list-title">{title}
-                                <img src={rightPointer} className='right-pointer' />
-                            </h3>
-                            <div className='carousel-controls'>
-                                <button onClick={() => scrollRow(rowRefs.current[idx], -1)}>
+                    <div className='stay-row' key={type}>
+                        {/* We pass a function (renderControls) down to Carousel.
+                            Carousel will call this function, giving us its scroll state + scroll logic.
+                            Whatever JSX we return here gets rendered inside Carousel. */}
+                        <Carousel
+                            firstCardRef={firstCardRef}
+                            renderControls={({ scrollState, scrollRow }) => (
+                                <div className='stay-row-header'>
+                                    <h3 className="stay-list-title">{type}
+                                        <span className='right-pointer'>{svgControls.chevronRight}</span>
+                                    </h3>
 
-                                    <img src={arrowLeft} alt="Scroll left" className='carousel-icon' />
-                                </button>
-                                <button onClick={() => scrollRow(rowRefs.current[idx], 1)}>
-                                    <img src={arrowRight} alt="Scroll right" className='carousel-icon' />
-                                </button>
-                            </div>
-                        </div>
-                        <ul
-                            ref={el => (rowRefs.current[idx] = el)} //el is the DOM element <ul> React gives during rendering.
-                            className="stay-list"
+                                    <div className="carousel-controls">
+                                        <button disabled={scrollState.atStart} onClick={() => scrollRow(-1)}>
+                                            <span className='carousel-icon'>{svgControls.chevronLeft}</span>
+                                        </button>
+                                        <button disabled={scrollState.atEnd} onClick={() => scrollRow(1)}>
+                                            <span className='carousel-icon'>{svgControls.chevronRight}</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
                         >
-                            {rowStays.map(stay => // what cards go inside the row
-                                <li key={stay._id}>
+                            {rowStays.map((stay, idx) => (
+                                <li key={stay._id} ref={idx === 0 ? firstCardRef : null}>
                                     <StayPreview stay={stay} />
-                                </li>)
-                            }
-                        </ul>
+                                </li>
+                            ))}
+                        </Carousel>
                     </div>
                 )
             })}
-
-        </section>
+        </section >
     )
 }
 
-{/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style={{ display: "block", height: "16px", width: "16px"}}>
 
-</svg> */}

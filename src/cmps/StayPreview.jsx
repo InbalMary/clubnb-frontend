@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { formatStayDates, calculateNights } from '../services/util.service.js'
-import emptyHeart from '../assets/svgs/empty-heart.svg'
+import { svgControls } from './Svgs.jsx'
 
 export function StayPreview({ stay }) {
     // console.log('Stay received in StayPreview:', stay)
@@ -23,7 +23,7 @@ export function StayPreview({ stay }) {
                 />
             </Link>
             <button className='heart-btn' aria-label='Add to wishlist'>
-                <img src={emptyHeart} alt='Wishlist' className="heart-icon" />
+                <span className="heart-icon">{svgControls.heart}</span>
             </button>
         </div>
         <div className='stay-info'>

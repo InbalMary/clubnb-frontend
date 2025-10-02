@@ -37,9 +37,14 @@
     }
 }
 
-.heart-icon {
-    width: 24px;
+.heart-icon svg {
+    display: block;
+    fill: rgba(0, 0, 0, 0.5);
     height: 24px;
+    width: 24px;
+    stroke: var(--white);
+    stroke-width: 2;
+    overflow: visible;
 }
 
 

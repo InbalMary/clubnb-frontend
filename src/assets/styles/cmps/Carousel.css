@@ -1,0 +1,73 @@
+.carousel {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - (6 * 0.5rem)) / 7);
+    gap: .5rem;
+    overflow-x: auto;
+    /* enable horizontal scrolling */
+    overflow-y: hidden;
+    max-width: 100%;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel-list>li {
+    scroll-snap-align: start;
+}
+
+.carousel-controls {
+    display: flex;
+    gap: 0.22rem;
+}
+
+.carousel-controls button {
+    all: unset;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    border: 1px solid var(--gray8);
+    background: var(--gray8);
+}
+
+.carousel-controls button:disabled {
+    cursor: not-allowed;
+    background: transparent;
+    transform: none;
+    border: 1px solid var(--gray4);
+
+    /*temporary until change to svg:*/
+    .carousel-icon svg {
+        stroke: var(--gray7)
+    }
+}
+
+.carousel-list::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-controls button:hover:not(:disabled) {
+    background: var(--gray5);
+    border: 1px solid var(--gray8);
+    transform: scale(1.1);
+    transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.carousel-icon svg {
+    display: block;
+    fill: none;
+    height: 12px;
+    width: 12px;
+    stroke: currentcolor;
+    stroke-width: 4;
+    overflow: visible;
+}
