@@ -1,0 +1,194 @@
+.compact-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: var(--gray1);
+    border-bottom: 1px solid var(--gray5);
+    z-index: 100;
+}
+
+.compact-header-content {
+    /* max-width: 1760px; */
+    margin: 0 auto;
+    height: 100%;
+    /* padding: 0 3rem;
+    padding-top: 2rem; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.compact-header .logo-header {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-clr);
+    gap: 3px;
+}
+
+.compact-header .logo-header .icon svg {
+    height: 32px;
+    display: block;
+    margin-inline-start: 3rem;
+    margin-block-start: 2rem;
+}
+
+.compact-header .logo-header .brand {
+    font-family: cereal-bold, Circular, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.05em;
+    margin-block-start: 2rem;
+}
+
+.compact-search-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-block-start: 24px;
+    margin-inline-start: 10px;
+    /* padding: 0.5rem 0.5rem 0.5rem 1.5rem; */
+    border-radius: 40px;
+    border: 1px solid var(--gray5);
+    background: var(--white);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+    min-width: 300px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.compact-search-button:hover {
+    transition: none;
+    background: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.compact-search-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.compact-search-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray3);
+    white-space: nowrap;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.compact-search-icon {
+    font-size: 1rem;
+}
+
+.compact-search-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--gray5);
+}
+
+.compact-search-icon-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--primary-clr);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.compact-search-icon-button span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    height: 12px;
+}
+
+.compact-search-icon-button svg {
+    width: 12px;
+    height: 12px;
+}
+
+.compact-header .header-actions {
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+.compact-header .header-actions .host-link {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: normal;
+    color: var(--gray3);
+    background-color: transparent;
+    text-decoration: none;
+    padding: 0.625rem 0.875rem;
+    margin-block-start: 1rem;
+    border-radius: 24px;
+    transition: background-color 0.15s ease;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.compact-header .header-actions .host-link:hover {
+    background-color: var(--gray4);
+}
+
+.compact-header .header-actions button:has(.change-lng),
+.compact-header .header-actions button:has(.hamburger) {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--gray4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    padding: 0;
+    margin-inline-start: 0.75rem;
+    margin-block-start: 22px;
+}
+
+.compact-header .header-actions button:has(.hamburger) {
+    margin-inline-end: 48px;
+}
+
+.compact-header .header-actions button:has(.change-lng):hover,
+.compact-header .header-actions button:has(.hamburger):hover {
+    background-color: var(--gray5);
+}
+
+.compact-header .hamburger,
+.compact-header .change-lng {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.compact-header .hamburger svg,
+.compact-header .change-lng svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+    color: var(--gray3);
+}
+
+.compact-header button {
+    margin-inline-end: 0;
+}
