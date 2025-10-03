@@ -192,3 +192,11 @@
 .compact-header button {
     margin-inline-end: 0;
 }
+
+body:has(.compact-header) .stay-index {
+    margin-block-start: 5rem;
+}
+
+body:has(.app-header) .stay-index {
+    margin-block-start: 0;
+}
