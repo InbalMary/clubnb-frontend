@@ -41,3 +41,6 @@
 @import "cmps/Carousel.css";
 @import "cmps/ReDateRangePicker.css";
 @import "cmps/GuestSelector";
+
+@import "cmps/StayRating.css";
+@import "cmps/StayReviewList.css";
