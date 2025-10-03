@@ -5,10 +5,34 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/actions/user.actions'
 import { appHeaderSvg } from './Svgs'
 import { SearchBar } from './SearchBar'
+import { useEffect, useRef } from 'react'
 
-export function AppHeader() {
+export function AppHeader({ initialModal, onCollapse }) {
 	const user = useSelector(storeState => storeState.userModule.user)
 	const navigate = useNavigate()
+	const headerRef = useRef(null)
+
+	useEffect(() => {
+		function handleClickOutside(event) {
+			if (headerRef.current && !headerRef.current.contains(event.target)) {
+				onCollapse()
+			}
+		}
+
+		function handleEscKey(event) {
+			if (event.key === 'Escape') {
+				onCollapse()
+			}
+		}
+
+		document.addEventListener("mousedown", handleClickOutside)
+		document.addEventListener("keydown", handleEscKey)
+
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside)
+			document.removeEventListener("keydown", handleEscKey)
+		}
+	}, [onCollapse])
 
 	async function onLogout() {
 		try {
@@ -21,11 +45,11 @@ export function AppHeader() {
 	}
 
 	return (
-		<header className="app-header full">
+		<header className="app-header full" ref={headerRef}>
 			<nav className='nav-bar'>
 				<NavLink to="/" className="logo-header">
 					<span className="icon">{appHeaderSvg.logo}</span>
-					<span className="brand">airbnb</span>
+					<span className="brand">clubnb</span>
 				</NavLink>
 				{/* <NavLink to="about">About</NavLink> */}
 				<NavLink to="stay">Stays</NavLink>
@@ -62,8 +86,10 @@ export function AppHeader() {
 				)} */}
 			</nav>
 
-			<SearchBar />
-				
+			<div className="expanded-header-search">
+				<SearchBar initialModal={initialModal} />
+			</div>
+
 		</header>
 	)
 }

@@ -8,9 +8,9 @@ import { useDateRange } from "../customHooks/useDateRange";
 import { GuestSelector } from "./GuestSelector";
 import { formatDate } from '../services/util.service'
 
-export function SearchBar() {
+export function SearchBar({ initialModal = null }) {
     const [searchParams, setSearchParams] = useSearchParams()
-    const [activeModal, setActiveModal] = useState(null)
+    const [activeModal, setActiveModal] = useState(initialModal)
     const { dateRange, setDateRange } = useDateRange()
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
     const [destination, setDestination] = useState(null)
@@ -54,6 +54,12 @@ export function SearchBar() {
             description: "For sights like Trevi Fountain",
         },
     ]
+
+    useEffect(() => {
+        if (initialModal) {
+            setActiveModal(initialModal);
+        }
+    }, [initialModal])
 
     useEffect(() => {
         const destinationParam = searchParams.get('destination')
