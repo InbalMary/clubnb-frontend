@@ -582,20 +582,18 @@ export function StayDetails() {
               </section>
             </div>
           </div>
-
-          <div className="review-section">
-            <StayRating reviews={demoStay.reviews} />
-            <div className="border"></div>
-
-            <StayReviewList reviews={demoStay.reviews} />
-          </div>
         </div >
 
 
       </section >
-      {/* <div className="rating-container"> */}
 
-      {/* </div> */}
+{/* NEED TO FIX STYLING X_X */}
+          <div className="review-section">
+            {/* <StayRating reviews={demoStay.reviews} /> */}
+            <div className="border"></div>
+
+            <StayReviewList reviews={demoStay.reviews} />
+          </div>
     </div >
   )
 }
