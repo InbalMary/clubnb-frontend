@@ -51,6 +51,7 @@ export function RootCmp() {
     }
 
     const handleCollapse = () => {
+        if (window.scrollY <= 10) return
         setIsExpanded(false)
         setInitialModal(null)
     }
