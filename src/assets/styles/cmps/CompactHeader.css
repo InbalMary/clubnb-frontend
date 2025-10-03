@@ -10,7 +10,7 @@
 }
 
 .compact-header-content {
-    /* max-width: 1760px; */
+    max-width: 1760px;
     margin: 0 auto;
     height: 100%;
     /* padding: 0 3rem;
@@ -199,4 +199,13 @@ body:has(.compact-header) .stay-index {
 
 body:has(.app-header) .stay-index {
     margin-block-start: 0;
+}
+
+body:has(.compact-header) .stay-details {
+    margin-block-start: 5rem;
+    padding-inline: 3rem;
+}
+
+.compact-header.no-sticky {
+    position: absolute;
 }
