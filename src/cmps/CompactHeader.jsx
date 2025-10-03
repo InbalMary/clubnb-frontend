@@ -3,7 +3,7 @@ import { appHeaderSvg } from "./Svgs";
 
 export function CompactHeader({ onSearchClick, isSticky }) {
     return (
-        <header className={`compact-header ${!isSticky ? 'no-sticky' : ''}`}>
+        <header className={`compact-header full ${!isSticky ? 'no-sticky' : ''}`}>
             <div className="compact-header-content">
                 <NavLink to="/" className="logo-header">
                     <span className="icon">{appHeaderSvg.logo}</span>
