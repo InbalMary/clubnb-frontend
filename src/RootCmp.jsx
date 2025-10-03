@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
@@ -22,26 +22,46 @@ import { CompactHeader } from './cmps/CompactHeader.jsx'
 
 
 export function RootCmp() {
-    const [isExpanded, setIsExpanded] = useState(false);
-    const [initialModal, setInitialModal] = useState(null);
+    const [isExpanded, setIsExpanded] = useState(true)
+    const [initialModal, setInitialModal] = useState(null)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY
+
+            if (currentScrollY > 50 && isExpanded && !initialModal) {
+                setIsExpanded(false)
+            }
+            else if (currentScrollY <= 10 && !isExpanded && !initialModal) {
+                setIsExpanded(true)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, [isExpanded, initialModal])
 
     const handleSearchClick = (modalType) => {
-        setInitialModal(modalType);
-        setIsExpanded(true);
-    };
+        setInitialModal(modalType)
+        setIsExpanded(true)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
 
     const handleCollapse = () => {
-        setIsExpanded(false);
-        setInitialModal(null);
-    };
+        setIsExpanded(false)
+        setInitialModal(null)
+    }
 
     return (
         <div className="main-container">
             {!isExpanded ? (
                 <CompactHeader onSearchClick={handleSearchClick} />
             ) : (
-                <AppHeader 
-                    initialModal={initialModal} 
+                <AppHeader
+                    initialModal={initialModal}
                     onCollapse={handleCollapse}
                 />
             )}
