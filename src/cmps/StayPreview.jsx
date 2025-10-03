@@ -4,6 +4,7 @@ import { svgControls } from './Svgs.jsx'
 
 export function StayPreview({ stay }) {
     // console.log('Stay received in StayPreview:', stay)
+    // console.log('first img:', stay.imgUrls?.[0])
 
     const formattedDates = formatStayDates(stay.startDate, stay.endDate)
     // console.log('dates after format:', formattedDates)
@@ -15,9 +16,11 @@ export function StayPreview({ stay }) {
 
     return <article className="stay-preview">
         <div className='stay-image-wrapper'>
+
             <Link to={`/stay/${stay._id}`} className='stay-link'>
+
                 <img
-                    src={stay.imgUrl || 'https://picsum.photos/200/200?random=1'}
+                    src={stay.imgUrls?.[0] || 'https://picsum.photos/200/200?random=1'}
                     alt={stay.name}
                     className='stay-image'
                 />
