@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DayPicker } from "react-day-picker";
+import { enUS } from 'date-fns/locale'
 
 export function DateRangePicker({ onComplete, value, activeField }) {
     const handleDateSelect = (range) => {
@@ -34,6 +35,11 @@ export function DateRangePicker({ onComplete, value, activeField }) {
                 disabled={{ before: new Date() }}
                 modifiers={modifiers}
                 modifiersClassNames={modifiersClassNames}
+                locale={enUS}
+                formatters={{
+                    formatWeekdayName: (day) =>
+                        day.toLocaleDateString("en-US", { weekday: "narrow" }) // ➝ M, T, W...
+                }}
             />
         </div>
     )

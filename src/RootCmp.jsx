@@ -1,5 +1,5 @@
-import React from 'react'
-import { Routes, Route } from 'react-router'
+import { useEffect, useState } from 'react'
+import { Routes, Route, useLocation } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
 import { AboutUs, AboutTeam, AboutVision } from './pages/AboutUs'
@@ -18,12 +18,55 @@ import { UserMsg } from './cmps/UserMsg.jsx'
 import { LoginSignup, Login, Signup } from './cmps/LoginSignup.jsx'
 import { BecomeHostForm } from './pages/BecomeHostForm.jsx'
 import { ListingEdit } from './pages/ListingEdit.jsx'
+import { CompactHeader } from './cmps/CompactHeader.jsx'
 
 
 export function RootCmp() {
+    const location = useLocation()
+    const [isExpanded, setIsExpanded] = useState(true)
+    const [initialModal, setInitialModal] = useState(null)
+
+    const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
+
+    useEffect(() => {
+        if (isStayDetailsPage) {
+            if (!initialModal) setIsExpanded(false)
+            return
+        }
+
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY
+            if (currentScrollY > 50 && isExpanded && !initialModal) {
+                setIsExpanded(false)
+            } else if (currentScrollY <= 10 && !isExpanded && !initialModal) {
+                setIsExpanded(true)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [isExpanded, initialModal, isStayDetailsPage])
+
+    const handleSearchClick = (modalType) => {
+        setInitialModal(modalType)
+        setIsExpanded(true)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
+    const handleCollapse = () => {
+        if (window.scrollY <= 10) return setIsExpanded(false)
+        setInitialModal(null)
+        setIsExpanded(false)
+    }
+
     return (
         <div className="main-container">
-            <AppHeader />
+            {!isExpanded ? (
+                <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
+            ) : (
+                <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
+            )}
+            {/* <AppHeader /> */}
             <UserMsg />
 
             <main>

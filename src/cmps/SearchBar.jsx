@@ -7,13 +7,17 @@ import { DateRangePicker } from "./DateRangePicker";
 import { useDateRange } from "../customHooks/useDateRange";
 import { GuestSelector } from "./GuestSelector";
 import { formatDate } from '../services/util.service'
+import { useSelector } from "react-redux";
+import { setFilterBy } from '../store/actions/stay.actions.js'
 
-export function SearchBar() {
+export function SearchBar({ initialModal = null }) {
+    const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+
     const [searchParams, setSearchParams] = useSearchParams()
-    const [activeModal, setActiveModal] = useState(null)
+    const [activeModal, setActiveModal] = useState(initialModal)
     const { dateRange, setDateRange } = useDateRange()
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
-    const [destination, setDestination] = useState(null)
+    const [destination, setDestination] = useState(filterBy.destination || null)
 
     const searchBarRef = useRef(null)
 
@@ -56,13 +60,19 @@ export function SearchBar() {
     ]
 
     useEffect(() => {
-        const destinationParam = searchParams.get('destination')
-        const startDate = searchParams.get('startDate')
-        const endDate = searchParams.get('endDate')
-        const adults = searchParams.get('adults')
-        const children = searchParams.get('children')
-        const infants = searchParams.get('infants')
-        const pets = searchParams.get('pets')
+        if (initialModal) {
+            setActiveModal(initialModal);
+        }
+    }, [initialModal])
+
+    useEffect(() => {
+        const destinationParam = searchParams.get('destination') || filterBy.destination?.name
+        const startDate = searchParams.get('startDate') || filterBy.startDate
+        const endDate = searchParams.get('endDate') || filterBy.endDate
+        const adults = searchParams.get('adults') || filterBy.guests?.adults
+        const children = searchParams.get('children') || filterBy.guests?.children
+        const infants = searchParams.get('infants') || filterBy.guests?.infants
+        const pets = searchParams.get('pets') || filterBy.guests?.pets
 
         if (destinationParam) {
             const dest = destinations.find(d => d.name === destinationParam)
@@ -72,52 +82,35 @@ export function SearchBar() {
         if (startDate || endDate) {
             setDateRange({
                 from: startDate ? new Date(startDate.replace(/\//g, '-')) : null,
-                to: endDate ? new Date(endDate.replace(/\//g, '-')) : null
+                to: endDate ? new Date(endDate.replace(/\//g, '-')) : null,
             })
         }
 
-        if (adults || children || infants || pets) {
-            setGuests({
-                adults: parseInt(adults) || 0,
-                children: parseInt(children) || 0,
-                infants: parseInt(infants) || 0,
-                pets: parseInt(pets) || 0
-            })
-        }
+        setGuests({
+            adults: parseInt(adults) || 0,
+            children: parseInt(children) || 0,
+            infants: parseInt(infants) || 0,
+            pets: parseInt(pets) || 0,
+        })
     }, [])
 
     useEffect(() => {
         const params = new URLSearchParams()
-
-        if (destination) {
-            params.set('destination', destination.name)
-        }
-
-        if (dateRange.from) {
-            params.set('startDate', formatDate(dateRange.from))
-        }
-
-        if (dateRange.to) {
-            params.set('endDate', formatDate(dateRange.to))
-        }
-
-        if (guests.adults > 0) {
-            params.set('adults', guests.adults.toString())
-        }
-
-        if (guests.children > 0) {
-            params.set('children', guests.children.toString())
-        }
-
-        if (guests.infants > 0) {
-            params.set('infants', guests.infants.toString())
-        }
-
-        if (guests.pets > 0) {
-            params.set('pets', guests.pets.toString())
-        }
-
+        if (destination) params.set('destination', destination.name)
+        if (dateRange.from) params.set('startDate', formatDate(dateRange.from))
+        if (dateRange.to) params.set('endDate', formatDate(dateRange.to))
+        if (guests.adults) params.set('adults', guests.adults.toString())
+        if (guests.children) params.set('children', guests.children.toString())
+        if (guests.infants) params.set('infants', guests.infants.toString())
+        if (guests.pets) params.set('pets', guests.pets.toString())
         setSearchParams(params, { replace: true })
+
+        setFilterBy({
+            destination: destination?.name,
+            startDate: dateRange.from ? formatDate(dateRange.from) : null,
+            endDate: dateRange.to ? formatDate(dateRange.to) : null,
+            guests,
+        })
     }, [destination, dateRange, guests])
 
     useEffect(() => {
@@ -146,19 +139,22 @@ export function SearchBar() {
     }
 
     const handleSearch = () => {
-        const filters = {
-            destination,
-            startDate: dateRange.from ? formatDate(dateRange.from) : null,
-            endDate: dateRange.to ? formatDate(dateRange.to) : null,
-            guests: {
-                adults: guests.adults,
-                children: guests.children,
-                infants: guests.infants,
-                pets: guests.pets,
-            }
-        }
-        console.log('Search filters:', filters)
+
         setActiveModal(null)
+    }
+ 
+    function formatGuestsText(guests) {
+        const counts = [
+            { count: guests.adults + guests.children, label: 'guest' },
+            { count: guests.infants, label: 'infant' },
+            { count: guests.pets, label: 'pet' },
+        ]
+
+        const parts = counts
+            .filter(({ count }) => count > 0)
+            .map(({ count, label }) => `${count} ${label}${count > 1 ? 's' : ''}`)
+
+        return parts.length ? parts.join(', ') : 'Add guests'
     }
 
     return (
@@ -197,12 +193,13 @@ export function SearchBar() {
                 >
                     <div className="search-content">
                         <div className="search-label">Who</div>
-                        <div className="search-placeholder">Add guests</div>
+                        <div className="search-placeholder">{formatGuestsText(guests)}</div>
                     </div>
                     <button
                         className="search-button"
                         onClick={(ev) => {
                             ev.stopPropagation()
+                            console.log('filterby', filterBy)
                             handleSearch()
                         }}
                     >
