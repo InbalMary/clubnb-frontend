@@ -19,7 +19,7 @@ export function CompactHeader({ onSearchClick, isSticky }) {
                                 onSearchClick('where')
                             }}
                         >
-                            <span className="compact-search-icon">🏠</span>
+                            <span className="compact-search-icon"><img className="anywhere-icon" src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/4aae4ed7-5939-4e76-b100-e69440ebeae4.png?im_w=240" alt="" /></span>
                             Anywhere
                         </span>
                         <span className="compact-search-divider"></span>
