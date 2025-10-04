@@ -71,12 +71,12 @@ export function RootCmp() {
 
             <main>
                 <Routes>
-                    <Route path="" element={<HomePage />} />
+                    {/* <Route path="" element={<HomePage />} />
                     <Route path="about" element={<AboutUs />}>
                         <Route path="team" element={<AboutTeam />} />
                         <Route path="vision" element={<AboutVision />} />
-                    </Route>
-                    <Route path="stay" element={<StayIndex />} />
+                    </Route> */}
+                    <Route path="" element={<StayIndex />} />
                     <Route path="stay/:stayId" element={<StayDetails />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="messages" element={<MsgIndex />} />
