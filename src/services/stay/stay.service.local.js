@@ -1,6 +1,6 @@
 
 import { storageService } from '../async-storage.service'
-import { makeId } from '../util.service'
+import { formatName, makeId } from '../util.service'
 import { userService } from '../user'
 import { demoStays } from '../../data/demo-stays'
 
@@ -92,3 +92,27 @@ async function addStayReview(stayId, txt) {
 }
 
 
+export function getAmenitiesData(amenitiesSvgs) {
+
+    const categories = ['bathroom', 'bedroom', 'bookingOptions', 'essentials', 'family', 'features', 'kitchen', 'locaion',
+      'outdoor', 'parking', 'safety', 'services', 'notIncluded']
+
+    const amenitiesArr = []
+
+    categories.forEach(category => {
+      // If category exists in amenitiesSvgs
+      if (amenitiesSvgs[category]) {
+
+        Object.keys(amenitiesSvgs[category]).forEach(item => {
+          const formattedItem = formatName(item)
+          amenitiesArr.push({
+            type: category,
+            name: formattedItem,
+            svgUrl: amenitiesSvgs[category][item]
+          })
+
+        })
+      }
+    })
+    return amenitiesArr
+  }

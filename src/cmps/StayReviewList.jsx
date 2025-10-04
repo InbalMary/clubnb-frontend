@@ -5,8 +5,7 @@ import { amenitiesSvg } from "./Svgs"
 import { StayRating } from "./StayRating"
 import { Modal } from "./Modal"
 
-export function StayReviewList({ reviews }) {
-    const [modalType, setModalType] = useState(null)
+export function StayReviewList({ reviews, isModal }) {
 
     function getStayTypeFromReview(review) {
         if (review.withKids) return "Stayed with kids"
@@ -24,7 +23,7 @@ export function StayReviewList({ reviews }) {
                             <img className="user-img" src={review.by.imgUrl} />
                             <span>
                                 <h3>{review.by.fullname}</h3>
-                                <span className="years">{getRandomIntInclusive(1, 7)} years on CluBnB</span>
+                                <span className="years">{getRandomIntInclusive(1, 7)} years on Clubnb</span>
                             </span>
                         </div>
                         <div className="pre">
@@ -38,25 +37,12 @@ export function StayReviewList({ reviews }) {
                             <span className="dot" />
                             <span className="light"> {getStayTypeFromReview(review)}</span>
                         </div>
-                        <span className="txt"><LongTxt children={review.txt} length={100} /></span>
+                        <span className="txt"><LongTxt children={review.txt} length={isModal ? 1000 : 100} /></span>
                     </li>
 
                 )}
             </ul>
-            <button onClick={() => setModalType('reviews')} className="open-modal">Show all {reviews.length} reviews</button>
 
-            <Modal
-                isOpen={modalType !== null}
-                onClose={() => setModalType(null)}
-                header={<button onClick={() => setModalType(null)} className="close-modal">{amenitiesSvg.x}</button>}>
-
-                {modalType === 'reviews' &&
-                    <div className="reviews-in-modal">
-                        <StayRating reviews={reviews} />
-                        <StayReviewList reviews={reviews}/>
-                    </div>
-                }
-            </Modal>
         </section>
     )
 }

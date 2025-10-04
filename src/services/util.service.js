@@ -75,11 +75,11 @@ export function calculateNights(startDate, endDate) {
     return diffInMs / (1000 * 60 * 60 * 24) // res: number of nights
 }
 
-export function getRandomItems(array) {
+export function getRandomItems(array, length) {
     const result = [];
     const availableItems = [...array]; // Copy array to avoid mutating original
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < length; i++) {
         if (availableItems.length === 0) break; // Break if we run out of items
         const idx = getRandomIntInclusive(0, availableItems.length - 1);
         result.push(availableItems.splice(idx, 1)[0]) // Remove the item from the availableItems
@@ -93,4 +93,15 @@ export function formatDate(date) {
     const month = String(date.getMonth() + 1).padStart(2, '0')
     const day = String(date.getDate()).padStart(2, '0')
     return `${year}-${month}-${day}`
+}
+
+export function formatName(str) {
+    return str
+        .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // Add space between lowercase and uppercase letters
+        .replace(/([A-Z])/, (match) => match.toLowerCase()) // Lowercase all the uppercase letters
+        .replace(/(^.)/, (match) => match.toUpperCase()) // Capitalize the first letter
+}
+
+export function capitalizeFirst(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
 }

@@ -1,18 +1,17 @@
 .reviews-section {
-    padding-block: 4rem;
+    padding-block-start: 3rem;
 
     .review-list {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        /* grid-template-rows: repeat(auto); */
-        gap: .5em;
+        grid-template-columns: minmax(auto, 471px) minmax(auto, 471px);
+        gap: 1em;
 
         .stay-review {
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            width: 450px;
-            flex:1;
+            flex: 1;
+            margin-right: 94px;
 
             .mini-user {
                 display: flex;
@@ -65,3 +64,4 @@
 
     }
 }
+

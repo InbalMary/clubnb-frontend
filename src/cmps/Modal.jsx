@@ -24,7 +24,7 @@ export function Modal({ header, footer, children, isOpen, onClose, closePosition
                     {svgControls.closeModal}
                 </button>
                 {header && <header>{header}</header>}
-                <main>{children}</main>
+                <main className="main-modal">{children}</main>
                 {footer && <footer>{footer}</footer>}
 
             </section>
