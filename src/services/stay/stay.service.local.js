@@ -26,23 +26,61 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
 
     const { txt, minPrice, sortField, sortDir } = filterBy
 
-    if (txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.description))
+    if (filterBy.destination) {
+        const regex = new RegExp(filterBy.destination, 'i')
+        stays = stays.filter(stay => 
+            regex.test(stay.name) || 
+            regex.test(stay.summary) ||
+            regex.test(stay.loc?.address) || 
+            regex.test(stay.loc?.city) || 
+            regex.test(stay.loc?.country) ||
+            regex.test(`${stay.loc?.city}, ${stay.loc?.country}`)
+        )
     }
+
+    if (txt) {
+        const regex = new RegExp(txt, 'i')
+        stays = stays.filter(stay => 
+            regex.test(stay.name) || 
+            regex.test(stay.summary) ||
+            regex.test(stay.loc?.address) || 
+            regex.test(stay.loc?.city) || 
+            regex.test(stay.loc?.country)
+        )
+    }
+
     if (minPrice) {
         stays = stays.filter(stay => stay.price >= minPrice)
     }
+
     if (sortField === 'name') {
         stays.sort((stay1, stay2) =>
-            stay1[sortField].localeCompare(stay2[sortField]) * +sortDir)
+            stay1.name.localeCompare(stay2.name) * +sortDir)
     }
     if (sortField === 'price') {
         stays.sort((stay1, stay2) =>
-            (stay1[sortField] - stay2[sortField]) * +sortDir)
+            (stay1.price - stay2.price) * +sortDir)
     }
 
-    stays = stays.map(({ _id, name, price, owner, startDate, endDate, imgUrls, type }) => ({ _id, name, price, owner, startDate, endDate, imgUrls, type }))
+    stays = stays.map(stay => ({
+        _id: stay._id,
+        name: stay.name,
+        type: stay.type,
+        imgUrls: stay.imgUrls,
+        price: stay.price,
+        summary: stay.summary,
+        capacity: stay.capacity,
+        bathrooms: stay.bathrooms,
+        bedrooms: stay.bedrooms,
+        roomType: stay.roomType,
+        startDate: stay.startDate,
+        endDate: stay.endDate,
+        host: stay.host,
+        loc: stay.loc,
+        reviews: stay.reviews,
+        likedByUsers: stay.likedByUsers
+    }))
+
     return stays
 }
 

@@ -27,6 +27,8 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
         const inputValue = ev.target.value
         setQuery(inputValue)
 
+        onDestinationSelect?.({ name: inputValue })
+
         if (inputValue === "") {
             setSuggestions(destinations)
         } else {
@@ -34,6 +36,12 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
                 dest.name.toLowerCase().includes(inputValue.toLowerCase())
             )
             setSuggestions(filtered)
+        }
+    }
+
+    const handleBlur = () => {
+        if (whereQuery && whereQuery.trim() !== "") {
+            onDestinationSelect?.({ name: whereQuery })
         }
     }
 
@@ -53,6 +61,7 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
                 placeholder="Search destinations"
                 value={whereQuery}
                 onChange={handleInputChange}
+                onBlur={handleBlur}
                 onFocus={() => {
                     onOpenChange(true)
                     setSuggestions(destinations)
