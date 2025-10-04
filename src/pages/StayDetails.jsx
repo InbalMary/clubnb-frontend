@@ -15,7 +15,8 @@ import { DateRangePicker } from '../cmps/DateRangePicker'
 import { ReDateRangePicker } from '../cmps/ReDateRangePicker'
 import { StayRating } from '../cmps/StayRating'
 import { StayReviewList } from '../cmps/StayReviewList'
-import { AmenitiesShortList } from '../cmps/AmenitiesShortList'
+import { AmenitiesLongList,AmenitiesShortList, Capacity, Highlights, MiniHost, SleepingRooms, SmallRating, StayImgs } from '../cmps/SmallComponents'
+import { getAmenitiesData } from '../services/stay/stay.service.local'
 
 const demoStay = {
   _id: "Ytcqd",
@@ -317,89 +318,11 @@ export function StayDetails() {
   }, [modifiers]
   )
 
-
   const handleDateComplete = (range) => {
     setDateRange(range)
   }
 
-  function formatName(str) {
-    return str
-      .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // Add space between lowercase and uppercase letters
-      .replace(/([A-Z])/, (match) => match.toLowerCase()) // Lowercase all the uppercase letters
-      .replace(/(^.)/, (match) => match.toUpperCase()) // Capitalize the first letter
-  }
-
-  function getAvgRate(reviews) {
-    let totalSum = 0
-    let totalReviews = 0
-
-    reviews.forEach((review) => {
-      const rates = Object.values(review.rate).reduce((sum, currentValue) => sum + currentValue, 0)
-
-      const avgRateForReview = rates / Object.values(review.rate).length
-
-      totalSum += avgRateForReview
-      totalReviews += 1
-    })
-    const avgRate = totalSum / totalReviews
-    const roundedAverage = avgRate.toFixed(2)
-    return roundedAverage
-  }
-
-  function getHostingTime(host) {
-    const currentDate = new Date(Date.now())
-    const signupDate = new Date(host.signupDate)
-    const yearsDifference = currentDate.getFullYear() - signupDate.getFullYear()
-    const monthsDifference = currentDate.getMonth() - signupDate.getMonth()
-
-    if (yearsDifference >= 1) {
-      return `${yearsDifference} years`
-    } else {
-      return `${monthsDifference} months`
-    }
-  }
-
-  function capitalizeFirst(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1)
-  }
-
-  function getAmenitiesData(amenitiesSvgs) {
-
-    const categories = ['bathroom', 'bedroom', 'bookingOptions', 'essentials', 'family', 'features', 'kitchen', 'locaion',
-      'outdoor', 'parking', 'safety', 'services', 'notIncluded']
-
-    const amenitiesArr = []
-
-    categories.forEach(category => {
-      // If category exists in amenitiesSvgs
-      if (amenitiesSvgs[category]) {
-
-        Object.keys(amenitiesSvgs[category]).forEach(item => {
-          const formattedItem = formatName(item)
-          amenitiesArr.push({
-            type: category,
-            name: formattedItem,
-            svgUrl: amenitiesSvgs[category][item]
-          })
-
-        })
-      }
-    })
-    return amenitiesArr
-  }
   const amenitiesData = getAmenitiesData(amenitiesSvg)
-  // console.log('amenitiesData:', amenitiesData)
-
-  const groupedAmenities = amenitiesData.reduce((acc, amenity) => {
-    const { type } = amenity
-    if (!acc[type]) {
-      acc[type] = []
-    }
-    acc[type].push(amenity)
-    return acc
-  }, {})
-
-  // console.log('groupedAmenities:', groupedAmenities)
 
   useEffect(() => {
     loadStay(params.stayId)
@@ -413,62 +336,28 @@ export function StayDetails() {
 
         <div className="main-content">
           <h1>{demoStay.name}</h1>
-          <section className="details-imgs">
-            {demoStay.imgUrls.map((url, idx) =>
-              <div key={url} className={`img-container img-${idx + 1}`}><img src={url} /></div>
-            )}
-          </section>
+
+          <StayImgs stay={demoStay} />
+
           <div className="details-container">
             <div className="content">
 
               <section className="main-info">
 
                 <div className="first-block">
-
                   <h2 className="stay-name">{demoStay.roomType} in {demoStay.loc.city},  {demoStay.loc.country}</h2>
-                  <div className="capacity">
-
-                    <span className="">{demoStay.guests} {demoStay.guests === 1 ? "guest" : "guests"}</span>
-                    <span className="dot " />
-                    <span className="">{demoStay.bedrooms} {demoStay.bedrooms === 1 ? "bedroom" : "bedrooms"}</span>
-                    <span className="dot " />
-                    <span className="">{demoStay.beds} {demoStay.beds === 1 ? "bed" : "beds"}</span>
-                    <span className="dot " />
-                    <span className="">{demoStay.bathrooms} {demoStay.bathrooms === 1 ? "bathroom" : "bathrooms"}</span>
-                  </div>
-                  <div className="rating">
-                    <span className="rate">{amenitiesSvg.rate}</span>
-                    <span className="avg">{getAvgRate(demoStay.reviews)}</span>
-                    <span className="dot" />
-                    <span className="link"><Link to={`stay/${demoStay._id}/review`}>{demoStay.reviews.length} {demoStay.reviews.length === 1 ? 'review' : 'reviews'}</Link></span>
-                  </div>
+                  <Capacity stay={demoStay} />
+                  <SmallRating stay={demoStay} />
                 </div>
 
                 <div className="border"></div>
+                
+                <MiniHost stay={demoStay} />
 
-                <div className="mini-host flex">
-                  <img className="host-img" src={demoStay.host.pictureUrl} />
-                  <span>
-                    <h3>Hosted by {demoStay.host.fullname}</h3>
-                    <span className="light"> {demoStay.host.isSuperhost ? "Superhost" : ''} <span className="dot light" /> </span>
-                    <span className="light">{getHostingTime(demoStay.host)} hosting</span>
-                  </span>
-                </div>
                 <div className="border"></div>
 
-                <div className="highlights">
-                  <ul>
-                    {demoStay.highlights.map(hightLight =>
-                      <li key={hightLight.main}>
-                        <span className="highlight-icon">{hightLight.imgUrl}</span>
-                        <div>
-                          <h3>{hightLight.main}</h3>
-                          <span className="light"> {hightLight.sub}</span>
-                        </div>
-                      </li>
-                    )}
-                  </ul>
-                </div>
+                <Highlights stay={demoStay} />
+
                 <div className="border"></div>
 
                 <span className="summary">
@@ -480,20 +369,8 @@ export function StayDetails() {
 
                 <div className="border"></div>
 
-                <div className="beds-container">
-                  <h2>Where you'll sleep</h2>
-                  <div className="bedrooms">
-                    {demoStay.rooms.map((room, idx) =>
-                      <div key={room + idx} className="bedroom">
-                        <div className="img">
-                          <img key={room.imgUrl} src={room.imgUrl || amenitiesSvg.bedroom.doubleBed} />
-                        </div>
-                        <div key={room.roomType} className="bold">{capitalizeFirst(room.roomType)}</div>
-                        <span className="light" key={room.bedType}>1 {room.bedType}</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
+                <SleepingRooms stay={demoStay} />
+
                 <div className="border"></div>
 
                 <div className="amenities">
@@ -502,88 +379,59 @@ export function StayDetails() {
                     <AmenitiesShortList amenitiesData={amenitiesData} />
 
                     <button onClick={() => setModalType('amenities')} className="open-modal">Show all {amenitiesData.length} amenities</button>
-
-                    <Modal
-                      header=" "
-                      isOpen={modalType !== null}
-                      onClose={() => setModalType(null)}
-                      closePosition="left"
-                      className={`${modalType === 'reviews' ? 'reviews-rating-modal' : 'modal-popup'}`}
-                    >
-                      {modalType === 'reviews' &&
-                        <div className="reviews-in-modal">
-                          <StayRating reviews={demoStay.reviews} />
-                          <StayReviewList reviews={demoStay.reviews} isModal={true} />
-                        </div>
-                      }
-
-                      {modalType === 'amenities' && (
-                        <>
-                          <h2>What this place offers</h2>
-
-                          <ul className="types-list">
-                            {
-                              Object.entries(groupedAmenities).map(([type, amenities]) => (
-                                <li className="type" key={type}>
-
-                                  <h3>{capitalizeFirst(type)}</h3>
-                                  <ul className="amenities-list">
-                                    {amenities.map(amenity => {
-                                      return (
-                                        <>
-                                          <li className="amenity flex" >
-                                            <span key={amenity.name + 1}>
-                                              {amenity.svgUrl}
-                                            </span>
-                                            <span>{amenity.name}</span>
-                                          </li>
-                                          <div className="border"></div>
-                                        </>
-
-                                      )
-                                    })}
-                                  </ul>
-                                </li>
-                              ))
-
-                            }
-                          </ul>
-                        </>
-                      )
-                      }
-
-                      {modalType === 'summary' &&
-                        <>
-                          <h1>About this place</h1>
-
-                          {<div className="summary">
-                            {demoStay.summary
-                              .split('\n')
-                              .filter(line => line.trim() !== '')
-                              .map((line, idx) => (
-                                <p key={idx}>{line.trim()}</p>
-                              ))}
-                          </div>}
-                        </>
-                      }
-                    </Modal>
-
                   </div>
                 </div>
+
+                <Modal
+                  header=" "
+                  isOpen={modalType !== null}
+                  onClose={() => setModalType(null)}
+                  closePosition="left"
+                  className={`${modalType === 'reviews' ? 'reviews-rating-modal' : 'modal-popup'}`}>
+
+                  {modalType === 'reviews' &&
+                    <div className="reviews-in-modal">
+                      <StayRating reviews={demoStay.reviews} />
+                      <StayReviewList reviews={demoStay.reviews} isModal={true} />
+                    </div>
+                  }
+
+                  {modalType === 'amenities' && (
+                    <>
+                      <h2>What this place offers</h2>
+                      <AmenitiesLongList amenitiesData={amenitiesData} />
+                    </>
+                  )
+                  }
+
+                  {modalType === 'summary' &&
+                    <>
+                      <h1>About this place</h1>
+                      {<div className="summary">
+                        {demoStay.summary
+                          .split('\n')
+                          .filter(line => line.trim() !== '')
+                          .map((line, idx) => (
+                            <p key={idx}>{line.trim()}</p>
+                          ))}
+                      </div>}
+                    </>
+                  }
+                </Modal>
+
                 <div className="border"></div>
 
                 <div className="details-calendar" >
                   <h2>{numNights} {numNights === 1 ? 'night' : 'nights'} in {demoStay.loc.city} </h2>
                   <span className="light">{new Date(startDate).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} - </span>
                   <span className="light">{new Date(endDate).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                 
                   <ReDateRangePicker
                     value={dateRange}
-                    onComplete={handleDateComplete}
-                  />
+                    onComplete={handleDateComplete} />
                 </div>
+                
                 <div className="border"></div>
-
-
               </section>
             </div>
           </div>
@@ -595,16 +443,6 @@ export function StayDetails() {
             <button onClick={() => setModalType('reviews')} className="open-modal">Show all {demoStay.reviews.length} reviews</button>
           </div>
 
-
-          {/* <Modal
-            header=" "
-            isOpen={modalType !== null}
-            onClose={() => setModalType(null)}
-            closePosition="left"
-            
-          >
-          
-          </Modal> */}
         </div >
 
 

@@ -94,3 +94,14 @@ export function formatDate(date) {
     const day = String(date.getDate()).padStart(2, '0')
     return `${year}-${month}-${day}`
 }
+
+export function formatName(str) {
+    return str
+        .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // Add space between lowercase and uppercase letters
+        .replace(/([A-Z])/, (match) => match.toLowerCase()) // Lowercase all the uppercase letters
+        .replace(/(^.)/, (match) => match.toUpperCase()) // Capitalize the first letter
+}
+
+export function capitalizeFirst(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+}

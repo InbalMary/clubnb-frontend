@@ -53,7 +53,7 @@
         grid-template-rows: repeat(2, 1fr);
         max-height: 378px;
         width: 100%;
-         gap: 8px;
+        gap: 8px;
         border-radius: 10px;
         overflow: hidden;
 
@@ -73,6 +73,11 @@
     .details-container .content .main-info {
         .first-block {
             padding-block: 2rem;
+
+            .capacity {
+                display: flex;
+                gap: 4px;
+            }
         }
 
         .rating {
@@ -190,7 +195,7 @@
 
             .amenities-list .amenity {
                 padding-block: 1.5rem;
-                gap: 1rem;          
+                gap: 1rem;
             }
         }
     }
