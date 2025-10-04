@@ -1,4 +1,4 @@
-import { StayPreview } from './stayPreview'
+import { StayPreview } from './StayPreview'
 import { Carousel } from './Carousel'
 import { svgControls } from './Svgs'
 
