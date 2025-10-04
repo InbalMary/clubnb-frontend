@@ -77,37 +77,40 @@ export function StickyContainer(initialModal = null) {
                     onClick={() => setActiveModal('checkout')}
                 />
             </span >
+            <span className="guest-wrapper">
 
-            <div
-                className={`search-section search-section-who ${activeModal === 'who' ? 'active' : ''}`}
-                onClick={() => setActiveModal("who")}
-            >
-                <div className="search-content">
-                    <div className="search-label">Who</div>
-                    <div className="search-placeholder">{formatGuestsText(guests)}</div>
-                </div>
-                </div>
-                
-                {(activeModal === "checkin" || activeModal === "checkout") && (
-                    <div ref={modalRef} className="modal">
-                        <CalendarStayDates startDate={startDate} endDate={endDate} />
-                        <DateRangePicker
-                            value={dateRange}
-                            onComplete={handleDateComplete}
-                            activeField={activeModal}
-                        />
+                <div
+                    className={`search-section search-section-who ${activeModal === 'who' ? 'active' : ''}`}
+                    onClick={() => setActiveModal("who")}
+                >
+                    <div className="search-content">
+                        <div className="search-label">Who</div>
+                        <div className="search-placeholder">{formatGuestsText(guests)}</div>
                     </div>
-                )}
+                </div>
+            </span>
 
-                {activeModal === "who" && (
-                    <div className="guest-modal-content">
-                        <GuestSelector
-                            onGuestsChange={setGuests}
-                            initialGuests={guests}
-                        />
-                    </div>
-                )}
+            {(activeModal === "checkin" || activeModal === "checkout") && (
+                <div ref={modalRef} className="modal">
+                    <CalendarStayDates startDate={startDate} endDate={endDate} />
+                    <DateRangePicker
+                        value={dateRange}
+                        onComplete={handleDateComplete}
+                        activeField={activeModal}
+                    />
+                </div>
+            )}
 
-            </div>
-            )
+            {activeModal === "who" && (
+                <div className="guest-modal-content">
+                    <GuestSelector
+                        onGuestsChange={setGuests}
+                        initialGuests={guests}
+                    />
+                </div>
+            )}
+
+            <button className="pink">Check availability</button>
+        </div>
+    )
 }
