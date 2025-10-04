@@ -13,7 +13,7 @@ export function UserMsg() {
 				timeoutIdRef.current = null
 				clearTimeout(timeoutIdRef.current)
 			}
-			timeoutIdRef.current = setTimeout(closeMsg, 3000)
+			timeoutIdRef.current = setTimeout(closeMsg, 20000)
 		})
 
 		socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, review => {
@@ -30,13 +30,26 @@ export function UserMsg() {
 		setMsg(null)
 	}
 
-    function msgClass() {
-        return msg ? 'visible' : ''
-    }
+	function msgClass() {
+		return msg ? 'visible' : ''
+	}
 	return (
 		<section className={`user-msg ${msg?.type} ${msgClass()}`}>
-			<button onClick={closeMsg}>x</button>
-			{msg?.txt}
+			<div className='msg-main'>
+				{msg?.imgUrl && (
+					<div className="user-msg-img">
+						<img src={msg.imgUrl} alt="stay preview" />
+					</div>
+				)}
+				<div className='msg-text'>{msg?.txt}</div>
+				{msg?.txt?.includes('Saved to wishlist') && (
+					<button className='user-msg-action' onClick={() => console.log('TODO later: open user wishlist select')}>
+						Change</button>
+					// <button onClick={closeMsg}>x</button>
+				)}
+			</div>
+
+
 		</section>
 	)
 }
