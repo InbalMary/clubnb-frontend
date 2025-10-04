@@ -61,7 +61,7 @@
             display: block;
         }
 
-        & .img-1 {
+        .img-1 {
             grid-row: span 2;
             grid-column: span 2;
         }
@@ -78,10 +78,10 @@
             align-items: center;
             gap: 4px;
             margin-top: .5rem;
+        }
 
-            span.avg {
-                font-size: 17px;
-            }
+        .avg {
+            font-size: 17px;
         }
 
         .mini-host {
@@ -174,21 +174,6 @@
             }
         }
 
-        .rating.big {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-
-            span.dot.bold::before {
-                font-size: 1.575rem;
-            }
-
-            .bold,
-            .avg.bold {
-
-                font-size: 1.575rem;
-            }
-        }
     }
 
     .types-list {
@@ -208,4 +193,6 @@
     }
 
 
-}
+
+   
+    }

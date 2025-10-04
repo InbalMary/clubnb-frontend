@@ -3,8 +3,9 @@ import { DayPicker } from "react-day-picker"
 import { enUS } from 'date-fns/locale'
 import { useEffect, useState } from "react"
 import { useSearchParams } from 'react-router'
+import { DateRangePicker } from './DateRangePicker'
 
-export function ReDateRangePicker({ value, onChange, onComplete }) {
+export function ReDateRangePicker({ value, onComplete }) {
     const [range, setRange] = useState(value || { from: undefined, to: undefined })
 
     const [searchParams, setSearchParams] = useSearchParams()
@@ -41,7 +42,7 @@ export function ReDateRangePicker({ value, onChange, onComplete }) {
 
         if (newRange?.from && newRange?.to) {
             onComplete?.(newRange)
-            onClose?.()
+            // onClose?.()
         }
     }
 
@@ -55,7 +56,7 @@ export function ReDateRangePicker({ value, onChange, onComplete }) {
             }
         }
     }
-    
+
     return (
         <div className="date-container">
             <DayPicker
@@ -67,5 +68,30 @@ export function ReDateRangePicker({ value, onChange, onComplete }) {
             {/* <button onClick={onClose} className="close-picker">Close</button> */}
         </div>
     )
+    // const [dateRange, setDateRange] = useState({ from: null, to: null })
+    // const [activeField, setActiveField] = useState('checkin')
+    // const handleDateComplete = (range) => {
+    //     setDateRange(range)
+    //     if (activeField === 'checkin' && range.from && !range.to) {
+    //         setActiveField('checkout')
+    //     }
+    // }
+    // return (
+    //     <div>
+    //         <button onClick={() => setActiveField('checkin')}>
+    //             Check in: {dateRange.from ? dateRange.from.toLocaleDateString() : 'Add date'}
+    //         </button>
+    //         <button onClick={() => setActiveField('checkout')}>
+    //             Check out: {dateRange.to ? dateRange.to.toLocaleDateString() : 'Add date'}
+    //         </button>
+    //         <div className="modal">
+    //             <DateRangePicker
+    //                 value={dateRange}
+    //                 onComplete={handleDateComplete}
+    //                 activeField={activeField}
+    //             />
+    //         </div>
+    //     </div>
+    // )
 
 }

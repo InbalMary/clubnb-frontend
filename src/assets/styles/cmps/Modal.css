@@ -53,7 +53,7 @@
     main {
         padding: 16px 1.825rem 1.825rem 1.825rem;
         overflow-y: auto;
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
         scrollbar-width: auto;
         scrollbar-color: var(--gray7);
     }

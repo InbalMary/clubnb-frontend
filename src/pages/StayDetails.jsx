@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { DateRangePicker } from "../cmps/DateRangePicker"
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { loadStay, addStayReview } from '../store/actions/stay.actions'
@@ -12,10 +11,10 @@ import { LongTxt } from '../cmps/LongTxt'
 import { getRandomItems } from '../services/util.service'
 import { Modal } from '../cmps/Modal'
 import { useDateRange } from '../customHooks/useDateRange'
-import { DayPicker } from 'react-day-picker'
+import { DateRangePicker } from '../cmps/DateRangePicker'
 import { ReDateRangePicker } from '../cmps/ReDateRangePicker'
-// import { useDateRange } from '../customHooks/useDateRange'
-// import { DateSelector } from '../cmps/DateSelector'
+import { StayRating } from '../cmps/StayRating'
+import { StayReviewList } from '../cmps/StayReviewList'
 
 const demoStay = {
   _id: "Ytcqd",
@@ -107,6 +106,9 @@ We recommend reading the full “The Space” section for important details abou
         location: 5,
         value: 4.5,
       },
+      nights: 8,
+      withKids: false,
+      withPet: false,
     },
     {
       at: "2016-07-28T04:00:00.000Z",
@@ -125,7 +127,10 @@ We recommend reading the full “The Space” section for important details abou
         accuracy: 4.6,
         location: 5,
         value: 4.5,
-      }
+      },
+      nights: 3,
+      withKids: true,
+      withPet: false,
     },
     {
       at: "2016-09-11T04:00:00.000Z",
@@ -144,7 +149,10 @@ We recommend reading the full “The Space” section for important details abou
         accuracy: 4.6,
         location: 5,
         value: 4.5,
-      }
+      },
+      nights: 3,
+      withKids: true,
+      withPet: false,
     },
     {
       at: "2017-01-07T05:00:00.000Z",
@@ -163,7 +171,10 @@ We recommend reading the full “The Space” section for important details abou
         accuracy: 4.6,
         location: 5,
         value: 4.5,
-      }
+      },
+      nights: 9,
+      withKids: true,
+      withPet: false,
     },
     {
       at: "2017-04-07T04:00:00.000Z",
@@ -176,13 +187,16 @@ We recommend reading the full “The Space” section for important details abou
       txt: "Great spot for the kids and family and close to beach and everything at the resort. We will definitely be back."
       ,
       rate: {
-        cleanliness: 4.4,
-        communication: 4.9,
-        checkIn: 4.4,
-        accuracy: 4.6,
-        location: 5,
-        value: 5,
-      }
+        cleanliness: 1,
+        communication: 1,
+        checkIn: 1,
+        accuracy: 1,
+        location: 1,
+        value: 1,
+      },
+      nights: 3,
+      withKids: true,
+      withPet: false,
     },
     {
       at: "2017-05-09T04:00:00.000Z",
@@ -201,7 +215,10 @@ We recommend reading the full “The Space” section for important details abou
         accuracy: 4.6,
         location: 4.8,
         value: 4.5,
-      }
+      },
+      nights: 3,
+      withKids: true,
+      withPet: false,
     },
     {
       at: "2018-02-24T05:00:00.000Z",
@@ -220,7 +237,10 @@ We recommend reading the full “The Space” section for important details abou
         accuracy: 4.6,
         location: 5,
         value: 5,
-      }
+      },
+      nights: 5,
+      withKids: false,
+      withPet: false,
     },
     {
       at: "2018-06-16T04:00:00.000Z",
@@ -239,7 +259,10 @@ We recommend reading the full “The Space” section for important details abou
         accuracy: 4.9,
         location: 5,
         value: 4.5,
-      }
+      },
+      nights: 3,
+      withKids: false,
+      withPet: true,
     },
     {
       at: "2018-06-29T04:00:00.000Z",
@@ -258,7 +281,10 @@ We recommend reading the full “The Space” section for important details abou
         accuracy: 5,
         location: 5,
         value: 4.8,
-      }
+      },
+      nights: 3,
+      withKids: false,
+      withPet: false,
     }
   ],
   likedByUsers: []
@@ -309,55 +335,6 @@ export function StayDetails() {
     const avgRate = totalSum / totalReviews
     const roundedAverage = avgRate.toFixed(2)
     return roundedAverage
-  }
-
-  function getAvgRateForCtgs(reviews, svgs) {
-    const totalPerCtg = {}
-    const countPerCtg = {}
-    const overallRatingCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
-
-    let total = 0
-    let numCtgs = 0
-
-    reviews.forEach(review => {
-      const rate = review.rate
-      if (!rate) return
-
-      for (let category in rate) {
-        const rating = rate[category]
-
-        if (!totalPerCtg[category]) {
-          totalPerCtg[category] = 0
-          countPerCtg[category] = 0
-        }
-
-        totalPerCtg[category] += rating
-        countPerCtg[category] += 1
-
-        total += rating
-        numCtgs += 1
-      }
-    })
-
-    if (numCtgs > 0) {
-      const avg = total / numCtgs
-      const roundedAvg = Math.round(avg)
-      if (overallRatingCounts[roundedAvg] !== undefined) {
-        overallRatingCounts[roundedAvg] += 1
-      }
-    }
-
-    const avgRateArr = Object.keys(totalPerCtg).map(category => {
-      const avg = parseFloat((totalPerCtg[category] / countPerCtg[category]).toFixed(2))
-      return {
-        category,
-        formattedName: formatName(category),
-        avg,
-        svg: svgs?.[category] || null
-      }
-    })
-
-    return { avgRateArr, overallRatingCounts }
   }
 
   function getHostingTime(host) {
@@ -469,7 +446,6 @@ export function StayDetails() {
                   </span>
                 </div>
                 <div className="border"></div>
-
 
                 <div className="highlights">
                   <ul>
@@ -593,46 +569,16 @@ export function StayDetails() {
                 <div className="border"></div>
 
                 <div className="details-calendar" >
-
+                  {/* <DateRangePicker value={dateRange}
+                    onComplete={handleDateComplete} /> */}
                   <ReDateRangePicker
                     value={dateRange}
                     onComplete={handleDateComplete}
                   />
                 </div>
                 <div className="border"></div>
-                <div className="rating-container">
 
-                  <div className="rating big">
-                    <span className="rate bold">{amenitiesSvg.bigRate}</span>
-                    <span className="avg bold">{getAvgRate(demoStay.reviews)} </span>
-                    <span className="dot bold" />
-                    <span className="bold"> {demoStay.reviews.length} {demoStay.reviews.length === 1 ? 'review' : 'reviews'}</span>
-                  </div>
 
-                  <section className="rating-categories">
-
-                    <ul>
-                      {
-                        getAvgRateForCtgs(demoStay.reviews, reviewSvgs).avgRateArr.map((item, index) => {
-                          return (
-
-                            <li key={index}>
-                              {item.svg && <span className="svg-icon">{item.svg}</span>}
-
-                              <span className="review-category">
-                                {item.formattedName}
-                              </span>
-                              <span className="avg-value">{item.avg}</span>
-
-                            </li>
-                          )
-                        }
-                        )}
-                    </ul>
-
-                  </section>
-
-                </div>
               </section>
             </div>
           </div>
@@ -640,6 +586,15 @@ export function StayDetails() {
 
 
       </section >
+
+{/* NEED TO FIX STYLING X_X */}
+          <div className="review-section">
+            {/* <StayRating reviews={demoStay.reviews} /> */}
+            <div className="border"></div>
+
+            <StayReviewList reviews={demoStay.reviews} />
+          </div>
     </div >
   )
 }
+

@@ -1,10 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react"
+import { useSelector } from "react-redux"
 
 export function WhereAutocomplete({ destinations, className = "", isOpen, onOpenChange, onDestinationSelect }) {
-    const [whereQuery, setQuery] = useState("")
+    const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+    const initialDestination = filterBy?.destination || ""
+
+    const [whereQuery, setQuery] = useState(initialDestination)
     const [suggestions, setSuggestions] = useState(destinations)
 
     const containerRef = useRef(null)
+
+    useEffect(() => {
+        if (isOpen && !whereQuery && initialDestination) {
+            setQuery(initialDestination)
+        }
+    }, [isOpen, initialDestination, whereQuery])
 
     const handleSelect = (dest) => {
         setQuery(dest.name)

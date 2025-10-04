@@ -1,6 +1,6 @@
 import { stayService } from '../../services/stay'
 import { store } from '../store'
-import { ADD_STAY, REMOVE_STAY, SET_STAYS, SET_STAY, UPDATE_STAY, ADD_STAY_REVIEW } from '../reducers/stay.reducer'
+import { ADD_STAY, REMOVE_STAY, SET_STAYS, SET_STAY, UPDATE_STAY, ADD_STAY_REVIEW, SET_FILTERBY } from '../reducers/stay.reducer'
 
 export async function loadStays(filterBy) {
     try {
@@ -101,6 +101,17 @@ function getCmdAddStayReview(review) {
     return {
         type: ADD_STAY_REVIEW,
         review
+    }
+}
+
+export function setFilterBy(filterBy) {
+    store.dispatch(getCmdSetFilterBy(filterBy))
+}
+
+function getCmdSetFilterBy(filterBy) {
+    return {
+        type: SET_FILTERBY,
+        filterBy,
     }
 }
 
