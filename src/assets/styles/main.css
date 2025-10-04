@@ -44,6 +44,8 @@
 @import "cmps/CompactHeader";
 @import "cmps/WishlistModal.css";
 
+@import "cmps/StayReviewList.css";
+@import "cmps/StayRating.css";
 
 
 
@@ -51,6 +53,3 @@
 
 
 @import "setup/MQ.css"
-
-@import "cmps/StayRating.css";
-@import "cmps/StayReviewList.css";

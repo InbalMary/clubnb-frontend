@@ -94,7 +94,7 @@ We recommend reading the full “The Space” section for important details abou
       by: {
         _id: "622f3407e36c59e6164fc004",
         fullname: "Kiesha",
-        imgUrl: "https://robohash.org/10711825?set=set1",
+        imgUrl: "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112363/samples/smile.jpg",
         id: "10711825"
       },
       txt: "I had a great experience working with Patty and Peter. Both were very attentive in sorting out the booking details and following up directly when I had questions. I rented a 2 bedroom unit at the Westin Villas in Maui and both the unit and property was absolutely amazing. I think we had the best unit on the resort complete with 2 outdoor patios with direct access to the beach. I would HIGHLY recommend renting with Patty and Peter.",
@@ -115,7 +115,7 @@ We recommend reading the full “The Space” section for important details abou
       by: {
         _id: "622f3403e36c59e6164fb204",
         fullname: "Chris",
-        imgUrl: "https://robohash.org/70072865?set=set1",
+        imgUrl: "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112363/samples/outdoor-woman.jpg",
         id: "70072865"
       },
       txt: "Peter quickly responded to any questions I had before, and during the trip. Will use again, highly recommend.",
@@ -137,7 +137,7 @@ We recommend reading the full “The Space” section for important details abou
       by: {
         _id: "622f3405e36c59e6164fb703",
         fullname: "Kim",
-        imgUrl: "https://robohash.org/71179725?set=set1",
+        imgUrl: "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112359/samples/two-ladies.jpg",
         id: "71179725"
       },
       txt: "We had the perfect location for a room, first floor right in front of the pool. The resort is beautiful, and the staff is so friendly! I enjoyed it so much, we talked about buying a timeshare ourselves."
@@ -159,7 +159,7 @@ We recommend reading the full “The Space” section for important details abou
       by: {
         _id: "622f3404e36c59e6164fb37f",
         fullname: "Tracy",
-        imgUrl: "https://robohash.org/65593239?set=set1",
+        imgUrl: "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112355/samples/people/smiling-man.jpg",
         id: "65593239"
       },
       txt: "Beautiful location. Patty & Peter were super helpful and easy to work with!"
@@ -181,7 +181,7 @@ We recommend reading the full “The Space” section for important details abou
       by: {
         _id: "622f3403e36c59e6164fb105",
         fullname: "Duyen",
-        imgUrl: "https://robohash.org/26215688?set=set1",
+        imgUrl: "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112364/samples/man-portrait.jpg",
         id: "26215688"
       },
       txt: "Great spot for the kids and family and close to beach and everything at the resort. We will definitely be back."
@@ -203,7 +203,7 @@ We recommend reading the full “The Space” section for important details abou
       by: {
         _id: "622f3402e36c59e6164fabbe",
         fullname: "Binh",
-        imgUrl: "https://robohash.org/117390236?set=set1",
+        imgUrl: "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112365/samples/upscale-face-1.jpg",
         id: "117390236"
       },
       txt: "The unit and the Westin offer variety of amenities you can possibly ask for. Sofa beds are very comfortable to sleep in. But there is charge for ocean view upgrade. Overall, I highly recommend to book with Patty and Peter."
@@ -225,7 +225,7 @@ We recommend reading the full “The Space” section for important details abou
       by: {
         _id: "622f3404e36c59e6164fb4af",
         fullname: "Samy",
-        imgUrl: "https://robohash.org/15143517?set=set1",
+        imgUrl: "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112366/main-sample.png",
         id: "15143517"
       },
       txt: "We spent a great week at Patty and Peter's place. The place was exactly as shown in the pictures, very comfortable, nice view, with all amenities. The resort is great with several pools, a long beach, many restaurants, and of course a lot of great activities all around."
@@ -247,7 +247,7 @@ We recommend reading the full “The Space” section for important details abou
       by: {
         _id: "622f3405e36c59e6164fb87b",
         fullname: "Breanne",
-        imgUrl: "https://robohash.org/78173091?set=set1",
+        imgUrl: "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758116976/bb3osjof90dl0t3kl0nd.png",
         id: "78173091"
       },
       txt: "This place was perfect for my family. We had plenty of room to spread out and the service could not have been any better."
@@ -269,7 +269,7 @@ We recommend reading the full “The Space” section for important details abou
       by: {
         _id: "622f3405e36c59e6164fb713",
         fullname: "Kimberly",
-        imgUrl: "https://robohash.org/100535039?set=set1",
+        imgUrl: "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112355/samples/people/smiling-man.jpg",
         id: "100535039"
       },
       txt: "We love Westin Kaanapalli",
@@ -507,62 +507,69 @@ export function StayDetails() {
 
                     <button onClick={() => setModalType('amenities')} className="open-modal">Show all {amenitiesData.length} amenities</button>
 
-
                     <Modal
+                      header="Save to wishlist"
                       isOpen={modalType !== null}
                       onClose={() => setModalType(null)}
-                      header={<button onClick={() => setModalType(null)} className="close-modal">{amenitiesSvg.x}</button>}>
+                      closePosition="left"
+                      className='modal-popup'
+                    >
+                      {/* <Modal
+                        isOpen={modalType !== null}
+                        onClose={() => setModalType(null)}
+                        header={<button onClick={() => setModalType(null)} className="close-modal">
+                          {amenitiesSvg.x}</button>}> */}
 
-                      {modalType === 'amenities' && (
+                        {modalType === 'amenities' && (
 
-                        <>
-                          <h2>What this place offers</h2>
+                          <>
+                            <h2>What this place offers</h2>
 
-                          <ul className="types-list">
-                            {
-                              Object.entries(groupedAmenities).map(([type, amenities]) => (
-                                <li className="type" key={type}>
+                            <ul className="types-list">
+                              {
+                                Object.entries(groupedAmenities).map(([type, amenities]) => (
+                                  <li className="type" key={type}>
 
-                                  <h3>{capitalizeFirst(type)}</h3>
-                                  <ul className="amenities-list">
-                                    {amenities.map(amenity => {
-                                      return (
-                                        <>
-                                          <li className="amenity flex" key={amenity.name}>
-                                            <span key={amenity.name + 1}>
-                                              {amenity.svgUrl}
-                                            </span>
-                                            <span>{amenity.name}</span>
-                                          </li>
-                                          <div className="border"></div>
-                                        </>
-                                      )
-                                    })}
-                                  </ul>
-                                </li>
-                              ))
+                                    <h3>{capitalizeFirst(type)}</h3>
+                                    <ul className="amenities-list">
+                                      {amenities.map(amenity => {
+                                        return (
+                                          <>
+                                            <li className="amenity flex" key={amenity.name}>
+                                              <span key={amenity.name + 1}>
+                                                {amenity.svgUrl}
+                                              </span>
+                                              <span>{amenity.name}</span>
+                                            </li>
+                                            <div className="border"></div>
+                                          </>
+                                        )
+                                      })}
+                                    </ul>
+                                  </li>
+                                ))
 
-                            }
-                          </ul>
-                        </>
-                      )
-                      }
+                              }
+                            </ul>
+                          </>
+                        )
+                        }
 
-                      {modalType === 'summary' &&
-                        <>
-                          <h1>About this place</h1>
+                        {modalType === 'summary' &&
+                          <>
+                            <h1>About this place</h1>
 
-                          {<div className="summary">
-                            {demoStay.summary
-                              .split('\n')
-                              .filter(line => line.trim() !== '')
-                              .map((line, idx) => (
-                                <p key={idx}>{line.trim()}</p>
-                              ))}
-                          </div>}
-                        </>
-                      }
-                    </Modal>
+                            {<div className="summary">
+                              {demoStay.summary
+                                .split('\n')
+                                .filter(line => line.trim() !== '')
+                                .map((line, idx) => (
+                                  <p key={idx}>{line.trim()}</p>
+                                ))}
+                            </div>}
+                          </>
+                        }
+                      </Modal>
 
                   </div>
                 </div>
@@ -582,18 +589,19 @@ export function StayDetails() {
               </section>
             </div>
           </div>
+
+      {/* NEED TO FIX STYLING X_X */}
+      <div className="review-section">
+        <StayRating reviews={demoStay.reviews} />
+        <div className="border"></div>
+
+        <StayReviewList reviews={demoStay.reviews} />
+      </div>
         </div >
 
 
       </section >
 
-{/* NEED TO FIX STYLING X_X */}
-          <div className="review-section">
-            {/* <StayRating reviews={demoStay.reviews} /> */}
-            <div className="border"></div>
-
-            <StayReviewList reviews={demoStay.reviews} />
-          </div>
     </div >
   )
 }
