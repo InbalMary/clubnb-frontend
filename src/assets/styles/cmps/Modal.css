@@ -95,3 +95,58 @@
 .modal-popup .close-btn.right {
     right: .9rem;
 }
+
+
+.modal-popup.reviews-rating-modal {
+    width: 1023px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-inline-start: 2rem;
+
+    .main-modal {
+        flex: 1;
+        display: flex;
+        overflow: hidden;
+        padding: 0;
+
+        .reviews-in-modal {
+            display: grid;
+            grid-template-columns: minmax(auto, 24.813rem) minmax(auto, 39.688rem);
+            grid-template-areas: "rating review";
+            width: 100%;
+
+
+            .rate-wrapper {
+                padding-inline-start: 2rem;
+                padding-inline-end: 2rem;
+                grid-area: rating;
+                overflow-y: auto;
+                overflow-x: hidden;
+                scrollbar-width: auto;
+                scrollbar-color: var(--gray7);
+            }
+
+            .reviews-section {
+                grid-area: review;
+                overflow-y: auto;
+                overflow-x: hidden;
+                padding: 1.5rem;
+                scrollbar-width: auto;
+                scrollbar-color: var(--gray7);
+
+                .review-list {
+                    display: grid;
+                    grid-template-columns: 1fr;
+
+                    .stay-review .pre h3 {
+
+                        font-size: 1rem;
+                        line-height: 1.5rem;
+
+                    }
+                }
+            }
+        }
+    }
+}

@@ -514,55 +514,55 @@ export function StayDetails() {
                       closePosition="left"
                       className='modal-popup'
                     >
-                        {modalType === 'amenities' && (
-                          <>
-                            <h2>What this place offers</h2>
+                      {modalType === 'amenities' && (
+                        <>
+                          <h2>What this place offers</h2>
 
-                            <ul className="types-list">
-                              {
-                                Object.entries(groupedAmenities).map(([type, amenities]) => (
-                                  <li className="type" key={type}>
+                          <ul className="types-list">
+                            {
+                              Object.entries(groupedAmenities).map(([type, amenities]) => (
+                                <li className="type" key={type}>
 
-                                    <h3>{capitalizeFirst(type)}</h3>
-                                    <ul className="amenities-list">
-                                      {amenities.map(amenity => {
-                                        return (
-                                          <>
-                                            <li className="amenity flex" key={amenity.name}>
-                                              <span key={amenity.name + 1}>
-                                                {amenity.svgUrl}
-                                              </span>
-                                              <span>{amenity.name}</span>
-                                            </li>
-                                            <div className="border"></div>
-                                          </>
-                                        )
-                                      })}
-                                    </ul>
-                                  </li>
-                                ))
+                                  <h3>{capitalizeFirst(type)}</h3>
+                                  <ul className="amenities-list">
+                                    {amenities.map(amenity => {
+                                      return (
+                                        <>
+                                          <li className="amenity flex" key={amenity.name}>
+                                            <span key={amenity.name + 1}>
+                                              {amenity.svgUrl}
+                                            </span>
+                                            <span>{amenity.name}</span>
+                                          </li>
+                                          <div className="border"></div>
+                                        </>
+                                      )
+                                    })}
+                                  </ul>
+                                </li>
+                              ))
 
-                              }
-                            </ul>
-                          </>
-                        )
-                        }
+                            }
+                          </ul>
+                        </>
+                      )
+                      }
 
-                        {modalType === 'summary' &&
-                          <>
-                            <h1>About this place</h1>
+                      {modalType === 'summary' &&
+                        <>
+                          <h1>About this place</h1>
 
-                            {<div className="summary">
-                              {demoStay.summary
-                                .split('\n')
-                                .filter(line => line.trim() !== '')
-                                .map((line, idx) => (
-                                  <p key={idx}>{line.trim()}</p>
-                                ))}
-                            </div>}
-                          </>
-                        }
-                      </Modal>
+                          {<div className="summary">
+                            {demoStay.summary
+                              .split('\n')
+                              .filter(line => line.trim() !== '')
+                              .map((line, idx) => (
+                                <p key={idx}>{line.trim()}</p>
+                              ))}
+                          </div>}
+                        </>
+                      }
+                    </Modal>
 
                   </div>
                 </div>
@@ -583,13 +583,30 @@ export function StayDetails() {
             </div>
           </div>
 
-      {/* NEED TO FIX STYLING X_X */}
-      <div className="review-section">
-        <StayRating reviews={demoStay.reviews} />
-        <div className="border"></div>
+          {/* NEED TO FIX STYLING X_X */}
+          <div className="review-section">
+            <StayRating reviews={demoStay.reviews} />
+            <div className="border"></div>
 
-        <StayReviewList reviews={demoStay.reviews} />
-      </div>
+            <StayReviewList reviews={demoStay.reviews} isModal={false} />
+            <button onClick={() => setModalType('reviews')} className="open-modal">Show all {demoStay.reviews.length} reviews</button>
+          </div>
+
+
+          <Modal
+            header=" "
+            isOpen={modalType !== null}
+            onClose={() => setModalType(null)}
+            closePosition="left"
+            className='reviews-rating-modal'
+          >
+            {modalType === 'reviews' &&
+              <div className="reviews-in-modal">
+                <StayRating reviews={demoStay.reviews} />
+                <StayReviewList reviews={demoStay.reviews} isModal={true} />
+              </div>
+            }
+          </Modal>
         </div >
 
 

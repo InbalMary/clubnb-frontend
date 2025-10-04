@@ -3,13 +3,15 @@
 .stay-details>* {
     font-size: 1rem;
     line-height: 1.25rem;
+    padding-inline: 5rem;
 }
 
 .main-content {
-
     h1 {
         font-size: 1.625rem;
         line-height: 1.875rem;
+        padding-block: 1.5rem;
+
     }
 
     h2 {
@@ -49,8 +51,9 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        max-height: 556px;
-        gap: 8px;
+        max-height: 378px;
+        width: 100%;
+         gap: 8px;
         border-radius: 10px;
         overflow: hidden;
 

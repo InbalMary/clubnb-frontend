@@ -1,11 +1,10 @@
-
 .main-container {
     display: grid;
     grid-template-columns: auto minmax(auto, 1280px) auto;
 
     >* {
         grid-column: 2;
-
+        
         &.full {
             grid-column: 1 / -1;
         }
@@ -17,15 +16,15 @@
     grid-template-columns: 12px 1fr 12px;
 
     @media (min-width: 624px) {
-        grid-template-columns: minmax(12px, 1fr) minmax(auto, 624px) minmax(12px, 1fr);        
+        grid-template-columns: minmax(12px, 1fr) minmax(auto, 624px) minmax(12px, 1fr);
     }
 
     @media (min-width: 784px) {
-        grid-template-columns: minmax(12px, 1fr) minmax(auto, 784px) minmax(12px, 1fr);        
+        grid-template-columns: minmax(12px, 1fr) minmax(auto, 784px) minmax(12px, 1fr);
     }
 
     @media (min-width: 1048px) {
-        grid-template-columns: minmax(12px, 1fr) minmax(auto, 1048px) minmax(12px, 1fr);        
+        /* grid-template-columns: minmax(12px, 1fr) minmax(auto, 1048px) minmax(12px, 1fr); */
     }
 
 
@@ -46,10 +45,10 @@
 .grid-container {
     display: grid;
     /* grid-template-columns: repeat(4, 1fr); */
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
     gap: 10px;
 
-    > article {
+    >article {
         border: 1px solid #ccc;
         border-radius: 6px;
         padding: 2rem;
