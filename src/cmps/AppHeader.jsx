@@ -52,9 +52,9 @@ export function AppHeader({ initialModal, onCollapse }) {
 					<span className="brand">clubnb</span>
 				</NavLink>
 				{/* <NavLink to="about">About</NavLink> */}
-				<NavLink to="stay">Stays</NavLink>
+				{/* <NavLink to="stay">Stays</NavLink> */}
 				{/* <NavLink to="chat">Chat</NavLink> */}
-				<NavLink to="messages">Messages</NavLink>
+				{/* <NavLink to="messages">Messages</NavLink> */}
 
 				{user?.isAdmin && <NavLink to="/admin">Admin</NavLink>}
 

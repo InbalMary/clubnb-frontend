@@ -3,9 +3,9 @@ export const SHOW_MSG = 'show-msg'
 function createEventEmitter() {
     const listenersMap = {}
     return {
-        on(evName, listener){
-            listenersMap[evName] = (listenersMap[evName])? [...listenersMap[evName], listener] : [listener]
-            return ()=>{
+        on(evName, listener) {
+            listenersMap[evName] = (listenersMap[evName]) ? [...listenersMap[evName], listener] : [listener]
+            return () => {
                 listenersMap[evName] = listenersMap[evName].filter(func => func !== listener)
             }
         },
@@ -22,11 +22,11 @@ export function showUserMsg(msg) {
     eventBus.emit(SHOW_MSG, msg)
 }
 
-export function showSuccessMsg(txt) {
-    showUserMsg({txt, type: 'success'})
+export function showSuccessMsg(txt, imgUrl = null) {
+    showUserMsg({ txt, type: 'success', imgUrl })
 }
-export function showErrorMsg(txt) {
-    showUserMsg({txt, type: 'error'})
+export function showErrorMsg(txt, imgUrl = null) {
+    showUserMsg({ txt, type: 'error', imgUrl })
 }
 
 window.showUserMsg = showUserMsg

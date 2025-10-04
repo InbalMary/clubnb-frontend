@@ -12,8 +12,9 @@ import { StayFilter } from '../cmps/StayFilter'
 
 export function StayIndex() {
 
-    const [ filterBy, setFilterBy ] = useState(stayService.getDefaultFilter())
+    // const [ filterBy, setFilterBy ] = useState(stayService.getDefaultFilter())
     const stays = useSelector(storeState => storeState.stayModule.stays)
+    const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
 
     useEffect(() => {
         loadStays(filterBy)

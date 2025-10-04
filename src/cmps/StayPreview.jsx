@@ -16,15 +16,15 @@ export function StayPreview({ stay }) {
 
     function onCreateWishlist() {
         console.log(stay._id, 'was added to wishlist')
-        showSuccessMsg(stay._id, 'was added to wishlist')
+        showSuccessMsg('Saved to wishlist', stay.imgUrls?.[0])
         setIsAddedToWishlist(true) // heart becomes red
         setIsWishlistModalOpen(false)
     }
 
     function onToggleWishlist() {
         if (isAddedToWishlist) {
-            console.log(stay._id, 'was removed from wishlist')
-            showSuccessMsg(`${stay._id} was removed from wishlist`)
+            console.log(stay._id, 'removed from wishlist')
+            showSuccessMsg(`Removed from wishlist`, stay.imgUrls?.[0])
             setIsAddedToWishlist(false) // heart unclicked
         } else {
             setIsWishlistModalOpen(true)

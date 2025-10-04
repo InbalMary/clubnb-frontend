@@ -4,8 +4,9 @@
     left: 0;
     right: 0;
     height: 6rem;
-    background-color: var(--gray1);
-    border-bottom: 1px solid var(--gray5);
+     background: var(--header-bg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
     z-index: 100;
 }
 
@@ -219,4 +220,8 @@ body:has(.app-header) .stay-index {
 
 body:has(.compact-header) .main-container > .stay-details {
     margin-block-start: 96px;
+}
+
+.compact-header.no-sticky {
+    position: absolute;
 }

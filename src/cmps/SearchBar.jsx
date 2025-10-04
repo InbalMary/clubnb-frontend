@@ -17,7 +17,7 @@ export function SearchBar({ initialModal = null }) {
     const [activeModal, setActiveModal] = useState(initialModal)
     const { dateRange, setDateRange } = useDateRange()
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
-    const [destination, setDestination] = useState(filterBy.destination || null)
+    const [destination, setDestination] = useState(null)
 
     const searchBarRef = useRef(null)
 
@@ -66,32 +66,50 @@ export function SearchBar({ initialModal = null }) {
     }, [initialModal])
 
     useEffect(() => {
-        const destinationParam = searchParams.get('destination') || filterBy.destination?.name
-        const startDate = searchParams.get('startDate') || filterBy.startDate
-        const endDate = searchParams.get('endDate') || filterBy.endDate
-        const adults = searchParams.get('adults') || filterBy.guests?.adults
-        const children = searchParams.get('children') || filterBy.guests?.children
-        const infants = searchParams.get('infants') || filterBy.guests?.infants
-        const pets = searchParams.get('pets') || filterBy.guests?.pets
+        const destinationParam = searchParams.get('destination')
+        const startDate = searchParams.get('startDate')
+        const endDate = searchParams.get('endDate')
+        const adults = searchParams.get('adults')
+        const children = searchParams.get('children')
+        const infants = searchParams.get('infants')
+        const pets = searchParams.get('pets')
 
-        if (destinationParam) {
-            const dest = destinations.find(d => d.name === destinationParam)
-            if (dest) setDestination(dest)
-        }
+        if (destinationParam || startDate || endDate || adults || children || infants || pets) {
+            if (destinationParam) {
+                const dest = destinations.find(d => d.name === destinationParam)
+                if (dest) setDestination(dest)
+            }
 
-        if (startDate || endDate) {
-            setDateRange({
-                from: startDate ? new Date(startDate.replace(/\//g, '-')) : null,
-                to: endDate ? new Date(endDate.replace(/\//g, '-')) : null,
+            if (startDate || endDate) {
+                setDateRange({
+                    from: startDate ? new Date(startDate.replace(/\//g, '-')) : null,
+                    to: endDate ? new Date(endDate.replace(/\//g, '-')) : null,
+                })
+            }
+
+            setGuests({
+                adults: parseInt(adults) || 0,
+                children: parseInt(children) || 0,
+                infants: parseInt(infants) || 0,
+                pets: parseInt(pets) || 0,
             })
-        }
+        } else {
+            if (filterBy.destination) {
+                const dest = destinations.find(d => d.name === filterBy.destination)
+                if (dest) setDestination(dest)
+            }
 
-        setGuests({
-            adults: parseInt(adults) || 0,
-            children: parseInt(children) || 0,
-            infants: parseInt(infants) || 0,
-            pets: parseInt(pets) || 0,
-        })
+            if (filterBy.startDate || filterBy.endDate) {
+                setDateRange({
+                    from: filterBy.startDate ? new Date(filterBy.startDate.replace(/\//g, '-')) : null,
+                    to: filterBy.endDate ? new Date(filterBy.endDate.replace(/\//g, '-')) : null,
+                })
+            }
+
+            if (filterBy.guests) {
+                setGuests(filterBy.guests)
+            }
+        }
     }, [])
 
     useEffect(() => {
@@ -106,7 +124,7 @@ export function SearchBar({ initialModal = null }) {
         setSearchParams(params, { replace: true })
 
         setFilterBy({
-            destination: destination?.name,
+            destination: destination?.name || null,
             startDate: dateRange.from ? formatDate(dateRange.from) : null,
             endDate: dateRange.to ? formatDate(dateRange.to) : null,
             guests,
@@ -139,10 +157,9 @@ export function SearchBar({ initialModal = null }) {
     }
 
     const handleSearch = () => {
-
         setActiveModal(null)
     }
- 
+
     function formatGuestsText(guests) {
         const counts = [
             { count: guests.adults + guests.children, label: 'guest' },
@@ -199,7 +216,6 @@ export function SearchBar({ initialModal = null }) {
                         className="search-button"
                         onClick={(ev) => {
                             ev.stopPropagation()
-                            console.log('filterby', filterBy)
                             handleSearch()
                         }}
                     >

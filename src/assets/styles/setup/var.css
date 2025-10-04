@@ -31,7 +31,9 @@
 
 
   /*btn Bg color2*/
-  --gray8: #f7f7f7;;
+  --gray8: #f7f7f7;
+
+  --header-bg: linear-gradient(180deg, #ffffff 39.9%, #f8f8f8 100%);
 
   /* Main bg */
   --white: #FFFFFF;

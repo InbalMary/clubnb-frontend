@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
+import { debounce } from '../services/util.service'
 
 export function WhereAutocomplete({ destinations, className = "", isOpen, onOpenChange, onDestinationSelect }) {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
@@ -10,11 +11,17 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
 
     const containerRef = useRef(null)
 
+    const debouncedSelectRef = useRef(
+        debounce((destination) => {
+            onDestinationSelect?.(destination)
+        }, 500)
+    ) 
+
     useEffect(() => {
-        if (isOpen && !whereQuery && initialDestination) {
+        if (initialDestination && whereQuery === "") {
             setQuery(initialDestination)
         }
-    }, [isOpen, initialDestination, whereQuery])
+    }, [])
 
     const handleSelect = (dest) => {
         setQuery(dest.name)
@@ -27,6 +34,8 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
         const inputValue = ev.target.value
         setQuery(inputValue)
 
+        debouncedSelectRef.current({ name: inputValue })
+
         if (inputValue === "") {
             setSuggestions(destinations)
         } else {
@@ -34,6 +43,12 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
                 dest.name.toLowerCase().includes(inputValue.toLowerCase())
             )
             setSuggestions(filtered)
+        }
+    }
+
+    const handleBlur = () => {
+        if (whereQuery && whereQuery.trim() !== "") {
+            onDestinationSelect?.({ name: whereQuery })
         }
     }
 
@@ -53,6 +68,7 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
                 placeholder="Search destinations"
                 value={whereQuery}
                 onChange={handleInputChange}
+                onBlur={handleBlur}
                 onFocus={() => {
                     onOpenChange(true)
                     setSuggestions(destinations)
