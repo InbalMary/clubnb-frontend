@@ -50,7 +50,7 @@
         padding: 1rem;
     }
 
-    main {
+    .main-modal {
         padding: 16px 1.825rem 1.825rem 1.825rem;
         overflow-y: auto;
         /* overflow-x: hidden; */
@@ -97,7 +97,7 @@
 }
 
 
-.modal-popup.reviews-rating-modal {
+.reviews-rating-modal {
     width: 1023px;
     display: flex;
     flex-direction: column;

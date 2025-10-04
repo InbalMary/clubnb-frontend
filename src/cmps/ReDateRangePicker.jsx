@@ -2,10 +2,9 @@ import { formatDate } from '../services/util.service'
 import { DayPicker } from "react-day-picker"
 import { enUS } from 'date-fns/locale'
 import { useEffect, useState } from "react"
-import { useSearchParams } from 'react-router'
-import { DateRangePicker } from './DateRangePicker'
+import { useParams, useSearchParams } from 'react-router'
 
-export function ReDateRangePicker({ value, onComplete }) {
+export function ReDateRangePicker({ value, onComplete, showDates }) {
     const [range, setRange] = useState(value || { from: undefined, to: undefined })
 
     const [searchParams, setSearchParams] = useSearchParams()
@@ -38,7 +37,7 @@ export function ReDateRangePicker({ value, onComplete }) {
 
     function handleSelect(newRange) {
         setRange(newRange)
-        onChange?.(newRange)
+        // onChange?.(newRange)
 
         if (newRange?.from && newRange?.to) {
             onComplete?.(newRange)
@@ -65,33 +64,6 @@ export function ReDateRangePicker({ value, onComplete }) {
                 onSelect={handleSelect}
                 numberOfMonths={2}
                 locale={customLocale} />
-            {/* <button onClick={onClose} className="close-picker">Close</button> */}
         </div>
     )
-    // const [dateRange, setDateRange] = useState({ from: null, to: null })
-    // const [activeField, setActiveField] = useState('checkin')
-    // const handleDateComplete = (range) => {
-    //     setDateRange(range)
-    //     if (activeField === 'checkin' && range.from && !range.to) {
-    //         setActiveField('checkout')
-    //     }
-    // }
-    // return (
-    //     <div>
-    //         <button onClick={() => setActiveField('checkin')}>
-    //             Check in: {dateRange.from ? dateRange.from.toLocaleDateString() : 'Add date'}
-    //         </button>
-    //         <button onClick={() => setActiveField('checkout')}>
-    //             Check out: {dateRange.to ? dateRange.to.toLocaleDateString() : 'Add date'}
-    //         </button>
-    //         <div className="modal">
-    //             <DateRangePicker
-    //                 value={dateRange}
-    //                 onComplete={handleDateComplete}
-    //                 activeField={activeField}
-    //             />
-    //         </div>
-    //     </div>
-    // )
-
 }

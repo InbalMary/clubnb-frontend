@@ -75,11 +75,11 @@ export function calculateNights(startDate, endDate) {
     return diffInMs / (1000 * 60 * 60 * 24) // res: number of nights
 }
 
-export function getRandomItems(array) {
+export function getRandomItems(array, length) {
     const result = [];
     const availableItems = [...array]; // Copy array to avoid mutating original
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < length; i++) {
         if (availableItems.length === 0) break; // Break if we run out of items
         const idx = getRandomIntInclusive(0, availableItems.length - 1);
         result.push(availableItems.splice(idx, 1)[0]) // Remove the item from the availableItems

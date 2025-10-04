@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -8,13 +8,14 @@ import { loadStay, addStayReview } from '../store/actions/stay.actions'
 
 import { amenitiesSvg, reviewSvgs } from '../cmps/Svgs'
 import { LongTxt } from '../cmps/LongTxt'
-import { getRandomItems } from '../services/util.service'
+import { calculateNights, getRandomItems } from '../services/util.service'
 import { Modal } from '../cmps/Modal'
 import { useDateRange } from '../customHooks/useDateRange'
 import { DateRangePicker } from '../cmps/DateRangePicker'
 import { ReDateRangePicker } from '../cmps/ReDateRangePicker'
 import { StayRating } from '../cmps/StayRating'
 import { StayReviewList } from '../cmps/StayReviewList'
+import { AmenitiesShortList } from '../cmps/AmenitiesShortList'
 
 const demoStay = {
   _id: "Ytcqd",
@@ -293,7 +294,14 @@ We recommend reading the full “The Space” section for important details abou
 
 export function StayDetails() {
 
-  const { stayId } = useParams()
+  // const { stayId } = useParams()
+  const params = useParams()
+  const [searchParams, setSearchParams] = useSearchParams()
+  const startDate = searchParams.get('startDate')
+  const endDate = searchParams.get('endDate')
+
+  const numNights = calculateNights(startDate, endDate)
+
   const stay = useSelector(storeState => storeState.stayModule.stay)
 
   const { dateRange, setDateRange } = useDateRange()
@@ -304,6 +312,7 @@ export function StayDetails() {
     checkout: dateRange.to,
     range: dateRange.from && dateRange.to ? { from: dateRange.from, to: dateRange.to } : undefined
   }
+
   useEffect(() => {
   }, [modifiers]
   )
@@ -393,8 +402,8 @@ export function StayDetails() {
   // console.log('groupedAmenities:', groupedAmenities)
 
   useEffect(() => {
-    loadStay(stayId)
-  }, [stayId])
+    loadStay(params.stayId)
+  }, [params.stayId])
 
   return (
     <div className="main-container">
@@ -490,20 +499,7 @@ export function StayDetails() {
                 <div className="amenities">
                   <div className="amenities-container">
                     <h2>What this place offers</h2>
-
-                    <ul className="amenities-short-list">
-                      {
-                        getRandomItems(amenitiesData).map(amenity => {
-                          return (
-                            <li className="amenity flex" key={amenity.name}>
-                              <span key={amenity.name + 1}>
-                                {amenity.svgUrl}
-                              </span>
-                              <span>{amenity.name}</span>
-                            </li>
-                          )
-                        })}
-                    </ul>
+                    <AmenitiesShortList amenitiesData={amenitiesData} />
 
                     <button onClick={() => setModalType('amenities')} className="open-modal">Show all {amenitiesData.length} amenities</button>
 
@@ -512,8 +508,15 @@ export function StayDetails() {
                       isOpen={modalType !== null}
                       onClose={() => setModalType(null)}
                       closePosition="left"
-                      className='modal-popup'
+                      className={`${modalType === 'reviews' ? 'reviews-rating-modal' : 'modal-popup'}`}
                     >
+                      {modalType === 'reviews' &&
+                        <div className="reviews-in-modal">
+                          <StayRating reviews={demoStay.reviews} />
+                          <StayReviewList reviews={demoStay.reviews} isModal={true} />
+                        </div>
+                      }
+
                       {modalType === 'amenities' && (
                         <>
                           <h2>What this place offers</h2>
@@ -528,7 +531,7 @@ export function StayDetails() {
                                     {amenities.map(amenity => {
                                       return (
                                         <>
-                                          <li className="amenity flex" key={amenity.name}>
+                                          <li className="amenity flex" >
                                             <span key={amenity.name + 1}>
                                               {amenity.svgUrl}
                                             </span>
@@ -536,6 +539,7 @@ export function StayDetails() {
                                           </li>
                                           <div className="border"></div>
                                         </>
+
                                       )
                                     })}
                                   </ul>
@@ -569,8 +573,9 @@ export function StayDetails() {
                 <div className="border"></div>
 
                 <div className="details-calendar" >
-                  {/* <DateRangePicker value={dateRange}
-                    onComplete={handleDateComplete} /> */}
+                  <h2>{numNights} {numNights === 1 ? 'night' : 'nights'} in {demoStay.loc.city} </h2>
+                  <span className="light">{new Date(startDate).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} - </span>
+                  <span className="light">{new Date(endDate).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                   <ReDateRangePicker
                     value={dateRange}
                     onComplete={handleDateComplete}
@@ -583,30 +588,23 @@ export function StayDetails() {
             </div>
           </div>
 
-          {/* NEED TO FIX STYLING X_X */}
           <div className="review-section">
             <StayRating reviews={demoStay.reviews} />
             <div className="border"></div>
-
             <StayReviewList reviews={demoStay.reviews} isModal={false} />
             <button onClick={() => setModalType('reviews')} className="open-modal">Show all {demoStay.reviews.length} reviews</button>
           </div>
 
 
-          <Modal
+          {/* <Modal
             header=" "
             isOpen={modalType !== null}
             onClose={() => setModalType(null)}
             closePosition="left"
-            className='reviews-rating-modal'
+            
           >
-            {modalType === 'reviews' &&
-              <div className="reviews-in-modal">
-                <StayRating reviews={demoStay.reviews} />
-                <StayReviewList reviews={demoStay.reviews} isModal={true} />
-              </div>
-            }
-          </Modal>
+          
+          </Modal> */}
         </div >
 
 
