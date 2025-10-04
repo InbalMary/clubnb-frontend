@@ -508,20 +508,13 @@ export function StayDetails() {
                     <button onClick={() => setModalType('amenities')} className="open-modal">Show all {amenitiesData.length} amenities</button>
 
                     <Modal
-                      header="Save to wishlist"
+                      header=" "
                       isOpen={modalType !== null}
                       onClose={() => setModalType(null)}
                       closePosition="left"
                       className='modal-popup'
                     >
-                      {/* <Modal
-                        isOpen={modalType !== null}
-                        onClose={() => setModalType(null)}
-                        header={<button onClick={() => setModalType(null)} className="close-modal">
-                          {amenitiesSvg.x}</button>}> */}
-
                         {modalType === 'amenities' && (
-
                           <>
                             <h2>What this place offers</h2>
 

@@ -46,14 +46,16 @@ export function StayReviewList({ reviews }) {
             <button onClick={() => setModalType('reviews')} className="open-modal">Show all {reviews.length} reviews</button>
 
             <Modal
+                header=" "
                 isOpen={modalType !== null}
                 onClose={() => setModalType(null)}
-                header={<button onClick={() => setModalType(null)} className="close-modal">{amenitiesSvg.x}</button>}>
-
+                closePosition="left"
+                className='modal-popup'
+            >
                 {modalType === 'reviews' &&
                     <div className="reviews-in-modal">
                         <StayRating reviews={reviews} />
-                        <StayReviewList reviews={reviews}/>
+                        <StayReviewList reviews={reviews} />
                     </div>
                 }
             </Modal>
