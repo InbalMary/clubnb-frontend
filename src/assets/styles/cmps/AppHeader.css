@@ -4,8 +4,10 @@
     flex-direction: column;
     min-height: 12.5rem;
 
-    background-color: var(--gray1);
+    background: var(--header-bg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     padding: 0.5rem 3rem;
+    transition: all 0.3s ease;
 
     & nav {
         display: flex;
