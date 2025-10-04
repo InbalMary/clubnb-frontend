@@ -5,6 +5,10 @@ div.border {
     border-top-style: solid !important;
 }
 
+div.divider {
+    border-right-color: 1px solid var(--gray6);
+}
+
 /* Flex helpers */
 .flex {
     display: flex;

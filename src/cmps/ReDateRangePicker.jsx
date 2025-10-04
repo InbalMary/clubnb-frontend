@@ -1,15 +1,16 @@
-import { formatDate } from '../services/util.service'
+import { calculateNights, formatDate } from '../services/util.service'
 import { DayPicker } from "react-day-picker"
 import { enUS } from 'date-fns/locale'
 import { useEffect, useState } from "react"
 import { useParams, useSearchParams } from 'react-router'
 
-export function ReDateRangePicker({ value, onComplete, showDates }) {
+export function ReDateRangePicker({ value, onComplete }) {
     const [range, setRange] = useState(value || { from: undefined, to: undefined })
 
     const [searchParams, setSearchParams] = useSearchParams()
     const startDate = searchParams.get('startDate')
     const endDate = searchParams.get('endDate')
+
 
     useEffect(() => {
         if (startDate || endDate) {

@@ -1,0 +1,101 @@
+.sticky-container {
+    position: relative;
+
+    .date-wrapper {
+        display: flex;
+        justify-self: end;
+        gap: 2px;
+        min-width: 320px;
+        border: 1px solid var(--gray3);
+        border-radius: 10px 10px 0 0;
+
+        /* overflow: hidden; */
+        div.divider {
+            border-right: 1px solid var(--gray3) !important;
+        }
+
+        >.active {
+            &:not(.search-section:nth-child(0)) {
+                border: 2px solid var(--gray3);
+                border-radius: 8px
+            }
+
+            &:first-child {
+                border-right: 2px solid var(--gray3);
+                border-radius: 8px;
+            }
+        }
+
+        div.search-section {
+            z-index: 3;
+            border-radius: 8px;
+
+            &:first-child {
+                /* border-right: 1px solid var(--gray3); */
+                border-radius: 0px;
+            }
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        div.search-section-date {
+            padding-inline: .8rem;
+            padding-block: .2rem;
+        }
+
+    }
+
+    .modal {
+        background-color: white;
+        position: absolute;
+        left: -70%;
+        top: -10px;
+        height: fit-content;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 1rem;
+
+        .calendar-date {
+            padding: 1rem;
+        }
+
+        .date-modal-content {
+            padding: 1rem;
+
+            .rdp-day.rdp-range_middle::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--gray1);
+                z-index: 1;
+            }
+
+            .rdp-day.rdp-selected .rdp-day_button {
+                z-index: 2;
+            }
+        }
+
+        .date-modal-content .rdp-day_button,
+        .rdp-weekday {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    .search-sction-who{
+
+    }
+    
+    .guest-modal-content {
+        position: absolute;
+        left: -70%;
+        top: -10px;
+        height: fit-content;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 1rem;
+    }
+}
