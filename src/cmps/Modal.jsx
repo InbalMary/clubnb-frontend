@@ -1,6 +1,9 @@
 import { Fragment } from "react"
 import { useKeyListener } from "../customHooks/useKeyListener"
-export function Modal({ header, children, isOpen, onClose }) {
+import { svgControls } from "./Svgs"
+import { Footer } from "react-day-picker"
+
+export function Modal({ header, footer, children, isOpen, onClose, closePosition = 'left', className }) {
 
     useKeyListener('Escape', () => {
         onClose()
@@ -12,9 +15,18 @@ export function Modal({ header, children, isOpen, onClose }) {
         <Fragment>
 
             <section onClick={onClose} className="backdrop"></section>
-            <section className="modal-popup">
-                <header>{header}</header>
+            <section className={`modal-popup ${className || ''}`}>
+                <button
+                    onClick={onClose}
+                    className={`close-btn ${closePosition}`}
+                    aria-label="Close modal"
+                >
+                    {svgControls.closeModal}
+                </button>
+                {header && <header>{header}</header>}
                 <main>{children}</main>
+                {footer && <footer>{footer}</footer>}
+
             </section>
 
         </Fragment>

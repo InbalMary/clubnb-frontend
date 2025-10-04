@@ -57,4 +57,41 @@
         scrollbar-width: auto;
         scrollbar-color: var(--gray7);
     }
+
+}
+
+.modal-popup .close-btn {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    width: 1.75rem;
+    height: 1.75rem;
+    top: 1rem;
+    border-radius: 50%;
+    background: transparent;
+    z-index: 10;
+}
+
+.modal-popup .close-btn svg {
+    display: block;
+    fill: none;
+    stroke: var(--gray3);
+    stroke-width: 3;
+    width: .9rem;
+    height: .9rem;
+}
+
+.modal-popup .close-btn:hover {
+    background: var(--gray8);
+}
+
+.modal-popup .close-btn.left {
+    left: .9rem;
+}
+
+.modal-popup .close-btn.right {
+    right: .9rem;
 }

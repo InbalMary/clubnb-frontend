@@ -28,8 +28,8 @@
     all: unset;
     cursor: pointer;
     position: absolute;
-    top: 15px;
-    right: 13px;
+    top: 8px;
+    right: 8px;
     width: 32px;
     height: 32px;
     display: flex;
@@ -38,7 +38,6 @@
     transition: border-color 0.2s ease, transform 0.2s ease;
 
     &:hover {
-        border-color: rgba(0, 0, 0, 0.3);
         transform: scale(1.1);
         background: none;
     }
@@ -54,6 +53,9 @@
     overflow: visible;
 }
 
+.heart-btn.active .heart-icon svg path {
+    fill: var(--primary-clr);
+}
 
 .stay-name {
     color: var(--gray3);
@@ -61,13 +63,8 @@
     font-size: 13px;
 }
 
-.stay-dates,
-.stay-details {
+.stay-card-dates,
+.stay-card-details {
     font-size: 12px;
     margin-block: 0 0.2rem;
-}
-
-.heart-btn {
-    top: 8px;
-    right: 8px;
 }

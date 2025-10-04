@@ -1,17 +1,38 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { formatStayDates, calculateNights } from '../services/util.service.js'
 import { svgControls } from './Svgs.jsx'
+import { Modal } from './Modal.jsx'
+import { is } from 'date-fns/locale'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 
 export function StayPreview({ stay }) {
-    // console.log('Stay received in StayPreview:', stay)
-    // console.log('first img:', stay.imgUrls?.[0])
+    const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
+    const [isAddedToWishlist, setIsAddedToWishlist] = useState(false)
+
+    function onCloseWishlistModal() {
+        setIsWishlistModalOpen(false)
+    }
+
+    function onCreateWishlist() {
+        console.log(stay._id, 'was added to wishlist')
+        showSuccessMsg(stay._id, 'was added to wishlist')
+        setIsAddedToWishlist(true) // heart becomes red
+        setIsWishlistModalOpen(false)
+    }
+
+    function onToggleWishlist() {
+        if (isAddedToWishlist) {
+            console.log(stay._id, 'was removed from wishlist')
+            showSuccessMsg(`${stay._id} was removed from wishlist`)
+            setIsAddedToWishlist(false) // heart unclicked
+        } else {
+            setIsWishlistModalOpen(true)
+        }
+    }
 
     const formattedDates = formatStayDates(stay.startDate, stay.endDate)
-    // console.log('dates after format:', formattedDates)
-
     const numNights = calculateNights(stay.startDate, stay.endDate)
-    // console.log('number of nights:', numNights)
-
     const totalPrice = stay.price * numNights
 
     return <article className="stay-preview">
@@ -25,9 +46,58 @@ export function StayPreview({ stay }) {
                     className='stay-image'
                 />
             </Link>
-            <button className='heart-btn' aria-label='Add to wishlist'>
+            <button
+                onClick={onToggleWishlist}
+                className={`heart-btn ${isAddedToWishlist ? 'active' : ''}`}
+                aria-label={isAddedToWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+            >
                 <span className="heart-icon">{svgControls.heart}</span>
             </button>
+            <Modal
+                header="Save to wishlist"
+                isOpen={isWishlistModalOpen}
+                onClose={onCloseWishlistModal}
+                closePosition="right"
+                className="wishlist-modal"
+                footer={
+                    <button onClick={onCreateWishlist} className='create-wishlist-btn'>
+                        Create new wishlist
+                    </button>
+                }
+            >
+                <div className='wishlist-modal'>
+                    {/* TODO later: check for existing wishlists for this user/stay and render selection here */}
+                    <ul className='wishlist-modal-list'> {/*placeholder for wishlist data*/}
+                        <li>
+                            <img src="https://a0.muscache.com/im/pictures/eaaf0e52-c8b3-49c6-b79b-51188e5fb598.jpg?im_w=720"
+                                className='wishlist-modal-img' />
+                            <span className='stay-name'>Barcelona trip</span>
+                        </li>
+                        <li>
+                            <img src="https://a0.muscache.com/im/pictures/21820279/b015a76d_original.jpg?im_w=720"
+                                className='wishlist-modal-img' />
+                            <span className='stay-name'>Berlin weekend</span>
+                        </li>
+                        <li>
+                            <img src="https://a0.muscache.com/im/pictures/a113bb3b-58db-40f1-975e-538372cab82e.jpg?im_w=720"
+                                className='wishlist-modal-img' />
+                            <span className='stay-name'>Paris</span>
+                        </li>
+                        <li>
+                            <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-38518438/original/9ee33bf2-5e7e-41e2-a643-152e26bd470e.jpeg?im_w=720"
+                                className='wishlist-modal-img' />
+                            <span className='stay-name'>London</span>
+                        </li>
+                        <li>
+                            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1508277709145554241/original/c86ae438-462e-468f-a7d5-f2d321ee8bf8.jpeg?im_w=720"
+                                className='wishlist-modal-img' />
+                            <span className='stay-name'>New York</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </Modal>
         </div>
         <div className='stay-info'>
             <header>
@@ -35,8 +105,8 @@ export function StayPreview({ stay }) {
                     {stay.name}
                 </Link>
             </header>
-            <p className='stay-dates'>{formattedDates}</p>
-            <div className='stay-details'>
+            <p className='stay-card-dates'>{formattedDates}</p>
+            <div className='stay-card-details'>
                 <span className='stay-price'>
                     ${totalPrice.toLocaleString()}{' '}for {numNights} {numNights === 1 ? 'night' : 'nights'}
                 </span>
