@@ -11,18 +11,19 @@
     display: inline-flex;
     align-items: center;
     margin: 0;
-    font-size: 20px;
+    font-size: 1.125rem;
     color: var(--gray3);
     cursor: pointer;
-    font-family: cereal-medium;
-    font-weight: 500;
+    font-family: cereal-regular;
+    font-weight: 600;
+    padding-inline-end: 0.75rem;
 }
 
 .right-pointer svg {
     display: block;
     fill: none;
-    height: 12px;
-    width: 12px;
+    height: 0.75rem;
+    width: 0.75rem;
     stroke: currentcolor;
     stroke-width: 5.33333;
     overflow: visible;
@@ -35,10 +36,10 @@
 }
 
 .stay-row {
-    padding-left: 48px;
-    padding-right: 48px;
-    margin-top: -4px;
-    margin-bottom: -8px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-top: -0.25rem;
+    margin-bottom: -0.5rem;
 }
 
 
@@ -46,6 +47,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 32px;
-    margin-bottom: 10px;
+    margin-top: 2rem;
+    margin-bottom: 0.625rem;
 }

@@ -34,8 +34,8 @@
     align-items: center;
     cursor: pointer;
 
-    width: 23px;
-    height: 23px;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     border: 1px solid var(--gray8);
     background: var(--gray8);
@@ -67,8 +67,8 @@
 .carousel-icon svg {
     display: block;
     fill: none;
-    height: 12px;
-    width: 12px;
+    height: 0.75rem;
+    width: 0.75rem;
     stroke: currentcolor;
     stroke-width: 4;
     overflow: visible;
