@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     height: 6rem;
-     background: var(--header-bg);
+    background: var(--header-bg);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     z-index: 100;
@@ -218,10 +218,18 @@ body:has(.app-header) .stay-index {
     z-index: 1000;
 }
 
-body:has(.compact-header) .main-container > .stay-details {
+body:has(.compact-header) .main-container>.stay-details {
     margin-block-start: 96px;
 }
 
 .compact-header.no-sticky {
     position: absolute;
+
+    .logo-header .icon svg {
+        margin-inline-start: 5rem;
+    }
+
+    .header-actions button[aria-label="Main menu"] {
+        margin-inline-end: 5rem;
+    }
 }

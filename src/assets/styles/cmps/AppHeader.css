@@ -136,4 +136,9 @@
             border-radius: 50%;
         }
     }
+
+    .header-actions button.hamburger-menu-btn.hamburger-wide {
+            width: 5rem ;
+            border-radius: 2rem;
+        }
 }
