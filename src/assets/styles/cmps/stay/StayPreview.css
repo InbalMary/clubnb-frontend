@@ -36,6 +36,7 @@
     align-items: center;
     justify-content: center;
     transition: border-color 0.2s ease, transform 0.2s ease;
+    z-index: 2;
 
     &:hover {
         transform: scale(1.1);
