@@ -64,6 +64,10 @@
     font-weight: 500;
     font-size: 0.813rem;
     margin-inline-start: 0.25rem;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 .stay-card-dates,
@@ -71,4 +75,21 @@
     font-size: 0.75rem;
     margin-block: 0 0.2rem;
     margin-inline-start: 0.25rem;
+}
+
+.guest-favorite-badge {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gray3);
+    background-color: var(--gray4);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 1.875rem;
+    z-index: 3;
 }

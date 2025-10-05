@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { formatStayDates, calculateNights } from '../services/util.service.js'
 import { svgControls } from './Svgs.jsx'
@@ -9,6 +9,13 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 export function StayPreview({ stay }) {
     const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
     const [isAddedToWishlist, setIsAddedToWishlist] = useState(false)
+    const [isGuestFavorite, setIsGuestFavorite] = useState(false)
+
+    useEffect(() => {
+        if (stay.rating > 4.8) {
+            setIsGuestFavorite(true)
+        }
+    }, [stay.rating])
 
     function onCloseWishlistModal() {
         setIsWishlistModalOpen(false)
@@ -53,6 +60,9 @@ export function StayPreview({ stay }) {
             >
                 <span className="heart-icon">{svgControls.heart}</span>
             </button>
+            {isGuestFavorite && (
+                <div className='guest-favorite-badge'>Guest favorite</div>
+            )}
             <Modal
                 header="Save to wishlist"
                 isOpen={isWishlistModalOpen}
