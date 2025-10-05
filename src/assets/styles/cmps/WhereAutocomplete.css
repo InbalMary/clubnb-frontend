@@ -46,6 +46,7 @@
   padding: 0.625em;
   border-radius: 24px;
   background: var(--reserve-btn-hover);
+  font-family: cereal-light;
 }
 
 .search-item-container:has(.search-section.active) .search-section-who .search-button-text {
@@ -98,7 +99,7 @@
   overflow-x: hidden;
   padding: 2rem 0;
   scrollbar-width: thin;
-  scrollbar-color: var(--gray7) ;
+  scrollbar-color: var(--gray7);
 }
 
 .suggestions-dropdown-header {
@@ -168,4 +169,3 @@
   line-height: 1.125rem;
   font-weight: 400;
 }
-
