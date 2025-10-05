@@ -64,6 +64,10 @@
     font-weight: 500;
     font-size: 0.813rem;
     margin-inline-start: 0.25rem;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 .stay-card-dates,
