@@ -57,7 +57,6 @@ export function RootCmp() {
     const handleSearchClick = (modalType) => {
         setInitialModal(modalType)
         setIsExpanded(true)
-        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
     const handleCollapse = () => {

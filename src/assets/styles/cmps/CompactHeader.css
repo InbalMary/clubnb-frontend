@@ -202,12 +202,9 @@
     width: 48px;
 }
 
-body:has(.compact-header) .stay-index {
-    margin-block-start: 6rem;
-}
-
+body:has(.compact-header) .stay-index,
 body:has(.app-header) .stay-index {
-    margin-block-start: 200px;
+    margin-block-start: 180px;
 }
 
 .app-header.full {
