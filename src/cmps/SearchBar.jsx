@@ -81,7 +81,7 @@ export function SearchBar({ initialModal = null }) {
 
     useEffect(() => {
         if (initialModal) {
-            setActiveModal(initialModal);
+            setActiveModal(initialModal)
         }
     }, [initialModal])
 
@@ -149,6 +149,7 @@ export function SearchBar({ initialModal = null }) {
     }
 
     const handleSearch = () => {
+        console.log('filterBy:', filterBy)
         setActiveModal(null)
     }
 
