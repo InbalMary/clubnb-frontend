@@ -22,17 +22,17 @@ window.cs = stayService
 
 async function query(filterBy = { txt: '', minPrice: 0 }) {
     var stays = await storageService.query(STORAGE_KEY)
-    console.log('Stays found in storage:', stays)
+    // console.log('Stays found in storage:', stays)
 
     const { txt, minPrice, sortField, sortDir } = filterBy
 
     if (filterBy.destination) {
         const regex = new RegExp(filterBy.destination, 'i')
-        stays = stays.filter(stay => 
-            regex.test(stay.name) || 
+        stays = stays.filter(stay =>
+            regex.test(stay.name) ||
             regex.test(stay.summary) ||
-            regex.test(stay.loc?.address) || 
-            regex.test(stay.loc?.city) || 
+            regex.test(stay.loc?.address) ||
+            regex.test(stay.loc?.city) ||
             regex.test(stay.loc?.country) ||
             regex.test(`${stay.loc?.city}, ${stay.loc?.country}`)
         )
@@ -40,11 +40,11 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
 
     if (txt) {
         const regex = new RegExp(txt, 'i')
-        stays = stays.filter(stay => 
-            regex.test(stay.name) || 
+        stays = stays.filter(stay =>
+            regex.test(stay.name) ||
             regex.test(stay.summary) ||
-            regex.test(stay.loc?.address) || 
-            regex.test(stay.loc?.city) || 
+            regex.test(stay.loc?.address) ||
+            regex.test(stay.loc?.city) ||
             regex.test(stay.loc?.country)
         )
     }
@@ -78,7 +78,10 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
         host: stay.host,
         loc: stay.loc,
         reviews: stay.reviews,
-        likedByUsers: stay.likedByUsers
+        likedByUsers: stay.likedByUsers,
+
+        // add rating for demo/testing between 4.4–5.0
+        rating: (Math.random() * 0.6 + 4.4).toFixed(2)
     }))
 
     return stays
@@ -133,24 +136,24 @@ async function addStayReview(stayId, txt) {
 export function getAmenitiesData(amenitiesSvgs) {
 
     const categories = ['bathroom', 'bedroom', 'bookingOptions', 'essentials', 'family', 'features', 'kitchen', 'locaion',
-      'outdoor', 'parking', 'safety', 'services', 'notIncluded']
+        'outdoor', 'parking', 'safety', 'services', 'notIncluded']
 
     const amenitiesArr = []
 
     categories.forEach(category => {
-      // If category exists in amenitiesSvgs
-      if (amenitiesSvgs[category]) {
+        // If category exists in amenitiesSvgs
+        if (amenitiesSvgs[category]) {
 
-        Object.keys(amenitiesSvgs[category]).forEach(item => {
-          const formattedItem = formatName(item)
-          amenitiesArr.push({
-            type: category,
-            name: formattedItem,
-            svgUrl: amenitiesSvgs[category][item]
-          })
+            Object.keys(amenitiesSvgs[category]).forEach(item => {
+                const formattedItem = formatName(item)
+                amenitiesArr.push({
+                    type: category,
+                    name: formattedItem,
+                    svgUrl: amenitiesSvgs[category][item]
+                })
 
-        })
-      }
+            })
+        }
     })
     return amenitiesArr
-  }
+}
