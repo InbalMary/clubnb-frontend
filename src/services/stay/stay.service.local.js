@@ -24,10 +24,10 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
     var stays = await storageService.query(STORAGE_KEY)
     // console.log('Stays found in storage:', stays)
 
-    const { txt, minPrice, sortField, sortDir } = filterBy
+    const { txt, minPrice, sortField, sortDir, destination, startDate, endDate, guests } = filterBy
 
-    if (filterBy.destination) {
-        const regex = new RegExp(filterBy.destination, 'i')
+    if (destination) {
+        const regex = new RegExp(destination, 'i')
         stays = stays.filter(stay =>
             regex.test(stay.name) ||
             regex.test(stay.summary) ||
@@ -36,6 +36,28 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
             regex.test(stay.loc?.country) ||
             regex.test(`${stay.loc?.city}, ${stay.loc?.country}`)
         )
+    }
+
+    if (startDate && endDate) {
+        const filterStart = new Date(startDate.replace(/\//g, '-'))
+        const filterEnd = new Date(endDate.replace(/\//g, '-'))
+
+        stays = stays.filter(stay => {
+            if (!stay.startDate || !stay.endDate) return true
+            
+            const stayStart = new Date(stay.startDate)
+            const stayEnd = new Date(stay.endDate)
+
+            return filterStart >= stayStart && filterEnd <= stayEnd
+        })
+    }
+
+    if (guests) {
+        const totalGuests = (guests.adults || 0) + (guests.children || 0)
+        // Note: infants and pets don't count for now
+        if (totalGuests > 0) {
+            stays = stays.filter(stay => stay.capacity >= totalGuests)
+        }
     }
 
     if (txt) {
