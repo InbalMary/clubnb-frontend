@@ -76,7 +76,7 @@ export function HamburgerMenu() {
                             </span>
                         </div>
                         <img
-                            className="menu-illus"
+                            className="menu-host-icon"
                             alt=""
                             src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-UserProfile/original/5347d650-16de-4f5a-a38e-79edc988befa.png?im_w=240"
                         />
