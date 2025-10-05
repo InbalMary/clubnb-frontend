@@ -1,5 +1,5 @@
 .search-item-container:has(.search-section-where.active) {
-  background-color: var(--gray4);
+  background-color: var(--gray1);
 }
 
 .search-section:not(.active):hover {

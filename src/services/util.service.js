@@ -107,7 +107,7 @@ export function capitalizeFirst(str) {
 }
 
 
-function formatGuestsText(guests) {
+export function formatGuestsText(guests) {
     const counts = [
         { count: guests.adults + guests.children, label: 'guest' },
         { count: guests.infants, label: 'infant' },
