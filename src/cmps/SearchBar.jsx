@@ -6,9 +6,10 @@ import { DateSelector } from "./DateSelector";
 import { DateRangePicker } from "./DateRangePicker";
 import { useDateRange } from "../customHooks/useDateRange";
 import { GuestSelector } from "./GuestSelector";
-import { formatDate } from '../services/util.service'
+import { formatDate, formatGuestsText } from '../services/util.service'
 import { useSelector } from "react-redux";
 import { setFilterBy } from '../store/actions/stay.actions.js'
+import { useClickOutside } from "../customHooks/useClickOutside.js";
 
 export function SearchBar({ initialModal = null }) {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
@@ -19,6 +20,13 @@ export function SearchBar({ initialModal = null }) {
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
 
     const searchBarRef = useRef(null)
+    const whereModalRef = useRef(null)
+    const dateModalRef = useRef(null)
+    const guestModalRef = useRef(null)
+
+    useClickOutside([searchBarRef, whereModalRef, dateModalRef, guestModalRef], () => {
+        if (activeModal) setActiveModal(null)
+    })
 
     const destinations = [
         {
@@ -128,22 +136,6 @@ export function SearchBar({ initialModal = null }) {
         })
     }, [destination, dateRange, guests])
 
-    useEffect(() => {
-        function handleClickOutside(event) {
-            const isInsideSearch = searchBarRef.current?.contains(event.target)
-            const isInsideModal = event.target.closest('.modal') ||
-                event.target.closest('.modal-content') ||
-                event.target.closest('.where-modal-content') ||
-                event.target.closest('.guest-modal-content')
-
-            if (!isInsideSearch && !isInsideModal) {
-                setActiveModal(null)
-            }
-        }
-        document.addEventListener("mousedown", handleClickOutside)
-        return () => document.removeEventListener("mousedown", handleClickOutside)
-    }, [])
-
     const handleDateComplete = (range) => {
         setDateRange(range)
 
@@ -160,24 +152,11 @@ export function SearchBar({ initialModal = null }) {
         setActiveModal(null)
     }
 
-    function formatGuestsText(guests) {
-        const counts = [
-            { count: guests.adults + guests.children, label: 'guest' },
-            { count: guests.infants, label: 'infant' },
-            { count: guests.pets, label: 'pet' },
-        ]
-
-        const parts = counts
-            .filter(({ count }) => count > 0)
-            .map(({ count, label }) => `${count} ${label}${count > 1 ? 's' : ''}`)
-
-        return parts.length ? parts.join(', ') : 'Add guests'
-    }
-
     return (
         <div className="search-bar-wrapper" ref={searchBarRef}>
             <div className="search-item-container">
                 <WhereAutocomplete
+                    ref={whereModalRef}
                     destinations={destinations}
                     isOpen={activeModal === 'where'}
                     onOpenChange={(open) => setActiveModal(open ? 'where' : null)}
@@ -225,7 +204,7 @@ export function SearchBar({ initialModal = null }) {
                 </div>
 
                 {activeModal === "who" && (
-                    <div className="guest-modal-content">
+                    <div className="guest-modal-content" ref={guestModalRef}>
                         <GuestSelector
                             onGuestsChange={setGuests}
                             initialGuests={guests}
@@ -235,7 +214,7 @@ export function SearchBar({ initialModal = null }) {
             </div>
 
             {(activeModal === "checkin" || activeModal === "checkout") && (
-                <div className="modal">
+                <div className="modal" ref={dateModalRef}>
                     <DateRangePicker
                         value={dateRange}
                         onComplete={handleDateComplete}
