@@ -223,6 +223,11 @@ body:has(.compact-header) .main-container>.stay-details {
     position: absolute;
 }
 
+/* Fix alignment for stay details just for  full screen */
+.compact-header.no-sticky .compact-header-content {
+    margin-inline: 120px;
+}
+
 .compact-header.no-sticky .logo-header .icon svg {
     margin-inline-start: 5rem;
 }
