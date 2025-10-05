@@ -46,12 +46,6 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
         }
     }
 
-    const handleBlur = () => {
-        if (whereQuery && whereQuery.trim() !== "") {
-            onDestinationSelect?.({ name: whereQuery })
-        }
-    }
-
     return (
         <div
             className={`search-section search-section-where ${isOpen ? "active" : ""}`}
@@ -68,7 +62,6 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
                 placeholder="Search destinations"
                 value={whereQuery}
                 onChange={handleInputChange}
-                onBlur={handleBlur}
                 onFocus={() => {
                     onOpenChange(true)
                     setSuggestions(destinations)

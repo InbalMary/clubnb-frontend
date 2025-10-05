@@ -17,7 +17,6 @@ export function SearchBar({ initialModal = null }) {
     const [activeModal, setActiveModal] = useState(initialModal)
     const { dateRange, setDateRange } = useDateRange()
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
-    const [destination, setDestination] = useState(null)
 
     const searchBarRef = useRef(null)
 
@@ -59,6 +58,19 @@ export function SearchBar({ initialModal = null }) {
         },
     ]
 
+    const getInitialDestination = () => {
+        const destinationParam = searchParams.get('destination')
+        if (destinationParam) {
+            return destinations.find(d => d.name === destinationParam) || { name: destinationParam }
+        }
+        if (filterBy.destination) {
+            return destinations.find(d => d.name === filterBy.destination) || { name: filterBy.destination }
+        }
+        return null
+    }
+
+    const [destination, setDestination] = useState(getInitialDestination)
+
     useEffect(() => {
         if (initialModal) {
             setActiveModal(initialModal);
@@ -66,55 +78,40 @@ export function SearchBar({ initialModal = null }) {
     }, [initialModal])
 
     useEffect(() => {
-        const destinationParam = searchParams.get('destination')
-        const startDate = searchParams.get('startDate')
-        const endDate = searchParams.get('endDate')
-        const adults = searchParams.get('adults')
-        const children = searchParams.get('children')
-        const infants = searchParams.get('infants')
-        const pets = searchParams.get('pets')
+        const startDate = searchParams.get('startDate') || filterBy.startDate
+        const endDate = searchParams.get('endDate') || filterBy.endDate
+        const adults = searchParams.get('adults') || filterBy.guests?.adults
+        const children = searchParams.get('children') || filterBy.guests?.children
+        const infants = searchParams.get('infants') || filterBy.guests?.infants
+        const pets = searchParams.get('pets') || filterBy.guests?.pets
 
-        if (destinationParam || startDate || endDate || adults || children || infants || pets) {
-            if (destinationParam) {
-                const dest = destinations.find(d => d.name === destinationParam)
-                if (dest) setDestination(dest)
-            }
-
-            if (startDate || endDate) {
-                setDateRange({
-                    from: startDate ? new Date(startDate.replace(/\//g, '-')) : null,
-                    to: endDate ? new Date(endDate.replace(/\//g, '-')) : null,
-                })
-            }
-
-            setGuests({
-                adults: parseInt(adults) || 0,
-                children: parseInt(children) || 0,
-                infants: parseInt(infants) || 0,
-                pets: parseInt(pets) || 0,
+        if (startDate || endDate) {
+            setDateRange({
+                from: startDate ? new Date(startDate.replace(/\//g, '-')) : null,
+                to: endDate ? new Date(endDate.replace(/\//g, '-')) : null,
             })
-        } else {
-            if (filterBy.destination) {
-                const dest = destinations.find(d => d.name === filterBy.destination)
-                if (dest) setDestination(dest)
-            }
-
-            if (filterBy.startDate || filterBy.endDate) {
-                setDateRange({
-                    from: filterBy.startDate ? new Date(filterBy.startDate.replace(/\//g, '-')) : null,
-                    to: filterBy.endDate ? new Date(filterBy.endDate.replace(/\//g, '-')) : null,
-                })
-            }
-
-            if (filterBy.guests) {
-                setGuests(filterBy.guests)
-            }
         }
+
+        setGuests({
+            adults: parseInt(adults) || 0,
+            children: parseInt(children) || 0,
+            infants: parseInt(infants) || 0,
+            pets: parseInt(pets) || 0,
+        })
     }, [])
 
     useEffect(() => {
+        const isInitialRender = !searchParams.toString() &&
+            !destination &&
+            !dateRange.from &&
+            !dateRange.to &&
+            guests.adults === 0 &&
+            guests.children === 0
+
+        if (isInitialRender) return
+
         const params = new URLSearchParams()
-        if (destination) params.set('destination', destination.name)
+        if (destination?.name) params.set('destination', destination.name)
         if (dateRange.from) params.set('startDate', formatDate(dateRange.from))
         if (dateRange.to) params.set('endDate', formatDate(dateRange.to))
         if (guests.adults) params.set('adults', guests.adults.toString())
@@ -134,7 +131,10 @@ export function SearchBar({ initialModal = null }) {
     useEffect(() => {
         function handleClickOutside(event) {
             const isInsideSearch = searchBarRef.current?.contains(event.target)
-            const isInsideModal = event.target.closest('.modal') || event.target.closest('.modal-content')
+            const isInsideModal = event.target.closest('.modal') ||
+                event.target.closest('.modal-content') ||
+                event.target.closest('.where-modal-content') ||
+                event.target.closest('.guest-modal-content')
 
             if (!isInsideSearch && !isInsideModal) {
                 setActiveModal(null)
