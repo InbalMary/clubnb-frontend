@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import { appHeaderSvg } from "./Svgs";
+import { HamburgerMenu } from "./HamburgerMenu";
 
 export function CompactHeader({ onSearchClick, isSticky }) {
     return (
@@ -57,12 +58,7 @@ export function CompactHeader({ onSearchClick, isSticky }) {
                         <span className='change-lng'>{appHeaderSvg.changeLanguage}</span>
                     </button>
 
-                    <button aria-label="Main menu">
-                        <span className='hamburger'>
-                            {appHeaderSvg.hamburger}
-                            {/* Profile icon*/}
-                        </span>
-                    </button>
+                    <HamburgerMenu />
                 </div>
             </div>
         </header>

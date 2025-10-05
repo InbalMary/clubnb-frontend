@@ -233,3 +233,9 @@ body:has(.compact-header) .main-container>.stay-details {
         margin-inline-end: 5rem;
     }
 }
+
+
+    .compact-header .header-actions button.hamburger-menu-btn.hamburger-wide {
+        width: 5rem;
+        border-radius: 2rem;
+    }
