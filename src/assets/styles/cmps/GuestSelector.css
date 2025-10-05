@@ -44,7 +44,6 @@
 .guest-controls {
     display: flex;
     align-items: center;
-    gap: 1rem;
 }
 
 .guest-count {
@@ -91,7 +90,7 @@
 
 .guest-modal-content {
     position: absolute;
-    top: calc(100% + 8px);
+    top: calc(100% + 12px);
     right: 0;
     width: 400px;
     background: var(--white);
