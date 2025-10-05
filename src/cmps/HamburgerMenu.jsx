@@ -1,14 +1,22 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { appHeaderSvg } from './Svgs'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/actions/user.actions'
+import { useClickOutside } from "../customHooks/useClickOutside";
 
 export function HamburgerMenu() {
     const [isOpen, setIsOpen] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
+
+    const buttonRef = useRef(null)
+    const menuRef = useRef(null)
+
+    useClickOutside([buttonRef, menuRef], () => {
+        if (isOpen) setIsOpen(false)
+    })
 
     function toggleMenu() {
         setIsOpen(!isOpen)
@@ -17,6 +25,7 @@ export function HamburgerMenu() {
     async function handleLogout() {
         try {
             await logout()
+            setIsOpen(false)
             navigate('/')
             showSuccessMsg(`Bye now`)
         } catch (err) {
@@ -32,6 +41,7 @@ export function HamburgerMenu() {
     return (
         <>
             <button
+                ref={buttonRef}
                 type="button"
                 className={`hamburger-menu-btn ${user && user.imgUrl ? 'hamburger-wide' : ''}`}
                 onClick={toggleMenu}
@@ -55,7 +65,7 @@ export function HamburgerMenu() {
             )}
 
             {isOpen && (
-                <div id="header-menu" className="header-menu" role="menu">
+                <div ref={menuRef} id="header-menu" className="header-menu" role="menu">
 
                     <div className="menu-header">
                         <span className="menu-icon">?</span>
