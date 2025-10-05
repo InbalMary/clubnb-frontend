@@ -15,8 +15,9 @@ import { DateRangePicker } from '../cmps/DateRangePicker'
 import { ReDateRangePicker } from '../cmps/ReDateRangePicker'
 import { StayRating } from '../cmps/StayRating'
 import { StayReviewList } from '../cmps/StayReviewList'
-import { AmenitiesLongList,AmenitiesShortList, Capacity, Highlights, MiniHost, SleepingRooms, SmallRating, StayImgs } from '../cmps/SmallComponents'
+import { AmenitiesLongList, AmenitiesShortList, CalendarStayDates, Capacity, Highlights, MiniHost, SleepingRooms, SmallRating, StayImgs } from '../cmps/SmallComponents'
 import { getAmenitiesData } from '../services/stay/stay.service.local'
+import { StickyContainer } from '../cmps/StickyContainer'
 
 const demoStay = {
   _id: "Ytcqd",
@@ -301,8 +302,6 @@ export function StayDetails() {
   const startDate = searchParams.get('startDate')
   const endDate = searchParams.get('endDate')
 
-  const numNights = calculateNights(startDate, endDate)
-
   const stay = useSelector(storeState => storeState.stayModule.stay)
 
   const { dateRange, setDateRange } = useDateRange()
@@ -351,7 +350,7 @@ export function StayDetails() {
                 </div>
 
                 <div className="border"></div>
-                
+
                 <MiniHost stay={demoStay} />
 
                 <div className="border"></div>
@@ -422,23 +421,25 @@ export function StayDetails() {
                 <div className="border"></div>
 
                 <div className="details-calendar" >
-                  <h2>{numNights} {numNights === 1 ? 'night' : 'nights'} in {demoStay.loc.city} </h2>
-                  <span className="light">{new Date(startDate).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} - </span>
-                  <span className="light">{new Date(endDate).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                 
+                  <CalendarStayDates stay={demoStay} startDate={startDate} endDate={endDate} />
                   <ReDateRangePicker
                     value={dateRange}
+                    showDates={true}
                     onComplete={handleDateComplete} />
                 </div>
-                
+
                 <div className="border"></div>
+
               </section>
             </div>
+            <StickyContainer />
+
           </div>
 
           <div className="review-section">
             <StayRating reviews={demoStay.reviews} />
             <div className="border"></div>
+            {!demoStay.reviews?.length && <h2>No reviews yet...</h2>}
             <StayReviewList reviews={demoStay.reviews} isModal={false} />
             <button onClick={() => setModalType('reviews')} className="open-modal">Show all {demoStay.reviews.length} reviews</button>
           </div>

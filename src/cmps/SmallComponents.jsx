@@ -1,6 +1,6 @@
 import { Link } from "react-router"
 import { amenitiesSvg } from "./Svgs"
-import { capitalizeFirst } from "../services/util.service"
+import { calculateNights, capitalizeFirst } from "../services/util.service"
 import { getRandomItems } from "../services/util.service"
 import { useRef } from "react"
 
@@ -127,6 +127,36 @@ export function SleepingRooms({ stay }) {
     )
 }
 
+export function CalendarStayDates({ startDate, endDate }) {
+    const numNights = calculateNights(startDate, endDate)
+
+    return (
+        <div className="calendar-date">
+
+            {typeof numNights === 'number' && numNights > 0 ? (
+                <h2>
+                    {numNights} {numNights === 1 ? 'night' : 'nights'}
+                </h2>
+            ) : startDate ? (
+                <h2>Select check-out date</h2>
+            ) : (
+                <h2>Select check-in date</h2>
+            )
+            }
+            {
+                (numNights > 0) ?
+                    (<>
+                        <span className="light">{new Date(startDate).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} - </span>
+                        <span className="light">{new Date(endDate).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                    </>)
+                    : <span className="light">Add your travel dates for exact pricing</span>
+            }
+        </div>
+
+
+    )
+}
+
 export function SmallRating({ stay }) {
     function getAvgRate(reviews) {
         let totalSum = 0
@@ -177,3 +207,4 @@ export function MiniHost({ stay }) {
         </span>
     </div>)
 }
+
