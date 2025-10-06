@@ -48,10 +48,11 @@
 @import "cmps/StayReviewList.css";
 @import "cmps/StayRating.css";
 @import "cmps/StickyContainer.css";
+@import "cmps/HostInfo.css";
 
 
 
 
 
 
-@import "setup/MQ.css"
+@import "setup/MQ.css";
