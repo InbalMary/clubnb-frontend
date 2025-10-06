@@ -30,39 +30,54 @@ export function SearchBar({ initialModal = null }) {
 
     const destinations = [
         {
-            icon: appHeaderSvg.nearby,
+            icon: 'nearby',
             name: 'Nearby',
             description: "Find what's around you",
         },
         {
-            icon: appHeaderSvg.tlv,
+            icon: 'tlv',
             name: 'Tel Aviv-Yafo, Israel',
             description: "Because your wishlist has stays in Tel Aviv-Yafo",
         },
         {
-            icon: appHeaderSvg.bucharest,
+            icon: 'bucharest',
             name: 'Bucharest, Romania',
             description: "For sights like Cismigiu Gardens"
         },
         {
-            icon: appHeaderSvg.paris,
+            icon: 'paris',
             name: 'Paris, France',
             description: "For its stunning architecture",
         },
         {
-            icon: appHeaderSvg.budapest,
+            icon: 'budapest',
             name: 'Budapest, Hungary',
             description: "For its bustling nightlife",
         },
         {
-            icon: appHeaderSvg.istanbul,
+            icon: 'istanbul',
             name: 'Istanbul, Türkiye',
             description: "For its top-notch dining",
         },
         {
-            icon: appHeaderSvg.rome,
+            icon: 'rome',
             name: 'Rome, Italy',
             description: "For sights like Trevi Fountain",
+        },
+        {
+            icon: 'london',
+            name: 'London, United kingdome',
+            description: "For its stinning architecture",
+        },
+        {
+            icon: 'barcelona',
+            name: 'Barcelona, Spain',
+            description: "Popular beach destination",
+        },
+        {
+            icon: 'vienna',
+            name: 'Vienna, Austria',
+            description: "Fot its top notch dining",
         },
     ]
 

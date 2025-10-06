@@ -15,7 +15,7 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
         debounce((destination) => {
             onDestinationSelect?.(destination)
         }, 500)
-    ) 
+    )
 
     useEffect(() => {
         if (initialDestination && whereQuery === "") {
@@ -79,7 +79,9 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
                                     className="suggestion-item"
                                     onClick={() => handleSelect(dest)}
                                 >
-                                    <span className="suggestion-icon">{dest.icon}</span>
+                                    <span className="suggestion-icon">
+                                        <img src={`/img/where/${dest.icon}.png`} alt={dest.icon} className="where-dropdown-icon" />
+                                    </span>
                                     <div className="suggestion-text">
                                         <span className="suggestion-name">{dest.name}</span>
                                         <span className="suggestion-description">{dest.description}</span>

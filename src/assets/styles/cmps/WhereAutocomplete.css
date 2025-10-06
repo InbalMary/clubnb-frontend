@@ -87,7 +87,7 @@
   border-radius: 32px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   z-index: 1000;
-  max-height: 420px;
+  max-height: calc(-200px + 100vh);
   overflow: hidden;
   display: flex;
   flex-direction: column;
