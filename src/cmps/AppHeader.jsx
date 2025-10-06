@@ -5,6 +5,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/actions/user.actions'
 import { appHeaderSvg } from './Svgs'
 import { SearchBar } from './SearchBar'
+import { HamburgerMenu } from './HamburgerMenu.jsx'
 import { useEffect, useRef } from 'react'
 
 export function AppHeader({ initialModal, onCollapse }) {
@@ -34,16 +35,6 @@ export function AppHeader({ initialModal, onCollapse }) {
 		}
 	}, [onCollapse])
 
-	async function onLogout() {
-		try {
-			await logout()
-			navigate('/')
-			showSuccessMsg(`Bye now`)
-		} catch (err) {
-			showErrorMsg('Cannot logout')
-		}
-	}
-
 	return (
 		<header className="app-header full" ref={headerRef}>
 			<nav className='nav-bar'>
@@ -51,10 +42,6 @@ export function AppHeader({ initialModal, onCollapse }) {
 					<span className="icon">{appHeaderSvg.logo}</span>
 					<span className="brand">clubnb</span>
 				</NavLink>
-				{/* <NavLink to="about">About</NavLink> */}
-				{/* <NavLink to="stay">Stays</NavLink> */}
-				{/* <NavLink to="chat">Chat</NavLink> */}
-				{/* <NavLink to="messages">Messages</NavLink> */}
 
 				{user?.isAdmin && <NavLink to="/admin">Admin</NavLink>}
 
@@ -67,23 +54,8 @@ export function AppHeader({ initialModal, onCollapse }) {
 						<span className='change-lng'>{appHeaderSvg.changeLanguage}</span>
 					</button>
 
-					<button aria-label="Main menu">
-						<span className='hamburger'>
-							{appHeaderSvg.hamburger}
-							{/* Profile icon*/}
-						</span>
-					</button>
+					<HamburgerMenu />
 				</div>
-				{/* {!user && <NavLink to="auth/login" className="login-link">Login</NavLink>}
-				{user && (
-					<div className="user-info">
-						<Link to={`user/${user._id}`}>
-							{user.imgUrl && <img src={user.imgUrl} />}
-							{user.fullname}
-						</Link>
-						<button onClick={onLogout}>logout</button>
-					</div>
-				)} */}
 			</nav>
 
 			<div className="expanded-header-search">
