@@ -1,28 +1,24 @@
 .reviews-section {
-    padding-block-start: 3rem;
+    padding-block-start: 2.5rem;
 
     .review-list {
         display: grid;
-        grid-template-columns: minmax(auto, 471px) minmax(auto, 471px);
-        gap: 1em;
+        grid-template-columns: minmax(auto, 491px) minmax(auto, 491px);
+        column-gap: 5em;
 
         .stay-review {
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
             flex: 1;
-            margin-right: 94px;
+            margin-right: 50px;
+            padding-bottom: 2rem;
 
             .mini-user {
                 display: flex;
                 gap: 10px;
                 align-items: center;
                 padding-block-end: .6rem;
-
-                h3 {
-                    font-size: 1rem;
-                    line-height: 1.5rem;
-                }
 
                 .years {
                     font-size: 15px;
@@ -64,4 +60,3 @@
 
     }
 }
-

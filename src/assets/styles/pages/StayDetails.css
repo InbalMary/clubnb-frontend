@@ -17,11 +17,16 @@
     h2 {
         font-size: 1.375rem;
         line-height: 1.925rem;
-        font-weight: 600;
+        font-weight: 500;
+        letter-spacing: -0.5px;
+        font-family: cereal-medium;
+        margin: 0;
     }
 
     h3 {
         font-size: .875rem;
+        font-family: cereal-medium;
+        font-weight: 400;
     }
 
     .bold {
@@ -78,6 +83,7 @@
 
         .content .main-info {
             padding-block: 2rem;
+
             .first-block {
                 padding-block-end: 2rem;
 
@@ -92,18 +98,31 @@
                 display: flex;
                 align-items: center;
                 gap: 4px;
-                margin-top: .5rem;
+                margin-top: .4rem;
+
+                .link {}
             }
 
             .avg {
-                font-size: 17px;
+                font-size: 1px;
+                font-size: 1.1rem;
             }
 
             .mini-host {
                 display: flex;
                 flex-direction: row;
-                gap: 2rem;
-                padding-block: 1.5rem;
+                gap: 1.5rem;
+                padding-block: 1.37rem;
+
+                h3 {
+                    font-size: 1rem;
+                    line-height: 1.45rem;
+                }
+
+                span {
+                    font-size: .885rem;
+                    line-height: 1.4rem;
+                }
 
                 img.host-img {
                     object-fit: cover;
@@ -117,44 +136,84 @@
 
             .highlights {
                 padding-block: 2rem;
+                padding-inline-start: .5rem;
 
                 li {
                     display: flex;
                     flex-direction: row;
                     gap: 2rem;
-                    padding-bottom: 1.5rem;
+                    padding-bottom: 1.3rem;
                 }
 
                 li:last-child {
                     padding-bottom: 0;
                 }
+
+                span {
+                    font-size: .885rem;
+                    line-height: 1.6rem;
+                }
             }
 
             .summary {
-                padding-block: 2rem;
+
+                padding-block-start: 2rem;
+                padding-block-end: .5rem;
                 line-height: 22px;
+
+                p {
+                    margin: 0
+                }
+
+                button {
+                    margin-inline-start: 0;
+                    margin-block-end: 3rem;
+                }
             }
 
             .beds-container {
                 padding-block: 2rem;
+                position: relative;
+
+                h2 {
+                    font-size: 1.4rem;
+                    letter-spacing: -.9px;
+                }
+
+                span.upper-comma {
+                    content: ",";
+                    position: absolute;
+                    top: 19px;
+                    left: 105px;
+                }
 
                 .bedrooms {
                     display: flex;
                     flex-direction: row;
                     gap: 1rem;
-                    padding: 8px;
+                    padding-block: 8px;
 
                     .bedroom {
                         display: flex;
                         flex-direction: column;
+                        padding-block-end: 8px;
 
-                        div {
-                            margin-top: 1.2rem;
+                        div,
+                        h4 {
+                            margin-top: .975rem;
+                            font-size: 16.5px;
+                            font-family: cereal-medium;
+                            font-weight: 400;
+                        }
+
+                        .light {
+                            font-size: .965rem;
+                            padding-top: .2rem;
                         }
 
                         div.img {
                             max-height: 210px;
-                            max-width: 315px;
+                            min-width: 315px;
 
                             img {
                                 width: 100%;
@@ -169,22 +228,32 @@
             }
 
             .amenities-container {
-                padding-block: 2rem;
+                padding-block: 3rem;
 
                 h2 {
                     padding-block-end: 1.5rem;
+                }
+
+                button {
+                    margin: 1.5rem 0 0 0;
                 }
 
                 .amenities-short-list {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     grid-auto-flow: row;
+                    column-gap: 2rem;
+
+                    li:nth-child(9),
+                    li:last-child {
+                        padding-bottom: 1rem;
+                    }
 
                     li {
                         flex-direction: row;
                         align-items: center;
                         gap: 1rem;
-                        padding-bottom: 2rem;
+                        padding-block-end: 1.7rem;
                     }
                 }
             }
@@ -207,8 +276,5 @@
             }
         }
     }
-
-
-
 
 }

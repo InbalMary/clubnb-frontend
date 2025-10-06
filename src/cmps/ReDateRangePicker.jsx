@@ -4,13 +4,13 @@ import { enUS } from 'date-fns/locale'
 import { useEffect, useState } from "react"
 import { useParams, useSearchParams } from 'react-router'
 
-export function ReDateRangePicker({ value, onComplete }) {
+export function ReDateRangePicker({ value, onComplete, activeField }) {
     const [range, setRange] = useState(value || { from: undefined, to: undefined })
+
 
     const [searchParams, setSearchParams] = useSearchParams()
     const startDate = searchParams.get('startDate')
     const endDate = searchParams.get('endDate')
-
 
     useEffect(() => {
         if (startDate || endDate) {
@@ -37,12 +37,20 @@ export function ReDateRangePicker({ value, onComplete }) {
     }, [range])
 
     function handleSelect(newRange) {
-        setRange(newRange)
         // onChange?.(newRange)
+
+        setRange(newRange)
 
         if (newRange?.from && newRange?.to) {
             onComplete?.(newRange)
             // onClose?.()
+        }
+        if (activeField) {
+            if (activeField === 'checkin') {
+                onComplete?.({ from: newRange.from, to: value.to ?? null })
+            } else if (activeField === 'checkout') {
+                onComplete?.({ from: value.from, to: newRange.to ?? newRange.from })
+            }
         }
     }
 

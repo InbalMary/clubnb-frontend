@@ -426,9 +426,13 @@ export function StayDetails() {
                     value={dateRange}
                     showDates={true}
                     onComplete={handleDateComplete} />
+                  {/* <DateRangePicker
+                    value={dateRange}
+                    onComplete={handleDateComplete}
+                    // activeField={activeModal}
+                  /> */}
                 </div>
 
-                <div className="border"></div>
 
               </section>
             </div>
@@ -436,6 +440,7 @@ export function StayDetails() {
 
           </div>
 
+            <div className="border"></div>
           <div className="review-section">
             <StayRating reviews={demoStay.reviews} />
             <div className="border"></div>
