@@ -111,6 +111,14 @@
   height: 32px;
   background-color: var(--gray6);
   flex-shrink: 0;
+  transition: opacity 0.15s ease;
+  opacity: 1;
+}
+
+.search-section:hover + .search-divider,
+.search-divider:has(+ .search-section:hover) {
+  opacity: 0;
+  transition: opacity 0.15s ease;
 }
 
 .search-button {

@@ -58,7 +58,7 @@ export const demoStays = [
     },
     {
         "_id": "city-004",
-        "name": "Barcelona Central Studio",
+        "name": "Tel Aviv Studio",
         "type": "City stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/eaaf0e52-c8b3-49c6-b79b-51188e5fb598.jpg?im_w=720"],
         "price": 160,
@@ -70,7 +70,7 @@ export const demoStays = [
         "startDate": "2025-10-12",
         "endDate": "2025-10-18",
         "host": { "_id": "host-city-4", "fullname": "Maria", "location": "Barcelona, Spain" },
-        "loc": { "country": "Spain", "city": "Barcelona", "address": "Las Ramblas, Barcelona" },
+        "loc": { "country": "Israel", "city": "Tel Aviv-Yafo", "address": "Las Ramblas, Barcelona" },
         "reviews": [],
         "likedByUsers": []
     },
@@ -351,7 +351,7 @@ export const demoStays = [
         "startDate": "2025-09-10",
         "endDate": "2025-09-17",
         "host": { "_id": "hostV3", "fullname": "Giulia", "location": "Amalfi, Italy" },
-        "loc": { "country": "Italy", "city": "Amalfi", "address": "Positano, Amalfi Coast" },
+        "loc": { "country": "Israel", "city": "Tel Aviv-Yafo", "address": "Positano, Amalfi Coast" },
         "reviews": [],
         "likedByUsers": []
     },

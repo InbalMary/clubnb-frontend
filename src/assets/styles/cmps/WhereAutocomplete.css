@@ -1,5 +1,5 @@
 .search-item-container:has(.search-section-where.active) {
-  background-color: var(--gray4);
+  background-color: var(--gray1);
 }
 
 .search-section:not(.active):hover {
@@ -46,6 +46,7 @@
   padding: 0.625em;
   border-radius: 24px;
   background: var(--reserve-btn-hover);
+  font-family: cereal-light;
 }
 
 .search-item-container:has(.search-section.active) .search-section-who .search-button-text {
@@ -78,7 +79,7 @@
 
 .where-modal-content {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 12px);
   left: 0;
   width: 425px;
   max-width: 425px;
@@ -86,7 +87,7 @@
   border-radius: 32px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   z-index: 1000;
-  max-height: 420px;
+  max-height: calc(-200px + 100vh);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -98,14 +99,16 @@
   overflow-x: hidden;
   padding: 2rem 0;
   scrollbar-width: thin;
-  scrollbar-color: var(--gray7) ;
+  scrollbar-color: var(--gray7);
 }
 
 .suggestions-dropdown-header {
+  font-family: cereal-light;
   display: block;
-  padding: 0 2rem 1rem;
+  padding: 0 2rem ;
+  margin-block-end: 0.25rem;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--gray3);
   text-transform: none;
   letter-spacing: 0;
@@ -114,7 +117,7 @@
 .suggestion-item {
   display: flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   margin: 0 0.5rem;
   border-radius: 0.75rem;
   cursor: pointer;
@@ -127,10 +130,10 @@
 }
 
 .suggestion-icon {
-  width: 3rem;
-  height: 3rem;
-  min-width: 3rem;
-  min-height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  min-width: 3.5rem;
+  min-height: 3.5rem;
   border-radius: 0.75rem;
   background-color: var(--gray1);
   overflow: hidden;
@@ -168,4 +171,3 @@
   line-height: 1.125rem;
   font-weight: 400;
 }
-

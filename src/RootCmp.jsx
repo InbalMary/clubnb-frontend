@@ -24,6 +24,7 @@ import { CompactHeader } from './cmps/CompactHeader.jsx'
 export function RootCmp() {
     const location = useLocation()
     const [isExpanded, setIsExpanded] = useState(true)
+    const [hasScrolled, setHasScrolled] = useState(false)
     const [initialModal, setInitialModal] = useState(null)
 
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
@@ -36,24 +37,31 @@ export function RootCmp() {
 
         const handleScroll = () => {
             const currentScrollY = window.scrollY
+
+            if (currentScrollY > 10 && !hasScrolled) {
+                setHasScrolled(true)
+            }
+
             if (currentScrollY > 50 && isExpanded && !initialModal) {
                 setIsExpanded(false)
             } else if (currentScrollY <= 10 && !isExpanded && !initialModal) {
                 setIsExpanded(true)
+                setHasScrolled(false)
             }
         }
 
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
-    }, [isExpanded, initialModal, isStayDetailsPage])
+    }, [isExpanded, initialModal, isStayDetailsPage, hasScrolled])
 
     const handleSearchClick = (modalType) => {
         setInitialModal(modalType)
         setIsExpanded(true)
-        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
     const handleCollapse = () => {
+        if (!hasScrolled) return
+
         if (window.scrollY <= 10) return setIsExpanded(false)
         setInitialModal(null)
         setIsExpanded(false)

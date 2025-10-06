@@ -2,25 +2,50 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: .875rem;
 
+    line-height: 18px;
     min-height: 3.5rem;
-
-    padding: .8rem 1rem;
+    padding: 1.875rem 3rem;
     background-color: var(--gray1);
+    margin-top: 3rem;
+    border-top: 1px solid var(--gray6);
 
     & p {
         margin: 0;
     }
 
     >span {
-        font-size: .8em;
+        font-size: .875rem;
 
-        &.local-services {
+        /* &.local-services {
             color: --var(clr1);
         }
 
         &.remote-services {
             color: --var(clr5);
-        }
+        } */
     }
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-language-group,
+.footer-currency-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.globe-icon {
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    fill: var(--gray3);
 }

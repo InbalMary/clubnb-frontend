@@ -76,7 +76,7 @@
             height: 40px;
             border-radius: 50%;
             border: none;
-            background-color: var(--gray4);
+            background-color: var(--gray1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -136,4 +136,9 @@
             border-radius: 50%;
         }
     }
+
+    .header-actions button.hamburger-menu-btn.hamburger-wide {
+            width: 5rem ;
+            border-radius: 2rem;
+        }
 }
