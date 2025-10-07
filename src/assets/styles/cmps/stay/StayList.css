@@ -2,9 +2,13 @@
     width: 100vw;
     max-width: none;
     margin-left: calc(50% - 50vw);
-    /* pull section to left edge */
     margin-right: calc(50% - 50vw);
-    /* pull section to right edge */
+}
+
+/* temporary fix for slight header overlap. 
+TODO: remove after header spacing is adjusted */
+.stay-list-section:first-of-type {
+    padding-top: .65rem;
 }
 
 .stay-list-title {
@@ -38,8 +42,10 @@
 .stay-row {
     padding-left: 3.25rem;
     padding-right: 3.25rem;
-    margin-top: -0.25rem;
-    margin-bottom: -0.5rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    /* margin-top: -0.25rem;
+    margin-bottom: -0.5rem; */
 }
 
 
@@ -47,7 +53,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin-top: 1.6rem; */
+
     margin-top: 2rem;
     margin-bottom: 0.85rem;
 }
