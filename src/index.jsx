@@ -14,12 +14,15 @@ import './assets/styles/main.css'
 import { stayService } from './services/stay/index'
 import './store/reducers/stay.reducer'
 import './store/actions/stay.actions'
+import { DateRangeProvider } from './context/DateRangeProvider'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
 	<Provider store={store}>
 		<Router>
-			<RootCmp />
+			<DateRangeProvider>
+				<RootCmp />
+			</DateRangeProvider>
 		</Router>
 	</Provider>
 )
