@@ -117,7 +117,7 @@
 /* ==== DETAILS ==== */
 .review-section {
 
-    padding-top: 1rem;
+    padding-block: 1rem 2.1rem;
 
     .rate-wrapper {
 

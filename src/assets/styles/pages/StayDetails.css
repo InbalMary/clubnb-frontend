@@ -77,9 +77,9 @@
 
     .details-container {
         display: grid;
-        grid-template-columns: minmax(auto, 39.688rem) minmax(auto, 24.813rem);
+        grid-template-columns: minmax(auto, 40.2rem) minmax(auto, 25rem);
         grid-template-areas: "content reserve";
-
+        gap: 6rem;
 
         .content .main-info {
             padding-block: 2rem;
