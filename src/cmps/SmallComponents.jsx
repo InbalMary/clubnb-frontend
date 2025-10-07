@@ -212,3 +212,32 @@ export function MiniHost({ stay }) {
     </div>)
 }
 
+export function FancyButton({ children }) {
+    const buttonRef = useRef()
+
+    const handleMouseMove = (e) => {
+        const rect = buttonRef.current.getBoundingClientRect()
+        const x = ((e.clientX - rect.left) / rect.width) * 100
+        const y = ((e.clientY - rect.top) / rect.height) * 100
+
+        buttonRef.current.style.setProperty('--mouse-x', `${x}%`)
+        buttonRef.current.style.setProperty('--mouse-y', `${y}%`)
+    }
+
+    const handleMouseLeave = (e) => {
+        buttonRef.current.style.setProperty('--mouse-x', `50%`)
+        buttonRef.current.style.setProperty('--mouse-y', `50%`)
+    }
+
+    return (
+        <button
+            className="pink"
+            ref={buttonRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+        >
+            {children}
+        </button>
+    )
+
+}
