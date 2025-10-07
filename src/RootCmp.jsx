@@ -19,6 +19,7 @@ import { LoginSignup, Login, Signup } from './cmps/LoginSignup.jsx'
 import { BecomeHostForm } from './pages/BecomeHostForm.jsx'
 import { ListingEdit } from './pages/ListingEdit.jsx'
 import { CompactHeader } from './cmps/CompactHeader.jsx'
+import { ConfirmPay } from './pages/ConfirmPay.jsx'
 
 
 export function RootCmp() {
@@ -28,6 +29,7 @@ export function RootCmp() {
     const [initialModal, setInitialModal] = useState(null)
 
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
+    const isConfirmPayPage = location.pathname.includes('/confirm-pay')
 
     useEffect(() => {
         if (isStayDetailsPage) {
@@ -69,10 +71,12 @@ export function RootCmp() {
 
     return (
         <div className="main-container">
-            {!isExpanded ? (
-                <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
-            ) : (
-                <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
+            {!isConfirmPayPage && (
+                !isExpanded ? (
+                    <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
+                ) : (
+                    <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
+                )
             )}
             {/* <AppHeader /> */}
             <UserMsg />
@@ -86,12 +90,14 @@ export function RootCmp() {
                     </Route> */}
                     <Route path="" element={<StayIndex />} />
                     <Route path="stay/:stayId" element={<StayDetails />} />
+                    <Route path="stay/:stayId/confirm-pay" element={<ConfirmPay />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="messages" element={<MsgIndex />} />
                     {/* <Route path="chat" element={<ChatApp />} /> */}
                     <Route path="become-a-host" element={<BecomeHostForm />} />
                     <Route path="become-a-host/add-listing-about" element={<ListingEdit />} />
                     <Route path="host" element={<HostDetails />} />
+
                     <Route path="auth" element={<LoginSignup />}>
                         <Route path="login" element={<Login />} />
                         <Route path="signup" element={<Signup />} />

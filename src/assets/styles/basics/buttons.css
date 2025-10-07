@@ -56,6 +56,16 @@
 
 }
 
+.btn-link {
+    /*transparent btn that is a link*/
+    background-color: transparent;
+    color: var(--gray3);
+}
+
+.btn-link:hover {
+    color: black;
+}
+
 /* ========== Shape Modifiers ========== */
 .btn-pill {
     /* pill shape */
