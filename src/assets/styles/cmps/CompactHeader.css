@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     height: 6rem;
-     background: var(--header-bg);
+    background: var(--header-bg);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     z-index: 100;
@@ -14,11 +14,9 @@
     max-width: 1760px;
     margin: 0 auto;
     height: 100%;
-    /* padding: 0 3rem;
-    padding-top: 2rem; */
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: flex-start;
-    justify-content: space-between;
     gap: 1rem;
 }
 
@@ -28,6 +26,7 @@
     text-decoration: none;
     color: var(--primary-clr);
     gap: 3px;
+    justify-self: start;
 }
 
 .compact-header .logo-header .icon svg {
@@ -49,11 +48,8 @@
 .compact-search-button {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
     margin-block-start: 24px;
-    margin-inline-start: 104px;
     padding: 0;
-    /* padding: 0.5rem 0.5rem 0.5rem 1.5rem; */
     border-radius: 40px;
     border: 1px solid var(--gray5);
     background: var(--white);
@@ -61,6 +57,7 @@
     transition: box-shadow 0.2s ease;
     min-width: 300px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+    justify-self: center;
 }
 
 .compact-search-button:hover {
@@ -78,15 +75,14 @@
 }
 
 .compact-search-text {
+    font-family: cereal-medium;
     font-size: 0.875rem;
-    font-weight: 600;
+    /* font-weight: 600; */
     color: var(--gray3);
     white-space: nowrap;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    /* padding: 0.25rem 0; */
 }
 
 .compact-search-icon {
@@ -104,6 +100,7 @@
     height: 32px;
     border-radius: 50%;
     margin-inline-end: 0.3rem;
+    margin-inline-start: 1rem;
     background-color: var(--primary-clr);
     color: var(--white);
     display: flex;
@@ -130,6 +127,7 @@
     display: flex;
     align-items: center;
     height: 80px;
+    justify-self: end;
 }
 
 .compact-header .header-actions .host-link {
@@ -158,7 +156,7 @@
     height: 40px;
     border-radius: 50%;
     border: none;
-    background-color: var(--gray4);
+    background-color: var(--gray1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -194,20 +192,19 @@
 }
 
 .compact-header button {
-    margin-inline-end: 0;
+    margin-inline: 0;
+    width: 374px;
 }
 
 .compact-header .anywhere-icon {
     margin-inline-start: 0.5rem;
-    height: 46px;
+    height: 48px;
+    width: 48px;
 }
 
-body:has(.compact-header) .stay-index {
-    margin-block-start: 6rem;
-}
-
+body:has(.compact-header) .stay-index,
 body:has(.app-header) .stay-index {
-    margin-block-start: 200px;
+    margin-block-start: 180px;
 }
 
 .app-header.full {
@@ -218,10 +215,28 @@ body:has(.app-header) .stay-index {
     z-index: 1000;
 }
 
-body:has(.compact-header) .main-container > .stay-details {
+body:has(.compact-header) .main-container>.stay-details {
     margin-block-start: 96px;
 }
 
 .compact-header.no-sticky {
     position: absolute;
+}
+
+/* Fix alignment for stay details just for  full screen */
+.compact-header.no-sticky .compact-header-content {
+    margin-inline: 120px;
+}
+
+.compact-header.no-sticky .logo-header .icon svg {
+    margin-inline-start: 5rem;
+}
+
+.compact-header.no-sticky .header-actions button[aria-label="Main menu"] {
+    margin-inline-end: 5rem;
+}
+
+.compact-header .header-actions button.hamburger-menu-btn.hamburger-wide {
+    width: 5rem;
+    border-radius: 2rem;
 }

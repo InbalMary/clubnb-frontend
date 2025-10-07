@@ -112,8 +112,9 @@
 
         .reviews-in-modal {
             display: grid;
-            grid-template-columns: minmax(auto, 24.813rem) minmax(auto, 39.688rem);
+            grid-template-columns: minmax(auto, 22.813rem) minmax(auto, 39.688rem);
             grid-template-areas: "rating review";
+          gap:.875rem;
             width: 100%;
 
 
@@ -139,11 +140,18 @@
                     display: grid;
                     grid-template-columns: 1fr;
 
+                    .stay-review {
+                        padding-bottom: 1rem;
+                    }
+
                     .stay-review .pre h3 {
+                        font-size: .875rem;
+                        font-family: cereal-medium;
+                        font-weight: 400;
+                    }
 
-                        font-size: 1rem;
-                        line-height: 1.5rem;
-
+                    span.txt .summary {
+                        padding-block-start: .5rem;
                     }
                 }
             }

@@ -106,16 +106,17 @@ export function capitalizeFirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+
 export function formatGuestsText(guests) {
-        const counts = [
-            { count: guests.adults + guests.children, label: 'guest' },
-            { count: guests.infants, label: 'infant' },
-            { count: guests.pets, label: 'pet' },
-        ]
+    const counts = [
+        { count: guests.adults + guests.children, label: 'guest' },
+        { count: guests.infants, label: 'infant' },
+        { count: guests.pets, label: 'pet' },
+    ]
 
-        const parts = counts
-            .filter(({ count }) => count > 0)
-            .map(({ count, label }) => `${count} ${label}${count > 1 ? 's' : ''}`)
+    const parts = counts
+        .filter(({ count }) => count > 0)
+        .map(({ count, label }) => `${count} ${label}${count > 1 ? 's' : ''}`)
 
-        return parts.length ? parts.join(', ') : 'Add guests'
-    }
+    return parts.length ? parts.join(', ') : 'Add guests'
+}

@@ -7,6 +7,7 @@ import { CalendarStayDates } from "./SmallComponents";
 import { useSearchParams } from "react-router";
 import { GuestSelector } from "./GuestSelector";
 import { formatGuestsText } from "../services/util.service";
+import { ReDateRangePicker } from "./ReDateRangePicker";
 
 
 export function StickyContainer(initialModal = null) {
@@ -54,6 +55,11 @@ export function StickyContainer(initialModal = null) {
         if (activeModal === 'checkin' && range.from && !range.to) {
             setActiveModal('checkout')
         }
+        if (activeField === 'checkin') {
+            onComplete?.({ from: range.from, to: value.to ?? null })
+        } else if (activeField === 'checkout') {
+            onComplete?.({ from: value.from, to: range.to ?? range.from })
+        }
     }
 
     useClickOutside([containerRef, modalRef], () => {
@@ -90,7 +96,7 @@ export function StickyContainer(initialModal = null) {
                 </div>
             </span>
 
-            {(activeModal === "checkin" || activeModal === "checkout") && (
+            {activeModal === "checkin" || activeModal === "checkout" && (
                 <div ref={modalRef} className="modal">
                     <CalendarStayDates startDate={startDate} endDate={endDate} />
                     <DateRangePicker
@@ -98,6 +104,11 @@ export function StickyContainer(initialModal = null) {
                         onComplete={handleDateComplete}
                         activeField={activeModal}
                     />
+                    {/* <ReDateRangePicker
+                        value={dateRange}
+                        // showDates={true}
+                        onComplete={handleDateComplete}
+                        activeField={activeModal} /> */}
                 </div>
             )}
 

@@ -18,6 +18,8 @@ import { StayReviewList } from '../cmps/StayReviewList'
 import { AmenitiesLongList, AmenitiesShortList, CalendarStayDates, Capacity, Highlights, MiniHost, SleepingRooms, SmallRating, StayImgs } from '../cmps/SmallComponents'
 import { getAmenitiesData } from '../services/stay/stay.service.local'
 import { StickyContainer } from '../cmps/StickyContainer'
+import { HostInfo } from '../cmps/HostInfo'
+import { hostSvgs } from '../cmps/Svgs'
 
 const demoStay = {
   _id: "Ytcqd",
@@ -75,13 +77,34 @@ We recommend reading the full “The Space” section for important details abou
   roomType: "Entire home/apt",
   host: {
     _id: "622f3403e36c59e6164faf93",
+    firstName: "Patty",
     fullname: "Patty And Beckett",
     location: "Eureka, California, United States",
-    about: "Adventurous couple loves to travel :)",
+    about: "We are an adventurous couple who loves to travel :)",
     responseTime: "within an hour",
     pictureUrl: "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112365/cld-sample.jpg",
     isSuperhost: true,
+    isVerified: true,
     signupDate: 1577836800000,
+    rating: 4.92,
+    numReviews: 128,
+    yearsHosting: 5,
+    responseRate: 98,
+    responseTime: "within an hour",
+    coHosts: [
+      {
+        name: "Alex",
+        imgUrl: "https://randomuser.me/api/portraits/men/45.jpg",
+      },
+      {
+        name: "Jamie",
+        imgUrl: "https://randomuser.me/api/portraits/women/46.jpg",
+      },
+    ],
+    personalFacts: [
+      { icon: hostSvgs.born, text: "Born in the 80's" },
+      { icon: hostSvgs.work, text: "Photographer" },
+    ],
   },
   loc: {
     country: "United States",
@@ -426,9 +449,13 @@ export function StayDetails() {
                     value={dateRange}
                     showDates={true}
                     onComplete={handleDateComplete} />
+                  {/* <DateRangePicker
+                    value={dateRange}
+                    onComplete={handleDateComplete}
+                    // activeField={activeModal}
+                  /> */}
                 </div>
 
-                <div className="border"></div>
 
               </section>
             </div>
@@ -436,6 +463,7 @@ export function StayDetails() {
 
           </div>
 
+            <div className="border"></div>
           <div className="review-section">
             <StayRating reviews={demoStay.reviews} />
             <div className="border"></div>
@@ -445,7 +473,7 @@ export function StayDetails() {
           </div>
 
         </div >
-
+        <HostInfo host={demoStay.host} />
 
       </section >
 

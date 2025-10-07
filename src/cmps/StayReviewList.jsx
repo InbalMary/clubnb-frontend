@@ -4,6 +4,7 @@ import { LongTxt } from "./LongTxt"
 import { amenitiesSvg } from "./Svgs"
 import { StayRating } from "./StayRating"
 import { Modal } from "./Modal"
+import { Link } from "react-router"
 
 export function StayReviewList({ reviews, isModal }) {
 
@@ -17,7 +18,7 @@ export function StayReviewList({ reviews, isModal }) {
     return (
         <section className="reviews-section">
             <ul className="review-list">
-                {reviews.map(review =>
+                {reviews.slice(0, 6).map(review =>
                     <li className="stay-review" key={review.by.fullname}>
                         <div className="mini-user flex">
                             <img className="user-img" src={review.by.imgUrl} />
@@ -37,7 +38,8 @@ export function StayReviewList({ reviews, isModal }) {
                             <span className="dot" />
                             <span className="light"> {getStayTypeFromReview(review)}</span>
                         </div>
-                        <span className="txt"><LongTxt children={review.txt} length={isModal ? 1000 : 100} /></span>
+                        <span className="txt"><LongTxt children={review.txt} length={isModal ? 1000 : 120} /></span>
+                        {!isModal && <span className="link bold">Show more</span>}
                     </li>
 
                 )}

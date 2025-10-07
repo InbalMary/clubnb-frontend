@@ -111,14 +111,15 @@ export function AmenitiesLongList({ amenitiesData }) {
 export function SleepingRooms({ stay }) {
     return (
         <div className="beds-container">
-            <h2>Where you'll sleep</h2>
+
+            <h2>Where you <span className="upper-comma">,</span>ll sleep</h2>
             <div className="bedrooms">
                 {stay.rooms.map((room, idx) =>
                     <div key={room + idx} className="bedroom">
                         <div className="img">
                             <img key={room.imgUrl} src={room.imgUrl || amenitiesSvg.bedroom.doubleBed} />
                         </div>
-                        <div key={room.roomType} className="bold">{capitalizeFirst(room.roomType)}</div>
+                        <h4 key={room.roomType} className="bedroom-h bold">{capitalizeFirst(room.roomType)}</h4>
                         <span className="light" key={room.bedType}>1 {room.bedType}</span>
                     </div>
                 )}
@@ -127,16 +128,19 @@ export function SleepingRooms({ stay }) {
     )
 }
 
-export function CalendarStayDates({ startDate, endDate }) {
+export function CalendarStayDates({ stay, startDate, endDate }) {
     const numNights = calculateNights(startDate, endDate)
 
     return (
         <div className="calendar-date">
 
             {typeof numNights === 'number' && numNights > 0 ? (
-                <h2>
-                    {numNights} {numNights === 1 ? 'night' : 'nights'}
-                </h2>
+                <>
+                    <h2>
+                        {numNights} {numNights === 1 ? 'night' : 'nights'} {stay && `in ${stay?.loc?.city}`}
+                    </h2>
+                    <h2></h2>
+                </>
             ) : startDate ? (
                 <h2>Select check-out date</h2>
             ) : (

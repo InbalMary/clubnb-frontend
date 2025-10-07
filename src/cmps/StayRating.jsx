@@ -128,7 +128,7 @@ export function StayRating({ reviews }) {
                                 <span className="review-category">
                                     {item.formattedName}
                                 </span>
-                                <span className="avg-value">{item.avg}</span>
+                                <h4 className="avg-value">{item.avg}</h4>
                             </span>
 
                             {item.svg && <span className="svg-icon">{item.svg}</span>}
