@@ -35,12 +35,30 @@ export function randomPastTime() {
     return Date.now() - pastTime
 }
 
+// export function debounce(func, timeout = 300) {
+//     let timer
+//     return (...args) => {
+//         clearTimeout(timer)
+//         timer = setTimeout(() => { func.apply(this, args) }, timeout)
+//     }
+// }
+
 export function debounce(func, timeout = 300) {
     let timer
-    return (...args) => {
+
+    function debounced(...args) {
         clearTimeout(timer)
-        timer = setTimeout(() => { func.apply(this, args) }, timeout)
+        timer = setTimeout(() => {
+            func.apply(this, args)
+        }, timeout)
     }
+
+    debounced.cancel = () => {
+        clearTimeout(timer)
+        timer = null
+    };
+
+    return debounced
 }
 
 export function saveToStorage(key, value) {
