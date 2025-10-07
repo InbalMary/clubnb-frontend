@@ -10,7 +10,7 @@ import { amenitiesSvg, reviewSvgs } from '../cmps/Svgs'
 import { LongTxt } from '../cmps/LongTxt'
 import { calculateNights, getRandomItems } from '../services/util.service'
 import { Modal } from '../cmps/Modal'
-import { useDateRange } from '../customHooks/useDateRange'
+import { reUseDateRange, useDateRange } from '../customHooks/useDateRange'
 import { DateRangePicker } from '../cmps/DateRangePicker'
 import { ReDateRangePicker } from '../cmps/ReDateRangePicker'
 import { StayRating } from '../cmps/StayRating'
@@ -20,6 +20,7 @@ import { getAmenitiesData } from '../services/stay/stay.service.local'
 import { StickyContainer } from '../cmps/StickyContainer'
 import { HostInfo } from '../cmps/HostInfo'
 import { hostSvgs } from '../cmps/Svgs'
+import { useDateContext } from '../context/DateRangeProvider'
 
 const demoStay = {
   _id: "Ytcqd",
@@ -33,6 +34,7 @@ const demoStay = {
     "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg"
   ],
   price: 595,
+  cleaningFee: 40,
   summary: `Experience the comfort of the Westin Kaanapali Ocean Resort Villas North in a beautifully maintained timeshare unit on Maui’s stunning Kaanapali Beach. Ideal for couples or solo travelers looking for a peaceful, resort-style getaway.
 
 This unit includes access to premium resort amenities and is ADA/wheelchair accessible (please confirm with the resort directly to ensure your needs are met).
@@ -318,37 +320,33 @@ We recommend reading the full “The Space” section for important details abou
 
 
 export function StayDetails() {
+  const { stayId } = useParams()
+  useEffect(() => {
+    if (stayId) {
+      loadStay(stayId)
+    }
+  }, [stayId])
 
-  // const { stayId } = useParams()
-  const params = useParams()
   const [searchParams, setSearchParams] = useSearchParams()
   const startDate = searchParams.get('startDate')
   const endDate = searchParams.get('endDate')
 
-  const stay = useSelector(storeState => storeState.stayModule.stay)
+  let stay = useSelector(storeState => storeState.stayModule.stay)
 
-  const { dateRange, setDateRange } = useDateRange()
+  const { dateRange, setDateRange } = useDateContext()
   const [modalType, setModalType] = useState(null)
 
-  const modifiers = {
-    checkin: dateRange.from,
-    checkout: dateRange.to,
-    range: dateRange.from && dateRange.to ? { from: dateRange.from, to: dateRange.to } : undefined
-  }
-
-  useEffect(() => {
-  }, [modifiers]
-  )
-
-  const handleDateComplete = (range) => {
-    setDateRange(range)
+  const handleDateComplete = (newRange) => {
+    if (newRange?.from && newRange?.to) {
+      setDateRange(newRange)
+    }
   }
 
   const amenitiesData = getAmenitiesData(amenitiesSvg)
 
-  useEffect(() => {
-    loadStay(params.stayId)
-  }, [params.stayId])
+  // const dispatch = useDispatch()
+
+
 
   return (
     <div className="main-container">
@@ -445,25 +443,21 @@ export function StayDetails() {
 
                 <div className="details-calendar" >
                   <CalendarStayDates stay={demoStay} startDate={startDate} endDate={endDate} />
-                  <ReDateRangePicker
-                    value={dateRange}
-                    showDates={true}
-                    onComplete={handleDateComplete} />
-                  {/* <DateRangePicker
+
+                  <DateRangePicker
                     value={dateRange}
                     onComplete={handleDateComplete}
-                    // activeField={activeModal}
-                  /> */}
+                  />
                 </div>
 
 
               </section>
             </div>
-            <StickyContainer />
+            <StickyContainer stay={demoStay} />
 
           </div>
 
-            <div className="border"></div>
+          <div className="border"></div>
           <div className="review-section">
             <StayRating reviews={demoStay.reviews} />
             <div className="border"></div>

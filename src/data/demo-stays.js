@@ -7,6 +7,7 @@ export const demoStays = [
         "name": "Tokyo Shibuya Apartment",
         "type": "City stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/hosting/Hosting-1161368900193668115/original/b97fd8ae-da66-4a79-8500-399032170503.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 150,
         "summary": "Compact Tokyo apartment near Shibuya Crossing.",
         "capacity": 2,
@@ -25,6 +26,7 @@ export const demoStays = [
         "name": "Paris Loft with Balcony",
         "type": "City stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/a113bb3b-58db-40f1-975e-538372cab82e.jpg?im_w=720"],
+        "cleaningFee": 40,
         "price": 220,
         "summary": "Romantic loft in central Paris with Eiffel Tower view.",
         "capacity": 3,
@@ -43,6 +45,7 @@ export const demoStays = [
         "name": "Berlin Modern Flat",
         "type": "City stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/21820279/b015a76d_original.jpg?im_w=720"],
+        "cleaningFee": 40,
         "price": 180,
         "summary": "Stylish flat in Kreuzberg, Berlin.",
         "capacity": 2,
@@ -61,6 +64,7 @@ export const demoStays = [
         "name": "Tel Aviv Studio",
         "type": "City stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/eaaf0e52-c8b3-49c6-b79b-51188e5fb598.jpg?im_w=720"],
+        "cleaningFee": 40,
         "price": 160,
         "summary": "Studio apartment near Las Ramblas.",
         "capacity": 2,
@@ -79,6 +83,7 @@ export const demoStays = [
         "name": "London Soho Flat",
         "type": "City stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/prohost-api/Hosting-38518438/original/9ee33bf2-5e7e-41e2-a643-152e26bd470e.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 240,
         "summary": "Trendy flat in the heart of Soho.",
         "capacity": 2,
@@ -97,6 +102,7 @@ export const demoStays = [
         "name": "New York Downtown Studio",
         "type": "City stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/hosting/Hosting-1508277709145554241/original/c86ae438-462e-468f-a7d5-f2d321ee8bf8.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 200,
         "summary": "Studio in downtown Manhattan near Wall Street.",
         "capacity": 2,
@@ -115,6 +121,7 @@ export const demoStays = [
         "name": "Rome Historic Apartment",
         "type": "City stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-613463072770173957/original/14342b89-cde6-40b3-b173-92d962ab328b.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 190,
         "summary": "Apartment in Trastevere with rustic charm.",
         "capacity": 3,
@@ -133,6 +140,7 @@ export const demoStays = [
         "name": "Dubai Marina Apartment",
         "type": "City stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMwODc5ODA5MTk2NDIzODIwMg==/original/490634e7-77fe-4ec3-818e-86e73fda973e.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 260,
         "summary": "High-rise apartment with marina views.",
         "capacity": 4,
@@ -152,6 +160,7 @@ export const demoStays = [
         "name": "Barcelona Beach Flat",
         "type": "Beach stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-38770272/original/65f994ed-6c47-4e8d-9d1c-585e9c17b304.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 180,
         "summary": "Sunny apartment steps from Barceloneta beach.",
         "capacity": 4,
@@ -170,6 +179,7 @@ export const demoStays = [
         "name": "Miami Oceanview Condo",
         "type": "Beach stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/prohost-api/Hosting-51619747/original/cdfefb1b-a3f8-4647-a31a-1c8d03a001c4.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 220,
         "summary": "Oceanfront apartment with sweeping Miami Beach views.",
         "capacity": 3,
@@ -188,6 +198,7 @@ export const demoStays = [
         "name": "Goa Beach Retreat",
         "type": "Beach stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-1087549595576285683/original/4c3c7396-6d66-4617-8f93-00a83c248865.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 95,
         "summary": "Relaxing retreat hut steps away from the Arabian Sea.",
         "capacity": 2,
@@ -206,6 +217,7 @@ export const demoStays = [
         "name": "Sydney Bondi Apartment",
         "type": "Beach stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/hosting/Hosting-1420518395720809558/original/76d68e0a-ae3c-48ab-ac4a-6c5deb7d0732.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 240,
         "summary": "Modern apartment overlooking Bondi Beach.",
         "capacity": 4,
@@ -224,6 +236,7 @@ export const demoStays = [
         "name": "Santorini Cliffside Apartment",
         "type": "Beach stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-691918674135741107/original/07ca4193-2eca-4bd5-9b4d-22bf2aacb3ca.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 280,
         "summary": "Cliffside apartment with sweeping views of the Aegean Sea.",
         "capacity": 3,
@@ -242,6 +255,7 @@ export const demoStays = [
         "name": "Rio Copacabana Flat",
         "type": "Beach stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-9985623/original/36350534-9b20-44c8-a8d8-f9b1fb511590.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 160,
         "summary": "Flat with rooftop pool near Copacabana Beach.",
         "capacity": 3,
@@ -260,6 +274,7 @@ export const demoStays = [
         "name": "Malibu Ocean Villa",
         "type": "Beach stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/efabac16-21b6-414a-8c5f-e2552b1bdbee.jpg?im_w=720"],
+        "cleaningFee": 40,
         "price": 350,
         "summary": "Spacious villa with direct beach access in Malibu.",
         "capacity": 6,
@@ -278,6 +293,7 @@ export const demoStays = [
         "name": "Bali Beach Bungalow",
         "type": "Beach stays",
         "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/d380ba84-d2ab-4053-8172-8dd8d8c9e911.jpeg?im_w=720"],
+        "cleaningFee": 40,
         "price": 120,
         "summary": "Traditional bungalow surrounded by palm trees, steps from the ocean.",
         "capacity": 2,
@@ -301,6 +317,7 @@ export const demoStays = [
             "https://a0.muscache.com/im/pictures/miso/Hosting-980324970773069493/original/8b8c88b7-3bbc-41de-83f2-f47199f8e73c.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/3b2bcf77-9353-4d38-b004-058c69c611a8.jpg?im_w=720"
         ],
+        "cleaningFee": 40,
         "price": 320,
         "summary": "Luxury villa perched on the cliffs with infinity pool and Aegean views.",
         "capacity": 6,
@@ -322,6 +339,7 @@ export const demoStays = [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE2NTU0ODA0NDQ4Nzk4OTQ4MQ%3D%3D/original/75652fc4-7c30-4697-9128-9615b8381737.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/miso/Hosting-11517171/original/fc113306-c4b5-4b3f-888d-7fd57aa6938e.jpeg?im_w=720"
         ],
+        "cleaningFee": 40,
         "price": 270,
         "summary": "Secluded villa surrounded by lush rainforest with private plunge pool.",
         "capacity": 4,
@@ -342,6 +360,7 @@ export const demoStays = [
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/7b855e8b-f3a5-4883-b21b-50b80945c587.jpg?im_w=720",
         ],
+        "cleaningFee": 40,
         "price": 400,
         "summary": "Elegant villa with panoramic sea views and terraced gardens.",
         "capacity": 7,
@@ -362,6 +381,7 @@ export const demoStays = [
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/prohost-api/Hosting-777292673405205757/original/ddaa27a7-f506-4321-beb8-67f2827533e3.jpeg?im_w=720",
         ],
+        "cleaningFee": 40,
         "price": 280,
         "summary": "Spacious villa with direct beach access and modern amenities.",
         "capacity": 6,
@@ -382,6 +402,7 @@ export const demoStays = [
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTA5NDk2MjM=/original/a07c1174-2738-4aa8-aedc-23c707805161.jpeg?im_w=720",
         ],
+        "cleaningFee": 40,
         "price": 350,
         "summary": "Traditional Tuscan villa with private vineyard and rustic charm.",
         "capacity": 8,
@@ -402,6 +423,7 @@ export const demoStays = [
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/85a1b35b-ce95-47c5-ab14-ce438982e1ed.jpg?im_w=720",
         ],
+        "cleaningFee": 40,
         "price": 450,
         "summary": "Modern villa with pool, rooftop deck and soundproof party room.",
         "capacity": 10,
@@ -422,6 +444,7 @@ export const demoStays = [
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1008374830429730263/original/2cf0eb33-f849-417c-a131-4f9143a9a186.jpeg?im_w=720",
         ],
+        "cleaningFee": 40,
         "price": 500,
         "summary": "Ultra-modern desert villa with private dune safari access.",
         "capacity": 6,
@@ -443,6 +466,7 @@ export const demoStays = [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-561624/original/96f5178f-4f23-4dc0-99b0-c6fa9762bbad.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1517415849614607916/original/05390d0b-3542-4ca1-a2ca-249d6f21397e.jpeg?im_w=720"
         ],
+        "cleaningFee": 40,
         "price": 600,
         "summary": "Exclusive beachfront villa in Malibu with panoramic ocean views.",
         "capacity": 8,
@@ -454,6 +478,303 @@ export const demoStays = [
         "host": { "_id": "hostV8", "fullname": "Jessica", "location": "Malibu, USA" },
         "loc": { "country": "United States", "city": "Malibu", "address": "Pacific Coast Hwy, Malibu" },
         "reviews": [],
+        "likedByUsers": []
+    },
+    {
+        "_id": "Ytcqd",
+        "name": "Westin Kaanapali KORVN 2BR",
+        "type": "Villa",
+        "imgUrls": [
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436294/mvhb3iazpiar6duvy9we.jpg",
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436496/ihozxprafjzuhil9qhh4.jpg",
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436952/aef9ajipinpjhkley1e3.jpg",
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg"
+        ],
+        "price": 595,
+        "cleaningFee": 40,
+        "summary": "Experience the comfort of the Westin Kaanapali Ocean Resort Villas North in a beautifully maintained timeshare unit on Maui’s stunning Kaanapali Beach. Ideal for couples or solo travelers looking for a peaceful, resort-style getaway.\n\nThis unit includes access to premium resort amenities and is ADA/wheelchair accessible (please confirm with the resort directly to ensure your needs are met).\n\nPlease note:\n\nA daily resort fee applies:\n\n$14–$20/day for stays 7+ nights\n\n$38/day for stays under 7 nights\n\nAvailability is limited and must be approved after inquiry — we’ll review your request and confirm if available.\n\nFor guaranteed views, only weekly rentals are eligible and may incur additional charges.\n\nWe recommend reading the full “The Space” section for important details about cleaning, timeshare booking, and reservation processes.",
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436952/aef9ajipinpjhkley1e3.jpg"
+            },
+            {
+                "roomType": "living room",
+                "bedType": "sofa",
+                "imgUrl": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg"
+            }
+        ],
+        "guests": 3,
+        "bathrooms": 2,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "TV", "Cable TV", "Internet", "Wifi", "Air conditioning", "Wheelchair accessible", "Pool", "Kitchen",
+            "Free parking on premises", "Doorman", "Gym", "Elevator", "Hot tub", "Heating", "Family/kid friendly",
+            "Suitable for events", "Washer", "Dryer", "Smoke detector", "Carbon monoxide detector", "First aid kit",
+            "Safety card", "Fire extinguisher", "Essentials", "Shampoo", "24-hour check-in", "Hangers", "Hair dryer",
+            "Iron", "Laptop friendly workspace", "Self check-in", "Building staff", "Private entrance",
+            "Room-darkening shades", "Hot water", "Bed linens", "Extra pillows and blankets", "Ethernet connection",
+            "Luggage drop off allowed", "Long term stays allowed", "Ground floor access", "Wide hallway clearance",
+            "Step-free access", "Wide doorway", "Flat path to front door", "Well-lit path to entrance",
+            "Disabled parking spot", "Wide clearance to bed", "Wide entryway", "Waterfront", "Beachfront"
+        ],
+        "highlights": [
+            {
+                "main": "Dive right in",
+                "sub": "This is one of the few places in the area with a pool.",
+                "imgUrl": "AMENITIES_POOL_SVG"
+            },
+            {
+                "main": "Fully equipped kitchen",
+                "sub": "Guests appreciated the well-stocked kitchen for home-cooked meals.",
+                "imgUrl": "AMENITIES_KITCHEN_SVG"
+            },
+            {
+                "main": "Well-equipped for long stays",
+                "sub": "Guests who stayed a month or longer rated this place 5 stars.",
+                "imgUrl": "AMENITIES_LONG_STAY_SVG"
+            }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "622f3403e36c59e6164faf93",
+            "firstName": "Patty",
+            "fullname": "Patty And Beckett",
+            "location": "Eureka, California, United States",
+            "about": "We are an adventurous couple who loves to travel :)",
+            "pictureUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112365/cld-sample.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1577836800000,
+            "rating": 4.92,
+            "numReviews": 128,
+            "yearsHosting": 5,
+            "responseRate": 98,
+            "responseTime": "within an hour",
+            "coHosts": [
+                {
+                    "name": "Alex",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/45.jpg"
+                },
+                {
+                    "name": "Jamie",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/46.jpg"
+                }
+            ],
+            "personalFacts": [
+                { "icon": "HOST_SVG_BORN", "text": "Born in the 80's" },
+                { "icon": "HOST_SVG_WORK", "text": "Photographer" }
+            ]
+        },
+        "loc": {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "Maui",
+            "address": "Lahaina, HI, United States",
+            "lat": -156.6917,
+            "lan": 20.93792
+        },
+        "reviews": [
+            {
+                "at": "2016-06-12T04:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc004",
+                    "fullname": "Kiesha",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112363/samples/smile.jpg",
+                    "id": "10711825"
+                },
+                "txt": "I had a great experience working with Patty and Peter...",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 5,
+                    "value": 4.5
+                },
+                "nights": 8,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2016-07-28T04:00:00.000Z",
+                "by": {
+                    "_id": "622f3403e36c59e6164fb204",
+                    "fullname": "Chris",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112363/samples/outdoor-woman.jpg",
+                    "id": "70072865"
+                },
+                "txt": "Peter quickly responded to any questions I had...",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 5,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": true,
+                "withPet": false
+            }
+            , {
+                "at": "2016-09-11T04:00:00.000Z",
+                "by": {
+                    "id": "622f3405e36c59e6164fb703",
+                    "fullname": "Kim",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112359/samples/two-ladies.jpg",
+                    "id": "71179725"
+                },
+                "txt": "We had the perfect location for a room, first floor right in front of the pool. The resort is beautiful, and the staff is so friendly! I enjoyed it so much, we talked about buying a timeshare ourselves."
+                ,
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 5,
+                    "value": 4.5,
+                },
+                "nights": 3,
+                "withKids": true,
+                "withPet": false,
+            },
+            {
+                "at": "2017-01-07T05:00:00.000Z",
+                "by": {
+                    "id": "622f3404e36c59e6164fb37f",
+                    "fullname": "Tracy",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112355/samples/people/smiling-man.jpg",
+                    "id": "65593239"
+                },
+                "txt": "Beautiful location. Patty & Peter were super helpful and easy to work with!"
+                ,
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 5,
+                    "value": 4.5,
+                },
+                "nights": 9,
+                "withKids": true,
+                "withPet": false,
+            },
+            {
+                "at": "2017-04-07T04:00:00.000Z",
+                "by": {
+                    "id": "622f3403e36c59e6164fb105",
+                    "fullname": "Duyen",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112364/samples/man-portrait.jpg",
+                    "id": "26215688"
+                },
+                "txt": "Great spot for the kids and family and close to beach and everything at the resort. We will definitely be back."
+                ,
+                "rate": {
+                    "cleanliness": 1,
+                    "communication": 1,
+                    "checkIn": 1,
+                    "accuracy": 1,
+                    "location": 1,
+                    "value": 1,
+                },
+                "nights": 3,
+                "withKids": true,
+                "withPet": false,
+            },
+            {
+                "at": "2017-05-09T04:00:00.000Z",
+                "by": {
+                    "id": "622f3402e36c59e6164fabbe",
+                    "fullname": "Binh",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112365/samples/upscale-face-1.jpg",
+                    "id": "117390236"
+                },
+                "txt": "The unit and the Westin offer variety of amenities you can possibly ask for. Sofa beds are very comfortable to sleep in. But there is charge for ocean view upgrade. Overall, I highly recommend to book with Patty and Peter."
+                ,
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 4.8,
+                    "value": 4.5,
+                },
+                "nights": 3,
+                "withKids": true,
+                "withPet": false,
+            },
+            {
+                "at": "2018-02-24T05:00:00.000Z",
+                "by": {
+                    "id": "622f3404e36c59e6164fb4af",
+                    "fullname": "Samy",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112366/main-sample.png",
+                    "id": "15143517"
+                },
+                "txt": "We spent a great week at Patty and Peter's place. The place was exactly as shown in the pictures, very comfortable, nice view, with all amenities. The resort is great with several pools, a long beach, many restaurants, and of course a lot of great activities all around."
+                ,
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 5,
+                    "accuracy": 4.6,
+                    "location": 5,
+                    "value": 5,
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false,
+            },
+            {
+                "at": "2018-06-16T04:00:00.000Z",
+                "by": {
+                    "id": "622f3405e36c59e6164fb87b",
+                    "fullname": "Breanne",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758116976/bb3osjof90dl0t3kl0nd.png",
+                    "id": "78173091"
+                },
+                "txt": "This place was perfect for my family. We had plenty of room to spread out and the service could not have been any better."
+                ,
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.6,
+                    "checkIn": 4.8,
+                    "accuracy": 4.9,
+                    "location": 5,
+                    "value": 4.5,
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": true,
+            },
+            {
+                "at": "2018-06-29T04:00:00.000Z",
+                "by": {
+                    "id": "622f3405e36c59e6164fb713",
+                    "fullname": "Kimberly",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112355/samples/people/smiling-man.jpg",
+                    "id": "100535039"
+                },
+                "txt": "We love Westin Kaanapalli",
+
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 5,
+                    "location": 5,
+                    "value": 4.8,
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false,
+            }
+        ],
         "likedByUsers": []
     }
 
