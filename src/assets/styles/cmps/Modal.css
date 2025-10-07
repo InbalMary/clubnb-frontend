@@ -114,7 +114,7 @@
             display: grid;
             grid-template-columns: minmax(auto, 22.813rem) minmax(auto, 39.688rem);
             grid-template-areas: "rating review";
-          gap:.875rem;
+            gap: .875rem;
             width: 100%;
 
 

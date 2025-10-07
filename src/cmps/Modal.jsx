@@ -3,7 +3,7 @@ import { useKeyListener } from "../customHooks/useKeyListener"
 import { svgControls } from "./Svgs"
 import { Footer } from "react-day-picker"
 
-export function Modal({ header, footer, children, isOpen, onClose, closePosition = 'left', className }) {
+export function Modal({ header, footer, children, isOpen, onClose, closePosition = 'left', className, useBackdrop = true }) {
 
     useKeyListener('Escape', () => {
         onClose()
@@ -13,16 +13,17 @@ export function Modal({ header, footer, children, isOpen, onClose, closePosition
 
     return (
         <Fragment>
+            {useBackdrop && <section onClick={onClose} className="backdrop"></section>}
 
-            <section onClick={onClose} className="backdrop"></section>
             <section className={`modal-popup ${className || ''}`}>
-                <button
-                    onClick={onClose}
-                    className={`close-btn ${closePosition}`}
-                    aria-label="Close modal"
-                >
-                    {svgControls.closeModal}
-                </button>
+                {closePosition === 'left' || closePosition === 'right' &&
+                    <button
+                        onClick={onClose}
+                        className={`close-btn ${closePosition}`}
+                        aria-label="Close modal"
+                    > {svgControls.closeModal}
+                    </button>
+                }
                 {header && <header>{header}</header>}
                 <main className="main-modal">{children}</main>
                 {footer && <footer>{footer}</footer>}
