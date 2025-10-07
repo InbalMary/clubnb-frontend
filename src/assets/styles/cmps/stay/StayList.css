@@ -36,8 +36,8 @@
 }
 
 .stay-row {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 3.25rem;
+    padding-right: 3.25rem;
     margin-top: -0.25rem;
     margin-bottom: -0.5rem;
 }
@@ -47,6 +47,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* margin-top: 1.6rem; */
     margin-top: 2rem;
-    margin-bottom: 0.625rem;
+    margin-bottom: 0.85rem;
 }

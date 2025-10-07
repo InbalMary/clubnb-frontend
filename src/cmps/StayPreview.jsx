@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import { formatStayDates, calculateNights } from '../services/util.service.js'
 import { svgControls } from './Svgs.jsx'
 import { Modal } from './Modal.jsx'
-import { is } from 'date-fns/locale'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
+import { showSuccessMsg } from '../services/event-bus.service.js'
 
 export function StayPreview({ stay }) {
     const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
