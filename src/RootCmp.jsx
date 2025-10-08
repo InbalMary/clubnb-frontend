@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
@@ -19,6 +19,7 @@ import { LoginSignup, Login, Signup } from './cmps/LoginSignup.jsx'
 import { BecomeHostForm } from './pages/BecomeHostForm.jsx'
 import { ListingEdit } from './pages/ListingEdit.jsx'
 import { CompactHeader } from './cmps/CompactHeader.jsx'
+import { useClickOutside } from './customHooks/useClickOutside.js'
 
 
 export function RootCmp() {
@@ -26,8 +27,19 @@ export function RootCmp() {
     const [isExpanded, setIsExpanded] = useState(true)
     const [hasScrolled, setHasScrolled] = useState(false)
     const [initialModal, setInitialModal] = useState(null)
+    const headerRef = useRef(null)
 
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
+
+    useEffect(() => {
+        if (!isStayDetailsPage) return
+
+        const timeoutId = setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: "instant" })
+        }, 50)
+
+        return () => clearTimeout(timeoutId)
+    }, [isStayDetailsPage])
 
     useEffect(() => {
         if (isStayDetailsPage) {
@@ -54,6 +66,10 @@ export function RootCmp() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [isExpanded, initialModal, isStayDetailsPage, hasScrolled])
 
+    useClickOutside([headerRef], () => {
+        if (isExpanded && initialModal) handleCollapse()
+    })
+
     const handleSearchClick = (modalType) => {
         setInitialModal(modalType)
         setIsExpanded(true)
@@ -69,11 +85,13 @@ export function RootCmp() {
 
     return (
         <div className="main-container">
-            {!isExpanded ? (
-                <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
-            ) : (
-                <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
-            )}
+            <div ref={headerRef}>
+                {!isExpanded ? (
+                    <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
+                ) : (
+                    <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
+                )}
+            </div>
             {/* <AppHeader /> */}
             <UserMsg />
 
