@@ -155,7 +155,6 @@ export function StickyContainer({ stay, initialModal = null }) {
                 <FancyButton>
                     {(startDate && endDate) ? 'Reserve' : 'Check availability'}
                 </FancyButton>
-                {/* <button className="pink">{(startDate && endDate) ? 'Reserve' : 'Check availability'}</button> */}
 
                 {startDate && endDate && <span className="not-charged flex">You won't be charged yet</span>}
 

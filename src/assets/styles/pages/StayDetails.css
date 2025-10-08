@@ -11,7 +11,6 @@
         font-size: 1.625rem;
         line-height: 1.875rem;
         padding-block: 1.5rem;
-
     }
 
     h2 {
@@ -275,6 +274,10 @@
                 gap: 1rem;
             }
         }
+    }
+
+    .details-calendar {
+        padding-block: 3rem;
     }
 
 }

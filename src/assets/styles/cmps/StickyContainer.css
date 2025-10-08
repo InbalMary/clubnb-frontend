@@ -7,7 +7,11 @@
 
     position: sticky;
     top: 100px;
-    max-height: 33rem;
+    height: 24rem;
+}
+
+.sticky-container-wrap:has(.payment-summary) {
+    min-height: 34rem;
 }
 
 .rare-find_sticky {
@@ -53,6 +57,7 @@ h2.add-dates_sticky {
 }
 
 .modal-popup.calendar {
+    z-index: 2000;
     top: 107% !important;
 }
 
@@ -249,20 +254,21 @@ h2.add-dates_sticky {
 }
 
 .pink {
-    --mouse-x: 10%;
-    --mouse-y: 10%;
-    --palette-bg-secondary-luxe: radial-gradient(circle at center, #d80767 0%, #BD1E59 30%, #92174D 55%, #861453 72.5% 72.5%, #6C0D63 90%, #6C0D63 100%);
+    --mouse-x: 50%;
+    --mouse-y: 50%;
     --palette-bg-secondary-core-hover: radial-gradient(circle at var(--mouse-x) var(--mouse-y),
-            #fb4163 10%,
-            #f12050 27.5%,
+            /* #fb4163 5%, */
+            #f12050 20.5%,
+            #E61E4D 30%, 
             #e21257 40%,
-            #D70466 57.5%,
-            #d80767 60%,
-            #af1a51 100%);
+            #D70466 67.5%,
+            #d80767 70%,
+            /* #af1a51 100% */
+            #D70466 100%);
     position: relative;
 
-    background-image: var(--dls19-brand-gradient-radial,
-            var(--palette-bg-secondary-core-hover));
+    background-image:
+        var(--palette-bg-secondary-core-hover, var(--palette-bg-secondary-core-hover));
 
     background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
     background-size: 200%;
