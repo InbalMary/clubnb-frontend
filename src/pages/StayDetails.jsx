@@ -365,7 +365,7 @@ export function StayDetails() {
                 <div className="first-block">
                   <h2 className="stay-name">{demoStay.roomType} in {demoStay.loc.city},  {demoStay.loc.country}</h2>
                   <Capacity stay={demoStay} />
-                  <SmallRating stay={demoStay} />
+                  <SmallRating stay={demoStay} onClick={() => setModalType('reviews')} />
                 </div>
 
                 <div className="border"></div>
@@ -404,7 +404,7 @@ export function StayDetails() {
                   header=" "
                   isOpen={modalType !== null}
                   onClose={() => setModalType(null)}
-                  closePosition="left"
+                  closePosition='left'
                   className={`${modalType === 'reviews' ? 'reviews-rating-modal' : 'modal-popup'}`}>
 
                   {modalType === 'reviews' &&

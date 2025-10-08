@@ -6,12 +6,31 @@ import { stayService as local } from './stay.service.local'
 import { stayService as remote } from './stay.service.remote'
 
 function getEmptyStay() {
-	return {
+    return {
         _id: '',
-		name: makeId(),
-		price: getRandomIntInclusive(80, 240),
-		reviews: [],
-	}
+        name: '',
+        price: 0,
+        cleaningFee: 0,
+        capacity: 1,
+        bedrooms: 1,
+        bathrooms: 1,
+        summary: '',
+        startDate: '',
+        endDate: '',
+        imgUrls: [],
+        host: {
+            _id: '',
+            fullname: '',
+            location: ''
+        },
+        loc: {
+            country: '',
+            city: '',
+            address: ''
+        },
+        reviews: [],
+        likedByUsers: []
+    }
 }
 
 function getDefaultFilter() {

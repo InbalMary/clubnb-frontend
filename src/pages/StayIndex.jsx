@@ -9,12 +9,14 @@ import { userService } from '../services/user'
 
 import { StayList } from '../cmps/StayList'
 import { StayFilter } from '../cmps/StayFilter'
+import { useNavigate } from 'react-router'
 
 export function StayIndex() {
 
     // const [ filterBy, setFilterBy ] = useState(stayService.getDefaultFilter())
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+    const navigate = useNavigate()
 
     useEffect(() => {
         loadStays(filterBy)
@@ -30,14 +32,15 @@ export function StayIndex() {
     }
 
     async function onAddStay() {
-        const stay = stayService.getEmptyStay()
-        stay.name = prompt('Name?', 'Some Name')
-        try {
-            const savedStay = await addStay(stay)
-            showSuccessMsg(`Stay added (id: ${savedStay._id})`)
-        } catch (err) {
-            showErrorMsg('Cannot add stay')
-        }        
+        navigate("/stay/edit")
+        // const stay = stayService.getEmptyStay()
+        // stay.name = prompt('Name?', 'Some Name')
+        // try {
+        //     const savedStay = await addStay(stay)
+        //     showSuccessMsg(`Stay added (id: ${savedStay._id})`)
+        // } catch (err) {
+        //     showErrorMsg('Cannot add stay')
+        // }        
     }
 
     async function onUpdateStay(stay) {
@@ -55,15 +58,13 @@ export function StayIndex() {
 
     return (
         <section className="stay-index">
-            <header>
-                {/* <h2>Stays</h2> */}
-                {userService.getLoggedinUser() && <button onClick={onAddStay}>Add a Stay</button>}
-            </header>
-            {/* <StayFilter filterBy={filterBy} setFilterBy={setFilterBy} /> */}
             <StayList 
                 stays={stays}
                 onRemoveStay={onRemoveStay} 
                 onUpdateStay={onUpdateStay}/>
+            <div className='temporary-add-stay-btn'>
+                {userService.getLoggedinUser() && <button onClick={onAddStay}>Add a Stay</button>}
+            </div>
         </section>
     )
 }
