@@ -161,7 +161,7 @@ export function CalendarStayDates({ stay, startDate, endDate }) {
     )
 }
 
-export function SmallRating({ stay }) {
+export function SmallRating({ stay, onClick }) {
     function getAvgRate(reviews) {
         let totalSum = 0
         let totalReviews = 0
@@ -183,7 +183,7 @@ export function SmallRating({ stay }) {
         <span className="rate">{amenitiesSvg.rate}</span>
         <span className="avg">{getAvgRate(stay.reviews)}</span>
         <span className="dot" />
-        <span className="link"><Link to={`stay/${stay._id}/review`}>{stay.reviews.length} {stay.reviews.length === 1 ? 'review' : 'reviews'}</Link></span>
+        <span onClick={onClick} className="link">{stay.reviews.length} {stay.reviews.length === 1 ? 'review' : 'reviews'}</span>
     </div>)
 }
 

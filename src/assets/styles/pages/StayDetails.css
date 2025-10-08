@@ -49,6 +49,7 @@
 
     span.link {
         text-decoration: underline;
+        cursor:pointer;
     }
 
     .details-imgs {
