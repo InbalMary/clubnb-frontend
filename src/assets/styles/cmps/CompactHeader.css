@@ -244,3 +244,7 @@ body:has(.compact-header) .main-container>.stay-details {
     width: 5rem;
     border-radius: 2rem;
 }
+
+.compact-header.no-sticky .header-menu {
+    right: 200px;
+}

@@ -1,8 +1,11 @@
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import { appHeaderSvg } from "./Svgs";
 import { HamburgerMenu } from "./HamburgerMenu";
 
 export function CompactHeader({ onSearchClick, isSticky }) {
+    const location = useLocation()
+    const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
+    // console.log('isStayDetailsPage', isStayDetailsPage)
     return (
         <header className={`compact-header full ${!isSticky ? 'no-sticky' : ''}`}>
             <div className="compact-header-content">
@@ -31,7 +34,7 @@ export function CompactHeader({ onSearchClick, isSticky }) {
                                 onSearchClick('checkin')
                             }}
                         >
-                            Anytime
+                            {isStayDetailsPage ? 'Any week' : 'Anytime'}
                         </span>
                         <span className="compact-search-divider"></span>
                         <span

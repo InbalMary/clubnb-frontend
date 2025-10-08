@@ -10,13 +10,15 @@ import { formatDate, formatGuestsText } from '../services/util.service'
 import { useSelector } from "react-redux";
 import { setFilterBy } from '../store/actions/stay.actions.js'
 import { useClickOutside } from "../customHooks/useClickOutside.js";
+import { useDateContext } from "../context/DateRangeProvider.jsx";
 
 export function SearchBar({ initialModal = null }) {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [activeModal, setActiveModal] = useState(initialModal)
-    const { dateRange, setDateRange } = useDateRange()
+    // const { dateRange, setDateRange } = useDateRange()
+    const { dateRange, setDateRange } = useDateContext()
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
 
     const searchBarRef = useRef(null)
