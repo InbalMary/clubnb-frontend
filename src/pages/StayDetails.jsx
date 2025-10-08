@@ -344,9 +344,6 @@ export function StayDetails() {
 
   const amenitiesData = getAmenitiesData(amenitiesSvg)
 
-  // const dispatch = useDispatch()
-
-
 
   return (
     <div className="main-container">
@@ -447,7 +444,8 @@ export function StayDetails() {
                   <DateRangePicker
                     value={dateRange}
                     onComplete={handleDateComplete}
-                  />
+                 activeField={"null"}
+                 />
                 </div>
 
 
