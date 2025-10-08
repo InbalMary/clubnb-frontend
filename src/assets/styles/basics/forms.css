@@ -1,4 +1,4 @@
-button {
+/* button {
 	border: 0;
 	cursor: pointer;
 }
@@ -6,7 +6,7 @@ button {
 button:hover {
 	transition: 0.3s;
 	background-color: var(--gray6)
-}
+} */
 
 button.open-modal {
 	font-family: cereal-medium;

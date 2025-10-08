@@ -9,8 +9,9 @@
     font-family: cereal-regular;
     font-weight: bolder;
     border-radius: .75em;
+    border: none;
     padding: .875em 1.5em;
-
+    transition: 0.3s
 }
 
 /* ========== Theme Variants ========== */
@@ -48,18 +49,20 @@
 .btn-transparent {
     /* transparent button styles */
     background-color: transparent;
+    border: none;
     color: var(--gray3);
 }
 
 .btn-transparent:hover {
     background-color: var(--gray4);
-
 }
 
 .btn-link {
     /*transparent btn that is a link*/
     background-color: transparent;
+    text-decoration: underline;
     color: var(--gray3);
+    padding: 0;
 }
 
 .btn-link:hover {
