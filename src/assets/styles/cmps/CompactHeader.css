@@ -85,6 +85,10 @@
     align-items: center;
 }
 
+.compact-search-text:last-of-type {
+    margin-inline-start: 0.5rem;
+}
+
 .compact-search-icon {
     font-size: 1rem;
 }
@@ -99,7 +103,7 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    margin-inline-end: 0.3rem;
+    margin-inline-end: 0.4rem;
     margin-inline-start: 1rem;
     background-color: var(--primary-clr);
     color: var(--white);
@@ -164,7 +168,7 @@
     transition: background-color 0.2s ease;
     padding: 0;
     margin-inline-start: 0.75rem;
-    margin-block-start: 22px;
+    margin-block-start: 16px;
 }
 
 .compact-header .header-actions button:has(.hamburger) {
@@ -197,7 +201,7 @@
 }
 
 .compact-header .anywhere-icon {
-    margin-inline-start: 0.5rem;
+    margin-inline-start: 0.4rem;
     height: 48px;
     width: 48px;
 }
