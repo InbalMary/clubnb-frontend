@@ -225,8 +225,8 @@ export function FancyButton({ children }) {
     }
 
     const handleMouseLeave = (e) => {
-        buttonRef.current.style.setProperty('--mouse-x', `50%`)
-        buttonRef.current.style.setProperty('--mouse-y', `50%`)
+        buttonRef.current.style.setProperty('--mouse-x', `${x}%`)
+        buttonRef.current.style.setProperty('--mouse-y', `${y}%`)
     }
 
     return (
