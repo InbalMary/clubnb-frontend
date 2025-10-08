@@ -219,22 +219,16 @@ export function FancyButton({ children }) {
         const rect = buttonRef.current.getBoundingClientRect()
         const x = ((e.clientX - rect.left) / rect.width) * 100
         const y = ((e.clientY - rect.top) / rect.height) * 100
-
+        
         buttonRef.current.style.setProperty('--mouse-x', `${x}%`)
         buttonRef.current.style.setProperty('--mouse-y', `${y}%`)
     }
-
-    const handleMouseLeave = (e) => {
-        buttonRef.current.style.setProperty('--mouse-x', `${x}%`)
-        buttonRef.current.style.setProperty('--mouse-y', `${y}%`)
-    }
-
+    
     return (
         <button
             className="pink"
             ref={buttonRef}
             onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
         >
             {children}
         </button>
