@@ -1,8 +1,6 @@
 import { AdvancedMarker, APIProvider, InfoWindow, Map, Pin, useMap } from '@vis.gl/react-google-maps';
 import { useState } from 'react';
-import { amenitiesSvg, mapMarker } from './Svgs';
 import { HomeMarkerIcon } from './SmallComponents';
-
 
 export function StayMap() {
     return (
