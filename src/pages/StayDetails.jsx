@@ -21,6 +21,7 @@ import { StickyContainer } from '../cmps/StickyContainer'
 import { HostInfo } from '../cmps/HostInfo'
 import { hostSvgs } from '../cmps/Svgs'
 import { useDateContext } from '../context/DateRangeProvider'
+import { StayMap } from '../cmps/StayMap'
 
 const demoStay = {
   _id: "Ytcqd",
@@ -113,8 +114,8 @@ We recommend reading the full “The Space” section for important details abou
     countryCode: "US",
     city: "Maui",
     address: "Lahaina, HI, United States",
-    lat: -156.6917,
-    lan: 20.93792
+    lat: 156.3319,
+    lan: 20.7984,
   },
   reviews: [
     {
@@ -444,10 +445,9 @@ export function StayDetails() {
                   <DateRangePicker
                     value={dateRange}
                     onComplete={handleDateComplete}
-                 activeField={"null"}
-                 />
+                    activeField={"null"}
+                  />
                 </div>
-
 
               </section>
             </div>
@@ -456,12 +456,25 @@ export function StayDetails() {
           </div>
 
           <div className="border"></div>
+
           <div className="review-section">
             <StayRating reviews={demoStay.reviews} />
             <div className="border"></div>
             {!demoStay.reviews?.length && <h2>No reviews yet...</h2>}
             <StayReviewList reviews={demoStay.reviews} isModal={false} />
             <button onClick={() => setModalType('reviews')} className="open-modal">Show all {demoStay.reviews.length} reviews</button>
+          </div>
+
+          <div className="border"></div>
+
+          <div className="map-container">
+            <div className="where-map">
+              <h3>Where you <span className="upper-comma">,</span>ll be</h3>
+              <span className="loc">{demoStay.loc.city}, {demoStay.loc.country}</span>
+            </div>
+            <div className="map-wrapper">
+              <StayMap />
+            </div>
           </div>
 
         </div >
