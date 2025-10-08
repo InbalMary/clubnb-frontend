@@ -20,6 +20,7 @@ import { BecomeHostForm } from './pages/BecomeHostForm.jsx'
 import { ListingEdit } from './pages/ListingEdit.jsx'
 import { CompactHeader } from './cmps/CompactHeader.jsx'
 import { useClickOutside } from './customHooks/useClickOutside.js'
+import { StayEdit } from './pages/StayEdit.jsx'
 
 
 export function RootCmp() {
@@ -103,6 +104,8 @@ export function RootCmp() {
                         <Route path="vision" element={<AboutVision />} />
                     </Route> */}
                     <Route path="" element={<StayIndex />} />
+                    <Route path="stay/edit" element={<StayEdit />} />
+                    <Route path="stay/edit/:stayId" element={<StayEdit />} />
                     <Route path="stay/:stayId" element={<StayDetails />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="messages" element={<MsgIndex />} />
