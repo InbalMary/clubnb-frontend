@@ -226,7 +226,7 @@
 }
 
 .search-item-container:has(.search-section-date.active) {
-  background-color: var(--gray4);
+  background-color: var(--gray1);
 }
 
 .search-section-date.active {
