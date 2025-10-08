@@ -29,8 +29,12 @@ export function RootCmp() {
     const [hasScrolled, setHasScrolled] = useState(false)
     const [initialModal, setInitialModal] = useState(null)
     const headerRef = useRef(null)
+    const prevPathRef = useRef(location.pathname)
 
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
+    const isIndexPage = location.pathname === '/'
+
+    const showBackdrop = (isExpanded && initialModal) || (isStayDetailsPage && isExpanded)
 
     useEffect(() => {
         if (!isStayDetailsPage) return
@@ -41,6 +45,20 @@ export function RootCmp() {
 
         return () => clearTimeout(timeoutId)
     }, [isStayDetailsPage])
+
+    useEffect(() => {
+        const prevPath = prevPathRef.current
+
+        if (prevPath !== '/' && isIndexPage) {
+            setIsExpanded(true)
+            setHasScrolled(false)
+        } else {
+            setHasScrolled(false)
+        }
+
+        setInitialModal(null)
+        prevPathRef.current = location.pathname
+    }, [location.pathname, isIndexPage])
 
     useEffect(() => {
         if (isStayDetailsPage) {
@@ -77,6 +95,12 @@ export function RootCmp() {
     }
 
     const handleCollapse = () => {
+        if (isStayDetailsPage && initialModal) {
+            setInitialModal(null)
+            setIsExpanded(false)
+            return
+        }
+
         if (!hasScrolled) return
 
         if (window.scrollY <= 10) return setIsExpanded(false)
@@ -86,6 +110,7 @@ export function RootCmp() {
 
     return (
         <div className="main-container">
+            {showBackdrop && <div className="backdrop" onClick={handleCollapse} />}
             <div ref={headerRef}>
                 {!isExpanded ? (
                     <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
