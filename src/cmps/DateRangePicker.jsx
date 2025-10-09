@@ -10,7 +10,12 @@ export function DateRangePicker({ onComplete, value, activeField }) {
             onComplete?.({ from: range.from, to: value.to ?? null })
         } else if (activeField === 'checkout') {
             onComplete?.({ from: value.from, to: range.to ?? range.from })
-        }
+        } else {
+        // Fallback when no field is active (for use in details page)
+        const from = range.from ?? range.to
+        const to = range.to ?? range.from
+        onComplete?.({ from, to })
+    }
     }   
     const modifiers = {
         checkin: value.from,

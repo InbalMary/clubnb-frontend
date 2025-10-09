@@ -11,7 +11,6 @@
         font-size: 1.625rem;
         line-height: 1.875rem;
         padding-block: 1.5rem;
-
     }
 
     h2 {
@@ -50,6 +49,7 @@
 
     span.link {
         text-decoration: underline;
+        cursor:pointer;
     }
 
     .details-imgs {
@@ -77,9 +77,9 @@
 
     .details-container {
         display: grid;
-        grid-template-columns: minmax(auto, 39.688rem) minmax(auto, 24.813rem);
+        grid-template-columns: minmax(auto, 40.2rem) minmax(auto, 25rem);
         grid-template-areas: "content reserve";
-
+        gap: 6rem;
 
         .content .main-info {
             padding-block: 2rem;
@@ -99,8 +99,6 @@
                 align-items: center;
                 gap: 4px;
                 margin-top: .4rem;
-
-                .link {}
             }
 
             .avg {
@@ -277,4 +275,37 @@
         }
     }
 
+    .details-calendar {
+        padding-block: 3rem;
+    }
+
+    .map-container {
+        padding-block: 3rem 5rem;
+
+        .map-wrapper {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 500px;
+        }
+
+
+        .where-map {
+            padding-block: 1rem;
+
+            h3 {
+                position: relative;
+                font-size: 1.4rem;
+                letter-spacing: -.8px;
+                padding-bottom: 1.5rem;
+
+                span.upper-comma {
+                    content: ",";
+                    position: absolute;
+                    top: -13px;
+                    left: 106px;
+                }
+            }
+        }
+    }
 }

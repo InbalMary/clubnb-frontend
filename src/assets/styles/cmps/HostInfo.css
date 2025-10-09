@@ -1,6 +1,5 @@
-.host-info {
-    padding: 0 80px;
-}
+/* .host-info {
+} */
 
 .host-layout {
     display: grid;
@@ -8,20 +7,20 @@
     column-gap: 4rem;
     align-items: start;
     border-top: 1px solid var(--gray6);
-    padding: 40px 0;
+    padding-block: 40px;
 }
 
 .host-layout>h2 {
     grid-column: 1/ -1;
     font-size: 1.375rem;
-    margin-bottom: 1.5rem;
-
+    padding-block-end: 1.8rem;
+    font-weight: 600;
 }
 
 .host-left {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.4rem;
     font-size: 1rem;
 }
 
@@ -29,11 +28,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     border: 1px solid var(--gray4);
     border-radius: 20px;
     box-shadow: 3px 6px 20px 0px rgb(0 0 0 / 7%);
-    padding: 1.5rem 1.5rem;
+    padding: 1.3rem .6rem .6rem .5rem;
 }
 
 .host-card-left {
@@ -54,16 +53,17 @@
 }
 
 .host-avatar {
-    width: 104px;
-    height: 104px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .host-name h3 {
-    font-size: 31.5px;
+    font-size: 2rem;
     line-height: 35.8718px;
     font-family: cereal-medium;
+    font-weight: 600;
     letter-spacing: 0.04rem;
 }
 

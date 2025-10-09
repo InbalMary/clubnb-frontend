@@ -15,7 +15,11 @@ export async function loadStays(filterBy) {
 export async function loadStay(stayId) {
     try {
         const stay = await stayService.getById(stayId)
-        store.dispatch(getCmdSetStay(stay))
+        // store.dispatch(getCmdSetStay(stay))
+        store.dispatch({
+            type: SET_STAY,
+            stay
+        })
     } catch (err) {
         console.log('Cannot load stay', err)
         throw err

@@ -98,3 +98,7 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     z-index: 1000;
 }
+
+.search-item-container:has(.search-section-who.active) {
+  background-color: var(--gray1);
+}

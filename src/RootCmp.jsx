@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
@@ -19,6 +19,8 @@ import { LoginSignup, Login, Signup } from './cmps/LoginSignup.jsx'
 import { BecomeHostForm } from './pages/BecomeHostForm.jsx'
 import { ListingEdit } from './pages/ListingEdit.jsx'
 import { CompactHeader } from './cmps/CompactHeader.jsx'
+import { useClickOutside } from './customHooks/useClickOutside.js'
+import { StayEdit } from './pages/StayEdit.jsx'
 import { ConfirmPay } from './pages/ConfirmPay.jsx'
 
 
@@ -27,9 +29,10 @@ export function RootCmp() {
     const [isExpanded, setIsExpanded] = useState(true)
     const [hasScrolled, setHasScrolled] = useState(false)
     const [initialModal, setInitialModal] = useState(null)
+    const headerRef = useRef(null)
+    const prevPathRef = useRef(location.pathname)
 
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
-    const isConfirmPayPage = location.pathname.includes('/confirm-pay')
 
     useEffect(() => {
         if (isStayDetailsPage) {
@@ -56,12 +59,22 @@ export function RootCmp() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [isExpanded, initialModal, isStayDetailsPage, hasScrolled])
 
+    useClickOutside([headerRef], () => {
+        if (isExpanded && initialModal) handleCollapse()
+    })
+
     const handleSearchClick = (modalType) => {
         setInitialModal(modalType)
         setIsExpanded(true)
     }
 
     const handleCollapse = () => {
+        if (isStayDetailsPage && initialModal) {
+            setInitialModal(null)
+            setIsExpanded(false)
+            return
+        }
+
         if (!hasScrolled) return
 
         if (window.scrollY <= 10) return setIsExpanded(false)
@@ -71,12 +84,10 @@ export function RootCmp() {
 
     return (
         <div className="main-container">
-            {!isConfirmPayPage && (
-                !isExpanded ? (
-                    <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
-                ) : (
-                    <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
-                )
+            {!isExpanded ? (
+                <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
+            ) : (
+                <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
             )}
             {/* <AppHeader /> */}
             <UserMsg />
@@ -89,6 +100,8 @@ export function RootCmp() {
                         <Route path="vision" element={<AboutVision />} />
                     </Route> */}
                     <Route path="" element={<StayIndex />} />
+                    <Route path="stay/edit" element={<StayEdit />} />
+                    <Route path="stay/edit/:stayId" element={<StayEdit />} />
                     <Route path="stay/:stayId" element={<StayDetails />} />
                     <Route path="stay/:stayId/confirm-pay" element={<ConfirmPay />} />
                     <Route path="user/:id" element={<UserDetails />} />
