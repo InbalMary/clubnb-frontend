@@ -21,7 +21,9 @@ import { ListingEdit } from './pages/ListingEdit.jsx'
 import { CompactHeader } from './cmps/CompactHeader.jsx'
 import { useClickOutside } from './customHooks/useClickOutside.js'
 import { StayEdit } from './pages/StayEdit.jsx'
+import { ConfirmPay } from './pages/ConfirmPay.jsx'
 import { useHeaderState } from './customHooks/useHeaderState.js'
+
 
 export function RootCmp() {
     const {
@@ -29,6 +31,7 @@ export function RootCmp() {
         initialModal,
         showBackdrop,
         isStayDetailsPage,
+        isConfirmPayPage,
         headerRef,
         handleSearchClick,
         handleCollapse
@@ -41,13 +44,15 @@ export function RootCmp() {
     return (
         <div className="main-container">
             {showBackdrop && <div className="backdrop" onClick={handleCollapse} />}
-            <div ref={headerRef}>
-                {!isExpanded ? (
-                    <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
-                ) : (
-                    <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
-                )}
-            </div>
+            {!isConfirmPayPage && (
+                <div ref={headerRef}>
+                    {!isExpanded ? (
+                        <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
+                    ) : (
+                        <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
+                    )}
+                </div>
+            )}
             {/* <AppHeader /> */}
             <UserMsg />
 
@@ -62,12 +67,14 @@ export function RootCmp() {
                     <Route path="stay/edit" element={<StayEdit />} />
                     <Route path="stay/edit/:stayId" element={<StayEdit />} />
                     <Route path="stay/:stayId" element={<StayDetails />} />
+                    <Route path="stay/:stayId/confirm-pay" element={<ConfirmPay />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="messages" element={<MsgIndex />} />
                     {/* <Route path="chat" element={<ChatApp />} /> */}
                     <Route path="become-a-host" element={<BecomeHostForm />} />
                     <Route path="become-a-host/add-listing-about" element={<ListingEdit />} />
                     <Route path="host" element={<HostDetails />} />
+
                     <Route path="auth" element={<LoginSignup />}>
                         <Route path="login" element={<Login />} />
                         <Route path="signup" element={<Signup />} />
