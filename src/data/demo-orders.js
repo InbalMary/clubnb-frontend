@@ -1,0 +1,93 @@
+const orders = [
+	{
+		_id: 'o1225',
+		host: { _id: 'u102', fullname: "bob", imgUrl: "..."},
+		guest: {
+			_id: 'u101',
+			fullname: 'User 1',
+		},
+		totalPrice: 160,
+		startDate: '2025/10/15',
+		endDate: '2025/10/17',
+		guests: {
+			adults: 1,
+			kids: 2,
+		},
+		stay: {
+			// mini-stay
+			_id: 'h102',
+			name: 'House Of Uncle My',
+			imgUrl: 'first img url (or more...)',
+		},
+		msgs: [], // host - guest chat
+		status: 'pending', // approved / rejected
+	},
+]
+
+const demoOrders = [
+    {
+        _id: 'o2001',
+        hostId: { _id: 'u203', fullname: 'Bob Johansson', imgUrl: 'https://unsplash.com/photos/nIKCy5CWIzk' },
+        guest: { _id: 'u301', fullname: 'David Bernstein' },
+        totalPrice: 650,
+        startDate: '2025/08/15',
+        endDate: '2025/08/18',
+        guests: { adults: 3, kids: 2, infants: 0, pets: 1 },
+        stay: { _id: 's201', name: 'Mountain View Lodge', price: 220, imgUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c" },
+        msgs: [],
+        status: 'approved',
+        bookedAt: '2025-07-20',
+    },
+    {
+        _id: 'o2002',
+        hostId: { _id: 'u206', fullname: 'Victor Dahl', imgUrl: 'https://unsplash.com/photos/lkwoBSy-3yA' },
+        guest: { _id: 'u302', fullname: 'Ruth Cohen' },
+        totalPrice: 300,
+        startDate: '2025/11/10',
+        endDate: '2025/11/12',
+        guests: { adults: 2, kids: 1, infants: 0, pets: 0 },
+        stay: { _id: 's202', name: 'Riverbank Retreat', price: 150, imgUrl: "https://images.unsplash.com/photo-1491553895911-0055eca6402d" },
+        msgs: [],
+        status: 'pending',
+        bookedAt: '2025-01-05',
+    },
+    {
+        _id: 'o2003',
+        hostId: { _id: 'u208', fullname: 'Yuki Matsumoto', imgUrl: 'https://unsplash.com/photos/-YHSwy6uqvk' },
+        guest: { _id: 'u303', fullname: 'Oren Katz' },
+        totalPrice: 480,
+        startDate: '2025/04/01',
+        endDate: '2025/04/04',
+        guests: { adults: 2, kids: 0, infants: 1, pets: 0 },
+        stay: { _id: 's203', name: 'Urban Skyline Apartment', price: 160, imgUrl: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1" },
+        msgs: [],
+        status: 'rejected',
+        bookedAt: '2025-03-10',
+    },
+    {
+        _id: 'o2004',
+        hostId: { _id: 'u210', fullname: 'Isabelle Lefevre', imgUrl: 'https://unsplash.com/photos/4_jhDO54BYg' },
+        guest: { _id: 'u304', fullname: 'George Fisher' },
+        totalPrice: 320,
+        startDate: '2025/05/20',
+        endDate: '2025/05/23',
+        guests: { adults: 2, kids: 1, infants: 0, pets: 1 },
+        stay: { _id: 's204', name: 'Countryside Manor', price: 100, imgUrl: "https://images.unsplash.com/photo-1501785888041-af3ef285b470" },
+        msgs: [],
+        status: 'approved',
+        bookedAt: '2025-05-01',
+    },
+    {
+        _id: 'o2005',
+        hostId: { _id: 'u212', fullname: 'Alon Cohen', imgUrl: 'https://unsplash.com/photos/0oT7vEGZxkA' },
+        guest: { _id: 'u305', fullname: 'Maya Shalom' },
+        totalPrice: 500,
+        startDate: '2025/10/10',
+        endDate: '2025/10/13',
+        guests: { adults: 1, kids: 1, infants: 0, pets: 0 },
+        stay: { _id: 's205', name: 'Desert Mirage Resort', price: 200, imgUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb" },
+        msgs: [],
+        status: 'pending',
+        bookedAt: '2025-06-25',
+    },
+]

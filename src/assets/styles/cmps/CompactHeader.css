@@ -83,6 +83,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .compact-search-text:last-of-type {
