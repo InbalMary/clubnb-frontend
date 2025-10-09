@@ -1,5 +1,8 @@
 /*HEADER*/
-.confirm-pay-logo-bar {
+.confirm-pay-logo-bar.full {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -29,12 +32,6 @@
             letter-spacing: -0.02em;
         }
     }
-}
-
-.full {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
 }
 
 /*PAGE*/
@@ -220,6 +217,22 @@
     }
 }
 
+.reservation-summary-guests {
+    display: flex;
+    flex-direction: column;
+
+
+    .guests-inline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+
+        span:not(:last-child)::after {
+            content: ',';
+        }
+    }
+}
+
 .reservation-summary-badge {
     display: flex;
     align-items: center;
@@ -263,6 +276,10 @@
 
 .price-breakdown {
     margin: 8px 0 0;
+}
+
+.reservation-final-total {
+    font-weight: bold;
 }
 
 .rare-find {

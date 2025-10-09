@@ -4,7 +4,7 @@ import { reUseDateRange, useDateRange } from "../customHooks/useDateRange"
 import { DateRangePicker } from "./DateRangePicker"
 import { useClickOutside } from "../customHooks/useClickOutside"
 import { CalendarStayDates, FancyButton } from "./SmallComponents"
-import { useParams, useSearchParams } from "react-router"
+import { useNavigate, useParams, useSearchParams } from "react-router-dom"
 import { GuestSelector } from "./GuestSelector"
 import { calculateNights, debounce, formatDate, formatGuestsText } from "../services/util.service"
 import { ReDateRangePicker } from "./ReDateRangePicker"
@@ -25,6 +25,8 @@ export function StickyContainer({ stay, initialModal = null }) {
     const { dateRange, setDateRange } = useDateContext()
     const [searchParams, setSearchParams] = useSearchParams()
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
+    const navigate = useNavigate()
+    const { stayId } = useParams()
 
     const startDate = searchParams.get('startDate')
     const endDate = searchParams.get('endDate')
@@ -37,6 +39,7 @@ export function StickyContainer({ stay, initialModal = null }) {
         setGuests({
             adults: parseInt(adults) || 0,
             children: parseInt(children) || 0,
+
             infants: parseInt(infants) || 0,
             pets: parseInt(pets) || 0,
         })
@@ -79,6 +82,19 @@ export function StickyContainer({ stay, initialModal = null }) {
     useClickOutside([containerRef, modalRef], () => {
         setModalType(null)
     })
+
+    function handleClick() {
+        const from = dateRange.from || startDate
+        const to = dateRange.to || endDate
+        console.log('from:', from, 'to:', to, 'stayId:', stayId)
+
+        if (from && to) {
+            navigate(`/stay/${stayId}/confirm-pay`)
+        } else {
+            //TEMPORARY FALLBACK
+            setModalType('checkin')
+        }
+    }
 
     return (
         <div ref={containerRef} className="sticky-container-wrap">
@@ -152,7 +168,7 @@ export function StickyContainer({ stay, initialModal = null }) {
                     </div>
                 )}
 
-                <FancyButton>
+                <FancyButton onClick={handleClick}>
                     {(startDate && endDate) ? 'Reserve' : 'Check availability'}
                 </FancyButton>
 
@@ -186,6 +202,7 @@ function RareFind({ stay, startDate, endDate }) {
             debouncedShowRef.current.cancel()
         }
     }, [startDate, endDate])
+
 
     return (
         <div>
