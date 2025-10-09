@@ -1,5 +1,8 @@
 /*HEADER*/
-.confirm-pay-logo-bar {
+.confirm-pay-logo-bar.full {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -29,12 +32,6 @@
             letter-spacing: -0.02em;
         }
     }
-}
-
-.full {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
 }
 
 /*PAGE*/
