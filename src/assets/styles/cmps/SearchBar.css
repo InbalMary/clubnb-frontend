@@ -15,7 +15,8 @@
   border: 1px solid var(--gray6);
   border-radius: 32px;
   background-color: var(--white);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);  height: 66px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);  
+  height: 66px;
   max-width: 850px;
   width: 100%;
   transition: box-shadow 0.2s ease;
@@ -49,35 +50,43 @@
   min-width: 0;
 }
 
-   /* .search.close-btn {
-        all: unset;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        position: absolute;
-        width: 2rem;
-        height: 2rem;
-        top: .7rem;
-        right: .2rem;
-        border-radius: 50%;
-        background: transparent;
-        z-index: 10;
-    }
+.search-bar-wrapper .search-item-container .search.close-btn {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 1.25rem;
+  right: .75rem;
+  border-radius: 50%;
+  background: transparent;
+  z-index: 10;
+}
 
-    .search.close-btn:hover {
-        transition: 0.3s;
-        background-color: #f7f7f7;
-    }
+.search-bar-wrapper .search-item-container .search.close-btn:hover {
+  transition: 0.3s;
+  background-color: var( --gray1);
+}
 
-        .search.close-btn svg {
-            display: block;
-            fill: none;
-            stroke: var(--gray3);
-            stroke-width: 3;
-            width: 1rem;
-            height: 1rem;
-        } */
+.search-bar-wrapper .search-item-container .search.close-btn svg {
+  display: block;
+  fill: none;
+  stroke: var(--gray3);
+  stroke-width: 3;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.search-bar-wrapper .search-item-container .search-section-who .search.close-btn {
+  right: 7rem;
+}
+
+.search-section:not(.active) .search.close-btn {
+    display: none;
+}
 
 .search-section-who {
   display: flex;

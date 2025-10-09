@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { appHeaderSvg } from "./Svgs";
+import { appHeaderSvg, svgControls } from "./Svgs";
 import { WhereAutocomplete } from "./WhereAutocomplete";
 import { DateSelector } from "./DateSelector";
 import { DateRangePicker } from "./DateRangePicker";
@@ -25,6 +25,7 @@ export function SearchBar({ initialModal = null }) {
     const whereModalRef = useRef(null)
     const dateModalRef = useRef(null)
     const guestModalRef = useRef(null)
+    const guestSelectorRef = useRef(null)
 
     useClickOutside([searchBarRef, whereModalRef, dateModalRef, guestModalRef], () => {
         if (activeModal) setActiveModal(null)
@@ -170,6 +171,8 @@ export function SearchBar({ initialModal = null }) {
         setActiveModal(null)
     }
 
+    const hasGuestValues = guests.adults > 0 || guests.children > 0 || guests.infants > 0 || guests.pets > 0
+
     return (
         <div className="search-bar-wrapper" ref={searchBarRef}>
             <div className="search-item-container">
@@ -188,7 +191,7 @@ export function SearchBar({ initialModal = null }) {
                     date={dateRange.from}
                     isActive={activeModal === 'checkin'}
                     onClick={() => setActiveModal('checkin')}
-                    // onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
+                    onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
                 />
 
                 <div className="search-divider"></div>
@@ -198,7 +201,7 @@ export function SearchBar({ initialModal = null }) {
                     date={dateRange.to}
                     isActive={activeModal === 'checkout'}
                     onClick={() => setActiveModal('checkout')}
-                    // onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
+                    onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
                 />
 
                 <div className="search-divider"></div>
@@ -210,6 +213,18 @@ export function SearchBar({ initialModal = null }) {
                     <div className="search-content">
                         <div className="search-label">Who</div>
                         <div className="search-placeholder">{formatGuestsText(guests)}</div>
+                        {hasGuestValues && (
+                            <button
+                                className="search close-btn"
+                                onClick={(ev) => {
+                                    ev.stopPropagation()
+                                    setGuests({ adults: 0, children: 0, infants: 0, pets: 0 })
+                                }}
+                                aria-label="Clear guests"
+                            >
+                                {svgControls.closeModal}
+                            </button>
+                        )}
                     </div>
                     <button
                         className="search-button"
@@ -226,6 +241,7 @@ export function SearchBar({ initialModal = null }) {
                 {activeModal === "who" && (
                     <div className="guest-modal-content" ref={guestModalRef}>
                         <GuestSelector
+                            ref={guestSelectorRef}
                             onGuestsChange={setGuests}
                             initialGuests={guests}
                         />

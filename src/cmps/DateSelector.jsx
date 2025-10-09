@@ -1,6 +1,6 @@
 import { svgControls } from "./Svgs"
 
-export function DateSelector({ label, date, isActive, onClick,/*onClear*/placeholder = "Add dates" }) {
+export function DateSelector({ label, date, isActive, onClick, onClear,placeholder = "Add dates" }) {
     const formatDate = (date) => {
         if (!date) return null
         return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
@@ -15,7 +15,7 @@ export function DateSelector({ label, date, isActive, onClick,/*onClear*/placeho
             <div className={`search-placeholder ${date ? 'has-value' : ''}`}>
                 {date ? formatDate(date) : placeholder}
             </div>
-            {/* { date && (
+            { date && (
                 <button
                     className="search close-btn"
                     onClick={(e) => {
@@ -25,7 +25,7 @@ export function DateSelector({ label, date, isActive, onClick,/*onClear*/placeho
                     aria-label="Clear date"
                 >
                     {svgControls.closeModal}
-                </button>)} */}
+                </button>)}
         </div>
     )
 }
