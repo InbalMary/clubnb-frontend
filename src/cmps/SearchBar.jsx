@@ -188,6 +188,7 @@ export function SearchBar({ initialModal = null }) {
                     date={dateRange.from}
                     isActive={activeModal === 'checkin'}
                     onClick={() => setActiveModal('checkin')}
+                    // onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
                 />
 
                 <div className="search-divider"></div>
@@ -197,6 +198,7 @@ export function SearchBar({ initialModal = null }) {
                     date={dateRange.to}
                     isActive={activeModal === 'checkout'}
                     onClick={() => setActiveModal('checkout')}
+                    // onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
                 />
 
                 <div className="search-divider"></div>
