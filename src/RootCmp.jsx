@@ -23,7 +23,7 @@ import { useClickOutside } from './customHooks/useClickOutside.js'
 import { StayEdit } from './pages/StayEdit.jsx'
 import { ConfirmPay } from './pages/ConfirmPay.jsx'
 import { useHeaderState } from './customHooks/useHeaderState.js'
-
+import { TripIndex } from './pages/TripIndex.jsx'
 
 export function RootCmp() {
     const {
@@ -69,6 +69,8 @@ export function RootCmp() {
                     <Route path="stay/:stayId" element={<StayDetails />} />
                     <Route path="stay/:stayId/confirm-pay" element={<ConfirmPay />} />
                     <Route path="user/:id" element={<UserDetails />} />
+                    <Route path="trips" element={<TripIndex />} />
+
                     <Route path="messages" element={<MsgIndex />} />
                     {/* <Route path="chat" element={<ChatApp />} /> */}
                     <Route path="become-a-host" element={<BecomeHostForm />} />

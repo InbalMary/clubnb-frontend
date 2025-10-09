@@ -57,3 +57,19 @@ async function save(order) {
 async function getStayById(stayId) {
     return stayService.getById(stayId)
 }
+
+function getDefaultFilter() {
+    return {
+        _id: '',
+        hostId: '',
+        guestId: '',
+        status: '',
+        startDate: '',
+        endDate: '',
+        guests: { adults: 0, kids: 0, infants: 0, pets: 0 },
+        stayId: '',
+        totalPriceMin: 0,
+        totalPriceMax: 0,
+        bookedAt: '',
+    }
+}

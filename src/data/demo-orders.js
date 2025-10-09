@@ -68,7 +68,7 @@ export const demoOrders = [
         stay: {
             _id: 's202',
             name: 'Riverbank Retreat',
-            imgUrl: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d',
+            imgUrl: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80',
             rating: 0,
             numReviews: 0,
             isGuestFavorite: false,
@@ -108,7 +108,7 @@ export const demoOrders = [
         stay: {
             _id: 's203',
             name: 'Urban Skyline Apartment',
-            imgUrl: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1',
+            imgUrl: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80',
             rating: 0,
             numReviews: 0,
             isGuestFavorite: false,
