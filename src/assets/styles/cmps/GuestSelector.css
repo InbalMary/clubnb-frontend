@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
+    padding: 1.5rem 0.625rem;
     border-bottom: 1px solid var(--gray5);
 }
 
@@ -92,7 +92,7 @@
     position: absolute;
     top: calc(100% + 12px);
     right: 0;
-    width: 400px;
+    width: 424px;
     background: var(--white);
     border-radius: 32px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
