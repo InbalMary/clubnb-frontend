@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function GuestSelector({ onGuestsChange, initialGuests = { adults: 0, children: 0, infants: 0, pets: 0 } }) {
     const [guests, setGuests] = useState(initialGuests);
+
+    useEffect(() => {
+        setGuests(initialGuests)
+    }, [initialGuests])
 
     const handleIncrement = (type) => {
         const newGuests = { ...guests, [type]: guests[type] + 1 }
         setGuests(newGuests)
         onGuestsChange?.(newGuests)
-    };
+    }
 
     const handleDecrement = (type) => {
         if (guests[type] > 0) {

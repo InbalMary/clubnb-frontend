@@ -144,6 +144,12 @@
   font-weight: 400;
 }
 
+.search-bar-wrapper .search-input,
+.search-bar-wrapper .search-placeholder.has-value {
+  color: var(--gray3);
+  font-weight: 600;
+}
+
 .search-divider {
   width: 1px;
   height: 32px;

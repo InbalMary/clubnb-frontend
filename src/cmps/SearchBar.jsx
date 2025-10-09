@@ -212,7 +212,8 @@ export function SearchBar({ initialModal = null }) {
                 >
                     <div className="search-content">
                         <div className="search-label">Who</div>
-                        <div className="search-placeholder">{formatGuestsText(guests)}</div>
+                        <div className={`search-placeholder ${hasGuestValues ? 'has-value' : ''}`}
+                            >{formatGuestsText(guests)}</div>
                         {hasGuestValues && (
                             <button
                                 className="search close-btn"
