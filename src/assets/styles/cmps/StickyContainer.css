@@ -73,6 +73,7 @@ h2.add-dates_sticky {
 .sticky-container {
     box-shadow: 3px 6px 20px 0px var(--gray6);
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    outline:1px solid rgba(0, 0, 0, 0.12);
     border-radius: 12px;
     position: absolute;
     width: 100%;
