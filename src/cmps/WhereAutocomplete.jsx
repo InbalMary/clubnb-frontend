@@ -91,24 +91,26 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
             {isOpen && (
                 <div className={`where-modal-content ${className}`}>
                     {suggestions.length > 0 && (
-                        <div className="suggestions-dropdown">
+                        <>
                             <span className="suggestions-dropdown-header">Suggested destinations</span>
-                            {suggestions.map((dest, idx) => (
-                                <div
-                                    key={idx}
-                                    className="suggestion-item"
-                                    onClick={() => handleSelect(dest)}
-                                >
-                                    <span className="suggestion-icon">
-                                        <img src={`/img/where/${dest.icon}.png`} alt={dest.icon} className="where-dropdown-icon" />
-                                    </span>
-                                    <div className="suggestion-text">
-                                        <span className="suggestion-name">{dest.name}</span>
-                                        <span className="suggestion-description">{dest.description}</span>
+                            <div className="suggestions-dropdown">
+                                {suggestions.map((dest, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="suggestion-item"
+                                        onClick={() => handleSelect(dest)}
+                                    >
+                                        <span className="suggestion-icon">
+                                            <img src={`/img/where/${dest.icon}.png`} alt={dest.icon} className="where-dropdown-icon" />
+                                        </span>
+                                        <div className="suggestion-text">
+                                            <span className="suggestion-name">{dest.name}</span>
+                                            <span className="suggestion-description">{dest.description}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        </>
                     )}
                 </div>
             )}

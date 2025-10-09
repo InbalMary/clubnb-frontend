@@ -94,24 +94,44 @@
   box-sizing: border-box;
 }
 
-.suggestions-dropdown {
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 2rem 0;
-  scrollbar-width: thin;
-  scrollbar-color: var(--gray7);
-}
-
 .suggestions-dropdown-header {
   font-family: cereal-light;
   display: block;
-  padding: 0 2rem ;
-  margin-block-end: 0.25rem;
+  padding: 2rem 2rem 0.25rem;
   font-size: 0.75rem;
   font-weight: 400;
   color: var(--gray3);
   text-transform: none;
   letter-spacing: 0;
+  flex-shrink: 0;
+  background: var(--white);
+}
+
+.suggestions-dropdown {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 0 2rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray7) transparent;
+  flex: 1;
+  min-height: 0;
+}
+
+.suggestions-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-thumb {
+  background: var(--gray7);
+  border-radius: 3px;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-thumb:hover {
+  background: var(--gray6);
 }
 
 .suggestion-item {
@@ -123,6 +143,7 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
   gap: 1rem;
+  flex-shrink: 0;
 }
 
 .suggestion-item:hover {
@@ -141,6 +162,13 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+.where-dropdown-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .suggestion-icon svg {
