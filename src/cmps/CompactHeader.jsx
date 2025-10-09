@@ -1,8 +1,10 @@
 import { NavLink, useLocation } from "react-router";
 import { appHeaderSvg } from "./Svgs";
 import { HamburgerMenu } from "./HamburgerMenu";
+import { useSelector } from "react-redux";
 
 export function CompactHeader({ onSearchClick, isSticky }) {
+    const user = useSelector(storeState => storeState.userModule.user)
     const location = useLocation()
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
     // console.log('isStayDetailsPage', isStayDetailsPage)
@@ -57,11 +59,17 @@ export function CompactHeader({ onSearchClick, isSticky }) {
                         <span className="host-link">Become a host</span>
                     </NavLink>
 
-                    <button aria-label="Choose language">
-                        <span className='change-lng'>{appHeaderSvg.changeLanguage}</span>
-                    </button>
+                    {user && user.imgUrl ? (
+						<button className='profile-icon'>
+							<img src={user.imgUrl} alt={user.fullname} />
+						</button>
+					) : (
+						<button aria-label="Choose language">
+							<span className='change-lng'>{appHeaderSvg.changeLanguage}</span>
+						</button>
+					)}
 
-                    <HamburgerMenu />
+					<HamburgerMenu />
                 </div>
             </div>
         </header>

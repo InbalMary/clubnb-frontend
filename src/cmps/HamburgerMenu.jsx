@@ -43,18 +43,18 @@ export function HamburgerMenu() {
             <button
                 ref={buttonRef}
                 type="button"
-                className={`hamburger-menu-btn ${user && user.imgUrl ? 'hamburger-wide' : ''}`}
+                className={`hamburger-menu-btn`}
                 onClick={toggleMenu}
                 aria-label="Main menu"
                 aria-haspopup="menu"
                 aria-expanded={isOpen ? "true" : "false"}
                 aria-controls="header-menu"
             >
-                {user && user.imgUrl && (
+                {/* {user && user.imgUrl && (
                     <span className='profile-icon'>
                         <img src={user.imgUrl} alt={user.fullname} />
                     </span>
-                )}
+                )} */}
                 <span className='hamburger'>
                     {appHeaderSvg.hamburger}
                 </span>

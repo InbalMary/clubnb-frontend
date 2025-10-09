@@ -50,9 +50,15 @@ export function AppHeader({ initialModal, onCollapse }) {
 						<span className="host-link">Become a host</span>
 					</NavLink>
 
-					<button aria-label="Choose language">
-						<span className='change-lng'>{appHeaderSvg.changeLanguage}</span>
-					</button>
+					{user && user.imgUrl ? (
+						<button className='profile-icon'>
+							<img src={user.imgUrl} alt={user.fullname} />
+						</button>
+					) : (
+						<button aria-label="Choose language">
+							<span className='change-lng'>{appHeaderSvg.changeLanguage}</span>
+						</button>
+					)}
 
 					<HamburgerMenu />
 				</div>

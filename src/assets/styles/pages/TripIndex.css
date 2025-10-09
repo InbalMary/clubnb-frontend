@@ -72,7 +72,7 @@
 .trip-year-group {
     display: flex;
     flex-direction: column;
-    gap: clamp(1rem, 2vw, 1.5rem);
+    gap: clamp(1rem, 2vw, 1.125rem);
 }
 
 .trip-year-header {
@@ -84,16 +84,17 @@
     background-color: var(--gray8);
     border: none;
     border-radius: 1.25rem;
-    padding: 0.5rem 1rem;
+    padding: 0.625rem 0.75rem;
     font-size: clamp(0.813rem, 0.9vw, 0.875rem);
     font-weight: 600;
-    color: var(--gray3);
+    color: var(--gray2);
     cursor: default;
+    font-family: cereal-regular, Circular, -apple-system, BlinkMacSystemFont, ' Roboto', sans-serif;
 }
 
 .trip-preview-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(290px, 290px));
     gap: clamp(1rem, 2vw, 1.5rem);
     list-style: none;
     padding: 0;
