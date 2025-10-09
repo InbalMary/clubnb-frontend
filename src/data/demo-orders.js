@@ -24,7 +24,7 @@ const orders = [
 	},
 ]
 
-const demoOrders = [
+export const demoOrders = [
     {
         _id: 'o2001',
         hostId: { _id: 'u203', fullname: 'Bob Johansson', imgUrl: 'https://unsplash.com/photos/nIKCy5CWIzk' },
