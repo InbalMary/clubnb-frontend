@@ -83,6 +83,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .compact-search-text:last-of-type {
@@ -208,8 +209,14 @@
 
 body:has(.compact-header) .stay-index,
 body:has(.app-header) .stay-index {
-    margin-block-start: 180px;
+    margin-block-start: 189px;
+    transition: margin-block-start 0.3s ease-in-out;
 }
+
+/* body:has(.compact-header) .stay-index {
+    margin-block-start: 94px;
+    transition: margin-block-start 0.3s ease-in-out;
+} */
 
 .app-header.full {
     position: fixed;

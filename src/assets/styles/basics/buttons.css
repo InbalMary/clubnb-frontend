@@ -1,4 +1,10 @@
 /* ========== Base Button ========== */
+/* Clean start */
+button {
+    border: 0;
+    cursor: pointer;
+}
+
 .btn {
     /* general button reset + shared properties */
     display: flex;
@@ -9,8 +15,9 @@
     font-family: cereal-regular;
     font-weight: bolder;
     border-radius: .75em;
+    border: none;
     padding: .875em 1.5em;
-
+    transition: 0.3s
 }
 
 /* ========== Theme Variants ========== */
@@ -48,12 +55,24 @@
 .btn-transparent {
     /* transparent button styles */
     background-color: transparent;
+    border: none;
     color: var(--gray3);
 }
 
 .btn-transparent:hover {
     background-color: var(--gray4);
+}
 
+.btn-link {
+    /*transparent btn that is a link*/
+    background-color: transparent;
+    text-decoration: underline;
+    color: var(--gray3);
+    padding: 0;
+}
+
+.btn-link:hover {
+    color: black;
 }
 
 /* ========== Shape Modifiers ========== */
@@ -75,4 +94,42 @@
 
 .btn-close:hover {
     background: var(--gray8);
+}
+
+
+/* ====Open-Close Modal */
+
+.open-modal {
+    border: none;
+    font-family: cereal-medium;
+    font-size: 1rem;
+    color: var(--gray3);
+    background-color: var(--gray1);
+    padding: 14px 24px;
+    margin-block-end: 2rem;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.open-modal:hover {
+    transition: 0.3s;
+    background-color: var(--gray4)
+}
+
+.close-modal {
+    border: none;
+    background-color: transparent;
+    color: var(--gray3);
+    padding: 1px;
+    margin: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+}
+
+.close-modal:hover {
+    transition: 0.3s;
+    background-color: #f7f7f7;
 }

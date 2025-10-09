@@ -1,0 +1,211 @@
+.trip-index {
+    max-width: 1760px;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 6vw, 5rem);
+    margin-block-start: 189px;
+}
+
+.trip-title {
+    font-size: clamp(1.625rem, 2vw, 2rem);
+    font-weight: 600;
+    margin-bottom: clamp(1.5rem, 2vw, 2rem);
+    color: var(--gray3);
+}
+
+.trip-tabs {
+    display: flex;
+    gap: clamp(1.5rem, 2.5vw, 2rem);
+    border-bottom: 1px solid var(--gray6);
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.trip-tabs .tab {
+    background: none;
+    border: none;
+    padding: 1rem 0;
+    font-size: clamp(0.938rem, 1vw, 1rem);
+    color: var(--gray2);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+    font-weight: 400;
+    font-family: cereal-regular, Circular, -apple-system, BlinkMacSystemFont, ' Roboto', sans-serif;
+}
+
+.trip-tabs .tab:hover {
+    color: var(--gray3);
+}
+
+.trip-tabs .tab.active {
+    color: var(--gray3);
+    font-weight: 600;
+}
+
+.trip-tabs .tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--gray3);
+}
+
+.trip-content {
+    min-height: 25rem;
+}
+
+.loading-msg,
+.no-trips {
+    text-align: center;
+    color: var(--gray2);
+    font-size: clamp(0.938rem, 1vw, 1rem);
+    padding: clamp(2.5rem, 4vw, 3.75rem) 1.25rem;
+}
+
+.trip-list-section {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 3.5vw, 3rem);
+}
+
+.trip-year-group {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.trip-year-header {
+    display: flex;
+    align-items: center;
+}
+
+.year-badge {
+    background-color: var(--gray8);
+    border: none;
+    border-radius: 1.25rem;
+    padding: 0.5rem 1rem;
+    font-size: clamp(0.813rem, 0.9vw, 0.875rem);
+    font-weight: 600;
+    color: var(--gray3);
+    cursor: default;
+}
+
+.trip-preview-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.trip-preview {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.trip-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.trip-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.trip-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.trip-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.trip-name {
+    font-size: clamp(0.875rem, 0.95vw, 0.938rem);
+    font-weight: 400;
+    color: var(--gray3);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.trip-name:hover {
+    text-decoration: underline;
+}
+
+.trip-dates {
+    font-size: clamp(0.813rem, 0.9vw, 0.875rem);
+    color: var(--gray2);
+    margin: 0;
+}
+
+@media (max-width: 1128px) {
+    .trip-index {
+        padding: clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .trip-preview-list {
+        grid-template-columns: repeat(auto-fill, minmax(min(12.5rem, 100%), 1fr));
+        gap: clamp(1rem, 1.5vw, 1.25rem);
+    }
+}
+
+@media (max-width: 744px) {
+    .trip-index {
+        padding: 1.5rem;
+        margin-block-start: 120px;
+    }
+
+    .trip-title {
+        font-size: 1.625rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .trip-tabs {
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .trip-preview-list {
+        grid-template-columns: repeat(auto-fill, minmax(min(10.5rem, 100%), 1fr));
+        gap: 1rem;
+    }
+
+    .trip-list-section {
+        gap: 2rem;
+    }
+
+    .trip-year-group {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .trip-index {
+        padding: 1rem;
+    }
+
+    .trip-title {
+        font-size: 1.5rem;
+    }
+
+    .trip-preview-list {
+        grid-template-columns: 1fr;
+    }
+}

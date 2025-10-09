@@ -1,0 +1,325 @@
+/*HEADER*/
+.confirm-pay-logo-bar.full {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-inline: 3rem;
+    height: 80px;
+    border-bottom: 1px solid var(--divider);
+
+    .logo-header {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        color: var(--primary-clr);
+
+        .icon svg {
+            display: block;
+            height: 32px;
+            width: 32px;
+        }
+
+        .brand {
+            font-family: cereal-bold;
+            font-size: 22px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+    }
+}
+
+/*PAGE*/
+.confirm-pay-page {
+    display: grid;
+    grid-template-columns: minmax(3rem, 1fr) minmax(auto, 1000px) minmax(3rem, 1fr);
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    padding: 32px 0 64px;
+    min-height: 100vh;
+
+    >* {
+        grid-column: 2;
+    }
+
+
+    .confirm-pay-title {
+        line-height: 1;
+        font-size: 2rem;
+        font-family: cereal-bold;
+        letter-spacing: -0.02em;
+    }
+
+    .btn.back {
+        grid-column: 1;
+        align-self: center;
+        justify-self: end;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.875rem;
+        margin-right: 1rem;
+    }
+}
+
+/*LEFT COLUMN*/
+.confirm-layout {
+    display: flex;
+    gap: 80px;
+    padding: 1rem 0 1.5rem;
+}
+
+.confirm-main {
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+    gap: 1.5rem;
+
+    >* {
+        border: 1px solid var(--gray6);
+        border-radius: 20px;
+        padding: 1.5rem;
+    }
+}
+
+.section-title {
+    font-size: 18px;
+}
+
+.payment-timing {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 7px 0px rgb(0 0 0 / 10%);
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.payment-timing-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--divider);
+    padding-block: 1rem;
+    cursor: pointer;
+}
+
+.payment-timing-option.split-option {
+    flex-direction: column;
+    align-items: stretch;
+    line-height: 1.5;
+}
+
+.option-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.split-pay {
+    display: inline-flex;
+    gap: 0.3rem;
+    font-size: 14px;
+    color: var(--gray2);
+    flex-wrap: wrap;
+
+    .btn.more-info {
+        color: var(--gray2);
+
+        &:hover {
+            color: black;
+        }
+    }
+}
+
+.btn.confirm-next {
+    width: 112px;
+    height: 48;
+    letter-spacing: 0.03rem;
+    margin: 16px 0 0;
+    border-radius: 12px;
+    align-self: flex-end;
+}
+
+
+/*RIGHT COLUMN*/
+.reservation-summary-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+    font-size: 14px;
+}
+
+.reservation-summary {
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    padding: 1.5rem;
+    gap: 1rem;
+    width: 390px;
+    border: 1px solid var(--gray6);
+    border-radius: 20px;
+}
+
+.reservation-summary-img {
+    width: 104px;
+    height: 104px;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.reservation-summary-order {
+    display: grid;
+    grid-template-columns: minmax(104px, 35%) 1fr;
+    gap: 1rem;
+    align-items: center;
+
+    .reservation-summary-title {
+        font-size: 18px;
+    }
+
+    .reservation-summary-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+    .reservation-summary-rating,
+    .reservation-summary-badge {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .reservation-summary-rating {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .reservation-summary-details {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+
+    }
+}
+
+.reservation-summary-guests {
+    display: flex;
+    flex-direction: column;
+
+
+    .guests-inline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+
+        span:not(:last-child)::after {
+            content: ',';
+        }
+    }
+}
+
+.reservation-summary-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+
+    .guest-favorite-icon {
+        display: flex;
+        align-items: center;
+        line-height: 1;
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+        transform: translateY(1px);
+        margin-right: -0.75rem;
+        margin-bottom: -0.7rem;
+    }
+}
+
+.reservation-price {
+    padding-bottom: 14px;
+}
+
+.price-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    p {
+        margin: 0;
+    }
+}
+
+.price-details>div,
+.total-amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-breakdown {
+    margin: 8px 0 0;
+}
+
+.reservation-final-total {
+    font-weight: bold;
+}
+
+.rare-find {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.rare-find-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.5;
+
+    p {
+        margin: 0;
+        text-align: left;
+    }
+
+    p:first-child {
+        font-weight: bold;
+    }
+}
+
+
+/*find a shorter way*/
+.cancellation-policy>p:first-child,
+.reservation-summary-dates>p:first-child,
+.reservation-summary-guests>p:first-child,
+.reservation-price>p:first-child,
+.reservation-summary-total>p:first-child,
+.rare-find>p:first-child {
+    font-weight: bold;
+    margin: 0 0 8px;
+}
+
+
+.cancellation-policy,
+.reservation-summary-dates,
+.reservation-summary-guests,
+.reservation-price {
+    border-bottom: 1px solid var(--divider);
+}

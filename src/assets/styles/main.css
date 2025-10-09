@@ -19,6 +19,7 @@
 @import "./pages/ListingEdit.css";
 @import "./pages/StayDetails.css";
 @import "./pages/StayEdit.css";
+@import "./pages/TripIndex.css";
 
 
 /* Cmps */
@@ -51,8 +52,8 @@
 @import "cmps/StayRating.css";
 @import "cmps/StickyContainer.css";
 @import "cmps/HostInfo.css";
-
-
+@import "cmps/ConfirmPay.css";
+@import "cmps/RadioButtons.css";
 
 
 
