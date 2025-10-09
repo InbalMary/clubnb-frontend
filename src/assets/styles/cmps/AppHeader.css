@@ -1,16 +1,16 @@
 .app-header {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto 1fr;
     min-height: 12.5rem;
-
     background: var(--header-bg);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     padding: 0.5rem 3rem;
     transition: all 0.3s ease;
 
     & nav {
-        display: flex;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
         width: 100%;
         align-items: center;
         gap: 1em;
@@ -20,16 +20,13 @@
             color: var(--clr1);
         }
 
-        > :last-child {
-            margin-left: auto;
-        }
-
         .logo-header {
             display: inline-flex;
             align-items: center;
             text-decoration: none;
             color: var(--primary-clr);
             gap: 3px;
+            grid-column: 1;
         }
 
         .logo-header .icon svg {
@@ -46,9 +43,13 @@
         }
 
         .header-actions {
-            display: flex;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
             align-items: center;
+            gap: 0;
             height: 80px;
+            grid-column: 3;
+            justify-self: end;
         }
 
         .host-link {
@@ -115,18 +116,16 @@
     }
 
     .user-info {
-        display: flex;
+        display: grid;
+        grid-template-columns: auto auto;
         align-items: center;
-        margin-inline-start: auto;
-
+        gap: 10px;
         color: var(--clr1);
 
         .score {
             padding: 8px;
             background-color: var(--clr2);
             border-radius: 50%;
-            margin: 10px;
-
             color: var(--gray1);
         }
 
@@ -138,34 +137,34 @@
     }
 
     .header-actions button.hamburger-menu-btn.hamburger-wide {
-            width: 5rem ;
-            border-radius: 2rem;
-        }
+        width: 5rem;
+        border-radius: 2rem;
+    }
 }
 
 .profile-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  background-color: var(--gray1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 0;
-  margin-inline-start: 0.75rem;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: var(--gray5);
-  }
-
-  .profile-icon img {
-    width: 100%;
-    height: 100%;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    object-fit: cover;
-    display: block;
-  }
+    border: none;
+    background-color: var(--gray1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    margin-inline-start: 0.75rem;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: var(--gray5);
+    }
+
+    .profile-icon img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+    }
 }
