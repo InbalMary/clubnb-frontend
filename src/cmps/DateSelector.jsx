@@ -1,6 +1,6 @@
 import { svgControls } from "./Svgs"
 
-export function DateSelector({ label, date, isActive, onClick, placeholder = "Add dates" }) {
+export function DateSelector({ label, date, isActive, onClick,/*onClear*/placeholder = "Add dates" }) {
     const formatDate = (date) => {
         if (!date) return null
         return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
@@ -15,6 +15,17 @@ export function DateSelector({ label, date, isActive, onClick, placeholder = "Ad
             <div className={`search-placeholder ${date ? 'has-value' : ''}`}>
                 {date ? formatDate(date) : placeholder}
             </div>
+            {/* { date && (
+                <button
+                    className="search close-btn"
+                    onClick={(e) => {
+                        e.stopPropagation(); // prevent triggering onClick from the wrapper
+                        onClear?.(); // safely call onClear if provided
+                    }}
+                    aria-label="Clear date"
+                >
+                    {svgControls.closeModal}
+                </button>)} */}
         </div>
     )
 }
@@ -36,7 +47,7 @@ export function StickyDateSelector({ label, date, isActive, onClick, onClear, pl
             </div>
             { date && (
                 <button
-                    className="search-close-btn"
+                    className="search close-btn"
                     onClick={(e) => {
                         e.stopPropagation(); // prevent triggering onClick from the wrapper
                         onClear?.(); // safely call onClear if provided

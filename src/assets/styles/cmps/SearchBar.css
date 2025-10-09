@@ -49,6 +49,36 @@
   min-width: 0;
 }
 
+   /* .search.close-btn {
+        all: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        top: .7rem;
+        right: .2rem;
+        border-radius: 50%;
+        background: transparent;
+        z-index: 10;
+    }
+
+    .search.close-btn:hover {
+        transition: 0.3s;
+        background-color: #f7f7f7;
+    }
+
+        .search.close-btn svg {
+            display: block;
+            fill: none;
+            stroke: var(--gray3);
+            stroke-width: 3;
+            width: 1rem;
+            height: 1rem;
+        } */
+
 .search-section-who {
   display: flex;
   flex-direction: row;
