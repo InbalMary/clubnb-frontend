@@ -33,6 +33,7 @@ export function RootCmp() {
     const prevPathRef = useRef(location.pathname)
 
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
+    const isConfirmPayPage = location.pathname.includes('/confirm')
 
     useEffect(() => {
         if (isStayDetailsPage) {
@@ -84,10 +85,12 @@ export function RootCmp() {
 
     return (
         <div className="main-container">
-            {!isExpanded ? (
-                <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
-            ) : (
-                <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
+            {!isConfirmPayPage && (
+                !isExpanded ? (
+                    <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
+                ) : (
+                    <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
+                )
             )}
             {/* <AppHeader /> */}
             <UserMsg />

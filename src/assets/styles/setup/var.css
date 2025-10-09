@@ -36,9 +36,12 @@
   /*radio button border*/
   --gray9: #8C8C8C;
 
+
   --header-bg: linear-gradient(180deg, #ffffff 39.9%, #f8f8f8 100%);
 
   /* Main bg */
   --white: #FFFFFF;
 
+  /*border-bottom*/
+  --divider: rgba(0, 0, 0, 0.08);
 }

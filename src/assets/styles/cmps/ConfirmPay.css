@@ -5,7 +5,7 @@
     justify-content: flex-start;
     padding-inline: 3rem;
     height: 80px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--divider);
 
     .logo-header {
         display: inline-flex;
@@ -111,7 +111,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--divider);
     padding-block: 1rem;
     cursor: pointer;
 }
@@ -304,5 +304,5 @@
 .reservation-summary-dates,
 .reservation-summary-guests,
 .reservation-price {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--divider);
 }
