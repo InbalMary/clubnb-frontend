@@ -93,6 +93,10 @@
     height: 1rem;
 }
 
+.modal-popup .close-btn.none {
+    display: none
+}
+
 .modal-popup .close-btn:hover {
     background: var(--gray8);
 }

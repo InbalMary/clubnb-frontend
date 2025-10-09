@@ -36,7 +36,7 @@ export function StickyDateSelector({ label, date, isActive, onClick, onClear, pl
             </div>
             { date && (
                 <button
-                    className="close-btn"
+                    className="search-close-btn"
                     onClick={(e) => {
                         e.stopPropagation(); // prevent triggering onClick from the wrapper
                         onClear?.(); // safely call onClear if provided

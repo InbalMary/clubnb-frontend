@@ -73,6 +73,10 @@ export function StickyContainer({ stay, initialModal = null }) {
 
         if (modalType === 'checkin' && range.from && !range.to) {
             setModalType('checkout')
+        } else if (modalType === 'checkout' && range.from && range.to) {
+            setTimeout(() =>
+                setModalType(null)
+                , 400)
         }
     }
 
@@ -158,7 +162,8 @@ export function StickyContainer({ stay, initialModal = null }) {
 
                 {startDate && endDate && <span className="not-charged flex">You won't be charged yet</span>}
 
-                {startDate && endDate && <TotalCount stay={stay} startDate={startDate} endDate={endDate} />
+                {startDate && endDate &&
+                    <TotalCount stay={stay} startDate={startDate} endDate={endDate} />
                 }
             </div>
         </div>
@@ -205,10 +210,11 @@ function RareFind({ stay, startDate, endDate }) {
     )
 }
 
-function TotalCount(stay, startDate, endDate) {
-
+function TotalCount({ stay, startDate, endDate }) {
+    const price = stay.price
+    console.log('price:', price)
     const numNights = calculateNights(startDate, endDate)
-    const totalPrice = stay.price * numNights
+    const totalPrice = price * numNights
 
     // const cleaningFee = Number(stay.cleaningFee ?? 0);
     // const basePrice = Number(totalPrice ?? 0);
@@ -218,7 +224,7 @@ function TotalCount(stay, startDate, endDate) {
         <div className="payment-summary">
 
             <div className="total price-calc">
-                <span className="link"> ${stay.price} X {numNights} {numNights === 1 ? 'night' : 'nights'} </span>
+                <span className="link"> {`$ ${stay.price}`} X {numNights} {numNights === 1 ? 'night' : 'nights'} </span>
                 <span>
                     ${totalPrice}
                 </span>

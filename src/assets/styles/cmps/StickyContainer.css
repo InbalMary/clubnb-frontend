@@ -11,13 +11,13 @@
 }
 
 .sticky-container-wrap:has(.payment-summary) {
-    min-height: 34rem;
+    height: 40.7rem;
 }
 
 .rare-find_sticky {
     box-shadow: 3px 6px 20px 0px var(--gray6);
-    border-radius: 10px;
-    padding: 1rem;
+    border-radius: 12px;
+    padding: .7rem;
     width: 100%;
     right: 0;
 
@@ -53,7 +53,12 @@ h2.add-dates_sticky {
 }
 
 .sticky-container {
-    margin-top: 5rem;
+    margin-top: 2rem;
+}
+
+.sticky-container:has(.rare-find_sticky) {
+    margin-top: 7rem;
+    padding: .5rem 1.6rem .4rem 1.6rem;
 }
 
 .modal-popup.calendar {
@@ -67,12 +72,12 @@ h2.add-dates_sticky {
 
 .sticky-container {
     box-shadow: 3px 6px 20px 0px var(--gray6);
-    border-radius: 10px;
-    outline: 1px solid var(--gray6);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    border-radius: 12px;
     position: absolute;
     width: 100%;
     top: .875rem;
-    padding: .5rem 1.7rem 1.5rem 2rem;
+    padding: .5rem 1.6rem 1.4rem 1.6rem;
     display: grid;
 
     .form-wrapper {
@@ -94,14 +99,7 @@ h2.add-dates_sticky {
 
     .form-wrapper:has(.active) {
         .border-bot::before {
-            content: '';
-            width: 0%;
-            border-bottom: none;
-        }
-
-        .date-wrapper {
-            border: 1px solid var(--gray3);
-            border-radius: 10px 10px 0 0;
+            display: none;
         }
     }
 
@@ -123,6 +121,7 @@ h2.add-dates_sticky {
     }
 
     .date-wrapper:has(.search-section-date.active) {
+        border: 1px solid var(--gray3);
         border-radius: 10px;
         z-index: 4;
 
@@ -163,7 +162,7 @@ h2.add-dates_sticky {
         }
     }
 
-    .close-btn {
+    .search-close-btn {
         all: unset;
         display: flex;
         justify-content: center;
@@ -179,7 +178,7 @@ h2.add-dates_sticky {
         z-index: 10;
     }
 
-    .close-btn svg {
+    .search-close-btn svg {
         display: block;
         fill: none;
         stroke: var(--gray3);
@@ -236,7 +235,7 @@ h2.add-dates_sticky {
         display: grid;
         width: 100%;
 
-        gap: 1em;
+        /* gap: 1em; */
 
         div.total {
             width: 100%;
@@ -245,10 +244,21 @@ h2.add-dates_sticky {
             justify-content: space-between;
         }
 
+        .price-calc {
+            padding-block: 1rem;
+        }
+
+        .clean-calc {
+            padding-block: 0 1.2rem;
+        }
+
+        .total-calc {
+            padding-block: 1.5rem 1rem;
+        }
+
         span.link {
             font-family: cereal-medium;
             line-height: 1.5rem;
-            /* margin-bottom: 2px; */
         }
     }
 }
@@ -259,7 +269,7 @@ h2.add-dates_sticky {
     --palette-bg-secondary-core-hover: radial-gradient(circle at var(--mouse-x) var(--mouse-y),
             /* #fb4163 5%, */
             #f12050 20.5%,
-            #E61E4D 30%, 
+            #E61E4D 30%,
             #e21257 40%,
             #D70466 67.5%,
             #d80767 70%,
