@@ -3,16 +3,17 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-inline: 1.5rem;
+    padding-inline: 3rem;
     height: 80px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
     .logo-header {
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        gap: 0.3rem;
+        gap: 3px;
         text-decoration: none;
         border: none;
+        outline: none;
         color: var(--primary-clr);
 
         .icon svg {
@@ -23,7 +24,7 @@
 
         .brand {
             font-family: cereal-bold;
-            font-size: 1.25rem;
+            font-size: 22px;
             line-height: 1.2;
             letter-spacing: -0.02em;
         }
@@ -39,35 +40,49 @@
 /*PAGE*/
 .confirm-pay-page {
     display: grid;
-    grid-template-columns: minmax(3rem, 1fr) minmax(auto, 1120px) minmax(3rem, 1fr);
+    grid-template-columns: minmax(3rem, 1fr) minmax(auto, 1000px) minmax(3rem, 1fr);
     grid-template-rows: auto 1fr;
-    padding-block: 2rem;
+    align-items: start;
+    padding: 32px 0 64px;
     min-height: 100vh;
 
     >* {
         grid-column: 2;
     }
 
+
     .confirm-pay-title {
+        line-height: 1;
         font-size: 2rem;
         font-family: cereal-bold;
         letter-spacing: -0.02em;
+    }
+
+    .btn.back {
+        grid-column: 1;
+        align-self: center;
+        justify-self: end;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.875rem;
+        margin-right: 1rem;
     }
 }
 
 /*LEFT COLUMN*/
 .confirm-layout {
     display: flex;
-    align-items: flex-start;
     gap: 80px;
-    padding: 2rem 0;
+    padding: 1rem 0 1.5rem;
 }
 
 .confirm-main {
     display: flex;
     flex-direction: column;
     width: 540px;
-    gap: 2rem;
+    gap: 1.5rem;
 
     >* {
         border: 1px solid var(--gray6);
@@ -159,8 +174,8 @@
 }
 
 .reservation-summary-img {
-    width: 95px;
-    height: 95px;
+    width: 104px;
+    height: 104px;
     border-radius: 8px;
     aspect-ratio: 1 / 1;
     object-fit: cover;

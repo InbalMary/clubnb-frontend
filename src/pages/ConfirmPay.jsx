@@ -1,9 +1,8 @@
 
 import { useParams } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
-import { appHeaderSvg } from '../cmps/Svgs'
 
-import { statSvgs, badgesSvgs } from '../cmps/Svgs'
+import { statSvgs, badgesSvgs, svgControls, appHeaderSvg } from '../cmps/Svgs'
 import { formatStayDates } from '../services/util.service'
 import { demoOrders } from '../data/demo-orders'
 
@@ -35,7 +34,9 @@ export function ConfirmPay() { //later send order as a prop from a parent
                     </NavLink>
                 </nav>
             </header>
+
             <section className="confirm-pay-page">
+                <button className="btn btn-gray back">{svgControls.backArrow}</button>
                 <h1 className="confirm-pay-title">Confirm and pay</h1>
                 <div className="confirm-layout">
                     {/* LEFT: main flow */}
