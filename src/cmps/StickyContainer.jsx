@@ -133,7 +133,7 @@ export function StickyContainer({ stay, initialModal = null }) {
                             onClick={() => setModalType("who")}
                         >
                             <div className="search-content">
-                                <div className="search-label">Who</div>
+                                <div className="search-label">GUESTS</div>
                                 <div className="search-placeholder">{formatGuestsText(guests)}</div>
                             </div>
                         </div>
