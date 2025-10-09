@@ -11,6 +11,7 @@ export function useHeaderState() {
 
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
     const isIndexPage = location.pathname === '/'
+    const isConfirmPayPage = location.pathname.includes('/confirm')
     const showBackdrop = (isExpanded && initialModal) || (isStayDetailsPage && isExpanded)
 
     // Scroll to top on stay details page
@@ -89,6 +90,7 @@ export function useHeaderState() {
         initialModal,
         showBackdrop,
         isStayDetailsPage,
+        isConfirmPayPage,
         headerRef,
         handleSearchClick,
         handleCollapse
