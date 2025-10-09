@@ -217,6 +217,22 @@
     }
 }
 
+.reservation-summary-guests {
+    display: flex;
+    flex-direction: column;
+
+
+    .guests-inline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+
+        span:not(:last-child)::after {
+            content: ',';
+        }
+    }
+}
+
 .reservation-summary-badge {
     display: flex;
     align-items: center;
@@ -260,6 +276,10 @@
 
 .price-breakdown {
     margin: 8px 0 0;
+}
+
+.reservation-final-total {
+    font-weight: bold;
 }
 
 .rare-find {

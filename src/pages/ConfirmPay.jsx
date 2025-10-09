@@ -114,9 +114,11 @@ export function ConfirmPay() { //later send order as a prop from a parent
                                 </div>
                                 <div className='reservation-summary-guests'>
                                     <p>Guests</p>
-                                    <p>{adults} adults</p>
-                                    {children > 0 && <p>{children} {children === 1 ? 'child' : 'children'}</p>}
-                                    {infants > 0 && <p>{infants} {infants === 1 ? 'infant' : 'infants'}</p>}
+                                    <p className='guests-inline'>
+                                        <span>{adults} {adults === 1 ? 'adult' : 'adults'}</span>
+                                        {children > 0 && <span>{children} {children === 1 ? 'child' : 'children'}</span>}
+                                        {infants > 0 && <span>{infants} {infants === 1 ? 'infant' : 'infants'}</span>}
+                                    </p>
                                 </div>
                                 <div className='reservation-price'>
                                     {/* TODO: replace static values with dynamic calculation */}
