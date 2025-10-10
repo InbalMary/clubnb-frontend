@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 
 export function GuestSelector({ onGuestsChange, initialGuests = { adults: 0, children: 0, infants: 0, pets: 0 } }) {
     const [guests, setGuests] = useState(initialGuests);
@@ -46,7 +48,7 @@ export function GuestSelector({ onGuestsChange, initialGuests = { adults: 0, chi
     ]
 
     return (
-        <div className="guest-selector">
+        <SimpleBar className="suggestions-dropdown guest-selector" style={{ maxHeight: "calc(100vh - 200px)" }}>
             {guestTypes.map(({ type, label, description, isLink }) => (
                 <div key={type} className="guest-row">
                     <div className="guest-info">
@@ -83,6 +85,6 @@ export function GuestSelector({ onGuestsChange, initialGuests = { adults: 0, chi
                     </div>
                 </div>
             ))}
-        </div>
+        </SimpleBar>
     )
 }
