@@ -183,8 +183,8 @@ export const demoOrders = [
         cleaningFee: 0,
         serviceFee: 0,
         numNights: 2.5,
-        startDate: '2025-10-10',
-        endDate: '2025-10-13',
+        startDate: '2026-02-10',
+        endDate: '2026-02-13',
         guests: {
             adults: 1,
             children: 1,
