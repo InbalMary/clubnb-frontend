@@ -12,6 +12,7 @@ export function useHeaderState() {
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
     const isIndexPage = location.pathname === '/'
     const isConfirmPayPage = location.pathname.includes('/confirm')
+    const isTripsPage = location.pathname === '/trips'
     const showBackdrop = (isExpanded && initialModal) || (isStayDetailsPage && isExpanded)
 
     // Scroll to top on route change (general)
@@ -26,17 +27,20 @@ export function useHeaderState() {
         if (prevPath !== '/' && isIndexPage) {
             setIsExpanded(true)
             setHasScrolled(false)
+        } else if (isTripsPage) {
+            setIsExpanded(false)
+            setHasScrolled(true)
         } else {
             setHasScrolled(false)
         }
 
         setInitialModal(null)
         prevPathRef.current = location.pathname
-    }, [location.pathname, isIndexPage])
+    }, [location.pathname, isIndexPage, isTripsPage])
 
     // Handle scroll behavior
     useEffect(() => {
-        if (isStayDetailsPage) {
+        if (isStayDetailsPage || isTripsPage) {
             if (!initialModal) setIsExpanded(false)
             return
         }
@@ -58,7 +62,7 @@ export function useHeaderState() {
 
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
-    }, [isExpanded, initialModal, isStayDetailsPage, hasScrolled])
+    }, [isExpanded, initialModal, isStayDetailsPage, isTripsPage, hasScrolled])
 
     const handleSearchClick = (modalType) => {
         setInitialModal(modalType)
@@ -85,6 +89,7 @@ export function useHeaderState() {
         showBackdrop,
         isStayDetailsPage,
         isConfirmPayPage,
+        isTripsPage,
         headerRef,
         handleSearchClick,
         handleCollapse

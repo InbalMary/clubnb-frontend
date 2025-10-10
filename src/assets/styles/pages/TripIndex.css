@@ -2,7 +2,7 @@
     max-width: 1760px;
     margin: 0 auto;
     padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 6vw, 5rem);
-    margin-block-start: 189px;
+    margin-block-start: 90px;
 }
 
 .trip-title {

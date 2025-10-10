@@ -283,3 +283,8 @@ body:has(.compact-header) .main-container>.stay-details {
     object-fit: cover;
     display: block;
 }
+
+.compact-search-button.hidden {
+    visibility: hidden;
+    pointer-events: none;
+}

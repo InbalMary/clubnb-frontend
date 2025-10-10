@@ -3,7 +3,7 @@ import { appHeaderSvg } from "./Svgs";
 import { HamburgerMenu } from "./HamburgerMenu";
 import { useSelector } from "react-redux";
 
-export function CompactHeader({ onSearchClick, isSticky }) {
+export function CompactHeader({ onSearchClick, isSticky, isTripsPage }) {
     const user = useSelector(storeState => storeState.userModule.user)
     const location = useLocation()
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
@@ -16,7 +16,7 @@ export function CompactHeader({ onSearchClick, isSticky }) {
                     <span className="brand">clubnb</span>
                 </NavLink>
 
-                <button className="compact-search-button" onClick={() => onSearchClick(null)}>
+                <button className={`compact-search-button ${isTripsPage ? 'hidden' : ''}`} onClick={() => onSearchClick(null)}>
                     <div className="compact-search-content">
                         <span
                             className="compact-search-text"

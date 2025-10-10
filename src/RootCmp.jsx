@@ -32,6 +32,7 @@ export function RootCmp() {
         showBackdrop,
         isStayDetailsPage,
         isConfirmPayPage,
+        isTripsPage,
         headerRef,
         handleSearchClick,
         handleCollapse
@@ -47,7 +48,7 @@ export function RootCmp() {
             {!isConfirmPayPage && (
                 <div ref={headerRef}>
                     {!isExpanded ? (
-                        <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
+                        <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} isTripsPage={isTripsPage} />
                     ) : (
                         <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
                     )}
