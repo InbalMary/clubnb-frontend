@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
 import { debounce } from '../services/util.service'
 import { svgControls } from "./Svgs"
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 
 export function WhereAutocomplete({ destinations, className = "", isOpen, onOpenChange, onDestinationSelect }) {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
@@ -92,8 +94,8 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
                 <div className={`where-modal-content ${className}`}>
                     {suggestions.length > 0 && (
                         <>
+                            <SimpleBar className="suggestions-dropdown" style={{ maxHeight: '500px' }}>
                             <span className="suggestions-dropdown-header">Suggested destinations</span>
-                            <div className="suggestions-dropdown">
                                 {suggestions.map((dest, idx) => (
                                     <div
                                         key={idx}
@@ -109,7 +111,7 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
                                         </div>
                                     </div>
                                 ))}
-                            </div>
+                            </SimpleBar>
                         </>
                     )}
                 </div>

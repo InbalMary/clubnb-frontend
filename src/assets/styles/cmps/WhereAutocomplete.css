@@ -87,7 +87,7 @@
   border-radius: 32px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   z-index: 1000;
-  max-height: calc(-200px + 100vh);
+  max-height: calc(100vh - 200px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -107,38 +107,75 @@
   background: var(--white);
 }
 
+/* SimpleBar */
 .suggestions-dropdown {
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 0 0 2rem;
-  scrollbar-width: thin;
-  scrollbar-color: var(--gray7) transparent;
   flex: 1;
   min-height: 0;
+  max-height: 500px;
+  position: relative;
 }
 
-.suggestions-dropdown::-webkit-scrollbar {
+.suggestions-dropdown .simplebar-wrapper,
+.suggestions-dropdown .simplebar-mask,
+.suggestions-dropdown .simplebar-offset {
+  height: 100%;
+}
+
+.suggestions-dropdown .simplebar-content-wrapper {
+  height: 100%;
+  overflow: auto;
+}
+
+.suggestions-dropdown .simplebar-content {
+  padding: 0 0 2rem 0 !important;
+  min-height: 100%;
+}
+
+.suggestions-dropdown .simplebar-track.simplebar-vertical {
+  width: 6px;
+  right: 4px;
+  top: 24px;
+  bottom: 24px;
+}
+
+.suggestions-dropdown .simplebar-scrollbar {
+  right: 0;
   width: 6px;
 }
 
-.suggestions-dropdown::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.suggestions-dropdown::-webkit-scrollbar-thumb {
+.suggestions-dropdown .simplebar-scrollbar::before {
   background: var(--gray7);
   border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
-.suggestions-dropdown::-webkit-scrollbar-thumb:hover {
+.suggestions-dropdown .simplebar-scrollbar:hover::before {
   background: var(--gray6);
+  cursor: auto;
+}
+
+.suggestions-dropdown .simplebar-track {
+  background: transparent;
+  border-radius: 0;
+}
+
+.suggestions-dropdown .simplebar-track.simplebar-horizontal {
+  display: none;
+}
+
+.suggestions-dropdown .simplebar-scrollbar::before {
+  pointer-events: auto !important;
 }
 
 .suggestion-item {
   display: flex;
   align-items: center;
-  padding: 0.5rem 1.5rem;
-  margin: 0 0.5rem;
+  margin: 0 1.5rem;
+  padding: 0.5rem 0.5rem;
   border-radius: 0.75rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
