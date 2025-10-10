@@ -14,16 +14,10 @@ export function useHeaderState() {
     const isConfirmPayPage = location.pathname.includes('/confirm')
     const showBackdrop = (isExpanded && initialModal) || (isStayDetailsPage && isExpanded)
 
-    // Scroll to top on stay details page
+    // Scroll to top on route change (general)
     useEffect(() => {
-        if (!isStayDetailsPage) return
-
-        const timeoutId = setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: "instant" })
-        }, 50)
-
-        return () => clearTimeout(timeoutId)
-    }, [isStayDetailsPage])
+        window.scrollTo({ top: 0, behavior: "instant" })
+    }, [location.pathname])
 
     // Handle route changes
     useEffect(() => {
