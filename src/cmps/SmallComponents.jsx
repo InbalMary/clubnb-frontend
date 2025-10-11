@@ -267,3 +267,45 @@ export function HomeMarkerIcon({ size = 48, fill = '#fefefe' }) {
         </svg>
     )
 }
+export function RareFind({ show = true, stay, startDate, endDate }) {
+    const [showRareFind, setShowRareFind] = useState(false);
+
+    const debouncedShowRef = useRef(
+        debounce(() => {
+            setShowRareFind(true)
+        }, 200)
+    )
+
+    useEffect(() => {
+        if (startDate && endDate) {
+            debouncedShowRef.current()
+        } else {
+            setShowRareFind(false)
+            debouncedShowRef.current.cancel()
+        }
+        return () => {
+            setShowRareFind(false)
+            debouncedShowRef.current.cancel()
+        }
+    }, [show, startDate, endDate])
+
+    if (!show) return null
+    return (
+        <div>
+            {showRareFind ? (
+                <>
+                    {show &&
+                        <h3 className="rare-find_sticky">{<img src={diamond} style={{ width: '30px' }} />} Rare find! This place is usually booked</h3>
+                    }
+                    <span className="cash-per-night">
+                        <h2 className="cash_sticky">{`$ ${stay.price}`}</h2><span>night</span>
+                    </span>
+                </>
+
+            ) : (
+
+                <h2 className="add-dates_sticky">Add dates for prices</h2>
+            )}
+        </div>
+    )
+}
