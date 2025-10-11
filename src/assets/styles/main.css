@@ -53,6 +53,8 @@
 @import "cmps/HostInfo.css";
 @import "cmps/ConfirmPay.css";
 @import "cmps/RadioButtons.css";
+@import "cmps/PaymentMethods.css";
+@import "cmps/ReservationSummary.css";
 
 
 
