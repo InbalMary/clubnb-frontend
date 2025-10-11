@@ -3,8 +3,6 @@
 }
 
 .sticky-container-wrap {
-    border-radius: 10px;
-
     position: sticky;
     top: 85px;
     height: 24rem;
@@ -53,7 +51,7 @@ h2.add-dates_sticky {
 .sticky-container:has(.rare-find_sticky) {
     margin-top: 6.4rem;
     padding: .875rem 1.6rem .4rem 1.6rem;
-        outline: 0px;
+    outline: 0px;
 
     /* top:1%; */
 
@@ -304,6 +302,7 @@ h2.add-dates_sticky {
 .pink {
     --mouse-x: 50%;
     --mouse-y: 50%;
+    height: 46px;
     --palette-bg-secondary-core-hover: radial-gradient(circle at var(--mouse-x) var(--mouse-y),
             /* #fb4163 5%, */
             #f12050 20.5%,

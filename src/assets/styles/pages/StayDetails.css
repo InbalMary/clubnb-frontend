@@ -49,7 +49,7 @@
 
     span.link {
         text-decoration: underline;
-        cursor:pointer;
+        cursor: pointer;
     }
 
     .details-imgs {
@@ -77,9 +77,25 @@
 
     .details-container {
         display: grid;
+        grid-template-rows: 100px 5fr;
         grid-template-columns: minmax(auto, 40.6rem) minmax(auto, 25rem);
-        grid-template-areas: "content reserve";
-        gap: 6rem;
+        /* grid-template-areas:
+            "header header",
+            "content reserve"; */
+        column-gap: 6rem;
+
+        .content {
+            grid-area: 2 / 1 / 3 / 2;
+        }
+
+        .sticky-container-wrap {
+            grid-area:2 / 2 / 3 / 3;
+        }
+
+        .details-header {
+            grid-area: 1 / 1 / 2 / 3;
+
+        }
 
         .content .main-info {
             padding-block: 2rem;

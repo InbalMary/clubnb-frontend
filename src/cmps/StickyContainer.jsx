@@ -3,12 +3,10 @@ import { DateSelector, StickyDateSelector } from "./DateSelector"
 import { reUseDateRange, useDateRange } from "../customHooks/useDateRange"
 import { DateRangePicker } from "./DateRangePicker"
 import { useClickOutside } from "../customHooks/useClickOutside"
-import { CalendarStayDates, FancyButton } from "./SmallComponents"
+import { CalendarStayDates, FancyButton, RareFind } from "./SmallComponents"
 import { useNavigate, useParams, useSearchParams } from "react-router-dom"
 import { GuestSelector } from "./GuestSelector"
-import { calculateNights, debounce, formatDate, formatGuestsText } from "../services/util.service"
-import { ReDateRangePicker } from "./ReDateRangePicker"
-import diamond from "../assets/svgs/diamond.png"
+import { calculateNights, formatDate, formatGuestsText } from "../services/util.service"
 import { Modal } from "./Modal"
 import { svgControls } from "./Svgs"
 import { loadStay } from "../store/actions/stay.actions"
@@ -106,9 +104,7 @@ export function StickyContainer({ stay, initialModal = null }) {
         <div ref={containerRef} className="sticky-container-wrap">
 
             <div className="sticky-container">
-                <RareFind stay={stay} startDate={startDate} endDate={endDate} />
-
-                {/* <h2 className="add-dates_sticky">Add dates for prices</h2> */}
+                <RareFind show={true} stay={stay} startDate={startDate} endDate={endDate} />
 
                 <div className="form-wrapper">
 
@@ -137,7 +133,6 @@ export function StickyContainer({ stay, initialModal = null }) {
                     </span >
                     <div className="border-bot"></div>
                     <span className="guest-wrapper">
-
                         <div
                             className={`search-section search-section-who ${modalType === 'who' ? 'active' : ''}`}
                             onClick={() => setModalType(modalType === 'who' ? null : 'who')}
@@ -162,19 +157,11 @@ export function StickyContainer({ stay, initialModal = null }) {
                     {(modalType === "checkin" || modalType === "checkout") &&
                         <>
                             < CalendarStayDates startDate={startDate} endDate={endDate} />
-                            <DateRangePicker
-                                value={dateRange}
-                                onComplete={handleDateComplete}
-                                activeField={modalType}
-                            />
+                            <DateRangePicker value={dateRange} onComplete={handleDateComplete} activeField={modalType} />
                         </>
                     }
                     {modalType === "who" && (
-                        <GuestSelector
-                            onGuestsChange={setGuests}
-                            initialGuests={guests}
-                        />
-
+                        <GuestSelector onGuestsChange={setGuests} initialGuests={guests} />
                     )}
 
                 </Modal>
@@ -193,56 +180,12 @@ export function StickyContainer({ stay, initialModal = null }) {
     )
 }
 
-function RareFind({ stay, startDate, endDate }) {
-    const [showRareFind, setShowRareFind] = useState(false);
 
-    const debouncedShowRef = useRef(
-        debounce(() => {
-            setShowRareFind(true)
-        }, 200)
-    )
-
-    useEffect(() => {
-        if (startDate && endDate) {
-            debouncedShowRef.current()
-        } else {
-            setShowRareFind(false)
-            debouncedShowRef.current.cancel()
-        }
-        return () => {
-            setShowRareFind(false)
-            debouncedShowRef.current.cancel()
-        }
-    }, [startDate, endDate])
-
-
-    return (
-        <div>
-            {showRareFind ? (
-                <>
-                    <h3 className="rare-find_sticky">{<img src={diamond} style={{ width: '30px' }} />} Rare find! This place is usually booked</h3>
-                    <span className="cash-per-night">
-                        <h2 className="cash_sticky">{`$ ${stay.price}`}</h2><span>night</span>
-                    </span>
-                </>
-
-            ) : (
-
-                <h2 className="add-dates_sticky">Add dates for prices</h2>
-            )}
-        </div>
-    )
-}
 
 function TotalCount({ stay, startDate, endDate }) {
     const price = stay.price
-    console.log('price:', price)
     const numNights = calculateNights(startDate, endDate)
     const totalPrice = price * numNights
-
-    // const cleaningFee = Number(stay.cleaningFee ?? 0);
-    // const basePrice = Number(totalPrice ?? 0);
-    // const finalTotal = cleaningFee + basePrice;
 
     return (
         <div className="payment-summary">
