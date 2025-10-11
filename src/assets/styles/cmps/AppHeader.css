@@ -3,7 +3,7 @@
     display: grid;
     grid-template-rows: auto 1fr;
     min-height: 12.5rem;
-    background: var(--header-bg);
+    background: var(--white);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     padding: 0.5rem 3rem;
     transition: all 0.3s ease;
@@ -168,4 +168,9 @@
     border-radius: 50%;
     object-fit: cover;
     display: block;
+}
+
+.app-header.index-page,
+.compact-header.index-page {
+    background: var(--header-bg);
 }

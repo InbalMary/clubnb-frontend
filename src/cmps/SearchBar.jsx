@@ -188,6 +188,7 @@ export function SearchBar({ initialModal = null }) {
 
                 <DateSelector
                     label="Check in"
+                    isHeader={true}
                     date={dateRange.from}
                     isActive={activeModal === 'checkin'}
                     onClick={() => setActiveModal('checkin')}
@@ -198,6 +199,7 @@ export function SearchBar({ initialModal = null }) {
 
                 <DateSelector
                     label="Check out"
+                    isHeader={true}
                     date={dateRange.to}
                     isActive={activeModal === 'checkout'}
                     onClick={() => setActiveModal('checkout')}

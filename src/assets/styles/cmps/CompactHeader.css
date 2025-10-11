@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     height: 6rem;
-    background: var(--header-bg);
+    background: var(--white);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     z-index: 100;
