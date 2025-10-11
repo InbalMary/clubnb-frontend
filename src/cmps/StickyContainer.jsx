@@ -100,6 +100,8 @@ export function StickyContainer({ stay, initialModal = null }) {
         }
     }
 
+    const hasGuestValues = guests.adults > 0 || guests.children > 0 || guests.infants > 0 || guests.pets > 0
+
     return (
         <div ref={containerRef} className="sticky-container-wrap">
 
@@ -114,16 +116,20 @@ export function StickyContainer({ stay, initialModal = null }) {
 
                         <StickyDateSelector
                             label="CHECK-IN"
+                            isHeader={false}
                             date={dateRange.from}
                             isActive={modalType === 'checkin'}
+                            placeholder={(modalType === 'checkin') ? 'MM/DD/YYYY' : 'Add dates'}
                             onClick={() => setModalType('checkin')}
                             onClear={() => setDateRange(prev => ({ ...prev, from: null, to: null }))}
                         />
                         <div className="divider"></div>
 
                         <StickyDateSelector
-                            label="CHECK-OUT"
+                            label="CHECKOUT"
+                            isHeader={false}
                             date={dateRange.to}
+                            placeholder={(modalType === 'checkout') ? 'MM/DD/YYYY' : 'Add dates'}
                             isActive={modalType === 'checkout'}
                             onClick={() => setModalType('checkout')}
                             onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
@@ -134,12 +140,13 @@ export function StickyContainer({ stay, initialModal = null }) {
 
                         <div
                             className={`search-section search-section-who ${modalType === 'who' ? 'active' : ''}`}
-                            onClick={() => setModalType("who")}
+                            onClick={() => setModalType(modalType === 'who' ? null : 'who')}
                         >
                             <div className="search-content">
                                 <div className="search-label">GUESTS</div>
-                                <div className="search-placeholder">{formatGuestsText(guests)}</div>
+                                <div className={`search-placeholder ${hasGuestValues ? 'has-value' : ''}`}>{formatGuestsText(guests)}</div>
                             </div>
+                            <span className="who-controls">{(modalType === 'who') ? svgControls.chevronUp : svgControls.chevronDown}</span>
                         </div>
                     </span>
                 </div>
@@ -162,15 +169,15 @@ export function StickyContainer({ stay, initialModal = null }) {
                             />
                         </>
                     }
-                </Modal>
-                {modalType === "who" && (
-                    <div className="guest-modal-content">
+                    {modalType === "who" && (
                         <GuestSelector
                             onGuestsChange={setGuests}
                             initialGuests={guests}
                         />
-                    </div>
-                )}
+
+                    )}
+
+                </Modal>
 
                 <FancyButton onClick={handleClick}>
                     {(startDate && endDate) ? 'Reserve' : 'Check availability'}
