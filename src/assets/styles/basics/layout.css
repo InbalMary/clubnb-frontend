@@ -1,4 +1,4 @@
-/* .main-container {
+.main-container {
     display: grid;
     grid-template-columns: auto minmax(auto, 1280px) auto;
 
@@ -9,7 +9,7 @@
             grid-column: 1 / -1;
         }
     }
-} */
+}
 
 .sample-grid-layout {
     display: grid;
