@@ -13,7 +13,7 @@ export function Modal({ header, footer, children, isOpen, onClose, closePosition
             setIsVisible(true)
         } else {
             timeout = setTimeout(() => {
-                setIsVisible(false) 
+                setIsVisible(false)
             }, 350)
         }
 
@@ -29,18 +29,19 @@ export function Modal({ header, footer, children, isOpen, onClose, closePosition
     return (
         <Fragment>
             {useBackdrop && <section onClick={onClose} className="backdrop"></section>}
-
+         
             <section className={`modal-popup ${className || ''} ${isVisible ? 'open' : 'closed'}`}>
-                <button
-                    onClick={onClose}
-                    className={`close-btn ${closePosition}`}
-                    aria-label="Close modal"
-                > {svgControls.closeModal}
-                </button>
+                   
+                    <button
+                        onClick={onClose}
+                        className={`close-btn ${closePosition}`}
+                        aria-label="Close modal"
+                    > {svgControls.closeModal}
+                    </button>
 
-                {header && <header>{header}</header>}
-                <main className="main-modal">{children}</main>
-                {footer && <footer>{footer}</footer>}
+                    {header && <header>{header}</header>}
+                    <main className="main-modal">{children}</main>
+                    {footer && <footer>{footer}</footer>}
 
             </section>
 
