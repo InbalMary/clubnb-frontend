@@ -6,10 +6,11 @@ import { useSelector } from "react-redux";
 export function CompactHeader({ onSearchClick, isSticky, isTripsPage }) {
     const user = useSelector(storeState => storeState.userModule.user)
     const location = useLocation()
+    const isIndexPage = location.pathname === '/' || location.pathname === ''
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
     // console.log('isStayDetailsPage', isStayDetailsPage)
     return (
-        <header className={`compact-header full ${!isSticky ? 'no-sticky' : ''}`}>
+        <header className={`compact-header full ${!isSticky ? 'no-sticky' : ''} ${isIndexPage ? 'index-page' : ''}` }>
             <div className="compact-header-content">
                 <NavLink to="/" className="logo-header">
                     <span className="icon">{appHeaderSvg.logo}</span>

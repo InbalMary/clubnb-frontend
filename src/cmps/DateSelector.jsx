@@ -1,9 +1,11 @@
 import { svgControls } from "./Svgs"
 
-export function DateSelector({ label, date, isActive, onClick, onClear, placeholder = "Add dates" }) {
+export function DateSelector({ label, isHeader = true, date, isActive, onClick, onClear, placeholder = "Add dates" }) {
     const formatDate = (date) => {
         if (!date) return null
-        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        if (isHeader) {
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        } return date.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })
     }
 
     return (
