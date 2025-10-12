@@ -1,7 +1,14 @@
 import { useState } from 'react'
+import { paymentSvgs } from './Svgs'
+import visaLogo from '../assets/svgs/logo_visa.svg'
+import mastercardLogo from '../assets/svgs/logo_mastercard.svg'
+import amexLogo from '../assets/svgs/logo_amex.svg'
+import discoverLogo from '../assets/svgs/logo_discover.svg'
+import jcbLogo from '../assets/svgs/logo_jcb.svg'
 
 export function PaymentMethod({ onNext }) {
     const [paymentMethod, setPaymentMethod] = useState('card')
+    console.log(visaLogo)
 
     return (
         <>
@@ -9,7 +16,19 @@ export function PaymentMethod({ onNext }) {
                 {/* Credit card */}
                 <div className="payment-option-wrapper">
                     <label className={`payment-radio payment-option card ${paymentMethod === 'card' ? 'active' : ''}`}>
-                        <span>Credit or debit card</span>
+                        <span className='credit-card-icon'>{paymentSvgs.creditCard}</span>
+
+                        <div className='credit-card-title-logos'>
+                            <span>Credit or debit card</span>
+                            <div className="credit-card-logos">
+                                <img src={visaLogo} alt="Visa" />
+                                <img src={mastercardLogo} alt="Mastercard" />
+                                <img src={amexLogo} alt="American Express" />
+                                <img src={discoverLogo} alt="Discover" />
+                                <img src={jcbLogo} alt="JCB" />
+                            </div>
+                        </div>
+
                         <input
                             type='radio' name='method' value='card' checked={paymentMethod === 'card'}
                             onChange={() => setPaymentMethod('card')}
@@ -31,7 +50,10 @@ export function PaymentMethod({ onNext }) {
                 </div>
                 {/* Google Pay*/}
                 <label className={`payment-radio payment-option googlepay ${paymentMethod === 'googlepay' ? 'active' : ''}`}>
-                    <span>Google Pay</span>
+                    <div className='googlepay-title-logo'>
+                        <span className='googlepay-icon'>{paymentSvgs.googlePay}</span>
+                        <span>Google Pay</span>
+                    </div>
                     <input
                         type='radio' name='method' value={'googlepay'}
                         checked={paymentMethod === 'googlepay'}

@@ -110,6 +110,11 @@
     cursor: pointer;
 }
 
+/* make sure the credit card icon doesn’t shrink */
+.payment-option>span:first-child {
+    flex-shrink: 0;
+}
+
 .payment-option.split-option {
     flex-direction: column;
     align-items: stretch;

@@ -8,7 +8,7 @@ import { demoOrders } from '../data/demo-orders'
 import { PaymentMethod } from '../cmps/PaymentMethod'
 
 export function ConfirmPay() { //later send order as a prop from a parent
-    const [currentStage, setCurrentStage] = useState(2)
+    const [currentStage, setCurrentStage] = useState(1)
     const [selectedPaymentTiming, setselectedPaymentTiming] = useState('full')
     const { stayId } = useParams()
     // console.log('Confirming stay:', stayId)
