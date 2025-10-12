@@ -6,7 +6,7 @@ import amexLogo from '../assets/svgs/logo_amex.svg'
 import discoverLogo from '../assets/svgs/logo_discover.svg'
 import jcbLogo from '../assets/svgs/logo_jcb.svg'
 
-export function PaymentMethod({ onNext }) {
+export function PaymentMethod({ onSelect }) {
     const [paymentMethod, setPaymentMethod] = useState('card')
     console.log(visaLogo)
 
@@ -30,8 +30,14 @@ export function PaymentMethod({ onNext }) {
                         </div>
 
                         <input
-                            type='radio' name='method' value='card' checked={paymentMethod === 'card'}
-                            onChange={() => setPaymentMethod('card')}
+                            type='radio'
+                            name='method'
+                            value='card'
+                            checked={paymentMethod === 'card'}
+                            onChange={() => {
+                                setPaymentMethod('card')
+                                onSelect({ type: 'card', brand: 'Visa', last4: '1234' })
+                            }}
                         />
                         <span className='payment-checkmark'></span>
                     </label>
@@ -55,9 +61,14 @@ export function PaymentMethod({ onNext }) {
                         <span>Google Pay</span>
                     </div>
                     <input
-                        type='radio' name='method' value={'googlepay'}
+                        type='radio'
+                        name='method'
+                        value={'googlepay'}
                         checked={paymentMethod === 'googlepay'}
-                        onChange={() => setPaymentMethod('googlepay')}
+                        onChange={() => {
+                            setPaymentMethod('googlepay')
+                            onSelect({ type: 'googlepay' })
+                        }}
                     />
                     <span className='payment-checkmark'></span>
                 </label>

@@ -6,6 +6,7 @@ export const demoOrders = [
       fullname: 'Bob Builder',
       firstName: 'Bob',
       imgUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
+      hostingSince: '2019'
     },
     guest: {
       _id: 'u101',

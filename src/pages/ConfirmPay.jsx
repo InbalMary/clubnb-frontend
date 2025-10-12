@@ -2,7 +2,7 @@
 import { useParams, NavLink } from 'react-router-dom'
 import { useState } from 'react'
 
-import { statSvgs, badgesSvgs, svgControls, appHeaderSvg } from '../cmps/Svgs'
+import { statSvgs, badgesSvgs, svgControls, appHeaderSvg, paymentSvgs } from '../cmps/Svgs'
 import { formatStayDates } from '../services/util.service'
 import { demoOrders } from '../data/demo-orders'
 import { PaymentMethod } from '../cmps/PaymentMethod'
@@ -10,6 +10,7 @@ import { PaymentMethod } from '../cmps/PaymentMethod'
 export function ConfirmPay() { //later send order as a prop from a parent
     const [currentStage, setCurrentStage] = useState(1)
     const [selectedPaymentTiming, setselectedPaymentTiming] = useState('full')
+    const [selectedMethod, setSelectedMethod] = useState(null)
     const { stayId } = useParams()
     // console.log('Confirming stay:', stayId)
 
@@ -24,6 +25,8 @@ export function ConfirmPay() { //later send order as a prop from a parent
     const ifIsRareFind = stay.isRareFind
     const { adults, children, infants } = order.guests
     const year = new Date(order.startDate).getFullYear()
+    const host = order.host
+
 
     function handleNextClick() {
         console.log('Next button clicked — move to payment method section')
@@ -104,10 +107,32 @@ export function ConfirmPay() { //later send order as a prop from a parent
 
                             {/*STEP 2*/}
                             <div className={`payment-method ${currentStage === 2 ? 'active' : 'collapsed'}`}>
-                                <div className="payment-options">
-                                    <h3 className="section-title">2. Add a payment method</h3>
-                                    {currentStage === 2 && <PaymentMethod />}
-                                </div>
+
+                                <h3 className="section-title">2. Add a payment method</h3>
+                                {currentStage === 2 ? (
+                                    <div className="payment-options">
+                                        <PaymentMethod onSelect={setSelectedMethod} />
+                                    </div>
+                                ) : (
+                                    <div className="payment-summary">
+                                        {selectedMethod?.type === 'card' && (
+                                            <>
+                                                <div className='collapsed-method-summary'>
+                                                    <span className='credit-card-icon'>{paymentSvgs.creditCard}</span>
+                                                    <span className='pay-method-label'>{selectedMethod.brand} •••• {selectedMethod.last4}</span>
+                                                </div>
+                                            </>
+                                        )}
+                                        {selectedMethod?.type === 'googlepay' && (
+                                            <>
+                                                <div className='collapsed-method-summary'>
+                                                    <span className='googlepay-icon'>{paymentSvgs.googlePay}</span>
+                                                    <span className='pay-method-label'>Google Pay</span>
+                                                </div>
+                                            </>
+                                        )}
+                                    </div>
+                                )}
                                 {currentStage === 2 && (
                                     <button className="btn btn-black confirm-next" onClick={handleNextClick}>
                                         Next
@@ -117,7 +142,34 @@ export function ConfirmPay() { //later send order as a prop from a parent
                             {/*STEP 3*/}
                             <div className={`host-message ${currentStage === 3 ? 'active' : 'collapsed'}`}>
                                 <h3 className="section-title">3. Message the host</h3>
-                                {/* textarea for message */}
+                                {currentStage === 3 && (
+                                    <div className='msg-host-block'>
+                                        <p className='msg-host-intro'>Share why you're traveling, who's coming with you, and what you love about the space.</p>
+                                        <div className='msg-host-avatar-greeting'>
+                                            <div className='msg-host-avatar'>
+                                                <img src={host.imgUrl} className='msg-host-img' />
+                                                <div className='msg-host-info'>
+                                                    <span className='msg-host-name'>{host.firstName}</span>
+                                                    <span className='msg-host-hosting-since'>Hosting since {host.hostingSince}</span>
+                                                </div>
+                                            </div>
+                                            <p className='msg-host-greeting'>Hello, do you have any questions I can help you with?</p>
+                                        </div>
+                                        <textarea
+                                            className='msg-host-textarea'
+                                            placeholder={`Hi ${host.firstName}! I'll be visiting...`}
+                                            rows={4}
+                                        />
+                                    </div>
+                                )}
+
+                                {currentStage === 3 && (
+                                    <div className='msg-host-btn-container'>
+                                        <button className="btn btn-black confirm-next" onClick={handleNextClick}>
+                                            Next
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                             {/*STEP 4*/}
                             <div className={`reservation-review ${currentStage === 4 ? 'active' : 'collapsed'}`}>

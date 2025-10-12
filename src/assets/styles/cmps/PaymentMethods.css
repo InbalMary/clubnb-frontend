@@ -3,7 +3,7 @@
     grid-template-columns: 1fr 1fr;
     padding-bottom: 1rem;
     gap: 0.5rem;
-    /* this border replaces the radio’s border when active */
+    /* this border replaces the radio’s btn border when active */
     border-bottom: 1px solid var(--divider);
 
     .credit-card-block {
