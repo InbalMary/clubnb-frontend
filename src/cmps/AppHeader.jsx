@@ -13,7 +13,11 @@ export function AppHeader({ initialModal, onCollapse }) {
 	const navigate = useNavigate()
 	const headerRef = useRef(null)
 	const location = useLocation()
-    const isIndexPage = location.pathname === '/' || location.pathname === ''
+	const isIndexPage = location.pathname === '/' || location.pathname === ''
+	const isHostPage = location.pathname.includes("become-a-host");
+
+	const to = isHostPage ? "/" : "/become-a-host";
+	const text = isHostPage ? "Switch to traveling" : "Switch to hosting";
 
 	useEffect(() => {
 		function handleClickOutside(event) {
@@ -48,8 +52,8 @@ export function AppHeader({ initialModal, onCollapse }) {
 				{user?.isAdmin && <NavLink to="/admin">Admin</NavLink>}
 
 				<div className="header-actions">
-					<NavLink to="become-a-host" >
-						<span className="host-link">Become a host</span>
+					<NavLink to={to}>
+						<span className="host-link">{text}</span>
 					</NavLink>
 
 					{user && user.imgUrl ? (

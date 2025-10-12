@@ -8,7 +8,11 @@ export function CompactHeader({ onSearchClick, isSticky, isTripsPage }) {
     const location = useLocation()
     const isIndexPage = location.pathname === '/' || location.pathname === ''
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
-    // console.log('isStayDetailsPage', isStayDetailsPage)
+    const isHostPage = location.pathname.includes("become-a-host");
+
+	const to = isHostPage ? "/" : "/become-a-host";
+	const text = isHostPage ? "Switch to traveling" : "Switch to hosting";
+
     return (
         <header className={`compact-header full ${!isSticky ? 'no-sticky' : ''} ${isIndexPage ? 'index-page' : ''}` }>
             <div className="compact-header-content">
@@ -56,9 +60,9 @@ export function CompactHeader({ onSearchClick, isSticky, isTripsPage }) {
                 </button>
 
                 <div className="header-actions">
-                    <NavLink to="become-a-host" >
-                        <span className="host-link">Become a host</span>
-                    </NavLink>
+                    <NavLink to={to}>
+						<span className="host-link">{text}</span>
+					</NavLink>
 
                     {user && user.imgUrl ? (
 						<button className='profile-icon'>

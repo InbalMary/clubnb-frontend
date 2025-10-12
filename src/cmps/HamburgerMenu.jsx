@@ -80,7 +80,7 @@ export function HamburgerMenu() {
                         onClick={() => handleNavigation('/become-a-host')}
                     >
                         <div className="menu-row-text">
-                            <span className="menu-title">Become a host</span>
+                            <span className="menu-title">Switch to hosting</span>
                             <span className="menu-sub">
                                 It's easy to start hosting and earn extra income.
                             </span>
