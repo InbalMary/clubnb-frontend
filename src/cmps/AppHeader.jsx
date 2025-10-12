@@ -7,6 +7,7 @@ import { appHeaderSvg } from './Svgs'
 import { SearchBar } from './SearchBar'
 import { HamburgerMenu } from './HamburgerMenu.jsx'
 import { useEffect, useRef } from 'react'
+import { useClickOutside } from '../customHooks/useClickOutside.js'
 
 export function AppHeader({ initialModal, onCollapse }) {
 	const user = useSelector(storeState => storeState.userModule.user)
@@ -14,29 +15,22 @@ export function AppHeader({ initialModal, onCollapse }) {
 	const headerRef = useRef(null)
 	const location = useLocation()
 	const isIndexPage = location.pathname === '/' || location.pathname === ''
-	const isHostPage = location.pathname.includes("become-a-host");
+	const isHostPage = location.pathname.includes("become-a-host")
 
-	const to = isHostPage ? "/" : "/become-a-host";
-	const text = isHostPage ? "Switch to traveling" : "Switch to hosting";
+	const to = isHostPage ? "/" : "/become-a-host"
+	const text = isHostPage ? "Switch to traveling" : "Switch to hosting"
+
+	useClickOutside([headerRef], onCollapse)
 
 	useEffect(() => {
-		function handleClickOutside(event) {
-			if (headerRef.current && !headerRef.current.contains(event.target)) {
-				onCollapse()
-			}
-		}
-
 		function handleEscKey(event) {
 			if (event.key === 'Escape') {
 				onCollapse()
 			}
 		}
 
-		document.addEventListener("mousedown", handleClickOutside)
 		document.addEventListener("keydown", handleEscKey)
-
 		return () => {
-			document.removeEventListener("mousedown", handleClickOutside)
 			document.removeEventListener("keydown", handleEscKey)
 		}
 	}, [onCollapse])
@@ -73,7 +67,6 @@ export function AppHeader({ initialModal, onCollapse }) {
 			<div className="expanded-header-search">
 				<SearchBar initialModal={initialModal} />
 			</div>
-
 		</header>
 	)
 }

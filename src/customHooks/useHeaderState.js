@@ -37,11 +37,11 @@ export function useHeaderState() {
 
         setInitialModal(null)
         prevPathRef.current = location.pathname
-    }, [location.pathname, isIndexPage, isTripsPage])
+    }, [location.pathname, isIndexPage, isTripsPage, isHostPage])
 
     // Handle scroll behavior
     useEffect(() => {
-        if (isStayDetailsPage || isTripsPage) {
+        if (isStayDetailsPage || isTripsPage || isHostPage) {
             if (!initialModal) setIsExpanded(false)
             return
         }
