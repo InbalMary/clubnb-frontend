@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/actions/user.actions'
@@ -12,6 +12,8 @@ export function AppHeader({ initialModal, onCollapse }) {
 	const user = useSelector(storeState => storeState.userModule.user)
 	const navigate = useNavigate()
 	const headerRef = useRef(null)
+	const location = useLocation()
+    const isIndexPage = location.pathname === '/' || location.pathname === ''
 
 	useEffect(() => {
 		function handleClickOutside(event) {
@@ -36,7 +38,7 @@ export function AppHeader({ initialModal, onCollapse }) {
 	}, [onCollapse])
 
 	return (
-		<header className="app-header full" ref={headerRef}>
+		<header className={`app-header full ${isIndexPage ? 'index-page' : ''}`} ref={headerRef}>
 			<nav className='nav-bar'>
 				<NavLink to="/" className="logo-header">
 					<span className="icon">{appHeaderSvg.logo}</span>
@@ -50,9 +52,15 @@ export function AppHeader({ initialModal, onCollapse }) {
 						<span className="host-link">Become a host</span>
 					</NavLink>
 
-					<button aria-label="Choose language">
-						<span className='change-lng'>{appHeaderSvg.changeLanguage}</span>
-					</button>
+					{user && user.imgUrl ? (
+						<button className='profile-icon'>
+							<img src={user.imgUrl} alt={user.fullname} />
+						</button>
+					) : (
+						<button aria-label="Choose language">
+							<span className='change-lng'>{appHeaderSvg.changeLanguage}</span>
+						</button>
+					)}
 
 					<HamburgerMenu />
 				</div>

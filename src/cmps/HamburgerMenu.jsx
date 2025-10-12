@@ -43,18 +43,18 @@ export function HamburgerMenu() {
             <button
                 ref={buttonRef}
                 type="button"
-                className={`hamburger-menu-btn ${user && user.imgUrl ? 'hamburger-wide' : ''}`}
+                className={`hamburger-menu-btn`}
                 onClick={toggleMenu}
                 aria-label="Main menu"
                 aria-haspopup="menu"
                 aria-expanded={isOpen ? "true" : "false"}
                 aria-controls="header-menu"
             >
-                {user && user.imgUrl && (
+                {/* {user && user.imgUrl && (
                     <span className='profile-icon'>
                         <img src={user.imgUrl} alt={user.fullname} />
                     </span>
-                )}
+                )} */}
                 <span className='hamburger'>
                     {appHeaderSvg.hamburger}
                 </span>
@@ -65,7 +65,7 @@ export function HamburgerMenu() {
             )}
 
             {isOpen && (
-                <div ref={menuRef} id="header-menu" className="header-menu" role="menu">
+                <div ref={menuRef} id="header-menu" className={`header-menu ${user ? 'user-logged' : ''}`} role="menu">
 
                     <div className="menu-header">
                         <span className="menu-icon">?</span>
@@ -97,16 +97,16 @@ export function HamburgerMenu() {
                     {user && (
                         <>
                             <button className="menu-row" role="menuitem" onClick={() => handleNavigation('/wishlists')}>
-                                Wishlists
+                                <span ><img className="svg-icon" src="/img/wishlists.svg" alt="" /></span>Wishlists
                             </button>
                             <button className="menu-row" role="menuitem" onClick={() => handleNavigation('/trips')}>
-                                Trips
+                                <span ><img className="svg-icon" src="/img/trips.svg" alt="" /></span>Trips
                             </button>
                             <button className="menu-row" role="menuitem" onClick={() => handleNavigation('/Messages')}>
-                                Messages
+                                <span ><img className="svg-icon" src="/img/msgs.svg" alt="" /></span>Messages
                             </button>
                             <button className="menu-row" role="menuitem" onClick={() => handleNavigation(`/user/${user._id}`)}>
-                                Profile
+                                <span ><img className="svg-icon" src="/img/login.svg" alt="" /></span>Profile
                             </button>
 
                             <hr />

@@ -1,12 +1,13 @@
 .guest-selector {
-    padding: 1.5rem 2rem;
+    margin: 0.875rem 2rem;
 }
 
 .guest-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
+    padding: 1.5rem 0.625rem;
+    margin-inline-end: 1rem;
     border-bottom: 1px solid var(--gray5);
 }
 
@@ -92,7 +93,7 @@
     position: absolute;
     top: calc(100% + 12px);
     right: 0;
-    width: 400px;
+    width: 424px;
     background: var(--white);
     border-radius: 32px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -100,5 +101,17 @@
 }
 
 .search-item-container:has(.search-section-who.active) {
-  background-color: var(--gray1);
+    background-color: var(--gray1);
+}
+
+
+.guest-selector {
+    padding: 1.5rem 2rem;
+    min-height: 0;
+}
+
+.guest-modal-content {
+    max-height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
 }

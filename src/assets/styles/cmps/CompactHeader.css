@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     height: 6rem;
-    background: var(--header-bg);
+    background: var(--white);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     z-index: 100;
@@ -83,6 +83,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .compact-search-text:last-of-type {
@@ -206,16 +207,16 @@
     width: 48px;
 }
 
-/* body:has(.compact-header) .stay-index, */
+body:has(.compact-header) .stay-index,
 body:has(.app-header) .stay-index {
     margin-block-start: 189px;
     transition: margin-block-start 0.3s ease-in-out;
 }
 
-body:has(.compact-header) .stay-index {
+/* body:has(.compact-header) .stay-index {
     margin-block-start: 94px;
     transition: margin-block-start 0.3s ease-in-out;
-}
+} */
 
 .app-header.full {
     position: fixed;
@@ -253,4 +254,37 @@ body:has(.compact-header) .main-container>.stay-details {
 
 .compact-header.no-sticky .header-menu {
     right: 200px;
+}
+
+.compact-header .header-actions .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--gray1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    margin-inline-start: 0.75rem;
+    margin-block-start: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.compact-header .header-actions .profile-icon:hover {
+    background-color: var(--gray5);
+}
+
+.compact-header .header-actions .profile-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.compact-search-button.hidden {
+    visibility: hidden;
+    pointer-events: none;
 }

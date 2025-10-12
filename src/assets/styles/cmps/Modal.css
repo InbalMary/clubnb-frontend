@@ -9,19 +9,19 @@
     z-index: 200;
 
     background-color: white;
-    width: 780px;
-    height: 659px;
+    width: 51%;
+    height: 82%;
 
     position: fixed;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -45%);
     border-radius: 30px;
 
     display: flex;
     flex-direction: column;
     overflow: hidden;
     opacity: 0;
-    transform: translate(-50%, -45%);
     transition:
         transform 0.35s ease-in-out,
         opacity 0.35s ease-in-out;
@@ -32,7 +32,7 @@
 
     h1 {
         font-size: 1.675rem;
-        padding-bottom: 2rem;
+        padding-block: 0;
         font-family: cereal-bold;
         letter-spacing: 0cap;
     }
@@ -55,7 +55,7 @@
     }
 
     .main-modal {
-        padding: 16px 1.825rem 1.825rem 1.825rem;
+        padding: .5rem 1.825rem 1.825rem 1.825rem;
         overflow-y: auto;
         overflow-x: hidden;
         scrollbar-width: auto;
@@ -93,6 +93,10 @@
     height: 1rem;
 }
 
+.modal-popup .close-btn.none {
+    display: none
+}
+
 .modal-popup .close-btn:hover {
     background: var(--gray8);
 }
@@ -106,11 +110,16 @@
 }
 
 .reviews-rating-modal {
-    width: 1023px;
+    max-width: 1023px;
+    width: 80%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     padding-inline-start: 2rem;
+
+    >header {
+        min-height: 3rem;
+    }
 
     .main-modal {
         flex: 1;

@@ -1,20 +1,23 @@
 import { NavLink, useLocation } from "react-router";
 import { appHeaderSvg } from "./Svgs";
 import { HamburgerMenu } from "./HamburgerMenu";
+import { useSelector } from "react-redux";
 
-export function CompactHeader({ onSearchClick, isSticky }) {
+export function CompactHeader({ onSearchClick, isSticky, isTripsPage }) {
+    const user = useSelector(storeState => storeState.userModule.user)
     const location = useLocation()
+    const isIndexPage = location.pathname === '/' || location.pathname === ''
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
     // console.log('isStayDetailsPage', isStayDetailsPage)
     return (
-        <header className={`compact-header full ${!isSticky ? 'no-sticky' : ''}`}>
+        <header className={`compact-header full ${!isSticky ? 'no-sticky' : ''} ${isIndexPage ? 'index-page' : ''}` }>
             <div className="compact-header-content">
                 <NavLink to="/" className="logo-header">
                     <span className="icon">{appHeaderSvg.logo}</span>
                     <span className="brand">clubnb</span>
                 </NavLink>
 
-                <button className="compact-search-button" onClick={() => onSearchClick(null)}>
+                <button className={`compact-search-button ${isTripsPage ? 'hidden' : ''}`} onClick={() => onSearchClick(null)}>
                     <div className="compact-search-content">
                         <span
                             className="compact-search-text"
@@ -57,11 +60,17 @@ export function CompactHeader({ onSearchClick, isSticky }) {
                         <span className="host-link">Become a host</span>
                     </NavLink>
 
-                    <button aria-label="Choose language">
-                        <span className='change-lng'>{appHeaderSvg.changeLanguage}</span>
-                    </button>
+                    {user && user.imgUrl ? (
+						<button className='profile-icon'>
+							<img src={user.imgUrl} alt={user.fullname} />
+						</button>
+					) : (
+						<button aria-label="Choose language">
+							<span className='change-lng'>{appHeaderSvg.changeLanguage}</span>
+						</button>
+					)}
 
-                    <HamburgerMenu />
+					<HamburgerMenu />
                 </div>
             </div>
         </header>

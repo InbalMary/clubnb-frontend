@@ -4,12 +4,14 @@ import { stayReducer } from './reducers/stay.reducer'
 import { userReducer } from './reducers/user.reducer'
 import { msgReducer } from './reducers/msg.reducer'
 import { systemReducer } from './reducers/system.reducer'
+import { orderReducer } from './reducers/order.reducer'
 
 const rootReducer = combineReducers({
     stayModule: stayReducer,
     userModule: userReducer,
     systemModule: systemReducer,
     msgModule: msgReducer,
+    orderModule: orderReducer,
 })
 
 

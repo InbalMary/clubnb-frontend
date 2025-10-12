@@ -3,26 +3,23 @@
 }
 
 .sticky-container-wrap {
-    border-radius: 10px;
-
     position: sticky;
-    top: 100px;
+    top: 85px;
     height: 24rem;
 }
 
 .sticky-container-wrap:has(.payment-summary) {
-    min-height: 34rem;
+    height: 40.7rem;
 }
 
 .rare-find_sticky {
     box-shadow: 3px 6px 20px 0px var(--gray6);
-    border-radius: 10px;
-    padding: 1rem;
+    border-radius: 12px;
+    padding: .7rem;
     width: 100%;
-    right: 0;
-
     position: absolute;
-    top: -90px;
+    right: 0;
+    top: -16%;
     display: flex;
     flex-direction: row;
     gap: .6rem;
@@ -47,37 +44,40 @@ h2.add-dates_sticky {
     gap: .3rem;
 
     .cash_sticky {
-        font-size: 2rem;
         font-size: 1.5rem;
     }
 }
 
+.sticky-container:has(.rare-find_sticky) {
+    margin-top: 6.4rem;
+    padding: .875rem 1.6rem .4rem 1.6rem;
+    outline: 0px;
+
+    /* top:1%; */
+
+    .modal-popup.calendar {
+        top: 60%;
+    }
+
+    .modal-popup.guests {
+        top: 75.5%;
+    }
+}
+
 .sticky-container {
-    margin-top: 5rem;
-}
-
-.modal-popup.calendar {
-    z-index: 2000;
-    top: 107% !important;
-}
-
-.sticky-container:has(.rare-find_sticky) .modal-popup.calendar {
-    top: 69% !important;
-}
-
-.sticky-container {
+    margin-top: 2rem;
     box-shadow: 3px 6px 20px 0px var(--gray6);
-    border-radius: 10px;
-    outline: 1px solid var(--gray6);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    outline: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
     position: absolute;
     width: 100%;
-    top: .875rem;
-    padding: .5rem 1.7rem 1.5rem 2rem;
+    padding: .5rem 1.6rem 1.4rem 1.6rem;
     display: grid;
 
     .form-wrapper {
         outline: var(--outline-main);
-        border-radius: 10px;
+        border-radius: 8px;
 
         display: flex;
         flex-direction: column;
@@ -94,14 +94,7 @@ h2.add-dates_sticky {
 
     .form-wrapper:has(.active) {
         .border-bot::before {
-            content: '';
-            width: 0%;
-            border-bottom: none;
-        }
-
-        .date-wrapper {
-            border: 1px solid var(--gray3);
-            border-radius: 10px 10px 0 0;
+            display: none;
         }
     }
 
@@ -112,7 +105,7 @@ h2.add-dates_sticky {
         width: 100%;
         gap: 1px;
 
-        height: 3.675rem;
+        height: 3.5rem;
 
         .divider::before {
             content: '';
@@ -123,7 +116,8 @@ h2.add-dates_sticky {
     }
 
     .date-wrapper:has(.search-section-date.active) {
-        border-radius: 10px;
+        border: 1px solid var(--gray3);
+        border-radius: 8px;
         z-index: 4;
 
         .divider::before {
@@ -132,21 +126,38 @@ h2.add-dates_sticky {
         }
     }
 
+    .search-section-date,
+    .search-section-who {
+        padding-inline: .7rem;
+
+        .search-label {
+            font-family: cereal-medium;
+            font-weight: 400;
+            font-size: .675rem;
+            color: black;
+        }
+
+        .search-placeholder.has-value {
+            color: black;
+        }
+    }
+
     div.search-section:hover {
         background-color: transparent;
     }
 
     div.search-section-date.active {
-        outline: 2px solid var(--gray3);
-        border-radius: 10px;
+        outline: 2.4px solid var(--gray3);
+        border-radius: 8px;
         z-index: 4;
     }
 
     .modal-popup.calendar {
         background-color: white;
         position: absolute;
-        left: -3%;
-        top: 107%;
+        width: 720px;
+        left: 5%;
+        top: 100%;
         height: fit-content;
         transition: top 0.3s ease;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -158,12 +169,21 @@ h2.add-dates_sticky {
             padding: 1rem;
         }
 
-        .main-modal .calendar-date h2 {
-            padding: 0;
+        .main-modal {
+            padding: 0 1rem 0 1rem;
+
+            .calendar-date {
+                padding-inline-start: 1rem;
+
+                h2 {
+                    padding: 0;
+                }
+            }
+
         }
     }
 
-    .close-btn {
+    .search.close-btn {
         all: unset;
         display: flex;
         justify-content: center;
@@ -179,13 +199,18 @@ h2.add-dates_sticky {
         z-index: 10;
     }
 
-    .close-btn svg {
+    .search.close-btn:hover {
+        transition: 0.3s;
+        background-color: #f7f7f7;
+    }
+
+    .search.close-btn svg {
         display: block;
         fill: none;
         stroke: var(--gray3);
         stroke-width: 3;
-        width: 1rem;
-        height: 1rem;
+        width: 0.75rem;
+        height: 0.75rem;
     }
 
     .guest-wrapper {
@@ -195,7 +220,7 @@ h2.add-dates_sticky {
 
         .active {
             outline: 2px solid var(--gray3);
-            border-radius: 10px;
+            border-radius: 8px;
         }
     }
 
@@ -205,23 +230,35 @@ h2.add-dates_sticky {
     }
 
     .modal-popup.guests {
-        display: none;
-    }
-
-    .guest-modal-content {
+        width: 324px;
+        height: 323px;
         position: absolute;
-        width: 320px;
-        left: 8.5%;
-        top: 68%;
-        height: fit-content;
+        transition: none;
+        left: 50%;
+        top: 129.4%;
         border-radius: 8px;
         box-shadow: 0px 0px 7px -4px #2f2c2c;
+        padding: 0;
 
-        .guest-selector {
-            padding-inline: 1rem;
+        >header {
+            min-height: 0;
+            padding: 0;
+        }
 
-            .guest-row {
-                padding-block: 1rem;
+        .main-modal {
+            height: fit-content;
+            padding: 0;
+            padding-block-start: 1rem;
+
+            .suggestions-dropdown {
+                margin: .4rem;
+                margin-block-start: .4rem;
+            }
+
+            .guest-selector .guest-row {
+                padding-block: .675rem;
+                border-bottom: 0;
+                margin: 0;
             }
         }
     }
@@ -236,8 +273,6 @@ h2.add-dates_sticky {
         display: grid;
         width: 100%;
 
-        gap: 1em;
-
         div.total {
             width: 100%;
             display: flex;
@@ -245,10 +280,21 @@ h2.add-dates_sticky {
             justify-content: space-between;
         }
 
+        .price-calc {
+            padding-block: 1rem;
+        }
+
+        .clean-calc {
+            padding-block: 0 1.2rem;
+        }
+
+        .total-calc {
+            padding-block: 1.5rem 1rem;
+        }
+
         span.link {
             font-family: cereal-medium;
             line-height: 1.5rem;
-            /* margin-bottom: 2px; */
         }
     }
 }
@@ -256,10 +302,11 @@ h2.add-dates_sticky {
 .pink {
     --mouse-x: 50%;
     --mouse-y: 50%;
+    height: 46px;
     --palette-bg-secondary-core-hover: radial-gradient(circle at var(--mouse-x) var(--mouse-y),
             /* #fb4163 5%, */
             #f12050 20.5%,
-            #E61E4D 30%, 
+            #E61E4D 30%,
             #e21257 40%,
             #D70466 67.5%,
             #d80767 70%,

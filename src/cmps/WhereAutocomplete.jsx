@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
 import { debounce } from '../services/util.service'
+import { svgControls } from "./Svgs"
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 
 export function WhereAutocomplete({ destinations, className = "", isOpen, onOpenChange, onDestinationSelect }) {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
@@ -10,6 +13,7 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
     const [suggestions, setSuggestions] = useState(destinations)
 
     const containerRef = useRef(null)
+    const inputRef = useRef(null)
 
     const debouncedSelectRef = useRef(
         debounce((destination) => {
@@ -46,6 +50,14 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
         }
     }
 
+    const handleClear = (ev) => {
+        ev.stopPropagation()
+        setQuery("")
+        setSuggestions(destinations)
+        onDestinationSelect?.(null)
+        setTimeout(() => inputRef.current?.focus(), 0)
+    }
+
     return (
         <div
             className={`search-section search-section-where ${isOpen ? "active" : ""}`}
@@ -57,6 +69,7 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
         >
             <div className="search-label">Where</div>
             <input
+                ref={inputRef}
                 className="search-input"
                 type="text"
                 placeholder="Search destinations"
@@ -67,28 +80,39 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
                     setSuggestions(destinations)
                 }}
             />
+            {whereQuery && (
+                <button
+                    className="search close-btn"
+                    onClick={handleClear}
+                    aria-label="Clear destination"
+                >
+                    {svgControls.closeModal}
+                </button>
+            )}
 
             {isOpen && (
                 <div className={`where-modal-content ${className}`}>
                     {suggestions.length > 0 && (
-                        <div className="suggestions-dropdown">
+                        <>
+                            <SimpleBar className="suggestions-dropdown" style={{ maxHeight: '500px' }}>
                             <span className="suggestions-dropdown-header">Suggested destinations</span>
-                            {suggestions.map((dest, idx) => (
-                                <div
-                                    key={idx}
-                                    className="suggestion-item"
-                                    onClick={() => handleSelect(dest)}
-                                >
-                                    <span className="suggestion-icon">
-                                        <img src={`/img/where/${dest.icon}.png`} alt={dest.icon} className="where-dropdown-icon" />
-                                    </span>
-                                    <div className="suggestion-text">
-                                        <span className="suggestion-name">{dest.name}</span>
-                                        <span className="suggestion-description">{dest.description}</span>
+                                {suggestions.map((dest, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="suggestion-item"
+                                        onClick={() => handleSelect(dest)}
+                                    >
+                                        <span className="suggestion-icon">
+                                            <img src={`/img/where/${dest.icon}.png`} alt={dest.icon} className="where-dropdown-icon" />
+                                        </span>
+                                        <div className="suggestion-text">
+                                            <span className="suggestion-name">{dest.name}</span>
+                                            <span className="suggestion-description">{dest.description}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </SimpleBar>
+                        </>
                     )}
                 </div>
             )}

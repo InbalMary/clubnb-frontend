@@ -22,75 +22,37 @@ import { CompactHeader } from './cmps/CompactHeader.jsx'
 import { useClickOutside } from './customHooks/useClickOutside.js'
 import { StayEdit } from './pages/StayEdit.jsx'
 import { ConfirmPay } from './pages/ConfirmPay.jsx'
-
+import { useHeaderState } from './customHooks/useHeaderState.js'
+import { TripIndex } from './pages/TripIndex.jsx'
 
 export function RootCmp() {
-    const location = useLocation()
-    const [isExpanded, setIsExpanded] = useState(true)
-    const [hasScrolled, setHasScrolled] = useState(false)
-    const [initialModal, setInitialModal] = useState(null)
-    const headerRef = useRef(null)
-    const prevPathRef = useRef(location.pathname)
-
-    const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
-    const isConfirmPayPage = location.pathname.includes('/confirm')
-
-    useEffect(() => {
-        if (isStayDetailsPage) {
-            if (!initialModal) setIsExpanded(false)
-            return
-        }
-
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY
-
-            if (currentScrollY > 10 && !hasScrolled) {
-                setHasScrolled(true)
-            }
-
-            if (currentScrollY > 50 && isExpanded && !initialModal) {
-                setIsExpanded(false)
-            } else if (currentScrollY <= 10 && !isExpanded && !initialModal) {
-                setIsExpanded(true)
-                setHasScrolled(false)
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll, { passive: true })
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [isExpanded, initialModal, isStayDetailsPage, hasScrolled])
+    const {
+        isExpanded,
+        initialModal,
+        showBackdrop,
+        isStayDetailsPage,
+        isConfirmPayPage,
+        isTripsPage,
+        headerRef,
+        handleSearchClick,
+        handleCollapse
+    } = useHeaderState()
 
     useClickOutside([headerRef], () => {
         if (isExpanded && initialModal) handleCollapse()
     })
 
-    const handleSearchClick = (modalType) => {
-        setInitialModal(modalType)
-        setIsExpanded(true)
-    }
-
-    const handleCollapse = () => {
-        if (isStayDetailsPage && initialModal) {
-            setInitialModal(null)
-            setIsExpanded(false)
-            return
-        }
-
-        if (!hasScrolled) return
-
-        if (window.scrollY <= 10) return setIsExpanded(false)
-        setInitialModal(null)
-        setIsExpanded(false)
-    }
-
     return (
         <div className="main-container">
+            {showBackdrop && <div className="backdrop" onClick={handleCollapse} />}
             {!isConfirmPayPage && (
-                !isExpanded ? (
-                    <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} />
-                ) : (
-                    <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
-                )
+                <div ref={headerRef}>
+                    {!isExpanded ? (
+                        <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} isTripsPage={isTripsPage} />
+                    ) : (
+                        <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
+                    )}
+                </div>
             )}
             {/* <AppHeader /> */}
             <UserMsg />
@@ -108,6 +70,8 @@ export function RootCmp() {
                     <Route path="stay/:stayId" element={<StayDetails />} />
                     <Route path="stay/:stayId/confirm-pay" element={<ConfirmPay />} />
                     <Route path="user/:id" element={<UserDetails />} />
+                    <Route path="trips" element={<TripIndex />} />
+
                     <Route path="messages" element={<MsgIndex />} />
                     {/* <Route path="chat" element={<ChatApp />} /> */}
                     <Route path="become-a-host" element={<BecomeHostForm />} />

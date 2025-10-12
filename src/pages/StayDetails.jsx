@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -22,6 +22,7 @@ import { HostInfo } from '../cmps/HostInfo'
 import { hostSvgs } from '../cmps/Svgs'
 import { useDateContext } from '../context/DateRangeProvider'
 import { StayMap } from '../cmps/StayMap'
+import { StayHeader } from '../cmps/StayHeader'
 
 const demoStay = {
   _id: "Ytcqd",
@@ -332,6 +333,14 @@ export function StayDetails() {
   const startDate = searchParams.get('startDate')
   const endDate = searchParams.get('endDate')
 
+  const refs = {
+    photoRef: useRef(null),
+    amenitiesRef: useRef(null),
+    reviewRef: useRef(null),
+    locationRef: useRef(null),
+    stickyContainerRef: useRef(null)
+  }
+
   let stay = useSelector(storeState => storeState.stayModule.stay)
 
   const { dateRange, setDateRange } = useDateContext()
@@ -348,16 +357,17 @@ export function StayDetails() {
 
   return (
     <div className="main-container">
-
       <section className="stay-details">
-        {/* <section className="app-header"><AppHeader /></section> */}
 
         <div className="main-content">
-          <h1>{demoStay.name}</h1>
+          <h1 ref={refs.photoRef}>{demoStay.name}</h1>
 
           <StayImgs stay={demoStay} />
 
           <div className="details-container">
+              <div className="details-header">
+                <StayHeader refs={refs} stay={demoStay} startDate={startDate} endDate={endDate} />
+              </div>
             <div className="content">
 
               <section className="main-info">
@@ -365,7 +375,7 @@ export function StayDetails() {
                 <div className="first-block">
                   <h2 className="stay-name">{demoStay.roomType} in {demoStay.loc.city},  {demoStay.loc.country}</h2>
                   <Capacity stay={demoStay} />
-                  <SmallRating stay={demoStay} onClick={() => setModalType('reviews')} />
+                  <SmallRating readOnly={false} stay={demoStay} onClick={() => setModalType('reviews')} />
                 </div>
 
                 <div className="border"></div>
@@ -391,7 +401,7 @@ export function StayDetails() {
 
                 <div className="border"></div>
 
-                <div className="amenities">
+                <div ref={refs.amenitiesRef} className="amenities">
                   <div className="amenities-container">
                     <h2>What this place offers</h2>
                     <AmenitiesShortList amenitiesData={amenitiesData} />
@@ -451,13 +461,13 @@ export function StayDetails() {
 
               </section>
             </div>
-            <StickyContainer stay={demoStay} />
+            <StickyContainer ref={refs.stickyContainerRef} stay={demoStay} />
 
           </div>
 
           <div className="border"></div>
 
-          <div className="review-section">
+          <div ref={refs.reviewRef} className="review-section">
             <StayRating reviews={demoStay.reviews} />
             <div className="border"></div>
             {!demoStay.reviews?.length && <h2>No reviews yet...</h2>}
@@ -467,7 +477,7 @@ export function StayDetails() {
 
           <div className="border"></div>
 
-          <div className="map-container">
+          <div ref={refs.locationRef} className="map-container">
             <div className="where-map">
               <h3>Where you <span className="upper-comma">,</span>ll be</h3>
               <span className="loc">{demoStay.loc.city}, {demoStay.loc.country}</span>

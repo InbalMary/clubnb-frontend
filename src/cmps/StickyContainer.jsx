@@ -3,12 +3,10 @@ import { DateSelector, StickyDateSelector } from "./DateSelector"
 import { reUseDateRange, useDateRange } from "../customHooks/useDateRange"
 import { DateRangePicker } from "./DateRangePicker"
 import { useClickOutside } from "../customHooks/useClickOutside"
-import { CalendarStayDates, FancyButton } from "./SmallComponents"
+import { CalendarStayDates, FancyButton, RareFind } from "./SmallComponents"
 import { useNavigate, useParams, useSearchParams } from "react-router-dom"
 import { GuestSelector } from "./GuestSelector"
-import { calculateNights, debounce, formatDate, formatGuestsText } from "../services/util.service"
-import { ReDateRangePicker } from "./ReDateRangePicker"
-import diamond from "../assets/svgs/diamond.png"
+import { calculateNights, formatDate, formatGuestsText } from "../services/util.service"
 import { Modal } from "./Modal"
 import { svgControls } from "./Svgs"
 import { loadStay } from "../store/actions/stay.actions"
@@ -76,6 +74,10 @@ export function StickyContainer({ stay, initialModal = null }) {
 
         if (modalType === 'checkin' && range.from && !range.to) {
             setModalType('checkout')
+        } else if (modalType === 'checkout' && range.from && range.to) {
+            setTimeout(() =>
+                setModalType(null)
+                , 400)
         }
     }
 
@@ -96,13 +98,13 @@ export function StickyContainer({ stay, initialModal = null }) {
         }
     }
 
+    const hasGuestValues = guests.adults > 0 || guests.children > 0 || guests.infants > 0 || guests.pets > 0
+
     return (
         <div ref={containerRef} className="sticky-container-wrap">
 
             <div className="sticky-container">
-                <RareFind stay={stay} startDate={startDate} endDate={endDate} />
-
-                {/* <h2 className="add-dates_sticky">Add dates for prices</h2> */}
+                <RareFind show={true} stay={stay} startDate={startDate} endDate={endDate} />
 
                 <div className="form-wrapper">
 
@@ -110,16 +112,20 @@ export function StickyContainer({ stay, initialModal = null }) {
 
                         <StickyDateSelector
                             label="CHECK-IN"
+                            isHeader={false}
                             date={dateRange.from}
                             isActive={modalType === 'checkin'}
+                            placeholder={(modalType === 'checkin') ? 'MM/DD/YYYY' : 'Add dates'}
                             onClick={() => setModalType('checkin')}
                             onClear={() => setDateRange(prev => ({ ...prev, from: null, to: null }))}
                         />
                         <div className="divider"></div>
 
                         <StickyDateSelector
-                            label="CHECK-OUT"
+                            label="CHECKOUT"
+                            isHeader={false}
                             date={dateRange.to}
+                            placeholder={(modalType === 'checkout') ? 'MM/DD/YYYY' : 'Add dates'}
                             isActive={modalType === 'checkout'}
                             onClick={() => setModalType('checkout')}
                             onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
@@ -127,15 +133,15 @@ export function StickyContainer({ stay, initialModal = null }) {
                     </span >
                     <div className="border-bot"></div>
                     <span className="guest-wrapper">
-
                         <div
                             className={`search-section search-section-who ${modalType === 'who' ? 'active' : ''}`}
-                            onClick={() => setModalType("who")}
+                            onClick={() => setModalType(modalType === 'who' ? null : 'who')}
                         >
                             <div className="search-content">
-                                <div className="search-label">Who</div>
-                                <div className="search-placeholder">{formatGuestsText(guests)}</div>
+                                <div className="search-label">GUESTS</div>
+                                <div className={`search-placeholder ${hasGuestValues ? 'has-value' : ''}`}>{formatGuestsText(guests)}</div>
                             </div>
+                            <span className="who-controls">{(modalType === 'who') ? svgControls.chevronUp : svgControls.chevronDown}</span>
                         </div>
                     </span>
                 </div>
@@ -151,22 +157,14 @@ export function StickyContainer({ stay, initialModal = null }) {
                     {(modalType === "checkin" || modalType === "checkout") &&
                         <>
                             < CalendarStayDates startDate={startDate} endDate={endDate} />
-                            <DateRangePicker
-                                value={dateRange}
-                                onComplete={handleDateComplete}
-                                activeField={modalType}
-                            />
+                            <DateRangePicker value={dateRange} onComplete={handleDateComplete} activeField={modalType} />
                         </>
                     }
+                    {modalType === "who" && (
+                        <GuestSelector onGuestsChange={setGuests} initialGuests={guests} />
+                    )}
+
                 </Modal>
-                {modalType === "who" && (
-                    <div className="guest-modal-content">
-                        <GuestSelector
-                            onGuestsChange={setGuests}
-                            initialGuests={guests}
-                        />
-                    </div>
-                )}
 
                 <FancyButton onClick={handleClick}>
                     {(startDate && endDate) ? 'Reserve' : 'Check availability'}
@@ -174,68 +172,26 @@ export function StickyContainer({ stay, initialModal = null }) {
 
                 {startDate && endDate && <span className="not-charged flex">You won't be charged yet</span>}
 
-                {startDate && endDate && <TotalCount stay={stay} startDate={startDate} endDate={endDate} />
+                {startDate && endDate &&
+                    <TotalCount stay={stay} startDate={startDate} endDate={endDate} />
                 }
             </div>
         </div>
     )
 }
 
-function RareFind({ stay, startDate, endDate }) {
-    const [showRareFind, setShowRareFind] = useState(false);
-
-    const debouncedShowRef = useRef(
-        debounce(() => {
-            setShowRareFind(true)
-        }, 200)
-    )
-
-    useEffect(() => {
-        if (startDate && endDate) {
-            debouncedShowRef.current()
-        } else {
-            setShowRareFind(false)
-            debouncedShowRef.current.cancel()
-        }
-        return () => {
-            setShowRareFind(false)
-            debouncedShowRef.current.cancel()
-        }
-    }, [startDate, endDate])
 
 
-    return (
-        <div>
-            {showRareFind ? (
-                <>
-                    <h3 className="rare-find_sticky">{<img src={diamond} style={{ width: '30px' }} />} Rare find! This place is usually booked</h3>
-                    <span className="cash-per-night">
-                        <h2 className="cash_sticky">{`$ ${stay.price}`}</h2><span>night</span>
-                    </span>
-                </>
-
-            ) : (
-
-                <h2 className="add-dates_sticky">Add dates for prices</h2>
-            )}
-        </div>
-    )
-}
-
-function TotalCount(stay, startDate, endDate) {
-
+function TotalCount({ stay, startDate, endDate }) {
+    const price = stay.price
     const numNights = calculateNights(startDate, endDate)
-    const totalPrice = stay.price * numNights
-
-    // const cleaningFee = Number(stay.cleaningFee ?? 0);
-    // const basePrice = Number(totalPrice ?? 0);
-    // const finalTotal = cleaningFee + basePrice;
+    const totalPrice = price * numNights
 
     return (
         <div className="payment-summary">
 
             <div className="total price-calc">
-                <span className="link"> ${stay.price} X {numNights} {numNights === 1 ? 'night' : 'nights'} </span>
+                <span className="link"> {`$ ${stay.price}`} X {numNights} {numNights === 1 ? 'night' : 'nights'} </span>
                 <span>
                     ${totalPrice}
                 </span>

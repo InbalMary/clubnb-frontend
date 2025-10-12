@@ -1,8 +1,10 @@
 import { Link } from "react-router"
 import { amenitiesSvg } from "./Svgs"
-import { calculateNights, capitalizeFirst } from "../services/util.service"
+import { calculateNights, capitalizeFirst, debounce } from "../services/util.service"
 import { getRandomItems } from "../services/util.service"
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
+import diamond from "../assets/svgs/diamond.png"
+
 
 export function Highlights({ stay }) {
     return (<div className="highlights">
@@ -161,7 +163,7 @@ export function CalendarStayDates({ stay, startDate, endDate }) {
     )
 }
 
-export function SmallRating({ stay, onClick }) {
+export function SmallRating({ stay, onClick, readOnly = false }) {
     function getAvgRate(reviews) {
         let totalSum = 0
         let totalReviews = 0
@@ -183,8 +185,15 @@ export function SmallRating({ stay, onClick }) {
         <span className="rate">{amenitiesSvg.rate}</span>
         <span className="avg">{getAvgRate(stay.reviews)}</span>
         <span className="dot" />
-        <span onClick={onClick} className="link">{stay.reviews.length} {stay.reviews.length === 1 ? 'review' : 'reviews'}</span>
-    </div>)
+
+        {readOnly ? (
+            <span className={"light"}>{stay.reviews.length} {stay.reviews.length === 1 ? 'review' : 'reviews'}</span>
+        ) : (
+            <span onClick={onClick} className={"link"}>{stay.reviews.length} {stay.reviews.length === 1 ? 'review' : 'reviews'}</span>
+        )
+        }
+
+    </div >)
 }
 
 export function MiniHost({ stay }) {
@@ -265,5 +274,67 @@ export function HomeMarkerIcon({ size = 48, fill = '#fefefe' }) {
                 </g>
             </g>
         </svg>
+    )
+}
+
+export function MiniStickyContainer({ stay, startDate, endDate, onClick }) {
+
+    return (
+        <div className="mini-sticky-container">
+            <div className="mini-rating-wrapper">
+                <RareFind show={false} stay={stay} startDate={startDate} endDate={endDate} />
+                <SmallRating readOnly={true} stay={stay} />
+            </div>
+            <div className="button-wrapper">
+                <FancyButton onClick={onclick}>
+                    <div>
+                        {(startDate && endDate) ? 'Reserve' : 'Check availability'}
+                    </div>
+                </FancyButton>
+            </div>
+        </div>
+    )
+}
+
+export function RareFind({ show = true, stay, startDate, endDate }) {
+    const [showRareFind, setShowRareFind] = useState(false);
+
+    const debouncedShowRef = useRef(
+        debounce(() => {
+            setShowRareFind(true)
+        }, 200)
+    )
+
+    useEffect(() => {
+        if (startDate && endDate) {
+            debouncedShowRef.current()
+        } else {
+            setShowRareFind(false)
+            debouncedShowRef.current.cancel()
+        }
+        return () => {
+            setShowRareFind(false)
+            debouncedShowRef.current.cancel()
+        }
+    }, [show, startDate, endDate])
+
+    if (!show) return null
+    return (
+        <div>
+            {showRareFind ? (
+                <>
+                    {show &&
+                        <h3 className="rare-find_sticky">{<img src={diamond} style={{ width: '30px' }} />} Rare find! This place is usually booked</h3>
+                    }
+                    <span className="cash-per-night">
+                        <h2 className="cash_sticky">{`$ ${stay.price}`}</h2><span>night</span>
+                    </span>
+                </>
+
+            ) : (
+
+                <h2 className="add-dates_sticky">Add dates for prices</h2>
+            )}
+        </div>
     )
 }
