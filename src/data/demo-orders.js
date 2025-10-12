@@ -1,12 +1,11 @@
 export const demoOrders = [
     {
-
         _id: 'o2001',
         host: {
             _id: 'u203',
             fullname: 'Bob Johansson',
             firstName: 'Bob',
-            imgUrl: 'https://unsplash.com/photos/nIKCy5CWIzk',
+            imgUrl: 'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?crop=faces&fit=crop&w=400&h=400',
             hostingSince: '2019'
         },
         guest: {
@@ -31,10 +30,10 @@ export const demoOrders = [
             _id: 's201',
             name: 'Mountain View Lodge',
             imgUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-            rating: 0,
+            rating: 4.6,
             numReviews: 0,
-            isGuestFavorite: false,
-            isRareFind: false,
+            isGuestFavorite: true,
+            isRareFind: true,
             host: { firstName: 'Bob' },
         },
         msgs: [],
@@ -48,6 +47,7 @@ export const demoOrders = [
             fullname: 'Victor Dahl',
             firstName: 'Victor',
             imgUrl: 'https://unsplash.com/photos/lkwoBSy-3yA',
+            hostingSince: '2018'
         },
         guest: {
             _id: 'u302',
@@ -87,7 +87,8 @@ export const demoOrders = [
             _id: 'u208',
             fullname: 'Yuki Matsumoto',
             firstName: 'Yuki',
-            imgUrl: 'https://unsplash.com/photos/-YHSwy6uqvk',
+            imgUrl: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?crop=faces&fit=crop&w=400&h=400',
+            hostingSince: '2017'
         },
         guest: {
             _id: 'u303',
@@ -133,7 +134,8 @@ export const demoOrders = [
             _id: 'u210',
             fullname: 'Isabelle Lefevre',
             firstName: 'Isabelle',
-            imgUrl: 'https://unsplash.com/photos/4_jhDO54BYg',
+            imgUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=faces&fit=crop&w=400&h=400',
+            hostingSince: '2012'
         },
         guest: {
             _id: 'u304',
@@ -173,7 +175,8 @@ export const demoOrders = [
             _id: 'u212',
             fullname: 'Alon Cohen',
             firstName: 'Alon',
-            imgUrl: 'https://unsplash.com/photos/0oT7vEGZxkA',
+            imgUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
+            hostingSince: '2019'
         },
         guest: {
             _id: 'u305',
@@ -213,7 +216,8 @@ export const demoOrders = [
             _id: 'u215',
             fullname: 'Giulia Rossi',
             firstName: 'Giulia',
-            imgUrl: 'https://unsplash.com/photos/Y3vPEuNlfHk',
+            imgUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
+            hostingSince: '2015'
         },
         guest: {
             _id: 'u306',
@@ -254,6 +258,7 @@ export const demoOrders = [
             fullname: 'Samuel Green',
             firstName: 'Samuel',
             imgUrl: 'https://unsplash.com/photos/tAGdcnRbU3w',
+            hostingSince: '2018'
         },
         guest: {
             _id: 'u307',
