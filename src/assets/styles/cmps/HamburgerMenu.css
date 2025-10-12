@@ -50,7 +50,7 @@
 	position: fixed;
 	top: 5.3rem;
 	right: 3rem;
-	height: 19rem;
+	height: auto;
 	width: 16.5rem;
 	background: var(--white);
 	border: 1px solid rgba(0, 0, 0, 0.04);
