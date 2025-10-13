@@ -1,11 +1,12 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { loadOrders } from '../store/actions/order.actions';
+import { loadOrders, updateOrder } from '../store/actions/order.actions';
 import { formatDateWithFullYear, formatGuestsText, capitalizeFirst } from '../services/util.service';
 
 export default function ReservationsPage() {
     const [activeTab, setActiveTab] = useState('all')
     const [sortDirection, setSortDirection] = useState('asc')
+    const [editingOrderId, setEditingOrderId] = useState(null)
 
     const loggedInUser = useSelector((state) => state.userModule.loggedInUser)
     const orders = useSelector(storeState => storeState.orderModule.orders)
@@ -78,6 +79,16 @@ export default function ReservationsPage() {
         setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc')
     }
 
+    const onHandleStatusChange = async (order, newStatus) => {
+        try {
+            const updatedOrder = { ...order, status: newStatus }
+            await updateOrder(updatedOrder)
+            setEditingOrderId(null)
+        } catch (err) {
+            console.error('Failed to update order status:', err)
+        }
+    }
+
     if (!orders) {
         return <div className="reservations-container">Loading...</div>
     }
@@ -139,9 +150,26 @@ export default function ReservationsPage() {
                                 sortedOrders.map((order) => (
                                     <tr key={order._id}>
                                         <td>
-                                            <span className={`status-badge ${getStatusClass(order.status)}`}>
-                                                {getStatusText(order.status)}
-                                            </span>
+                                            {editingOrderId === order._id ? (
+                                                <select 
+                                                    className="status-dropdown"
+                                                    value={order.status}
+                                                    onChange={(ev) => onHandleStatusChange(order, ev.target.value)}
+                                                    onBlur={() => setEditingOrderId(null)}
+                                                    autoFocus
+                                                >
+                                                    <option value="pending">Pending</option>
+                                                    <option value="approved">Approved</option>
+                                                    <option value="rejected">Rejected</option>
+                                                </select>
+                                            ) : (
+                                                <span 
+                                                    className={`status-badge ${getStatusClass(order.status)}`}
+                                                    onClick={() => setEditingOrderId(order._id)}
+                                                >
+                                                    {getStatusText(order.status)}
+                                                </span>
+                                            )}
                                         </td>
                                         <td>
                                             <div className="guests-cell">
