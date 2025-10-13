@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { createRef, Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -345,12 +345,31 @@ export function StayDetails() {
 
   const { dateRange, setDateRange } = useDateContext()
   const [modalType, setModalType] = useState(null)
+  const [selectedReviewIdx, setSelectedReviewIdx] = useState(null)
 
   const handleDateComplete = (newRange) => {
     if (newRange?.from && newRange?.to) {
       setDateRange(newRange)
     }
   }
+
+  const reviewRefs = useMemo(() => demoStay.reviews.map(() => createRef()), [demoStay.reviews])
+
+  function handleShowMoreClick(index) {
+    setSelectedReviewIdx(index)
+    setModalType('reviews')
+  }
+
+  useEffect(() => {
+    if ((modalType === 'reviews') && selectedReviewIdx !== null) {
+      const ref = reviewRefs[selectedReviewIdx]
+      if (ref?.current) {
+        ref.current.scrollIntoView({ behavior: "smooth", block: "start" })
+        setSelectedReviewIdx(null)
+      }
+    } 
+
+  }, [modalType, selectedReviewIdx, reviewRefs])
 
   const amenitiesData = getAmenitiesData(amenitiesSvg)
 
@@ -418,7 +437,7 @@ export function StayDetails() {
                   {modalType === 'reviews' &&
                     <div className="reviews-in-modal">
                       <StayRating reviews={demoStay.reviews} />
-                      <StayReviewList reviews={demoStay.reviews} isModal={true} />
+                      <StayReviewList reviewRefs={reviewRefs} reviews={demoStay.reviews} isModal={true} />
                     </div>
                   }
 
@@ -473,7 +492,7 @@ export function StayDetails() {
             <StayRating reviews={demoStay.reviews} />
             <div className="border"></div>
             {!demoStay.reviews?.length && <h2>No reviews yet...</h2>}
-            <StayReviewList reviews={demoStay.reviews} isModal={false} />
+            <StayReviewList reviews={demoStay.reviews} isModal={false} onClick={handleShowMoreClick} />
             <button onClick={() => setModalType('reviews')} className="open-modal">Show all {demoStay.reviews.length} reviews</button>
           </div>
 
