@@ -1,17 +1,15 @@
-import { Link, NavLink } from 'react-router-dom'
-import { useLocation, useNavigate } from 'react-router'
+import { NavLink } from 'react-router-dom'
+import { useLocation } from 'react-router'
 import { useSelector } from 'react-redux'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { logout } from '../store/actions/user.actions'
 import { appHeaderSvg } from './Svgs'
 import { SearchBar } from './SearchBar'
 import { HamburgerMenu } from './HamburgerMenu.jsx'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { useClickOutside } from '../customHooks/useClickOutside.js'
+import { useEscapeKey } from '../customHooks/useEscapeKey.js'
 
 export function AppHeader({ initialModal, onCollapse }) {
 	const user = useSelector(storeState => storeState.userModule.user)
-	const navigate = useNavigate()
 	const headerRef = useRef(null)
 	const location = useLocation()
 	const isIndexPage = location.pathname === '/' || location.pathname === ''
@@ -21,19 +19,7 @@ export function AppHeader({ initialModal, onCollapse }) {
 	const text = isHostPage ? "Switch to traveling" : "Switch to hosting"
 
 	useClickOutside([headerRef], onCollapse)
-
-	useEffect(() => {
-		function handleEscKey(event) {
-			if (event.key === 'Escape') {
-				onCollapse()
-			}
-		}
-
-		document.addEventListener("keydown", handleEscKey)
-		return () => {
-			document.removeEventListener("keydown", handleEscKey)
-		}
-	}, [onCollapse])
+	useEscapeKey(onCollapse)
 
 	return (
 		<header className={`app-header full ${isIndexPage ? 'index-page' : ''}`} ref={headerRef}>
