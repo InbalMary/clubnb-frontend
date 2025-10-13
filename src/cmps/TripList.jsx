@@ -20,7 +20,7 @@ export function TripList({ orders }) {
 
                     <ul className="trip-preview-list clean-list">
                         {groupedByYear[year].map(order => (
-                            <li key={order._id}>
+                            <li key={order._id || order.stay?._id}>
                                 <TripPreview order={order} />
                             </li>
                         ))}

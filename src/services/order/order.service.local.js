@@ -46,7 +46,7 @@ async function save(order) {
             startDate: order.startDate,
             endDate: order.endDate,
             guests: order.guests,
-            order: order.order,
+            stay: order.stay, //instead of  order: order.order
             msgs: order.msgs || [],
             status: order.status || 'pending'
         }
