@@ -483,7 +483,7 @@ export const demoStays = [
     {
         "_id": "Ytcqd",
         "name": "Westin Kaanapali KORVN 2BR",
-        "type": "Villa",
+        "type": "Villas",
         "imgUrls": [
             "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
             "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436294/mvhb3iazpiar6duvy9we.jpg",

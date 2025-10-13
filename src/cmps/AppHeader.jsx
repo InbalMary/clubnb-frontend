@@ -36,7 +36,7 @@ export function AppHeader({ initialModal, onCollapse }) {
 	}, [onCollapse])
 
 	return (
-		<header className="app-header full" ref={headerRef}>
+		<header className="app-header full main-container" ref={headerRef}>
 			<nav className='nav-bar'>
 				<NavLink to="/" className="logo-header">
 					<span className="icon">{appHeaderSvg.logo}</span>
