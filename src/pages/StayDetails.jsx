@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -356,7 +356,7 @@ export function StayDetails() {
 
 
   return (
-    <div className="main-container">
+    <div className="main-page main-container">
       <section className="stay-details">
 
         <div className="main-content">
@@ -364,10 +364,8 @@ export function StayDetails() {
 
           <StayImgs stay={demoStay} />
 
+          <StayHeader refs={refs} stay={demoStay} startDate={startDate} endDate={endDate} />
           <div className="details-container">
-              <div className="details-header">
-                <StayHeader refs={refs} stay={demoStay} startDate={startDate} endDate={endDate} />
-              </div>
             <div className="content">
 
               <section className="main-info">
@@ -461,7 +459,11 @@ export function StayDetails() {
 
               </section>
             </div>
-            <StickyContainer ref={refs.stickyContainerRef} stay={demoStay} />
+            <div ref={refs.stickyContainerRef} className="sticky-ref">
+
+              <StickyContainer stay={demoStay} />
+            </div>
+
 
           </div>
 

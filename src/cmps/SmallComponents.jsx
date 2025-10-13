@@ -282,11 +282,11 @@ export function MiniStickyContainer({ stay, startDate, endDate, onClick }) {
     return (
         <div className="mini-sticky-container">
             <div className="mini-rating-wrapper">
-                <RareFind show={false} stay={stay} startDate={startDate} endDate={endDate} />
+                <RareFind showRareMsg={false} showPriceInfo={true} stay={stay} startDate={startDate} endDate={endDate} />
                 <SmallRating readOnly={true} stay={stay} />
             </div>
             <div className="button-wrapper">
-                <FancyButton onClick={onclick}>
+                <FancyButton onClick={onClick}>
                     <div>
                         {(startDate && endDate) ? 'Reserve' : 'Check availability'}
                     </div>
@@ -296,7 +296,7 @@ export function MiniStickyContainer({ stay, startDate, endDate, onClick }) {
     )
 }
 
-export function RareFind({ show = true, stay, startDate, endDate }) {
+export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, startDate, endDate }) {
     const [showRareFind, setShowRareFind] = useState(false);
 
     const debouncedShowRef = useRef(
@@ -316,25 +316,25 @@ export function RareFind({ show = true, stay, startDate, endDate }) {
             setShowRareFind(false)
             debouncedShowRef.current.cancel()
         }
-    }, [show, startDate, endDate])
+    }, [startDate, endDate])
 
-    if (!show) return null
     return (
         <div>
-            {showRareFind ? (
+            {showRareFind && showRareMsg &&
+                <h3 className="rare-find_sticky">{<img src={diamond} style={{ width: '30px' }} />} Rare find! This place is usually booked</h3>
+            }
+            {showPriceInfo &&
                 <>
-                    {show &&
-                        <h3 className="rare-find_sticky">{<img src={diamond} style={{ width: '30px' }} />} Rare find! This place is usually booked</h3>
+                    {showRareFind ? (
+                        <span className="cash-per-night" >
+                            <h2 className="cash_sticky">{`$ ${stay.price}`}</h2><span>night</span>
+                        </span>
+                    ) : (
+                        <h2 className="add-dates_sticky">Add dates for prices</h2>
+                    )
                     }
-                    <span className="cash-per-night">
-                        <h2 className="cash_sticky">{`$ ${stay.price}`}</h2><span>night</span>
-                    </span>
                 </>
-
-            ) : (
-
-                <h2 className="add-dates_sticky">Add dates for prices</h2>
-            )}
-        </div>
+            }
+        </div >
     )
 }

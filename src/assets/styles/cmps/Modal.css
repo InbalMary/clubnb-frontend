@@ -190,10 +190,8 @@
 
     .rdp-button_previous,
     .rdp-button_next {
-        width: 1.2rem;
-        font-weight: 400;
-        margin-inline: 10px;
         margin-block: .7rem;
+        margin-inline: 8px;
     }
 
     .rdp-months {
