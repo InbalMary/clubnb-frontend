@@ -8,9 +8,9 @@ export function CompactHeader({ onSearchClick, isSticky, isTripsPage }) {
     const location = useLocation()
     const isIndexPage = location.pathname === '/' || location.pathname === ''
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
-    const isHostPage = location.pathname.includes("become-a-host")
+    const isHostPage = location.pathname.includes("hosting")
 
-    const to = isHostPage ? "/" : "/become-a-host"
+    const to = isHostPage ? "/" : "/hosting"
     const text = isHostPage ? "Switch to traveling" : "Switch to hosting"
 
     return (
@@ -25,13 +25,13 @@ export function CompactHeader({ onSearchClick, isSticky, isTripsPage }) {
                 {isHostPage ? (
                     <nav className="host-navigation">
                         <NavLink
-                            to="/become-a-host/reservations"
+                            to="/hosting/reservations"
                             className={({ isActive }) => `host-nav-item ${isActive ? 'active' : ''}`}
                         >
                             Reservations
                         </NavLink>
                         <NavLink
-                            to="/become-a-host/listings"
+                            to="/hosting/listings"
                             className={({ isActive }) => `host-nav-item ${isActive ? 'active' : ''}`}
                         >
                             Listings

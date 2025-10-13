@@ -13,9 +13,9 @@ export function AppHeader({ initialModal, onCollapse }) {
 	const headerRef = useRef(null)
 	const location = useLocation()
 	const isIndexPage = location.pathname === '/' || location.pathname === ''
-	const isHostPage = location.pathname.includes("become-a-host")
+	const isHostPage = location.pathname.includes("hosting")
 
-	const to = isHostPage ? "/" : "/become-a-host"
+	const to = isHostPage ? "/" : "/hosting"
 	const text = isHostPage ? "Switch to traveling" : "Switch to hosting"
 
 	useClickOutside([headerRef], onCollapse)

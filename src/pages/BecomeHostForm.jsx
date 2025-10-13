@@ -9,7 +9,7 @@ export function BecomeHostForm() {
     return (
         <section>
             <header className="flex justify-between"> <span>logo</span><button>exit</button></header>
-            <div className="main become-a-host flex justify-evenly">
+            <div className="main hosting flex justify-evenly">
                 <pre>It’s easy to get started on Airbnb</pre>
                 <div className="flex column">
                     <pre>1
