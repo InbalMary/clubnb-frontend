@@ -64,8 +64,8 @@
 
     .details-imgs {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(4, minmax(auto, 273px));
+        grid-template-rows: repeat(2, minmax(auto, 189px));
         max-height: 378px;
         width: 100%;
         gap: 8px;
@@ -98,11 +98,6 @@
         .sticky-ref {
             grid-area: 2 / 2 / 3 / 3;
         }
-
-        /* .details-header {
-            grid-area: 1 / 1 / 2 / 3;
-
-        } */
 
         .content .main-info {
             padding-block: 2rem;
@@ -234,7 +229,7 @@
 
                         div.img {
                             max-height: 210px;
-                            min-width: 315px;
+                            max-width: 315px;
 
                             img {
                                 width: 100%;
