@@ -104,7 +104,7 @@ export function StickyContainer({ stay, initialModal = null }) {
         <div ref={containerRef} className="sticky-container-wrap">
 
             <div className="sticky-container">
-                <RareFind show={true} stay={stay} startDate={startDate} endDate={endDate} />
+                <RareFind showRareMsg={true} showPriceInfo={true} stay={stay} startDate={startDate} endDate={endDate} />
 
                 <div className="form-wrapper">
 
