@@ -22,7 +22,7 @@ export function AppHeader({ initialModal, onCollapse }) {
 	useEscapeKey(onCollapse)
 
 	return (
-		<header className={`app-header full ${isIndexPage ? 'index-page main-container' : ''}`} ref={headerRef}>
+		<header className={`app-header full ${isIndexPage ? 'index-page' : ''}`} ref={headerRef}>
 			<nav className='nav-bar'>
 				<NavLink to="/" className="logo-header">
 					<span className="icon">{appHeaderSvg.logo}</span>
