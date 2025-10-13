@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { loadOrders, updateOrder } from '../store/actions/order.actions';
 import { formatDateWithFullYear, formatGuestsText, capitalizeFirst } from '../services/util.service';
 
-export default function ReservationsPage() {
+export function ReservationsPage() {
     const [activeTab, setActiveTab] = useState('all')
     const [sortDirection, setSortDirection] = useState('asc')
     const [editingOrderId, setEditingOrderId] = useState(null)
