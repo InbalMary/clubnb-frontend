@@ -504,7 +504,7 @@ export function StayDetails() {
               <span className="loc">{demoStay.loc.city}, {demoStay.loc.country}</span>
             </div>
             <div className="map-wrapper">
-              <StayMap />
+              <StayMap location={stay?.loc} />
             </div>
           </div>
 
