@@ -1,15 +1,15 @@
-/* .main-container {
+.main-container {
     display: grid;
-    grid-template-columns: auto minmax(auto, 1280px) auto;
+    grid-template-columns: minmax(auto, 1fr) minmax(auto, 1345px) minmax(auto, 1fr);
 
-    >* {
+    >*{
         grid-column: 2;
         
         &.full {
             grid-column: 1 / -1;
         }
     }
-} */
+}
 
 .sample-grid-layout {
     display: grid;

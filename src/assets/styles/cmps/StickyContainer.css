@@ -5,11 +5,11 @@
 .sticky-container-wrap {
     position: sticky;
     top: 85px;
-    height: 24rem;
+    height: 22rem;
 }
 
 .sticky-container-wrap:has(.payment-summary) {
-    height: 40.7rem;
+    height: 39rem;
 }
 
 .rare-find_sticky {
@@ -122,7 +122,6 @@ h2.add-dates_sticky {
 
         .divider::before {
             height: 0%;
-            outline: none;
         }
     }
 
