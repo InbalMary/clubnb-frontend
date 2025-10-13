@@ -31,6 +31,7 @@
 @import "cmps/LoginSignup";
 @import "cmps/Chat";
 @import "cmps/Modal.css";
+@import "cmps/DetailsSkeleton.css";
 @import "cmps/stay/StayList";
 @import "cmps/stay/StayPreview";
 @import "cmps/stay/StayFilter";

@@ -151,7 +151,7 @@ async function addStayReview(stayId, txt) {
 
 export function getAmenitiesData(amenitiesSvgs) {
 
-    const categories = ['bathroom', 'bedroom', 'bookingOptions', 'essentials', 'family', 'features', 'kitchen', 'locaion',
+    const categories = ['bathroom', 'bedroom', 'bookingOptions', 'essentials', 'family', 'features', 'kitchen', 'location',
         'outdoor', 'parking', 'safety', 'services', 'notIncluded']
 
     const amenitiesArr = []

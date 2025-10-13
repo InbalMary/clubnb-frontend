@@ -329,7 +329,19 @@ export function StayDetails() {
     }
   }, [stayId])
 
+  useEffect(() => {
+    if (isLoading) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  }, [isLoading])
+
   const [searchParams, setSearchParams] = useSearchParams()
+  const { dateRange, setDateRange } = useDateContext()
+  const [modalType, setModalType] = useState(null)
+  const [selectedReviewIdx, setSelectedReviewIdx] = useState(null)
+
   const startDate = searchParams.get('startDate')
   const endDate = searchParams.get('endDate')
 
@@ -377,6 +389,12 @@ export function StayDetails() {
   return (
     <div className="main-page main-container">
       <section className="stay-details">
+
+        {(!stay || isLoading) && (
+          <div className="loading-overlay">
+            <DetailsSkeleton />
+          </div>
+        )}
 
         <div className="main-content">
           <h1 ref={refs.photoRef}>{demoStay.name}</h1>
