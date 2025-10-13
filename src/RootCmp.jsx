@@ -24,6 +24,7 @@ import { StayEdit } from './pages/StayEdit.jsx'
 import { ConfirmPay } from './pages/ConfirmPay.jsx'
 import { useHeaderState } from './customHooks/useHeaderState.js'
 import { TripIndex } from './pages/TripIndex.jsx'
+import ReservationsPage from './pages/ReservationsPage.jsx'
 
 export function RootCmp() {
     const {
@@ -75,6 +76,7 @@ export function RootCmp() {
                     <Route path="messages" element={<MsgIndex />} />
                     {/* <Route path="chat" element={<ChatApp />} /> */}
                     <Route path="become-a-host" element={<BecomeHostForm />} />
+                    <Route path="become-a-host/reservations" element={<ReservationsPage />} />
                     <Route path="become-a-host/add-listing-about" element={<ListingEdit />} />
                     <Route path="host" element={<HostDetails />} />
 

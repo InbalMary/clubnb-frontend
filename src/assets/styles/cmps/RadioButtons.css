@@ -9,6 +9,10 @@
     user-select: none;
 }
 
+.payment-radio.active {
+    border-bottom: none;
+}
+
 /* Hide the browser's default radio button */
 .payment-radio input {
     position: absolute;

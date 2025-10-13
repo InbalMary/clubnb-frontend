@@ -1,8 +1,8 @@
 /*HEADER*/
 .confirm-pay-logo-bar.full {
     width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    /* margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw); */
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -92,28 +92,30 @@
     font-size: 18px;
 }
 
-.payment-timing {
+.payment-timing,
+.payment-method {
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 4px 7px 0px rgb(0 0 0 / 10%);
 }
 
 .payment-options {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
 }
 
-.payment-timing-option {
+.payment-option {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--divider);
-    padding-block: 1rem;
     cursor: pointer;
 }
 
-.payment-timing-option.split-option {
+/* credit card icon */
+.payment-option>span:first-child {
+    flex-shrink: 0;
+}
+
+.payment-option.split-option {
     flex-direction: column;
     align-items: stretch;
     line-height: 1.5;
@@ -131,6 +133,7 @@
     font-size: 14px;
     color: var(--gray2);
     flex-wrap: wrap;
+    margin: 0;
 
     .btn.more-info {
         color: var(--gray2);
@@ -150,176 +153,31 @@
     align-self: flex-end;
 }
 
+.payment-timing.active,
+.payment-method.active,
+.host-message.active {
+    box-shadow: 0px 4px 7px 0px rgb(0 0 0 / 10%);
+}
 
-/*RIGHT COLUMN*/
-.reservation-summary-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: stretch;
+.payment-radio.payment-option.card {
+    padding: 20px 0;
+}
+
+.payment-timing-summary {
     font-size: 14px;
-}
-
-.reservation-summary {
-    display: grid;
-    grid-template-rows: repeat(5, auto);
-    padding: 1.5rem;
-    gap: 1rem;
-    width: 390px;
-    border: 1px solid var(--gray6);
-    border-radius: 20px;
-}
-
-.reservation-summary-img {
-    width: 104px;
-    height: 104px;
-    border-radius: 8px;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-}
-
-.reservation-summary-order {
-    display: grid;
-    grid-template-columns: minmax(104px, 35%) 1fr;
-    gap: 1rem;
-    align-items: center;
-
-    .reservation-summary-title {
-        font-size: 18px;
-    }
-
-    .reservation-summary-info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 0.25rem;
-    }
-
-    .reservation-summary-rating,
-    .reservation-summary-badge {
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .reservation-summary-rating {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.3rem;
-    }
-
-    .reservation-summary-details {
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        flex-wrap: wrap;
-
-    }
-}
-
-.reservation-summary-guests {
-    display: flex;
-    flex-direction: column;
-
-
-    .guests-inline {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.25rem;
-
-        span:not(:last-child)::after {
-            content: ',';
-        }
-    }
-}
-
-.reservation-summary-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.2rem;
-
-    .guest-favorite-icon {
-        display: flex;
-        align-items: center;
-        line-height: 1;
-    }
-
-    svg {
-        width: 24px;
-        height: 24px;
-        transform: translateY(1px);
-        margin-right: -0.75rem;
-        margin-bottom: -0.7rem;
-    }
-}
-
-.reservation-price {
-    padding-bottom: 14px;
-}
-
-.price-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    p {
-        margin: 0;
-    }
-}
-
-.price-details>div,
-.total-amount {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.price-breakdown {
-    margin: 8px 0 0;
-}
-
-.reservation-final-total {
-    font-weight: bold;
-}
-
-.rare-find {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.rare-find-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    color: var(--gray2);
+    padding: 4px 0 0;
     line-height: 1.5;
+}
 
-    p {
-        margin: 0;
-        text-align: left;
+.collapsed-method-summary {
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+
+    .pay-method-label {
+        color: var(--gray2);
     }
-
-    p:first-child {
-        font-weight: bold;
-    }
 }
 
-
-/*find a shorter way*/
-.cancellation-policy>p:first-child,
-.reservation-summary-dates>p:first-child,
-.reservation-summary-guests>p:first-child,
-.reservation-price>p:first-child,
-.reservation-summary-total>p:first-child,
-.rare-find>p:first-child {
-    font-weight: bold;
-    margin: 0 0 8px;
-}
-
-
-.cancellation-policy,
-.reservation-summary-dates,
-.reservation-summary-guests,
-.reservation-price {
-    border-bottom: 1px solid var(--divider);
-}
+/*RIGHT COLUMN at ReservationSummary.css*/

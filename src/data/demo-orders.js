@@ -5,7 +5,8 @@ export const demoOrders = [
             _id: 'u203',
             fullname: 'Bob Johansson',
             firstName: 'Bob',
-            imgUrl: 'https://unsplash.com/photos/nIKCy5CWIzk',
+            imgUrl: 'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?crop=faces&fit=crop&w=400&h=400',
+            hostingSince: '2019'
         },
         guest: {
             _id: 'u301',
@@ -29,10 +30,10 @@ export const demoOrders = [
             _id: 's201',
             name: 'Mountain View Lodge',
             imgUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-            rating: 0,
-            numReviews: 0,
-            isGuestFavorite: false,
-            isRareFind: false,
+            rating: 4.6,
+            numReviews: 123,
+            isGuestFavorite: true,
+            isRareFind: true,
             host: { firstName: 'Bob' },
         },
         msgs: [],
@@ -46,6 +47,7 @@ export const demoOrders = [
             fullname: 'Victor Dahl',
             firstName: 'Victor',
             imgUrl: 'https://unsplash.com/photos/lkwoBSy-3yA',
+            hostingSince: '2018'
         },
         guest: {
             _id: 'u302',
@@ -70,7 +72,7 @@ export const demoOrders = [
             name: 'Riverbank Retreat',
             imgUrl: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80',
             rating: 0,
-            numReviews: 0,
+            numReviews: 15,
             isGuestFavorite: false,
             isRareFind: false,
             host: { firstName: 'Victor' },
@@ -85,7 +87,8 @@ export const demoOrders = [
             _id: 'u208',
             fullname: 'Yuki Matsumoto',
             firstName: 'Yuki',
-            imgUrl: 'https://unsplash.com/photos/-YHSwy6uqvk',
+            imgUrl: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?crop=faces&fit=crop&w=400&h=400',
+            hostingSince: '2017'
         },
         guest: {
             _id: 'u303',
@@ -110,7 +113,7 @@ export const demoOrders = [
             name: 'Urban Skyline Apartment',
             imgUrl: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80',
             rating: 0,
-            numReviews: 0,
+            numReviews: 25,
             isGuestFavorite: false,
             isRareFind: false,
             host: { firstName: 'Yuki' },
@@ -131,7 +134,8 @@ export const demoOrders = [
             _id: 'u210',
             fullname: 'Isabelle Lefevre',
             firstName: 'Isabelle',
-            imgUrl: 'https://unsplash.com/photos/4_jhDO54BYg',
+            imgUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=faces&fit=crop&w=400&h=400',
+            hostingSince: '2012'
         },
         guest: {
             _id: 'u304',
@@ -156,7 +160,7 @@ export const demoOrders = [
             name: 'Countryside Manor',
             imgUrl: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470',
             rating: 0,
-            numReviews: 0,
+            numReviews: 32,
             isGuestFavorite: false,
             isRareFind: false,
             host: { firstName: 'Isabelle' },
@@ -171,7 +175,8 @@ export const demoOrders = [
             _id: 'u212',
             fullname: 'Alon Cohen',
             firstName: 'Alon',
-            imgUrl: 'https://unsplash.com/photos/0oT7vEGZxkA',
+            imgUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
+            hostingSince: '2019'
         },
         guest: {
             _id: 'u305',
@@ -196,7 +201,7 @@ export const demoOrders = [
             name: 'Desert Mirage Resort',
             imgUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
             rating: 0,
-            numReviews: 0,
+            numReviews: 78,
             isGuestFavorite: false,
             isRareFind: false,
             host: { firstName: 'Alon' },
@@ -211,7 +216,8 @@ export const demoOrders = [
             _id: 'u215',
             fullname: 'Giulia Rossi',
             firstName: 'Giulia',
-            imgUrl: 'https://unsplash.com/photos/Y3vPEuNlfHk',
+            imgUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
+            hostingSince: '2015'
         },
         guest: {
             _id: 'u306',
@@ -236,7 +242,7 @@ export const demoOrders = [
             name: 'Venetian Canal Loft',
             imgUrl: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c',
             rating: 4.8,
-            numReviews: 25,
+            numReviews: 59,
             isGuestFavorite: true,
             isRareFind: false,
             host: { firstName: 'Giulia' },
@@ -252,6 +258,7 @@ export const demoOrders = [
             fullname: 'Samuel Green',
             firstName: 'Samuel',
             imgUrl: 'https://unsplash.com/photos/tAGdcnRbU3w',
+            hostingSince: '2018'
         },
         guest: {
             _id: 'u307',

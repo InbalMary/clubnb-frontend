@@ -44,4 +44,10 @@
 
   /*border-bottom*/
   --divider: rgba(0, 0, 0, 0.08);
+
+  --confirmed: #008A05;
+  --pending: #B87400;
+  --canceled: #C13515;
+
+  --res-active: #00646b
 }
