@@ -508,8 +508,8 @@ export function StayDetails() {
             </div>
           </div>
 
-        </div >
         <HostInfo host={demoStay.host} />
+        </div >
 
       </section >
 
