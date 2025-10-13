@@ -8,7 +8,6 @@ import jcbLogo from '../assets/svgs/logo_jcb.svg'
 
 export function PaymentMethod({ onSelect }) {
     const [paymentMethod, setPaymentMethod] = useState('card')
-    console.log(visaLogo)
 
     return (
         <>
@@ -44,9 +43,18 @@ export function PaymentMethod({ onSelect }) {
                     {paymentMethod === 'card' && (
                         <form className='credit-card-form'>
                             <div className='credit-card-block'>
-                                <input type='text' placeholder='Card number' className='card-number' />
-                                <input type='text' placeholder='MM/YY' className='expiry' />
-                                <input type='text' placeholder='CVV' className='cvv' />
+                                <div className='card-number-wrap'>
+                                    <input type='text' placeholder='Card number' className='card-number' />
+                                </div>
+                                {/* <div className="credit-card-block-border-bottom"></div> */}
+                                <div className="expiry-wrap">
+                                    <input type='text' placeholder='MM/YY' className='expiry' />
+                                </div>
+
+                                {/* <div className="credit-card-block-divider"></div> */}
+                                <div className='cvv-wrap'>
+                                    <input type='text' placeholder='CVV' className='cvv' />
+                                </div>
                             </div>
 
                             <input type='text' placeholder='ZIP code' className='zipcode' />
