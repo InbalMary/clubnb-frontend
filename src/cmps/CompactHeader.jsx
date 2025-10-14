@@ -10,7 +10,7 @@ export function CompactHeader({ onSearchClick, isSticky, isTripsPage }) {
     const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
     const isHostPage = location.pathname.includes("hosting")
 
-    const to = isHostPage ? "/" : "/hosting"
+    const to = isHostPage ? "/" : "/hosting/reservations"
     const text = isHostPage ? "Switch to traveling" : "Switch to hosting"
 
     return (
