@@ -3,6 +3,7 @@ export const demoStays = [
     // ---- City stays (8) ----
 
 
+    //////////////////////////////////////////////
     {
         "_id": "city-001",
         "name": "Tokyo Shibuya Apartment",
@@ -15,7 +16,7 @@ export const demoStays = [
         ],
         "price": 150,
         "cleaningFee": 40,
-        "summary": "Stay in the heart of Shibuya in this modern, compact apartment designed for travelers who want to explore Tokyo with ease. Located minutes from Shibuya Crossing, the apartment offers convenient access to restaurants, nightlife, and shopping.\n\nThis cozy one-bedroom apartment includes everything you need for a comfortable stay — fast Wi-Fi, a small kitchen, and modern Japanese design touches.\n\nPerfect for solo travelers or couples visiting Tokyo for short city breaks or business trips.",
+        "summary": "Stay in the heart of Shibuya in this modern, compact apartment designed for travelers who want to explore Tokyo with ease. \n\nLocated minutes from Shibuya Crossing, the apartment offers convenient access to restaurants, nightlife, and shopping.\n\nThis cozy one-bedroom apartment includes everything you need for a comfortable stay — fast Wi-Fi, a small kitchen, and modern Japanese design touches.\n\nPerfect for solo travelers or couples visiting Tokyo for short city breaks or business trips.",
         "rooms": [
             {
                 "roomType": "bedroom",
@@ -33,12 +34,19 @@ export const demoStays = [
         "bedrooms": 1,
         "beds": 1,
         "amenities": [
-            "Wifi", "Air conditioning", "Kitchen", "TV", "Washer", "Essentials", "Heating", "Hair dryer",
-            "Iron", "Elevator", "Smoke detector", "Carbon monoxide detector", "First aid kit",
-            "Laptop friendly workspace", "Self check-in", "Hot water", "Bed linens", "Extra pillows and blankets",
-            "Refrigerator", "Microwave", "Cooking basics", "Dishes and silverware", "Coffee maker",
-            "Long term stays allowed", "Luggage drop off allowed", "Hangers", "Room-darkening shades",
-            "Shampoo", "24-hour check-in", "Flat path to front door", "Well-lit path to entrance"
+            "essentials.wifi",
+            "essentials.tv",
+            "essentials.airCon",
+            "kitchen.coffeeMaker",
+            "kitchen.microwave",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "bathroom.hotWater",
+            "bathroom.shampoo",
+            "services.longStay",
+            "bookingOptions.selfCheckin",
+            "safety.smokeAlarm",
+            "notIncluded.noWasher"
         ],
         "highlights": [
             {
@@ -150,7 +158,14 @@ export const demoStays = [
         ],
         "price": 220,
         "cleaningFee": 40,
-        "summary": "Romantic loft in the heart of Paris with a small balcony and glimpses of the Eiffel Tower from nearby streets. Perfect for couples who want to enjoy cafes, galleries, and evening strolls.",
+        "summary": `Romantic loft in the heart of Paris with a small balcony and glimpses of the Eiffel Tower from nearby streets. 
+        Perfect for couples who want to enjoy cafes, galleries, and evening strolls.
+        
+        \n\nTucked inside a historic 18th-century building, this sunlit loft captures the romantic charm of Paris with exposed beams, vintage décor, 
+        and tall French windows opening onto cobblestone streets. The open kitchen is perfect for preparing a market-fresh breakfast before wandering to the Seine or Picasso Museum just minutes away. 
+        
+        \n\nThe host — a Parisian pastry chef — 
+        leaves a welcome basket with local delicacies and a handwritten list of her favorite hidden cafés.`,
         "rooms": [
             {
                 "roomType": "bedroom",
@@ -168,11 +183,18 @@ export const demoStays = [
         "bedrooms": 1,
         "beds": 2,
         "amenities": [
-            "Wifi", "Air conditioning", "Kitchen", "TV", "Washer", "Essentials", "Heating", "Hair dryer",
-            "Iron", "Elevator", "Hot water", "Bed linens", "Extra pillows and blankets",
-            "Refrigerator", "Microwave", "Cooking basics", "Dishes and silverware", "Coffee maker",
-            "Long term stays allowed", "Luggage drop off allowed", "Hangers", "Room-darkening shades",
-            "Shampoo", "24-hour check-in", "Flat path to front door", "Well-lit path to entrance"
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "kitchen.oven",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "safety.firstAid",
+            "services.lockBox",
+            "outdoor.privatePatio",
+            "location.center"
         ],
         "highlights": [
             {
@@ -304,7 +326,13 @@ export const demoStays = [
         ],
         "price": 180,
         "cleaningFee": 40,
-        "summary": "Stylish and modern flat in Kreuzberg, close to cafés, galleries, and great nightlife. Open-plan living with natural light and a compact kitchen.",
+        "summary": `Stylish and modern flat in Kreuzberg, close to cafés, galleries, 
+        and great nightlife. \n\nOpen-plan living with natural light and a compact kitchen.
+        \n\nOnce a 19th-century warehouse, this spacious loft now boasts a mix of exposed brick, metal beams,
+         and sleek furniture — the essence of Berlin cool. \n\nFloor-to-ceiling windows fill the space with
+          light, and an open kitchen invites you to cook and share meals. \n\nThe neighborhood is packed with
+           street art, underground clubs, and vegan cafés. \n\nYour host, a Berlin-based designer, 
+        offers local insights for discovering the city’s creative underground.`,
         "rooms": [
             {
                 "roomType": "bedroom",
@@ -317,11 +345,20 @@ export const demoStays = [
         "bedrooms": 1,
         "beds": 1,
         "amenities": [
-            "Wifi", "Air conditioning", "Kitchen", "TV", "Washer", "Essentials", "Heating", "Hair dryer",
-            "Iron", "Elevator", "Smoke detector", "First aid kit",
-            "Laptop friendly workspace", "Self check-in", "Hot water", "Bed linens", "Extra pillows and blankets",
-            "Refrigerator", "Microwave", "Cooking basics", "Dishes and silverware", "Coffee maker",
-            "Long term stays allowed", "Well-lit path to entrance"
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.cookingBasics",
+            "kitchen.microwave",
+            "bedroom.hangers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "safety.firstAid",
+            "services.lockBox",
+            "features.gym",
+            "bookingOptions.instantBook",
+            "safety.securityCam",
+            "services.lockBox",
+            "notIncluded.noEssentials"
         ],
         "highlights": [
             {
@@ -453,7 +490,14 @@ export const demoStays = [
         ],
         "price": 160,
         "cleaningFee": 40,
-        "summary": "Bright studio near the beach and lively neighborhood cafes. Minimal setup with strong Wi-Fi and easy access to the promenade.",
+        "summary": `Bright studio near the beach and lively neighborhood cafes. 
+        \n\nMinimal setup with strong Wi-Fi and easy access to the promenade.
+        \n\nLocated minutes from Gordon Beach, this bright Bauhaus-style apartment captures Tel Aviv’s
+         laid-back yet vibrant spirit. \n\nWhite walls, sea-blue accents, and locally made furnishings 
+         reflect coastal simplicity. \n\nStep outside to the promenade, enjoy the city’s café culture, 
+         or bike through the boulevards. \n\nThe host — a friendly local architect — designed the space to 
+         balance openness, comfort, 
+        and the breezy charm that defines the Mediterranean lifestyle.`,
         "rooms": [
             {
                 "roomType": "studio",
@@ -466,11 +510,18 @@ export const demoStays = [
         "bedrooms": 1,
         "beds": 1,
         "amenities": [
-            "Wifi", "Air conditioning", "Kitchen", "TV", "Washer", "Essentials", "Heating", "Hair dryer",
-            "Iron", "Elevator", "Smoke detector", "Carbon monoxide detector", "First aid kit",
-            "Laptop friendly workspace", "Self check-in", "Hot water", "Bed linens", "Extra pillows and blankets",
-            "Refrigerator", "Microwave", "Cooking basics", "Dishes and silverware", "Coffee maker",
-            , "Well-lit path to entrance"
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "safety.firstAid",
+            "outdoor.beachEssentials",
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer"
         ],
         "highlights": [
             {
@@ -602,7 +653,13 @@ export const demoStays = [
         ],
         "price": 240,
         "cleaningFee": 40,
-        "summary": "Trendy flat in the heart of Soho — perfect for theatre-goers and food lovers. Compact and stylish with easy tube access.",
+        "summary": `Trendy flat in the heart of Soho — perfect for theatre-goers and food lovers.
+         \n\nCompact and stylish with easy tube access.
+         \n\nA charming, light-filled flat in colorful Notting Hill, just steps from Portobello Market and 
+         leafy garden squares. \n\nDesigned with British elegance and Scandinavian simplicity, the apartment 
+         features plush seating, a stocked library, and a small but well-equipped kitchen. \n\nEnjoy morning 
+         tea on the private balcony before exploring West London’s boutiques, cinemas, and cafés. An inviting home base for 
+         travelers who love comfort and character.`,
         "rooms": [
             {
                 "roomType": "living room",
@@ -615,11 +672,22 @@ export const demoStays = [
         "bedrooms": 1,
         "beds": 1,
         "amenities": [
-            "Wifi", "Air conditioning", "Kitchen", "TV", "Washer", "Essentials", "Heating", "Hair dryer",
-            "Iron", "Elevator", "Smoke detector", "Carbon monoxide detector", "First aid kit",
-            "Laptop friendly workspace", "Self check-in",
-            "Refrigerator", "Microwave", "Cooking basics", "Dishes and silverware", "Coffee maker",
-            "Long term stays allowed", "Luggage drop off allowed", "Hangers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "safety.firstAid",
+            "outdoor.beachEssentials",
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer",
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "bookingOptions.instantBook",
+            "safety.securityCam",
+            "services.lockBox",
+            "essentials.workSpace"
         ],
         "highlights": [
             {
@@ -755,7 +823,11 @@ export const demoStays = [
         ],
         "price": 200,
         "cleaningFee": 40,
-        "summary": "Studio in downtown Manhattan near Wall Street — compact, efficient and ideal for solo travelers or business trips. Quick subway access and many cafes nearby.",
+        "summary": `Studio in downtown Manhattan near Wall Street — compact, efficient and ideal for solo travelers or business trips. Quick subway access and many cafes nearby.
+        \n\nExperience downtown Manhattan from this stylish SoHo flat where industrial chic meets cozy luxury. Exposed brick, high ceilings, 
+        and designer lighting set the tone, while the curated art and bookshelves bring local personality.
+         \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, 
+        solo travelers, or couples who love being in the center of NYC’s cultural energy.`,
         "rooms": [
             {
                 "roomType": "studio",
@@ -768,11 +840,22 @@ export const demoStays = [
         "bedrooms": 1,
         "beds": 1,
         "amenities": [
-            "Wifi", "Air conditioning", "Kitchen", "TV", "Washer", "Essentials", "Heating", "Hair dryer",
-            "Laptop friendly workspace", "Self check-in", "Hot water", "Bed linens", "Extra pillows and blankets",
-            "Refrigerator", "Dishes and silverware", "Coffee maker",
-            "Long term stays allowed", "Luggage drop off allowed", "Hangers", "Room-darkening shades",
-            "Shampoo", "Flat path to front door", "Well-lit path to entrance"
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer",
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "bookingOptions.instantBook",
+            "safety.securityCam",
+            "services.lockBox",
+            "essentials.workSpace",
+            "family.crib",
+            "location.center",
+            "safety.firstAid",
+            "services.houseKeeping"
         ],
         "highlights": [
             {
@@ -908,7 +991,14 @@ export const demoStays = [
         ],
         "price": 190,
         "cleaningFee": 40,
-        "summary": "Rustic apartment in Trastevere with classic Roman charm. Cobblestone streets, trattorias nearby and a warm, family-friendly interior.",
+        "summary": `Rustic apartment in Trastevere with classic Roman charm. Cobblestone streets, trattorias nearby and a warm, 
+        family-friendly interior.
+        \n\nWake up to church bells in this beautifully restored Roman apartment tucked in Trastevere’s 
+        winding lanes. \n\nThe rooftop terrace offers breathtaking views over terracotta rooftops — the 
+        perfect place to sip espresso or share an aperitivo at sunset. \n\nInside, classic Italian charm meets
+         modern comfort: arched ceilings, vintage tiles, and local art. \n\nJust a short stroll from Campo de’ Fiori and the
+
+         Tiber River, this stay captures the authentic rhythm of Roman life.`,
         "rooms": [
             {
                 "roomType": "bedroom",
@@ -921,12 +1011,22 @@ export const demoStays = [
         "bedrooms": 1,
         "beds": 1,
         "amenities": [
-            "Wifi", "Air conditioning", "Kitchen", "TV", "Heating", "Hair dryer",
-            "Iron", "Elevator", "Smoke detector", "Carbon monoxide detector", "First aid kit",
-            "Laptop friendly workspace", "Bed linens",
-            "Refrigerator", "Microwave", "Cooking basics", "Dishes and silverware", "Coffee maker",
-            "Long term stays allowed", "Luggage drop off allowed", "Hangers",
-            "Shampoo", "24-hour check-in", "Flat path to front door", "Well-lit path to entrance"
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer",
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "bookingOptions.instantBook",
+            "safety.securityCam",
+            "services.lockBox",
+            "essentials.workSpace",
+            "family.crib",
+            "location.center",
+            "safety.firstAid",
+            "services.houseKeeping"
         ],
         "highlights": [
             {
@@ -1061,7 +1161,14 @@ export const demoStays = [
         ],
         "price": 260,
         "cleaningFee": 40,
-        "summary": "High-rise apartment with marina views. Modern interior, great for families or groups looking to enjoy Dubai Marina and nearby attractions.",
+        "summary": `High-rise apartment with marina views. Modern interior, 
+        great for families or groups looking to enjoy Dubai Marina and nearby attractions.
+        \n\nOverlooking the dazzling Dubai Marina, this upscale apartment offers panoramic skyline views, 
+        designer interiors, and access to a private infinity pool. \n\nThe open-concept living area is perfect
+         for entertaining, while floor-to-ceiling glass floods the space with natural light. 
+         Walk to world-class restaurants, beaches, and the Marina Mall, or unwind on your balcony with 
+         the sunset reflecting off the city’s glass towers.
+         \n\nIdeal for luxury seekers and business travelers alike.`,
         "rooms": [
             {
                 "roomType": "bedroom",
@@ -1079,10 +1186,22 @@ export const demoStays = [
         "bedrooms": 2,
         "beds": 2,
         "amenities": [
-            "Wifi", "Air conditioning", "First aid kit",
-            "Laptop friendly workspace", "Self check-in", "Hot water", "Bed linens", "Extra pillows and blankets",
-            "Refrigerator", "Microwave", "Cooking basics", "Dishes and silverware", "Coffee maker",
-            "Long term stays allowed", "Well-lit path to entrance"
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer",
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "bookingOptions.instantBook",
+            "safety.securityCam",
+            "essentials.workSpace",
+            "family.crib",
+            "location.center",
+            "safety.firstAid",
+            "location.beach",
+            "services.houseKeeping",
         ],
         "highlights": [
             {
@@ -1206,21 +1325,239 @@ export const demoStays = [
         "_id": "beach-001",
         "name": "Barcelona Beach Flat",
         "type": "Beach stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-38770272/original/65f994ed-6c47-4e8d-9d1c-585e9c17b304.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/cb9e32f5-c0d1-4064-878f-574593ff8380.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/77bc9213-529a-485c-b434-20d15d2e57d4.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/634bbeb3-8c7a-43f1-9fb1-640867f52141.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/f68f8ca9-e8ed-4fa0-ba26-5923e569f3c9.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/0e29fd72-7b2f-42a7-b8f1-e6554e24ffaa.jpeg?im_w=720"
+        ],
         "price": 180,
-        "summary": "Sunny apartment steps from Barceloneta beach.",
-        "capacity": 4,
+        "cleaningFee": 40,
+        "summary": "Sunny apartment steps from Barceloneta beach with bright interiors and sea breeze directly through the windows.\n\nThis two-bedroom flat is styled with Mediterranean tones and comfortable furnishings — ideal for small groups or families who want both beach access and city sightseeing. The open-plan living room leads to a small balcony with partial sea views.\n\nThe kitchen is fully equipped for beach breakfasts and tapas nights, and fast Wi-Fi plus a small workspace make it convenient for remote work. Walk to fish markets, beachfront restaurants, and Barceloneta promenade within minutes.",
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "single bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/0e29fd72-7b2f-42a7-b8f1-e6554e24ffaa.jpeg?im_w=720"
+            },
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/77bc9213-529a-485c-b434-20d15d2e57d4.jpeg?im_w=720"
+            },
+        ],
+        "guests": 3,
         "bathrooms": 1,
         "bedrooms": 2,
+        "beds": 3,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "kitchen.fridge",
+            "kitchen.microwave",
+            "kitchen.oven",
+            "kitchen.table",
+            "bedroom.hangers",
+            "bedroom.doubleBed",
+            "bathroom.hotWater",
+            "bathroom.hairDryer",
+            "features.breakfast",
+            "outdoor.beachEssentials",
+            "services.lockBox",
+            "safety.firstAid",
+            "safety.smokeAlarm",
+            "location.beach",
+            "bookingOptions.instantBook",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            {
+                "main": "Steps to Barceloneta Beach",
+                "sub": "Sand, sun and the promenade are only minutes away.",
+                "imgUrl": "location.beach"
+            },
+            {
+                "main": "Well-equipped Kitchen",
+                "sub": "Perfect for preparing local seafood and tapas.",
+                "imgUrl": "kitchen.cookingBasics"
+            },
+            {
+                "main": "Fast Wi-Fi & Workspace",
+                "sub": "Reliable connection for streaming or working remotely.",
+                "imgUrl": "essentials.wifi"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-1",
+            "firstName": "María",
+            "fullname": "María López",
+            "location": "Barcelona, Spain",
+            "about": "Local Barceloneta resident who loves the sea, local markets and recommending hidden tapas spots. I aim to make guests feel at home while sharing the best of the neighborhood.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/68.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1530403200000,
+            "rating": 4.92,
+            "numReviews": 312,
+            "yearsHosting": 6,
+            "responseRate": 99,
+            "responseTime": "within an hour",
+            "coHosts": [
+                {
+                    "name": "Pablo",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/72.jpg"
+                }
+            ],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Barcelona" },
+                { "icon": "work", "text": "Interior stylist" }
+            ]
+        },
+        "loc": {
+            "country": "Spain",
+            "countryCode": "ES",
+            "city": "Barcelona",
+            "address": "Barceloneta, Barcelona, Spain",
+            "lat": 41.3825,
+            "lng": 2.1901
+        },
+        "reviews": [
+            {
+                "at": "2024-07-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b001",
+                    "fullname": "Lina",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/45.jpg",
+                    "id": "901001"
+                },
+                "txt": "Fantastic location — we were on the beach within two minutes. The apartment was bright and clean, and María gave great local tips.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-05-18T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b002",
+                    "fullname": "Ethan",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg",
+                    "id": "901002"
+                },
+                "txt": "Great flat for a family — roomy bedrooms and the kitchen had everything we needed. Close to good restaurants along the sea.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 4.8,
+                    "checkIn": 4.6,
+                    "accuracy": 4.5,
+                    "location": 5.0,
+                    "value": 4.4
+                },
+                "nights": 7,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2023-10-09T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b003",
+                    "fullname": "Maya",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+                    "id": "901003"
+                },
+                "txt": "Clean, friendly host and excellent location. Small balcony with nice breezes each evening.",
+                "rate": {
+                    "cleanliness": 4.6,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.5,
+                    "location": 4.9,
+                    "value": 4.3
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-07-20T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b004",
+                    "fullname": "Tom",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/12.jpg",
+                    "id": "901004"
+                },
+                "txt": "Perfect spot for beach days and exploring Barcelona. Check-in was easy and María responded quickly.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.2
+                },
+                "nights": 6,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2022-12-28T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b005",
+                    "fullname": "Aisha",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/27.jpg",
+                    "id": "901005"
+                },
+                "txt": "Lovely apartment — good value and a short walk to the old port. Beds were comfortable and the kitchen worked well for us.",
+                "rate": {
+                    "cleanliness": 4.5,
+                    "communication": 4.6,
+                    "checkIn": 4.4,
+                    "accuracy": 4.3,
+                    "location": 4.8,
+                    "value": 4.1
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2022-06-12T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b006",
+                    "fullname": "Carlos",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/57.jpg",
+                    "id": "901006"
+                },
+                "txt": "Great communication and a very practical apartment for group trips. Loved the proximity to the beach bars.",
+                "rate": {
+                    "cleanliness": 4.6,
+                    "communication": 4.8,
+                    "checkIn": 4.6,
+                    "accuracy": 4.5,
+                    "location": 5.0,
+                    "value": 4.2
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-07-10",
-        "endDate": "2025-07-15",
-        "host": { "_id": "host-beach-1", "fullname": "Maria", "location": "Barcelona, Spain" },
-        "loc": { "country": "Spain", "city": "Barcelona", "address": "Barceloneta, Barcelona" },
-        "reviews": [],
-        "likedByUsers": []
-    },
+        "endDate": "2025-07-15"
+    }
+    ,
     {
         "_id": "beach-002",
         "name": "Miami Oceanview Condo",

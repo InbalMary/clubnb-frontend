@@ -10,9 +10,7 @@ import { amenitiesSvg, reviewSvgs } from '../cmps/Svgs'
 import { LongTxt } from '../cmps/LongTxt'
 import { calculateNights, getRandomItems } from '../services/util.service'
 import { Modal } from '../cmps/Modal'
-import { reUseDateRange, useDateRange } from '../customHooks/useDateRange'
 import { DateRangePicker } from '../cmps/DateRangePicker'
-import { ReDateRangePicker } from '../cmps/ReDateRangePicker'
 import { StayRating } from '../cmps/StayRating'
 import { StayReviewList } from '../cmps/StayReviewList'
 import { AmenitiesLongList, AmenitiesShortList, CalendarStayDates, Capacity, DetailsSkeleton, Highlights, MiniHost, SleepingRooms, SmallRating, StayImgs } from '../cmps/SmallComponents'
@@ -380,7 +378,7 @@ export function StayDetails() {
 
   }, [modalType, selectedReviewIdx, reviewRefs])
 
-  const amenitiesData = getAmenitiesData(amenitiesSvg)
+  const amenitiesData = getAmenitiesData(amenitiesSvg, stay?.amenities)
 
 
   if (!stay) return 
@@ -471,10 +469,13 @@ export function StayDetails() {
                       <h1>About this place</h1>
                       {<div className="summary">
                         {stay.summary
-                          .split('\n')
+                          .split('\n\n')
                           .filter(line => line.trim() !== '')
                           .map((line, idx) => (
-                            <p key={idx}>{line.trim()}</p>
+                            <div>
+                            <p key={idx}>{line.trim()}</p>  
+                           <br />
+                            </div>
                           ))}
                       </div>}
                     </>
