@@ -1,7 +1,7 @@
 import verified from '../assets/svgs/verified.svg'
 import superhost from '../assets/svgs/superhost.svg'
 import shield from '../assets/svgs/shield.svg'
-import { statSvgs } from './Svgs'
+import { hostSvgs, statSvgs } from './Svgs'
 
 export function HostInfo({ host }) {
     if (!host) return null
@@ -65,12 +65,17 @@ export function HostInfo({ host }) {
                     <div className="host-bio">
                         {host.personalFacts?.length > 0 && (
                             <ul className="host-facts">
-                                {host.personalFacts.map((fact) => (
-                                    <li key={fact.text}>
-                                        <span className="fact-icon">{fact.icon}</span>
-                                        <span className='fact-text'>{fact.text}</span>
-                                    </li>
-                                ))}
+                                {host.personalFacts.map((fact) => {
+                                    const Icon = hostSvgs?.[fact.icon] || null
+                                    return (
+                                        <li key={fact.text}>
+                                            <span className="fact-icon">
+                                                {Icon ? <span className="fact-icon">{Icon}</span> : null}
+                                            </span>
+                                            <span className="fact-text">{fact.text}</span>
+                                        </li>
+                                    )
+                                })}
                             </ul>
                         )}
 

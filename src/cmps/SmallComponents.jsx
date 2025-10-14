@@ -5,21 +5,31 @@ import { getRandomItems } from "../services/util.service"
 import { useEffect, useRef, useState } from "react"
 import diamond from "../assets/svgs/diamond.png"
 
-
 export function Highlights({ stay }) {
-    return (<div className="highlights">
-        <ul>
-            {stay.highlights.map(hightLight =>
-                <li key={hightLight.main}>
-                    <span className="highlight-icon">{hightLight.imgUrl}</span>
-                    <div>
-                        <h3>{hightLight.main}</h3>
-                        <span className="light"> {hightLight.sub}</span>
-                    </div>
-                </li>
-            )}
-        </ul>
-    </div>)
+    return (
+        <div className="highlights">
+            <ul>
+                {stay.highlights.map((highlight) => {
+                    let Icon = null
+                    if (highlight.imgUrl) {
+                        const [category, name] = highlight.imgUrl.split('.')
+                        Icon = amenitiesSvg?.[category]?.[name] || null
+                    }
+                    return (
+                        <li key={highlight.main}>
+                            <span className="highlight-icon">
+                                {Icon ? <span className="highlight-icon">{Icon}</span> : null}
+                            </span>
+                            <div>
+                                <h3>{highlight.main}</h3>
+                                <span className="light">{highlight.sub}</span>
+                            </div>
+                        </li>
+                    )
+                })}
+            </ul>
+        </div>
+    )
 }
 
 export function Capacity({ stay }) {
@@ -38,7 +48,7 @@ export function StayImgs({ stay }) {
     return (
         <section className="details-imgs">
             {stay.imgUrls.map((url, idx) =>
-                <div key={url} className={`img-container img-${idx + 1}`}><img src={url} /></div>
+                <div key={idx + 1} className={`img-container img-${idx + 1}`}><img src={url} /></div>
             )}
         </section>
     )
@@ -338,3 +348,45 @@ export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, start
         </div >
     )
 }
+
+
+// import './DetailsSkeleton.css';
+
+export function DetailsSkeleton() {
+    return (
+            <div className="details-skeleton main-content">
+                {/* Title */}
+                <div className="skeleton skeleton-title"></div>
+
+                {/* Image Container */}
+                <div className="image-container">
+                    {/* Left Block */}
+                    <div className="left-image skeleton"></div>
+
+                    {/* Right Block - 4 small images */}
+                    <div className="right-images">
+                        <div className="skeleton top-right"></div>
+                        <div className="skeleton top-left"></div>
+                        <div className="skeleton bottom-left"></div>
+                        <div className="skeleton bottom-right"></div>
+                    </div>
+                </div>
+
+                {/* Text under images */}
+                <div className="below-images">
+                    {/* Left side */}
+                    <div className="left-text">
+                        <div className="skeleton skeleton-line1"></div>
+                        <div className="skeleton skeleton-line2"></div>
+                    </div>
+
+                    {/* Right side */}
+                    <div className="right-text">
+                        <div className="skeleton skeleton-line3"></div>
+                        <div className="skeleton skeleton-line4"></div>
+                    </div>
+                </div>
+            </div>
+    )
+}
+

@@ -2,28 +2,28 @@ import { AdvancedMarker, APIProvider, InfoWindow, Map, Pin, useMap } from '@vis.
 import { useState } from 'react';
 import { HomeMarkerIcon } from './SmallComponents';
 
-export function StayMap() {
+export function StayMap({ location }) {
     return (
         <>
             <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-                <MapController />
+                <MapController location={location} />
             </APIProvider>
         </>
     )
 
 }
 
-function MapController() {
-    const position = { lat: 53.54992, lng: 10.00678 }
-    const [coords, setCoords] = useState({ lat: 32.0853, lng: 34.7818 })
+function MapController({ location }) {
+    const { lat, lng } = location
 
-
+    const [coords, setCoords] = useState({ lat: lat, lng: lng })
+console.log('coords:', coords)
 
     function handleClick(event) {
         const latLng = event.detail.latLng
         setCoords(latLng)
     }
-
+    if (!location) return <div></div>
     return (
         <>
             <Map defaultCenter={coords}

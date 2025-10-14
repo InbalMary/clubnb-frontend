@@ -32,7 +32,7 @@ export function StickyContainer({ stay, initialModal = null }) {
     const children = searchParams.get('children')
     const infants = searchParams.get('infants')
     const pets = searchParams.get('pets')
-
+ 
     useEffect(() => {
         setGuests({
             adults: parseInt(adults) || 0,

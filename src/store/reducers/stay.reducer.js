@@ -5,11 +5,13 @@ export const ADD_STAY = 'ADD_STAY'
 export const UPDATE_STAY = 'UPDATE_STAY'
 export const ADD_STAY_REVIEW = 'ADD_STAY_REVIEW'
 export const SET_FILTERBY = 'SET_FILTERBY'
+export const SET_IS_LOADING = 'SET_IS_LOADING'
 
 const initialState = {
     stays: [],
     stay: null,
     filterBy: {},
+    isLoading: false,
 }
 
 export function stayReducer(state = initialState, action) {
@@ -18,6 +20,12 @@ export function stayReducer(state = initialState, action) {
     switch (action.type) {
         case SET_STAYS:
             newState = { ...state, stays: action.stays }
+            break
+        case SET_IS_LOADING:
+            newState = {
+                ...state,
+                isLoading: action.isLoading
+            }
             break
         case SET_STAY:
             newState = { ...state, stay: action.stay }

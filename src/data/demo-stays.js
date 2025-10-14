@@ -2,178 +2,1562 @@ export const demoStays = [
 
     // ---- City stays (8) ----
 
+
+    //////////////////////////////////////////////
     {
         "_id": "city-001",
         "name": "Tokyo Shibuya Apartment",
         "type": "City stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/hosting/Hosting-1161368900193668115/original/b97fd8ae-da66-4a79-8500-399032170503.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/83ae9587-ff07-4a71-928e-b348908d6505.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/8c062872-4837-4a6e-844f-2a15b8676b47.jpeg?im_w=1200",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/d5784482-4ad7-4e2d-9cf1-a181d9e7e70e.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/cfbddc4d-09e7-4de9-9be0-57a0e80f9316.jpeg?im_w=720"
+        ],
         "price": 150,
-        "summary": "Compact Tokyo apartment near Shibuya Crossing.",
-        "capacity": 2,
+        "cleaningFee": 40,
+        "summary": "Stay in the heart of Shibuya in this modern, compact apartment designed for travelers who want to explore Tokyo with ease. \n\nLocated minutes from Shibuya Crossing, the apartment offers convenient access to restaurants, nightlife, and shopping.\n\nThis cozy one-bedroom apartment includes everything you need for a comfortable stay — fast Wi-Fi, a small kitchen, and modern Japanese design touches.\n\nPerfect for solo travelers or couples visiting Tokyo for short city breaks or business trips.",
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/83ae9587-ff07-4a71-928e-b348908d6505.jpeg?im_w=720"
+            },
+            {
+                "roomType": "living room",
+                "bedType": "sofa",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/8c062872-4837-4a6e-844f-2a15b8676b47.jpeg?im_w=1200"
+            }
+        ],
+        "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "essentials.airCon",
+            "kitchen.coffeeMaker",
+            "kitchen.microwave",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "bathroom.hotWater",
+            "bathroom.shampoo",
+            "services.longStay",
+            "bookingOptions.selfCheckin",
+            "safety.smokeAlarm",
+            "notIncluded.noWasher"
+        ],
+        "highlights": [
+            {
+                "main": "Central Shibuya Location",
+                "sub": "Steps away from the iconic Shibuya Crossing and top restaurants.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Compact and Modern",
+                "sub": "Thoughtfully designed for maximum comfort in a small space.",
+                "imgUrl": "outdoor.privatePatio"
+            },
+            {
+                "main": "Perfect for couples",
+                "sub": "Guests rated this space highly for its convenience and privacy.",
+                "imgUrl": "family.crib"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "622f3403e36c59e6164faf93",
+            "firstName": "Takumi",
+            "fullname": "Takumi",
+            "location": "Tokyo, Japan",
+            "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1580515200000,
+            "rating": 4.93,
+            "numReviews": 102,
+            "yearsHosting": 4,
+            "responseRate": 98,
+            "responseTime": "within an hour",
+            "coHosts": [
+                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+            ],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Tokyo" },
+                { "icon": "work", "text": "Graphic designer" }
+            ]
+        },
+        "loc": {
+            "country": "Japan",
+            "countryCode": "JP",
+            "city": "Tokyo",
+            "address": "Shibuya, Tokyo, Japan",
+            "lat": 35.661777,
+            "lng": 139.704051
+        },
+        "reviews": [
+            {
+                "at": "2024-05-11T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc004",
+                    "fullname": "Sophie",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "id": "10711825"
+                },
+                "txt": "Fantastic location near Shibuya — clean, modern, and perfect for a short stay.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.7
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "James",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "id": "10711826"
+                },
+                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-12-01",
-        "endDate": "2025-12-05",
-        "host": { "_id": "host-city-1", "fullname": "Takumi", "location": "Tokyo, Japan" },
-        "loc": { "country": "Japan", "city": "Tokyo", "address": "Shibuya, Tokyo" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-12-05"
     },
     {
         "_id": "city-002",
         "name": "Paris Loft with Balcony",
         "type": "City stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/a113bb3b-58db-40f1-975e-538372cab82e.jpg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/45234466/1359fbdd_original.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/45234503/efc581f0_original.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/45234432/adc838a0_original.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/45234432/adc838a0_original.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/33089515/f075297a_original.jpg?im_w=720"
+        ],
         "price": 220,
-        "summary": "Romantic loft in central Paris with Eiffel Tower view.",
-        "capacity": 3,
+        "cleaningFee": 40,
+        "summary": `Romantic loft in the heart of Paris with a small balcony and glimpses of the Eiffel Tower from nearby streets. 
+        Perfect for couples who want to enjoy cafes, galleries, and evening strolls.
+        
+        \n\nTucked inside a historic 18th-century building, this sunlit loft captures the romantic charm of Paris with exposed beams, vintage décor, 
+        and tall French windows opening onto cobblestone streets. The open kitchen is perfect for preparing a market-fresh breakfast before wandering to the Seine or Picasso Museum just minutes away. 
+        
+        \n\nThe host — a Parisian pastry chef — 
+        leaves a welcome basket with local delicacies and a handwritten list of her favorite hidden cafés.`,
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/45234432/adc838a0_original.jpg?im_w=720"
+            },
+            {
+                "roomType": "living room",
+                "bedType": "sofa",
+                "imgUrl": "https://a0.muscache.com/im/pictures/33089515/f075297a_original.jpg?im_w=720"
+            }
+        ],
+        "guests": 3,
         "bathrooms": 1,
         "bedrooms": 1,
+        "beds": 2,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "kitchen.oven",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "safety.firstAid",
+            "services.lockBox",
+            "outdoor.privatePatio",
+            "location.center"
+        ],
+        "highlights": [
+            {
+                "main": "Romantic Balcony",
+                "sub": "Small balcony perfect for morning coffee and people-watching.",
+                "imgUrl": "outdoor.privatePatio"
+            },
+            {
+                "main": "Near Galleries & Cafés",
+                "sub": "Walk to many charming neighborhoods and museums.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Well-equipped Kitchen",
+                "sub": "Comfortable kitchen for weekend brunches and cooking.",
+                "imgUrl": "kitchen.cookingBasics"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-2",
+            "firstName": "Élodie",
+            "fullname": "Élodie",
+            "location": "Paris, France",
+            "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1483228800000,
+            "rating": 4.97,
+            "numReviews": 210,
+            "yearsHosting": 7,
+            "responseRate": 99,
+            "responseTime": "within an hour",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Lyon" },
+                { "icon": "work", "text": "Part-time pastry chef" }
+            ]
+        },
+        "loc": {
+            "country": "France",
+            "countryCode": "FR",
+            "city": "Paris",
+            "address": "Rue de Rivoli, Paris, France",
+            "lat": 48.8566,
+            "lng": 2.3522
+        }
+        ,
+        "reviews": [
+            {
+                "at": "2024-07-14T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2001",
+                    "fullname": "Chloé",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "id": "20711825"
+                },
+                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
+                    "fullname": "Liam",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Great place for a couple — elegant and centrally located.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-05-20T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2003",
+                    "fullname": "Ana",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "id": "20711827"
+                },
+                "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.4
+                },
+                "nights": 2,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-11-20",
-        "endDate": "2025-11-25",
-        "host": { "_id": "host-city-2", "fullname": "Claire", "location": "Paris, France" },
-        "loc": { "country": "France", "city": "Paris", "address": "Rue de Rivoli, Paris" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-11-25"
     },
     {
         "_id": "city-003",
         "name": "Berlin Modern Flat",
         "type": "City stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/21820279/b015a76d_original.jpg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1523767085072264310/original/6da018c9-8b32-4b71-849d-042f1a5081ab.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/21820279/b015a76d_original.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1523767085072264310/original/c37df660-b519-4507-b170-fad92c7da342.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1523767085072264310/original/b5c84c5b-75df-4438-ae19-10472e75fd11.png?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1523767085072264310/original/3f20de68-b71a-45ea-80da-069f60257415.jpeg?im_w=720"
+        ],
         "price": 180,
-        "summary": "Stylish flat in Kreuzberg, Berlin.",
-        "capacity": 2,
+        "cleaningFee": 40,
+        "summary": `Stylish and modern flat in Kreuzberg, close to cafés, galleries, 
+        and great nightlife. \n\nOpen-plan living with natural light and a compact kitchen.
+        \n\nOnce a 19th-century warehouse, this spacious loft now boasts a mix of exposed brick, metal beams,
+         and sleek furniture — the essence of Berlin cool. \n\nFloor-to-ceiling windows fill the space with
+          light, and an open kitchen invites you to cook and share meals. \n\nThe neighborhood is packed with
+           street art, underground clubs, and vegan cafés. \n\nYour host, a Berlin-based designer, 
+        offers local insights for discovering the city’s creative underground.`,
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1523767085072264310/original/c37df660-b519-4507-b170-fad92c7da342.jpeg?im_w=720",
+            }
+        ],
+        "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.cookingBasics",
+            "kitchen.microwave",
+            "bedroom.hangers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "safety.firstAid",
+            "services.lockBox",
+            "features.gym",
+            "bookingOptions.instantBook",
+            "safety.securityCam",
+            "services.lockBox",
+            "notIncluded.noEssentials"
+        ],
+        "highlights": [
+            {
+                "main": "Kreuzberg Vibe",
+                "sub": "Close to creative neighborhoods, street art, and cafes.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Modern Comfort",
+                "sub": "Clean lines and comforts suitable for digital nomads.",
+                "imgUrl": "essentials.workSpace"
+            },
+            {
+                "main": "Fitness Nearby",
+                "sub": "Gym facilities within walking distance.",
+                "imgUrl": "features.gym"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-3",
+            "firstName": "Jonas",
+            "fullname": "Jonas",
+            "location": "Berlin, Germany",
+            "about": "Berlin local who loves design and music. Happy to point you to concert venues and creative spots.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/47.jpg",
+            "isSuperhost": false,
+            "isVerified": true,
+            "signupDate": 1564617600000,
+            "rating": 4.85,
+            "numReviews": 76,
+            "yearsHosting": 3,
+            "responseRate": 92,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Raised in Berlin" },
+                { "icon": "work", "text": "Sound engineer" }
+            ]
+        },
+        "loc": {
+            "country": "Germany",
+            "countryCode": "DE",
+            "city": "Berlin",
+            "address": "Kreuzberg, Berlin, Germany",
+            "lat": 52.4986,
+            "lng": 13.4030
+        }
+        ,
+        "reviews": [
+            {
+                "at": "2024-01-10T00:00:00.000Z",
+                "by": {
+                    "_id": "r-3001",
+                    "fullname": "Olivia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg",
+                    "id": "30711825"
+                },
+                "txt": "Great modern flat, excellent location for cafes and nightlife.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.7,
+                    "checkIn": 4.6,
+                    "accuracy": 4.6,
+                    "location": 4.9,
+                    "value": 4.5
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-08-05T00:00:00.000Z",
+                "by": {
+                    "_id": "r-3002",
+                    "fullname": "Luca",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/24.jpg",
+                    "id": "30711826"
+                },
+                "txt": "Perfect for a couple or solo traveler. Clean and practical.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 4.6,
+                    "checkIn": 4.5,
+                    "accuracy": 4.5,
+                    "location": 4.7,
+                    "value": 4.4
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2022-11-18T00:00:00.000Z",
+                "by": {
+                    "_id": "r-3003",
+                    "fullname": "Marta",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/40.jpg",
+                    "id": "30711827"
+                },
+                "txt": "Well located and stylish. Jonas was helpful with transport info.",
+                "rate": {
+                    "cleanliness": 4.6,
+                    "communication": 4.8,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 4.8,
+                    "value": 4.3
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-09-15",
-        "endDate": "2025-09-20",
-        "host": { "_id": "host-city-3", "fullname": "Jonas", "location": "Berlin, Germany" },
-        "loc": { "country": "Germany", "city": "Berlin", "address": "Kreuzberg, Berlin" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-09-20"
     },
     {
         "_id": "city-004",
         "name": "Tel Aviv Studio",
         "type": "City stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/eaaf0e52-c8b3-49c6-b79b-51188e5fb598.jpg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/eaaf0e52-c8b3-49c6-b79b-51188e5fb598.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTExMTQ5MDQ1MzYwMTAzNTEyOA%3D%3D/original/6c00e948-452f-4d34-8e1f-118c0c9e7871.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTExMTQ5MDQ1MzYwMTAzNTEyOA%3D%3D/original/a751780b-8e8d-434f-b47f-c52d1067163b.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTExMTQ5MDQ1MzYwMTAzNTEyOA%3D%3D/original/ef283787-4e81-4249-931a-9988555cc1f3.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTExMTQ5MDQ1MzYwMTAzNTEyOA%3D%3D/original/e6978471-630c-4cb3-9e07-88653d1f14a2.jpeg?im_w=720"
+        ],
         "price": 160,
-        "summary": "Studio apartment near Las Ramblas.",
-        "capacity": 2,
+        "cleaningFee": 40,
+        "summary": `Bright studio near the beach and lively neighborhood cafes. 
+        \n\nMinimal setup with strong Wi-Fi and easy access to the promenade.
+        \n\nLocated minutes from Gordon Beach, this bright Bauhaus-style apartment captures Tel Aviv’s
+         laid-back yet vibrant spirit. \n\nWhite walls, sea-blue accents, and locally made furnishings 
+         reflect coastal simplicity. \n\nStep outside to the promenade, enjoy the city’s café culture, 
+         or bike through the boulevards. \n\nThe host — a friendly local architect — designed the space to 
+         balance openness, comfort, 
+        and the breezy charm that defines the Mediterranean lifestyle.`,
+        "rooms": [
+            {
+                "roomType": "studio",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTExMTQ5MDQ1MzYwMTAzNTEyOA%3D%3D/original/a751780b-8e8d-434f-b47f-c52d1067163b.jpeg?im_w=720"
+            }
+        ],
+        "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "safety.firstAid",
+            "outdoor.beachEssentials",
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            {
+                "main": "Walk to the Beach",
+                "sub": "Minutes to the sand and promenade.",
+                "imgUrl": "location.beach"
+            },
+            {
+                "main": "Laid-back Host",
+                "sub": "Local recommendations for cafés and markets.",
+                "imgUrl": "services.lockBox"
+            },
+            {
+                "main": "Great Wi-Fi",
+                "sub": "Fast connection for streaming and remote work.",
+                "imgUrl": "essentials.wifi"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-4",
+            "firstName": "Noa",
+            "fullname": "Noa",
+            "location": "Tel Aviv-Yafo, Israel",
+            "about": "Beach-lover and part-time surf instructor — I keep the place chill and well-kept.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/33.jpg",
+            "isSuperhost": false,
+            "isVerified": true,
+            "signupDate": 1609459200000,
+            "rating": 4.86,
+            "numReviews": 59,
+            "yearsHosting": 2,
+            "responseRate": 90,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Haifa" },
+                { "icon": "work", "text": "Surf instructor" }
+            ]
+        },
+        "loc": {
+            "country": "Israel",
+            "countryCode": "IL",
+            "city": "Tel Aviv-Yafo",
+            "address": "Allenby Street, Tel Aviv-Yafo, Israel",
+            "lat": 32.0670,
+            "lng": 34.7774
+        }
+        ,
+        "reviews": [
+            {
+                "at": "2024-06-01T00:00:00.000Z",
+                "by": {
+                    "_id": "r-4001",
+                    "fullname": "Yossi",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/58.jpg",
+                    "id": "40711825"
+                },
+                "txt": "Perfect location for beach walks. Noa was very friendly and relaxed.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 4.6,
+                    "checkIn": 4.5,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.4
+                },
+                "nights": 6,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-09-20T00:00:00.000Z",
+                "by": {
+                    "_id": "r-4002",
+                    "fullname": "Maya",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/51.jpg",
+                    "id": "40711826"
+                },
+                "txt": "Great spot for a short beach trip. Clean and simple.",
+                "rate": {
+                    "cleanliness": 4.6,
+                    "communication": 4.5,
+                    "checkIn": 4.4,
+                    "accuracy": 4.5,
+                    "location": 5.0,
+                    "value": 4.2
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2022-12-05T00:00:00.000Z",
+                "by": {
+                    "_id": "r-4003",
+                    "fullname": "Daniel",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/44.jpg",
+                    "id": "40711827"
+                },
+                "txt": "Chill place, close to nightlife and the beach. Good Wi-Fi.",
+                "rate": {
+                    "cleanliness": 4.5,
+                    "communication": 4.4,
+                    "checkIn": 4.3,
+                    "accuracy": 4.4,
+                    "location": 4.9,
+                    "value": 4.0
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-10-12",
-        "endDate": "2025-10-18",
-        "host": { "_id": "host-city-4", "fullname": "Maria", "location": "Barcelona, Spain" },
-        "loc": { "country": "Israel", "city": "Tel Aviv-Yafo", "address": "Las Ramblas, Barcelona" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-10-18"
     },
     {
         "_id": "city-005",
         "name": "London Soho Flat",
         "type": "City stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/prohost-api/Hosting-38518438/original/9ee33bf2-5e7e-41e2-a643-152e26bd470e.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-38518438/original/9ee33bf2-5e7e-41e2-a643-152e26bd470e.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-52554380/original/9d03dae3-031a-45b5-9008-fcc66b3b5ffd.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-52554380/original/cda8f850-e051-41b0-ab48-7910f5f9f109.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-52554380/original/9bf41210-8784-462f-a2c5-756b4c2de362.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-52554380/original/cda8f850-e051-41b0-ab48-7910f5f9f109.jpeg?im_w=720",
+        ],
         "price": 240,
-        "summary": "Trendy flat in the heart of Soho.",
-        "capacity": 2,
+        "cleaningFee": 40,
+        "summary": `Trendy flat in the heart of Soho — perfect for theatre-goers and food lovers.
+         \n\nCompact and stylish with easy tube access.
+         \n\nA charming, light-filled flat in colorful Notting Hill, just steps from Portobello Market and 
+         leafy garden squares. \n\nDesigned with British elegance and Scandinavian simplicity, the apartment 
+         features plush seating, a stocked library, and a small but well-equipped kitchen. \n\nEnjoy morning 
+         tea on the private balcony before exploring West London’s boutiques, cinemas, and cafés. An inviting home base for 
+         travelers who love comfort and character.`,
+        "rooms": [
+            {
+                "roomType": "living room",
+                "bedType": "sofa",
+                "imgUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-38518438/original/9ee33bf2-5e7e-41e2-a643-152e26bd470e.jpeg?im_w=720"
+            }
+        ],
+        "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "safety.firstAid",
+            "outdoor.beachEssentials",
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer",
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "bookingOptions.instantBook",
+            "safety.securityCam",
+            "services.lockBox",
+            "essentials.workSpace"
+        ],
+        "highlights": [
+            {
+                "main": "Soho Nightlife",
+                "sub": "Close to theatres, pubs and great dining.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Quick Tube Access",
+                "sub": "Several tube stations within walking distance.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Cosy & Stylish",
+                "sub": "Comfortable flat with attention to detail.",
+                "imgUrl": "bedroom.extraPillows"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-5",
+            "firstName": "Emily",
+            "fullname": "Emily",
+            "location": "London, United Kingdom",
+            "about": "Theatre lover and frequent traveller — happy to recommend shows and restaurants.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/29.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1514764800000,
+            "rating": 4.9,
+            "numReviews": 170,
+            "yearsHosting": 6,
+            "responseRate": 97,
+            "responseTime": "within an hour",
+            "coHosts": [
+                {
+                    "name": "Ben",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/36.jpg"
+                }
+            ],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in London" },
+                { "icon": "work", "text": "Event manager" }
+            ]
+        },
+        "loc": {
+            "country": "United Kingdom",
+            "countryCode": "GB",
+            "city": "London",
+            "address": "Soho, London, United Kingdom",
+            "lat": 51.5136,
+            "lng": -0.1316
+        },
+        "reviews": [
+            {
+                "at": "2024-04-01T00:00:00.000Z",
+                "by": {
+                    "_id": "r-5001",
+                    "fullname": "Hannah",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/41.jpg",
+                    "id": "50711825"
+                },
+                "txt": "Great location for shows. Clean and comfy.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.8,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-10-12T00:00:00.000Z",
+                "by": {
+                    "_id": "r-5002",
+                    "fullname": "Oliver",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/46.jpg",
+                    "id": "50711826"
+                },
+                "txt": "Perfect base for theatre week — very responsive host.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 4.8,
+                    "checkIn": 4.6,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.3
+                },
+                "nights": 6,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-06-22T00:00:00.000Z",
+                "by": {
+                    "_id": "r-5003",
+                    "fullname": "Priya",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg",
+                    "id": "50711827"
+                },
+                "txt": "Stylish, compact and in the middle of everything.",
+                "rate": {
+                    "cleanliness": 4.6,
+                    "communication": 4.7,
+                    "checkIn": 4.5,
+                    "accuracy": 4.5,
+                    "location": 4.9,
+                    "value": 4.2
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-11-02",
-        "endDate": "2025-11-07",
-        "host": { "_id": "host-city-5", "fullname": "Emily", "location": "London, UK" },
-        "loc": { "country": "United Kingdom", "city": "London", "address": "Soho, London" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-11-07"
     },
     {
         "_id": "city-006",
         "name": "New York Downtown Studio",
         "type": "City stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/hosting/Hosting-1508277709145554241/original/c86ae438-462e-468f-a7d5-f2d321ee8bf8.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-6146783/original/7406b74e-2b6d-476b-b7b3-b4fcb65fec28.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-6146783/original/066819e5-f433-48d5-9366-9d01752c5271.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-6146783/original/6dc352d7-b0a7-4f5c-84b3-4165a80b7e90.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-6146783/original/9617d3b8-f941-4115-936a-506283524cd7.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-6146783/original/aebb4fc5-82b7-432b-b4f9-a4eeb98579bd.jpg?im_w=720",
+        ],
         "price": 200,
-        "summary": "Studio in downtown Manhattan near Wall Street.",
-        "capacity": 2,
+        "cleaningFee": 40,
+        "summary": `Studio in downtown Manhattan near Wall Street — compact, efficient and ideal for solo travelers or business trips. Quick subway access and many cafes nearby.
+        \n\nExperience downtown Manhattan from this stylish SoHo flat where industrial chic meets cozy luxury. Exposed brick, high ceilings, 
+        and designer lighting set the tone, while the curated art and bookshelves bring local personality.
+         \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, 
+        solo travelers, or couples who love being in the center of NYC’s cultural energy.`,
+        "rooms": [
+            {
+                "roomType": "studio",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODcwNDUyOA%3D%3D/original/72ac4e65-64bd-4b95-9225-17f30759e1aa.jpeg?im_w=720"
+            }
+        ],
+        "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer",
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "bookingOptions.instantBook",
+            "safety.securityCam",
+            "services.lockBox",
+            "essentials.workSpace",
+            "family.crib",
+            "location.center",
+            "safety.firstAid",
+            "services.houseKeeping"
+        ],
+        "highlights": [
+            {
+                "main": "Wall Street Nearby",
+                "sub": "Great for business travelers and finance district visits.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Great for Remote Work",
+                "sub": "Workspace and reliable Wi-Fi for meetings.",
+                "imgUrl": "essentials.workSpace"
+            },
+            {
+                "main": "Classic NYC Studio",
+                "sub": "Compact, clean and full of city energy.",
+                "imgUrl": "bedroom.double bed"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-6",
+            "firstName": "Alex",
+            "fullname": "Alex",
+            "location": "New York, USA",
+            "about": "NYC native — I know the best pizza and subway shortcuts. Fast responses and local tips.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/12.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1496275200000,
+            "rating": 4.95,
+            "numReviews": 240,
+            "yearsHosting": 8,
+            "responseRate": 99,
+            "responseTime": "within an hour",
+            "coHosts": [
+                {
+                    "name": "Sam",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/18.jpg"
+                }
+            ],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Brooklyn" },
+                { "icon": "work", "text": "Barista & city guide" }
+            ]
+        },
+        "loc": {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "New York",
+            "address": "Wall Street, Manhattan, New York, USA",
+            "lat": 40.7060,
+            "lng": -74.0086
+        },
+        "reviews": [
+            {
+                "at": "2024-02-10T00:00:00.000Z",
+                "by": {
+                    "_id": "r-6001",
+                    "fullname": "Grace",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/18.jpg",
+                    "id": "60711825"
+                },
+                "txt": "Perfect for a short business trip. Clean and responsive host.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 4.9,
+                    "value": 4.6
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-12-18T00:00:00.000Z",
+                "by": {
+                    "_id": "r-6002",
+                    "fullname": "Marcus",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/29.jpg",
+                    "id": "60711826"
+                },
+                "txt": "Great spot downtown — easy commute and nice local coffee shops.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 4.8,
+                    "checkIn": 4.5,
+                    "accuracy": 4.6,
+                    "location": 4.8,
+                    "value": 4.3
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-05-03T00:00:00.000Z",
+                "by": {
+                    "_id": "r-6003",
+                    "fullname": "Aisha",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/27.jpg",
+                    "id": "60711827"
+                },
+                "txt": "Small but efficient. Alex provided great recommendations.",
+                "rate": {
+                    "cleanliness": 4.6,
+                    "communication": 4.7,
+                    "checkIn": 4.4,
+                    "accuracy": 4.3,
+                    "location": 4.7,
+                    "value": 4.1
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-12-05",
-        "endDate": "2025-12-10",
-        "host": { "_id": "host-city-6", "fullname": "Alex", "location": "New York, USA" },
-        "loc": { "country": "USA", "city": "New York", "address": "Wall Street, NYC" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-12-10"
     },
     {
         "_id": "city-007",
         "name": "Rome Historic Apartment",
         "type": "City stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-613463072770173957/original/14342b89-cde6-40b3-b173-92d962ab328b.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/miso/Hosting-613463072770173957/original/14342b89-cde6-40b3-b173-92d962ab328b.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI5MTMwODU4OTU1MDQ0Nzc1MA==/original/afed906f-10c2-4740-a8ff-a38a81dfa7a5.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI5MTMwODU4OTU1MDQ0Nzc1MA==/original/99fbc373-80dc-479c-9c0b-1b21a91d107d.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI5MTMwODU4OTU1MDQ0Nzc1MA==/original/85a6407d-477d-40cb-bfda-959631ce3dbf.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI5MTMwODU4OTU1MDQ0Nzc1MA==/original/b248e881-70a0-41ad-881d-85590bfbf2fa.jpeg?im_w=720"
+        ],
         "price": 190,
-        "summary": "Apartment in Trastevere with rustic charm.",
-        "capacity": 3,
+        "cleaningFee": 40,
+        "summary": `Rustic apartment in Trastevere with classic Roman charm. Cobblestone streets, trattorias nearby and a warm, 
+        family-friendly interior.
+        \n\nWake up to church bells in this beautifully restored Roman apartment tucked in Trastevere’s 
+        winding lanes. \n\nThe rooftop terrace offers breathtaking views over terracotta rooftops — the 
+        perfect place to sip espresso or share an aperitivo at sunset. \n\nInside, classic Italian charm meets
+         modern comfort: arched ceilings, vintage tiles, and local art. \n\nJust a short stroll from Campo de’ Fiori and the
+
+         Tiber River, this stay captures the authentic rhythm of Roman life.`,
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI5MTMwODU4OTU1MDQ0Nzc1MA==/original/b248e881-70a0-41ad-881d-85590bfbf2fa.jpeg?im_w=720",
+            }
+        ],
+        "guests": 3,
         "bathrooms": 1,
-        "bedrooms": 2,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer",
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "bookingOptions.instantBook",
+            "safety.securityCam",
+            "services.lockBox",
+            "essentials.workSpace",
+            "family.crib",
+            "location.center",
+            "safety.firstAid",
+            "services.houseKeeping"
+        ],
+        "highlights": [
+            {
+                "main": "Trastevere Streets",
+                "sub": "Immerse yourself in authentic Roman life with winding lanes and nearby trattorias.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Warm & Family-friendly",
+                "sub": "Cozy interiors and extra space for families.",
+                "imgUrl": "family.crib"
+            },
+            {
+                "main": "Historic Charm",
+                "sub": "Original details mixed with modern comforts.",
+                "imgUrl": "bedroom.closet"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-7",
+            "firstName": "Marco",
+            "fullname": "Marco",
+            "location": "Rome, Italy",
+            "about": "La dolce vita — I enjoy welcoming guests and sharing my favorite trattorias and piazzas.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/50.jpg",
+            "isSuperhost": false,
+            "isVerified": true,
+            "signupDate": 1420070400000,
+            "rating": 4.88,
+            "numReviews": 134,
+            "yearsHosting": 9,
+            "responseRate": 95,
+            "responseTime": "within a few hours",
+            "coHosts": [
+                {
+                    "name": "Luca",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/60.jpg"
+                }
+            ],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Rome" },
+                { "icon": "work", "text": "Chef" }
+            ]
+        },
+        "loc": {
+            "country": "Italy",
+            "countryCode": "IT",
+            "city": "Rome",
+            "address": "Trastevere, Rome, Italy",
+            "lat": 41.8899,
+            "lng": 12.4722
+        },
+        "reviews": [
+            {
+                "at": "2024-03-30T00:00:00.000Z",
+                "by": {
+                    "_id": "r-7001",
+                    "fullname": "Giulia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/48.jpg",
+                    "id": "70711825"
+                },
+                "txt": "A lovely apartment in Trastevere with great local tips from Marco.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 4.8,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 6,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2023-08-12T00:00:00.000Z",
+                "by": {
+                    "_id": "r-7002",
+                    "fullname": "Ethan",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/52.jpg",
+                    "id": "70711826"
+                },
+                "txt": "Warm welcome and excellent location close to the river.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 4.8,
+                    "checkIn": 4.6,
+                    "accuracy": 4.5,
+                    "location": 4.9,
+                    "value": 4.4
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2022-10-01T00:00:00.000Z",
+                "by": {
+                    "_id": "r-7003",
+                    "fullname": "Sofia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/36.jpg",
+                    "id": "70711827"
+                },
+                "txt": "Perfect for families exploring Rome — lots of space and charm.",
+                "rate": {
+                    "cleanliness": 4.6,
+                    "communication": 4.7,
+                    "checkIn": 4.5,
+                    "accuracy": 4.4,
+                    "location": 4.8,
+                    "value": 4.2
+                },
+                "nights": 7,
+                "withKids": true,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-09-25",
-        "endDate": "2025-09-30",
-        "host": { "_id": "host-city-7", "fullname": "Marco", "location": "Rome, Italy" },
-        "loc": { "country": "Italy", "city": "Rome", "address": "Trastevere, Rome" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-09-30"
     },
     {
         "_id": "city-008",
         "name": "Dubai Marina Apartment",
         "type": "City stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMwODc5ODA5MTk2NDIzODIwMg==/original/490634e7-77fe-4ec3-818e-86e73fda973e.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMwODc5ODA5MTk2NDIzODIwMg==/original/490634e7-77fe-4ec3-818e-86e73fda973e.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/205547f1-3963-4a56-a1d3-cfb20123223e.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/f5d01f4e-c519-49b9-a747-8a6a4130d0a2.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/853d4455-9c4e-4efc-a194-2e860a50d2a5.jpeg?im_w=720"
+        ],
         "price": 260,
-        "summary": "High-rise apartment with marina views.",
-        "capacity": 4,
+        "cleaningFee": 40,
+        "summary": `High-rise apartment with marina views. Modern interior, 
+        great for families or groups looking to enjoy Dubai Marina and nearby attractions.
+        \n\nOverlooking the dazzling Dubai Marina, this upscale apartment offers panoramic skyline views, 
+        designer interiors, and access to a private infinity pool. \n\nThe open-concept living area is perfect
+         for entertaining, while floor-to-ceiling glass floods the space with natural light. 
+         Walk to world-class restaurants, beaches, and the Marina Mall, or unwind on your balcony with 
+         the sunset reflecting off the city’s glass towers.
+         \n\nIdeal for luxury seekers and business travelers alike.`,
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMwODc5ODA5MTk2NDIzODIwMg==/original/490634e7-77fe-4ec3-818e-86e73fda973e.jpeg?im_w=720"
+            },
+            {
+                "roomType": "living room",
+                "bedType": "sofa",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/853d4455-9c4e-4efc-a194-2e860a50d2a5.jpeg?im_w=720"
+            }
+        ],
+        "guests": 4,
         "bathrooms": 2,
         "bedrooms": 2,
+        "beds": 2,
+        "amenities": [
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer",
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "bookingOptions.instantBook",
+            "safety.securityCam",
+            "essentials.workSpace",
+            "family.crib",
+            "location.center",
+            "safety.firstAid",
+            "location.beach",
+            "services.houseKeeping",
+        ],
+        "highlights": [
+            {
+                "main": "Marina Views",
+                "sub": "Sweeping water views from high floors.",
+                "imgUrl": "location.waterFront"
+            },
+            {
+                "main": "Modern High-rise",
+                "sub": "Contemporary amenities and easy marina access.",
+                "imgUrl": "features.grill"
+            },
+            {
+                "main": "Great for Families",
+                "sub": "Roomy layout and nearby family attractions.",
+                "imgUrl": "family.boardGames"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-8",
+            "firstName": "Omar",
+            "fullname": "Omar",
+            "location": "Dubai, UAE",
+            "about": "Hospitality professional who wants guests to enjoy the Marina lifestyle.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/66.jpg",
+            "isSuperhost": false,
+            "isVerified": true,
+            "signupDate": 1612137600000,
+            "rating": 4.8,
+            "numReviews": 89,
+            "yearsHosting": 3,
+            "responseRate": 93,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Dubai" },
+                { "icon": "work", "text": "Property manager" }
+            ]
+        },
+        "loc": {
+            "country": "United Arab Emirates",
+            "countryCode": "AE",
+            "city": "Dubai",
+            "address": "Dubai Marina, Dubai, UAE",
+            "lat": 25.0800,
+            "lng": 55.1400
+        },
+        "reviews": [
+            {
+                "at": "2024-09-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-8001",
+                    "fullname": "Farah",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/55.jpg",
+                    "id": "80711825"
+                },
+                "txt": "Lovely flat with great marina views. Very comfortable for our family.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.7,
+                    "checkIn": 4.6,
+                    "accuracy": 4.5,
+                    "location": 4.9,
+                    "value": 4.4
+                },
+                "nights": 7,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2023-12-15T00:00:00.000Z",
+                "by": {
+                    "_id": "r-8002",
+                    "fullname": "Owen",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/70.jpg",
+                    "id": "80711826"
+                },
+                "txt": "Modern and clean. Marina is beautiful at night.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 4.6,
+                    "checkIn": 4.5,
+                    "accuracy": 4.4,
+                    "location": 4.8,
+                    "value": 4.1
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-07-20T00:00:00.000Z",
+                "by": {
+                    "_id": "r-8003",
+                    "fullname": "Hannah",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/19.jpg",
+                    "id": "80711827"
+                },
+                "txt": "Great building, safe and family-friendly — easy access to restaurants.",
+                "rate": {
+                    "cleanliness": 4.6,
+                    "communication": 4.5,
+                    "checkIn": 4.3,
+                    "accuracy": 4.4,
+                    "location": 4.7,
+                    "value": 4.0
+                },
+                "nights": 5,
+                "withKids": true,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-08-15",
-        "endDate": "2025-08-20",
-        "host": { "_id": "host-city-8", "fullname": "Omar", "location": "Dubai, UAE" },
-        "loc": { "country": "UAE", "city": "Dubai", "address": "Dubai Marina" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-08-20"
     },
+    // ////////////////////
 
     {
         "_id": "beach-001",
         "name": "Barcelona Beach Flat",
         "type": "Beach stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-38770272/original/65f994ed-6c47-4e8d-9d1c-585e9c17b304.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/cb9e32f5-c0d1-4064-878f-574593ff8380.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/77bc9213-529a-485c-b434-20d15d2e57d4.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/634bbeb3-8c7a-43f1-9fb1-640867f52141.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/f68f8ca9-e8ed-4fa0-ba26-5923e569f3c9.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/0e29fd72-7b2f-42a7-b8f1-e6554e24ffaa.jpeg?im_w=720"
+        ],
         "price": 180,
-        "summary": "Sunny apartment steps from Barceloneta beach.",
-        "capacity": 4,
+        "cleaningFee": 40,
+        "summary": "Sunny apartment steps from Barceloneta beach with bright interiors and sea breeze directly through the windows.\n\nThis two-bedroom flat is styled with Mediterranean tones and comfortable furnishings — ideal for small groups or families who want both beach access and city sightseeing. The open-plan living room leads to a small balcony with partial sea views.\n\nThe kitchen is fully equipped for beach breakfasts and tapas nights, and fast Wi-Fi plus a small workspace make it convenient for remote work. Walk to fish markets, beachfront restaurants, and Barceloneta promenade within minutes.",
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "single bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/0e29fd72-7b2f-42a7-b8f1-e6554e24ffaa.jpeg?im_w=720"
+            },
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NDQwMDIyMDc5NjU0OTUwNg==/original/77bc9213-529a-485c-b434-20d15d2e57d4.jpeg?im_w=720"
+            },
+        ],
+        "guests": 3,
         "bathrooms": 1,
         "bedrooms": 2,
+        "beds": 3,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "kitchen.fridge",
+            "kitchen.microwave",
+            "kitchen.oven",
+            "kitchen.table",
+            "bedroom.hangers",
+            "bedroom.doubleBed",
+            "bathroom.hotWater",
+            "bathroom.hairDryer",
+            "features.breakfast",
+            "outdoor.beachEssentials",
+            "services.lockBox",
+            "safety.firstAid",
+            "safety.smokeAlarm",
+            "location.beach",
+            "bookingOptions.instantBook",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            {
+                "main": "Steps to Barceloneta Beach",
+                "sub": "Sand, sun and the promenade are only minutes away.",
+                "imgUrl": "location.beach"
+            },
+            {
+                "main": "Well-equipped Kitchen",
+                "sub": "Perfect for preparing local seafood and tapas.",
+                "imgUrl": "kitchen.cookingBasics"
+            },
+            {
+                "main": "Fast Wi-Fi & Workspace",
+                "sub": "Reliable connection for streaming or working remotely.",
+                "imgUrl": "essentials.wifi"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-1",
+            "firstName": "María",
+            "fullname": "María López",
+            "location": "Barcelona, Spain",
+            "about": "Local Barceloneta resident who loves the sea, local markets and recommending hidden tapas spots. I aim to make guests feel at home while sharing the best of the neighborhood.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/68.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1530403200000,
+            "rating": 4.92,
+            "numReviews": 312,
+            "yearsHosting": 6,
+            "responseRate": 99,
+            "responseTime": "within an hour",
+            "coHosts": [
+                {
+                    "name": "Pablo",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/72.jpg"
+                }
+            ],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Barcelona" },
+                { "icon": "work", "text": "Interior stylist" }
+            ]
+        },
+        "loc": {
+            "country": "Spain",
+            "countryCode": "ES",
+            "city": "Barcelona",
+            "address": "Barceloneta, Barcelona, Spain",
+            "lat": 41.3825,
+            "lng": 2.1901
+        },
+        "reviews": [
+            {
+                "at": "2024-07-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b001",
+                    "fullname": "Lina",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/45.jpg",
+                    "id": "901001"
+                },
+                "txt": "Fantastic location — we were on the beach within two minutes. The apartment was bright and clean, and María gave great local tips.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-05-18T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b002",
+                    "fullname": "Ethan",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg",
+                    "id": "901002"
+                },
+                "txt": "Great flat for a family — roomy bedrooms and the kitchen had everything we needed. Close to good restaurants along the sea.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 4.8,
+                    "checkIn": 4.6,
+                    "accuracy": 4.5,
+                    "location": 5.0,
+                    "value": 4.4
+                },
+                "nights": 7,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2023-10-09T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b003",
+                    "fullname": "Maya",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+                    "id": "901003"
+                },
+                "txt": "Clean, friendly host and excellent location. Small balcony with nice breezes each evening.",
+                "rate": {
+                    "cleanliness": 4.6,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.5,
+                    "location": 4.9,
+                    "value": 4.3
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-07-20T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b004",
+                    "fullname": "Tom",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/12.jpg",
+                    "id": "901004"
+                },
+                "txt": "Perfect spot for beach days and exploring Barcelona. Check-in was easy and María responded quickly.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.2
+                },
+                "nights": 6,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2022-12-28T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b005",
+                    "fullname": "Aisha",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/27.jpg",
+                    "id": "901005"
+                },
+                "txt": "Lovely apartment — good value and a short walk to the old port. Beds were comfortable and the kitchen worked well for us.",
+                "rate": {
+                    "cleanliness": 4.5,
+                    "communication": 4.6,
+                    "checkIn": 4.4,
+                    "accuracy": 4.3,
+                    "location": 4.8,
+                    "value": 4.1
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2022-06-12T00:00:00.000Z",
+                "by": {
+                    "_id": "r-b006",
+                    "fullname": "Carlos",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/57.jpg",
+                    "id": "901006"
+                },
+                "txt": "Great communication and a very practical apartment for group trips. Loved the proximity to the beach bars.",
+                "rate": {
+                    "cleanliness": 4.6,
+                    "communication": 4.8,
+                    "checkIn": 4.6,
+                    "accuracy": 4.5,
+                    "location": 5.0,
+                    "value": 4.2
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-07-10",
-        "endDate": "2025-07-15",
-        "host": { "_id": "host-beach-1", "fullname": "Maria", "location": "Barcelona, Spain" },
-        "loc": { "country": "Spain", "city": "Barcelona", "address": "Barceloneta, Barcelona" },
-        "reviews": [],
-        "likedByUsers": []
-    },
+        "endDate": "2025-07-15"
+    }
+    ,
     {
         "_id": "beach-002",
         "name": "Miami Oceanview Condo",
@@ -525,17 +1909,17 @@ export const demoStays = [
             {
                 "main": "Dive right in",
                 "sub": "This is one of the few places in the area with a pool.",
-                "imgUrl": "AMENITIES_POOL_SVG"
+                "imgUrl": "location.pool"
             },
             {
                 "main": "Fully equipped kitchen",
                 "sub": "Guests appreciated the well-stocked kitchen for home-cooked meals.",
-                "imgUrl": "AMENITIES_KITCHEN_SVG"
+                "imgUrl": "kitchen.kitchen"
             },
             {
                 "main": "Well-equipped for long stays",
                 "sub": "Guests who stayed a month or longer rated this place 5 stars.",
-                "imgUrl": "AMENITIES_LONG_STAY_SVG"
+                "imgUrl": "services.longStay"
             }
         ],
         "roomType": "Entire home/apt",
@@ -565,8 +1949,8 @@ export const demoStays = [
                 }
             ],
             "personalFacts": [
-                { "icon": "HOST_SVG_BORN", "text": "Born in the 80's" },
-                { "icon": "HOST_SVG_WORK", "text": "Photographer" }
+                { "icon": "born", "text": "Born in the 80's" },
+                { "icon": "work", "text": "Photographer" }
             ]
         },
         "loc": {
@@ -575,7 +1959,7 @@ export const demoStays = [
             "city": "Maui",
             "address": "Lahaina, HI, United States",
             "lat": -156.6917,
-            "lan": 20.93792
+            "lng": 20.93792
         },
         "reviews": [
             {

@@ -149,25 +149,19 @@ async function addStayReview(stayId, txt) {
 }
 
 
-export function getAmenitiesData(amenitiesSvgs) {
-
-    const categories = ['bathroom', 'bedroom', 'bookingOptions', 'essentials', 'family', 'features', 'kitchen', 'locaion',
-        'outdoor', 'parking', 'safety', 'services', 'notIncluded']
+export function getAmenitiesData(amenitiesSvgs, stayAmenities = []) {
 
     const amenitiesArr = []
 
-    categories.forEach(category => {
-        // If category exists in amenitiesSvgs
-        if (amenitiesSvgs[category]) {
-
-            Object.keys(amenitiesSvgs[category]).forEach(item => {
-                const formattedItem = formatName(item)
-                amenitiesArr.push({
-                    type: category,
-                    name: formattedItem,
-                    svgUrl: amenitiesSvgs[category][item]
-                })
-
+    stayAmenities.forEach((amenityKey) => {
+        const [category, name] = amenityKey.split('.')
+        const formatedName = formatName(name)
+        const formatedCat = formatName(category)
+        if (amenitiesSvgs?.[category]?.[name]) {
+            amenitiesArr.push({
+                type: formatedCat,
+                name: formatedName,
+                svgUrl: amenitiesSvgs[category][name]
             })
         }
     })
