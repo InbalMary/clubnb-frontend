@@ -3,12 +3,17 @@ import { store } from '../store'
 import { ADD_STAY, REMOVE_STAY, SET_STAYS, SET_STAY, UPDATE_STAY, ADD_STAY_REVIEW, SET_FILTERBY, SET_IS_LOADING } from '../reducers/stay.reducer'
 
 export async function loadStays(filterBy) {
+    store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     try {
         const stays = await stayService.query(filterBy)
         store.dispatch(getCmdSetStays(stays))
     } catch (err) {
         console.log('Cannot load stays', err)
         throw err
+    } finally {
+        setTimeout(() => {
+            store.dispatch({ type: SET_IS_LOADING, isLoading: false })
+        }, 500)
     }
 }
 

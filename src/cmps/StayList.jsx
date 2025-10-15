@@ -1,9 +1,13 @@
 import { StayPreview } from './StayPreview'
 import { Carousel } from './Carousel'
 import { svgControls } from './Svgs'
+import { StayListSkeleton } from './StayListSkeleton'
+import { useSelector } from 'react-redux'
 
-export function StayList({ stays }) {
+export function StayList() {
+    const { stays, isLoading } = useSelector(storeState => storeState.stayModule)
     const categories = [...new Set(stays.map(stay => stay.type))]
+    if (isLoading) return <StayListSkeleton categories={categories} />
 
     return (
         <section className='stay-list-section main-container'>
