@@ -10,7 +10,7 @@ import { StepLocation } from "../cmps/StepLocation";
 
 export function StayEdit() {
     const navigate = useNavigate()
-    const [currentStep, setCurrentStep] = useState(1)
+    const [currentStep, setCurrentStep] = useState(0)
     const [selectedPlaceType, setSelectedPlaceType] = useState('')
     const [selectedPrivacyType, setSelectedPrivacyType] = useState('')
     const [address, setAddress] = useState('')
@@ -54,7 +54,9 @@ export function StayEdit() {
     }
 
     const handleNext = () => {
-        if (currentStep === 1) {
+        if (currentStep === 0) {
+            setCurrentStep(1)
+        } else if (currentStep === 1) {
             setCurrentStep(2)
         } else if (currentStep === 2 && selectedPlaceType) {
             setCurrentStep(3)
@@ -66,8 +68,10 @@ export function StayEdit() {
     }
 
     const handleBack = () => {
-        if (currentStep === 1) {
+        if (currentStep === 0) {
             navigate('/')
+        } else if (currentStep === 1) {
+            setCurrentStep(0)
         } else {
             setCurrentStep(currentStep - 1)
         }
@@ -88,12 +92,74 @@ export function StayEdit() {
                     <img src={`/img/logo-black.svg`} alt="logo-black" className="logo-black-icon" />
                 </div>
                 <div className="header-actions">
-                    <button className="btn btn-pill questions-button">Questions?</button>
-                    <button className="btn btn-pill save-exit-button" onClick={handleSaveExit}>
-                        Save & exit
-                    </button>
+                    {currentStep === 0 ? (
+                        <button className="btn btn-pill save-exit-button" onClick={handleSaveExit}>
+                            Exit
+                        </button>
+                    ) : (
+                        <>
+                            <button className="btn btn-pill questions-button">Questions?</button>
+                            <button className="btn btn-pill save-exit-button" onClick={handleSaveExit}>
+                                Save & exit
+                            </button>
+                        </>
+                    )}
                 </div>
             </header>
+
+            {currentStep === 0 && (
+                <main className="welcome-screen">
+
+                    <div className="welcome-content">
+                        <div className="welcome-left">
+                            <h1 className="welcome-title">It's easy to get started on Airbnb</h1>
+                        </div>
+
+                        <div className="welcome-right">
+                            <div className="welcome-steps">
+                                <div className="welcome-step">
+                                    <div className="step-info">
+                                        <div className="step-number">1</div>
+                                        <div className="step-text">
+                                            <h3>Tell us about your place</h3>
+                                            <p>Share some basic info, like where it is and how many guests can stay.</p>
+                                        </div>
+                                    </div>
+                                    <div className="step-illustration">
+                                        <img src="/img/step2/your-place.png" alt="Step 1" />
+                                    </div>
+                                </div>
+
+                                <div className="welcome-step">
+                                    <div className="step-info">
+                                        <div className="step-number">2</div>
+                                        <div className="step-text">
+                                            <h3>Make it stand out</h3>
+                                            <p>Add 5 or more photos plus a title and description—we'll help you out.</p>
+                                        </div>
+                                    </div>
+                                    <div className="step-illustration">
+                                        <img src="/img/step2/stand-out.png" alt="Step 2" />
+                                    </div>
+                                </div>
+
+                                <div className="welcome-step">
+                                    <div className="step-info">
+                                        <div className="step-number">3</div>
+                                        <div className="step-text">
+                                            <h3>Finish up and publish</h3>
+                                            <p>Choose a starting price, verify a few details, then publish your listing.</p>
+                                        </div>
+                                    </div>
+                                    <div className="step-illustration">
+                                        <img src="/img/step2/finish-up.png" alt="Step 3" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            )}
 
             {currentStep === 1 && (
                 <main className="step-main-content">
@@ -173,26 +239,34 @@ export function StayEdit() {
                 />
             )}
 
-            <footer className="step-footer">
-                <button className="back-button" onClick={handleBack}>
-                    Back
-                </button>
-                <button
-                    className={`btn btn-black next-button ${(currentStep === 2 && !selectedPlaceType) ||
-                        (currentStep === 3 && !selectedPrivacyType) ||
-                        (currentStep === 4 && !address)
-                        ? 'disabled' : ''
-                        }`}
-                    onClick={handleNext}
-                    disabled={
-                        (currentStep === 2 && !selectedPlaceType) ||
-                        (currentStep === 3 && !selectedPrivacyType) ||
-                        (currentStep === 4 && !address)
-                    }
-                >
-                    Next
-                </button>
-            </footer>
+            {currentStep === 0 ? (
+                <footer className="welcome-footer">
+                    <button className="btn btn-pink get-started-button" onClick={handleNext}>
+                        Get started
+                    </button>
+                </footer>
+            ) : (
+                <footer className="step-footer">
+                    <button className="back-button" onClick={handleBack}>
+                        Back
+                    </button>
+                    <button
+                        className={`btn btn-black next-button ${(currentStep === 2 && !selectedPlaceType) ||
+                            (currentStep === 3 && !selectedPrivacyType) ||
+                            (currentStep === 4 && !address)
+                            ? 'disabled' : ''
+                            }`}
+                        onClick={handleNext}
+                        disabled={
+                            (currentStep === 2 && !selectedPlaceType) ||
+                            (currentStep === 3 && !selectedPrivacyType) ||
+                            (currentStep === 4 && !address)
+                        }
+                    >
+                        Next
+                    </button>
+                </footer>
+            )}
         </div>
     )
 }
