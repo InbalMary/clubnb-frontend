@@ -19,7 +19,7 @@ export function ReservationsPage() {
             console.log('No orders available')
             return []
         }
-        console.log('Total orders:', orders.length)
+        // console.log('Total orders:', orders.length)
         // For now, return all orders..
         return orders
 
@@ -65,7 +65,6 @@ export function ReservationsPage() {
         try {
             const updatedOrder = { ...order, status: newStatus }
             await updateOrder(updatedOrder)
-            setEditingOrderId(null)
         } catch (err) {
             console.error('Failed to update order status:', err)
         }
