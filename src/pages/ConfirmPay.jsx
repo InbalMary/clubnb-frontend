@@ -1,40 +1,77 @@
-
-import { useParams, NavLink } from 'react-router-dom'
-import { useState } from 'react'
-
-import { statSvgs, badgesSvgs, svgControls, appHeaderSvg, paymentSvgs } from '../cmps/Svgs'
-import { formatStayDates } from '../services/util.service'
+import { useParams, NavLink, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { stayService } from '../services/stay/stay.service.local.js'
+import { svgControls, appHeaderSvg, paymentSvgs } from '../cmps/Svgs'
 import { demoOrders } from '../data/demo-orders'
 import { PaymentMethod } from '../cmps/PaymentMethod'
+import { ReservationSummary } from '../cmps/ReservationSummary'
+import { FancyButton } from '../cmps/SmallComponents'
+import { addOrder } from '../store/actions/order.actions'
 
 export function ConfirmPay() { //later send order as a prop from a parent
     const [currentStage, setCurrentStage] = useState(1)
     const [selectedPaymentTiming, setselectedPaymentTiming] = useState('full')
     const [selectedMethod, setSelectedMethod] = useState(null)
+    const [stay, setStay] = useState(null)
+    const navigate = useNavigate()
     const { stayId } = useParams()
     // console.log('Confirming stay:', stayId)
 
     const order = demoOrders[0]
-    const stay = order.stay
+    const demoStay = order.stay
+    //stay coming from service, order from demo-order
+    // TODO: build order summary dynamically from stay instead of demoOrders
     const totalFees = order.cleaningFee + order.serviceFee
     const totalPrice = order.totalPrice
     const payNow = +(totalPrice * 0.2).toFixed(2)
     const payLater = +(totalPrice - payNow).toFixed(2)
-    const pricePerNight = order.pricePerNight
-    const isGuestFavorite = stay.isGuestFavorite
-    const ifIsRareFind = stay.isRareFind
-    const { adults, children, infants } = order.guests
-    const year = new Date(order.startDate).getFullYear()
     const host = order.host
 
+    useEffect(() => {
+        async function loadStay() {
+            const fullStay = await stayService.getById(stayId)
+            setStay(fullStay)
+        }
+        loadStay()
+    }, [stayId])
+
+    if (!stay) return <p>Loading stay...</p>
 
     function handleNextClick() {
-        console.log('Next button clicked — move to payment method section')
         if (currentStage < 4) {
             setCurrentStage(currentStage + 1)
         } else {
             setCurrentStage(4)
         }
+    }
+
+    async function handleReserveClick() {
+        if (!stay) {
+            console.error('No stay loaded, cannot reserve')
+            return
+        }
+        const reservedOrder = {
+            hostId: host._id,
+            guest: {
+                _id: 'test-user-1',
+                fullname: 'Demo Guest'
+            },
+            totalPrice,
+            startDate: order.startDate,
+            endDate: order.endDate,
+            guests: order.guests,
+            stay,
+            msgs: [],
+            status: 'pending'
+        }
+        try {
+            // console.log('Reserved order before saving:', reservedOrder)
+            await addOrder(reservedOrder)
+            navigate('/trips')
+        } catch (err) {
+            console.error('Cannot reserve stay:', err)
+        }
+
     }
 
     return (
@@ -166,97 +203,23 @@ export function ConfirmPay() { //later send order as a prop from a parent
                                 {currentStage === 3 && (
                                     <div className='msg-host-btn-container'>
                                         <button className="btn btn-black confirm-next" onClick={handleNextClick}>
-                                            Next
+                                            Done
                                         </button>
                                     </div>
                                 )}
                             </div>
                             {/*STEP 4*/}
-                            <div className={`reservation-review ${currentStage === 4 ? 'active' : 'collapsed'}`}>
-                                <h3 className="section-title">4. Review your reservation</h3>
-                                {/* reservation summary */}
-                            </div>
-                        </div>
+                            {currentStage === 4 && (
+                                <FancyButton onClick={handleReserveClick} className='btn-reserve-small'>
+                                    Reserve
+                                </FancyButton>
 
-
-                        <div className='reservation-summary-wrapper'>
-                            {/* RIGHT: summary card */}
-                            <aside className="reservation-summary">
-                                <div className='reservation-summary-order'>
-                                    <img src={stay.imgUrl} alt="Order preview" className='reservation-summary-img' />
-                                    <div className="reservation-summary-info">
-                                        <h3 className='reservation-summary-title'>{stay.name}</h3>
-                                        <div className="reservation-summary-details">
-                                            <span className='reservation-summary-rating'>
-                                                <span className='reservation-summary-star'>{statSvgs.starSmall}</span>
-                                                {stay.rating} ({stay.numReviews})
-                                            </span>
-                                            {isGuestFavorite && (
-                                                <span className='reservation-summary-badge'>
-                                                    <span className='guest-favorite-icon'>{badgesSvgs.guestFavorite}</span>Guest favorite</span>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='cancellation-policy'>
-                                    <p>Free cancellation</p>
-                                    <p>Cancel before [date TBD] for a full refund.
-                                        <button className='btn btn-link'>Full policy</button>
-                                    </p> {/*Implement this function*/}
-
-                                </div>
-                                <div className='reservation-summary-dates'>
-                                    <p>Dates</p>
-                                    <p>{formatStayDates(order.startDate, order.endDate)}, {year}</p>
-                                </div>
-                                <div className='reservation-summary-guests'>
-                                    <p>Guests</p>
-                                    <p className='guests-inline'>
-                                        <span>{adults} {adults === 1 ? 'adult' : 'adults'}</span>
-                                        {children > 0 && <span>{children} {children === 1 ? 'child' : 'children'}</span>}
-                                        {infants > 0 && <span>{infants} {infants === 1 ? 'infant' : 'infants'}</span>}
-                                    </p>
-                                </div>
-                                <div className='reservation-price'>
-                                    {/* TODO: replace static values with dynamic calculation */}
-                                    <p>Price details</p>
-                                    <div className="price-details">
-                                        <div className='reservation-total-nights'>
-                                            <p>{order.numNights} nights x ${pricePerNight}</p>
-                                            <span>${totalPrice}</span>
-                                        </div>
-                                        <div className='cleaning-fee'>
-                                            <p>Cleaning fee</p>
-                                            <span>${order.cleaningFee}</span>
-                                        </div>
-                                        <div className='service-fee'>
-                                            <p>Clubnb service fee</p>
-                                            <span>${order.serviceFee}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='reservation-summary-total'>
-                                    <p>Total</p>
-                                    <div className='total-amount'>
-                                        <span className='reservation-currency'> USD</span> {/*TODO: change later to a button link for dynamic currency change options modal */}
-                                        <span className='reservation-final-total'>${order.totalPrice + totalFees}</span>
-                                    </div>
-                                    <button className='btn btn-link price-breakdown'>Price breakdown</button> {/*TODO: later add modal onClick */}
-                                </div>
-                            </aside>
-                            {ifIsRareFind && (
-                                <div className='rare-find'>
-                                    <span className='rare-find-icon'>{badgesSvgs.rareFind}</span>
-                                    <div className='rare-find-text'>
-                                        <p>This is a rare find</p>
-                                        <p>{order.host.firstName}'s place is usually booked.</p>
-                                    </div>
-                                </div>
                             )}
                         </div>
+                        <ReservationSummary order={order} />
                     </div>
-                </section>
-            </div>
+                </section >
+            </div >
         </>
     )
 }

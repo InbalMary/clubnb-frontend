@@ -231,7 +231,7 @@ export function MiniHost({ stay }) {
     </div>)
 }
 
-export function FancyButton({ children, onClick }) {
+export function FancyButton({ children, onClick, className = '' }) {
     const buttonRef = useRef()
 
     const handleMouseMove = (e) => {
@@ -245,7 +245,7 @@ export function FancyButton({ children, onClick }) {
 
     return (
         <button
-            className="pink"
+            className={`pink ${className}`}
             ref={buttonRef}
             onMouseMove={handleMouseMove}
             onClick={onClick}

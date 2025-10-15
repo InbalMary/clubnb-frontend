@@ -88,10 +88,10 @@ export function StickyContainer({ stay, initialModal = null }) {
     function handleClick() {
         const from = dateRange.from || startDate
         const to = dateRange.to || endDate
-        console.log('from:', from, 'to:', to, 'stayId:', stayId)
+        // console.log('from:', from, 'to:', to, 'stayId:', stayId)
 
         if (from && to) {
-            navigate(`/stay/${stayId}/confirm-pay`)
+            navigate(`/stay/${stay._id}/confirm-pay`)
         } else {
             //TEMPORARY FALLBACK
             setModalType('checkin')

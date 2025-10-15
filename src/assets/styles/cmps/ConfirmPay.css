@@ -1,8 +1,6 @@
 /*HEADER*/
 .confirm-pay-logo-bar.full {
     width: 100vw;
-    /* margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw); */
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -81,11 +79,16 @@
     width: 540px;
     gap: 1.5rem;
 
-    >* {
+
+
+    >.payment-timing,
+    >.payment-method,
+    >.host-message {
         border: 1px solid var(--gray6);
         border-radius: 20px;
         padding: 1.5rem;
     }
+
 }
 
 .section-title {
@@ -178,6 +181,11 @@
     .pay-method-label {
         color: var(--gray2);
     }
+}
+
+.btn-reserve-small {
+    width: 150px;
+    align-self: end;
 }
 
 /*RIGHT COLUMN at ReservationSummary.css*/
