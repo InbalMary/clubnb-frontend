@@ -45,6 +45,10 @@ export function ConfirmPay() { //later send order as a prop from a parent
         }
     }
 
+    function handleBackClick() {
+        navigate(-1)
+    }
+
     async function handleReserveClick() {
         if (!stay) {
             console.error('No stay loaded, cannot reserve')
@@ -87,7 +91,7 @@ export function ConfirmPay() { //later send order as a prop from a parent
             </header>
             <div className="main-container">
                 <section className="confirm-pay-page">
-                    <button className="btn btn-gray back">{svgControls.backArrow}</button>
+                    <button className="btn btn-gray back" onClick={handleBackClick}>{svgControls.backArrow}</button>
                     <h1 className="confirm-pay-title">Confirm and pay</h1>
                     <div className="confirm-layout">
                         {/* LEFT: main flow */}
