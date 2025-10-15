@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { formatStayDates, calculateNights } from '../services/util.service.js'
+import { formatStayDates, calculateNights, formatDate } from '../services/util.service.js'
 import { svgControls } from './Svgs.jsx'
 import { Modal } from './Modal.jsx'
 import { showSuccessMsg } from '../services/event-bus.service.js'
@@ -41,8 +41,7 @@ export function StayPreview({ stay }) {
     return <article className="stay-preview">
         <div className='stay-image-wrapper'>
 
-            <Link to={`/stay/${stay._id}`} className='stay-link'>
-
+            <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className='stay-link'>
                 <img
                     src={stay.imgUrls?.[0] || 'https://picsum.photos/200/200?random=1'}
                     alt={stay.name}
@@ -109,7 +108,7 @@ export function StayPreview({ stay }) {
         </div>
         <div className='stay-info'>
             <header>
-                <Link to={`/stay/${stay._id}`} className="stay-name">
+                <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className="stay-name">
                     {stay.name}
                 </Link>
             </header>
