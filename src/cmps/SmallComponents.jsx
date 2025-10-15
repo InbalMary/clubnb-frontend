@@ -6,39 +6,42 @@ import { useEffect, useRef, useState } from "react"
 import diamond from "../assets/svgs/diamond.png"
 
 export function Highlights({ stay }) {
+    if (!stay?.highlights || !Array.isArray(stay?.highlights)) return null
     return (
         <div className="highlights">
             <ul>
-                {stay.highlights.map((highlight) => {
+                {stay?.highlights?.map((highlight) => {
                     let Icon = null
                     if (highlight.imgUrl) {
                         const [category, name] = highlight.imgUrl.split('.')
                         Icon = amenitiesSvg?.[category]?.[name] || null
                     }
                     return (
-                        <li key={highlight.main}>
+                        <li key={highlight?.main}>
                             <span className="highlight-icon">
                                 {Icon ? <span className="highlight-icon">{Icon}</span> : null}
                             </span>
                             <div>
-                                <h3>{highlight.main}</h3>
-                                <span className="light">{highlight.sub}</span>
+                                <h3>{highlight?.main || ''}</h3>
+                                <span className="light">{highlight?.sub || ''}</span>
                             </div>
                         </li>
                     )
                 })}
             </ul>
+            <div className="border"></div>
+
         </div>
     )
 }
 
 export function Capacity({ stay }) {
     return (<div className="capacity">
-        <span className="">{stay.guests} {stay.guests === 1 ? "guest" : "guests"}</span>
+        <span className="">{stay.guests || 2} {stay.guests === 1 ? "guest" : "guests"}</span>
         <span className="dot " />
         <span className="">{stay.bedrooms} {stay.bedrooms === 1 ? "bedroom" : "bedrooms"}</span>
         <span className="dot " />
-        <span className="">{stay.beds} {stay.beds === 1 ? "bed" : "beds"}</span>
+        <span className="">{stay.beds || 2} {stay.beds === 1 ? "bed" : "beds"}</span>
         <span className="dot " />
         <span className="">{stay.bathrooms} {stay.bathrooms === 1 ? "bathroom" : "bathrooms"}</span>
     </div>)
@@ -121,6 +124,7 @@ export function AmenitiesLongList({ amenitiesData }) {
 }
 
 export function SleepingRooms({ stay }) {
+    if (!Array.isArray(stay?.rooms)) return null
     return (
         <div className="beds-container">
 
@@ -136,6 +140,8 @@ export function SleepingRooms({ stay }) {
                     </div>
                 )}
             </div>
+                            <div className="border"></div>
+
         </div>
     )
 }
@@ -188,6 +194,7 @@ export function SmallRating({ stay, onClick, readOnly = false }) {
         })
         const avgRate = totalSum / totalReviews
         const roundedAverage = avgRate.toFixed(2)
+        if (isNaN(roundedAverage)) return 0
         return roundedAverage
     }
 
@@ -211,18 +218,20 @@ export function MiniHost({ stay }) {
     function getHostingTime(host) {
         const currentDate = new Date(Date.now())
         const signupDate = new Date(host.signupDate)
+
+        if (isNaN(signupDate.getTime())) return 'Newly'
         const yearsDifference = currentDate.getFullYear() - signupDate.getFullYear()
         const monthsDifference = currentDate.getMonth() - signupDate.getMonth()
-
         if (yearsDifference >= 1) {
             return `${yearsDifference} years`
         } else {
             return `${monthsDifference} months`
         }
     }
+    const fallbackImgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
 
     return (<div className="mini-host flex">
-        <img className="host-img" src={stay.host.pictureUrl} />
+        <img className="host-img" src={stay.host.pictureUrl || fallbackImgUrl} />
         <span>
             <h3>Hosted by {stay.host.fullname}</h3>
             <span className="light"> {stay.host.isSuperhost ? "Superhost" : ''} <span className="dot light" /> </span>
@@ -354,39 +363,39 @@ export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, start
 
 export function DetailsSkeleton() {
     return (
-            <div className="details-skeleton main-content">
-                {/* Title */}
-                <div className="skeleton skeleton-title"></div>
+        <div className="details-skeleton main-content">
+            {/* Title */}
+            <div className="skeleton skeleton-title"></div>
 
-                {/* Image Container */}
-                <div className="image-container">
-                    {/* Left Block */}
-                    <div className="left-image skeleton"></div>
+            {/* Image Container */}
+            <div className="image-container">
+                {/* Left Block */}
+                <div className="left-image skeleton"></div>
 
-                    {/* Right Block - 4 small images */}
-                    <div className="right-images">
-                        <div className="skeleton top-right"></div>
-                        <div className="skeleton top-left"></div>
-                        <div className="skeleton bottom-left"></div>
-                        <div className="skeleton bottom-right"></div>
-                    </div>
-                </div>
-
-                {/* Text under images */}
-                <div className="below-images">
-                    {/* Left side */}
-                    <div className="left-text">
-                        <div className="skeleton skeleton-line1"></div>
-                        <div className="skeleton skeleton-line2"></div>
-                    </div>
-
-                    {/* Right side */}
-                    <div className="right-text">
-                        <div className="skeleton skeleton-line3"></div>
-                        <div className="skeleton skeleton-line4"></div>
-                    </div>
+                {/* Right Block - 4 small images */}
+                <div className="right-images">
+                    <div className="skeleton top-right"></div>
+                    <div className="skeleton top-left"></div>
+                    <div className="skeleton bottom-left"></div>
+                    <div className="skeleton bottom-right"></div>
                 </div>
             </div>
+
+            {/* Text under images */}
+            <div className="below-images">
+                {/* Left side */}
+                <div className="left-text">
+                    <div className="skeleton skeleton-line1"></div>
+                    <div className="skeleton skeleton-line2"></div>
+                </div>
+
+                {/* Right side */}
+                <div className="right-text">
+                    <div className="skeleton skeleton-line3"></div>
+                    <div className="skeleton skeleton-line4"></div>
+                </div>
+            </div>
+        </div>
     )
 }
 

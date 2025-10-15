@@ -64,8 +64,8 @@
 
     .details-imgs {
         display: grid;
-        grid-template-columns: repeat(4, minmax(auto, 273px));
-        grid-template-rows: repeat(2, minmax(auto, 189px));
+        grid-template-columns: repeat(4, minmax(auto, 276px));
+        grid-template-rows: repeat(2, minmax(auto, 185px));
         max-height: 378px;
         width: 100%;
         gap: 8px;

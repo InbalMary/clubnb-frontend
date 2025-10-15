@@ -1,13 +1,13 @@
+import { formatName } from '../services/util.service'
 import { amenitiesSvg, reviewSvgs } from './Svgs'
 
 export function StayRating({ reviews }) {
-    function formatName(str) {
-        return str
-            .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // Add space between lowercase and uppercase letters
-            .replace(/([A-Z])/, (match) => match.toLowerCase()) // Lowercase all the uppercase letters
-            .replace(/(^.)/, (match) => match.toUpperCase()) // Capitalize the first letter
-    }
-
+    // function formatName(str) {
+    //     return str
+    //         .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // Add space between lowercase and uppercase letters
+    //         .replace(/([A-Z])/, (match) => match.toLowerCase()) // Lowercase all the uppercase letters
+    //         .replace(/(^.)/, (match) => match.toUpperCase()) // Capitalize the first letter
+    // }
     function getAvgRateForCtgs(reviews, svgs) {
         const totalPerCtg = {}
         const countPerCtg = {}
@@ -15,7 +15,7 @@ export function StayRating({ reviews }) {
 
         reviews.forEach(review => {
             const rate = review.rate
-            if (!rate) return
+            if (!rate) return 0
 
             //  For counting per-review avg
             let reviewSum = 0
@@ -47,13 +47,13 @@ export function StayRating({ reviews }) {
             }
         })
 
-        const avgRateArr = Object.keys(totalPerCtg).map(category => {
+        const avgRateArr = Object.keys(svgs || {}).map(category => {
             const avg = parseFloat((totalPerCtg[category] / countPerCtg[category]).toFixed(2))
             return {
                 category,
                 formattedName: formatName(category),
-                avg,
-                svg: svgs?.[category] || null
+                avg: isNaN(avg) ? 0 : '',
+                svg: svgs?.[category]
             }
         })
 
@@ -61,6 +61,7 @@ export function StayRating({ reviews }) {
     }
 
     function getAvgRate(reviews) {
+
         let totalSum = 0
         let totalReviews = 0
 
@@ -74,6 +75,7 @@ export function StayRating({ reviews }) {
         })
         const avgRate = totalSum / totalReviews
         const roundedAverage = avgRate.toFixed(2)
+        if (isNaN(roundedAverage)) return 0
         return roundedAverage
     }
 
