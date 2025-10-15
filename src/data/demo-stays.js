@@ -151,11 +151,11 @@ export const demoStays = [
         "name": "Paris Loft with Balcony",
         "type": "City stays",
         "imgUrls": [
-            "https://a0.muscache.com/im/pictures/45234466/1359fbdd_original.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/45234503/efc581f0_original.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/45234432/adc838a0_original.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/45234432/adc838a0_original.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/33089515/f075297a_original.jpg?im_w=720"
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/4ff0cfa0-cfda-41ff-934c-05dbc254ecf2.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/a90d09cd-c7ea-4661-bbe1-550582faef1c.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/cbdb75d3-0177-48cb-af38-788a7a10811d.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/80433843-5e99-45f6-9e9b-284ee8afbd8e.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
         ],
         "price": 220,
         "cleaningFee": 40,
@@ -171,12 +171,12 @@ export const demoStays = [
             {
                 "roomType": "bedroom",
                 "bedType": "double bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/45234432/adc838a0_original.jpg?im_w=720"
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
             },
             {
                 "roomType": "living room",
                 "bedType": "sofa",
-                "imgUrl": "https://a0.muscache.com/im/pictures/33089515/f075297a_original.jpg?im_w=720"
+                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/ee129ff9-a921-4f36-abe9-edb90522546d.jpeg?im_w=720"
             }
         ],
         "guests": 3,
@@ -834,7 +834,7 @@ export const demoStays = [
         "rooms": [
             {
                 "roomType": "studio",
-                "bedType": "double bed",
+                "bedType": "sofa bed",
                 "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODcwNDUyOA%3D%3D/original/72ac4e65-64bd-4b95-9225-17f30759e1aa.jpeg?im_w=720"
             }
         ],
@@ -1159,6 +1159,7 @@ export const demoStays = [
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMwODc5ODA5MTk2NDIzODIwMg==/original/490634e7-77fe-4ec3-818e-86e73fda973e.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/205547f1-3963-4a56-a1d3-cfb20123223e.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/205547f1-3963-4a56-a1d3-cfb20123223e.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/f5d01f4e-c519-49b9-a747-8a6a4130d0a2.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/853d4455-9c4e-4efc-a194-2e860a50d2a5.jpeg?im_w=720"
         ],
@@ -1179,9 +1180,9 @@ export const demoStays = [
                 "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMwODc5ODA5MTk2NDIzODIwMg==/original/490634e7-77fe-4ec3-818e-86e73fda973e.jpeg?im_w=720"
             },
             {
-                "roomType": "living room",
+                "roomType": "bedroom",
                 "bedType": "sofa",
-                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/853d4455-9c4e-4efc-a194-2e860a50d2a5.jpeg?im_w=720"
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/205547f1-3963-4a56-a1d3-cfb20123223e.jpeg?im_w=720",
             }
         ],
         "guests": 4,
@@ -1726,9 +1727,9 @@ export const demoStays = [
         "summary": "Relaxing retreat hut steps away from the Arabian Sea. Perfect for a peaceful getaway with tropical surroundings and traditional Goan vibes. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
         "rooms": [
             {
-                "roomType": "hut",
-                "bedType": "double bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1516527996043243853/original/1dd3f9a4-8f0c-457c-aa55-ae6cfc6af9fc.jpeg?im_w=720"
+                "roomType": "bedroom",
+                "bedType": "two single beds",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1516527996043243853/original/f97bb51f-64ae-4cbe-a63c-6e76bf853dde.jpeg?im_w=720"
             }
         ],
         "guests": 2,
@@ -1875,13 +1876,13 @@ export const demoStays = [
         "summary": "Modern apartment overlooking Bondi Beach, steps from the sand and iconic coastal walks. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
         "rooms": [
             {
-                "roomType": "apartment",
-                "bedType": "double bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/6b2612bb-fbc6-4745-8e03-6b4ad0af55e4.jpg?im_w=720"
+                "roomType": "living room",
+                "bedType": "sofa",
+                "imgUrl": "https://a0.muscache.com/im/pictures/caa7839a-7260-41aa-be85-aa18bd4329a2.jpg?im_w=720",
             },
             {
-                "roomType": "apartment",
-                "bedType": "single bed",
+                "roomType": "bedroom",
+                "bedType": "double bed",
                 "imgUrl": "https://a0.muscache.com/im/pictures/4aabafdb-0fcb-49b0-9f96-6e60a7a1b6f9.jpg?im_w=720"
             }
         ],
@@ -1961,9 +1962,9 @@ export const demoStays = [
         "summary": "Cliffside apartment with sweeping views of the Aegean Sea, perfect for sunset lovers. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
         "rooms": [
             {
-                "roomType": "apartment",
+                "roomType": "bedroom",
                 "bedType": "double bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/cdaa89a1-b9b9-4ee1-8776-6694dff14164.jpg?im_w=720"
+                "imgUrl": "https://a0.muscache.com/im/pictures/6b317784-62ae-4000-abc1-dea8441a7b31.jpg?im_w=720"
             }
         ],
         "guests": 3,
@@ -2038,9 +2039,9 @@ export const demoStays = [
         "summary": "Flat with rooftop pool near Copacabana Beach. Enjoy sunny Rio and stunning sea views. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
         "rooms": [
             {
-                "roomType": "flat",
-                "bedType": "double bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/76f2fd79-878d-4d29-a33f-4c033f31060a.jpeg?im_w=720"
+                "roomType": "bedroom",
+                "bedType": "single bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/eb5d4e3e-4606-4ae3-865d-eed2d2a1e62c.jpeg?im_w=720"
             }
         ],
         "guests": 3,
@@ -2116,14 +2117,9 @@ export const demoStays = [
         "summary": "Spacious villa with direct beach access in Malibu. Ideal for large groups or family retreats.\n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
         "rooms": [
             {
-                "roomType": "villa",
-                "bedType": "king bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/ff1d5477-665b-43b5-afe8-8f4a3d08993b.jpg?im_w=720"
-            },
-            {
-                "roomType": "villa",
-                "bedType": "queen bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/7b835dcb-1ecd-4b5a-9d71-7463ca12f1d0.jpg?im_w=720"
+                "roomType": "living room",
+                "bedType": "sofa bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/466e682e-805a-43ce-9657-e8d121ab51fb.jpg?im_w=720"
             }
         ],
         "guests": 6,
@@ -2187,11 +2183,11 @@ export const demoStays = [
         "name": "Bali Beach Bungalow",
         "type": "Beach stays",
         "imgUrls": [
-            "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/d380ba84-d2ab-4053-8172-8dd8d8c9e911.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/another1.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/another2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/another3.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/another4.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-37978192/original/2ffe0cdd-4963-4257-a7fe-e8fe826bd256.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-37978192/original/d62de5db-1ca8-4820-8b09-cca90dc6e245.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-37978192/original/f86a54a6-7610-43c3-957d-d7089463903f.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-37978192/original/d9eaa065-44d7-4e8d-8032-c4e6734019ff.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-37978192/original/e011a09d-d2e0-4335-8ed4-3a10df35f522.jpg?im_w=720"
         ],
         "price": 120,
         "cleaningFee": 40,
@@ -2200,7 +2196,7 @@ export const demoStays = [
             {
                 "roomType": "bungalow",
                 "bedType": "double bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/d380ba84-d2ab-4053-8172-8dd8d8c9e911.jpeg?im_w=720"
+                "imgUrl": "https://a0.muscache.com/im/pictures/airflow/Hosting-37978192/original/e011a09d-d2e0-4335-8ed4-3a10df35f522.jpg?im_w=720"
             }
         ],
         "guests": 2,
@@ -2256,199 +2252,821 @@ export const demoStays = [
         "startDate": "2025-05-20",
         "endDate": "2025-05-25"
     },
+
+    //////////////////
     // Villas (8 demo stays)
 
-    {
-        "_id": "Ytcqd",
-        "name": "Westin Kaanapali KORVN 2BR",
-        "type": "Villa",
-        "imgUrls": [
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
-            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436294/mvhb3iazpiar6duvy9we.jpg"
-        ],
-        "price": 595,
-        "cleaningFee": 40,
-        "summary": "Experience the comfort of the Westin Kaanapali Ocean Resort Villas North in a beautifully maintained timeshare unit on Maui’s stunning Kaanapali Beach.",
-        "capacity": 3,
-        "bathrooms": 2,
-        "bedrooms": 1,
-        "roomType": "Entire home/apt",
-        "host": { "_id": "host-usa-1", "fullname": "Resort Host", "location": "Maui, Hawaii" },
-        "loc": { "country": "USA", "city": "Maui", "address": "Kaanapali Beach" },
-        "reviews": [],
-        "likedByUsers": []
-    },
+
     {
         "_id": "villa001",
         "name": "Santorini Cliff Villa",
         "type": "Villas",
         "imgUrls": [
-            "https://a0.muscache.com/im/pictures/miso/Hosting-980324970773069493/original/8b8c88b7-3bbc-41de-83f2-f47199f8e73c.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/3b2bcf77-9353-4d38-b004-058c69c611a8.jpg?im_w=720"
+            "https://a0.muscache.com/im/pictures/7970531d-4a74-4695-8a11-058471d27d57.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/c396a26f-df8e-4b9f-aaea-4928f1a68582.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/e67a1e01-460a-412c-a697-b731deb2fa7b.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/5053acbe-fd04-4b31-89d6-057ba022fc00.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/49974207-9e7e-4138-909e-2b989b192938.jpg?im_w=720"
         ],
         "cleaningFee": 40,
         "price": 320,
-        "summary": "Luxury villa perched on the cliffs with infinity pool and Aegean views.",
-        "capacity": 6,
-        "bathrooms": 3,
-        "bedrooms": 3,
+        "summary": `A breathtaking cliffside villa carved into Santorini’s iconic caldera, where whitewashed walls meet endless blue horizons. 
+  \n\nInside, the villa blends Cycladic tradition with modern comfort — vaulted ceilings, hand-polished concrete floors, and sunlit living spaces designed for serenity. 
+  \n\nThree elegant bedrooms open to terraces overlooking the Aegean, while the infinity pool seems to melt into the sea below. 
+  \n\nPerfect for romantic escapes or family retreats, guests can enjoy sunset dinners on the private veranda, a chef’s kitchen stocked with local wines, and easy access to Oia’s cobbled lanes and gourmet restaurants. 
+  \n\nEvery detail, from the crisp linens to the curated art, captures the magic of Santorini’s coastal charm.`,
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/49974207-9e7e-4138-909e-2b989b192938.jpg?im_w=720"
+            }
+        ],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "essentials.hairDryer",
+            "essentials.hotWater",
+            "bedroom.hangers",
+            "bedroom.roomShades",
+            "kitchen.fridge",
+            "kitchen.coffeeMaker",
+            "kitchen.dishes",
+            "kitchen.wineGlass",
+            "outdoor.privatePatio",
+            "outdoor.sunLoungers",
+            "features.pool",
+            "features.breakfast",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            {
+                "main": "Infinity Pool Bliss",
+                "sub": "Swim above the Aegean Sea with panoramic caldera views.",
+                "imgUrl": "location.pool"
+            },
+            {
+                "main": "Cycladic Elegance",
+                "sub": "Whitewashed design meets luxurious interiors.",
+                "imgUrl": "outdoor.privatePatio"
+            },
+            {
+                "main": "Sunset Dining",
+                "sub": "Enjoy unforgettable sunsets from your private terrace.",
+                "imgUrl": "outdoor.outdoorDining"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "hostV1",
+            "fullname": "Nikos",
+            "location": "Santorini",
+            "about": "I enjoy welcoming travelers to Santorini and sharing the beauty of our place.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/48.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1612137600000,
+            "rating": 4.92,
+            "numReviews": 75,
+            "yearsHosting": 4,
+            "responseRate": 95,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Bali" },
+                { "icon": "work", "text": "Hospitality enthusiast & local guide" }
+            ]
+        },
+        "loc": {
+            "country": "Greece",
+            "city": "Santorini",
+            "address": "Oia, Santorini",
+            "lat": 36.4616,
+            "lng": 25.3756
+        },
+        "reviews": [
+            {
+                "at": "2024-04-12T00:00:00.000Z",
+                "by": { "_id": "r-v001", "fullname": "Amelia", "imgUrl": "https://randomuser.me/api/portraits/women/32.jpg" },
+                "txt": "This villa is pure magic! The view from the infinity pool took our breath away every single day. The interiors are spotless and stylish — we felt at home instantly. Nikos made our stay extra special with great dining tips and a warm welcome.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-05-08T00:00:00.000Z",
+                "by": { "_id": "r-v002", "fullname": "Luca", "imgUrl": "https://randomuser.me/api/portraits/men/18.jpg" },
+                "txt": "One of the most beautiful places we've ever stayed. The sunsets over the caldera were unforgettable, and the villa itself is both luxurious and peaceful. Every detail feels considered.",
+                "rate": { "cleanliness": 5, "communication": 4.9, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.8 },
+                "nights": 6,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-06-22T00:00:00.000Z",
+                "by": { "_id": "r-v003", "fullname": "Sophia", "imgUrl": "https://randomuser.me/api/portraits/women/11.jpg" },
+                "txt": "The location is unbeatable — quiet yet close to Oia. The villa is spacious, filled with light, and the pool area is just incredible. We can’t wait to come back next summer.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.9 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-07-15T00:00:00.000Z",
+                "by": { "_id": "r-v004", "fullname": "Elena", "imgUrl": "https://randomuser.me/api/portraits/women/8.jpg" },
+                "txt": "Everything exceeded expectations! Comfortable beds, modern bathrooms, and those stunning terraces. Nikos was super attentive and helped arrange a private chef for one of our nights — it was perfect.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 7,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-08-30T00:00:00.000Z",
+                "by": { "_id": "r-v005", "fullname": "Tobias", "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg" },
+                "txt": "A dream villa in every sense. It felt like our own private slice of paradise. Clean, calm, elegant — exactly what you want in Santorini. Would recommend to couples and families alike.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.9 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-07-15",
-        "endDate": "2025-07-20",
-        "host": { "_id": "hostV1", "fullname": "Nikos", "location": "Santorini, Greece", "isSuperhost": true },
-        "loc": { "country": "Greece", "city": "Santorini", "address": "Oia, Santorini" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-07-20"
     },
     {
         "_id": "villa002",
-        "name": "Bali Jungle Villa",
+        "name": "Bali Luxury Villa",
         "type": "Villas",
         "imgUrls": [
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE2NTU0ODA0NDQ4Nzk4OTQ4MQ%3D%3D/original/75652fc4-7c30-4697-9128-9615b8381737.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-11517171/original/fc113306-c4b5-4b3f-888d-7fd57aa6938e.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1461619826155363710/original/ad7a39dc-0ff4-4449-8c8a-cb87d619d9d1.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1461619826155363710/original/9f30b117-f296-4c2f-9f95-e5b959328e93.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1461619826155363710/original/ffd05ae8-e8a2-4039-857c-6877bc445307.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1461619826155363710/original/a1d7bbd4-715e-4e79-8aad-4bebde3886b3.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/d22bffa9-fb32-4b89-9362-2736cd73fd6e.jpg?im_w=720",
         ],
+        "price": 120,
         "cleaningFee": 40,
-        "price": 270,
-        "summary": "Secluded villa surrounded by lush rainforest with private plunge pool.",
-        "capacity": 4,
-        "bathrooms": 2,
-        "bedrooms": 2,
+        "summary": "Traditional bungalow surrounded by palm trees, steps from the ocean. Relax in a peaceful tropical paradise. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
+        "rooms": [
+            {
+                "roomType": "bungalow",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/d22bffa9-fb32-4b89-9362-2736cd73fd6e.jpg?im_w=720"
+            }
+        ],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "safety.firstAid",
+            "outdoor.beachEssentials",
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            { "main": "Tropical Paradise", "sub": "Palm trees and ocean breeze surround the bungalow.", "imgUrl": "location.beach" },
+            { "main": "Cozy Interiors", "sub": "Traditional Balinese design with modern comfort.", "imgUrl": "bedroom.hangers" },
+            { "main": "Beach Access", "sub": "Just steps away from Sanur Beach.", "imgUrl": "outdoor.beachEssentials" }
+        ],
         "roomType": "Entire home/apt",
-        "startDate": "2025-08-12",
-        "endDate": "2025-08-19",
-        "host": { "_id": "hostV2", "fullname": "Ayu", "location": "Ubud, Bali" },
-        "loc": { "country": "Indonesia", "city": "Bali", "address": "Ubud, Bali" },
-        "reviews": [],
-        "likedByUsers": []
+        "host": {
+            "_id": "host-beach-8",
+            "firstName": "Nyoman",
+            "fullname": "Nyoman Putra",
+            "location": "Bali, Indonesia",
+            "about": "I enjoy welcoming travelers to Bali and sharing the beauty of our island.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/28.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1612137600000,
+            "rating": 4.92,
+            "numReviews": 75,
+            "yearsHosting": 4,
+            "responseRate": 95,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Bali" },
+                { "icon": "work", "text": "Hospitality enthusiast & local guide" }
+            ]
+        },
+        "loc": { "country": "Indonesia", "countryCode": "ID", "city": "Denpasar", "address": "Sanur Beach, Bali", "lat": -8.6880, "lng": 115.2580 },
+        "reviews": [
+            { "at": "2024-02-15T00:00:00.000Z", "by": { "_id": "r-11001", "fullname": "Lily", "imgUrl": "https://randomuser.me/api/portraits/women/50.jpg" }, "txt": "Charming bungalow! Peaceful and steps from the beach.", "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 5, "withKids": false, "withPet": false }
+        ],
+        "likedByUsers": [],
+        "startDate": "2025-05-20",
+        "endDate": "2025-05-25"
     },
     {
         "_id": "villa003",
         "name": "Amalfi Coast Villa",
         "type": "Villas",
         "imgUrls": [
-            "https://a0.muscache.com/im/pictures/7b855e8b-f3a5-4883-b21b-50b80945c587.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE0NzEwNDQ1MTQ3MTI2OTE2Mw%3D%3D/original/3b55b3c7-b020-4f69-b349-aca33ac87854.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE0NzEwNDQ1MTQ3MTI2OTE2Mw%3D%3D/original/41a927b7-31f9-4334-a30f-a6ea2f551917.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE0NzEwNDQ1MTQ3MTI2OTE2Mw%3D%3D/original/eac267d0-3734-4db9-836b-9cbc605bcdf0.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE0NzEwNDQ1MTQ3MTI2OTE2Mw%3D%3D/original/2a6b6172-d8ee-4ccd-8ed8-26c01ea26ad8.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE0NzEwNDQ1MTQ3MTI2OTE2Mw%3D%3D/original/0766ff26-66db-49b1-b819-23a2f4979351.jpeg?im_w=720"
         ],
         "cleaningFee": 40,
         "price": 400,
-        "summary": "Elegant villa with panoramic sea views and terraced gardens.",
-        "capacity": 7,
+        "summary": "Elegant villa perched along the Amalfi Coast, offering sweeping panoramic sea views and terraced gardens.\n\nSpacious interiors blend Mediterranean charm with modern comfort. Floor-to-ceiling windows flood the living areas with light, while the terraces invite sunset dinners overlooking the cliffs.\n\nFour bedrooms, each with its own design and charm, ensure privacy and comfort for family and friends. Guests can enjoy the infinity-edge pool, a fully equipped kitchen, and nearby local markets and restaurants.\n\nA perfect getaway for those seeking beauty, tranquility, and a taste of Italy's coastal magic.",
+        "rooms": [
+            {
+                "roomType": "living room",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE0NzEwNDQ1MTQ3MTI2OTE2Mw%3D%3D/original/eac267d0-3734-4db9-836b-9cbc605bcdf0.jpeg?im_w=720",
+                "bedType": "sofa bed"
+            },
+            {
+                "roomType": "bedroom",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE0NzEwNDQ1MTQ3MTI2OTE2Mw%3D%3D/original/0766ff26-66db-49b1-b819-23a2f4979351.jpeg?im_w=720",
+                "bedType": "double bed"
+            }
+        ],
+        "guests": 7,
         "bathrooms": 3,
         "bedrooms": 4,
+        "beds": 4,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "bedroom.extraPillows",
+            "bedroom.roomShades",
+            "kitchen.fridge",
+            "kitchen.oven",
+            "kitchen.dishes",
+            "kitchen.coffeeMaker",
+            "outdoor.privatePatio",
+            "outdoor.sunLoungers",
+            "location.pool",
+            "location.waterFront",
+            "features.breakfast",
+            "safety.smokeAlarm",
+            "safety.firstAid"
+        ],
+        "highlights": [
+            {
+                "main": "Panoramic Sea Views",
+                "sub": "Enjoy stunning vistas of the Amalfi coastline from terraces and balconies.",
+                "imgUrl": "location.waterFront"
+            },
+            {
+                "main": "Infinity Pool",
+                "sub": "Relax in the private pool surrounded by terraced gardens.",
+                "imgUrl": "location.pool"
+            },
+            {
+                "main": "Mediterranean Interiors",
+                "sub": "Elegant design combining classic coastal style with modern comforts.",
+                "imgUrl": "bedroom.hangers"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "hostV3",
+            "firstName": "Giulia",
+            "fullname": "Giulia Rossi",
+            "location": "Amalfi, Italy",
+            "about": "Passionate about sharing Italy's coast, Giulia ensures every guest feels like family while discovering hidden gems.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/11.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1596240000000,
+            "rating": 4.95,
+            "numReviews": 82,
+            "yearsHosting": 5,
+            "responseRate": 98,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Amalfi" },
+                { "icon": "work", "text": "Loves hosting and sharing local culture" }
+            ]
+        },
+        "loc": {
+            "country": "Italy",
+            "city": "Amalfi",
+            "address": "Positano, Amalfi Coast",
+            "lat": 40.6340,
+            "lng": 14.6020
+        },
+        "reviews": [
+            {
+                "at": "2024-05-10T00:00:00.000Z",
+                "by": { "_id": "r-301", "fullname": "Isabella", "imgUrl": "https://randomuser.me/api/portraits/women/21.jpg" },
+                "txt": "Absolutely stunning villa! The terraces overlooking the coast are perfect for morning coffee and sunset cocktails. Interiors are immaculate and stylish.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 7,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-06-15T00:00:00.000Z",
+                "by": { "_id": "r-302", "fullname": "Matteo", "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg" },
+                "txt": "The views from this villa are unforgettable. Spacious, elegant, and every detail attended to. Giulia was a wonderful host and gave us great local recommendations.",
+                "rate": { "cleanliness": 5, "communication": 4.9, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.8 },
+                "nights": 6,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-07-20T00:00:00.000Z",
+                "by": { "_id": "r-303", "fullname": "Lorenzo", "imgUrl": "https://randomuser.me/api/portraits/men/31.jpg" },
+                "txt": "A perfect family retreat! Rooms are airy and comfortable, pool is fantastic, and location is ideal for exploring Amalfi and Positano.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.9 },
+                "nights": 7,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-08-01T00:00:00.000Z",
+                "by": { "_id": "r-304", "fullname": "Sofia", "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg" },
+                "txt": "Everything was perfect. The villa is beautiful, the terraces are amazing, and Giulia’s tips made our trip extra special.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 6,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-08-18T00:00:00.000Z",
+                "by": { "_id": "r-305", "fullname": "Elisa", "imgUrl": "https://randomuser.me/api/portraits/women/23.jpg" },
+                "txt": "We felt like royalty! The villa’s design, pool, and views exceeded every expectation. Highly recommend for a relaxing Italian getaway.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.9 },
+                "nights": 7,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-09-10",
-        "endDate": "2025-09-17",
-        "host": { "_id": "hostV3", "fullname": "Giulia", "location": "Amalfi, Italy" },
-        "loc": { "country": "Israel", "city": "Tel Aviv-Yafo", "address": "Positano, Amalfi Coast" },
-        "reviews": [],
-        "likedByUsers": []
-    },
+        "endDate": "2025-09-17"
+    }
+    ,
     {
         "_id": "villa004",
         "name": "Phuket Oceanfront Villa",
         "type": "Villas",
         "imgUrls": [
-            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-777292673405205757/original/ddaa27a7-f506-4321-beb8-67f2827533e3.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/b9948d35-a938-4442-8700-8f84561f1ac7.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/8ac95053-d51c-41c6-9d66-315107a1c91f.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/f33e6a6e-1b9a-4632-8a54-fa39e94d94cd.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/4eebbe10-c226-44a4-9fa6-98b13344186b.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/0c247a9c-e7ab-48c5-b7c2-3c7b5f8f01eb.jpg?im_w=720"
         ],
         "cleaningFee": 40,
         "price": 280,
-        "summary": "Spacious villa with direct beach access and modern amenities.",
-        "capacity": 6,
+        "summary": "Spacious oceanfront villa with direct beach access, blending modern comfort and tropical charm.\n\nBright, airy interiors are complemented by expansive terraces overlooking the turquoise waters. Guests can enjoy the private pool, fully equipped kitchen, and easy access to local shops and restaurants.\n\nThree bedrooms with calming décor ensure a restful stay, while outdoor living spaces invite relaxation and sunset views.\n\nIdeal for families or groups seeking a luxurious coastal escape in Phuket.",
+        "rooms": [
+            {
+                "roomType": "living room",
+                "imgUrl": "https://a0.muscache.com/im/pictures/f33e6a6e-1b9a-4632-8a54-fa39e94d94cd.jpg?im_w=720",
+                "bedType": "sofa bed"
+            },
+            {
+                "roomType": "bedroom",
+                "imgUrl": "https://a0.muscache.com/im/pictures/0c247a9c-e7ab-48c5-b7c2-3c7b5f8f01eb.jpg?im_w=720",
+                "bedType": "double bed"
+            }
+        ],
+        "guests": 6,
         "bathrooms": 2,
         "bedrooms": 3,
+        "beds": 3,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "bedroom.extraPillows",
+            "bedroom.roomShades",
+            "kitchen.fridge",
+            "kitchen.oven",
+            "kitchen.dishes",
+            "kitchen.coffeeMaker",
+            "outdoor.privatePatio",
+            "outdoor.sunLoungers",
+            "location.pool",
+            "location.beach",
+            "features.breakfast",
+            "safety.smokeAlarm",
+            "safety.firstAid"
+        ],
+        "highlights": [
+            {
+                "main": "Direct Beach Access",
+                "sub": "Step out from the villa straight onto Patong Beach.",
+                "imgUrl": "location.beach"
+            },
+            {
+                "main": "Private Pool",
+                "sub": "Relax and unwind in your own tropical pool surrounded by sun loungers.",
+                "imgUrl": "location.pool"
+            },
+            {
+                "main": "Spacious Living",
+                "sub": "Open, airy interiors with modern tropical décor and terraces.",
+                "imgUrl": "bedroom.hangers"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "hostV4",
+            "firstName": "Somchai",
+            "fullname": "Somchai Chai",
+            "location": "Phuket, Thailand",
+            "about": "I love sharing the beauty of Phuket with travelers, from hidden beaches to local culinary experiences.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/35.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1609459200000,
+            "rating": 4.9,
+            "numReviews": 65,
+            "yearsHosting": 4,
+            "responseRate": 97,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Phuket" },
+                { "icon": "work", "text": "Hospitality enthusiast & local guide" }
+            ]
+        },
+        "loc": {
+            "country": "Thailand",
+            "city": "Phuket",
+            "address": "Patong Beach, Phuket",
+            "lat": 7.8960,
+            "lng": 98.2950
+        },
+        "reviews": [
+            {
+                "at": "2024-05-20T00:00:00.000Z",
+                "by": { "_id": "r-401", "fullname": "Emily", "imgUrl": "https://randomuser.me/api/portraits/women/35.jpg" },
+                "txt": "Stunning villa with amazing beach access. Perfect for morning walks and relaxing by the pool. Somchai was extremely helpful and welcoming.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 5,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-06-02T00:00:00.000Z",
+                "by": { "_id": "r-402", "fullname": "James", "imgUrl": "https://randomuser.me/api/portraits/men/25.jpg" },
+                "txt": "We loved this villa! The pool and beach are perfect, and the villa itself is bright and spacious. Great location close to restaurants and shops.",
+                "rate": { "cleanliness": 5, "communication": 4.9, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.8 },
+                "nights": 6,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-06-18T00:00:00.000Z",
+                "by": { "_id": "r-403", "fullname": "Anna", "imgUrl": "https://randomuser.me/api/portraits/women/36.jpg" },
+                "txt": "A perfect vacation spot! The villa is clean, spacious, and the view is breathtaking. Somchai provided excellent recommendations for activities nearby.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.9 },
+                "nights": 7,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-07-05T00:00:00.000Z",
+                "by": { "_id": "r-404", "fullname": "Michael", "imgUrl": "https://randomuser.me/api/portraits/men/26.jpg" },
+                "txt": "Everything was fantastic! The villa is right on the beach, with great amenities and plenty of space for our family to enjoy.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 6,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-07-20T00:00:00.000Z",
+                "by": { "_id": "r-405", "fullname": "Samantha", "imgUrl": "https://randomuser.me/api/portraits/women/37.jpg" },
+                "txt": "Beautiful villa with everything we needed. The pool and beach access made it a perfect tropical getaway. Highly recommended.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.9 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-10-05",
-        "endDate": "2025-10-12",
-        "host": { "_id": "hostV4", "fullname": "Somchai", "location": "Phuket, Thailand" },
-        "loc": { "country": "Thailand", "city": "Phuket", "address": "Patong Beach, Phuket" },
-        "reviews": [],
-        "likedByUsers": []
-    },
+        "endDate": "2025-10-12"
+    }
+    ,
     {
         "_id": "villa005",
-        "name": "Tuscany Vineyard Villa",
+        "name": "Tuscany Countryside Estate",
         "type": "Villas",
         "imgUrls": [
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTA5NDk2MjM=/original/a07c1174-2738-4aa8-aedc-23c707805161.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-51056184/original/e3c0c30e-ef76-4079-8fda-248a946cb785.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-51056184/original/3d21c6ab-9d9f-477b-ac97-07993441bf7a.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-51056184/original/5562179d-c64d-445c-8a21-c0d256259f8f.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-51056184/original/8fbb6c38-95f3-464c-bf6f-6b5a6026399e.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-51056184/original/2c43ed7b-b6b4-48d9-b370-719a2264277d.jpeg?im_w=720",
         ],
-        "cleaningFee": 40,
-        "price": 350,
-        "summary": "Traditional Tuscan villa with private vineyard and rustic charm.",
-        "capacity": 8,
-        "bathrooms": 3,
-        "bedrooms": 4,
+        "cleaningFee": 50,
+        "price": 280,
+        "summary": `A serene Tuscan estate surrounded by rolling vineyards and olive groves. 
+  \n\nThis villa captures the timeless charm of rural Italy — exposed stone walls, wooden beams, and terracotta floors create an atmosphere of rustic luxury. 
+  \n\nEnjoy leisurely breakfasts in the garden, swim in the private pool, or sip local wine as the sun sets over the hills of Chianti. 
+  \n\nPerfect for families or small groups looking for an authentic countryside escape close to Florence and Siena.`,
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "Double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-51056184/original/2c43ed7b-b6b4-48d9-b370-719a2264277d.jpeg?im_w=720",
+
+            }
+        ],
+        "guests": 3,
+        "bathrooms": 2,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "bathroom.hotWater",
+            "bathroom.shampoo",
+            "bedroom.hangers",
+            "bedroom.extraPillows",
+            "kitchen.fridge",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "outdoor.privatePatio",
+            "outdoor.grill",
+            "location.mountainView",
+            "features.breakfast",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            {
+                "main": "Tuscan Views",
+                "sub": "Overlooking vineyards and olive groves for miles around.",
+                "imgUrl": "location.mountainView"
+            },
+            {
+                "main": "Rustic Elegance",
+                "sub": "Authentic stone architecture with warm, classic interiors.",
+                "imgUrl": "bedroom.extraPillows"
+            },
+            {
+                "main": "Outdoor Living",
+                "sub": "Enjoy al fresco dining and sunset views from the garden terrace.",
+                "imgUrl": "outdoor.privatePatio"
+            }
+        ],
         "roomType": "Entire home/apt",
-        "startDate": "2025-05-20",
-        "endDate": "2025-05-27",
-        "host": { "_id": "hostV5", "fullname": "Marco", "location": "Tuscany, Italy" },
-        "loc": { "country": "Italy", "city": "Tuscany", "address": "Chianti, Tuscany" },
-        "reviews": [],
-        "likedByUsers": []
+        "host": {
+            "_id": "host-villa-2",
+            "firstName": "Giovanni",
+            "fullname": "Giovanni Rossi",
+            "location": "Tuscany, Italy",
+            "about": "I grew up among vineyards and love sharing the simple pleasures of Tuscany — great food, warm company, and unforgettable views.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/40.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1580515200000,
+            "rating": 4.95,
+            "numReviews": 122,
+            "yearsHosting": 6,
+            "responseRate": 98,
+            "responseTime": "within an hour",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born and raised in Tuscany" },
+                { "icon": "work", "text": "Wine enthusiast and local tour guide" }
+            ]
+        },
+        "loc": {
+            "country": "Italy",
+            "city": "Siena",
+            "address": "Strada di Castelnuovo Berardenga, Tuscany"
+        },
+        "reviews": [
+            {
+                "at": "2024-05-11T00:00:00.000Z",
+                "by": { "_id": "r-t001", "fullname": "Hannah", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" },
+                "txt": "The perfect Tuscan escape! Every corner of this villa feels like a postcard. Giovanni was an amazing host, offering tips on local wineries and restaurants.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 },
+                "nights": 5,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-06-14T00:00:00.000Z",
+                "by": { "_id": "r-t002", "fullname": "Olivier", "imgUrl": "https://randomuser.me/api/portraits/men/15.jpg" },
+                "txt": "Charming villa in the heart of the countryside. The view, the silence, and the food were just what we needed to unwind.",
+                "rate": { "cleanliness": 4.9, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 6,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "startDate": "2025-05-12",
+        "endDate": "2025-05-18"
     },
     {
-        "_id": "villa006",
-        "name": "Ibiza Party Villa",
+        "_id": "villa010",
+        "name": "Neve Tzedek Modern Villa",
         "type": "Villas",
         "imgUrls": [
-            "https://a0.muscache.com/im/pictures/85a1b35b-ce95-47c5-ab14-ce438982e1ed.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1412015755783906407/original/c9fe0c23-069f-4ba5-8397-dcf50335e0f2.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1412015755783906407/original/decd4260-b70b-4415-ad4f-4506507b4de7.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1412015755783906407/original/2554359b-6fa2-4877-90cb-83d1c5e338f5.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1412015755783906407/original/d78b6ae5-f3c3-405e-9eb7-38dd1003540c.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1412015755783906407/original/96dd5517-bc44-4942-8d19-ea1bd3976ab8.jpeg?im_w=720",
         ],
-        "cleaningFee": 40,
-        "price": 450,
-        "summary": "Modern villa with pool, rooftop deck and soundproof party room.",
-        "capacity": 10,
-        "bathrooms": 4,
-        "bedrooms": 5,
-        "roomType": "Entire home/apt",
-        "startDate": "2025-06-01",
-        "endDate": "2025-06-08",
-        "host": { "_id": "hostV6", "fullname": "Lucia", "location": "Ibiza, Spain" },
-        "loc": { "country": "Spain", "city": "Ibiza", "address": "Ibiza Town, Spain" },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "villa007",
-        "name": "Dubai Desert Villa",
-        "type": "Villas",
-        "imgUrls": [
-            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1008374830429730263/original/2cf0eb33-f849-417c-a131-4f9143a9a186.jpeg?im_w=720",
+        "cleaningFee": 45,
+        "price": 380,
+        "summary": "Stylish villa located in the heart of Neve Tzedek, blending modern luxury with historic charm.\n\nSpacious living and dining areas with natural light, fully equipped kitchen, and two terraces for lounging. Three comfortable bedrooms ensure privacy and rest for all guests.\n\nJust steps from trendy boutiques, cafes, and the beach promenade. Perfect for families or groups who want the best of Tel Aviv’s culture and lifestyle.",
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "imgUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1412015755783906407/original/96dd5517-bc44-4942-8d19-ea1bd3976ab8.jpeg?im_w=720",
+                "bedType": "double bed"
+            },
+            {
+                "roomType": "Living room",
+                "imgUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1412015755783906407/original/d78b6ae5-f3c3-405e-9eb7-38dd1003540c.jpeg?im_w=720",
+
+                "bedType": "sofa"
+            }
         ],
-        "cleaningFee": 40,
-        "price": 500,
-        "summary": "Ultra-modern desert villa with private dune safari access.",
-        "capacity": 6,
-        "bathrooms": 3,
-        "bedrooms": 3,
-        "roomType": "Entire home/apt",
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-08",
-        "host": { "_id": "hostV7", "fullname": "Omar", "location": "Dubai, UAE" },
-        "loc": { "country": "UAE", "city": "Dubai", "address": "Al Marmoom Desert" },
-        "reviews": [],
-        "likedByUsers": []
-    },
-    {
-        "_id": "villa008",
-        "name": "Malibu Beach Villa",
-        "type": "Villas",
-        "imgUrls": [
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-561624/original/96f5178f-4f23-4dc0-99b0-c6fa9762bbad.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1517415849614607916/original/05390d0b-3542-4ca1-a2ca-249d6f21397e.jpeg?im_w=720"
+        "guests": 3,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 2,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "bedroom.roomShades",
+            "bedroom.extraPillows",
+            "kitchen.fridge",
+            "kitchen.coffeeMaker",
+            "kitchen.dishes",
+            "outdoor.privatePatio",
+            "outdoor.sunLoungers",
+            "location.center",
+            "features.breakfast",
+            "safety.smokeAlarm"
         ],
-        "cleaningFee": 40,
-        "price": 600,
-        "summary": "Exclusive beachfront villa in Malibu with panoramic ocean views.",
-        "capacity": 8,
-        "bathrooms": 4,
-        "bedrooms": 4,
+        "highlights": [
+            {
+                "main": "Historic Charm",
+                "sub": "Located in Neve Tzedek with boutique streets and cultural landmarks nearby.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Modern Interiors",
+                "sub": "Elegant design with light-filled open spaces and contemporary furniture.",
+                "imgUrl": "bedroom.hangers"
+            },
+            {
+                "main": "Private Patio",
+                "sub": "Outdoor terrace perfect for sunbathing or evening drinks.",
+                "imgUrl": "outdoor.privatePatio"
+            }
+        ],
         "roomType": "Entire home/apt",
-        "startDate": "2025-07-25",
-        "endDate": "2025-08-01",
-        "host": { "_id": "hostV8", "fullname": "Jessica", "location": "Malibu, USA" },
-        "loc": { "country": "United States", "city": "Malibu", "address": "Pacific Coast Hwy, Malibu" },
-        "reviews": [],
-        "likedByUsers": []
+        "host": {
+            "_id": "host-tlv-02",
+            "firstName": "Yael",
+            "fullname": "Yael Levi",
+            "location": "Tel Aviv, Israel",
+            "about": "Passionate about hosting travelers in Tel Aviv and sharing the city's hidden gems.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/51.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1598918400000,
+            "rating": 4.93,
+            "numReviews": 98,
+            "yearsHosting": 4,
+            "responseRate": 97,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Tel Aviv" },
+                { "icon": "work", "text": "Interior design enthusiast & host" }
+            ]
+        },
+        "loc": {
+            "country": "Israel",
+            "countryCode": "IL",
+            "city": "Tel Aviv-Yafo",
+            "address": "Neve Tzedek, Tel Aviv",
+            "lat": 32.0720,
+            "lng": 34.7700
+        },
+        "reviews": [
+            {
+                "at": "2024-03-20T00:00:00.000Z",
+                "by": { "_id": "r-501", "fullname": "Noam", "imgUrl": "https://randomuser.me/api/portraits/men/50.jpg" },
+                "txt": "Beautiful villa in a charming neighborhood. The rooms are spacious, and the patio is a great spot to relax after exploring Tel Aviv. Yael was an excellent host.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.8 },
+                "nights": 5,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-04-18T00:00:00.000Z",
+                "by": { "_id": "r-502", "fullname": "Shira", "imgUrl": "https://randomuser.me/api/portraits/women/52.jpg" },
+                "txt": "The villa is a perfect mix of modern comfort and local charm. We loved the location, just walking distance to shops and restaurants.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.9 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            }, {
+                "at": "2024-02-10T00:00:00.000Z",
+                "by": {
+                    "_id": "r-6001",
+                    "fullname": "Grace",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/18.jpg",
+                    "id": "60711825"
+                },
+                "txt": "Perfect for a short business trip. Clean and responsive host.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 4.9,
+                    "value": 4.6
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-12-18T00:00:00.000Z",
+                "by": {
+                    "_id": "r-6002",
+                    "fullname": "Marcus",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/29.jpg",
+                    "id": "60711826"
+                },
+                "txt": "Great spot downtown — easy commute and nice local coffee shops.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 4.8,
+                    "checkIn": 4.5,
+                    "accuracy": 4.6,
+                    "location": 4.8,
+                    "value": 4.3
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-05-03T00:00:00.000Z",
+                "by": {
+                    "_id": "r-6003",
+                    "fullname": "Aisha",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/27.jpg",
+                    "id": "60711827"
+                },
+                "txt": "Small but efficient. Yael provided great recommendations.",
+                "rate": {
+                    "cleanliness": 4.6,
+                    "communication": 4.7,
+                    "checkIn": 4.4,
+                    "accuracy": 4.3,
+                    "location": 4.7,
+                    "value": 4.1
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "startDate": "2025-10-05",
+        "endDate": "2025-10-12"
     },
+
     {
         "_id": "Ytcqd",
         "name": "Westin Kaanapali KORVN 2BR",
@@ -2755,6 +3373,509 @@ export const demoStays = [
             }
         ],
         "likedByUsers": []
+    },
+    {
+        "_id": "villa009",
+        "name": "Tel Aviv Sea View Villa",
+        "type": "Villas",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/miso/Hosting-796007833673979995/original/8c395a04-3e0e-4fa6-ba53-746b7ac1d389.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-796007833673979995/original/04549766-ac4d-4fa0-8eaa-c68afc2460e6.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-796007833673979995/original/f205f82b-3120-4329-ac03-ac3143df5fee.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-796007833673979995/original/762b8848-bc77-4aa6-8501-c48cc370e02e.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/bf987be1-6d44-4e52-a903-ac4ce85c5c26.jpg?im_w=720",
+        ],
+        "cleaningFee": 50,
+        "price": 400,
+        "summary": "Luxurious villa in Tel Aviv with sweeping sea views and contemporary design.\n\nSpacious open-plan living areas filled with light, perfect for entertaining or relaxing. The villa features three bedrooms with modern decor, two terraces, and a private pool.\n\nLocated near the promenade, enjoy easy access to beaches, restaurants, and local markets. Ideal for families or groups seeking comfort and style in the heart of Tel Aviv.",
+        "rooms": [
+            {
+                "roomType": "living room",
+                "imgUrl": "https://a0.muscache.com/im/pictures/bf987be1-6d44-4e52-a903-ac4ce85c5c26.jpg?im_w=720",
+                "bedType": "double bed"
+            },
+        ],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "bedroom.extraPillows",
+            "bedroom.roomShades",
+            "kitchen.fridge",
+            "kitchen.oven",
+            "kitchen.dishes",
+            "kitchen.coffeeMaker",
+            "outdoor.privatePatio",
+            "outdoor.sunLoungers",
+            "location.pool",
+            "location.waterFront",
+            "features.breakfast"
+        ],
+        "highlights": [
+            {
+                "main": "Sea View Terrace",
+                "sub": "Enjoy panoramic views of the Mediterranean from the villa terrace.",
+                "imgUrl": "location.waterFront"
+            },
+            {
+                "main": "Private Pool",
+                "sub": "Relax and unwind in your own heated pool surrounded by sun loungers.",
+                "imgUrl": "location.pool"
+            },
+            {
+                "main": "Modern Interiors",
+                "sub": "Open-plan spaces with contemporary furniture and natural light.",
+                "imgUrl": "bedroom.hangers"
+            }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-tlv-01",
+            "firstName": "David",
+            "fullname": "David Cohen",
+            "location": "Tel Aviv, Israel",
+            "about": "I love welcoming travelers to Tel Aviv and sharing local hotspots and hidden gems.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/50.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1609459200000,
+            "rating": 4.95,
+            "numReviews": 120,
+            "yearsHosting": 5,
+            "responseRate": 98,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Tel Aviv" },
+                { "icon": "work", "text": "Hospitality enthusiast & local guide" }
+            ]
+        },
+        "loc": {
+            "country": "Israel",
+            "countryCode": "IL",
+            "city": "Tel Aviv-Yafo",
+            "address": "Gordon Beach, Tel Aviv",
+            "lat": 32.0840,
+            "lng": 34.7820
+        },
+        "reviews": [
+            {
+                "at": "2024-04-15T00:00:00.000Z",
+                "by": { "_id": "r-401", "fullname": "Maya", "imgUrl": "https://randomuser.me/api/portraits/women/40.jpg" },
+                "txt": "Amazing villa! The views are incredible, the rooms are spacious, and the pool is perfect. David was a fantastic host, giving us tips on local restaurants and beaches.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.8 },
+                "nights": 6,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-05-10T00:00:00.000Z",
+                "by": { "_id": "r-402", "fullname": "Eli", "imgUrl": "https://randomuser.me/api/portraits/men/45.jpg" },
+                "txt": "The villa exceeded all expectations. Modern design, great amenities, and perfect location near the beach. We felt at home immediately.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.9 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "startDate": "2025-11-01",
+        "endDate": "2025-11-08"
+    },
+    {
+        "_id": "villa011",
+        "name": "Florentin Artistic Loft",
+        "type": "Villas",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1462362232313714555/original/6bfd0a24-3893-4462-ac53-7274c636cbeb.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1462362232313714555/original/f672da2c-c588-43cc-ae80-fca19acdea6d.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1462362232313714555/original/e80b5199-9f53-465c-ac9c-3b9ebe8e544a.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1474597052915628737/original/97369c17-25d1-49cc-8725-95aed54a396d.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1462362232313714555/original/286159cc-79df-4c53-9c15-e5a98fba601d.jpeg?im_w=720"
+        ],
+        "cleaningFee": 35,
+        "price": 350,
+        "summary": "Chic loft in the heart of Florentin, Tel Aviv’s artistic hub. Exposed brick walls, open-plan living, and a fully equipped kitchen make this a perfect urban retreat.\n\nTwo bedrooms and a lofted mezzanine allow privacy and comfort for groups or families. Enjoy local cafes, street art, and vibrant nightlife within walking distance.\n\nIdeal for travelers seeking creativity, culture, and modern city living in Tel Aviv.",
+        "rooms": [
+            {
+                "roomType": "living room",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1474597052915628737/original/97369c17-25d1-49cc-8725-95aed54a396d.jpeg?im_w=720",
+                "bedType": "sofa bed"
+            },
+            {
+                "roomType": "bedroom",
+                "imgUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1462362232313714555/original/e80b5199-9f53-465c-ac9c-3b9ebe8e544a.jpeg?im_w=720",
+                "bedType": "double bed"
+            },
+
+        ],
+        "guests": 4,
+        "bathrooms": 2,
+        "bedrooms": 2,
+        "beds": 2,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "bedroom.roomShades",
+            "bedroom.extraPillows",
+            "kitchen.coffeeMaker",
+            "kitchen.dishes",
+            "outdoor.privatePatio",
+            "location.center",
+            "features.breakfast",
+            "safety.smokeAlarm"
+        ],
+        "highlights": [
+            {
+                "main": "Creative Neighborhood",
+                "sub": "Located in Florentin, Tel Aviv's hub for street art and vibrant culture.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Modern Loft Interiors",
+                "sub": "Exposed brick, high ceilings, and contemporary furnishings throughout.",
+                "imgUrl": "bedroom.hangers"
+            },
+            {
+                "main": "Private Patio",
+                "sub": "Outdoor space perfect for morning coffee or evening relaxation.",
+                "imgUrl": "outdoor.privatePatio"
+            }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-tlv-03",
+            "firstName": "Eitan",
+            "fullname": "Eitan Cohen",
+            "location": "Tel Aviv, Israel",
+            "about": "I love hosting guests in Tel Aviv and showing the city's creative side.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/52.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1601510400000,
+            "rating": 4.91,
+            "numReviews": 85,
+            "yearsHosting": 3,
+            "responseRate": 96,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Tel Aviv" },
+                { "icon": "work", "text": "Art and design enthusiast" }
+            ]
+        },
+        "loc": {
+            "country": "Israel",
+            "countryCode": "IL",
+            "city": "Tel Aviv-Yafo",
+            "address": "Florentin, Tel Aviv",
+            "lat": 32.0620,
+            "lng": 34.7720
+        },
+        "reviews": [
+            {
+                "at": "2024-03-25T00:00:00.000Z",
+                "by": { "_id": "r-601", "fullname": "Amit", "imgUrl": "https://randomuser.me/api/portraits/men/53.jpg" },
+                "txt": "Stylish loft in a perfect location for exploring Tel Aviv's artistic side. Comfortable and very clean. Eitan was a responsive and helpful host.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-04-20T00:00:00.000Z",
+                "by": { "_id": "r-602", "fullname": "Noa", "imgUrl": "https://randomuser.me/api/portraits/women/53.jpg" },
+                "txt": "The loft is perfect for small groups. Clean, bright, and in a lively area full of cafes and street art. Loved the patio for evening drinks.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-06-18T00:00:00.000Z",
+                "by": { "_id": "r-403", "fullname": "Anna", "imgUrl": "https://randomuser.me/api/portraits/women/36.jpg" },
+                "txt": "A perfect vacation spot! The villa is clean, spacious, and the view is breathtaking. Eitan provided excellent recommendations for activities nearby.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.9 },
+                "nights": 7,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-07-05T00:00:00.000Z",
+                "by": { "_id": "r-404", "fullname": "Michael", "imgUrl": "https://randomuser.me/api/portraits/men/26.jpg" },
+                "txt": "Everything was fantastic! The villa is amazing, with great amenities and plenty of space for our family to enjoy.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 6,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "at": "2024-07-20T00:00:00.000Z",
+                "by": { "_id": "r-405", "fullname": "Samantha", "imgUrl": "https://randomuser.me/api/portraits/women/37.jpg" },
+                "txt": "Beautiful villa with everything we needed. The pool made it perfectgetaway. Highly recommended.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.9 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "startDate": "2025-10-12",
+        "endDate": "2025-10-19"
+    },
+    {
+        "_id": "villa012",
+        "name": "Rothschild Luxury Penthouse",
+        "type": "Villas",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/03a602e5-5a6f-41f1-9c55-793b70fb8c90.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/4d05c8ea-1382-4dd9-868a-4f2c14183448.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/43eb8ce8-0a5f-4bb3-a83a-5b3152f9e166.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/9ce30618-1e5a-4a98-8eae-a31e4e996640.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/3d725987-45ab-4def-9d56-cbb5d5a3b9c8.jpeg?im_w=720"
+        ],
+        "cleaningFee": 50,
+        "price": 480,
+        "summary": "Modern penthouse on Rothschild Boulevard with panoramic city views. Open-plan living areas, a sleek kitchen, and floor-to-ceiling windows provide light-filled luxury.\n\nThree bedrooms and two bathrooms accommodate up to six guests. Steps from cafes, nightlife, and cultural attractions.\n\nPerfect for urban explorers and travelers who love the buzz of Tel Aviv combined with modern comfort.",
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/3d725987-45ab-4def-9d56-cbb5d5a3b9c8.jpeg?im_w=720",
+                "bedType": "double bed"
+            }
+        ],
+        "guests": 2,
+        "bathrooms": 2,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "bedroom.extraPillows",
+            "bedroom.roomShades",
+            "kitchen.coffeeMaker",
+            "kitchen.dishes",
+            "outdoor.privatePatio",
+            "location.center",
+            "features.breakfast",
+            "safety.smokeAlarm"
+        ],
+        "highlights": [
+            {
+                "main": "City Center Location",
+                "sub": "Located on Rothschild Boulevard, surrounded by cafes, restaurants, and nightlife.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Panoramic Views",
+                "sub": "Sweeping city skyline views from the penthouse terraces.",
+                "imgUrl": "outdoor.privatePatio"
+            },
+            {
+                "main": "Luxury Interiors",
+                "sub": "Modern design, floor-to-ceiling windows, and open-plan living for a bright and stylish stay.",
+                "imgUrl": "bedroom.hangers"
+            }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-tlv-04",
+            "firstName": "Shira",
+            "fullname": "Shira Levy",
+            "location": "Tel Aviv, Israel",
+            "about": "Passionate about hosting and showing guests the best of Tel Aviv’s vibrant city life.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/54.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1609459200000,
+            "rating": 4.94,
+            "numReviews": 90,
+            "yearsHosting": 4,
+            "responseRate": 97,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Tel Aviv" },
+                { "icon": "work", "text": "Interior design enthusiast" }
+            ]
+        },
+        "loc": {
+            "country": "Israel",
+            "countryCode": "IL",
+            "city": "Tel Aviv-Yafo",
+            "address": "Rothschild Blvd, Tel Aviv",
+            "lat": 32.0665,
+            "lng": 34.7778
+        },
+        "reviews": [
+            {
+                "at": "2024-03-15T00:00:00.000Z",
+                "by": { "_id": "r-701", "fullname": "Daniel", "imgUrl": "https://randomuser.me/api/portraits/men/54.jpg" },
+                "txt": "Luxury penthouse with unbeatable location. Spacious and modern. Shira was a helpful host and provided great tips for the area.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.8 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-04-12T00:00:00.000Z",
+                "by": { "_id": "r-702", "fullname": "Yael", "imgUrl": "https://randomuser.me/api/portraits/women/55.jpg" },
+                "txt": "Penthouse is gorgeous, modern, and centrally located. Loved the terrace views. Perfect stay for exploring Tel Aviv.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 6,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-25T00:00:00.000Z",
+                "by": { "_id": "r-601", "fullname": "Amit", "imgUrl": "https://randomuser.me/api/portraits/men/53.jpg" },
+                "txt": "Stylish loft in a perfect location for exploring Tel Aviv's artistic side. Comfortable and very clean. Eitan was a responsive and helpful host.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-04-20T00:00:00.000Z",
+                "by": { "_id": "r-602", "fullname": "Noa", "imgUrl": "https://randomuser.me/api/portraits/women/53.jpg" },
+                "txt": "The loft is perfect for small groups. Clean, bright, and in a lively area full of cafes and street art. Loved the patio for evening drinks.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+        ],
+        "likedByUsers": [],
+        "startDate": "2025-11-01",
+        "endDate": "2025-11-08"
+    },
+    {
+        "_id": "villa013",
+        "name": "Neve Tzedek Seaside Escape",
+        "type": "Villas",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-783318457757912864/original/686ba598-7cf1-447d-bd85-469370f188d4.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/12a52192-c3bf-43e2-9707-6598be1e1d56.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/67087c91-e030-4b43-9927-c8ee2de1f746.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/17839fc7-2fe8-4138-bb6a-c4807e5ad696.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-783318457757912864/original/686ba598-7cf1-447d-bd85-469370f188d4.jpeg?im_w=720",
+
+        ],
+        "cleaningFee": 45,
+        "price": 400,
+        "summary": "Elegant villa in Neve Tzedek, Tel Aviv’s historic neighborhood, steps from the beach. Combines modern design with cozy Mediterranean charm.\n\nTwo bedrooms, a spacious living area, and a fully equipped kitchen provide comfort for up to five guests. Relax on the terrace or stroll to local cafes, boutiques, and the seaside promenade.\n\nPerfect for families, couples, or friends seeking a stylish beachside retreat in the heart of Tel Aviv.",
+        "rooms": [
+            {
+                "roomType": "living room",
+                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-51191183/original/61af37c6-0d27-49d0-91d7-6fca59ca2e01.jpeg?im_w=720",
+                "bedType": "sofa bed"
+            },
+            {
+                "roomType": "bedroom",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-783318457757912864/original/686ba598-7cf1-447d-bd85-469370f188d4.jpeg?im_w=720",
+                "bedType": "double bed"
+            }
+        ],
+        "guests": 5,
+        "bathrooms": 2,
+        "bedrooms": 2,
+        "beds": 2,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "bedroom.extraPillows",
+            "bedroom.roomShades",
+            "kitchen.coffeeMaker",
+            "kitchen.dishes",
+            "outdoor.privatePatio",
+            "location.beach",
+            "features.breakfast",
+            "safety.smokeAlarm"
+        ],
+        "highlights": [
+            {
+                "main": "Beach Access",
+                "sub": "Just steps from the Mediterranean shoreline for easy beach days.",
+                "imgUrl": "location.beach"
+            },
+            {
+                "main": "Historic Neighborhood",
+                "sub": "Located in the charming and artistic Neve Tzedek district.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Private Terrace",
+                "sub": "Enjoy morning coffee or evening relaxation on the outdoor terrace.",
+                "imgUrl": "outdoor.privatePatio"
+            }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-tlv-05",
+            "firstName": "Tal",
+            "fullname": "Tal Ben-David",
+            "location": "Tel Aviv, Israel",
+            "about": "I enjoy helping guests discover the hidden gems of Tel Aviv while enjoying a relaxing stay.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/12.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1614556800000,
+            "rating": 4.93,
+            "numReviews": 78,
+            "yearsHosting": 3,
+            "responseRate": 95,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Tel Aviv" },
+                { "icon": "work", "text": "Passionate about local culture and hosting" }
+            ]
+        },
+        "loc": {
+            "country": "Israel",
+            "countryCode": "IL",
+            "city": "Tel Aviv-Yafo",
+            "address": "Neve Tzedek, Tel Aviv",
+            "lat": 32.0660,
+            "lng": 34.7740
+        },
+        "reviews": [
+            {
+                "at": "2024-04-05T00:00:00.000Z",
+                "by": { "_id": "r-801", "fullname": "Maya", "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg" },
+                "txt": "Beautiful villa in a quiet yet central location. The terrace is lovely, and the beach is just a short walk away. Tal was a fantastic host.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-05-10T00:00:00.000Z",
+                "by": { "_id": "r-802", "fullname": "Shai", "imgUrl": "https://randomuser.me/api/portraits/men/57.jpg" },
+                "txt": "Perfect spot for a relaxing getaway. The interiors are stylish, clean, and comfortable. Loved exploring Neve Tzedek nearby.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "startDate": "2025-11-15",
+        "endDate": "2025-11-22"
     }
+
+
+
 
 ]

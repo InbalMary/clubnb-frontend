@@ -38,7 +38,7 @@
             width: 100%;
             gap: 5%;
 
-            span.svg-icon svg {
+            span.svg-rate-icon svg {
                 width: 26px;
                 height: 26px;
             }
@@ -158,7 +158,7 @@
                 padding-inline: 1.5rem 3.3rem;
                 width: 160px;
 
-                span.svg-icon {
+                span.svg-rate-icon {
                     padding-top: .5rem;
 
                     svg {
