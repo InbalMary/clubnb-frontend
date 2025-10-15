@@ -1,0 +1,145 @@
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white; /* or semi-transparent if needed */
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: all;
+}
+
+.no-scroll {
+  overflow: hidden;
+  position: relative;
+}
+
+.no-scroll * {
+  pointer-events: none;
+  user-select: none;
+}
+
+.details-skeleton {
+    padding: 20px;
+    margin-block-start: 7rem;
+    pointer-events: none
+}
+
+.skeleton {
+    background-color: var(--gray4);
+    border-radius: 4px;
+    animation: pulse 1.6s infinite ease-in-out;
+}
+
+/* Title */
+.skeleton.skeleton-title {
+    width: 551px;
+    height: 31px;
+    margin-bottom: 2rem;
+}
+
+/* Image container */
+.image-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+/* Left large image */
+.left-image {
+    width: 560px;
+    height: 380px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/* Right images grid */
+.right-images {
+    display: grid;
+    grid-template-columns: repeat(2, 290px);
+    grid-template-rows: repeat(2, 185.5px);
+    gap: 8px;
+}
+
+.right-images .top-left {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.right-images .top-right {
+    grid-column: 2;
+    grid-row: 1;
+    border-top-right-radius: 10px;
+}
+
+.right-images .bottom-left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.right-images .bottom-right {
+    grid-column: 2;
+    grid-row: 2;
+    border-bottom-right-radius: 10px;
+}
+
+/* Below images text */
+.below-images {
+    display: flex;
+    height: 300px;
+    margin-top: 16px;
+    justify-content: space-between;
+}
+
+/* Left side under images */
+.left-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-right: 24px;
+}
+
+.skeleton-line1 {
+    width: 551px;
+    height: 30px;
+}
+
+.skeleton-line2 {
+    width: 290px;
+    height: 30px;
+}
+
+/* Right side under images */
+.right-text {
+    display: flex;
+    flex-direction: column;
+    justify-items: end;
+    gap: 8px;
+}
+
+.skeleton-line3 {
+    margin-block-start: 2rem;
+    width: 360px;
+    height: 40px;
+}
+
+.skeleton-line4 {
+    width: 450px;
+    height: 50px;
+}
+
+/* Optional animation for skeleton shimmer */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

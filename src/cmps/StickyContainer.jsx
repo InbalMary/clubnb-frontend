@@ -32,7 +32,7 @@ export function StickyContainer({ stay, initialModal = null }) {
     const children = searchParams.get('children')
     const infants = searchParams.get('infants')
     const pets = searchParams.get('pets')
-
+ 
     useEffect(() => {
         setGuests({
             adults: parseInt(adults) || 0,
@@ -104,7 +104,7 @@ export function StickyContainer({ stay, initialModal = null }) {
         <div ref={containerRef} className="sticky-container-wrap">
 
             <div className="sticky-container">
-                <RareFind show={true} stay={stay} startDate={startDate} endDate={endDate} />
+                <RareFind showRareMsg={true} showPriceInfo={true} stay={stay} startDate={startDate} endDate={endDate} />
 
                 <div className="form-wrapper">
 

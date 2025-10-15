@@ -14,6 +14,7 @@ export function useHeaderState() {
     const isConfirmPayPage = location.pathname.includes('/confirm')
     const isTripsPage = location.pathname === '/trips'
     const showBackdrop = (isExpanded && initialModal) || (isStayDetailsPage && isExpanded)
+    const isHostPage = location.pathname.includes("hosting");
 
     // Scroll to top on route change (general)
     useEffect(() => {
@@ -27,7 +28,7 @@ export function useHeaderState() {
         if (prevPath !== '/' && isIndexPage) {
             setIsExpanded(true)
             setHasScrolled(false)
-        } else if (isTripsPage) {
+        } else if (isTripsPage || isHostPage) {
             setIsExpanded(false)
             setHasScrolled(true)
         } else {
@@ -36,11 +37,11 @@ export function useHeaderState() {
 
         setInitialModal(null)
         prevPathRef.current = location.pathname
-    }, [location.pathname, isIndexPage, isTripsPage])
+    }, [location.pathname, isIndexPage, isTripsPage, isHostPage])
 
     // Handle scroll behavior
     useEffect(() => {
-        if (isStayDetailsPage || isTripsPage) {
+        if (isStayDetailsPage || isTripsPage || isHostPage) {
             if (!initialModal) setIsExpanded(false)
             return
         }

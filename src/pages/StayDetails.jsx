@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { createRef, Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -10,12 +10,10 @@ import { amenitiesSvg, reviewSvgs } from '../cmps/Svgs'
 import { LongTxt } from '../cmps/LongTxt'
 import { calculateNights, getRandomItems } from '../services/util.service'
 import { Modal } from '../cmps/Modal'
-import { reUseDateRange, useDateRange } from '../customHooks/useDateRange'
 import { DateRangePicker } from '../cmps/DateRangePicker'
-import { ReDateRangePicker } from '../cmps/ReDateRangePicker'
 import { StayRating } from '../cmps/StayRating'
 import { StayReviewList } from '../cmps/StayReviewList'
-import { AmenitiesLongList, AmenitiesShortList, CalendarStayDates, Capacity, Highlights, MiniHost, SleepingRooms, SmallRating, StayImgs } from '../cmps/SmallComponents'
+import { AmenitiesLongList, AmenitiesShortList, CalendarStayDates, Capacity, DetailsSkeleton, Highlights, MiniHost, SleepingRooms, SmallRating, StayImgs } from '../cmps/SmallComponents'
 import { getAmenitiesData } from '../services/stay/stay.service.local'
 import { StickyContainer } from '../cmps/StickyContainer'
 import { HostInfo } from '../cmps/HostInfo'
@@ -74,7 +72,7 @@ We recommend reading the full “The Space” section for important details abou
     "Disabled parking spot", "Wide clearance to bed", "Wide entryway", "Waterfront", "Beachfront"
   ],
   highlights: [
-    { main: 'Dive right in', sub: 'This is one of the few places in the area with a pool.', imgUrl: amenitiesSvg.locaion.pool },
+    { main: 'Dive right in', sub: 'This is one of the few places in the area with a pool.', imgUrl: amenitiesSvg.location.pool },
     { main: 'Fully equipped kitchen', sub: 'Guests appreciated the well-stocked kitchen for home-cooked meals.', imgUrl: amenitiesSvg.kitchen.kitchen },
     { main: 'Well-equipped for long stays', sub: 'Guests who stayed a month or longer rated this place 5 stars.', imgUrl: amenitiesSvg.services.longStay }
   ],
@@ -115,8 +113,8 @@ We recommend reading the full “The Space” section for important details abou
     countryCode: "US",
     city: "Maui",
     address: "Lahaina, HI, United States",
-    lat: 156.3319,
-    lan: 20.7984,
+    lat: 20.7984,
+    lng: -156.3319
   },
   reviews: [
     {
@@ -320,16 +318,31 @@ We recommend reading the full “The Space” section for important details abou
   likedByUsers: []
 }
 
-
 export function StayDetails() {
   const { stayId } = useParams()
+
+  let stay = useSelector(storeState => storeState.stayModule.stay)
+  const isLoading = useSelector(storeState => storeState.stayModule.isLoading)
+
   useEffect(() => {
     if (stayId) {
       loadStay(stayId)
     }
   }, [stayId])
 
+  useEffect(() => {
+    if (isLoading) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  }, [isLoading])
+
   const [searchParams, setSearchParams] = useSearchParams()
+  const { dateRange, setDateRange } = useDateContext()
+  const [modalType, setModalType] = useState(null)
+  const [selectedReviewIdx, setSelectedReviewIdx] = useState(null)
+
   const startDate = searchParams.get('startDate')
   const endDate = searchParams.get('endDate')
 
@@ -341,55 +354,74 @@ export function StayDetails() {
     stickyContainerRef: useRef(null)
   }
 
-  let stay = useSelector(storeState => storeState.stayModule.stay)
-
-  const { dateRange, setDateRange } = useDateContext()
-  const [modalType, setModalType] = useState(null)
-
   const handleDateComplete = (newRange) => {
     if (newRange?.from && newRange?.to) {
       setDateRange(newRange)
     }
   }
 
-  const amenitiesData = getAmenitiesData(amenitiesSvg)
+  const reviewRefs = useMemo(() => stay?.reviews?.map(() => createRef()), [stay?.reviews])
 
+  function handleShowMoreClick(index) {
+    setSelectedReviewIdx(index)
+    setModalType('reviews')
+  }
+
+  useEffect(() => {
+    if ((modalType === 'reviews') && selectedReviewIdx !== null) {
+      const ref = reviewRefs[selectedReviewIdx]
+      if (ref?.current) {
+        ref.current.scrollIntoView({ behavior: "smooth", block: "start" })
+        setSelectedReviewIdx(null)
+      }
+    }
+
+  }, [modalType, selectedReviewIdx, reviewRefs])
+
+  const amenitiesData = getAmenitiesData(amenitiesSvg, stay?.amenities)
+
+
+  if (!stay) return 
 
   return (
-    <div className="main-container">
+    <div className="main-page main-container">
       <section className="stay-details">
 
+        {(!stay || isLoading) && (
+          <div className="loading-overlay">
+            <DetailsSkeleton />
+          </div>
+        )}
+
         <div className="main-content">
-          <h1 ref={refs.photoRef}>{demoStay.name}</h1>
+          <h1 ref={refs.photoRef}>{stay?.name}</h1>
 
-          <StayImgs stay={demoStay} />
+          <StayImgs stay={stay} />
 
+          <StayHeader refs={refs} stay={stay} startDate={startDate} endDate={endDate} />
           <div className="details-container">
-              <div className="details-header">
-                <StayHeader refs={refs} stay={demoStay} startDate={startDate} endDate={endDate} />
-              </div>
             <div className="content">
 
               <section className="main-info">
 
                 <div className="first-block">
-                  <h2 className="stay-name">{demoStay.roomType} in {demoStay.loc.city},  {demoStay.loc.country}</h2>
-                  <Capacity stay={demoStay} />
-                  <SmallRating readOnly={false} stay={demoStay} onClick={() => setModalType('reviews')} />
+                  <h2 className="stay-name">{stay?.roomType} in {stay?.loc?.city},  {stay?.loc?.country}</h2>
+                  <Capacity stay={stay} />
+                  <SmallRating readOnly={false} stay={stay} onClick={() => setModalType('reviews')} />
                 </div>
 
                 <div className="border"></div>
 
-                <MiniHost stay={demoStay} />
+                <MiniHost stay={stay} />
 
                 <div className="border"></div>
 
-                <Highlights stay={demoStay} />
+                <Highlights stay={stay} />
 
                 <div className="border"></div>
 
                 <span className="summary">
-                  <LongTxt children={demoStay.summary} length={250} />
+                  <LongTxt children={stay?.summary} length={250} />
                   <button className="open-modal" onClick={() => setModalType('summary')}>
                     Show more
                   </button>
@@ -397,7 +429,7 @@ export function StayDetails() {
 
                 <div className="border"></div>
 
-                <SleepingRooms stay={demoStay} />
+                <SleepingRooms stay={stay} />
 
                 <div className="border"></div>
 
@@ -419,8 +451,8 @@ export function StayDetails() {
 
                   {modalType === 'reviews' &&
                     <div className="reviews-in-modal">
-                      <StayRating reviews={demoStay.reviews} />
-                      <StayReviewList reviews={demoStay.reviews} isModal={true} />
+                      <StayRating reviews={stay.reviews} />
+                      <StayReviewList reviewRefs={reviewRefs} reviews={stay.reviews} isModal={true} />
                     </div>
                   }
 
@@ -436,11 +468,14 @@ export function StayDetails() {
                     <>
                       <h1>About this place</h1>
                       {<div className="summary">
-                        {demoStay.summary
-                          .split('\n')
+                        {stay.summary
+                          .split('\n\n')
                           .filter(line => line.trim() !== '')
                           .map((line, idx) => (
-                            <p key={idx}>{line.trim()}</p>
+                            <div>
+                            <p key={idx}>{line.trim()}</p>  
+                           <br />
+                            </div>
                           ))}
                       </div>}
                     </>
@@ -450,7 +485,7 @@ export function StayDetails() {
                 <div className="border"></div>
 
                 <div className="details-calendar" >
-                  <CalendarStayDates stay={demoStay} startDate={startDate} endDate={endDate} />
+                  <CalendarStayDates stay={stay} startDate={startDate} endDate={endDate} />
 
                   <DateRangePicker
                     value={dateRange}
@@ -461,18 +496,22 @@ export function StayDetails() {
 
               </section>
             </div>
-            <StickyContainer ref={refs.stickyContainerRef} stay={demoStay} />
+            <div ref={refs.stickyContainerRef} className="sticky-ref">
+
+              <StickyContainer stay={stay} />
+            </div>
+
 
           </div>
 
           <div className="border"></div>
 
           <div ref={refs.reviewRef} className="review-section">
-            <StayRating reviews={demoStay.reviews} />
+            <StayRating reviews={stay?.reviews} />
             <div className="border"></div>
-            {!demoStay.reviews?.length && <h2>No reviews yet...</h2>}
-            <StayReviewList reviews={demoStay.reviews} isModal={false} />
-            <button onClick={() => setModalType('reviews')} className="open-modal">Show all {demoStay.reviews.length} reviews</button>
+            {!stay?.reviews?.length && <h2>No reviews yet...</h2>}
+            <StayReviewList reviews={stay?.reviews} isModal={false} onClick={handleShowMoreClick} />
+            <button onClick={() => setModalType('reviews')} className="open-modal">Show all {stay?.reviews?.length} reviews</button>
           </div>
 
           <div className="border"></div>
@@ -480,15 +519,15 @@ export function StayDetails() {
           <div ref={refs.locationRef} className="map-container">
             <div className="where-map">
               <h3>Where you <span className="upper-comma">,</span>ll be</h3>
-              <span className="loc">{demoStay.loc.city}, {demoStay.loc.country}</span>
+              <span className="loc">{stay?.loc.city}, {stay?.loc.country}</span>
             </div>
             <div className="map-wrapper">
-              <StayMap />
+              <StayMap location={stay?.loc} />
             </div>
           </div>
 
+          <HostInfo host={stay?.host} />
         </div >
-        <HostInfo host={demoStay.host} />
 
       </section >
 

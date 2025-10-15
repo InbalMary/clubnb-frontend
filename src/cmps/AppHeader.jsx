@@ -1,41 +1,25 @@
-import { Link, NavLink } from 'react-router-dom'
-import { useLocation, useNavigate } from 'react-router'
+import { NavLink } from 'react-router-dom'
+import { useLocation } from 'react-router'
 import { useSelector } from 'react-redux'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { logout } from '../store/actions/user.actions'
 import { appHeaderSvg } from './Svgs'
 import { SearchBar } from './SearchBar'
 import { HamburgerMenu } from './HamburgerMenu.jsx'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
+import { useClickOutside } from '../customHooks/useClickOutside.js'
+import { useEscapeKey } from '../customHooks/useEscapeKey.js'
 
 export function AppHeader({ initialModal, onCollapse }) {
 	const user = useSelector(storeState => storeState.userModule.user)
-	const navigate = useNavigate()
 	const headerRef = useRef(null)
 	const location = useLocation()
-    const isIndexPage = location.pathname === '/' || location.pathname === ''
+	const isIndexPage = location.pathname === '/' || location.pathname === ''
+	const isHostPage = location.pathname.includes("hosting")
 
-	useEffect(() => {
-		function handleClickOutside(event) {
-			if (headerRef.current && !headerRef.current.contains(event.target)) {
-				onCollapse()
-			}
-		}
+	const to = isHostPage ? "/" : "/hosting/reservations"
+	const text = isHostPage ? "Switch to traveling" : "Switch to hosting"
 
-		function handleEscKey(event) {
-			if (event.key === 'Escape') {
-				onCollapse()
-			}
-		}
-
-		document.addEventListener("mousedown", handleClickOutside)
-		document.addEventListener("keydown", handleEscKey)
-
-		return () => {
-			document.removeEventListener("mousedown", handleClickOutside)
-			document.removeEventListener("keydown", handleEscKey)
-		}
-	}, [onCollapse])
+	useClickOutside([headerRef], onCollapse)
+	useEscapeKey(onCollapse)
 
 	return (
 		<header className={`app-header full ${isIndexPage ? 'index-page' : ''}`} ref={headerRef}>
@@ -48,8 +32,8 @@ export function AppHeader({ initialModal, onCollapse }) {
 				{user?.isAdmin && <NavLink to="/admin">Admin</NavLink>}
 
 				<div className="header-actions">
-					<NavLink to="become-a-host" >
-						<span className="host-link">Become a host</span>
+					<NavLink to={to}>
+						<span className="host-link">{text}</span>
 					</NavLink>
 
 					{user && user.imgUrl ? (
@@ -69,7 +53,6 @@ export function AppHeader({ initialModal, onCollapse }) {
 			<div className="expanded-header-search">
 				<SearchBar initialModal={initialModal} />
 			</div>
-
 		</header>
 	)
 }

@@ -6,7 +6,7 @@ export function StayList({ stays }) {
     const categories = [...new Set(stays.map(stay => stay.type))]
 
     return (
-        <section className='stay-list-section'>
+        <section className='stay-list-section main-container'>
             {categories.map(type => {
                 const rowStays = stays.filter(stay => stay.type === type)
                 if (!rowStays.length) return null

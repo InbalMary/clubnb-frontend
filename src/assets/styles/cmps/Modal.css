@@ -9,7 +9,7 @@
     z-index: 200;
 
     background-color: white;
-    width: 51%;
+    width: 767px;
     height: 82%;
 
     position: fixed;
@@ -46,7 +46,7 @@
     h3 {
         font-size: 1.125rem;
         line-height: 1.375rem;
-        font-weight: 600;
+        letter-spacing: -.4px;
     }
 
     header {
@@ -190,10 +190,8 @@
 
     .rdp-button_previous,
     .rdp-button_next {
-        width: 1.2rem;
-        font-weight: 400;
-        margin-inline: 10px;
         margin-block: .7rem;
+        margin-inline: 8px;
     }
 
     .rdp-months {

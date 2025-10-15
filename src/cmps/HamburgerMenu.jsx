@@ -77,10 +77,10 @@ export function HamburgerMenu() {
                     <button
                         className="menu-row menu-row-host"
                         role="menuitem"
-                        onClick={() => handleNavigation('/become-a-host')}
+                        onClick={() => handleNavigation('/hosting')}
                     >
                         <div className="menu-row-text">
-                            <span className="menu-title">Become a host</span>
+                            <span className="menu-title">Switch to hosting</span>
                             <span className="menu-sub">
                                 It's easy to start hosting and earn extra income.
                             </span>

@@ -1,12 +1,8 @@
-import { useState } from "react"
 import { getRandomIntInclusive } from "../services/util.service"
 import { LongTxt } from "./LongTxt"
 import { amenitiesSvg } from "./Svgs"
-import { StayRating } from "./StayRating"
-import { Modal } from "./Modal"
-import { Link } from "react-router"
 
-export function StayReviewList({ reviews, isModal }) {
+export function StayReviewList({ reviewRefs, reviews, isModal, onClick }) {
 
     function getStayTypeFromReview(review) {
         if (review.withKids) return "Stayed with kids"
@@ -18,8 +14,8 @@ export function StayReviewList({ reviews, isModal }) {
     return (
         <section className="reviews-section">
             <ul className="review-list">
-                {reviews.slice(0, 6).map(review =>
-                    <li className="stay-review" key={review.by.fullname}>
+                {(!isModal ? reviews.slice(0, 6) : reviews).map((review, idx) =>
+                    <li ref={isModal ? reviewRefs[idx] : null} className="stay-review" key={review.by.fullname}>
                         <div className="mini-user flex">
                             <img className="user-img" src={review.by.imgUrl} />
                             <span>
@@ -39,12 +35,12 @@ export function StayReviewList({ reviews, isModal }) {
                             <span className="light"> {getStayTypeFromReview(review)}</span>
                         </div>
                         <span className="txt"><LongTxt children={review.txt} length={isModal ? 1000 : 120} /></span>
-                        {!isModal && <span className="link bold">Show more</span>}
+                        {!isModal && <span onClick={() => onClick(idx)} className="link bold">Show more</span>}
                     </li>
 
                 )}
             </ul>
 
-        </section>
+        </section >
     )
 }

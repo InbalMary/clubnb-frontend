@@ -1,0 +1,133 @@
+.listing-container {
+  min-height: 100vh;
+  background-color: var(--white);
+  padding-top: 6rem;
+}
+
+.listing-content {
+  max-width: 110rem;
+  margin: 0 auto;
+  padding: 2rem 5rem;
+}
+
+.main {
+  max-width: 110rem;
+  margin: 0 auto;
+  padding: 2rem 5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gray3);
+  margin: 0 0 2.5rem 0;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.25rem;
+  text-align: center;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 10rem;
+  margin-bottom: 2rem;
+  background-color: var(--white);
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.house-icon {
+  object-fit: contain;
+}
+
+.empty-text {
+  color: var(--gray3);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  font-family: cereal-medium;
+}
+
+.create-button {
+  background-color: var(--gray1);
+}
+
+.create-button:hover {
+  background-color: var(--gray5);
+}
+
+.listing-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 3.5vw, 3rem);
+}
+
+.listing-preview-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 290px));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listing-preview {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.listing-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.listing-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.listing-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.listing-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.listing-name {
+  font-size: clamp(0.875rem, 0.95vw, 0.938rem);
+  font-weight: 400;
+  color: var(--gray3);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.listing-name:hover {
+  text-decoration: underline;
+}
+
+.listing-location {
+  font-size: clamp(0.813rem, 0.9vw, 0.875rem);
+  color: var(--gray2);
+  margin: 0;
+}

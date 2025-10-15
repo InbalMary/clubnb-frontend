@@ -12,8 +12,7 @@ button {
     align-items: center;
     cursor: pointer;
     font-size: 1em;
-    font-family: cereal-regular;
-    font-weight: bolder;
+    font-family: cereal-medium;
     border-radius: .75em;
     border: none;
     padding: .875em 1.5em;
