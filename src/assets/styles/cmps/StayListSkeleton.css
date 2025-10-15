@@ -1,0 +1,78 @@
+/* Reusable skeleton base */
+.skeleton {
+    background-color: var(--gray5);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+.skeleton-title-block {
+    width: 150px;
+    height: 22px;
+}
+
+/* Card placeholder */
+.skeleton-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+/* Info section under image */
+.skeleton-card .stay-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-inline-start: 0.25rem;
+    padding-top: 0.53rem;
+}
+
+.skeleton-card .stay-image-wrapper {
+    border-radius: 1.25rem;
+    overflow: hidden;
+}
+
+/* Image block placeholder */
+.skeleton-img {
+    width: 100%;
+    height: 200px;
+    aspect-ratio: 1.025 / 1;
+}
+
+/* Lines below image */
+.skeleton-line {
+    height: 0.75rem;
+    border-radius: 4px;
+    margin-top: 0.4rem;
+}
+
+.skeleton-line.short {
+    width: 60%;
+}
+
+
+.skeleton-line.tiny {
+    width: 40%;
+    height: 0.65rem;
+}
+
+/* carousel btns placeholders */
+.skeleton-btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}

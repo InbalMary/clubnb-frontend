@@ -1,18 +1,18 @@
-/* ≥1600px → 7 cards */
+/* ≥1600px -> 7 cards */
 @media (min-width: 1600px) {
     .carousel-list {
         grid-auto-columns: calc((100% - (6 * 0.5rem)) / 7);
     }
 }
 
-/* 1400–1599px → still 7, smaller */
+/* 1400–1599px -> still 7, smaller */
 @media (max-width: 1599px) and (min-width: 1400px) {
     .carousel-list {
         grid-auto-columns: calc((100% - (6 * 0.5rem)) / 7);
     }
 }
 
-/* 1120–1399px → 6 cards */
+/* 1120–1399px -> 6 cards */
 @media (max-width: 1399px) and (min-width: 1120px) {
     .carousel-list {
         grid-auto-columns: calc((100% - (5 * 0.5rem)) / 6);
@@ -24,14 +24,14 @@
     }
 }
 
-/* 920–1119px → 5 cards */
+/* 920–1119px -> 5 cards */
 @media (max-width: 1119px) and (min-width: 920px) {
     .carousel-list {
         grid-auto-columns: calc((100% - (4 * 0.5rem)) / 5);
     }
 }
 
-/* ≤919px → 4 cards */
+/* ≤919px ->  4 cards */
 @media (max-width: 919px) {
     .carousel-list {
         grid-auto-columns: calc((100% - (3 * 0.5rem)) / 4);

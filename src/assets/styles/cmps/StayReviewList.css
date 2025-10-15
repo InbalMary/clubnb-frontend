@@ -1,5 +1,9 @@
+.no-reviews {
+    padding-top: 2rem;
+}
 .reviews-section {
     padding-block-start: 2.5rem;
+
 
     .review-list {
         display: grid;

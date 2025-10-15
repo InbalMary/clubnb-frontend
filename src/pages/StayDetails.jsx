@@ -381,7 +381,7 @@ export function StayDetails() {
   const amenitiesData = getAmenitiesData(amenitiesSvg, stay?.amenities)
 
 
-  if (!stay) return 
+  if (!stay) return <div className="loading-overlay"><DetailsSkeleton />  </div>
 
   return (
     <div className="main-page main-container">
@@ -420,12 +420,15 @@ export function StayDetails() {
 
                 <div className="border"></div>
 
-                <span className="summary">
-                  <LongTxt children={stay?.summary} length={250} />
-                  <button className="open-modal" onClick={() => setModalType('summary')}>
-                    Show more
-                  </button>
-                </span>
+                {stay?.summary &&
+                  <span className="summary">
+                    <LongTxt children={stay?.summary} length={250} />
+                    {stay?.summary.length > 250 &&
+                      <button className="open-modal" onClick={() => setModalType('summary')}>
+                        Show more
+                      </button>
+                    }
+                  </span>}
 
                 <div className="border"></div>
 
@@ -434,12 +437,14 @@ export function StayDetails() {
                 <div className="border"></div>
 
                 <div ref={refs.amenitiesRef} className="amenities">
-                  <div className="amenities-container">
-                    <h2>What this place offers</h2>
-                    <AmenitiesShortList amenitiesData={amenitiesData} />
+                  {!!amenitiesData?.length &&
+                    <div className="amenities-container">
+                      <h2>What this place offers</h2>
+                      <AmenitiesShortList amenitiesData={amenitiesData} />
 
-                    <button onClick={() => setModalType('amenities')} className="open-modal">Show all {amenitiesData.length} amenities</button>
-                  </div>
+                      <button onClick={() => setModalType('amenities')} className="open-modal">Show all {amenitiesData.length} amenities</button>
+                    </div>
+                  }
                 </div>
 
                 <Modal
@@ -473,8 +478,8 @@ export function StayDetails() {
                           .filter(line => line.trim() !== '')
                           .map((line, idx) => (
                             <div>
-                            <p key={idx}>{line.trim()}</p>  
-                           <br />
+                              <p key={idx}>{line.trim()}</p>
+                              <br />
                             </div>
                           ))}
                       </div>}
@@ -509,12 +514,14 @@ export function StayDetails() {
           <div ref={refs.reviewRef} className="review-section">
             <StayRating reviews={stay?.reviews} />
             <div className="border"></div>
-            {!stay?.reviews?.length && <h2>No reviews yet...</h2>}
+            {!stay?.reviews?.length && <h2 className="no-reviews">No reviews yet...</h2>}
             <StayReviewList reviews={stay?.reviews} isModal={false} onClick={handleShowMoreClick} />
-            <button onClick={() => setModalType('reviews')} className="open-modal">Show all {stay?.reviews?.length} reviews</button>
+            {!!stay?.reviews?.length &&
+              <button onClick={() => setModalType('reviews')} className="open-modal">Show all {stay?.reviews?.length} reviews</button>
+            }
+            <div className="border"></div>
           </div>
 
-          <div className="border"></div>
 
           <div ref={refs.locationRef} className="map-container">
             <div className="where-map">
