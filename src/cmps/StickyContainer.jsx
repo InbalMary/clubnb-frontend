@@ -14,8 +14,6 @@ import { useDateContext } from "../context/DateRangeProvider"
 import { useSelector } from "react-redux"
 
 export function StickyContainer({ stay, initialModal = null }) {
-    useEffect(() => {
-    }, [stay])
 
     const [modalType, setModalType] = useState(null)
     const [activeModal, setActiveModal] = useState(null)
@@ -32,22 +30,54 @@ export function StickyContainer({ stay, initialModal = null }) {
     const children = searchParams.get('children')
     const infants = searchParams.get('infants')
     const pets = searchParams.get('pets')
- 
+
     useEffect(() => {
+
+        const hasStartDate = !!searchParams.get('startDate')
+        const hasEndDate = !!searchParams.get('endDate')
+
+        if (!hasStartDate && !hasEndDate && stay.startDate && stay.endDate) {
+            const from = new Date(stay.startDate)
+            const to = new Date(stay.endDate)
+            setDateRange({ from, to })
+        }
+
         setGuests({
             adults: parseInt(adults) || 0,
             children: parseInt(children) || 0,
-
             infants: parseInt(infants) || 0,
             pets: parseInt(pets) || 0,
         })
-    }, [])
+        // if (stayId && !stay?._id) {
+        //     loadStay(stayId)
+        // }
+    }, [stay])
+
+     useEffect(() => {
+        const start = searchParams.get('startDate')
+        const end = searchParams.get('endDate')
+
+        if (start && end) {
+            setDateRange({ from: new Date(start), to: new Date(end) })
+        }
+    }, [searchParams])
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            const params = new URLSearchParams()
-            if (dateRange.from) params.set('startDate', formatDate(dateRange.from))
-            if (dateRange.to) params.set('endDate', formatDate(dateRange.to))
+            const params = new URLSearchParams(searchParams)
+            let changed = false
+
+            if (dateRange.from && params.get('startDate') !== formatDate(dateRange.from)) {
+                params.set('startDate', formatDate(dateRange.from))
+                changed = true
+            }
+            if (dateRange.to && params.get('endDate') !== formatDate(dateRange.to)) {
+                params.set('endDate', formatDate(dateRange.to))
+                changed = true
+            }
+            if (changed) {
+                setSearchParams(params, { replace: true })
+            }
             if (guests.adults) params.set('adults', guests.adults.toString())
             if (guests.children) params.set('children', guests.children.toString())
             if (guests.infants) params.set('infants', guests.infants.toString())
