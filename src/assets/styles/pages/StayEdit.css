@@ -297,3 +297,96 @@
     width: 2.25rem;
     height: 2.25rem;
 }
+
+.step-location-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 5rem;
+    padding-top: 7rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.location-header {
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.location-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--gray3);
+    margin: 0 0 0.5rem 0;
+}
+
+.location-subtitle {
+    font-size: 1.125rem;
+    color: var(--gray2);
+    margin: 0;
+}
+
+.step-location-content .location-map-wrapper {
+    width: 100%;
+    max-width: 40rem;
+    position: relative;
+}
+
+.step-location-content .location-search-box {
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--gray6);
+    border-radius: 78px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 3rem);
+    max-width: 36rem;
+}
+
+.step-location-content .location-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.step-location-content .step4-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.step-location-content .location-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--gray3);
+}
+
+.step-location-content .location-input::placeholder {
+    color: var(--gray2);
+}
+
+.step-location-content .map-container {
+    width: 100%;
+    max-width: 39.375rem;
+    height: 28rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--gray6);
+}
+
+.step-location-content .map-container>div {
+    width: 100%;
+    height: 100%;
+}

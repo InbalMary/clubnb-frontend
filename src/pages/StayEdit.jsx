@@ -5,12 +5,15 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
 import { ImgUploader } from "../cmps/ImgUploader";
 import { DateRangePicker } from "../cmps/DateRangePicker";
+import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 
 export function StayEdit() {
     const navigate = useNavigate()
     const [currentStep, setCurrentStep] = useState(1)
     const [selectedPlaceType, setSelectedPlaceType] = useState('')
     const [selectedPrivacyType, setSelectedPrivacyType] = useState('')
+    const [address, setAddress] = useState('')
+    const [location, setLocation] = useState({ lat: 32.0853, lng: 34.7818 }) // Default to Tel Aviv
 
     const placeTypes = [
         { id: 'house', label: 'House' },
@@ -55,7 +58,9 @@ export function StayEdit() {
         } else if (currentStep === 2 && selectedPlaceType) {
             setCurrentStep(3)
         } else if (currentStep === 3 && selectedPrivacyType) {
-            console.log('Moving to step 4, privacy:', selectedPrivacyType)
+            setCurrentStep(4)
+        } else if (currentStep === 4 && address) {
+            console.log('Moving to step 5, address:', address)
         }
     }
 
@@ -158,19 +163,57 @@ export function StayEdit() {
                 </main>
             )}
 
+            {currentStep === 4 && (
+                <main className="step-location-content">
+                    <div className="location-header">
+                        <h1 className="location-title">Where's your place located?</h1>
+                        <p className="location-subtitle">Your address is only shared with guests after they've made a reservation.</p>
+                    </div>
+
+                    <div className="location-map-wrapper">
+                        <div className="location-search-box">
+                            <span className="location-icon"><img src={`/img/step3/map-address.svg`} alt="map-address" className="step4-icon" /></span>
+                            <input
+                                type="text"
+                                placeholder="Enter your address"
+                                value={address}
+                                onChange={(ev) => setAddress(ev.target.value)}
+                                className="location-input"
+                            />
+                        </div>
+
+                        <div className="map-container">
+                            <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
+                                <Map
+                                    defaultCenter={location}
+                                    defaultZoom={13}
+                                    gestureHandling={'greedy'}
+                                    disableDefaultUI={true}
+                                    mapId="edit-map"
+                                >
+                                    <Marker position={location} />
+                                </Map>
+                            </APIProvider>
+                        </div>
+                    </div>
+                </main>
+            )}
+
             <footer className="step-footer">
                 <button className="back-button" onClick={handleBack}>
                     Back
                 </button>
                 <button
                     className={`btn btn-black next-button ${(currentStep === 2 && !selectedPlaceType) ||
-                        (currentStep === 3 && !selectedPrivacyType)
-                        ? 'disabled' : ''
+                            (currentStep === 3 && !selectedPrivacyType) ||
+                            (currentStep === 4 && !address)
+                            ? 'disabled' : ''
                         }`}
                     onClick={handleNext}
                     disabled={
                         (currentStep === 2 && !selectedPlaceType) ||
-                        (currentStep === 3 && !selectedPrivacyType)
+                        (currentStep === 3 && !selectedPrivacyType) ||
+                        (currentStep === 4 && !address)
                     }
                 >
                     Next
