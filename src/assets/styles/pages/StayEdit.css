@@ -222,3 +222,78 @@
 .next-button.disabled:hover {
     background-color: var(--gray6);
 }
+
+.privacy-types-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 42rem;
+}
+
+.privacy-type-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border: 1px solid var(--gray6);
+    border-radius: 0.75rem;
+    background: var(--white);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    position: relative;
+}
+
+.privacy-type-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 3px solid transparent;
+    pointer-events: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.privacy-type-card:not(.selected):hover::before {
+    border-color: var(--gray3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-type-card.selected {
+    border: 3px solid var(--gray3);
+    background-color: var(--gray8);
+}
+
+.privacy-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+}
+
+.privacy-label {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gray3);
+    margin: 0;
+}
+
+.privacy-description {
+    font-size: 0.875rem;
+    color: var(--gray3);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.privacy-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2rem;
+}
+
+.step3-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+}
