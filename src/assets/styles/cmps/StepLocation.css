@@ -95,9 +95,9 @@
 .location-dropdown {
     position: absolute;
     top: 80px;
-    left: 100px;
+    left: 30px;
     width: 100%;
-    max-width: 25rem;
+    max-width: 36rem;
     background-color: var(--white);
     border: 1px solid var(--gray6);
     border-radius: 12px;
@@ -110,6 +110,7 @@
 .location-dropdown-item {
     display: flex;
     align-items: center;
+    height: 4.5rem;
     width: 100%;
     background: none;
     border: none;
@@ -145,4 +146,11 @@
 
 .location-search-container {
     position: relative;
+}
+
+.location-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
 }
