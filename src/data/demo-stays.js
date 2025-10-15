@@ -9,10 +9,11 @@ export const demoStays = [
         "name": "Tokyo Shibuya Apartment",
         "type": "City stays",
         "imgUrls": [
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/83ae9587-ff07-4a71-928e-b348908d6505.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/8c062872-4837-4a6e-844f-2a15b8676b47.jpeg?im_w=1200",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/d5784482-4ad7-4e2d-9cf1-a181d9e7e70e.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/cfbddc4d-09e7-4de9-9be0-57a0e80f9316.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/0b21e61e-341f-416f-9ce0-2dde2a878f16.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/5f4274e5-3804-42ab-8843-f41916bedbdd.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/31fb820e-1ca0-42a9-92db-723f07a96ede.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/45a46b17-0f61-4ec9-aa66-5ee140db3e62.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/d2005118-0d38-4e7b-af5e-52d9bafc8cd6.jpeg?im_w=720"
         ],
         "price": 150,
         "cleaningFee": 40,
@@ -20,13 +21,13 @@ export const demoStays = [
         "rooms": [
             {
                 "roomType": "bedroom",
-                "bedType": "double bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/83ae9587-ff07-4a71-928e-b348908d6505.jpeg?im_w=720"
+                "bedType": "two single beds",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/e81c594f-46b6-4607-a556-fa3065582fb4.jpeg?im_w=720"
             },
             {
                 "roomType": "living room",
                 "bedType": "sofa",
-                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwMzM5MzgyMzkwOTA3NzM3Mw==/original/8c062872-4837-4a6e-844f-2a15b8676b47.jpeg?im_w=1200"
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/0b21e61e-341f-416f-9ce0-2dde2a878f16.jpeg?im_w=720"
             }
         ],
         "guests": 2,
@@ -352,10 +353,12 @@ export const demoStays = [
             "bedroom.hangers",
             "features.breakfast",
             "bookingOptions.instantBook",
+            "kitchen.oven",
+            "kitchen.table",
+            "bedroom.hangers",
+            "bedroom.doubleBed",
             "safety.firstAid",
-            "services.lockBox",
             "features.gym",
-            "bookingOptions.instantBook",
             "safety.securityCam",
             "services.lockBox",
             "notIncluded.noEssentials"
@@ -1556,140 +1559,702 @@ export const demoStays = [
         "likedByUsers": [],
         "startDate": "2025-07-10",
         "endDate": "2025-07-15"
-    }
-    ,
+    },
     {
         "_id": "beach-002",
         "name": "Miami Oceanview Condo",
         "type": "Beach stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/prohost-api/Hosting-51619747/original/cdfefb1b-a3f8-4647-a31a-1c8d03a001c4.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/miso/Hosting-834853198824053007/original/93169471-a52d-48ce-a9ee-ed3414e5a93f.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-834853198824053007/original/6cf4dc2f-4df2-4d6e-9779-494d47e9f53b.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-834853198824053007/original/b5be3d0e-9246-4018-87f8-aa3dbfbc5ba0.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-834853198824053007/original/f6e76eb9-05cc-4ed5-a0f4-9afa17e7ac48.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-834853198824053007/original/f94d817e-1d59-4d3a-a384-3af72f75b25d.jpeg?im_w=720"
+        ],
         "price": 220,
-        "summary": "Oceanfront apartment with sweeping Miami Beach views.",
-        "capacity": 3,
+        "cleaningFee": 40,
+        "summary": "Oceanfront apartment with sweeping Miami Beach views. Enjoy modern comforts and stunning sunsets from your balcony. Steps away from restaurants, nightlife, and pristine sand. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
+        "rooms": [
+            {
+                "roomType": "apartment",
+                "bedType": "sofa bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-834853198824053007/original/93169471-a52d-48ce-a9ee-ed3414e5a93f.jpeg?im_w=720"
+            }
+        ],
+        "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "kitchen.fridge",
+            "kitchen.microwave",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "outdoor.beachEssentials",
+            "location.beach",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "bathroom.shampoo",
+            "bathroom.bodySoap",
+            "bathroom.hairDryer",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            {
+                "main": "Ocean Views",
+                "sub": "Breathtaking views of Miami Beach from your private balcony.",
+                "imgUrl": "location.beach"
+            },
+            {
+                "main": "Central Location",
+                "sub": "Steps from cafes, nightlife, and the boardwalk.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Fast Wi-Fi",
+                "sub": "Perfect for streaming or working remotely.",
+                "imgUrl": "essentials.wifi"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-2",
+            "firstName": "Sophia",
+            "fullname": "Sophia Martinez",
+            "location": "Miami, USA",
+            "about": "Designer and beach lover — I keep the apartment stylish and welcoming for guests.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/44.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1609459200000,
+            "rating": 4.92,
+            "numReviews": 112,
+            "yearsHosting": 4,
+            "responseRate": 95,
+            "responseTime": "within an hour",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Miami" },
+                { "icon": "work", "text": "Interior Designer" }
+            ]
+        },
+        "loc": {
+            "country": "USA",
+            "countryCode": "US",
+            "city": "Miami",
+            "address": "Miami Beach, FL",
+            "lat": 25.7907,
+            "lng": -80.1300
+        },
+        "reviews": [
+            {
+                "at": "2024-05-10T00:00:00.000Z",
+                "by": { "_id": "r-5001", "fullname": "Liam", "imgUrl": "https://randomuser.me/api/portraits/men/31.jpg" },
+                "txt": "The view was absolutely stunning! Perfect location and super clean apartment.",
+                "rate": { "cleanliness": 5, "communication": 4.9, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.7 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-02-20T00:00:00.000Z",
+                "by": { "_id": "r-5002", "fullname": "Emma", "imgUrl": "https://randomuser.me/api/portraits/women/45.jpg" },
+                "txt": "Loved staying here! Easy check-in and the host was very responsive.",
+                "rate": { "cleanliness": 4.9, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-15T00:00:00.000Z",
+                "by": { "_id": "r-5003", "fullname": "Noah", "imgUrl": "https://randomuser.me/api/portraits/men/36.jpg" },
+                "txt": "Great stay! Modern amenities and just steps from the beach.",
+                "rate": { "cleanliness": 5, "communication": 4.8, "checkIn": 5, "accuracy": 4.7, "location": 5, "value": 4.6 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-08-01T00:00:00.000Z",
+                "by": { "_id": "r-5004", "fullname": "Olivia", "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg" },
+                "txt": "Loved the balcony view and the fast Wi-Fi. Would book again.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.7 },
+                "nights": 6,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-05-20T00:00:00.000Z",
+                "by": { "_id": "r-5005", "fullname": "Lucas", "imgUrl": "https://randomuser.me/api/portraits/men/29.jpg" },
+                "txt": "Perfect for a weekend getaway. Super clean and quiet.",
+                "rate": { "cleanliness": 4.9, "communication": 4.8, "checkIn": 4.9, "accuracy": 4.7, "location": 5, "value": 4.6 },
+                "nights": 2,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-03-12T00:00:00.000Z",
+                "by": { "_id": "r-5006", "fullname": "Mia", "imgUrl": "https://randomuser.me/api/portraits/women/32.jpg" },
+                "txt": "Host was very helpful and the location couldn’t be better.",
+                "rate": { "cleanliness": 4.8, "communication": 5, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.7 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-08-01",
-        "endDate": "2025-08-06",
-        "host": { "_id": "host-beach-2", "fullname": "Sophia", "location": "Miami, USA" },
-        "loc": { "country": "USA", "city": "Miami", "address": "Miami Beach, FL" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-08-06"
     },
     {
         "_id": "beach-003",
         "name": "Goa Beach Retreat",
         "type": "Beach stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-1087549595576285683/original/4c3c7396-6d66-4617-8f93-00a83c248865.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1516527996043243853/original/1dd3f9a4-8f0c-457c-aa55-ae6cfc6af9fc.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1516527996043243853/original/9bdc2808-a360-4471-8eeb-763b6d82efc4.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1516527996043243853/original/3e760f16-3c8b-46dc-9922-8a12b95d0f5e.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1516527996043243853/original/83d024d4-f8ef-412b-8769-397ceb32e733.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1516527996043243853/original/f97bb51f-64ae-4cbe-a63c-6e76bf853dde.jpeg?im_w=720"
+        ],
         "price": 95,
-        "summary": "Relaxing retreat hut steps away from the Arabian Sea.",
-        "capacity": 2,
+        "cleaningFee": 40,
+        "summary": "Relaxing retreat hut steps away from the Arabian Sea. Perfect for a peaceful getaway with tropical surroundings and traditional Goan vibes. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
+        "rooms": [
+            {
+                "roomType": "hut",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1516527996043243853/original/1dd3f9a4-8f0c-457c-aa55-ae6cfc6af9fc.jpeg?im_w=720"
+            }
+        ],
+        "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "kitchen.fridge",
+            "bathroom.shampoo",
+            "bathroom.conditioner",
+            "bathroom.bodySoap",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "location.beach",
+            "outdoor.beachEssentials",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            {
+                "main": "Private Beach Access",
+                "sub": "Steps from the pristine Arabian Sea.",
+                "imgUrl": "location.beach"
+            },
+            {
+                "main": "Tropical Vibes",
+                "sub": "Enjoy traditional Goan design and lush surroundings.",
+                "imgUrl": "features.breakfast"
+            },
+            {
+                "main": "Cozy Retreat",
+                "sub": "Perfect for unwinding with peaceful ocean sounds.",
+                "imgUrl": "bedroom.hangers"
+            }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-3",
+            "firstName": "Rahul",
+            "fullname": "Rahul Desai",
+            "location": "Goa, India",
+            "about": "Nature enthusiast and surfer — I love sharing Goa's beaches and calm lifestyle with guests.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/40.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1612137600000,
+            "rating": 4.88,
+            "numReviews": 89,
+            "yearsHosting": 3,
+            "responseRate": 92,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Goa" },
+                { "icon": "work", "text": "Local guide and surfer" }
+            ]
+        },
+        "loc": {
+            "country": "India",
+            "countryCode": "IN",
+            "city": "Goa",
+            "address": "Goa Beachfront",
+            "lat": 15.4909,
+            "lng": 73.8278
+        },
+        "reviews": [
+            {
+                "at": "2024-04-12T00:00:00.000Z",
+                "by": { "_id": "r-6001", "fullname": "Ananya", "imgUrl": "https://randomuser.me/api/portraits/women/42.jpg" },
+                "txt": "Incredible location and cozy hut. Loved waking up to the sea breeze.",
+                "rate": { "cleanliness": 5, "communication": 4.9, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.9 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-01-25T00:00:00.000Z",
+                "by": { "_id": "r-6002", "fullname": "Vikram", "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg" },
+                "txt": "Peaceful and relaxing retreat. Very attentive host.",
+                "rate": { "cleanliness": 4.9, "communication": 5, "checkIn": 5, "accuracy": 4.7, "location": 5, "value": 4.8 },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-12-10T00:00:00.000Z",
+                "by": { "_id": "r-6003", "fullname": "Priya", "imgUrl": "https://randomuser.me/api/portraits/women/35.jpg" },
+                "txt": "Loved the private beach and the hut’s tropical charm. Highly recommend.",
+                "rate": { "cleanliness": 5, "communication": 4.8, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.7 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-09-15T00:00:00.000Z",
+                "by": { "_id": "r-6004", "fullname": "Arjun", "imgUrl": "https://randomuser.me/api/portraits/men/36.jpg" },
+                "txt": "Beautiful hut and amazing host! Perfect getaway for couples.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.8 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-06-20T00:00:00.000Z",
+                "by": { "_id": "r-6005", "fullname": "Sanya", "imgUrl": "https://randomuser.me/api/portraits/women/37.jpg" },
+                "txt": "Charming stay and private beach access. Host is very helpful.",
+                "rate": { "cleanliness": 4.9, "communication": 4.9, "checkIn": 5, "accuracy": 4.7, "location": 5, "value": 4.7 },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-03-18T00:00:00.000Z",
+                "by": { "_id": "r-6006", "fullname": "Rohan", "imgUrl": "https://randomuser.me/api/portraits/men/39.jpg" },
+                "txt": "Quiet and relaxing retreat. Ideal for a digital detox.",
+                "rate": { "cleanliness": 4.8, "communication": 4.9, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.6 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-09-03",
-        "endDate": "2025-09-08",
-        "host": { "_id": "host-beach-3", "fullname": "Rahul", "location": "Goa, India" },
-        "loc": { "country": "India", "city": "Goa", "address": "Goa Beachfront" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-09-08"
     },
     {
         "_id": "beach-004",
         "name": "Sydney Bondi Apartment",
         "type": "Beach stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/hosting/Hosting-1420518395720809558/original/76d68e0a-ae3c-48ab-ac4a-6c5deb7d0732.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/6b2612bb-fbc6-4745-8e03-6b4ad0af55e4.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/4aabafdb-0fcb-49b0-9f96-6e60a7a1b6f9.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/df57f963-4163-4118-a936-792e761b8fb1.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/caa7839a-7260-41aa-be85-aa18bd4329a2.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/d6975d05-e8a3-486b-8553-93f3a74b281f.jpg?im_w=720"
+        ],
         "price": 240,
-        "summary": "Modern apartment overlooking Bondi Beach.",
-        "capacity": 4,
+        "cleaningFee": 40,
+        "summary": "Modern apartment overlooking Bondi Beach, steps from the sand and iconic coastal walks. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
+        "rooms": [
+            {
+                "roomType": "apartment",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/6b2612bb-fbc6-4745-8e03-6b4ad0af55e4.jpg?im_w=720"
+            },
+            {
+                "roomType": "apartment",
+                "bedType": "single bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/4aabafdb-0fcb-49b0-9f96-6e60a7a1b6f9.jpg?im_w=720"
+            }
+        ],
+        "guests": 4,
         "bathrooms": 2,
         "bedrooms": 2,
+        "beds": 3,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "kitchen.fridge",
+            "kitchen.oven",
+            "kitchen.dishes",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "location.beach",
+            "outdoor.sunLoungers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "services.houseKeeping",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            { "main": "Ocean Views", "sub": "Enjoy Bondi Beach right from your balcony.", "imgUrl": "location.beach" },
+            { "main": "Modern Comfort", "sub": "Fully equipped kitchen and spacious living area.", "imgUrl": "kitchen.coffeeMaker" },
+            { "main": "Walk to Cafés", "sub": "Local cafés and boutiques just steps away.", "imgUrl": "services.lockBox" }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-4",
+            "firstName": "Sophie",
+            "fullname": "Sophie Carter",
+            "location": "Sydney, Australia",
+            "about": "Lover of the ocean and coffee culture — I keep my apartment cozy and stylish.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/45.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1614556800000,
+            "rating": 4.92,
+            "numReviews": 102,
+            "yearsHosting": 4,
+            "responseRate": 95,
+            "responseTime": "within an hour",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Sydney" },
+                { "icon": "work", "text": "Photographer & travel lover" }
+            ]
+        },
+        "loc": { "country": "Australia", "countryCode": "AU", "city": "Sydney", "address": "Bondi Beach, Sydney", "lat": -33.8908, "lng": 151.2743 },
+        "reviews": [
+            { "at": "2024-05-10T00:00:00.000Z", "by": { "_id": "r-7001", "fullname": "Liam", "imgUrl": "https://randomuser.me/api/portraits/men/42.jpg" }, "txt": "Perfect apartment with ocean views! Spacious and clean.", "rate": { "cleanliness": 5, "communication": 4.9, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 5, "withKids": false, "withPet": false },
+            { "at": "2024-02-15T00:00:00.000Z", "by": { "_id": "r-7002", "fullname": "Emma", "imgUrl": "https://randomuser.me/api/portraits/women/40.jpg" }, "txt": "Loved Bondi! Apartment had everything we needed.", "rate": { "cleanliness": 4.9, "communication": 5, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.7 }, "nights": 4, "withKids": false, "withPet": false },
+            { "at": "2023-12-30T00:00:00.000Z", "by": { "_id": "r-7003", "fullname": "Noah", "imgUrl": "https://randomuser.me/api/portraits/men/39.jpg" }, "txt": "Amazing stay, close to the beach and cafes.", "rate": { "cleanliness": 5, "communication": 4.8, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 6, "withKids": false, "withPet": false },
+            { "at": "2023-11-12T00:00:00.000Z", "by": { "_id": "r-7004", "fullname": "Ava", "imgUrl": "https://randomuser.me/api/portraits/women/41.jpg" }, "txt": "Stylish apartment with everything you need. Loved the balcony.", "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 3, "withKids": false, "withPet": false },
+            { "at": "2023-08-20T00:00:00.000Z", "by": { "_id": "r-7005", "fullname": "Oliver", "imgUrl": "https://randomuser.me/api/portraits/men/41.jpg" }, "txt": "Cozy apartment with stunning beach views. Highly recommended.", "rate": { "cleanliness": 4.9, "communication": 4.9, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.7 }, "nights": 5, "withKids": false, "withPet": false }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-12-01",
-        "endDate": "2025-12-07",
-        "host": { "_id": "host-beach-4", "fullname": "Sophie", "location": "Sydney, Australia" },
-        "loc": { "country": "Australia", "city": "Sydney", "address": "Bondi Beach, Sydney" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-12-07"
     },
     {
         "_id": "beach-005",
         "name": "Santorini Cliffside Apartment",
         "type": "Beach stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-691918674135741107/original/07ca4193-2eca-4bd5-9b4d-22bf2aacb3ca.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/cdaa89a1-b9b9-4ee1-8776-6694dff14164.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/db781c0b-692a-4b1a-89cf-60e1cd865203.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/cd74ee37-fe81-4cda-b983-782cbb513aef.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/c3def8b2-3732-4574-bf8b-686fca9fcd94.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/6b317784-62ae-4000-abc1-dea8441a7b31.jpg?im_w=720"
+        ],
         "price": 280,
-        "summary": "Cliffside apartment with sweeping views of the Aegean Sea.",
-        "capacity": 3,
+        "cleaningFee": 40,
+        "summary": "Cliffside apartment with sweeping views of the Aegean Sea, perfect for sunset lovers. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
+        "rooms": [
+            {
+                "roomType": "apartment",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/cdaa89a1-b9b9-4ee1-8776-6694dff14164.jpg?im_w=720"
+            }
+        ],
+        "guests": 3,
         "bathrooms": 1,
         "bedrooms": 1,
+        "beds": 2,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "kitchen.fridge",
+            "kitchen.kettle",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "location.beach",
+            "features.breakfast",
+            "outdoor.sunLoungers",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            { "main": "Aegean Views", "sub": "Unforgettable cliffside panorama.", "imgUrl": "location.beach" },
+            { "main": "Romantic Escape", "sub": "Ideal for couples and sunset lovers.", "imgUrl": "features.breakfast" },
+            { "main": "Stylish Interiors", "sub": "Modern décor with traditional Greek touches.", "imgUrl": "bedroom.hangers" }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-5",
+            "firstName": "Eleni",
+            "fullname": "Eleni Papadopoulos",
+            "location": "Santorini, Greece",
+            "about": "I love sharing my beautiful island home with guests from around the world.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/44.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1609459200000,
+            "rating": 4.95,
+            "numReviews": 120,
+            "yearsHosting": 5,
+            "responseRate": 96,
+            "responseTime": "within an hour",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Santorini" },
+                { "icon": "work", "text": "Photographer & Airbnb Superhost" }
+            ]
+        },
+        "loc": { "country": "Greece", "countryCode": "GR", "city": "Santorini", "address": "Oia, Santorini", "lat": 36.4612, "lng": 25.3756 },
+        "reviews": [
+            { "at": "2024-03-15T00:00:00.000Z", "by": { "_id": "r-8001", "fullname": "Sophia", "imgUrl": "https://randomuser.me/api/portraits/women/46.jpg" }, "txt": "Amazing views and cozy apartment. Perfect for a romantic getaway.", "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 5, "withKids": false, "withPet": false },
+            { "at": "2023-11-20T00:00:00.000Z", "by": { "_id": "r-8002", "fullname": "Nikos", "imgUrl": "https://randomuser.me/api/portraits/men/43.jpg" }, "txt": "Breathtaking views! Everything was perfect.", "rate": { "cleanliness": 4.9, "communication": 5, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.7 }, "nights": 4, "withKids": false, "withPet": false }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-06-20",
-        "endDate": "2025-06-25",
-        "host": { "_id": "host-beach-5", "fullname": "Eleni", "location": "Santorini, Greece" },
-        "loc": { "country": "Greece", "city": "Santorini", "address": "Oia, Santorini" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-06-25"
     },
     {
         "_id": "beach-006",
         "name": "Rio Copacabana Flat",
         "type": "Beach stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-9985623/original/36350534-9b20-44c8-a8d8-f9b1fb511590.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/76f2fd79-878d-4d29-a33f-4c033f31060a.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/d2888b0c-01d8-4174-8ccf-7c0a1300f72b.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/80d68232-a837-4d00-971e-77cbf7bff93b.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/94e49367-aef9-4cb5-806c-1e9e429842c7.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/eb5d4e3e-4606-4ae3-865d-eed2d2a1e62c.jpeg?im_w=720"
+        ],
         "price": 160,
-        "summary": "Flat with rooftop pool near Copacabana Beach.",
-        "capacity": 3,
+        "cleaningFee": 40,
+        "summary": "Flat with rooftop pool near Copacabana Beach. Enjoy sunny Rio and stunning sea views. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
+        "rooms": [
+            {
+                "roomType": "flat",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/76f2fd79-878d-4d29-a33f-4c033f31060a.jpeg?im_w=720"
+            }
+        ],
+        "guests": 3,
         "bathrooms": 1,
         "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "kitchen.fridge",
+            "kitchen.microwave",
+            "bathroom.shampoo",
+            "bathroom.bodySoap",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "location.beach",
+            "outdoor.sunLoungers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            { "main": "Rooftop Pool", "sub": "Enjoy the sun with a view of Copacabana.", "imgUrl": "features.breakfast" },
+            { "main": "Central Location", "sub": "Steps from shops, cafes, and the beach.", "imgUrl": "location.beach" },
+            { "main": "Modern Flat", "sub": "Fully equipped kitchen and living space.", "imgUrl": "kitchen.coffeeMaker" }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-6",
+            "firstName": "Carlos",
+            "fullname": "Carlos Silva",
+            "location": "Rio de Janeiro, Brazil",
+            "about": "Beach lover and surfer — I enjoy hosting travelers in my sunny city.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/44.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1606780800000,
+            "rating": 4.91,
+            "numReviews": 88,
+            "yearsHosting": 4,
+            "responseRate": 94,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Rio" },
+                { "icon": "work", "text": "Surf instructor & local guide" }
+            ]
+        },
+        "loc": { "country": "Brazil", "countryCode": "BR", "city": "Rio de Janeiro", "address": "Copacabana, Rio", "lat": -22.9711, "lng": -43.1822 },
+        "reviews": [
+            { "at": "2024-04-10T00:00:00.000Z", "by": { "_id": "r-9001", "fullname": "Isabela", "imgUrl": "https://randomuser.me/api/portraits/women/48.jpg" }, "txt": "Amazing pool and location. Perfect flat for beach lovers.", "rate": { "cleanliness": 5, "communication": 4.9, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 4, "withKids": false, "withPet": false }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-11-10",
-        "endDate": "2025-11-15",
-        "host": { "_id": "host-beach-6", "fullname": "Carlos", "location": "Rio de Janeiro, Brazil" },
-        "loc": { "country": "Brazil", "city": "Rio de Janeiro", "address": "Copacabana, Rio" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-11-15"
     },
     {
         "_id": "beach-007",
         "name": "Malibu Ocean Villa",
         "type": "Beach stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/efabac16-21b6-414a-8c5f-e2552b1bdbee.jpg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/ff1d5477-665b-43b5-afe8-8f4a3d08993b.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/7b835dcb-1ecd-4b5a-9d71-7463ca12f1d0.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/06ffaab1-114e-418b-b061-fd27a0b4e3f0.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/f1b11a2f-65b7-4956-af88-282bf66421fb.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/466e682e-805a-43ce-9657-e8d121ab51fb.jpg?im_w=720"
+        ],
         "price": 350,
-        "summary": "Spacious villa with direct beach access in Malibu.",
-        "capacity": 6,
+        "cleaningFee": 40,
+        "summary": "Spacious villa with direct beach access in Malibu. Ideal for large groups or family retreats.\n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
+        "rooms": [
+            {
+                "roomType": "villa",
+                "bedType": "king bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/ff1d5477-665b-43b5-afe8-8f4a3d08993b.jpg?im_w=720"
+            },
+            {
+                "roomType": "villa",
+                "bedType": "queen bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/7b835dcb-1ecd-4b5a-9d71-7463ca12f1d0.jpg?im_w=720"
+            }
+        ],
+        "guests": 6,
         "bathrooms": 2,
         "bedrooms": 3,
+        "beds": 3,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "kitchen.fridge",
+            "kitchen.dishes",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "location.beach",
+            "outdoor.privatePatio",
+            "outdoor.beachEssentials",
+            "features.grill",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            { "main": "Direct Beach Access", "sub": "Step right onto Malibu sand from the villa.", "imgUrl": "location.beach" },
+            { "main": "Spacious Interiors", "sub": "Perfect for families or groups.", "imgUrl": "bedroom.hangers" },
+            { "main": "Outdoor Grill", "sub": "Enjoy BBQs with ocean views.", "imgUrl": "features.grill" }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-7",
+            "firstName": "Anna",
+            "fullname": "Anna Thompson",
+            "location": "California, USA",
+            "about": "Beach lover and interior designer — I make my villa comfortable for guests seeking the ultimate Malibu experience.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/47.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1598918400000,
+            "rating": 4.96,
+            "numReviews": 145,
+            "yearsHosting": 5,
+            "responseRate": 97,
+            "responseTime": "within an hour",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in California" },
+                { "icon": "work", "text": "Interior designer & Airbnb host" }
+            ]
+        },
+        "loc": { "country": "USA", "countryCode": "US", "city": "Malibu", "address": "Malibu Beach", "lat": 34.0259, "lng": -118.7798 },
+        "reviews": [
+            { "at": "2024-06-01T00:00:00.000Z", "by": { "_id": "r-10001", "fullname": "Mia", "imgUrl": "https://randomuser.me/api/portraits/women/49.jpg" }, "txt": "Amazing villa with breathtaking views. Perfect for our family!", "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 7, "withKids": true, "withPet": false }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-07-15",
-        "endDate": "2025-07-21",
-        "host": { "_id": "host-beach-7", "fullname": "Anna", "location": "California, USA" },
-        "loc": { "country": "USA", "city": "Malibu", "address": "Malibu Beach" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-07-21"
     },
     {
         "_id": "beach-008",
         "name": "Bali Beach Bungalow",
         "type": "Beach stays",
-        "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/d380ba84-d2ab-4053-8172-8dd8d8c9e911.jpeg?im_w=720"],
-        "cleaningFee": 40,
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/d380ba84-d2ab-4053-8172-8dd8d8c9e911.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/another1.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/another2.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/another3.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/another4.jpeg?im_w=720"
+        ],
         "price": 120,
-        "summary": "Traditional bungalow surrounded by palm trees, steps from the ocean.",
-        "capacity": 2,
+        "cleaningFee": 40,
+        "summary": "Traditional bungalow surrounded by palm trees, steps from the ocean. Relax in a peaceful tropical paradise. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
+        "rooms": [
+            {
+                "roomType": "bungalow",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-705409234100288579/original/d380ba84-d2ab-4053-8172-8dd8d8c9e911.jpeg?im_w=720"
+            }
+        ],
+        "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "safety.firstAid",
+            "outdoor.beachEssentials",
+            "location.beach",
+            "services.lockBox",
+            "safety.smokeAlarm",
+            "notIncluded.noDryer"
+        ],
+        "highlights": [
+            { "main": "Tropical Paradise", "sub": "Palm trees and ocean breeze surround the bungalow.", "imgUrl": "location.beach" },
+            { "main": "Cozy Interiors", "sub": "Traditional Balinese design with modern comfort.", "imgUrl": "bedroom.hangers" },
+            { "main": "Beach Access", "sub": "Just steps away from Sanur Beach.", "imgUrl": "outdoor.beachEssentials" }
+        ],
         "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-8",
+            "firstName": "Nyoman",
+            "fullname": "Nyoman Putra",
+            "location": "Bali, Indonesia",
+            "about": "I enjoy welcoming travelers to Bali and sharing the beauty of our island.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/48.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1612137600000,
+            "rating": 4.92,
+            "numReviews": 75,
+            "yearsHosting": 4,
+            "responseRate": 95,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Bali" },
+                { "icon": "work", "text": "Hospitality enthusiast & local guide" }
+            ]
+        },
+        "loc": { "country": "Indonesia", "countryCode": "ID", "city": "Denpasar", "address": "Sanur Beach, Bali", "lat": -8.6880, "lng": 115.2580 },
+        "reviews": [
+            { "at": "2024-02-15T00:00:00.000Z", "by": { "_id": "r-11001", "fullname": "Lily", "imgUrl": "https://randomuser.me/api/portraits/women/50.jpg" }, "txt": "Charming bungalow! Peaceful and steps from the beach.", "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 5, "withKids": false, "withPet": false }
+        ],
+        "likedByUsers": [],
         "startDate": "2025-05-20",
-        "endDate": "2025-05-25",
-        "host": { "_id": "host-beach-8", "fullname": "Nyoman", "location": "Bali, Indonesia" },
-        "loc": { "country": "Indonesia", "city": "Denpasar", "address": "Sanur Beach, Bali" },
-        "reviews": [],
-        "likedByUsers": []
+        "endDate": "2025-05-25"
     },
     // Villas (8 demo stays)
 
@@ -1883,5 +2448,313 @@ export const demoStays = [
         "loc": { "country": "United States", "city": "Malibu", "address": "Pacific Coast Hwy, Malibu" },
         "reviews": [],
         "likedByUsers": []
+    },
+    {
+        "_id": "Ytcqd",
+        "name": "Westin Kaanapali KORVN 2BR",
+        "type": "Villas",
+        "imgUrls": [
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436294/mvhb3iazpiar6duvy9we.jpg",
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436496/ihozxprafjzuhil9qhh4.jpg",
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436952/aef9ajipinpjhkley1e3.jpg",
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg"
+        ],
+        "price": 595,
+        "cleaningFee": 40,
+        "summary": "Experience the comfort of the Westin Kaanapali Ocean Resort Villas North in a beautifully maintained timeshare unit on Maui’s stunning Kaanapali Beach. Ideal for couples or solo travelers looking for a peaceful, resort-style getaway.\n\nThis unit includes access to premium resort amenities and is ADA/wheelchair accessible (please confirm with the resort directly to ensure your needs are met).\n\nPlease note:\n\nA daily resort fee applies:\n\n$14–$20/day for stays 7+ nights\n\n$38/day for stays under 7 nights\n\nAvailability is limited and must be approved after inquiry — we’ll review your request and confirm if available.\n\nFor guaranteed views, only weekly rentals are eligible and may incur additional charges.\n\nWe recommend reading the full “The Space” section for important details about cleaning, timeshare booking, and reservation processes.",
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436952/aef9ajipinpjhkley1e3.jpg"
+            },
+            {
+                "roomType": "living room",
+                "bedType": "sofa",
+                "imgUrl": "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg"
+            }
+        ],
+        "guests": 3,
+        "bathrooms": 2,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "kitchen.fridge",
+            "kitchen.microwave",
+            "kitchen.oven",
+            "kitchen.table",
+            "bedroom.hangers",
+            "bedroom.doubleBed",
+            "bathroom.hotWater",
+            "bathroom.hairDryer",
+            "features.breakfast",
+            "outdoor.beachEssentials",
+            "services.lockBox",
+            "safety.firstAid",
+            "safety.smokeAlarm",
+            "location.beach",
+            "bookingOptions.instantBook",
+            "notIncluded.noDryer"],
+        "highlights": [
+            {
+                "main": "Dive right in",
+                "sub": "This is one of the few places in the area with a pool.",
+                "imgUrl": "location.pool"
+            },
+            {
+                "main": "Fully equipped kitchen",
+                "sub": "Guests appreciated the well-stocked kitchen for home-cooked meals.",
+                "imgUrl": "kitchen.kitchen"
+            },
+            {
+                "main": "Well-equipped for long stays",
+                "sub": "Guests who stayed a month or longer rated this place 5 stars.",
+                "imgUrl": "services.longStay"
+            }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "622f3403e36c59e6164faf93",
+            "firstName": "Patty",
+            "fullname": "Patty And Beckett",
+            "location": "Eureka, California, United States",
+            "about": "We are an adventurous couple who loves to travel :)",
+            "pictureUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112365/cld-sample.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1577836800000,
+            "rating": 4.92,
+            "numReviews": 128,
+            "yearsHosting": 5,
+            "responseRate": 98,
+            "responseTime": "within an hour",
+            "coHosts": [
+                {
+                    "name": "Alex",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/45.jpg"
+                },
+                {
+                    "name": "Jamie",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/46.jpg"
+                }
+            ],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in the 80's" },
+                { "icon": "work", "text": "Photographer" }
+            ]
+        },
+        "loc": {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "Maui",
+            "address": "Lahaina, HI, United States",
+            "lat": -156.6917,
+            "lng": 20.93792
+        },
+        "reviews": [
+            {
+                "at": "2016-06-12T04:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc004",
+                    "fullname": "Kiesha",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112363/samples/smile.jpg",
+                    "id": "10711825"
+                },
+                "txt": "I had a great experience working with Patty and Peter...",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 5,
+                    "value": 4.5
+                },
+                "nights": 8,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2016-07-28T04:00:00.000Z",
+                "by": {
+                    "_id": "622f3403e36c59e6164fb204",
+                    "fullname": "Chris",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112363/samples/outdoor-woman.jpg",
+                    "id": "70072865"
+                },
+                "txt": "Peter quickly responded to any questions I had...",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 5,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": true,
+                "withPet": false
+            }
+            , {
+                "at": "2016-09-11T04:00:00.000Z",
+                "by": {
+                    "id": "622f3405e36c59e6164fb703",
+                    "fullname": "Kim",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112359/samples/two-ladies.jpg",
+                    "id": "71179725"
+                },
+                "txt": "We had the perfect location for a room, first floor right in front of the pool. The resort is beautiful, and the staff is so friendly! I enjoyed it so much, we talked about buying a timeshare ourselves."
+                ,
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 5,
+                    "value": 4.5,
+                },
+                "nights": 3,
+                "withKids": true,
+                "withPet": false,
+            },
+            {
+                "at": "2017-01-07T05:00:00.000Z",
+                "by": {
+                    "id": "622f3404e36c59e6164fb37f",
+                    "fullname": "Tracy",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112355/samples/people/smiling-man.jpg",
+                    "id": "65593239"
+                },
+                "txt": "Beautiful location. Patty & Peter were super helpful and easy to work with!"
+                ,
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 5,
+                    "value": 4.5,
+                },
+                "nights": 9,
+                "withKids": true,
+                "withPet": false,
+            },
+            {
+                "at": "2017-04-07T04:00:00.000Z",
+                "by": {
+                    "id": "622f3403e36c59e6164fb105",
+                    "fullname": "Duyen",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112364/samples/man-portrait.jpg",
+                    "id": "26215688"
+                },
+                "txt": "Great spot for the kids and family and close to beach and everything at the resort. We will definitely be back."
+                ,
+                "rate": {
+                    "cleanliness": 1,
+                    "communication": 1,
+                    "checkIn": 1,
+                    "accuracy": 1,
+                    "location": 1,
+                    "value": 1,
+                },
+                "nights": 3,
+                "withKids": true,
+                "withPet": false,
+            },
+            {
+                "at": "2017-05-09T04:00:00.000Z",
+                "by": {
+                    "id": "622f3402e36c59e6164fabbe",
+                    "fullname": "Binh",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112365/samples/upscale-face-1.jpg",
+                    "id": "117390236"
+                },
+                "txt": "The unit and the Westin offer variety of amenities you can possibly ask for. Sofa beds are very comfortable to sleep in. But there is charge for ocean view upgrade. Overall, I highly recommend to book with Patty and Peter."
+                ,
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.8,
+                    "accuracy": 4.6,
+                    "location": 4.8,
+                    "value": 4.5,
+                },
+                "nights": 3,
+                "withKids": true,
+                "withPet": false,
+            },
+            {
+                "at": "2018-02-24T05:00:00.000Z",
+                "by": {
+                    "id": "622f3404e36c59e6164fb4af",
+                    "fullname": "Samy",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112366/main-sample.png",
+                    "id": "15143517"
+                },
+                "txt": "We spent a great week at Patty and Peter's place. The place was exactly as shown in the pictures, very comfortable, nice view, with all amenities. The resort is great with several pools, a long beach, many restaurants, and of course a lot of great activities all around."
+                ,
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 5,
+                    "accuracy": 4.6,
+                    "location": 5,
+                    "value": 5,
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false,
+            },
+            {
+                "at": "2018-06-16T04:00:00.000Z",
+                "by": {
+                    "id": "622f3405e36c59e6164fb87b",
+                    "fullname": "Breanne",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758116976/bb3osjof90dl0t3kl0nd.png",
+                    "id": "78173091"
+                },
+                "txt": "This place was perfect for my family. We had plenty of room to spread out and the service could not have been any better."
+                ,
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.6,
+                    "checkIn": 4.8,
+                    "accuracy": 4.9,
+                    "location": 5,
+                    "value": 4.5,
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": true,
+            },
+            {
+                "at": "2018-06-29T04:00:00.000Z",
+                "by": {
+                    "id": "622f3405e36c59e6164fb713",
+                    "fullname": "Kimberly",
+                    "imgUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112355/samples/people/smiling-man.jpg",
+                    "id": "100535039"
+                },
+                "txt": "We love Westin Kaanapalli",
+
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 5,
+                    "location": 5,
+                    "value": 4.8,
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false,
+            }
+        ],
+        "likedByUsers": []
     }
+
 ]
