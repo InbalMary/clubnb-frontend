@@ -6,7 +6,6 @@ import { formatDateWithFullYear, formatGuestsText, capitalizeFirst } from '../se
 export function ReservationsPage() {
     const [activeTab, setActiveTab] = useState('all')
     const [sortDirection, setSortDirection] = useState('asc')
-    const [editingOrderId, setEditingOrderId] = useState(null)
 
     const loggedInUser = useSelector((state) => state.userModule.loggedInUser)
     const orders = useSelector(storeState => storeState.orderModule.orders)
@@ -57,23 +56,6 @@ export function ReservationsPage() {
             return sortDirection === 'asc' ? dateA - dateB : dateB - dateA
         })
     }, [filteredOrders, sortDirection])
-
-    const getStatusClass = (status) => {
-        switch (status) {
-            case 'approved':
-                return 'confirmed'
-            case 'pending':
-                return 'pending'
-            case 'rejected':
-                return 'canceled'
-            default:
-                return ''
-        }
-    }
-
-    const getStatusText = (status) => {
-        return capitalizeFirst(status)
-    }
 
     const toggleSort = () => {
         setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc')
@@ -150,26 +132,24 @@ export function ReservationsPage() {
                                 sortedOrders.map((order) => (
                                     <tr key={order._id}>
                                         <td>
-                                            {editingOrderId === order._id ? (
-                                                <select 
-                                                    className="status-dropdown"
-                                                    value={order.status}
-                                                    onChange={(ev) => onHandleStatusChange(order, ev.target.value)}
-                                                    onBlur={() => setEditingOrderId(null)}
-                                                    autoFocus
-                                                >
-                                                    <option value="pending">Pending</option>
-                                                    <option value="approved">Approved</option>
-                                                    <option value="rejected">Rejected</option>
-                                                </select>
-                                            ) : (
-                                                <span 
-                                                    className={`status-badge ${getStatusClass(order.status)}`}
-                                                    onClick={() => setEditingOrderId(order._id)}
-                                                >
-                                                    {getStatusText(order.status)}
-                                                </span>
-                                            )}
+                                            <select
+                                                className="status-dropdown"
+                                                value={order.status}
+                                                onChange={(ev) => onHandleStatusChange(order, ev.target.value)}
+                                                style={{
+                                                    color:
+                                                        order.status === "pending"
+                                                            ? "var(--pending)"
+                                                            : order.status === "approved"
+                                                                ? "var(--confirmed)"
+                                                                : "var(--canceled)",
+                                                }}
+                                            >
+                                                <option value="pending">Pending</option>
+                                                <option value="approved">Approved</option>
+                                                <option value="rejected">Rejected</option>
+                                            </select>
+
                                         </td>
                                         <td>
                                             <div className="guests-cell">

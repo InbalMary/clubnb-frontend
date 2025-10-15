@@ -3,6 +3,10 @@ import { formatStayDates } from '../services/util.service.js'
 
 export function TripPreview({ order }) {
     const stay = order.stay
+    if (!stay) {
+        console.warn("TripPreview missing stay for order:", order)
+        return null
+    }
     const formattedDates = formatStayDates(order.startDate, order.endDate)
 
     return (

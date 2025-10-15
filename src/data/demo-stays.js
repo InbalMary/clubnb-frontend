@@ -2259,6 +2259,26 @@ export const demoStays = [
     // Villas (8 demo stays)
 
     {
+        "_id": "Ytcqd",
+        "name": "Westin Kaanapali KORVN 2BR",
+        "type": "Villa",
+        "imgUrls": [
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
+            "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436294/mvhb3iazpiar6duvy9we.jpg"
+        ],
+        "price": 595,
+        "cleaningFee": 40,
+        "summary": "Experience the comfort of the Westin Kaanapali Ocean Resort Villas North in a beautifully maintained timeshare unit on Maui’s stunning Kaanapali Beach.",
+        "capacity": 3,
+        "bathrooms": 2,
+        "bedrooms": 1,
+        "roomType": "Entire home/apt",
+        "host": { "_id": "host-usa-1", "fullname": "Resort Host", "location": "Maui, Hawaii" },
+        "loc": { "country": "USA", "city": "Maui", "address": "Kaanapali Beach" },
+        "reviews": [],
+        "likedByUsers": []
+    },
+    {
         "_id": "villa001",
         "name": "Santorini Cliff Villa",
         "type": "Villas",

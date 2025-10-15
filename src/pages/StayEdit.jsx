@@ -7,148 +7,66 @@ import { ImgUploader } from "../cmps/ImgUploader";
 import { DateRangePicker } from "../cmps/DateRangePicker";
 
 export function StayEdit() {
-    const [stay, setStay] = useState(stayService.getEmptyStay())
-    const { stayId } = useParams()
     const navigate = useNavigate()
 
-    const [dateRange, setDateRange] = useState({ from: null, to: null })
-    const [activeField, setActiveField] = useState('checkin')
-
-    useEffect(() => {
-        if (stayId) loadStay()
-    }, [])
-
-    function loadStay() {
-        stayService.getById(stayId)
-            .then(stayData => {
-                setStay(stayData);
-                setDateRange({
-                    from: stayData.startDate ? new Date(stayData.startDate) : null,
-                    to: stayData.endDate ? new Date(stayData.endDate) : null
-                })
-            })
-            .catch(err => {
-                console.log('Cannot load stay:', err)
-                showErrorMsg('Stay not found!')
-                navigate('/')
-            })
+    const handleSaveExit = () => {
+        navigate('/')
     }
 
-    function handleChange({ target }) {
-        let { value, type, name: field } = target
-        value = type === 'number' ? +value : value
-        setStay(prev => ({ ...prev, [field]: value }))
+    const handleNext = () => {
+        console.log('Moving to next step')
     }
 
-    function handleDateComplete(range) {
-        setDateRange(range)
-        setStay(prev => ({
-            ...prev,
-            startDate: range.from ? range.from.toISOString().split('T')[0] : '',
-            endDate: range.to ? range.to.toISOString().split('T')[0] : ''
-        }));
-        if (activeField === 'checkin' && range.from && !range.to) {
-            setActiveField('checkout')
-        }
-    }
-
-    function handleImgUpload(imgUrl) {
-        setStay(prev => ({ ...prev, imgUrls: [imgUrl] }))
-    }
-
-    function onSaveStay(ev) {
-        ev.preventDefault()
-        const DEFAULT_IMG_URL = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofGFwfHxhcGFydG1lbnR8ZW58MHx8fHwxNjc1NTk3NTEx&ixlib=rb-4.0.3&q=80&w=600";
-
-        const stayToSave = {
-            ...stay,
-            imgUrls: stay.imgUrls?.length ? stay.imgUrls : [DEFAULT_IMG_URL]
-        }
-
-        stayService.save(stayToSave)
-            .then(() => {
-                showSuccessMsg('Stay saved successfully')
-                navigate('/')
-            })
-            .catch(err => {
-                console.log('Cannot save stay', err)
-                showErrorMsg('Cannot save stay')
-            })
-    }
-
-    function onCancel() {
+    const handleBack = () => {
         navigate('/')
     }
 
     return (
-        <section className="stay-edit">
-            <h2>{stay._id ? 'Edit' : 'Add'} Stay</h2>
-            <form onSubmit={onSaveStay} className="stay-edit-form">
-                <label>
-                    Name:
-                    <input type="text" name="name" value={stay.name || ''} onChange={handleChange} required />
-                </label>
-
-                <label>
-                    Price:
-                    <input type="number" name="price" value={stay.price ?? 0} onChange={handleChange}  required />
-                </label>
-
-                <label>
-                    Cleaning Fee:
-                    <input type="number" name="cleaningFee" value={stay.cleaningFee ?? 0} onChange={handleChange} />
-                </label>
-
-                <label>
-                    Capacity:
-                    <input type="number" name="capacity" value={stay.capacity ?? 1} onChange={handleChange} required />
-                </label>
-
-                <label>
-                    Bedrooms:
-                    <input type="number" name="bedrooms" value={stay.bedrooms ?? 1} onChange={handleChange} required />
-                </label>
-
-                <label>
-                    Bathrooms:
-                    <input type="number" name="bathrooms" value={stay.bathrooms ?? 1} onChange={handleChange} required />
-                </label>
-
-                <label>
-                    Summary:
-                    <textarea name="summary" value={stay.summary || ''} onChange={handleChange} rows="3" />
-                </label>
-
-                <div className="date-picker-container">
-                    <button type="button" onClick={() => setActiveField('checkin')}>
-                        Check in: {dateRange.from ? dateRange.from.toLocaleDateString() : 'Add date'}
+        <div className="edit-contanier">
+            <header className="edit-header">
+                <div className="logo-black-contanier">
+                    <img src={`/img/logo-black.svg`} alt="logo-black" className="logo-black-icon" />
+                </div>
+                <div className="header-actions">
+                    <button className="btn btn-pill questions-button">Questions?</button>
+                    <button className="btn btn-pill save-exit-button" onClick={handleSaveExit}>
+                        Save & exit
                     </button>
-                    <button type="button" onClick={() => setActiveField('checkout')}>
-                        Check out: {dateRange.to ? dateRange.to.toLocaleDateString() : 'Add date'}
-                    </button>
-                    <div className="modal">
-                        <DateRangePicker
-                            value={dateRange}
-                            onComplete={handleDateComplete}
-                            activeField={activeField}
-                        />
-                    </div>
+                </div>
+            </header>
+
+            <main className="step-main-content">
+                <div className="step-left">
+                    <div className="step-label">Step 1</div>
+                    <h1 className="step-main-title">Tell us about your place</h1>
+                    <p className="step-main-description">
+                        In this step, we'll ask you which type of property you have and if
+                        guests will book the entire place or just a room. Then let us know
+                        the location and how many guests can stay.
+                    </p>
                 </div>
 
-                <ImgUploader onUpload={handleImgUpload} imgUrl={stay.imgUrls?.[0]} />
-
-                <div className="form-actions">
-                    <button type="submit">{stay._id ? 'Save' : 'Add'}</button>
-                    <button type="button" className="btn-cancel" onClick={onCancel}>Cancel</button>
+                <div className="step-right">
+                    <video
+                        className="step-video"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                    >
+                        <source src="/img/video/listing-step1-animation.mp4" type="video/mp4" />
+                    </video>
                 </div>
-            </form>
+            </main>
 
-            {stay.imgUrls && stay.imgUrls.length > 0 && (
-                <div className="img-preview">
-                    <h4>Preview Image:</h4>
-                    <img src={stay.imgUrls[0]} alt="Stay" />
-                </div>
-            )}
-        </section>
+            <footer className="step-footer">
+                <button className="back-button" onClick={handleBack}>
+                    Back
+                </button>
+                <button className="btn btn-black next-button" onClick={handleNext}>
+                    Next
+                </button>
+            </footer>
+        </div>
     )
 }

@@ -109,34 +109,6 @@
     background-color: var(--gray8);
 }
 
-.status-badge {
-    display: inline-block;
-    font-size: 0.875rem;
-    font-weight: 400;
-    background-color: transparent;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-}
-
-.status-badge:hover {
-    opacity: 0.7;
-    background-color: var(--gray7);
-}
-
-.status-badge.confirmed {
-    color: var(--confirmed);
-}
-
-.status-badge.pending {
-    color: var(--pending);
-}
-
-.status-badge.canceled {
-    color: var(--canceled);
-}
-
 .status-dropdown {
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
@@ -144,19 +116,27 @@
     border: 1px solid var(--gray4);
     border-radius: 0.25rem;
     background-color: var(--white);
-    color: var(--gray3);
     cursor: pointer;
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.status-dropdown:focus {
+.status-dropdown:focus,
+.status-dropdown:hover {
     border-color: var(--gray3);
     box-shadow: 0 0 0 2px rgba(34, 34, 34, 0.1);
 }
 
-.status-dropdown option {
-    padding: 0.25rem;
+.status-dropdown option[value="pending"] {
+    color: var(--pending);
+}
+
+.status-dropdown option[value="approved"] {
+    color: var(--confirmed);
+}
+
+.status-dropdown option[value="rejected"] {
+    color: var(--canceled);
 }
 
 .guests-cell {

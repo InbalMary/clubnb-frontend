@@ -1,0 +1,67 @@
+.stay-edit {
+    max-width: 800px;
+    margin: 7rem auto;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+.stay-edit h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.stay-edit-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.stay-edit-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+.stay-edit-form input,
+.stay-edit-form textarea {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--gray2);
+    font-size: 1rem;
+}
+
+.stay-edit-form textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.form-actions button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.form-actions .btn-cancel {
+    background-color: var(--gray1);
+    color: var(--gray3);
+}
+
+.form-actions button[type="submit"] {
+    background-color: var(--primary-clr);
+    color: var(--white);
+}
+
+.img-preview {
+    margin-top: 1rem;
+}
+
+.img-preview img {
+    width: 100%;
+    border-radius: 0.5rem;
+}
