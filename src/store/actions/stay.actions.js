@@ -13,7 +13,7 @@ export async function loadStays(filterBy) {
     } finally {
         setTimeout(() => {
             store.dispatch({ type: SET_IS_LOADING, isLoading: false })
-        }, 1000)
+        }, 500)
     }
 }
 
