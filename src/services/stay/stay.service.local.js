@@ -153,7 +153,7 @@ export function getAmenitiesData(amenitiesSvgs, stayAmenities = []) {
 
     const amenitiesArr = []
 
-    stayAmenities.forEach((amenityKey) => {
+    stayAmenities?.forEach((amenityKey) => {
         const [category, name] = amenityKey.split('.')
         const formatedName = formatName(name)
         const formatedCat = formatName(category)
