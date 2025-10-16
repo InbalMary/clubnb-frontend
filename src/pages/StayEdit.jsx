@@ -135,12 +135,13 @@ export function StayEdit() {
     }
 
     const handleBack = () => {
-        if (currentStep === 0) navigate('/hosting')
-        if (currentStep === 1) navigate('/edit/become-a-host')
-        if (currentStep === 2) navigate(`/edit/${stayId}/about-your-place`)
-        if (currentStep === 3) navigate(`/edit/${stayId}/structure`)
-        if (currentStep === 4) navigate(`/edit/${stayId}/privacy-type`)
-        if (currentStep === 5) navigate(`/edit/${stayId}/location`)
+        if (currentStep === 0) navigate('/stay/hosting')
+        if (currentStep === 1) navigate('/stay/edit/become-a-host')
+        if (currentStep === 2) navigate(`/stay/edit/${stayId}/about-your-place`)
+        if (currentStep === 3) navigate(`/stay/edit/${stayId}/structure`)
+        if (currentStep === 4) navigate(`/stay/edit/${stayId}/privacy-type`)
+        if (currentStep === 5) navigate(`/stay/edit/${stayId}/location`)
+
     }
 
     const handleSaveExit = async () => {

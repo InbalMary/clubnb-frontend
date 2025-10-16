@@ -59,7 +59,6 @@ export function RootCmp() {
             )}
             {/* <AppHeader /> */}
             <UserMsg />
-
             <main className="main-container">
                 <Routes>
                     {/* <Route path="" element={<HomePage />} />
@@ -71,12 +70,13 @@ export function RootCmp() {
                     <Route path="explore/:type" element={<Explore />} />
                     <Route path="stay/edit" element={<StayEdit />} />
                     <Route path="stay/edit/:stayId" element={<StayEdit />} />
-                    <Route path="edit/become-a-host" element={<StayEdit />} />
-                    <Route path="edit/:id/about-your-place" element={<StayEdit />} />
-                    <Route path="edit/:id/structure" element={<StayEdit />} />
-                    <Route path="edit/:id/privacy-type" element={<StayEdit />} />
-                    <Route path="edit/:id/location" element={<StayEdit />} />
-                    <Route path="edit/:id/address-details" element={<StayEdit />} />
+                    <Route path="stay/edit/become-a-host" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/about-your-place" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/structure" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/privacy-type" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/location" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/address-details" element={<StayEdit />} />
+
 
                     <Route path="stay/:stayId" element={<StayDetails />} />
                     <Route path="stay/:stayId/confirm-pay" element={<ConfirmPay />} />
