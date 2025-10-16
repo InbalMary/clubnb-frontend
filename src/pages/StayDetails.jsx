@@ -1,14 +1,12 @@
 import { createRef, Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { loadStay, addStayReview } from '../store/actions/stay.actions'
 
 import { amenitiesSvg, reviewSvgs } from '../cmps/Svgs'
 import { LongTxt } from '../cmps/LongTxt'
-import { calculateNights, getRandomItems } from '../services/util.service'
 import { Modal } from '../cmps/Modal'
 import { DateRangePicker } from '../cmps/DateRangePicker'
 import { StayRating } from '../cmps/StayRating'
@@ -21,6 +19,8 @@ import { hostSvgs } from '../cmps/Svgs'
 import { useDateContext } from '../context/DateRangeProvider'
 import { StayMap } from '../cmps/StayMap'
 import { StayHeader } from '../cmps/StayHeader'
+import { useDateRange } from '../customHooks/useDateRange'
+import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 
 
 export function StayDetails() {
@@ -34,11 +34,8 @@ export function StayDetails() {
   const isLoading = useSelector(storeState => storeState.stayModule.isLoading)
 
   useEffect(() => {
-    if (!startDate && endDate) return
-    if (stayId && startDate && endDate) {
-      loadStay(stayId)
-    }
-  }, [stayId, startDate, endDate])
+    if (stayId) loadStay(stayId)
+  }, [stayId])
 
   useEffect(() => {
     if (isLoading) {
@@ -48,11 +45,11 @@ export function StayDetails() {
     }
   }, [isLoading])
 
+  // const { dateRange, setDateRange } = useDateRange()
   const { dateRange, setDateRange } = useDateContext()
+  
   const [modalType, setModalType] = useState(null)
   const [selectedReviewIdx, setSelectedReviewIdx] = useState(null)
-
-
 
   const refs = {
     photoRef: useRef(null),
@@ -211,7 +208,9 @@ export function StayDetails() {
             </div>
             <div ref={refs.stickyContainerRef} className="sticky-ref">
 
-              <StickyContainer stay={stay} />
+              <StickyContainer stay={stay}
+                dateRange={dateRange}
+                setDateRange={setDateRange} />
             </div>
 
 

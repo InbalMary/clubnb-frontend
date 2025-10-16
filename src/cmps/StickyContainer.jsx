@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react"
 import { DateSelector, StickyDateSelector } from "./DateSelector"
-import { reUseDateRange, useDateRange } from "../customHooks/useDateRange"
 import { DateRangePicker } from "./DateRangePicker"
 import { useClickOutside } from "../customHooks/useClickOutside"
 import { CalendarStayDates, FancyButton, RareFind } from "./SmallComponents"
@@ -9,16 +8,13 @@ import { GuestSelector } from "./GuestSelector"
 import { calculateNights, formatDate, formatGuestsText } from "../services/util.service"
 import { Modal } from "./Modal"
 import { svgControls } from "./Svgs"
-import { loadStay } from "../store/actions/stay.actions"
-import { useDateContext } from "../context/DateRangeProvider"
-import { useSelector } from "react-redux"
 
-export function StickyContainer({ stay, initialModal = null }) {
+export function StickyContainer({ stay, dateRange, setDateRange }) {
 
     const [modalType, setModalType] = useState(null)
-    const [activeModal, setActiveModal] = useState(null)
+    const [userCleared, setUserCleared] = useState(false)
 
-    const { dateRange, setDateRange } = useDateContext()
+
     const [searchParams, setSearchParams] = useSearchParams()
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
     const navigate = useNavigate()
@@ -32,11 +28,14 @@ export function StickyContainer({ stay, initialModal = null }) {
     const pets = searchParams.get('pets')
 
     useEffect(() => {
+        if (userCleared) return
+        const clearedFlag = stayId && sessionStorage.getItem(`datesClearedForStay_${stayId}`)
+        if (clearedFlag) return
 
-        const hasStartDate = !!searchParams.get('startDate')
-        const hasEndDate = !!searchParams.get('endDate')
+        const hasStartDate = !!startDate
+        const hasEndDate = !!endDate
 
-        if (!hasStartDate && !hasEndDate && stay.startDate && stay.endDate) {
+        if (!hasStartDate && !hasEndDate && stay?.startDate && stay?.endDate) {
             const from = new Date(stay.startDate)
             const to = new Date(stay.endDate)
             setDateRange({ from, to })
@@ -48,46 +47,49 @@ export function StickyContainer({ stay, initialModal = null }) {
             infants: parseInt(infants) || 0,
             pets: parseInt(pets) || 0,
         })
-        // if (stayId && !stay?._id) {
-        //     loadStay(stayId)
-        // }
-    }, [stay])
+    }, [stay, userCleared])
 
-     useEffect(() => {
-        const start = searchParams.get('startDate')
-        const end = searchParams.get('endDate')
 
-        if (start && end) {
-            setDateRange({ from: new Date(start), to: new Date(end) })
+    useEffect(() => {
+
+        if (startDate && endDate) {
+            setDateRange({ from: new Date(startDate), to: new Date(endDate) })
         }
-    }, [searchParams])
+    }, [startDate, endDate])
+
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             const params = new URLSearchParams(searchParams)
             let changed = false
 
-            if (dateRange.from && params.get('startDate') !== formatDate(dateRange.from)) {
+            if (dateRange.from && startDate !== formatDate(dateRange.from)) {
                 params.set('startDate', formatDate(dateRange.from))
                 changed = true
-            }
-            if (dateRange.to && params.get('endDate') !== formatDate(dateRange.to)) {
-                params.set('endDate', formatDate(dateRange.to))
+            } else if (!dateRange.from && userCleared && params.has('startDate')) {
+                params.delete('startDate')
                 changed = true
             }
-            if (changed) {
-                setSearchParams(params, { replace: true })
+
+            if (dateRange.to && endDate !== formatDate(dateRange.to)) {
+                params.set('endDate', formatDate(dateRange.to))
+                changed = true
+            } else if (!dateRange.to && userCleared && params.has('endDate')) {
+                params.delete('endDate')
+                changed = true
             }
+            
             if (guests.adults) params.set('adults', guests.adults.toString())
             if (guests.children) params.set('children', guests.children.toString())
             if (guests.infants) params.set('infants', guests.infants.toString())
             if (guests.pets) params.set('pets', guests.pets.toString())
-            setSearchParams(params, { replace: true })
+
+            if (changed) setSearchParams(params, { replace: true })
         }, 300)
 
         return () => clearTimeout(timeout)
 
-    }, [dateRange, guests])
+    }, [dateRange, guests, userCleared])
 
     const containerRef = useRef()
     const modalRef = useRef()
@@ -111,6 +113,17 @@ export function StickyContainer({ stay, initialModal = null }) {
         }
     }
 
+    function handleOnClear() {
+        setUserCleared(true)
+        setDateRange({ from: null, to: null })
+
+        const params = new URLSearchParams(searchParams)
+        params.delete('startDate')
+        params.delete('endDate')
+        setSearchParams(params, { replace: true })
+        if (stayId) sessionStorage.setItem(`datesClearedForStay_${stayId}`, 'true')
+    }
+
     useClickOutside([containerRef, modalRef], () => {
         setModalType(null)
     })
@@ -118,12 +131,10 @@ export function StickyContainer({ stay, initialModal = null }) {
     function handleClick() {
         const from = dateRange.from || startDate
         const to = dateRange.to || endDate
-        // console.log('from:', from, 'to:', to, 'stayId:', stayId)
 
         if (from && to) {
             navigate(`/stay/${stay._id}/confirm-pay`)
         } else {
-            //TEMPORARY FALLBACK
             setModalType('checkin')
         }
     }
@@ -140,26 +151,25 @@ export function StickyContainer({ stay, initialModal = null }) {
 
                     <span className={`date-wrapper ${(modalType === 'checkin' || modalType === 'checkout') ? 'active' : ''}`}>
 
-                        <StickyDateSelector
+                        <DateSelector
                             label="CHECK-IN"
                             isHeader={false}
                             date={dateRange.from}
                             isActive={modalType === 'checkin'}
                             placeholder={(modalType === 'checkin') ? 'MM/DD/YYYY' : 'Add dates'}
                             onClick={() => setModalType('checkin')}
-                            onClear={() => setDateRange(prev => ({ ...prev, from: null, to: null }))}
+                            onClear={handleOnClear}
                         />
                         <div className="divider"></div>
 
-                        <StickyDateSelector
+                        <DateSelector
                             label="CHECKOUT"
                             isHeader={false}
                             date={dateRange.to}
                             placeholder={(modalType === 'checkout') ? 'MM/DD/YYYY' : 'Add dates'}
                             isActive={modalType === 'checkout'}
                             onClick={() => setModalType('checkout')}
-                            onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
-                        />
+                            onClear={handleOnClear} />
                     </span >
                     <div className="border-bot"></div>
                     <span className="guest-wrapper">
