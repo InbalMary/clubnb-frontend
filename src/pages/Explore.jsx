@@ -5,18 +5,21 @@ import { loadStays, setFilterBy } from '../store/actions/stay.actions'
 import { StayPreview } from '../cmps/StayPreview'
 
 export function Explore() {
-    const { type } = useParams()
+    const { city, type } = useParams()
     const { stays, isLoading } = useSelector(storeState => storeState.stayModule)
     // console.log('Explore render triggered', { type, stays, isLoading })
     useEffect(() => {
-        // console.log('Explore type param:', type)
         if (type) {
             setFilterBy({ type })
             loadStays({ type })
+        } else if (city) {
+            setFilterBy({ city })
+            loadStays({ city })
         } else {
             loadStays()
         }
-    }, [type])
+    }, [type, city])
+
 
     return (
         <section className="explore-page main-container">

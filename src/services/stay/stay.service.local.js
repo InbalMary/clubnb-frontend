@@ -24,7 +24,13 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
     var stays = await storageService.query(STORAGE_KEY)
     // console.log('Stays found in storage:', stays)
 
-    const { txt, minPrice, sortField, sortDir, destination, startDate, endDate, guests, type } = filterBy
+    const { txt, minPrice, sortField, sortDir, destination, startDate, endDate, guests, type, city } = filterBy
+
+    if (city) {
+        stays = stays.filter(stay =>
+            stay.loc?.city?.toLowerCase().includes(city.toLowerCase())
+        )
+    }
 
     if (type) {
         stays = stays.filter(stay => stay.type === type)

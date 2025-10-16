@@ -26,7 +26,7 @@ export function StayList() {
                         <Carousel
                             renderControls={({ scrollState, scrollRow }) => (
                                 <div className='stay-row-header'>
-                                    <h3 className="stay-list-title" onClick={() => navigate(`/explore/${type}`)}>{type}
+                                    <h3 className="stay-list-title" onClick={() => navigate(`/explore/type/${type}`)}>{type}
                                         <span className='right-pointer'>{svgControls.chevronRight}</span>
                                     </h3>
 
