@@ -103,19 +103,19 @@ export function StayEdit() {
     const handleNext = async () => {
         try {
             const fullAddress = loc.street
-                ? `${loc.street}${loc.apt ? `, Apt ${loc.apt}` : ''}, ${loc.city}, ${loc.postalCode ? `, ${loc.postalCode}` : ''}, ${loc.country}`
+                ? `${loc.street}${loc.entrance ? `, Entrance ${loc.entrance}` : ''}${loc.apt ? `, Apt ${loc.apt}` : ''}, ${loc.city}${loc.postalCode ? `, ${loc.postalCode}` : ''}, ${loc.country}`
                 : address || stayData.address || ''
-
-            const parsedLoc = parseAddressToComponents(fullAddress, locationData)
-            setLoc(parsedLoc)
 
             const updatedStay = {
                 ...stayData,
                 type: selectedPlaceType || stayData.type || '',
                 roomType: selectedPrivacyType || stayData.roomType || '',
                 address: fullAddress,
-                location: { lat: locationData.lat || parsedLoc.lat, lng: locationData.lng || parsedLoc.lng },
-                loc: { ...parsedLoc }
+                location: { lat: locationData.lat || loc.lat, lng: locationData.lng || loc.lng },
+                loc: {
+                    ...loc,
+                    address: fullAddress
+                }
             }
 
             const savedStay = await stayService.save(stayId ? { ...updatedStay, _id: stayId } : updatedStay)
