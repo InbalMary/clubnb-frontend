@@ -1,39 +1,85 @@
+@media (min-width: 744px) {
+
+    .main-container {
+
+        display: grid;
+        grid-template-columns: minmax(1.8rem, 1fr) minmax(auto, 909px) minmax(1.8rem, 1fr);
+
+        >* {
+            grid-column: 2;
+
+            &.full {
+                grid-column: 1 / -1;
+            }
+        }
+    }
+
+    .carousel-list {
+        grid-auto-columns: calc((100% - (3 * .5rem)) / 4);
+    }
+
+}
+
+@media (min-width: 950px) {
+    .main-container {
+
+        grid-template-columns: minmax(2.3rem, 1fr) minmax(auto, 1084px) minmax(2.3rem, 1fr);
+    }
+
+    .carousel-list {
+        grid-auto-columns: calc((100% - (4 * 0.5rem)) / 5);
+    }
+}
+
+
+@media (min-width: 1128px) {
+    .main-container {
+
+        grid-template-columns: minmax(2.5rem, 1fr) minmax(auto, 1352px) minmax(2.5rem, 1fr);
+    }
+
+    .carousel-list {
+        grid-auto-columns: calc((100% - (5 * 0.5rem)) / 6);
+    }
+}
+
 /* ≥1600px -> 7 cards */
-@media (min-width: 1600px) {
+
+@media (min-width: 1440px) {
     .carousel-list {
         grid-auto-columns: calc((100% - (6 * 0.5rem)) / 7);
     }
 }
 
 /* 1400–1599px -> still 7, smaller */
-@media (max-width: 1599px) and (min-width: 1400px) {
-    .carousel-list {
-        grid-auto-columns: calc((100% - (6 * 0.5rem)) / 7);
-    }
-}
+/* @media (max-width: 1599px) and (min-width: 1400px) {
+            .carousel-list {
+                grid-auto-columns: calc((100% - (6 * 0.5rem)) / 7);
+            }
+        } */
 
 /* 1120–1399px -> 6 cards */
-@media (max-width: 1399px) and (min-width: 1120px) {
-    .carousel-list {
-        grid-auto-columns: calc((100% - (5 * 0.5rem)) / 6);
-    }
+/* @media (max-width: 1399px) and (min-width: 1120px) {
+            .carousel-list {
+                grid-auto-columns: calc((100% - (5 * 0.5rem)) / 6);
+            }
 
-    .stay-row {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-}
+            .stay-row {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+        } */
 
 /* 920–1119px -> 5 cards */
-@media (max-width: 1119px) and (min-width: 920px) {
-    .carousel-list {
-        grid-auto-columns: calc((100% - (4 * 0.5rem)) / 5);
-    }
-}
+/* @media (max-width: 1119px) and (min-width: 920px) {
+            .carousel-list {
+                grid-auto-columns: calc((100% - (4 * 0.5rem)) / 5);
+            }
+        } */
 
 /* ≤919px ->  4 cards */
-@media (max-width: 919px) {
-    .carousel-list {
-        grid-auto-columns: calc((100% - (3 * 0.5rem)) / 4);
-    }
-}
+/* @media (max-width: 919px) {
+            .carousel-list {
+                grid-auto-columns: calc((100% - (3 * 0.5rem)) / 4);
+            }
+        } */
