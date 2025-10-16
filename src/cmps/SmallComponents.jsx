@@ -29,8 +29,6 @@ export function Highlights({ stay }) {
                     )
                 })}
             </ul>
-            <div className="border"></div>
-
         </div>
     )
 }
@@ -140,8 +138,6 @@ export function SleepingRooms({ stay }) {
                     </div>
                 )}
             </div>
-                            <div className="border"></div>
-
         </div>
     )
 }
