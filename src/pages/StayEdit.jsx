@@ -96,10 +96,10 @@ export function StayEdit() {
 
             setStayData(savedStay)
 
-            if (currentStep === 0) navigate(`/edit/${savedStay._id}/about-your-place`)
-            if (currentStep === 1) navigate(`/edit/${savedStay._id}/structure`)
-            if (currentStep === 2) navigate(`/edit/${savedStay._id}/privacy-type`)
-            if (currentStep === 3) navigate(`/edit/${savedStay._id}/location`)
+            if (currentStep === 0) navigate(`/stay/edit/${savedStay._id}/about-your-place`)
+            if (currentStep === 1) navigate(`/stay/edit/${savedStay._id}/structure`)
+            if (currentStep === 2) navigate(`/stay/edit/${savedStay._id}/privacy-type`)
+            if (currentStep === 3) navigate(`/stay/edit/${savedStay._id}/location`)
             if (currentStep === 4) showSuccessMsg('Stay setup complete!')
         } catch (err) {
             console.error('Error navigating next:', err)
@@ -108,11 +108,11 @@ export function StayEdit() {
     }
 
     const handleBack = () => {
-        if (currentStep === 0) navigate('/hosting')
-        if (currentStep === 1) navigate('/edit/become-a-host')
-        if (currentStep === 2) navigate(`/edit/${stayId}/about-your-place`)
-        if (currentStep === 3) navigate(`/edit/${stayId}/structure`)
-        if (currentStep === 4) navigate(`/edit/${stayId}/privacy-type`)
+        if (currentStep === 0) navigate('/stay/hosting')
+        if (currentStep === 1) navigate('/stay/edit/become-a-host')
+        if (currentStep === 2) navigate(`/stay/edit/${stayId}/about-your-place`)
+        if (currentStep === 3) navigate(`/stay/edit/${stayId}/structure`)
+        if (currentStep === 4) navigate(`/stay/edit/${stayId}/privacy-type`)
     }
 
     const handleSaveExit = async () => {
