@@ -602,3 +602,57 @@
     min-width: 1.5rem;
     text-align: center;
 }
+
+/* stand out step */
+.step-intro-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 5rem;
+    padding: 3.75rem 5rem;
+    max-width: 80rem;
+    margin: 0 auto;
+    min-height: calc(100vh - 11.25rem);
+    padding-top: 6rem;
+}
+
+.intro-text-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.intro-step-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray3);
+    letter-spacing: 0.031rem;
+}
+
+.intro-title {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 3.5rem;
+    color: var(--gray3);
+    margin: 0;
+}
+
+.intro-description {
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    color: var(--gray2);
+    margin: 0;
+}
+
+.intro-media-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-video {
+    width: 100%;
+    max-width: 34.375rem;
+    height: auto;
+    border-radius: 0.75rem;
+}

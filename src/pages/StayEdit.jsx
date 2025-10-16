@@ -3,7 +3,7 @@ import { useNavigate, useParams, useLocation } from "react-router-dom"
 import { stayService } from '../services/stay/'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { StepLocation } from "../cmps/StepLocation"
-import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm, StepBasics } from '../cmps/EditSteps.jsx'
+import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm, StepBasics, StepStandOutIntro } from '../cmps/EditSteps.jsx'
 import { loadStay } from "../store/actions/stay.actions.js"
 import { StepMapConfirm } from "../cmps/StepMapConfirm.jsx"
 
@@ -81,6 +81,7 @@ export function StayEdit() {
         else if (location.pathname.includes('address-details')) setCurrentStep(5)
         else if (location.pathname.includes('location')) setCurrentStep(4)
         else if (location.pathname.includes('floor-plan')) setCurrentStep(7)
+        else if (location.pathname.includes('stand-out')) setCurrentStep(8)
     }, [location.pathname])
 
     useEffect(() => {
@@ -147,7 +148,8 @@ export function StayEdit() {
                 '/location',
                 '/address-details',
                 '/confirm-location',
-                '/floor-plan'
+                '/floor-plan',
+                '/stand-out'
             ]
             if (currentStep < nextRoutes.length)
                 navigate(`/stay/edit/${savedStay._id}${nextRoutes[currentStep]}`)
@@ -167,6 +169,7 @@ export function StayEdit() {
         if (currentStep === 5) navigate(`/stay/edit/${stayId}/location`)
         if (currentStep === 6) navigate(`/stay/edit/${stayId}/address-details`)
         if (currentStep === 7) navigate(`/stay/edit/${stayId}/confirm-location`)
+        if (currentStep === 8) navigate(`/stay/edit/${stayId}/floor-plan`)
     }
 
     const handleSaveExit = async () => {
@@ -248,6 +251,8 @@ export function StayEdit() {
                     bathrooms={bathrooms}
                     setBathrooms={setBathrooms}
                 />
+            case 8:
+                return <StepStandOutIntro />
             default: return null
         }
     }

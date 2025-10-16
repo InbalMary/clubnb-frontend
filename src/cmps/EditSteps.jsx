@@ -324,3 +324,30 @@ export function StepBasics({ guests, setGuests, bedrooms, setBedrooms, beds, set
         </main>
     )
 }
+
+export function StepStandOutIntro() {
+    return (
+        <main className="step-intro-content">
+            <div className="intro-text-section">
+                <div className="intro-step-label">Step 2</div>
+                <h1 className="intro-title">Make your place stand out</h1>
+                <p className="intro-description">
+                    In this step, you'll add some of the amenities your place offers, plus 5 or more photos. Then, you'll create a title and description.
+                </p>
+            </div>
+
+            <div className="intro-media-section">
+                <video
+                    className="intro-video"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source src="/img/video/step2-intro.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </main>
+    )
+}
