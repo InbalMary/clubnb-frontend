@@ -16,24 +16,24 @@ export function StayMap({ location }) {
 function MapController({ location }) {
     const mapRef = useRef(null)
 
-  const fallbackCoords = { lat: -8.6880, lng: 115.2580 }
+    const fallbackCoords = { lat: -8.6880, lng: 115.2580 }
 
-  // Ensure valid numbers or fallback
-  const initialCoords = {
-    lat: Number(location?.lat),
-    lng: Number(location?.lng),
-  }
+    // Ensure valid numbers or fallback
+    const initialCoords = {
+        lat: Number(location?.lat),
+        lng: Number(location?.lng),
+    }
 
-  const isValidCoords = (
-    typeof initialCoords.lat === 'number' &&
-    !isNaN(initialCoords.lat) &&
-    typeof initialCoords.lng === 'number' &&
-    !isNaN(initialCoords.lng)
-  )
+    const isValidCoords = (
+        typeof initialCoords.lat === 'number' &&
+        !isNaN(initialCoords.lat) &&
+        typeof initialCoords.lng === 'number' &&
+        !isNaN(initialCoords.lng)
+    )
 
-  const [coords, setCoords] = useState(
-    isValidCoords ? initialCoords : fallbackCoords
-  )
+    const [coords, setCoords] = useState(
+        isValidCoords ? initialCoords : fallbackCoords
+    )
     useEffect(() => {
         if (mapRef.current) {
             setCoords(coords)
@@ -60,7 +60,7 @@ function MapController({ location }) {
                 style={{ height: '100%', width: '100%' }}
                 mapId="4596e122b459cf79cc58b24d"
             >
-                <AdvancedMarker position={coords ||fallbackCoords }>
+                <AdvancedMarker position={coords || fallbackCoords}>
                     <HomeMarkerIcon size={48} fill="#222222ff" />
 
 

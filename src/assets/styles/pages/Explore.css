@@ -1,27 +1,52 @@
 .explore-page {
     position: relative;
     margin-top: 96px;
+    display: grid;
+    grid-template-columns: minmax(auto, 49rem) minmax(24.5rem, auto);
+    grid-template-areas:
+        "list map";
+    gap: 3rem;
+
+    .explore-map-wrapper {
+        position: sticky;
+        top: 120px;
+        grid-area: map;
+        height: 83vh;
+        margin-top: 1.5rem;
+        border-radius: 25px;
+        overflow: hidden;
+
+    }
+
+    .explore-items-wrapper {
+        grid-area: list;
+    }
 }
+
 
 .explore-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
     gap: 1.5rem;
-    padding: 0 48px;
+    /* padding: 0 48px; */
 }
 
 .stay-preview.big {
     max-width: 320px;
-
+    height: 100%;
+    width: 100%;
 }
 
 .explore-title {
-    padding: 24px 48px;
+    /* 48px */
+    padding: 24px 0;
     font-size: 14px;
 }
 
 .stay-preview.big .stay-image-wrapper {
-    height: 304px;
+    /* height: 304px; */
 }
 
 .stay-preview.big .stay-name {
@@ -74,4 +99,85 @@
 
 .explore-cancellation-policy {
     font-size: 12px;
+}
+
+
+/* Map Styling */
+.marker.btn-pill {
+    /* position:absolute; */
+    font-family: cereal-medium;
+    font-size: 1.1rem;
+    line-height: 1rem;
+    background-color: white;
+    padding: .3rem .5rem;
+    outline: 1px solid var(--gray7);
+    box-shadow: 0px 2px 6px 1px #2222225c;
+    /* z-index: 100; */
+    cursor: pointer;
+    user-select: none;
+}
+
+/* .marker.btn-pill.hovered {
+    transition: scale .1s ease-in-out;
+    scale: 1.1;
+} */
+.marker-wrapper {
+  transition: transform 0.15s ease;
+}
+.marker-wrapper.hovered {
+  transform: scale(1.1);
+  z-index: 9999; /* for visual layering within the marker */
+}
+
+.modal-popup.map-stay-preview.open {
+    position: absolute;
+    top: 40px;
+    height: 240px;
+    width: 240px;
+    border-radius: 15px;
+    /* z-index: 2000; */
+
+    header {
+        min-height: 0px;
+        padding: 0rem;
+    }
+
+
+    .main-modal {
+        padding: 0;
+        overflow-y: hidden;
+        /* overflow-x: hidden; */
+        scrollbar-width: auto;
+        scrollbar-color: var(--gray7);
+
+        .stay-preview.big {
+
+            .stay-image-wrapper img {
+                border-radius: 15px;
+            }
+
+            .stay-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: start;
+
+                .stay-rating {
+                    font-size: 1rem;
+                }
+            }
+
+            .stay-info {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding-inline: .5rem;
+                padding-top: 0.53rem;
+            }
+        }
+    }
+}
+
+.stay-preview.big:hover .marker.btn-pill {
+    background-color: var(--gray3);
+
+
 }
