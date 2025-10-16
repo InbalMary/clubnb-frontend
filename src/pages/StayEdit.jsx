@@ -3,7 +3,7 @@ import { useNavigate, useParams, useLocation } from "react-router-dom"
 import { stayService } from '../services/stay/'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { StepLocation } from "../cmps/StepLocation"
-import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm } from '../cmps/EditSteps.jsx'
+import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm, StepBasics } from '../cmps/EditSteps.jsx'
 import { loadStay } from "../store/actions/stay.actions.js"
 import { StepMapConfirm } from "../cmps/StepMapConfirm.jsx"
 
@@ -33,6 +33,11 @@ export function StayEdit() {
         lat: 32.0853,
         lng: 34.7818
     })
+
+    const [guests, setGuests] = useState(4)
+    const [bedrooms, setBedrooms] = useState(1)
+    const [beds, setBeds] = useState(1)
+    const [bathrooms, setBathrooms] = useState(1)
 
     const placeTypes = [
         { id: 'house', label: 'House' },
@@ -75,6 +80,7 @@ export function StayEdit() {
         else if (location.pathname.includes('confirm-location')) setCurrentStep(6)
         else if (location.pathname.includes('address-details')) setCurrentStep(5)
         else if (location.pathname.includes('location')) setCurrentStep(4)
+        else if (location.pathname.includes('floor-plan')) setCurrentStep(7)
     }, [location.pathname])
 
     useEffect(() => {
@@ -87,6 +93,11 @@ export function StayEdit() {
                     setSelectedPrivacyType(stayFromStore.roomType || '')
                     setAddress(stayFromStore.address || '')
                     setLocationData(stayFromStore.location || { lat: 32.0853, lng: 34.7818 })
+
+                    setGuests(stayFromStore.guests || 4)
+                    setBedrooms(stayFromStore.bedrooms || 1)
+                    setBeds(stayFromStore.beds || 1)
+                    setBathrooms(stayFromStore.bathrooms || 1)
 
                     if (stayFromStore.loc) {
                         setLoc({
@@ -118,7 +129,11 @@ export function StayEdit() {
                     address: fullAddress,
                     lat: locationData.lat || loc.lat,
                     lng: locationData.lng || loc.lng
-                }
+                },
+                guests,
+                bedrooms,
+                beds,
+                bathrooms
             }
 
             const savedStay = await stayService.save(stayId ? { ...updatedStay, _id: stayId } : updatedStay)
@@ -131,7 +146,8 @@ export function StayEdit() {
                 '/privacy-type',
                 '/location',
                 '/address-details',
-                '/confirm-location'
+                '/confirm-location',
+                '/floor-plan'
             ]
             if (currentStep < nextRoutes.length)
                 navigate(`/stay/edit/${savedStay._id}${nextRoutes[currentStep]}`)
@@ -150,6 +166,7 @@ export function StayEdit() {
         if (currentStep === 4) navigate(`/stay/edit/${stayId}/privacy-type`)
         if (currentStep === 5) navigate(`/stay/edit/${stayId}/location`)
         if (currentStep === 6) navigate(`/stay/edit/${stayId}/address-details`)
+        if (currentStep === 7) navigate(`/stay/edit/${stayId}/confirm-location`)
     }
 
     const handleSaveExit = async () => {
@@ -161,7 +178,11 @@ export function StayEdit() {
                 roomType: selectedPrivacyType || stayData.roomType || '',
                 address: address || stayData.address || '',
                 location: locationData || stayData.location || {},
-                loc: loc || stayData.loc || {}
+                loc: loc || stayData.loc || {},
+                guests,
+                bedrooms,
+                beds,
+                bathrooms
             })
             showSuccessMsg('Progress saved')
             navigate('/hosting/listings')
@@ -179,7 +200,6 @@ export function StayEdit() {
     }
 
     const renderStepContent = () => {
-        console.log('Current step:', currentStep)
         switch (currentStep) {
             case 0:
                 return <WelcomeStep onNext={handleNext} />
@@ -216,6 +236,17 @@ export function StayEdit() {
                     address={loc.address || address}
                     location={locationData}
                     setLocation={setLocationData}
+                />
+            case 7:
+                return <StepBasics
+                    guests={guests}
+                    setGuests={setGuests}
+                    bedrooms={bedrooms}
+                    setBedrooms={setBedrooms}
+                    beds={beds}
+                    setBeds={setBeds}
+                    bathrooms={bathrooms}
+                    setBathrooms={setBathrooms}
                 />
             default: return null
         }

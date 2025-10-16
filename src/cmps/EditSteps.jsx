@@ -266,3 +266,61 @@ export function StepAddressForm({ loc, setLoc }) {
         </div>
     )
 }
+
+export function StepBasics({ guests, setGuests, bedrooms, setBedrooms, beds, setBeds, bathrooms, setBathrooms }) {
+    const items = [
+        { field: 'guests', label: 'Guests', value: guests, setter: setGuests, min: 1 },
+        { field: 'bedrooms', label: 'Bedrooms', value: bedrooms, setter: setBedrooms, min: 0 },
+        { field: 'beds', label: 'Beds', value: beds, setter: setBeds, min: 1 },
+        { field: 'bathrooms', label: 'Bathrooms', value: bathrooms, setter: setBathrooms, min: 1 }
+    ]
+
+    const handleIncrement = (item) => {
+        item.setter(item.value + 1)
+    }
+
+    const handleDecrement = (item) => {
+        if (item.value > item.min) {
+            item.setter(item.value - 1)
+        }
+    }
+
+    return (
+        <main className="step-basics-content">
+            <div className="basics-header">
+                <h1 className="basics-title">Share some basics about your place</h1>
+                <p className="basics-subtitle">
+                    You'll add more details later, like bed types.
+                </p>
+            </div>
+
+            <div className="basics-list">
+                {items.map(item => (
+                    <div key={item.field} className="basics-item">
+                        <span className="basics-label">{item.label}</span>
+                        <div className="basics-counter">
+                            <button
+                                className={`counter-btn ${item.value <= item.min ? 'disabled' : ''}`}
+                                onClick={() => handleDecrement(item)}
+                                disabled={item.value <= item.min}
+                            >
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', fill: 'none', height: '12px', width: '12px', stroke: 'currentcolor', strokeWidth: '5.33333', overflow: 'visible' }}>
+                                    <path d="m2 16h28"></path>
+                                </svg>
+                            </button>
+                            <span className="counter-value">{item.value}</span>
+                            <button
+                                className="counter-btn"
+                                onClick={() => handleIncrement(item)}
+                            >
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', fill: 'none', height: '12px', width: '12px', stroke: 'currentcolor', strokeWidth: '5.33333', overflow: 'visible' }}>
+                                    <path d="m2 16h28m-14-14v28"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </main>
+    )
+}
