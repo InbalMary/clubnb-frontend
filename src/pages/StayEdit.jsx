@@ -5,6 +5,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { StepLocation } from "../cmps/StepLocation"
 import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm } from '../cmps/EditSteps.jsx'
 import { loadStay } from "../store/actions/stay.actions.js"
+import { parseAddressToComponents } from "../cmps/parseAddressToComponents.jsx"
 
 export function StayEdit() {
     const navigate = useNavigate()
@@ -102,24 +103,19 @@ export function StayEdit() {
     const handleNext = async () => {
         try {
             const fullAddress = loc.street
-                ? `${loc.street}${loc.apt ? `, Apt ${loc.apt}` : ''}, ${loc.city}, ${loc.country}`
+                ? `${loc.street}${loc.apt ? `, Apt ${loc.apt}` : ''}, ${loc.city}, ${loc.postalCode ? `, ${loc.postalCode}` : ''}, ${loc.country}`
                 : address || stayData.address || ''
+
+            const parsedLoc = parseAddressToComponents(fullAddress, locationData)
+            setLoc(parsedLoc)
 
             const updatedStay = {
                 ...stayData,
                 type: selectedPlaceType || stayData.type || '',
                 roomType: selectedPrivacyType || stayData.roomType || '',
                 address: fullAddress,
-                location: {
-                    lat: locationData.lat || loc.lat || 32.0853,
-                    lng: locationData.lng || loc.lng || 34.7818
-                },
-                loc: {
-                    ...loc,
-                    address: fullAddress,
-                    lat: locationData.lat || loc.lat || 32.0853,
-                    lng: locationData.lng || loc.lng || 34.7818
-                }
+                location: { lat: locationData.lat || parsedLoc.lat, lng: locationData.lng || parsedLoc.lng },
+                loc: { ...parsedLoc }
             }
 
             const savedStay = await stayService.save(stayId ? { ...updatedStay, _id: stayId } : updatedStay)
@@ -201,6 +197,8 @@ export function StayEdit() {
                     setAddress={setAddress}
                     location={locationData}
                     setLocation={setLocationData}
+                    loc={loc}
+                    setLoc={setLoc}
                 />
             case 5:
                 return <StepAddressForm
