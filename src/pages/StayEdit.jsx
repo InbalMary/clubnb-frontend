@@ -8,8 +8,14 @@ import { DateRangePicker } from "../cmps/DateRangePicker";
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 import { StepLocation } from "../cmps/StepLocation";
 
+import {WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep }from '../cmps/EditSteps.jsx';
+// import StepIntro from './StepIntro';
+// import PlaceTypeStep from './PlaceTypeStep';
+// import PrivacyTypeStep from './PrivacyTypeStep';
+// import LocationStep from './LocationStep';
+// import './EditPage.css';
+
 export function StayEdit() {
-    const navigate = useNavigate()
     const [currentStep, setCurrentStep] = useState(0)
     const [selectedPlaceType, setSelectedPlaceType] = useState('')
     const [selectedPrivacyType, setSelectedPrivacyType] = useState('')
@@ -49,32 +55,17 @@ export function StayEdit() {
         }
     ]
 
-    const handleSaveExit = () => {
-        navigate('/')
-    }
-
     const handleNext = () => {
-        if (currentStep === 0) {
-            setCurrentStep(1)
-        } else if (currentStep === 1) {
-            setCurrentStep(2)
-        } else if (currentStep === 2 && selectedPlaceType) {
-            setCurrentStep(3)
-        } else if (currentStep === 3 && selectedPrivacyType) {
-            setCurrentStep(4)
-        } else if (currentStep === 4 && address) {
-            console.log('Moving to step 5, address:', address)
-        }
+        setCurrentStep(currentStep + 1)
     }
 
     const handleBack = () => {
-        if (currentStep === 0) {
-            navigate('/')
-        } else if (currentStep === 1) {
-            setCurrentStep(0)
-        } else {
-            setCurrentStep(currentStep - 1)
-        }
+        setCurrentStep(currentStep - 1)
+    }
+
+    const handleSaveExit = () => {
+        // Save and exit logic
+        console.log('Saving and exiting...')
     }
 
     const handlePlaceTypeSelect = (placeId) => {
@@ -85,11 +76,54 @@ export function StayEdit() {
         setSelectedPrivacyType(privacyId)
     }
 
+    const isNextDisabled = () => {
+        if (currentStep === 2 && !selectedPlaceType) return true
+        if (currentStep === 3 && !selectedPrivacyType) return true
+        if (currentStep === 4 && !address) return true
+        return false;
+    }
+
+    const renderStepContent = () => {
+        switch (currentStep) {
+            case 0:
+                return <WelcomeStep onNext={handleNext} />
+            case 1:
+                return <StepIntro />
+            case 2:
+                return (
+                    <PlaceTypeStep
+                        placeTypes={placeTypes}
+                        selectedPlaceType={selectedPlaceType}
+                        onSelect={handlePlaceTypeSelect}
+                    />
+                )
+            case 3:
+                return (
+                    <PrivacyTypeStep
+                        privacyTypes={privacyTypes}
+                        selectedPrivacyType={selectedPrivacyType}
+                        onSelect={handlePrivacyTypeSelect}
+                    />
+                )
+            case 4:
+                return (
+                    <StepLocation
+                        address={address}
+                        setAddress={setAddress}
+                        location={location}
+                        setLocation={setLocation}
+                    />
+                )
+            default:
+                return null
+        }
+    }
+
     return (
         <div className="edit-container">
             <header className="edit-header">
                 <div className="logo-black-container">
-                    <img src={`/img/logo-black.svg`} alt="logo-black" className="logo-black-icon" />
+                    <img src="/img/logo-black.svg" alt="logo" className="logo-black-icon" />
                 </div>
                 <div className="header-actions">
                     {currentStep === 0 ? (
@@ -107,161 +141,17 @@ export function StayEdit() {
                 </div>
             </header>
 
-            {currentStep === 0 && (
-                <main className="welcome-screen">
+            {renderStepContent()}
 
-                    <div className="welcome-content">
-                        <div className="welcome-left">
-                            <h1 className="welcome-title">It's easy to get started on Airbnb</h1>
-                        </div>
-
-                        <div className="welcome-right">
-                            <div className="welcome-steps">
-                                <div className="welcome-step">
-                                    <div className="step-info">
-                                        <div className="step-number">1</div>
-                                        <div className="step-text">
-                                            <h3>Tell us about your place</h3>
-                                            <p>Share some basic info, like where it is and how many guests can stay.</p>
-                                        </div>
-                                    </div>
-                                    <div className="step-illustration">
-                                        <img src="/img/step2/your-place.png" alt="Step 1" />
-                                    </div>
-                                </div>
-
-                                <div className="welcome-step">
-                                    <div className="step-info">
-                                        <div className="step-number">2</div>
-                                        <div className="step-text">
-                                            <h3>Make it stand out</h3>
-                                            <p>Add 5 or more photos plus a title and description—we'll help you out.</p>
-                                        </div>
-                                    </div>
-                                    <div className="step-illustration">
-                                        <img src="/img/step2/stand-out.png" alt="Step 2" />
-                                    </div>
-                                </div>
-
-                                <div className="welcome-step">
-                                    <div className="step-info">
-                                        <div className="step-number">3</div>
-                                        <div className="step-text">
-                                            <h3>Finish up and publish</h3>
-                                            <p>Choose a starting price, verify a few details, then publish your listing.</p>
-                                        </div>
-                                    </div>
-                                    <div className="step-illustration">
-                                        <img src="/img/step2/finish-up.png" alt="Step 3" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            )}
-
-            {currentStep === 1 && (
-                <main className="step-main-content">
-                    <div className="step-left">
-                        <div className="step-label">Step 1</div>
-                        <h1 className="step-main-title">Tell us about your place</h1>
-                        <p className="step-main-description">
-                            In this step, we'll ask you which type of property you have and if
-                            guests will book the entire place or just a room. Then let us know
-                            the location and how many guests can stay.
-                        </p>
-                    </div>
-
-                    <div className="step-right">
-                        <video
-                            className="step-video"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                        >
-                            <source src="/img/video/listing-step1-animation.mp4" type="video/mp4" />
-                        </video>
-                    </div>
-                </main>
-            )}
-
-            {currentStep === 2 && (
-                <main className="step-selection-content">
-                    <h1 className="selection-title">Which of these best describes your place?</h1>
-                    <div className="place-types-grid">
-                        {placeTypes.map(place => (
-                            <button
-                                key={place.id}
-                                className={`place-type-card ${selectedPlaceType === place.id ? 'selected' : ''}`}
-                                onClick={() => handlePlaceTypeSelect(place.id)}
-                            >
-                                <span className="place-icon">
-                                    <img src={`/img/step2/${place.id}.svg`} alt={place.id} className="step2-icon" />
-                                </span>
-                                <span className="place-label">{place.label}</span>
-                            </button>
-                        ))}
-                    </div>
-                </main>
-            )}
-
-            {currentStep === 3 && (
-                <main className="step-selection-content">
-                    <h1 className="selection-title">What type of place will guests have?</h1>
-                    <div className="privacy-types-list">
-                        {privacyTypes.map(privacy => (
-                            <button
-                                key={privacy.id}
-                                className={`privacy-type-card ${selectedPrivacyType === privacy.id ? 'selected' : ''}`}
-                                onClick={() => handlePrivacyTypeSelect(privacy.id)}
-                            >
-                                <div className="privacy-content">
-                                    <h3 className="privacy-label">{privacy.label}</h3>
-                                    <p className="privacy-description">{privacy.description}</p>
-                                </div>
-                                <div className="privacy-icon">
-                                    <img src={`/img/step3/${privacy.id}.svg`} alt={privacy.label} className="step3-icon" />
-                                </div>
-                            </button>
-                        ))}
-                    </div>
-                </main>
-            )}
-
-            {currentStep === 4 && (
-                <StepLocation
-                    address={address}
-                    setAddress={setAddress}
-                    location={location}
-                    setLocation={setLocation}
-                />
-            )}
-
-            {currentStep === 0 ? (
-                <footer className="welcome-footer">
-                    <button className="btn btn-pink get-started-button" onClick={handleNext}>
-                        Get started
-                    </button>
-                </footer>
-            ) : (
+            {currentStep > 0 && (
                 <footer className="step-footer">
                     <button className="back-button" onClick={handleBack}>
                         Back
                     </button>
                     <button
-                        className={`btn btn-black next-button ${(currentStep === 2 && !selectedPlaceType) ||
-                            (currentStep === 3 && !selectedPrivacyType) ||
-                            (currentStep === 4 && !address)
-                            ? 'disabled' : ''
-                            }`}
+                        className={`btn btn-black next-button ${isNextDisabled() ? 'disabled' : ''}`}
                         onClick={handleNext}
-                        disabled={
-                            (currentStep === 2 && !selectedPlaceType) ||
-                            (currentStep === 3 && !selectedPrivacyType) ||
-                            (currentStep === 4 && !address)
-                        }
+                        disabled={isNextDisabled()}
                     >
                         Next
                     </button>
