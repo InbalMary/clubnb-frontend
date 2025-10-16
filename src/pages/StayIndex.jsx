@@ -62,9 +62,9 @@ export function StayIndex() {
                 stays={stays}
                 onRemoveStay={onRemoveStay} 
                 onUpdateStay={onUpdateStay}/>
-            <div className='temporary-add-stay-btn'>
+            {/* <div className='temporary-add-stay-btn'>
                 {userService.getLoggedinUser() && <button onClick={onAddStay}>Add a Stay</button>}
-            </div>
+            </div> */}
         </section>
     )
 }

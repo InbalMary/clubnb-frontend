@@ -46,7 +46,7 @@ export function RootCmp() {
     })
 
     return (
-        <div className="main-container">
+        <div>
             {showBackdrop && <div className="backdrop" onClick={handleCollapse} />}
             {!isConfirmPayPage && (
                 <div ref={headerRef}>
@@ -60,7 +60,7 @@ export function RootCmp() {
             {/* <AppHeader /> */}
             <UserMsg />
 
-            <main>
+            <main className="main-container">
                 <Routes>
                     {/* <Route path="" element={<HomePage />} />
                     <Route path="about" element={<AboutUs />}>
@@ -72,6 +72,12 @@ export function RootCmp() {
                     <Route path="explore/city/:city" element={<Explore />} />
                     <Route path="stay/edit" element={<StayEdit />} />
                     <Route path="stay/edit/:stayId" element={<StayEdit />} />
+                    <Route path="stay/edit/become-a-host" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/about-your-place" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/structure" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/privacy-type" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/location" element={<StayEdit />} />
+                    
                     <Route path="stay/:stayId" element={<StayDetails />} />
                     <Route path="stay/:stayId/confirm-pay" element={<ConfirmPay />} />
                     <Route path="user/:id" element={<UserDetails />} />

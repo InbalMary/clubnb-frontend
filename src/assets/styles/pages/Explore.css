@@ -1,6 +1,6 @@
 .explore-page {
     position: relative;
-    margin-top: 200px;
+    margin-top: 96px;
 }
 
 .explore-grid {
@@ -70,4 +70,8 @@
     color: var(--gray3);
     text-decoration: underline;
     font-weight: 600;
+}
+
+.explore-cancellation-policy {
+    font-size: 12px;
 }

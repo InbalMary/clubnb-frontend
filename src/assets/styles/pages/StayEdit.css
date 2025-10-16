@@ -45,7 +45,7 @@
     background: none;
     border: 1px solid var(--gray6);
     height: 40px;
-
+    font-size: 1rem;
 }
 
 .save-exit-button:hover,
@@ -187,7 +187,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 1.5rem 5rem;
+    padding: 2rem 3rem;
     display: flex;
     justify-content: space-between;
     border-top: 1px solid var(--gray6);
@@ -198,8 +198,9 @@
 .back-button {
     background: none;
     border: none;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 600;
+    font-family: cereal-regular, Circular, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--gray3);
     cursor: pointer;
     padding: 0.5rem 1rem;
@@ -281,6 +282,7 @@
 
 .privacy-description {
     font-size: 0.875rem;
+    font-family: cereal-regular, Circular, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--gray3);
     line-height: 1.4;
     margin: 0;
@@ -296,4 +298,109 @@
 .step3-icon {
     width: 2.25rem;
     height: 2.25rem;
+}
+
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 6.25rem);
+    padding-top: 7rem;
+}
+
+.welcome-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(3rem, 10vw, 18.75rem);
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.welcome-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.welcome-title {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--gray3);
+    margin: 0;
+}
+
+.welcome-right {
+    flex: 1;
+}
+
+.welcome-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.welcome-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--gray5);
+}
+
+.welcome-step:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.step-info {
+    display: flex;
+    flex: 1;
+    gap: 1rem;
+}
+
+.step-number {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--gray3);
+}
+
+.welcome-step h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--gray3);
+    margin: 0;
+}
+
+.welcome-step p {
+    font-size: 1rem;
+    color: var(--gray2);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.step-illustration {
+    width: 7.5rem;
+    height: 7.5rem;
+    flex-shrink: 0;
+}
+
+.step-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.welcome-footer {
+    padding: 1.5rem 5rem;
+    padding-inline-end: 0;
+    border-top: 1px solid var(--gray5);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.get-started-button:hover {
+    background: var(--reserve-btn-hover);
 }

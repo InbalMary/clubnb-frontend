@@ -104,14 +104,16 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
         capacity: stay.capacity,
         bathrooms: stay.bathrooms,
         bedrooms: stay.bedrooms,
+        beds: stay.beds,
         roomType: stay.roomType,
         startDate: stay.startDate,
         endDate: stay.endDate,
         host: stay.host,
         loc: stay.loc,
         reviews: stay.reviews,
+        numReviews: stay.host.numReviews,
         likedByUsers: stay.likedByUsers,
-
+        freeCancellation: Math.random() > 0.5,
         // add rating for demo/testing between 4.4–5.0
         rating: (Math.random() * 0.6 + 4.4).toFixed(2)
     }))

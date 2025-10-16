@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { formatStayDates } from '../services/util.service.js'
+import { formatDateRange } from '../services/util.service.js'
 
 export function TripPreview({ order }) {
     const stay = order.stay
@@ -7,7 +7,7 @@ export function TripPreview({ order }) {
         console.warn("TripPreview missing stay for order:", order)
         return null
     }
-    const formattedDates = formatStayDates(order.startDate, order.endDate)
+    const formattedDates = formatDateRange(order.startDate, order.endDate)
 
     return (
         <article className="trip-preview">

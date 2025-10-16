@@ -92,7 +92,7 @@ export function StayDetails() {
   if (!stay) return <div className="loading-overlay"><DetailsSkeleton />  </div>
 
   return (
-    <div className="main-page main-container">
+    <div className="main-page">
       <section className="stay-details">
 
         {(!stay || isLoading) && (
