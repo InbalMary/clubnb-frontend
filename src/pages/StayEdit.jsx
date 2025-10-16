@@ -3,7 +3,7 @@ import { useNavigate, useParams, useLocation } from "react-router-dom"
 import { stayService } from '../services/stay/'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { StepLocation } from "../cmps/StepLocation"
-import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep } from '../cmps/EditSteps.jsx'
+import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm } from '../cmps/EditSteps.jsx'
 import { loadStay } from "../store/actions/stay.actions.js"
 
 export function StayEdit() {
@@ -19,6 +19,19 @@ export function StayEdit() {
     const [selectedPrivacyType, setSelectedPrivacyType] = useState('')
     const [address, setAddress] = useState('')
     const [locationData, setLocationData] = useState({ lat: 32.0853, lng: 34.7818 }) // Default to Tel Aviv
+
+    const [loc, setLoc] = useState({
+        country: 'Israel',
+        countryCode: 'IL',
+        street: '',
+        entrance: '',
+        apt: '',
+        postalCode: '',
+        city: 'Tel Aviv-Yafo',
+        address: '',
+        lat: null,
+        lng: null
+    })
 
     const placeTypes = [
         { id: 'house', label: 'House' },
@@ -59,6 +72,7 @@ export function StayEdit() {
         else if (location.pathname.includes('structure')) setCurrentStep(2)
         else if (location.pathname.includes('privacy-type')) setCurrentStep(3)
         else if (location.pathname.includes('location')) setCurrentStep(4)
+        else if (location.pathname.includes('address-details')) setCurrentStep(5)
     }, [location.pathname])
 
     useEffect(() => {
@@ -71,6 +85,17 @@ export function StayEdit() {
                     setSelectedPrivacyType(stayFromStore.roomType || '')
                     setAddress(stayFromStore.address || '')
                     setLocationData(stayFromStore.location || { lat: 32.0853, lng: 34.7818 })
+
+                    if (stayFromStore.loc) {
+                        setLoc({
+                            country: stayFromStore.loc.country || 'Israel - IL',
+                            street: stayFromStore.loc.street || '',
+                            entrance: stayFromStore.loc.entrance || '',
+                            apt: stayFromStore.loc.apt || '',
+                            postalCode: stayFromStore.loc.postalCode || '',
+                            city: stayFromStore.loc.city || 'Tel Aviv-Yafo'
+                        })
+                    }
                 })
                 .catch(err => console.log('Cannot load stay', err))
         }
@@ -84,6 +109,7 @@ export function StayEdit() {
                 roomType: selectedPrivacyType || stayData.roomType || '',
                 address: address || stayData.address || '',
                 location: locationData || stayData.location || {},
+                loc: loc || stayData.loc || {}
             }
 
             let savedStay
@@ -100,7 +126,8 @@ export function StayEdit() {
             if (currentStep === 1) navigate(`/edit/${savedStay._id}/structure`)
             if (currentStep === 2) navigate(`/edit/${savedStay._id}/privacy-type`)
             if (currentStep === 3) navigate(`/edit/${savedStay._id}/location`)
-            if (currentStep === 4) showSuccessMsg('Stay setup complete!')
+            if (currentStep === 4) navigate(`/edit/${savedStay._id}/address-details`)
+            if (currentStep === 5) showSuccessMsg('Stay setup complete!')
         } catch (err) {
             console.error('Error navigating next:', err)
             showErrorMsg('Could not save progress')
@@ -113,6 +140,7 @@ export function StayEdit() {
         if (currentStep === 2) navigate(`/edit/${stayId}/about-your-place`)
         if (currentStep === 3) navigate(`/edit/${stayId}/structure`)
         if (currentStep === 4) navigate(`/edit/${stayId}/privacy-type`)
+        if (currentStep === 5) navigate(`/edit/${stayId}/location`)
     }
 
     const handleSaveExit = async () => {
@@ -123,6 +151,7 @@ export function StayEdit() {
                 roomType: selectedPrivacyType || stayData.roomType || '',
                 address: address || stayData.address || '',
                 location: locationData || stayData.location || {},
+                loc: loc || stayData.loc || {}
             })
             showSuccessMsg('Progress saved')
             navigate('/hosting/listings')
@@ -135,6 +164,7 @@ export function StayEdit() {
         if (currentStep === 2 && !selectedPlaceType) return true
         if (currentStep === 3 && !selectedPrivacyType) return true
         if (currentStep === 4 && !address) return true
+        if (currentStep === 5 && (!loc.street || !loc.city)) return true
         return false
     }
 
@@ -162,6 +192,11 @@ export function StayEdit() {
                     setAddress={setAddress}
                     location={locationData}
                     setLocation={setLocationData}
+                />
+            case 5:
+                return <StepAddressForm
+                    loc={loc}
+                    setLoc={setLoc}
                 />
             default: return null
         }
