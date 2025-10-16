@@ -158,12 +158,26 @@ export function PrivacyTypeStep({ privacyTypes, selectedPrivacyType, onSelect })
 
 export function StepAddressForm({ loc, setLoc }) {
     const handleChange = (field, value) => {
-        setLoc({ ...loc, [field]: value })
+        const updatedLoc = { ...loc, [field]: value }
+        updatedLoc.address = buildFullAddress(updatedLoc)
+        setLoc(updatedLoc)
     }
 
     const handleCountryChange = (value) => {
         const [country, countryCode] = value.split(' - ')
-        setLoc({ ...loc, country, countryCode })
+        const updatedLoc = { ...loc, country, countryCode }
+        updatedLoc.address = buildFullAddress(updatedLoc)
+        setLoc(updatedLoc)
+    }
+
+    const buildFullAddress = (locObj) => {
+        const parts = [
+            locObj.street,
+            locObj.apt ? `Apt ${locObj.apt}` : '',
+            locObj.city,
+            locObj.country
+        ].filter(Boolean)
+        return parts.join(', ')
     }
 
     return (
@@ -179,7 +193,7 @@ export function StepAddressForm({ loc, setLoc }) {
                     <label className="field-label">Country / region</label>
                     <select
                         className="form-select"
-                        value={`${loc.country || 'Israel'} - ${loc.countryCode || 'IL'}`}
+                        value={`${loc.country} - ${loc.countryCode}`}
                         onChange={(ev) => handleCountryChange(ev.target.value)}
                     >
                         <option value="Israel - IL">Israel - IL</option>
@@ -192,7 +206,7 @@ export function StepAddressForm({ loc, setLoc }) {
                     </select>
                 </div>
 
-                {/* Street Address */}
+                {/* Address fields */}
                 <div className="address-form-fields">
                     <div className="form-field">
                         <input
@@ -243,7 +257,7 @@ export function StepAddressForm({ loc, setLoc }) {
                         <input
                             type="text"
                             className="form-input city-input"
-                            value={loc.city || 'Tel Aviv-Yafo'}
+                            value={loc.city || ''}
                             onChange={(ev) => handleChange('city', ev.target.value)}
                         />
                     </div>

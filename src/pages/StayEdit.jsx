@@ -23,14 +23,14 @@ export function StayEdit() {
     const [loc, setLoc] = useState({
         country: 'Israel',
         countryCode: 'IL',
+        city: 'Tel Aviv-Yafo',
         street: '',
         entrance: '',
         apt: '',
         postalCode: '',
-        city: 'Tel Aviv-Yafo',
-        address: '',
-        lat: null,
-        lng: null
+        address: 'Tel Aviv-Yafo, Israel',
+        lat: 32.0853,
+        lng: 34.7818
     })
 
     const placeTypes = [
@@ -88,12 +88,10 @@ export function StayEdit() {
 
                     if (stayFromStore.loc) {
                         setLoc({
-                            country: stayFromStore.loc.country || 'Israel - IL',
-                            street: stayFromStore.loc.street || '',
-                            entrance: stayFromStore.loc.entrance || '',
-                            apt: stayFromStore.loc.apt || '',
-                            postalCode: stayFromStore.loc.postalCode || '',
-                            city: stayFromStore.loc.city || 'Tel Aviv-Yafo'
+                            ...stayFromStore.loc,
+                            address: stayFromStore.loc.address || stayFromStore.address || '',
+                            lat: stayFromStore.loc.lat || stayFromStore.location?.lat || 32.0853,
+                            lng: stayFromStore.loc.lng || stayFromStore.location?.lng || 34.7818
                         })
                     }
                 })
@@ -103,31 +101,41 @@ export function StayEdit() {
 
     const handleNext = async () => {
         try {
+            const fullAddress = loc.street
+                ? `${loc.street}${loc.apt ? `, Apt ${loc.apt}` : ''}, ${loc.city}, ${loc.country}`
+                : address || stayData.address || ''
+
             const updatedStay = {
                 ...stayData,
                 type: selectedPlaceType || stayData.type || '',
                 roomType: selectedPrivacyType || stayData.roomType || '',
-                address: address || stayData.address || '',
-                location: locationData || stayData.location || {},
-                loc: loc || stayData.loc || {}
+                address: fullAddress,
+                location: {
+                    lat: locationData.lat || loc.lat || 32.0853,
+                    lng: locationData.lng || loc.lng || 34.7818
+                },
+                loc: {
+                    ...loc,
+                    address: fullAddress,
+                    lat: locationData.lat || loc.lat || 32.0853,
+                    lng: locationData.lng || loc.lng || 34.7818
+                }
             }
 
-            let savedStay
-            if (!stayId) {
-                savedStay = await stayService.save(updatedStay)
-                setStayId(savedStay._id)
-            } else {
-                savedStay = await stayService.save({ ...updatedStay, _id: stayId })
-            }
-
+            const savedStay = await stayService.save(stayId ? { ...updatedStay, _id: stayId } : updatedStay)
+            setStayId(savedStay._id)
             setStayData(savedStay)
 
-            if (currentStep === 0) navigate(`/edit/${savedStay._id}/about-your-place`)
-            if (currentStep === 1) navigate(`/edit/${savedStay._id}/structure`)
-            if (currentStep === 2) navigate(`/edit/${savedStay._id}/privacy-type`)
-            if (currentStep === 3) navigate(`/edit/${savedStay._id}/location`)
-            if (currentStep === 4) navigate(`/edit/${savedStay._id}/address-details`)
-            if (currentStep === 5) showSuccessMsg('Stay setup complete!')
+            const nextRoutes = [
+                '/about-your-place',
+                '/structure',
+                '/privacy-type',
+                '/location',
+                '/address-details'
+            ]
+            if (currentStep < nextRoutes.length)
+                navigate(`/stay/edit/${savedStay._id}${nextRoutes[currentStep]}`)
+            else showSuccessMsg('Stay setup complete!')
         } catch (err) {
             console.error('Error navigating next:', err)
             showErrorMsg('Could not save progress')
