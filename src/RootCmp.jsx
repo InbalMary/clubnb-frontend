@@ -46,7 +46,7 @@ export function RootCmp() {
     })
 
     return (
-        <div className="main-container">
+        <div>
             {showBackdrop && <div className="backdrop" onClick={handleCollapse} />}
             {!isConfirmPayPage && (
                 <div ref={headerRef}>
@@ -60,7 +60,7 @@ export function RootCmp() {
             {/* <AppHeader /> */}
             <UserMsg />
 
-            <main>
+            <main className="main-container">
                 <Routes>
                     {/* <Route path="" element={<HomePage />} />
                     <Route path="about" element={<AboutUs />}>

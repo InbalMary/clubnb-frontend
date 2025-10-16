@@ -215,7 +215,7 @@ body:has(.app-header) .stay-index {
     z-index: 1000;
 }
 
-body:has(.compact-header) .main-container>.stay-details {
+body:has(.compact-header) .main-container .stay-details {
     margin-block-start: 96px;
 }
 

@@ -140,6 +140,26 @@ export function formatGuestsText(guests) {
 }
 
 export const formatDateWithFullYear = (dateString) => {
-        const date = new Date(dateString)
-        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+}
+
+export const formatDateRange = (startDateString, endDateString) => {
+    const startDate = new Date(startDateString)
+    const endDate = new Date(endDateString)
+
+    const optionsMonth = { month: 'short' }
+    const optionsDay = { day: 'numeric' }
+    const optionsYear = { year: 'numeric' }
+    const startMonth = startDate.toLocaleDateString('en-US', optionsMonth)
+    const startDay = startDate.toLocaleDateString('en-US', optionsDay)
+    const endMonth = endDate.toLocaleDateString('en-US', optionsMonth)
+    const endDay = endDate.toLocaleDateString('en-US', optionsDay)
+    const year = startDate.toLocaleDateString('en-US', optionsYear)
+
+    if (startMonth === endMonth) {
+        return `${startMonth} ${startDay}-${endDay}, ${year}`
+    } else {
+        return `${startMonth} ${startDay}-${endMonth} ${endDay}, ${year}`
     }
+}
