@@ -22,6 +22,7 @@
 @import "./pages/TripIndex.css";
 @import "./pages/ReservationsPage.css";
 @import "./pages/ListingsPage.css";
+@import "./pages/Explore.css";
 
 
 /* Cmps */
@@ -62,6 +63,8 @@
 @import "cmps/ReservationSummary.css";
 @import "cmps/MsgHost.css";
 @import "cmps/StayListSkeleton.css";
+
+
 
 
 
