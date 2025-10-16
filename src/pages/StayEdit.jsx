@@ -5,7 +5,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { StepLocation } from "../cmps/StepLocation"
 import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm } from '../cmps/EditSteps.jsx'
 import { loadStay } from "../store/actions/stay.actions.js"
-import { parseAddressToComponents } from "../cmps/parseAddressToComponents.jsx"
+import { StepMapConfirm } from "../cmps/StepMapConfirm.jsx"
 
 export function StayEdit() {
     const navigate = useNavigate()
@@ -72,8 +72,9 @@ export function StayEdit() {
         else if (location.pathname.includes('about-your-place')) setCurrentStep(1)
         else if (location.pathname.includes('structure')) setCurrentStep(2)
         else if (location.pathname.includes('privacy-type')) setCurrentStep(3)
-        else if (location.pathname.includes('location')) setCurrentStep(4)
+        else if (location.pathname.includes('confirm-location')) setCurrentStep(6)
         else if (location.pathname.includes('address-details')) setCurrentStep(5)
+        else if (location.pathname.includes('location')) setCurrentStep(4)
     }, [location.pathname])
 
     useEffect(() => {
@@ -114,7 +115,9 @@ export function StayEdit() {
                 location: { lat: locationData.lat || loc.lat, lng: locationData.lng || loc.lng },
                 loc: {
                     ...loc,
-                    address: fullAddress
+                    address: fullAddress,
+                    lat: locationData.lat || loc.lat,
+                    lng: locationData.lng || loc.lng
                 }
             }
 
@@ -127,7 +130,8 @@ export function StayEdit() {
                 '/structure',
                 '/privacy-type',
                 '/location',
-                '/address-details'
+                '/address-details',
+                '/confirm-location'
             ]
             if (currentStep < nextRoutes.length)
                 navigate(`/stay/edit/${savedStay._id}${nextRoutes[currentStep]}`)
@@ -145,13 +149,14 @@ export function StayEdit() {
         if (currentStep === 3) navigate(`/stay/edit/${stayId}/structure`)
         if (currentStep === 4) navigate(`/stay/edit/${stayId}/privacy-type`)
         if (currentStep === 5) navigate(`/stay/edit/${stayId}/location`)
-
+        if (currentStep === 6) navigate(`/stay/edit/${stayId}/address-details`)
     }
 
     const handleSaveExit = async () => {
         try {
             await stayService.save({
                 ...stayData,
+                _id: stayId,
                 type: selectedPlaceType || stayData.type || '',
                 roomType: selectedPrivacyType || stayData.roomType || '',
                 address: address || stayData.address || '',
@@ -174,6 +179,7 @@ export function StayEdit() {
     }
 
     const renderStepContent = () => {
+        console.log('Current step:', currentStep)
         switch (currentStep) {
             case 0:
                 return <WelcomeStep onNext={handleNext} />
@@ -204,6 +210,12 @@ export function StayEdit() {
                 return <StepAddressForm
                     loc={loc}
                     setLoc={setLoc}
+                />
+            case 6:
+                return <StepMapConfirm
+                    address={loc.address || address}
+                    location={locationData}
+                    setLocation={setLocationData}
                 />
             default: return null
         }

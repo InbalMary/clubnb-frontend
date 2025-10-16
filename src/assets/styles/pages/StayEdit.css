@@ -413,6 +413,7 @@
     min-height: calc(100vh - 9rem);
     padding: 2.5rem 1.25rem;
     background-color: var(--white);
+    padding-top: 96px;
 }
 
 .address-form-content {
