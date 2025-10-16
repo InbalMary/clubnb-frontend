@@ -8,9 +8,15 @@ import { DateRangePicker } from "../cmps/DateRangePicker";
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 import { StepLocation } from "../cmps/StepLocation";
 
+import {WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep }from '../cmps/EditSteps.jsx';
+// import StepIntro from './StepIntro';
+// import PlaceTypeStep from './PlaceTypeStep';
+// import PrivacyTypeStep from './PrivacyTypeStep';
+// import LocationStep from './LocationStep';
+// import './EditPage.css';
+
 export function StayEdit() {
-    const navigate = useNavigate()
-    const [currentStep, setCurrentStep] = useState(1)
+    const [currentStep, setCurrentStep] = useState(0)
     const [selectedPlaceType, setSelectedPlaceType] = useState('')
     const [selectedPrivacyType, setSelectedPrivacyType] = useState('')
     const [address, setAddress] = useState('')
@@ -49,28 +55,17 @@ export function StayEdit() {
         }
     ]
 
-    const handleSaveExit = () => {
-        navigate('/')
-    }
-
     const handleNext = () => {
-        if (currentStep === 1) {
-            setCurrentStep(2)
-        } else if (currentStep === 2 && selectedPlaceType) {
-            setCurrentStep(3)
-        } else if (currentStep === 3 && selectedPrivacyType) {
-            setCurrentStep(4)
-        } else if (currentStep === 4 && address) {
-            console.log('Moving to step 5, address:', address)
-        }
+        setCurrentStep(currentStep + 1)
     }
 
     const handleBack = () => {
-        if (currentStep === 1) {
-            navigate('/')
-        } else {
-            setCurrentStep(currentStep - 1)
-        }
+        setCurrentStep(currentStep - 1)
+    }
+
+    const handleSaveExit = () => {
+        // Save and exit logic
+        console.log('Saving and exiting...')
     }
 
     const handlePlaceTypeSelect = (placeId) => {
@@ -81,118 +76,87 @@ export function StayEdit() {
         setSelectedPrivacyType(privacyId)
     }
 
+    const isNextDisabled = () => {
+        if (currentStep === 2 && !selectedPlaceType) return true
+        if (currentStep === 3 && !selectedPrivacyType) return true
+        if (currentStep === 4 && !address) return true
+        return false;
+    }
+
+    const renderStepContent = () => {
+        switch (currentStep) {
+            case 0:
+                return <WelcomeStep onNext={handleNext} />
+            case 1:
+                return <StepIntro />
+            case 2:
+                return (
+                    <PlaceTypeStep
+                        placeTypes={placeTypes}
+                        selectedPlaceType={selectedPlaceType}
+                        onSelect={handlePlaceTypeSelect}
+                    />
+                )
+            case 3:
+                return (
+                    <PrivacyTypeStep
+                        privacyTypes={privacyTypes}
+                        selectedPrivacyType={selectedPrivacyType}
+                        onSelect={handlePrivacyTypeSelect}
+                    />
+                )
+            case 4:
+                return (
+                    <StepLocation
+                        address={address}
+                        setAddress={setAddress}
+                        location={location}
+                        setLocation={setLocation}
+                    />
+                )
+            default:
+                return null
+        }
+    }
+
     return (
         <div className="edit-container">
             <header className="edit-header">
                 <div className="logo-black-container">
-                    <img src={`/img/logo-black.svg`} alt="logo-black" className="logo-black-icon" />
+                    <img src="/img/logo-black.svg" alt="logo" className="logo-black-icon" />
                 </div>
                 <div className="header-actions">
-                    <button className="btn btn-pill questions-button">Questions?</button>
-                    <button className="btn btn-pill save-exit-button" onClick={handleSaveExit}>
-                        Save & exit
-                    </button>
+                    {currentStep === 0 ? (
+                        <button className="btn btn-pill save-exit-button" onClick={handleSaveExit}>
+                            Exit
+                        </button>
+                    ) : (
+                        <>
+                            <button className="btn btn-pill questions-button">Questions?</button>
+                            <button className="btn btn-pill save-exit-button" onClick={handleSaveExit}>
+                                Save & exit
+                            </button>
+                        </>
+                    )}
                 </div>
             </header>
 
-            {currentStep === 1 && (
-                <main className="step-main-content">
-                    <div className="step-left">
-                        <div className="step-label">Step 1</div>
-                        <h1 className="step-main-title">Tell us about your place</h1>
-                        <p className="step-main-description">
-                            In this step, we'll ask you which type of property you have and if
-                            guests will book the entire place or just a room. Then let us know
-                            the location and how many guests can stay.
-                        </p>
-                    </div>
+            {renderStepContent()}
 
-                    <div className="step-right">
-                        <video
-                            className="step-video"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                        >
-                            <source src="/img/video/listing-step1-animation.mp4" type="video/mp4" />
-                        </video>
-                    </div>
-                </main>
+            {currentStep > 0 && (
+                <footer className="step-footer">
+                    <button className="back-button" onClick={handleBack}>
+                        Back
+                    </button>
+                    <button
+                        className={`btn btn-black next-button ${isNextDisabled() ? 'disabled' : ''}`}
+                        onClick={handleNext}
+                        disabled={isNextDisabled()}
+                    >
+                        Next
+                    </button>
+                </footer>
             )}
-
-            {currentStep === 2 && (
-                <main className="step-selection-content">
-                    <h1 className="selection-title">Which of these best describes your place?</h1>
-                    <div className="place-types-grid">
-                        {placeTypes.map(place => (
-                            <button
-                                key={place.id}
-                                className={`place-type-card ${selectedPlaceType === place.id ? 'selected' : ''}`}
-                                onClick={() => handlePlaceTypeSelect(place.id)}
-                            >
-                                <span className="place-icon">
-                                    <img src={`/img/step2/${place.id}.svg`} alt={place.id} className="step2-icon" />
-                                </span>
-                                <span className="place-label">{place.label}</span>
-                            </button>
-                        ))}
-                    </div>
-                </main>
-            )}
-
-            {currentStep === 3 && (
-                <main className="step-selection-content">
-                    <h1 className="selection-title">What type of place will guests have?</h1>
-                    <div className="privacy-types-list">
-                        {privacyTypes.map(privacy => (
-                            <button
-                                key={privacy.id}
-                                className={`privacy-type-card ${selectedPrivacyType === privacy.id ? 'selected' : ''}`}
-                                onClick={() => handlePrivacyTypeSelect(privacy.id)}
-                            >
-                                <div className="privacy-content">
-                                    <h3 className="privacy-label">{privacy.label}</h3>
-                                    <p className="privacy-description">{privacy.description}</p>
-                                </div>
-                                <div className="privacy-icon">
-                                    <img src={`/img/step3/${privacy.id}.svg`} alt={privacy.label} className="step3-icon" />
-                                </div>
-                            </button>
-                        ))}
-                    </div>
-                </main>
-            )}
-
-            {currentStep === 4 && (
-                <StepLocation
-                    address={address}
-                    setAddress={setAddress}
-                    location={location}
-                    setLocation={setLocation}
-                />
-            )}
-
-            <footer className="step-footer">
-                <button className="back-button" onClick={handleBack}>
-                    Back
-                </button>
-                <button
-                    className={`btn btn-black next-button ${(currentStep === 2 && !selectedPlaceType) ||
-                        (currentStep === 3 && !selectedPrivacyType) ||
-                        (currentStep === 4 && !address)
-                        ? 'disabled' : ''
-                        }`}
-                    onClick={handleNext}
-                    disabled={
-                        (currentStep === 2 && !selectedPlaceType) ||
-                        (currentStep === 3 && !selectedPrivacyType) ||
-                        (currentStep === 4 && !address)
-                    }
-                >
-                    Next
-                </button>
-            </footer>
         </div>
     )
 }

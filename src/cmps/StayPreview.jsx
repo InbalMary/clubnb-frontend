@@ -5,7 +5,7 @@ import { svgControls } from './Svgs.jsx'
 import { Modal } from './Modal.jsx'
 import { showSuccessMsg } from '../services/event-bus.service.js'
 
-export function StayPreview({ stay }) {
+export function StayPreview({ stay, isBig = false }) {
     const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
     const [isAddedToWishlist, setIsAddedToWishlist] = useState(false)
 
@@ -38,7 +38,7 @@ export function StayPreview({ stay }) {
     const numNights = calculateNights(stay.startDate, stay.endDate)
     const totalPrice = stay.price * numNights
 
-    return <article className="stay-preview">
+    return <article className={`stay-preview ${isBig ? 'big' : ''}`}>
         <div className='stay-image-wrapper'>
 
             <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className='stay-link'>
@@ -106,22 +106,55 @@ export function StayPreview({ stay }) {
                 </Modal>
             )}
         </div>
-        <div className='stay-info'>
-            <header>
-                <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className="stay-name">
-                    {stay.name}
-                </Link>
-            </header>
+        <div className="stay-info">
+            {isBig ? (
+                // Explore layout: name + rating on one line
+                <div className="stay-header">
+                    <span className="stay-name">{stay.name}</span>
+                    <span className="stay-rating">★{stay.rating}({stay.numReviews || 0})</span>
+                </div>
+            ) : (
+                // Default layout (non-Explore)
+                <header>
+                    <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className="stay-name">
+                        {stay.name}
+                    </Link>
+                </header>
+            )}
+
+            {isBig && (
+                <>
+                    <p className="stay-summary">{stay.summary}</p>
+                    <p className='stay-card-details'>
+                        {stay.bedrooms} {stay.bedrooms === 1 ? 'bedroom' : 'bedrooms'}
+                    </p>
+                </>
+            )}
             <p className='stay-card-dates'>{formattedDates}</p>
             <div className='stay-card-details'>
-                <span className='stay-price'>
-                    ${totalPrice.toLocaleString()}{' '}for {numNights} {numNights === 1 ? 'night' : 'nights'}
-                </span>
-                <span className='separator'>{' '}•</span>
-                <span className='stay-rating'>
-                    <span className='star-icon'>{' '}★</span>
-                    <span>{stay.rating || 4.85}</span>
-                </span>
+                {isBig ? (
+                    <div className="stay-price-wrap">
+                        <span className="stay-price">
+                            ${totalPrice.toLocaleString()}
+                        </span>
+                        <span className="stay-nights">
+                            {' '} for {numNights} {numNights === 1 ? 'night' : 'nights'}
+                        </span>
+                    </div>
+                ) : (
+                    <span className='stay-price'>
+                        ${totalPrice.toLocaleString()}{' '}for {numNights} {numNights === 1 ? 'night' : 'nights'}
+                    </span>
+                )}
+                {!isBig && (
+                    <>
+                        <span className='separator'>{' '}•</span>
+                        <span className='stay-rating'>
+                            <span className='star-icon'>{' '}★</span>
+                            <span>{stay.rating || 4.85}</span>
+                        </span>
+                    </>
+                )}
             </div>
         </div>
 

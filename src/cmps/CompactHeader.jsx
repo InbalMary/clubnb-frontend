@@ -14,7 +14,7 @@ export function CompactHeader({ onSearchClick, isSticky, isTripsPage }) {
     const text = isHostPage ? "Switch to traveling" : "Switch to hosting"
 
     return (
-        <header className={`compact-header full ${!isSticky ? 'no-sticky' : ''} ${isIndexPage ? 'index-page' : ''}`}>
+        <header className={`compact-header full ${!isSticky ? 'no-sticky main-content' : ''} ${isIndexPage ? 'index-page' : ''}`}>
             <div className="compact-header-content">
                 <NavLink to="/" className="logo-header">
                     <span className="icon">{appHeaderSvg.logo}</span>

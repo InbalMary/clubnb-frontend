@@ -13,8 +13,10 @@ export function useHeaderState() {
     const isIndexPage = location.pathname === '/'
     const isConfirmPayPage = location.pathname.includes('/confirm')
     const isTripsPage = location.pathname === '/trips'
+    const isHostPage = location.pathname.includes("hosting")
+    const isExplorePage = location.pathname.startsWith("/explore/")
+
     const showBackdrop = (isExpanded && initialModal) || (isStayDetailsPage && isExpanded)
-    const isHostPage = location.pathname.includes("hosting");
 
     // Scroll to top on route change (general)
     useEffect(() => {
@@ -28,7 +30,7 @@ export function useHeaderState() {
         if (prevPath !== '/' && isIndexPage) {
             setIsExpanded(true)
             setHasScrolled(false)
-        } else if (isTripsPage || isHostPage) {
+        } else if (isTripsPage || isHostPage || isExplorePage) {
             setIsExpanded(false)
             setHasScrolled(true)
         } else {
@@ -37,11 +39,11 @@ export function useHeaderState() {
 
         setInitialModal(null)
         prevPathRef.current = location.pathname
-    }, [location.pathname, isIndexPage, isTripsPage, isHostPage])
+    }, [location.pathname, isIndexPage, isTripsPage, isHostPage, isExplorePage])
 
     // Handle scroll behavior
     useEffect(() => {
-        if (isStayDetailsPage || isTripsPage || isHostPage) {
+        if (isStayDetailsPage || isTripsPage || isHostPage || isExplorePage) {
             if (!initialModal) setIsExpanded(false)
             return
         }
@@ -63,7 +65,7 @@ export function useHeaderState() {
 
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
-    }, [isExpanded, initialModal, isStayDetailsPage, isTripsPage, hasScrolled])
+    }, [isExpanded, initialModal, isStayDetailsPage, isTripsPage, isHostPage, isExplorePage, hasScrolled])
 
     const handleSearchClick = (modalType) => {
         setInitialModal(modalType)

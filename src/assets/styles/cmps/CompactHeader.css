@@ -15,6 +15,7 @@
     max-width: 1760px;
     margin: 0 auto;
     height: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
@@ -222,9 +223,9 @@ body:has(.compact-header) .main-container .stay-details {
     position: absolute;
 }
 
-.compact-header.no-sticky .compact-header-content {
+/* .compact-header.no-sticky .compact-header-content {
     margin-inline: 9.5rem;
-}
+} */
 
 .compact-header .header-actions button.hamburger-menu-btn.hamburger-wide {
     width: 5rem;
