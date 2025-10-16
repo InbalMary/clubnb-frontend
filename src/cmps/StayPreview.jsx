@@ -41,7 +41,9 @@ export function StayPreview({ stay, isBig = false }) {
     return <article className={`stay-preview ${isBig ? 'big' : ''}`}>
         <div className='stay-image-wrapper'>
 
-            <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className='stay-link'>
+            <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className='stay-link'
+                target="_blank"
+                rel="noopener noreferrer">
                 <img
                     src={stay.imgUrls?.[0] || 'https://picsum.photos/200/200?random=1'}
                     alt={stay.name}
@@ -116,7 +118,9 @@ export function StayPreview({ stay, isBig = false }) {
             ) : (
                 // Default layout (non-Explore)
                 <header>
-                    <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className="stay-name">
+                    <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className="stay-name"
+                        target="_blank"
+                        rel="noopener noreferrer">
                         {stay.name}
                     </Link>
                 </header>

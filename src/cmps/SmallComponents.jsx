@@ -297,7 +297,12 @@ export function MiniStickyContainer({ stay, startDate, endDate, onClick }) {
     return (
         <div className="mini-sticky-container">
             <div className="mini-rating-wrapper">
-                <RareFind showRareMsg={false} showPriceInfo={true} stay={stay} startDate={startDate} endDate={endDate} />
+                <RareFind showRareMsg={false}
+                    showPriceInfo={true}
+                    stay={stay}
+                    startDate={startDate}
+                    endDate={endDate}
+                    debounceDisplay={false} />
                 <SmallRating readOnly={true} stay={stay} />
             </div>
             <div className="button-wrapper">
@@ -311,7 +316,7 @@ export function MiniStickyContainer({ stay, startDate, endDate, onClick }) {
     )
 }
 
-export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, startDate, endDate }) {
+export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, startDate, endDate, debounceDisplay = true }) {
     const [showRareFind, setShowRareFind] = useState(false);
 
     const debouncedShowRef = useRef(
@@ -322,7 +327,12 @@ export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, start
 
     useEffect(() => {
         if (startDate && endDate) {
-            debouncedShowRef.current()
+            if (debounceDisplay) {
+                debouncedShowRef.current()
+            } else {
+                // immediately show, prevents flicker
+                setShowRareFind(true)
+            }
         } else {
             setShowRareFind(false)
             debouncedShowRef.current.cancel()
@@ -331,7 +341,7 @@ export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, start
             setShowRareFind(false)
             debouncedShowRef.current.cancel()
         }
-    }, [startDate, endDate])
+    }, [startDate, endDate, debounceDisplay])
 
     return (
         <div>

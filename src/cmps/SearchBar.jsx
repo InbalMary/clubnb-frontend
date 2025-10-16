@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { appHeaderSvg, svgControls } from "./Svgs";
 import { WhereAutocomplete } from "./WhereAutocomplete";
 import { DateSelector } from "./DateSelector";
@@ -14,6 +14,7 @@ import { useDateContext } from "../context/DateRangeProvider.jsx";
 
 export function SearchBar({ initialModal = null }) {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+    const navigate = useNavigate()
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [activeModal, setActiveModal] = useState(initialModal)
@@ -135,6 +136,7 @@ export function SearchBar({ initialModal = null }) {
             guests.children === 0
 
         if (isInitialRender) return
+        if (window.location.pathname.includes('/explore/city')) return
 
         const params = new URLSearchParams()
         if (destination?.name) params.set('destination', destination.name)
@@ -146,12 +148,12 @@ export function SearchBar({ initialModal = null }) {
         if (guests.pets) params.set('pets', guests.pets.toString())
         setSearchParams(params, { replace: true })
 
-        setFilterBy({
-            destination: destination?.name || null,
-            startDate: dateRange.from ? formatDate(dateRange.from) : null,
-            endDate: dateRange.to ? formatDate(dateRange.to) : null,
-            guests,
-        })
+        // setFilterBy({
+        //     destination: destination?.name || null,
+        //     startDate: dateRange.from ? formatDate(dateRange.from) : null,
+        //     endDate: dateRange.to ? formatDate(dateRange.to) : null,
+        //     guests,
+        // })
     }, [destination, dateRange, guests])
 
     const handleDateComplete = (range) => {
@@ -169,8 +171,12 @@ export function SearchBar({ initialModal = null }) {
     const handleSearch = () => {
         console.log('filterBy:', filterBy)
         setActiveModal(null)
-    }
 
+        if (destination?.name) {
+            const cityKey = destination.name.split(',')[0].trim()
+            navigate(`/explore/city/${cityKey}`)
+        }
+    }
     const hasGuestValues = guests.adults > 0 || guests.children > 0 || guests.infants > 0 || guests.pets > 0
 
     return (
@@ -215,7 +221,7 @@ export function SearchBar({ initialModal = null }) {
                     <div className="search-content">
                         <div className="search-label">Who</div>
                         <div className={`search-placeholder ${hasGuestValues ? 'has-value' : ''}`}
-                            >{formatGuestsText(guests)}</div>
+                        >{formatGuestsText(guests)}</div>
                         {hasGuestValues && (
                             <button
                                 className="search close-btn"
