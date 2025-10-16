@@ -26,6 +26,7 @@ import { useHeaderState } from './customHooks/useHeaderState.js'
 import { TripIndex } from './pages/TripIndex.jsx'
 import { ReservationsPage } from './pages/ReservationsPage.jsx'
 import { ListingsPage } from './pages/ListingsPage.jsx'
+import { Explore } from './pages/Explore.jsx'
 
 export function RootCmp() {
     const {
@@ -67,6 +68,7 @@ export function RootCmp() {
                         <Route path="vision" element={<AboutVision />} />
                     </Route> */}
                     <Route path="" element={<StayIndex />} />
+                    <Route path="explore/:type" element={<Explore />} />
                     <Route path="stay/edit" element={<StayEdit />} />
                     <Route path="stay/edit/:stayId" element={<StayEdit />} />
                     <Route path="stay/:stayId" element={<StayDetails />} />

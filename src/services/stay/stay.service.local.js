@@ -24,7 +24,11 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
     var stays = await storageService.query(STORAGE_KEY)
     // console.log('Stays found in storage:', stays)
 
-    const { txt, minPrice, sortField, sortDir, destination, startDate, endDate, guests } = filterBy
+    const { txt, minPrice, sortField, sortDir, destination, startDate, endDate, guests, type } = filterBy
+
+    if (type) {
+        stays = stays.filter(stay => stay.type === type)
+    }
 
     if (destination) {
         const regex = new RegExp(destination, 'i')
@@ -44,7 +48,7 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
 
         stays = stays.filter(stay => {
             if (!stay.startDate || !stay.endDate) return true
-            
+
             const stayStart = new Date(stay.startDate)
             const stayEnd = new Date(stay.endDate)
 

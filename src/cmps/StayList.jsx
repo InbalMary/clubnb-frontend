@@ -3,8 +3,11 @@ import { Carousel } from './Carousel'
 import { svgControls } from './Svgs'
 import { StayListSkeleton } from './StayListSkeleton'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
 
 export function StayList() {
+    const navigate = useNavigate()
     const { stays, isLoading } = useSelector(storeState => storeState.stayModule)
     const categories = [...new Set(stays.map(stay => stay.type))]
     if (isLoading) return <StayListSkeleton categories={categories} />
@@ -23,7 +26,7 @@ export function StayList() {
                         <Carousel
                             renderControls={({ scrollState, scrollRow }) => (
                                 <div className='stay-row-header'>
-                                    <h3 className="stay-list-title">{type}
+                                    <h3 className="stay-list-title" onClick={() => navigate(`/explore/${type}`)}>{type}
                                         <span className='right-pointer'>{svgControls.chevronRight}</span>
                                     </h3>
 
