@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { stayService } from '../services/stay/'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
@@ -8,19 +8,19 @@ import { DateRangePicker } from "../cmps/DateRangePicker";
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 import { StepLocation } from "../cmps/StepLocation";
 
-import {WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep }from '../cmps/EditSteps.jsx';
-// import StepIntro from './StepIntro';
-// import PlaceTypeStep from './PlaceTypeStep';
-// import PrivacyTypeStep from './PrivacyTypeStep';
-// import LocationStep from './LocationStep';
-// import './EditPage.css';
+import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep } from '../cmps/EditSteps.jsx'
 
 export function StayEdit() {
+    const navigate = useNavigate()
+    const { id } = useParams()
+    const location = useLocation()
+
     const [currentStep, setCurrentStep] = useState(0)
+    const [stayId, setStayId] = useState(id || null)
     const [selectedPlaceType, setSelectedPlaceType] = useState('')
     const [selectedPrivacyType, setSelectedPrivacyType] = useState('')
     const [address, setAddress] = useState('')
-    const [location, setLocation] = useState({ lat: 32.0853, lng: 34.7818 }) // Default to Tel Aviv
+    const [locationData, setLocationData] = useState({ lat: 32.0853, lng: 34.7818 }) // Default to Tel Aviv
 
     const placeTypes = [
         { id: 'house', label: 'House' },
@@ -55,32 +55,54 @@ export function StayEdit() {
         }
     ]
 
-    const handleNext = () => {
-        setCurrentStep(currentStep + 1)
+    useEffect(() => {
+        if (location.pathname.includes('become-a-host')) setCurrentStep(0)
+        else if (location.pathname.includes('about-your-place')) setCurrentStep(1)
+        else if (location.pathname.includes('structure')) setCurrentStep(2)
+        else if (location.pathname.includes('privacy-type')) setCurrentStep(3)
+        else if (location.pathname.includes('location')) setCurrentStep(4)
+    }, [location.pathname])
+
+    const handleNext = async () => {
+        try {
+            if (currentStep === 0 && !stayId) {
+                const newStay = await stayService.save({ title: '', type: '', address: '', location: {} })
+                setStayId(newStay._id)
+                navigate(`/edit/${newStay._id}/about-your-place`)
+                return
+            }
+
+            if (currentStep === 1) navigate(`/edit/${stayId}/structure`)
+            if (currentStep === 2) navigate(`/edit/${stayId}/privacy-type`)
+            if (currentStep === 3) navigate(`/edit/${stayId}/location`)
+            if (currentStep === 4) showSuccessMsg('Stay setup complete!')
+        } catch (err) {
+            console.error('Error navigating next:', err)
+            showErrorMsg('Could not save progress')
+        }
     }
 
     const handleBack = () => {
-        setCurrentStep(currentStep - 1)
+        if (currentStep === 0) navigate('/hosting')
+        if (currentStep === 1) navigate('/edit/become-a-host')
+        if (currentStep === 2) navigate(`/edit/${stayId}/about-your-place`)
+        if (currentStep === 3) navigate(`/edit/${stayId}/structure`)
+        if (currentStep === 4) navigate(`/edit/${stayId}/privacy-type`)
     }
 
     const handleSaveExit = () => {
-        // Save and exit logic
-        console.log('Saving and exiting...')
+        showSuccessMsg('Progress saved')
+        navigate('/hosting/listings')
     }
 
-    const handlePlaceTypeSelect = (placeId) => {
-        setSelectedPlaceType(placeId)
-    }
-
-    const handlePrivacyTypeSelect = (privacyId) => {
-        setSelectedPrivacyType(privacyId)
-    }
+    const handlePlaceTypeSelect = (placeId) => setSelectedPlaceType(placeId)
+    const handlePrivacyTypeSelect = (privacyId) => setSelectedPrivacyType(privacyId)
 
     const isNextDisabled = () => {
         if (currentStep === 2 && !selectedPlaceType) return true
         if (currentStep === 3 && !selectedPrivacyType) return true
         if (currentStep === 4 && !address) return true
-        return false;
+        return false
     }
 
     const renderStepContent = () => {
@@ -110,8 +132,8 @@ export function StayEdit() {
                     <StepLocation
                         address={address}
                         setAddress={setAddress}
-                        location={location}
-                        setLocation={setLocation}
+                        location={locationData}
+                        setLocation={setLocationData}
                     />
                 )
             default:
