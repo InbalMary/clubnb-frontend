@@ -127,6 +127,8 @@ export function StayPreview({ stay, isBig = false }) {
                     <p className="stay-summary">{stay.summary}</p>
                     <p className='stay-card-details'>
                         {stay.bedrooms} {stay.bedrooms === 1 ? 'bedroom' : 'bedrooms'}
+                        <span className='separator'>{' '}•</span>
+                        {stay.beds} {stay.beds === 1 ? 'bed' : 'beds'}
                     </p>
                 </>
             )}
@@ -140,7 +142,9 @@ export function StayPreview({ stay, isBig = false }) {
                         <span className="stay-nights">
                             {' '} for {numNights} {numNights === 1 ? 'night' : 'nights'}
                         </span>
+
                     </div>
+
                 ) : (
                     <span className='stay-price'>
                         ${totalPrice.toLocaleString()}{' '}for {numNights} {numNights === 1 ? 'night' : 'nights'}
@@ -156,6 +160,9 @@ export function StayPreview({ stay, isBig = false }) {
                     </>
                 )}
             </div>
+            {stay.freeCancellation && (
+                <p className='explore-cancellation-policy'>Free cancellation</p>
+            )}
         </div>
 
     </article>
