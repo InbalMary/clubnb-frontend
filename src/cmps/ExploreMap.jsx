@@ -27,15 +27,13 @@ function ExploreMapController({ locations }) {
     const attachedMarkers = useRef(new Set())
 
     useEffect(() => {
-        Object.entries(markerRefs.current).forEach((id, marker) => {
+        Object.entries(markerRefs.current).forEach(([id, marker]) => {
             if (marker && !attachedMarkers.current[id]) {
-                // marker.addListener('click', () => setActiveLocation(locations.find(l => l._id === id)))
+                marker?.addListener('click', () => setActiveLocation(locations?.find(l => l._id === id)))
                 attachedMarkers.current.add(id)
             }
         })
     }, [locations])
-
-    // useClickOutside([modalRef], () => setActiveLocation(null))
 
     function handleMouseEnter(id) {
         setHoveredId(id);
@@ -84,7 +82,6 @@ function ExploreMapController({ locations }) {
     }
 
 
-
     return (
         <>
             <Map defaultCenter={coords || fallbackCoords}
@@ -105,43 +102,32 @@ function ExploreMapController({ locations }) {
 
                     < AdvancedMarker key={idx} position={{ lat: location?.loc.lat, lng: location?.loc.lng }}
                         ref={(el) => markerRefs.current[location._id] = el}
-                        onClick={() => {
-                            // e.stopPropagation();
+                        onClick={(e) => {
+                            e.domEvent.stopPropagation()
                             setActiveLocation(location)
                         }}
                         onMouseEnter={() => handleMouseEnter(location._id)}
                         onMouseLeave={handleMouseLeave}
-
-
                     >
-                        {/* onClick={() => {
-                        //     // e.stopPropagation();
-                        //     setActiveLocation(location)
-                        // }}
-                        // onMouseEnter={() => handleMouseEnter(location._id)}
-                        // onMouseLeave={handleMouseLeave} */}
                         <div className={`marker-wrapper ${hoveredId === location._id ? 'hovered' : ''}`}>
-                            <span className="marker btn-pill">${location.price}</span>
+                            <span className={`marker btn-pill ${activeLocation?._id === location._id ? 'active' : ''}`}>${location.price}</span>
                         </div>
-                        {/* <span
-                            key={location.price} className={`marker btn-pill ${hoveredId === location._id ? 'hovered' : ''}`}>
-                            ${location.price}
-
-                        </span> */}
 
                         {activeLocation?._id === location._id &&
                             <Modal
                                 ref={modalRef}
                                 header=" "
-                                isOpen={activeLocation}
-                                onClose={() => setActiveLocation(null)}
+                                isOpen={activeLocation !== null}
+                                onClose={(e) => {
+                                    e?.stopPropagation?.();
+                                    setActiveLocation(null)
+                                }}
                                 closePosition="right"
                                 className={`map-stay-preview`}
                                 useBackdrop={false}>
                                 <StayPreview key={location._id} stay={location} isBig={true} />
                             </Modal>
                         }
-
                     </AdvancedMarker>
                 )
                 )}
