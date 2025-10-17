@@ -1,5 +1,6 @@
 export const SET_ORDERS = 'SET_ORDERS'
 export const SET_ORDER = 'SET_ORDER'
+export const SET_CURRENT_ORDER = 'SET_CURRENT_ORDER'
 export const REMOVE_ORDER = 'REMOVE_ORDER'
 export const ADD_ORDER = 'ADD_ORDER'
 export const UPDATE_ORDER = 'UPDATE_ORDER'
@@ -9,7 +10,8 @@ export const SET_IS_LOADING = 'SET_IS_LOADING'
 
 const initialState = {
     orders: [],
-    order: null,
+    order: null, //order that is already in db
+    currentOrder: null, //order currently in checkout flow
     filterBy: {},
     isLoading: false,
 }
@@ -23,6 +25,9 @@ export function orderReducer(state = initialState, action) {
             break
         case SET_ORDER:
             newState = { ...state, order: action.order }
+            break
+        case SET_CURRENT_ORDER:
+            newState = { ...state, currentOrder: action.order }
             break
         case SET_FILTERBY:
             newState = { ...state, filterBy: { ...state.filterBy, ...action.filterBy }, }

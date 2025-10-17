@@ -1,41 +1,27 @@
-import { useParams, NavLink, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import { stayService } from '../services/stay/stay.service.local.js'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { svgControls, appHeaderSvg, paymentSvgs } from '../cmps/Svgs'
-import { demoOrders } from '../data/demo-orders'
 import { PaymentMethod } from '../cmps/PaymentMethod'
 import { ReservationSummary } from '../cmps/ReservationSummary'
 import { FancyButton } from '../cmps/SmallComponents'
 import { addOrder } from '../store/actions/order.actions'
 
 export function ConfirmPay() { //later send order as a prop from a parent
+    const order = useSelector(storeState => storeState.orderModule.currentOrder)
+    // console.log('ConfirmPay order:', order)
     const [currentStage, setCurrentStage] = useState(1)
     const [selectedPaymentTiming, setselectedPaymentTiming] = useState('full')
     const [selectedMethod, setSelectedMethod] = useState(null)
-    const [stay, setStay] = useState(null)
     const navigate = useNavigate()
-    const { stayId } = useParams()
-    // console.log('Confirming stay:', stayId)
 
-    const order = demoOrders[0]
-    const demoStay = order.stay
-    //stay coming from service, order from demo-order
-    // TODO: build order summary dynamically from stay instead of demoOrders
+    if (!order) return <p>No reservation found</p>
+
     const totalFees = order.cleaningFee + order.serviceFee
     const totalPrice = order.totalPrice
     const payNow = +(totalPrice * 0.2).toFixed(2)
     const payLater = +(totalPrice - payNow).toFixed(2)
     const host = order.host
-
-    useEffect(() => {
-        async function loadStay() {
-            const fullStay = await stayService.getById(stayId)
-            setStay(fullStay)
-        }
-        loadStay()
-    }, [stayId])
-
-    if (!stay) return <p>Loading stay...</p>
 
     function handleNextClick() {
         if (currentStage < 4) {
@@ -50,23 +36,15 @@ export function ConfirmPay() { //later send order as a prop from a parent
     }
 
     async function handleReserveClick() {
-        if (!stay) {
-            console.error('No stay loaded, cannot reserve')
-            return
-        }
         const reservedOrder = {
+            ...order,
             hostId: host._id,
             guest: {
                 _id: 'test-user-1',
                 fullname: 'Demo Guest'
             },
-            totalPrice,
-            startDate: order.startDate,
-            endDate: order.endDate,
-            guests: order.guests,
-            stay,
+            status: 'pending',
             msgs: [],
-            status: 'pending'
         }
         try {
             // console.log('Reserved order before saving:', reservedOrder)
@@ -96,7 +74,6 @@ export function ConfirmPay() { //later send order as a prop from a parent
                     <div className="confirm-layout">
                         {/* LEFT: main flow */}
                         <div className="confirm-main">
-                            {/*TODO: add conditional box shadow to each stage of confirmation*/}
                             {/*STEP 1*/}
                             <div className={`payment-timing ${currentStage === 1 ? 'active' : 'collapsed'}`}>
                                 <h3 className="section-title">1. Choose when to pay</h3>
@@ -188,10 +165,10 @@ export function ConfirmPay() { //later send order as a prop from a parent
                                         <p className='msg-host-intro'>Share why you're traveling, who's coming with you, and what you love about the space.</p>
                                         <div className='msg-host-avatar-greeting'>
                                             <div className='msg-host-avatar'>
-                                                <img src={host.imgUrl} className='msg-host-img' />
+                                                <img src={host.pictureUrl} className='msg-host-img' />
                                                 <div className='msg-host-info'>
                                                     <span className='msg-host-name'>{host.firstName}</span>
-                                                    <span className='msg-host-hosting-since'>Hosting since {host.hostingSince}</span>
+                                                    <span className='msg-host-hosting-since'>Hosting since {new Date().getFullYear() - host.yearsHosting}</span>
                                                 </div>
                                             </div>
                                             <p className='msg-host-greeting'>Hello, do you have any questions I can help you with?</p>

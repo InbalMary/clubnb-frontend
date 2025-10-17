@@ -8,24 +8,24 @@ export function ReservationSummary({ order }) {
     const totalFees = order.cleaningFee + order.serviceFee
     const totalPrice = order.totalPrice
     const pricePerNight = order.pricePerNight
-    const isGuestFavorite = stay.isGuestFavorite
-    const ifIsRareFind = stay.isRareFind
+
     const { adults, children, infants } = order.guests
     const year = new Date(order.startDate).getFullYear()
-
+    const isGuestFavorite = order.stay?.host?.rating > 4.8
+    const isRareFind = order.stay?.host?.numReviews > 100
 
     return (
         <div className='reservation-summary-wrapper'>
             {/* RIGHT: summary card */}
             <aside className="reservation-summary">
                 <div className='reservation-summary-order'>
-                    <img src={stay.imgUrl} alt="Order preview" className='reservation-summary-img' />
+                    <img src={stay.imgUrls[0]} alt="Order preview" className='reservation-summary-img' />
                     <div className="reservation-summary-info">
                         <h3 className='reservation-summary-title'>{stay.name}</h3>
                         <div className="reservation-summary-details">
                             <span className='reservation-summary-rating'>
                                 <span className='reservation-summary-star'>{statSvgs.starSmall}</span>
-                                {stay.rating} ({stay.numReviews})
+                                {stay.host.rating} ({stay.host.numReviews})
                             </span>
                             {isGuestFavorite && (
                                 <span className='reservation-summary-badge'>
@@ -36,10 +36,10 @@ export function ReservationSummary({ order }) {
                 </div>
                 <div className='cancellation-policy'>
                     <p>Free cancellation</p>
-                    <p>Cancel before [date TBD] for a full refund.
-                        <button className='btn btn-link'>Full policy</button>
+                    <p className='cancel-inline'>
+                        Cancel before [date TBD] for a full refund.{' '}
+                        <button className='btn btn-link cancel-link'>Full policy</button>
                     </p> {/*Implement this function*/}
-
                 </div>
                 <div className='reservation-summary-dates'>
                     <p>Dates</p>
@@ -80,7 +80,7 @@ export function ReservationSummary({ order }) {
                     <button className='btn btn-link price-breakdown'>Price breakdown</button> {/*TODO: later add modal onClick */}
                 </div>
             </aside>
-            {ifIsRareFind && (
+            {isRareFind && (
                 <div className='rare-find'>
                     <span className='rare-find-icon'>{badgesSvgs.rareFind}</span>
                     <div className='rare-find-text'>

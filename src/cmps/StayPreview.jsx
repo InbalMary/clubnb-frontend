@@ -9,7 +9,7 @@ export function StayPreview({ stay, isBig = false }) {
     const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
     const [isAddedToWishlist, setIsAddedToWishlist] = useState(false)
 
-    const isGuestFavorite = stay.rating > 4.8
+    const isGuestFavorite = stay.host?.rating > 4.8
 
     function onCloseWishlistModal() {
         setIsWishlistModalOpen(false)
@@ -124,7 +124,6 @@ export function StayPreview({ stay, isBig = false }) {
                 <div className="stay-header">
                     <span className="stay-name">{stay.name}</span>
                     <span className="stay-rating">{statSvgs.starSmall}{stay.rating}({stay.numReviews || 0})</span>
-                    {/* <span className="stay-rating">★{stay.rating}({stay.numReviews || 0})</span> */}
                 </div>
             ) : (
                 // Default layout (non-Explore)

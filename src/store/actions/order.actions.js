@@ -1,6 +1,6 @@
 import { orderService } from '../../services/order'
 import { store } from '../store'
-import { ADD_ORDER, REMOVE_ORDER, SET_ORDERS, SET_ORDER, UPDATE_ORDER, SET_FILTERBY, SET_IS_LOADING, } from '../reducers/order.reducer'
+import { ADD_ORDER, REMOVE_ORDER, SET_ORDERS, SET_ORDER, SET_CURRENT_ORDER, UPDATE_ORDER, SET_FILTERBY, SET_IS_LOADING, } from '../reducers/order.reducer'
 
 export async function loadOrders(filterBy) {
     try {
@@ -67,6 +67,10 @@ export async function addOrderReview(orderId, txt) {
         console.log('Cannot add order review', err)
         throw err
     }
+}
+
+export function setCurrentOrder(order) {
+    store.dispatch({ type: SET_CURRENT_ORDER, order })
 }
 
 // Command Creators:

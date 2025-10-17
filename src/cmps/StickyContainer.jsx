@@ -8,6 +8,7 @@ import { GuestSelector } from "./GuestSelector"
 import { calculateNights, formatDate, formatGuestsText } from "../services/util.service"
 import { Modal } from "./Modal"
 import { svgControls } from "./Svgs"
+import { setCurrentOrder } from "../store/actions/order.actions"
 
 export function StickyContainer({ stay, dateRange, setDateRange }) {
 
@@ -78,7 +79,7 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
                 params.delete('endDate')
                 changed = true
             }
-            
+
             if (guests.adults) params.set('adults', guests.adults.toString())
             if (guests.children) params.set('children', guests.children.toString())
             if (guests.infants) params.set('infants', guests.infants.toString())
@@ -133,7 +134,25 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
         const to = dateRange.to || endDate
 
         if (from && to) {
-            navigate(`/stay/${stay._id}/confirm-pay`)
+            const numNights = calculateNights(from, to)
+            const pricePerNight = stay.price
+            const cleaningFee = stay.cleaningFee || 0
+            const serviceFee = Math.round(pricePerNight * 0.1)
+
+            const order = {
+                stay,
+                host: stay.host,
+                startDate: from,
+                endDate: to,
+                guests,
+                numNights,
+                pricePerNight,
+                cleaningFee,
+                serviceFee,
+                totalPrice: numNights * pricePerNight
+            }
+            setCurrentOrder(order)
+            navigate(`/stay/${stay._id}/confirm-pay`, { state: { order } })
         } else {
             setModalType('checkin')
         }
