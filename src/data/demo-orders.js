@@ -11,7 +11,7 @@ export const demoOrders = [
         guest: {
             _id: 'u301',
             fullname: 'David Bernstein',
-            imgUrl: '',
+            imgUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
         },
         totalPrice: 650,
         pricePerNight: 220,
@@ -52,7 +52,7 @@ export const demoOrders = [
         guest: {
             _id: 'u302',
             fullname: 'Ruth Cohen',
-            imgUrl: '',
+            imgUrl: 'https://randomuser.me/api/portraits/women/8.jpg',
         },
         totalPrice: 300,
         pricePerNight: 150,
@@ -93,7 +93,7 @@ export const demoOrders = [
         guest: {
             _id: 'u303',
             fullname: 'Oren Katz',
-            imgUrl: '',
+            imgUrl: 'https://randomuser.me/api/portraits/men/27.jpg',
         },
         totalPrice: 480,
         pricePerNight: 160,
@@ -140,7 +140,7 @@ export const demoOrders = [
         guest: {
             _id: 'u304',
             fullname: 'George Fisher',
-            imgUrl: '',
+            imgUrl: 'https://randomuser.me/api/portraits/men/63.jpg',
         },
         totalPrice: 320,
         pricePerNight: 100,
@@ -181,7 +181,7 @@ export const demoOrders = [
         guest: {
             _id: 'u305',
             fullname: 'Maya Shalom',
-            imgUrl: '',
+            imgUrl: 'https://randomuser.me/api/portraits/women/57.jpg',
         },
         totalPrice: 500,
         pricePerNight: 200,
@@ -222,7 +222,7 @@ export const demoOrders = [
         guest: {
             _id: 'u306',
             fullname: 'Itay Levi',
-            imgUrl: '',
+            imgUrl: 'https://randomuser.me/api/portraits/men/18.jpg',
         },
         totalPrice: 900,
         pricePerNight: 300,
@@ -263,7 +263,7 @@ export const demoOrders = [
         guest: {
             _id: 'u307',
             fullname: 'Dana Azulay',
-            imgUrl: '',
+            imgUrl: 'https://randomuser.me/api/portraits/women/16.jpg',
         },
         totalPrice: 450,
         pricePerNight: 150,

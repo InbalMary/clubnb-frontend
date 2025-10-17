@@ -7,18 +7,9 @@ export function StepLocation({ address, setAddress, location, setLocation, loc, 
     const inputRef = useRef(null)
     const [showDropdown, setShowDropdown] = useState(false)
     const [suggestions, setSuggestions] = useState([])
-    const geocoderRef = useRef(null)
     const autocompleteServiceRef = useRef(null)
-
-    useEffect(() => {
-        if (window.google?.maps?.Geocoder) {
-            geocoderRef.current = new window.google.maps.Geocoder()
-        }
-
-        if (window.google?.maps?.places?.AutocompleteService) {
-            autocompleteServiceRef.current = new window.google.maps.places.AutocompleteService()
-        }
-    }, [])
+    const placesServiceRef = useRef(null)
+    const [isGoogleReady, setIsGoogleReady] = useState(false)
 
     const handleInputChange = (ev) => {
         const value = ev.target.value
@@ -28,7 +19,7 @@ export function StepLocation({ address, setAddress, location, setLocation, loc, 
         const parsedLoc = parseAddressToComponents(value, location)
         setLoc(parsedLoc)
 
-        if (autocompleteServiceRef.current && value) {
+        if (isGoogleReady && autocompleteServiceRef.current && value) {
             autocompleteServiceRef.current.getPlacePredictions(
                 { input: value, types: ["address"], componentRestrictions: { country: "il" } },
                 (predictions, status) => setSuggestions(status === window.google.maps.places.PlacesServiceStatus.OK ? predictions : [])
@@ -37,27 +28,35 @@ export function StepLocation({ address, setAddress, location, setLocation, loc, 
     }
 
     const handleFocus = () => setShowDropdown(true)
+
     const handleClickOutside = (ev) => {
         if (searchBoxRef.current && !searchBoxRef.current.contains(ev.target)) setShowDropdown(false)
     }
-    useEffect(() => { document.addEventListener("mousedown", handleClickOutside); return () => document.removeEventListener("mousedown", handleClickOutside) }, [])
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => document.removeEventListener("mousedown", handleClickOutside)
+    }, [])
 
     const handlePredictionSelect = (prediction) => {
-        if (!geocoderRef.current) return
-        geocoderRef.current.geocode({ placeId: prediction.place_id }, (results, status) => {
-            if (status === "OK" && results[0]) {
-                const locObj = results[0].geometry.location
-                const fullAddress = results[0].formatted_address
+        if (!isGoogleReady || !placesServiceRef.current) return
 
-                setLocation({ lat: locObj.lat(), lng: locObj.lng() })
-                setAddress(fullAddress)
+        placesServiceRef.current.findPlaceFromQuery(
+            { query: prediction.description, fields: ["formatted_address", "geometry"] },
+            (results, status) => {
+                if (status === window.google.maps.places.PlacesServiceStatus.OK && results?.[0]) {
+                    const locObj = results[0].geometry.location
+                    const fullAddress = results[0].formatted_address
 
-                const parsedLoc = parseAddressToComponents(fullAddress, { lat: locObj.lat(), lng: locObj.lng() })
-                setLoc(parsedLoc)
-                setSuggestions([])
-                setShowDropdown(false)
+                    setLocation({ lat: locObj.lat(), lng: locObj.lng() })
+                    setAddress(fullAddress)
+
+                    const parsedLoc = parseAddressToComponents(fullAddress, { lat: locObj.lat(), lng: locObj.lng() })
+                    setLoc(parsedLoc)
+                    setSuggestions([])
+                    setShowDropdown(false)
+                }
             }
-        })
+        )
     }
 
     const handleCurrentLocation = () => {
@@ -68,13 +67,18 @@ export function StepLocation({ address, setAddress, location, setLocation, loc, 
                 const lng = pos.coords.longitude
                 setLocation({ lat, lng })
 
-                if (geocoderRef.current) {
-                    geocoderRef.current.geocode({ location: { lat, lng } }, (results, status) => {
-                        const fullAddress = (status === "OK" && results?.[0]?.formatted_address) ? results[0].formatted_address : "Current Location"
-                        setAddress(fullAddress)
-                        const parsedLoc = parseAddressToComponents(fullAddress, { lat, lng })
-                        setLoc(parsedLoc)
-                    })
+                if (isGoogleReady && placesServiceRef.current) {
+                    placesServiceRef.current.findPlaceFromQuery(
+                        { query: `${lat},${lng}`, fields: ["formatted_address", "geometry"] },
+                        (results, status) => {
+                            const fullAddress = (status === window.google.maps.places.PlacesServiceStatus.OK && results?.[0]?.formatted_address)
+                                ? results[0].formatted_address
+                                : "Current Location"
+                            setAddress(fullAddress)
+                            const parsedLoc = parseAddressToComponents(fullAddress, { lat, lng })
+                            setLoc(parsedLoc)
+                        }
+                    )
                 }
                 setSuggestions([])
                 setShowDropdown(false)
@@ -135,7 +139,16 @@ export function StepLocation({ address, setAddress, location, setLocation, loc, 
                 </div>
 
                 <div className="map-container">
-                    <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} libraries={["places"]}>
+                    <APIProvider
+                        apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
+                        libraries={["places"]}
+                        onLoad={() => {
+                            autocompleteServiceRef.current = new window.google.maps.places.AutocompleteService()
+                            const tempDiv = document.createElement("div")
+                            placesServiceRef.current = new window.google.maps.places.PlacesService(tempDiv)
+                            setIsGoogleReady(true)
+                        }}
+                    >
                         <Map
                             center={location}
                             zoom={13}
@@ -152,5 +165,3 @@ export function StepLocation({ address, setAddress, location, setLocation, loc, 
         </main>
     )
 }
-
-

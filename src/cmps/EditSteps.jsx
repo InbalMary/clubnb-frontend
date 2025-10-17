@@ -324,3 +324,86 @@ export function StepBasics({ guests, setGuests, bedrooms, setBedrooms, beds, set
         </main>
     )
 }
+
+export function StepStandOutIntro() {
+    return (
+        <main className="step-intro-content">
+            <div className="intro-text-section">
+                <div className="intro-step-label">Step 2</div>
+                <h1 className="intro-title">Make your place stand out</h1>
+                <p className="intro-description">
+                    In this step, you'll add some of the amenities your place offers, plus 5 or more photos. Then, you'll create a title and description.
+                </p>
+            </div>
+
+            <div className="intro-media-section">
+                <video
+                    className="intro-video"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source src="/img/video/step2-intro.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </main>
+    )
+}
+
+export function StepAmenities({ amenities, setAmenities }) {
+    const guestFavorites = [
+        { id: 'essentials-wifi', label: 'Wifi' },
+        { id: 'essentials-tv', label: 'TV' },
+        { id: 'kitchen', label: 'Kitchen' },
+        { id: 'appliances-washer', label: 'Washer' },
+        { id: 'parking-free', label: 'Free parking on premises' },
+        { id: 'parking-paid', label: 'Paid parking on premises' },
+        { id: 'heating-airConditioning', label: 'Air conditioning' },
+        { id: 'workspace-dedicated', label: 'Dedicated workspace' }
+    ]
+
+    const toggleAmenity = (amenityId) => {
+        setAmenities(prev => {
+            if (prev.includes(amenityId)) {
+                return prev.filter(id => id !== amenityId)
+            } else {
+                return [...prev, amenityId]
+            }
+        })
+    }
+
+    return (
+        <main className="step-selection-content step-selection-grid">
+            <div className="selection-header-wrapper">
+                <h1 className="selection-title">
+                    Tell guests what your place has to offer
+                </h1>
+                <p className="selection-subtitle">
+                    You can add more amenities after you publish your listing.
+                </p>
+                <h2 className="selection-section-title">What about these guest favorites?</h2>
+            </div>
+            
+            <div className="place-types-grid">
+                {guestFavorites.map(amenity => (
+                    <button
+                        key={amenity.id}
+                        className={`place-type-card ${amenities.includes(amenity.id) ? 'selected' : ''}`}
+                        onClick={() => toggleAmenity(amenity.id)}
+                    >
+                        <span className="place-icon">
+                            <img
+                                src={`/img/stepAmenities/${amenity.id}.svg`}
+                                alt={amenity.id}
+                                className="step2-icon"
+                            />
+                        </span>
+                        <span className="place-label">{amenity.label}</span>
+                    </button>
+                ))}
+            </div>
+        </main>
+    )
+}
