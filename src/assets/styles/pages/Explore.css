@@ -120,12 +120,24 @@
 }
 
 .marker-wrapper {
+     position: relative; 
     transition: transform 0.15s ease;
 }
 
 .marker-wrapper.hovered {
     transform: scale(1.1);
-    z-index: 9999;
+    z-index: 99;
+}
+
+.marker-wrapper.hovered-outside {
+    transform: scale(1.11);
+    z-index: 999;
+    transition: all 0.2s ease;
+
+    .marker.btn-pill {
+        background-color: var(--gray3);
+        color: white;
+    }
 }
 
 .modal-popup.map-stay-preview.open {
@@ -193,29 +205,29 @@
                     top: 7rem;
                 }
 
-                }
+            }
 
-                .stay-header {
-                    font-size: 1rem;
-                    width: 100%;
-                }
+            .stay-header {
+                font-size: 1rem;
+                width: 100%;
+            }
 
-                .stay-info:not(:first-child) {
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    padding-inline: .8rem;
-                    padding-bottom: 0.5rem;
+            .stay-info:not(:first-child) {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding-inline: .8rem;
+                padding-bottom: 0.5rem;
 
-                    .stay-price {
-                        text-decoration: none;
-                    }
+                .stay-price {
+                    text-decoration: none;
                 }
             }
         }
     }
+}
 
-    .stay-preview.big:hover .marker.btn-pill {
+/* .stay-preview.big:hover .marker.btn-pill {
         background-color: var(--gray3);
 
 
-    }
+    } */

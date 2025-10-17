@@ -1,21 +1,20 @@
-import { AdvancedMarker, APIProvider, InfoWindow, Map, Pin, useMap } from '@vis.gl/react-google-maps';
-import { useEffect, useRef, useState } from 'react';
-import { Modal } from './Modal';
-import { StayPreview } from './StayPreview';
-import { useClickOutside } from '../customHooks/useClickOutside';
-export function ExploreMap({ locations }) {
+import { AdvancedMarker, APIProvider, InfoWindow, Map, Pin, useMap } from '@vis.gl/react-google-maps'
+import { useEffect, useRef, useState } from 'react'
+import { Modal } from './Modal'
+import { StayPreview } from './StayPreview'
+import { useClickOutside } from '../customHooks/useClickOutside'
+export function ExploreMap({ locations, hoveredId }) {
     return (
         <div className="explore-map-wrapper">
 
             <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-                <ExploreMapController locations={locations} />
+                <ExploreMapController locations={locations} hoveredId={hoveredId} />
             </APIProvider>
         </div>
     )
-
 }
 
-function ExploreMapController({ locations }) {
+function ExploreMapController({ locations, hoveredId }) {
 
     const [activeLocation, setActiveLocation] = useState(null)
 
@@ -23,8 +22,18 @@ function ExploreMapController({ locations }) {
     const markerRefs = useRef({})
     const modalRef = useRef(null)
 
-    const [hoveredId, setHoveredId] = useState(null);
+    const [hoverMarker, setHoverMarker] = useState(null)
     const attachedMarkers = useRef(new Set())
+
+
+    // Following changes in locations for setting zoom
+    useEffect(() => {
+        if (mapRef.current && locations?.length) {
+            fitMapToLocations(mapRef.current, locations)
+        }
+    }, [locations])
+
+    // Opening modal on click
 
     useEffect(() => {
         Object.entries(markerRefs.current).forEach(([id, marker]) => {
@@ -35,63 +44,127 @@ function ExploreMapController({ locations }) {
         })
     }, [locations])
 
+    // Make every marker pop on hover in front of another
+
+    useEffect(() => {
+        Object.entries(markerRefs.current).forEach(([id, marker]) => {
+            if (!marker) return
+            marker.zIndex = id === hoveredId ? 999 : 1
+        })
+    }, [hoveredId])
+
     function handleMouseEnter(id) {
-        setHoveredId(id);
+        setHoverMarker(id)
         Object.entries(markerRefs.current).forEach(([key, marker]) => {
             if (marker) marker.zIndex = key === id ? 999 : 1
-
+            else if (marker) marker.zIndex = key === hoveredId ? 999 : 1
         })
     }
 
     function handleMouseLeave() {
-        setHoveredId(null);
+        setHoverMarker(null)
         Object.values(markerRefs.current).forEach(marker => {
-            if (marker) marker.zIndex = 1;
+            if (marker) marker.zIndex = 1
         })
     }
 
-    const map = useMap()
+    // Locations center for map
 
-    const fallbackCoords = { lat: -8.6880, lng: 115.2580 }
+    const getLocationsCenter = (locations) => {
+        if (locations?.length) {
 
-    // Ensure valid numbers or fallback
-    const initialCoords = {
-        lat: Number(location?.lat),
-        lng: Number(location?.lng),
-    }
+            let latSum = 0
+            let lngSum = 0
 
-    const isValidCoords = (
-        typeof initialCoords.lat === 'number' &&
-        !isNaN(initialCoords.lat) &&
-        typeof initialCoords.lng === 'number' &&
-        !isNaN(initialCoords.lng)
-    )
+            locations.forEach(loc => {
+                latSum += loc.loc.lat
+                lngSum += loc.loc.lng
+            })
 
-    const [coords, setCoords] = useState(
-        isValidCoords ? initialCoords : fallbackCoords
-    )
-    useEffect(() => {
-        if (mapRef.current) {
-            setCoords(coords)
+            return {
+                lat: latSum / locations.length,
+                lng: lngSum / locations.length,
+            }
         }
-    }, [coords])
-
-    function handleClick(event) {
-        const latLng = event.detail.latLng
-        setCoords(latLng)
     }
 
+    // Locations zoom 
+
+    const getLocationsZoom = (locations) => {
+        if (!locations?.length) return 6
+
+        let minLat = Infinity, maxLat = -Infinity
+        let minLng = Infinity, maxLng = -Infinity
+
+        locations.forEach(loc => {
+            minLat = Math.min(minLat, loc.loc.lat)
+            maxLat = Math.max(maxLat, loc.loc.lat)
+            minLng = Math.min(minLng, loc.loc.lng)
+            maxLng = Math.max(maxLng, loc.loc.lng)
+        })
+
+        const latDiff = maxLat - minLat
+        const lngDiff = maxLng - minLng
+        const maxDiff = Math.max(latDiff, lngDiff)
+
+        // Zoom variations based on center
+
+        if (maxDiff < 0.05) return 14
+        if (maxDiff < 0.2) return 12
+        if (maxDiff < 1) return 9
+        if (maxDiff < 5) return 6
+        return 3
+    }
+
+
+    // Handle loading map
+
+    const handleMapLoad = (mapInstance) => {
+        mapRef.current = mapInstance
+
+        if (locations?.length) {
+            fitMapToLocations(mapInstance, locations)
+        }
+    }
+
+    function fitMapToLocations(map, locations) {
+        if (!map || !locations?.length) return
+
+        const bounds = new window.google.maps.LatLngBounds()
+        locations.forEach(loc => bounds.extend({ lat: loc.loc.lat, lng: loc.loc.lng }))
+
+        map.fitBounds(bounds)
+
+        // Cap zoom
+        const listener = window.google.maps.event.addListenerOnce(map, "bounds_changed", () => {
+            const zoom = map.getZoom()
+            map.setZoom(Math.min(Math.max(zoom, 3), 15)) // keep between 3–15
+        })
+
+        // Cleanup
+        return () => window.google.maps.event.removeListener(listener)
+    }
+
+    const center = getLocationsCenter(locations)
+    const zoom = getLocationsZoom(locations)
+
+
+    if (!mapRef) return 
+    // if (!mapRef) return <ExploreSkeleton stays={locations} />
 
     return (
         <>
-            <Map defaultCenter={coords || fallbackCoords}
+            <Map onLoad={handleMapLoad}
+                // center={center}
                 ref={mapRef}
-                defaultZoom={7}
+                // zoom={zoom}
+                defaultZoom={zoom}
+                defaultCenter={center}
                 options={{
 
                     disableDefaultUI: true,
                     zoomControl: true,
-                    streetViewControl: false,
+                    streetViewControl: true,
                 }}
 
                 style={{ height: '100%', width: '100%' }}
@@ -109,7 +182,7 @@ function ExploreMapController({ locations }) {
                         onMouseEnter={() => handleMouseEnter(location._id)}
                         onMouseLeave={handleMouseLeave}
                     >
-                        <div className={`marker-wrapper ${hoveredId === location._id ? 'hovered' : ''}`}>
+                        <div className={`marker-wrapper ${hoverMarker === location._id ? 'hovered' : ''} ${hoveredId === location._id ? 'hovered-outside' : ''}`}>
                             <span className={`marker btn-pill ${activeLocation?._id === location._id ? 'active' : ''}`}>${location.price}</span>
                         </div>
 
@@ -119,7 +192,7 @@ function ExploreMapController({ locations }) {
                                 header=" "
                                 isOpen={activeLocation !== null}
                                 onClose={(e) => {
-                                    e?.stopPropagation?.();
+                                    e?.stopPropagation?.()
                                     setActiveLocation(null)
                                 }}
                                 closePosition="right"
