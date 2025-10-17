@@ -297,7 +297,12 @@ export function MiniStickyContainer({ stay, startDate, endDate, onClick }) {
     return (
         <div className="mini-sticky-container">
             <div className="mini-rating-wrapper">
-                <RareFind showRareMsg={false} showPriceInfo={true} stay={stay} startDate={startDate} endDate={endDate} />
+                <RareFind showRareMsg={false}
+                    showPriceInfo={true}
+                    stay={stay}
+                    startDate={startDate}
+                    endDate={endDate}
+                    debounceDisplay={false} />
                 <SmallRating readOnly={true} stay={stay} />
             </div>
             <div className="button-wrapper">
@@ -311,7 +316,7 @@ export function MiniStickyContainer({ stay, startDate, endDate, onClick }) {
     )
 }
 
-export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, startDate, endDate }) {
+export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, startDate, endDate, debounceDisplay = true }) {
     const [showRareFind, setShowRareFind] = useState(false);
 
     const debouncedShowRef = useRef(
@@ -322,7 +327,12 @@ export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, start
 
     useEffect(() => {
         if (startDate && endDate) {
-            debouncedShowRef.current()
+            if (debounceDisplay) {
+                debouncedShowRef.current()
+            } else {
+                // immediately show, prevents flicker
+                setShowRareFind(true)
+            }
         } else {
             setShowRareFind(false)
             debouncedShowRef.current.cancel()
@@ -331,7 +341,7 @@ export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, start
             setShowRareFind(false)
             debouncedShowRef.current.cancel()
         }
-    }, [startDate, endDate])
+    }, [startDate, endDate, debounceDisplay])
 
     return (
         <div>
@@ -395,3 +405,32 @@ export function DetailsSkeleton() {
     )
 }
 
+export function ExploreSkeleton({ stays }) {
+    return (
+        <div className="loading-overlay">
+            <div className="skeleton-explore-page">
+                <div className="skeleton-explore-wrapper">
+
+                    <div className="skeleton skeleton-title-block"></div>
+                    <div className="skeleton-explore-grid">
+                        {stays.map(stay => (
+                            <div className="skelton skeleton-card"
+                                key={stay._id} >
+                                <div className="skeleton skeleton-img"></div>
+                                <div className="stay-info">
+                                    <div className="wrapper flex justify-between">
+                                        <div className="skeleton skeleton-line short"></div>
+                                        <div className="skeleton skeleton-line-tiny"></div>
+                                    </div>
+                                    <div className="skeleton skeleton-line"></div>
+                                    <div className="skeleton skeleton-line tiny"></div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            <div className="skeleton map-skeleton"></div>
+            </div>
+        </div>
+    )
+}

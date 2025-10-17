@@ -78,7 +78,8 @@
     color: var(--gray2);
 }
 
-.step-location-content .map-container {
+.step-location-content .map-container,
+.map-drag-hint {
     width: 100%;
     max-width: 39.375rem;
     height: 28rem;
@@ -153,4 +154,12 @@
     align-items: center;
     justify-content: flex-start;
     gap: 16px;
+}
+
+/* step map confirm */
+.location-address-text {
+    flex: 1;
+    font-size: 16px;
+    color: var(--gray3);
+    padding: 0 12px;
 }

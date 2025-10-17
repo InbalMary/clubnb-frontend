@@ -1,26 +1,51 @@
 .explore-page {
     position: relative;
     margin-top: 96px;
+    display: grid;
+    grid-template-columns: minmax(auto, 49rem) minmax(24.5rem, auto);
+    grid-template-areas:
+        "list map";
+    gap: 3rem;
+
+    .explore-map-wrapper {
+        position: sticky;
+        top: 120px;
+        grid-area: map;
+        height: 83vh;
+        margin-top: 1.5rem;
+        border-radius: 25px;
+        overflow: hidden;
+    }
+
+    .explore-items-wrapper {
+        grid-area: list;
+    }
 }
+
 
 .explore-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
     gap: 1.5rem;
-    padding: 0 48px;
+    /* padding: 0 48px; */
 }
 
 .stay-preview.big {
     max-width: 320px;
+    height: 100%;
+    width: 100%;
 }
 
 .explore-title {
-    padding: 24px 48px;
+    /* 48px */
+    padding: 24px 0;
     font-size: 14px;
 }
 
 .stay-preview.big .stay-image-wrapper {
-    height: 304px;
+    /* height: 304px; */
 }
 
 .stay-preview.big .stay-name {
@@ -71,8 +96,4 @@
 
 .explore-cancellation-policy {
     font-size: 12px;
-}
-
-.stay-price-wrap {
-    padding: 0.45rem 0 0.2rem;
 }

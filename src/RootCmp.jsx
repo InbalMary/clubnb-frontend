@@ -59,7 +59,6 @@ export function RootCmp() {
             )}
             {/* <AppHeader /> */}
             <UserMsg />
-
             <main className="main-container">
                 <Routes>
                     {/* <Route path="" element={<HomePage />} />
@@ -77,7 +76,13 @@ export function RootCmp() {
                     <Route path="stay/edit/:id/structure" element={<StayEdit />} />
                     <Route path="stay/edit/:id/privacy-type" element={<StayEdit />} />
                     <Route path="stay/edit/:id/location" element={<StayEdit />} />
-                    
+                    <Route path="stay/edit/:id/address-details" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/confirm-location" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/floor-plan" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/stand-out" element={<StayEdit />} />
+                    <Route path="stay/edit/:id/amenities" element={<StayEdit />} />
+
+
                     <Route path="stay/:stayId" element={<StayDetails />} />
                     <Route path="stay/:stayId/confirm-pay" element={<ConfirmPay />} />
                     <Route path="user/:id" element={<UserDetails />} />

@@ -44,7 +44,7 @@ export function ListingsPage() {
             </div>
 
             <p className="empty-text">
-              Create a listing with Airbnb Setup and start getting booked.
+              Create a listing with Clubnb Setup and start getting booked.
             </p>
 
             <button onClick={handleCreateListing} className="btn create-button">

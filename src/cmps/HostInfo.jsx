@@ -122,7 +122,7 @@ const fallbackImgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359
                             {/*TODO: change to svg if possible*/}
                         </span>
                         <p>
-                            To help protect your payment, always use Airbnb to send money
+                            To help protect your payment, always use Clubnb to send money
                             and communicate with hosts.
                         </p>
                     </div>

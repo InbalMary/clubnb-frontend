@@ -87,8 +87,7 @@
 
     .details-container {
         display: grid;
-        /* grid-template-rows: 100px 5fr; */
-        grid-template-columns: minmax(auto, 38.9rem) minmax(auto, auto);
+        grid-template-columns: minmax(auto, 40.5rem) minmax(auto, auto);
         column-gap: 6rem;
 
         .content {
