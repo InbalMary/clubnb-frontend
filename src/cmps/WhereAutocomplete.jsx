@@ -5,7 +5,7 @@ import { svgControls } from "./Svgs"
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 
-export function WhereAutocomplete({ destinations, className = "", isOpen, onOpenChange, onDestinationSelect }) {
+export function WhereAutocomplete({ destinations, className = "", isOpen, onOpenChange, onDestinationSelect, handleSearch }) {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
     const initialDestination = filterBy?.destination || ""
 
@@ -95,7 +95,7 @@ export function WhereAutocomplete({ destinations, className = "", isOpen, onOpen
                     {suggestions.length > 0 && (
                         <>
                             <SimpleBar className="suggestions-dropdown" style={{ maxHeight: '500px' }}>
-                            <span className="suggestions-dropdown-header">Suggested destinations</span>
+                                <span className="suggestions-dropdown-header">Suggested destinations</span>
                                 {suggestions.map((dest, idx) => (
                                     <div
                                         key={idx}

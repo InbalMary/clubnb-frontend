@@ -169,7 +169,6 @@ export function SearchBar({ initialModal = null }) {
     }
 
     const handleSearch = () => {
-        console.log('filterBy:', filterBy)
         setActiveModal(null)
 
         if (destination?.name) {

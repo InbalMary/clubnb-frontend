@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { loadStays, setFilterBy } from '../store/actions/stay.actions'
 import { StayPreview } from '../cmps/StayPreview'
+import { capitalizeFirst } from '../services/util.service'
 
 export function Explore() {
     const { city, type } = useParams()
@@ -22,12 +23,12 @@ export function Explore() {
 
 
     return (
-        <section className="explore-page main-container">
+        <section className="explore-page">
 
             {isLoading ? (
                 <h4 className='explore-title'>Loading homes...</h4>
             ) : (
-                <h4 className='explore-title'>Over {stays?.length - 1} homes</h4>
+                <h4 className='explore-title'>Over {stays?.length - 1} homes in {capitalizeFirst(city)}</h4>
             )}
             {/* grid of stays */}
             <div className="explore-grid">

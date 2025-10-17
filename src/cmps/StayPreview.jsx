@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { formatStayDates, calculateNights, formatDate } from '../services/util.service.js'
-import { svgControls } from './Svgs.jsx'
+import { svgControls, statSvgs } from './Svgs.jsx'
 import { Modal } from './Modal.jsx'
 import { showSuccessMsg } from '../services/event-bus.service.js'
 
@@ -111,7 +111,8 @@ export function StayPreview({ stay, isBig = false }) {
                 // Explore layout: name + rating on one line
                 <div className="stay-header">
                     <span className="stay-name">{stay.name}</span>
-                    <span className="stay-rating">★{stay.rating}({stay.numReviews || 0})</span>
+                    <span className="stay-rating">{statSvgs.starSmall}{stay.rating}({stay.numReviews || 0})</span>
+                    {/* <span className="stay-rating">★{stay.rating}({stay.numReviews || 0})</span> */}
                 </div>
             ) : (
                 // Default layout (non-Explore)
@@ -128,7 +129,7 @@ export function StayPreview({ stay, isBig = false }) {
                     <p className='stay-card-details'>
                         {stay.bedrooms} {stay.bedrooms === 1 ? 'bedroom' : 'bedrooms'}
                         <span className='separator'>{' '}•</span>
-                        {stay.beds} {stay.beds === 1 ? 'bed' : 'beds'}
+                        {' '}{stay.beds} {stay.beds === 1 ? 'bed' : 'beds'}
                     </p>
                 </>
             )}
@@ -142,28 +143,25 @@ export function StayPreview({ stay, isBig = false }) {
                         <span className="stay-nights">
                             {' '} for {numNights} {numNights === 1 ? 'night' : 'nights'}
                         </span>
-
                     </div>
 
                 ) : (
-                    <span className='stay-price'>
-                        ${totalPrice.toLocaleString()}{' '}for {numNights} {numNights === 1 ? 'night' : 'nights'}
-                    </span>
-                )}
-                {!isBig && (
-                    <>
+                    <div className="stay-price-rating">
+                        <span className='stay-price'>
+                            ${totalPrice.toLocaleString()}{' '}for {numNights} {numNights === 1 ? 'night' : 'nights'}
+                        </span>
                         <span className='separator'>{' '}•</span>
                         <span className='stay-rating'>
-                            <span className='star-icon'>{' '}★</span>
+                            <span className='star-icon-xs'>{statSvgs.starXSmall}</span>
                             <span>{stay.rating || 4.85}</span>
                         </span>
-                    </>
+                    </div>
                 )}
+
             </div>
-            {stay.freeCancellation && (
+            {isBig && stay.freeCancellation && (
                 <p className='explore-cancellation-policy'>Free cancellation</p>
             )}
         </div>
-
     </article>
 }

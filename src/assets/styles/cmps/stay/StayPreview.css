@@ -90,6 +90,27 @@
     font-size: 0.75rem;
 }
 
+.star-icon-xs svg {
+    fill: var(--gray2)
+}
+
+.star-icon-xs {
+    align-self: flex-start;
+    margin-top: 0.15rem;
+}
+
+.stay-price-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.stay-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+}
+
 .guest-favorite-badge {
     position: absolute;
     top: 0.7rem;
