@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Map, AdvancedMarker, APIProvider } from "@vis.gl/react-google-maps";
+import { parseAddressToComponents } from "./parseAddressToComponents";
 
-export function StepLocation({ address, setAddress, location, setLocation }) {
+export function StepLocation({ address, setAddress, location, setLocation, loc, setLoc }) {
     const searchBoxRef = useRef(null)
     const inputRef = useRef(null)
     const [showDropdown, setShowDropdown] = useState(false)
@@ -24,50 +25,35 @@ export function StepLocation({ address, setAddress, location, setLocation }) {
         setAddress(value)
         setShowDropdown(true)
 
+        const parsedLoc = parseAddressToComponents(value, location)
+        setLoc(parsedLoc)
+
         if (autocompleteServiceRef.current && value) {
             autocompleteServiceRef.current.getPlacePredictions(
-                {
-                    input: value,
-                    types: ["address"],
-                    componentRestrictions: { country: "il" },
-                },
-                (predictions, status) => {
-                    if (
-                        status === window.google.maps.places.PlacesServiceStatus.OK &&
-                        predictions
-                    ) {
-                        setSuggestions(predictions)
-                    } else {
-                        setSuggestions([])
-                    }
-                }
-            );
-        } else {
-            setSuggestions([])
-        }
+                { input: value, types: ["address"], componentRestrictions: { country: "il" } },
+                (predictions, status) => setSuggestions(status === window.google.maps.places.PlacesServiceStatus.OK ? predictions : [])
+            )
+        } else setSuggestions([])
     }
 
     const handleFocus = () => setShowDropdown(true)
-
     const handleClickOutside = (ev) => {
-        if (searchBoxRef.current && !searchBoxRef.current.contains(ev.target)) {
-            setShowDropdown(false)
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, [])
+        if (searchBoxRef.current && !searchBoxRef.current.contains(ev.target)) setShowDropdown(false)
+    }
+    useEffect(() => { document.addEventListener("mousedown", handleClickOutside); return () => document.removeEventListener("mousedown", handleClickOutside) }, [])
 
     const handlePredictionSelect = (prediction) => {
         if (!geocoderRef.current) return
-
         geocoderRef.current.geocode({ placeId: prediction.place_id }, (results, status) => {
             if (status === "OK" && results[0]) {
-                const loc = results[0].geometry.location
-                setLocation({ lat: loc.lat(), lng: loc.lng() })
-                setAddress(results[0].formatted_address)
+                const locObj = results[0].geometry.location
+                const fullAddress = results[0].formatted_address
+
+                setLocation({ lat: locObj.lat(), lng: locObj.lng() })
+                setAddress(fullAddress)
+
+                const parsedLoc = parseAddressToComponents(fullAddress, { lat: locObj.lat(), lng: locObj.lng() })
+                setLoc(parsedLoc)
                 setSuggestions([])
                 setShowDropdown(false)
             }
@@ -75,8 +61,7 @@ export function StepLocation({ address, setAddress, location, setLocation }) {
     }
 
     const handleCurrentLocation = () => {
-        if (!navigator.geolocation) return alert("Geolocation not supported.");
-
+        if (!navigator.geolocation) return alert("Geolocation not supported.")
         navigator.geolocation.getCurrentPosition(
             (pos) => {
                 const lat = pos.coords.latitude
@@ -85,16 +70,12 @@ export function StepLocation({ address, setAddress, location, setLocation }) {
 
                 if (geocoderRef.current) {
                     geocoderRef.current.geocode({ location: { lat, lng } }, (results, status) => {
-                        setAddress(
-                            status === "OK" && results?.[0]?.formatted_address
-                                ? results[0].formatted_address
-                                : "Current Location"
-                        )
+                        const fullAddress = (status === "OK" && results?.[0]?.formatted_address) ? results[0].formatted_address : "Current Location"
+                        setAddress(fullAddress)
+                        const parsedLoc = parseAddressToComponents(fullAddress, { lat, lng })
+                        setLoc(parsedLoc)
                     })
-                } else {
-                    setAddress("Current Location");
                 }
-
                 setSuggestions([])
                 setShowDropdown(false)
             },
@@ -115,11 +96,7 @@ export function StepLocation({ address, setAddress, location, setLocation }) {
                 <div className="location-search-container" ref={searchBoxRef}>
                     <div className="location-search-box">
                         <span className="location-icon">
-                            <img
-                                src={`/img/step3/map-address.svg`}
-                                alt="map-address"
-                                className="step4-icon"
-                            />
+                            <img src={`/img/step3/map-address.svg`} alt="map-address" className="step4-icon" />
                         </span>
                         <input
                             ref={inputRef}
@@ -135,18 +112,8 @@ export function StepLocation({ address, setAddress, location, setLocation }) {
 
                     {showDropdown && (
                         <div className="location-dropdown">
-                            {/* Use current location */}
-                            <button
-                                className="location-dropdown-item current-location"
-                                type="button"
-                                onClick={handleCurrentLocation}
-                            >
-
-                                <img
-                                    src={`/img/step3/cur-loc.svg`}
-                                    alt="current location"
-                                    className="step4-icon"
-                                />
+                            <button className="location-dropdown-item current-location" type="button" onClick={handleCurrentLocation}>
+                                <img src={`/img/step3/cur-loc.svg`} alt="current location" className="step4-icon" />
                                 <span>Use my current location</span>
                             </button>
 
@@ -159,11 +126,8 @@ export function StepLocation({ address, setAddress, location, setLocation }) {
                                     className="location-dropdown-item"
                                     onClick={() => handlePredictionSelect(suggestion)}
                                 >
-                                    <img
-                                        src={`/img/step3/loc.svg`}
-                                        alt="current location"
-                                        className="step4-icon"
-                                    /> <span>{suggestion.description}</span>
+                                    <img src={`/img/step3/loc.svg`} alt="current location" className="step4-icon" />
+                                    <span>{suggestion.description}</span>
                                 </button>
                             ))}
                         </div>

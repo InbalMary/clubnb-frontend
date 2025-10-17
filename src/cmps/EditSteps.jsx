@@ -5,7 +5,7 @@ export function WelcomeStep({ onNext }) {
                 <div className="welcome-content">
                     <div className="welcome-left">
                         <h1 className="welcome-title">
-                            It's easy to get started on Airbnb
+                            It's easy to get started on Clubnb
                         </h1>
                     </div>
 
@@ -111,10 +111,10 @@ export function PlaceTypeStep({ placeTypes, selectedPlaceType, onSelect }) {
                         onClick={() => onSelect(place.id)}
                     >
                         <span className="place-icon">
-                            <img 
-                                src={`/img/step2/${place.id}.svg`} 
-                                alt={place.id} 
-                                className="step2-icon" 
+                            <img
+                                src={`/img/step2/${place.id}.svg`}
+                                alt={place.id}
+                                className="step2-icon"
                             />
                         </span>
                         <span className="place-label">{place.label}</span>
@@ -143,13 +143,182 @@ export function PrivacyTypeStep({ privacyTypes, selectedPrivacyType, onSelect })
                             <p className="privacy-description">{privacy.description}</p>
                         </div>
                         <div className="privacy-icon">
-                            <img 
-                                src={`/img/step3/${privacy.id}.svg`} 
-                                alt={privacy.label} 
-                                className="step3-icon" 
+                            <img
+                                src={`/img/step3/${privacy.id}.svg`}
+                                alt={privacy.label}
+                                className="step3-icon"
                             />
                         </div>
                     </button>
+                ))}
+            </div>
+        </main>
+    )
+}
+
+export function StepAddressForm({ loc, setLoc }) {
+    const handleChange = (field, value) => {
+        const updatedLoc = { ...loc, [field]: value }
+        updatedLoc.address = buildFullAddress(updatedLoc)
+        setLoc(updatedLoc)
+    }
+
+    const handleCountryChange = (value) => {
+        const [country, countryCode] = value.split(' - ')
+        const updatedLoc = { ...loc, country, countryCode }
+        updatedLoc.address = buildFullAddress(updatedLoc)
+        setLoc(updatedLoc)
+    }
+
+    const buildFullAddress = (locObj) => {
+        const parts = [
+            locObj.street,
+            locObj.apt ? `Apt ${locObj.apt}` : '',
+            locObj.city,
+            locObj.country
+        ].filter(Boolean)
+        return parts.join(', ')
+    }
+
+    return (
+        <div className="step-address-form-container">
+            <div className="address-form-content">
+                <h1 className="address-form-title">Confirm your address</h1>
+                <p className="address-form-subtitle">
+                    Your address is only shared with guests after they've made a reservation.
+                </p>
+
+                {/* Country / Region */}
+                <div className="form-field country-field">
+                    <label className="field-label">Country / region</label>
+                    <select
+                        className="form-select"
+                        value={`${loc.country} - ${loc.countryCode}`}
+                        onChange={(ev) => handleCountryChange(ev.target.value)}
+                    >
+                        <option value="Israel - IL">Israel - IL</option>
+                        <option value="United States - US">United States - US</option>
+                        <option value="United Kingdom - GB">United Kingdom - GB</option>
+                        <option value="France - FR">France - FR</option>
+                        <option value="Germany - DE">Germany - DE</option>
+                        <option value="Spain - ES">Spain - ES</option>
+                        <option value="Italy - IT">Italy - IT</option>
+                    </select>
+                </div>
+
+                {/* Address fields */}
+                <div className="address-form-fields">
+                    <div className="form-field">
+                        <input
+                            type="text"
+                            className="form-input"
+                            placeholder="Street address"
+                            value={loc.street || ''}
+                            onChange={(ev) => handleChange('street', ev.target.value)}
+                        />
+                    </div>
+
+                    {/* Entrance */}
+                    <div className="form-field">
+                        <input
+                            type="text"
+                            className="form-input"
+                            placeholder="Entrance (if applicable)"
+                            value={loc.entrance || ''}
+                            onChange={(ev) => handleChange('entrance', ev.target.value)}
+                        />
+                    </div>
+
+                    {/* Apt, house, etc. */}
+                    <div className="form-field">
+                        <input
+                            type="text"
+                            className="form-input"
+                            placeholder="Apt, house, etc. (if applicable)"
+                            value={loc.apt || ''}
+                            onChange={(ev) => handleChange('apt', ev.target.value)}
+                        />
+                    </div>
+
+                    {/* Postal Code */}
+                    <div className="form-field">
+                        <input
+                            type="text"
+                            className="form-input"
+                            placeholder="Postal code"
+                            value={loc.postalCode || ''}
+                            onChange={(ev) => handleChange('postalCode', ev.target.value)}
+                        />
+                    </div>
+
+                    {/* City / Town */}
+                    <div className="form-field">
+                        <label className="field-label">City / town</label>
+                        <input
+                            type="text"
+                            className="form-input city-input"
+                            value={loc.city || ''}
+                            onChange={(ev) => handleChange('city', ev.target.value)}
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export function StepBasics({ guests, setGuests, bedrooms, setBedrooms, beds, setBeds, bathrooms, setBathrooms }) {
+    const items = [
+        { field: 'guests', label: 'Guests', value: guests, setter: setGuests, min: 1 },
+        { field: 'bedrooms', label: 'Bedrooms', value: bedrooms, setter: setBedrooms, min: 0 },
+        { field: 'beds', label: 'Beds', value: beds, setter: setBeds, min: 1 },
+        { field: 'bathrooms', label: 'Bathrooms', value: bathrooms, setter: setBathrooms, min: 1 }
+    ]
+
+    const handleIncrement = (item) => {
+        item.setter(item.value + 1)
+    }
+
+    const handleDecrement = (item) => {
+        if (item.value > item.min) {
+            item.setter(item.value - 1)
+        }
+    }
+
+    return (
+        <main className="step-basics-content">
+            <div className="basics-header">
+                <h1 className="basics-title">Share some basics about your place</h1>
+                <p className="basics-subtitle">
+                    You'll add more details later, like bed types.
+                </p>
+            </div>
+
+            <div className="basics-list">
+                {items.map(item => (
+                    <div key={item.field} className="basics-item">
+                        <span className="basics-label">{item.label}</span>
+                        <div className="basics-counter">
+                            <button
+                                className={`counter-btn ${item.value <= item.min ? 'disabled' : ''}`}
+                                onClick={() => handleDecrement(item)}
+                                disabled={item.value <= item.min}
+                            >
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', fill: 'none', height: '12px', width: '12px', stroke: 'currentcolor', strokeWidth: '5.33333', overflow: 'visible' }}>
+                                    <path d="m2 16h28"></path>
+                                </svg>
+                            </button>
+                            <span className="counter-value">{item.value}</span>
+                            <button
+                                className="counter-btn"
+                                onClick={() => handleIncrement(item)}
+                            >
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', fill: 'none', height: '12px', width: '12px', stroke: 'currentcolor', strokeWidth: '5.33333', overflow: 'visible' }}>
+                                    <path d="m2 16h28m-14-14v28"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 ))}
             </div>
         </main>

@@ -404,3 +404,201 @@
 .get-started-button:hover {
     background: var(--reserve-btn-hover);
 }
+
+/* StepAddressForm */
+.step-address-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 9rem);
+    padding: 2.5rem 1.25rem;
+    background-color: var(--white);
+    padding-top: 96px;
+}
+
+.address-form-content {
+    max-width: 39.375rem;
+    width: 100%;
+}
+
+.address-form-title {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--gray3);
+    margin: 0 0 0.5rem 0;
+}
+
+.address-form-subtitle {
+    font-size: 1rem;
+    line-height: 1.25;
+    color: var(--gray2);
+    margin: 0 0 2rem 0;
+}
+
+.country-field {
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--gray6);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.address-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background-color: var(--white);
+    border: 1px solid var(--gray6);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-bottom: 1px solid var(--gray6);
+}
+
+.form-field:last-child {
+    border-bottom: none;
+}
+
+.field-label {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--gray3);
+    padding: 0.75rem 0.75rem 0 0.75rem;
+    pointer-events: none;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--gray3);
+    background-color: var(--white);
+    font-family: inherit;
+}
+
+.form-input::placeholder {
+    color: var(--gray2);
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+}
+
+.form-field:has(.form-input:focus),
+.form-field:has(.form-select:focus) {
+    background-color: var(--gray8);
+}
+
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2.25rem;
+}
+
+.city-input {
+    padding-top: 0.25rem;
+}
+
+/* step basics */
+.step-basics-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3.75rem 1.25rem;
+    max-width: 39.375rem;
+    margin: 0 auto;
+    margin-top: 6rem;
+}
+
+.basics-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.basics-title {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.25rem;
+    color: var(--gray3);
+    margin-bottom: 0.5rem;
+}
+
+.basics-subtitle {
+    font-size: 1.125rem;
+    color: var(--gray2);
+    line-height: 1.5rem;
+    text-align: start;
+}
+
+.basics-list {
+    width: 100%;
+    max-width: 39.375rem;
+}
+
+.basics-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--gray4);
+}
+
+.basics-item:last-child {
+    border-bottom: none;
+}
+
+.basics-label {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--gray3);
+}
+
+.basics-counter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.counter-btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid var(--gray9);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--gray3);
+}
+
+.counter-btn:hover:not(.disabled) {
+    border-color: var(--gray3);
+    background: var(--gray8);
+}
+
+.counter-btn.disabled {
+    border-color: var(--gray4);
+    cursor: not-allowed;
+    opacity: 0.3;
+}
+
+.counter-value {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gray3);
+    min-width: 1.5rem;
+    text-align: center;
+}
