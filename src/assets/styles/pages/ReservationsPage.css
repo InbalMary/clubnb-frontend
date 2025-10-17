@@ -42,7 +42,6 @@
 
 .tab-button.active {
     color: var(--accent, var(--res-active));
-    font-weight: 600;
 }
 
 .tab-button.active::after {
@@ -60,18 +59,23 @@
 }
 
 .reservations-table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
 }
 
 .reservations-table thead th {
     text-align: left;
     padding: 1rem 1rem 1rem 0;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
     color: var(--gray3);
     border-bottom: none;
-    font-family: cereal-medium;
+    font-family: cereal-regular, Circular, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.reservations-table thead th:nth-last-child(2),
+.reservations-table tbody td:nth-last-child(2) {
+    padding-inline-end: 0;
 }
 
 .reservations-table thead th:first-child {
@@ -110,7 +114,7 @@
 }
 
 .status-dropdown {
-    padding: 0.25rem 0.5rem;
+    padding: calc(0.25rem + 1px) calc(0.5rem + 1px);
     font-size: 0.875rem;
     font-family: cereal-medium;
     border: 1px solid var(--gray4);
@@ -118,13 +122,14 @@
     background-color: var(--white);
     cursor: pointer;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .status-dropdown:focus,
 .status-dropdown:hover {
-    border-color: var(--gray3);
-    box-shadow: 0 0 0 2px rgba(34, 34, 34, 0.1);
+    border-color: transparent;
+    background-color: var(--gray8);
+    box-shadow: none;
 }
 
 .status-dropdown option[value="pending"] {
@@ -175,11 +180,11 @@
     font-size: 1rem;
 }
 
-.guest-count {
-    font-size: 0.875rem;
-    color: var(--gray3);
+.guests-cell .guest-count {
+    font-size: 0.75rem;
+    color: var(--gray2);
     display: block;
-    font-family: cereal-medium;
+    font-family: cereal-regular, Circular, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .date-cell,
@@ -189,6 +194,11 @@
     font-size: 0.875rem;
     font-weight: 400;
     font-family: cereal-medium;
+}
+
+.reservations-table thead th:last-child,
+.payout-cell {
+    text-align: end;
 }
 
 .empty-state {
