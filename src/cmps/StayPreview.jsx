@@ -50,6 +50,16 @@ export function StayPreview({ stay, isBig = false }) {
                     className='stay-image'
                 />
             </Link>
+            {isBig &&
+                <div className="preview-carousel-controls">
+                    <button className="preview-carousel-btn left" >
+                        <span className='preview-carousel-icon'>{svgControls.chevronLeft}</span>
+                    </button>
+                    <button className="preview-carousel-btn right">
+                        <span className='preview-carousel-icon'>{svgControls.chevronRight}</span>
+                    </button>
+                </div>
+            }
             <button
                 onClick={onToggleWishlist}
                 className={`heart-btn ${isAddedToWishlist ? 'active' : ''}`}

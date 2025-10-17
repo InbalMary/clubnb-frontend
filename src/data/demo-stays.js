@@ -2860,7 +2860,9 @@ export const demoStays = [
         "loc": {
             "country": "Italy",
             "city": "Siena",
-            "address": "Strada di Castelnuovo Berardenga, Tuscany"
+            "address": "Strada di Castelnuovo Berardenga, Tuscany",
+            "lat": 43.3185,
+            "lng": 11.3306
         },
         "reviews": [
             {
@@ -3171,8 +3173,8 @@ export const demoStays = [
             "countryCode": "US",
             "city": "Maui",
             "address": "Lahaina, HI, United States",
-            "lat": -156.6917,
-            "lng": 20.93792
+            "lat": 32.0655,
+            "lng": 34.7778
         },
         "reviews": [
             {
@@ -3372,7 +3374,9 @@ export const demoStays = [
                 "withPet": false,
             }
         ],
-        "likedByUsers": []
+        "likedByUsers": [],
+        "startDate": "2025-11-01",
+        "endDate": "2025-11-08"
     },
     {
         "_id": "villa009",

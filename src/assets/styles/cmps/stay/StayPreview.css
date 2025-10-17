@@ -58,6 +58,58 @@
     fill: var(--primary-clr);
 }
 
+/* Preview carousel buttons */
+
+.preview-carousel-controls {
+    display: flex;
+}
+
+.preview-carousel-btn {
+    position: absolute;
+    top: 6rem;
+
+    width: 1.8rem;
+    height: 1.8rem;
+    background-color: #ffffffd1;
+    box-shadow: -1px 3px 8px 1px #2222225c;
+    border-radius: 50px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+
+    &.right {
+        right: .5rem;
+    }
+
+    &.left {
+        left: .5rem;
+    }
+
+    &:hover {
+        background-color: var(--white);
+        transform: scale(1.07);
+    }
+
+    .preview-carousel-icon svg {
+        stroke: var(--gray3);
+        display: block;
+        fill: black;
+        height: 0.85rem;
+        width: 0.85rem;
+        stroke: currentcolor;
+        stroke-width: 4;
+        overflow: visible;
+    }
+}
+
+.preview-carousel-controls button:disabled {
+    cursor: not-allowed;
+    visibility: none;
+}
+
 .stay-info {
     display: flex;
     flex-direction: column;
