@@ -24,8 +24,8 @@ export function Carousel({ children, renderControls }) {
         const rowEl = rowRef.current
         if (!rowEl) return
         const cards = Array.from(rowEl.children)
-        console.log('rowEl.children:', rowEl.children)
-        console.log('cards:', cards)
+        // console.log('rowEl.children:', rowEl.children)
+        // console.log('cards:', cards)
 
         const scrollLeft = rowEl.scrollLeft //scrollLeft number of pixels scrolled horizontally
 

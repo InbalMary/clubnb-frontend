@@ -3388,6 +3388,8 @@ export const demoStays = [
             "https://a0.muscache.com/im/pictures/miso/Hosting-796007833673979995/original/f205f82b-3120-4329-ac03-ac3143df5fee.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/miso/Hosting-796007833673979995/original/762b8848-bc77-4aa6-8501-c48cc370e02e.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/bf987be1-6d44-4e52-a903-ac4ce85c5c26.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-978772600637092478/original/8e520d1a-1677-4a67-b8d8-a17e216f8774.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-978772600637092478/original/7b3a0de1-7cde-4b8e-aa67-12f95ae2992e.jpeg?im_w=480",
         ],
         "cleaningFee": 50,
         "price": 400,
@@ -3500,7 +3502,9 @@ export const demoStays = [
             "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1462362232313714555/original/f672da2c-c588-43cc-ae80-fca19acdea6d.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1462362232313714555/original/e80b5199-9f53-465c-ac9c-3b9ebe8e544a.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/hosting/Hosting-1474597052915628737/original/97369c17-25d1-49cc-8725-95aed54a396d.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1462362232313714555/original/286159cc-79df-4c53-9c15-e5a98fba601d.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1462362232313714555/original/286159cc-79df-4c53-9c15-e5a98fba601d.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1196183294459515884/original/b00b190c-6287-497b-b396-6315ad941c91.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1196183294459515884/original/98c86dd2-d5ea-4272-b301-73c919dc2dd8.jpeg?im_w=480"
         ],
         "cleaningFee": 35,
         "price": 350,
@@ -3643,7 +3647,9 @@ export const demoStays = [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/4d05c8ea-1382-4dd9-868a-4f2c14183448.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/43eb8ce8-0a5f-4bb3-a83a-5b3152f9e166.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/9ce30618-1e5a-4a98-8eae-a31e4e996640.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/3d725987-45ab-4def-9d56-cbb5d5a3b9c8.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/3d725987-45ab-4def-9d56-cbb5d5a3b9c8.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-49033715/original/cf3a8fe5-2aed-48ff-90c7-e064ac611593.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-49460966/original/a3126fc2-c456-467a-8a88-0c5d43506555.jpeg?im_w=480",
         ],
         "cleaningFee": 50,
         "price": 480,
@@ -3772,6 +3778,8 @@ export const demoStays = [
             "https://a0.muscache.com/im/pictures/67087c91-e030-4b43-9927-c8ee2de1f746.jpg?im_w=720",
             "https://a0.muscache.com/im/pictures/17839fc7-2fe8-4138-bb6a-c4807e5ad696.jpg?im_w=720",
             "https://a0.muscache.com/im/pictures/hosting/Hosting-783318457757912864/original/686ba598-7cf1-447d-bd85-469370f188d4.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-49033715/original/cf3a8fe5-2aed-48ff-90c7-e064ac611593.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-49033715/original/de592d02-49c0-49a3-87c3-a7e5299b2617.jpeg?im_w=480",
 
         ],
         "cleaningFee": 45,

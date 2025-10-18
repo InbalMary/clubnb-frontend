@@ -4,8 +4,10 @@ import { formatStayDates, calculateNights, formatDate } from '../services/util.s
 import { svgControls, statSvgs } from './Svgs.jsx'
 import { Modal } from './Modal.jsx'
 import { showSuccessMsg } from '../services/event-bus.service.js'
+import { SingleImgCarousel } from './SingleImgCarousel.jsx'
 
 export function StayPreview({ stay, isBig = false }) {
+
     const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
     const [isAddedToWishlist, setIsAddedToWishlist] = useState(false)
 
@@ -41,25 +43,22 @@ export function StayPreview({ stay, isBig = false }) {
     return <article className={`stay-preview ${isBig ? 'big' : ''}`}>
         <div className='stay-image-wrapper'>
 
-            <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className='stay-link'
+            <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`}
+                className='stay-link'
                 target="_blank"
-                rel="noopener noreferrer">
-                <img
-                    src={stay.imgUrls?.[0] || 'https://picsum.photos/200/200?random=1'}
-                    alt={stay.name}
-                    className='stay-image'
-                />
+                rel="noopener noreferrer"
+            >
+                {isBig ? (
+                    <SingleImgCarousel images={stay.imgUrls} />
+                ) : (
+                    <img
+                        src={stay.imgUrls?.[0] || 'https://picsum.photos/200/200?random=1'}
+                        alt={stay.name}
+                        className='stay-image'
+                    />
+                )}
             </Link>
-            {isBig &&
-                <div className="preview-carousel-controls">
-                    <button className="preview-carousel-btn left" >
-                        <span className='preview-carousel-icon'>{svgControls.chevronLeft}</span>
-                    </button>
-                    <button className="preview-carousel-btn right">
-                        <span className='preview-carousel-icon'>{svgControls.chevronRight}</span>
-                    </button>
-                </div>
-            }
+
             <button
                 onClick={onToggleWishlist}
                 className={`heart-btn ${isAddedToWishlist ? 'active' : ''}`}

@@ -1,0 +1,33 @@
+.single-img-carousel {
+    border-radius: 1.25rem;
+    overflow: hidden;
+}
+
+.carousel-window {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    display: flex;
+    flex: 0 0 100%;
+}
+
+.carousel-slide img {
+    display: block;
+    object-fit: cover;
+}
+
+.single-img-carousel,
+.carousel-window,
+.carousel-track,
+.carousel-slide,
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+}
