@@ -60,8 +60,17 @@
         align-items: center;
         gap: 0.7rem;
         flex-wrap: wrap;
-
     }
+}
+
+.cancel-inline {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.cancel-link {
+    display: inline;
+    margin-left: 0.25rem;
 }
 
 .reservation-summary-guests {
