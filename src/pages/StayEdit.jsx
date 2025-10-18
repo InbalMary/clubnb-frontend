@@ -74,16 +74,16 @@ export function StayEdit() {
     ]
 
     useEffect(() => {
-        if (location.pathname.includes('become-a-host')) setCurrentStep(0)
-        else if (location.pathname.includes('about-your-place')) setCurrentStep(1)
-        else if (location.pathname.includes('structure')) setCurrentStep(2)
-        else if (location.pathname.includes('privacy-type')) setCurrentStep(3)
+        if (location.pathname.includes('amenities')) setCurrentStep(9)
+        else if (location.pathname.includes('stand-out')) setCurrentStep(8)
+        else if (location.pathname.includes('floor-plan')) setCurrentStep(7)
         else if (location.pathname.includes('confirm-location')) setCurrentStep(6)
         else if (location.pathname.includes('address-details')) setCurrentStep(5)
         else if (location.pathname.includes('location')) setCurrentStep(4)
-        else if (location.pathname.includes('floor-plan')) setCurrentStep(7)
-        else if (location.pathname.includes('stand-out')) setCurrentStep(8)
-        else if (location.pathname.includes('amenities')) setCurrentStep(9)
+        else if (location.pathname.includes('privacy-type')) setCurrentStep(3)
+        else if (location.pathname.includes('structure')) setCurrentStep(2)
+        else if (location.pathname.includes('about-your-place')) setCurrentStep(1)
+        else if (location.pathname.includes('become-a-host')) setCurrentStep(0)
     }, [location.pathname])
 
     useEffect(() => {
@@ -115,6 +115,24 @@ export function StayEdit() {
                 .catch(err => console.log('Cannot load stay', err))
         }
     }, [stayId])
+
+    const getPathForStep = (step, id) => {
+        const routes = [
+            '/become-a-host',
+            '/about-your-place',
+            '/structure',
+            '/privacy-type',
+            '/location',
+            '/address-details',
+            '/confirm-location',
+            '/floor-plan',
+            '/stand-out',
+            '/amenities'
+        ]
+
+        if (step === 0) return '/stay/edit/become-a-host'
+        return `/stay/edit/${id}${routes[step]}`
+    }
 
     const handleNext = async () => {
         try {
@@ -158,7 +176,10 @@ export function StayEdit() {
             ]
             if (currentStep < nextRoutes.length)
                 navigate(`/stay/edit/${savedStay._id}${nextRoutes[currentStep]}`)
-            else showSuccessMsg('Stay setup complete!')
+            else {
+                showSuccessMsg('Stay setup complete!')
+                navigate('/hosting/listings')
+            }
         } catch (err) {
             console.error('Error navigating next:', err)
             showErrorMsg('Could not save progress')
@@ -180,23 +201,36 @@ export function StayEdit() {
 
     const handleSaveExit = async () => {
         try {
+            const fullAddress = loc.street
+                ? `${loc.street}${loc.entrance ? `, Entrance ${loc.entrance}` : ''}${loc.apt ? `, Apt ${loc.apt}` : ''}, ${loc.city}${loc.postalCode ? `, ${loc.postalCode}` : ''}, ${loc.country}`
+                : address || stayData.address || ''
+
+            const savedPath = getPathForStep(currentStep, stayId)
+
             await stayService.save({
                 ...stayData,
                 _id: stayId,
                 type: selectedPlaceType || stayData.type || '',
                 roomType: selectedPrivacyType || stayData.roomType || '',
-                address: address || stayData.address || '',
-                location: locationData || stayData.location || {},
-                loc: loc || stayData.loc || {},
+                address: fullAddress,
+                location: { lat: locationData.lat || loc.lat, lng: locationData.lng || loc.lng },
+                loc: {
+                    ...loc,
+                    address: fullAddress,
+                    lat: locationData.lat || loc.lat,
+                    lng: locationData.lng || loc.lng
+                },
                 guests,
                 bedrooms,
                 beds,
                 bathrooms,
-                amenities
+                amenities,
+                summary: `[IN_PROGRESS:${savedPath}]${stayData.summary?.replace(/\[IN_PROGRESS:.*?\]/, '') || ''}`
             })
             showSuccessMsg('Progress saved')
             navigate('/hosting/listings')
-        } catch {
+        } catch (err) {
+            console.error('Save error:', err)
             showErrorMsg('Could not save stay')
         }
     }

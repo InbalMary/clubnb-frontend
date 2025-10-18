@@ -39,8 +39,11 @@
   --divider: rgba(0, 0, 0, 0.08);
 
   --confirmed: #008A05;
-  --pending: #B87400;
+  --pending: #ff8c00;
   --canceled: #C13515;
 
-  --res-active: #00646b
+  --res-active: #00646b;
+
+  --img-placeholder-bg: #e0e0e0;
+  
 }
