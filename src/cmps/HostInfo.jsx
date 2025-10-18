@@ -5,7 +5,7 @@ import { hostSvgs, statSvgs } from './Svgs'
 
 export function HostInfo({ host }) {
     if (!host) return null
-const fallbackImgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
+    const fallbackImgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     return (
         <section className="host-info">
 
@@ -112,8 +112,8 @@ const fallbackImgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359
                     )}
                     <div className="host-contact">
                         <h3>Host details</h3>
-                        <p>Response rate: {host.responseRate ||100} %</p>
-                        <p>Responds within {host.responseTime || 'an hour'}</p>
+                        <p>Response rate: {host.responseRate || 100} %</p>
+                        <p>Responds {host.responseTime || 'within an hour'}</p>
                     </div>
                     <button className="btn btn-gray">Message host</button>
                     <div className="safety-note">
