@@ -44,21 +44,27 @@ export function PaymentMethod({ onSelect }) {
                         <form className='credit-card-form'>
                             <div className='credit-card-block'>
                                 <div className='card-number-wrap'>
-                                    <input type='text' placeholder='Card number' className='card-number' />
+                                    {/* <input type='text' placeholder='Card number' className='card-number' /> */}
+                                    <div className='card-number fake-input'>
+                                        1234&nbsp;&nbsp;5678&nbsp;&nbsp;9101&nbsp;&nbsp;1121
+                                    </div>
                                 </div>
-                                {/* <div className="credit-card-block-border-bottom"></div> */}
                                 <div className="expiry-wrap">
-                                    <input type='text' placeholder='MM/YY' className='expiry' />
+                                    {/* <input type='text' placeholder='MM/YY' className='expiry' /> */}
+                                    <div className='expiry fake-input'>12/26</div>
                                 </div>
 
-                                {/* <div className="credit-card-block-divider"></div> */}
+
                                 <div className='cvv-wrap'>
-                                    <input type='text' placeholder='CVV' className='cvv' />
+                                    {/* <input type='text' placeholder='CVV' className='cvv' /> */}
+                                    <div className='cvv fake-input'>123</div>
                                 </div>
                             </div>
 
-                            <input type='text' placeholder='ZIP code' className='zipcode' />
-                            <input type='text' placeholder='Country/Region' className='country' />
+                            {/* <input type='text' placeholder='ZIP code' className='zipcode' /> */}
+                            <div className='zipcode fake-input full-row'>12345</div>
+                            {/* <input type='text' placeholder='Country/Region' className='country' /> */}
+                            <div className='country fake-input full-row'>United States</div>
                         </form>
                     )}
                 </div>
