@@ -1,0 +1,37 @@
+/* Dots */
+.img-carousel-dots {
+    position: absolute;
+    bottom: 0.8rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.38rem;
+    z-index: 2;
+}
+
+.carousel-dot {
+    display: inline-block;
+    border-radius: 50%;
+    background: var(--gray6);
+    transition: all 0.3s ease;
+}
+
+.dot-normal {
+    width: 0.35rem;
+    height: 0.35rem;
+}
+
+.dot-normal.active {
+    background: var(--white);
+}
+
+.carousel-dot.dot-small {
+    width: 0.27rem;
+    height: 0.27rem;
+}
+
+.carousel-dot.dot-xsmall {
+    width: 0.22rem;
+    height: 0.22rem;
+}
