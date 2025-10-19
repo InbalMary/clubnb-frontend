@@ -1,8 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router'
-
-import { HomePage } from './pages/HomePage'
-import { AboutUs, AboutTeam, AboutVision } from './pages/AboutUs'
 
 import { StayIndex } from './pages/StayIndex.jsx'
 import { MsgIndex } from './pages/MsgIndex.jsx'
@@ -18,7 +14,6 @@ import { UserMsg } from './cmps/UserMsg.jsx'
 import { LoginSignup, Login, Signup } from './cmps/LoginSignup.jsx'
 import { BecomeHostForm } from './pages/BecomeHostForm.jsx'
 import { ListingEdit } from './pages/ListingEdit.jsx'
-import { CompactHeader } from './cmps/CompactHeader.jsx'
 import { useClickOutside } from './customHooks/useClickOutside.js'
 import { StayEdit } from './pages/StayEdit.jsx'
 import { ConfirmPay } from './pages/ConfirmPay.jsx'
@@ -50,11 +45,14 @@ export function RootCmp() {
             {showBackdrop && <div className="backdrop" onClick={handleCollapse} />}
             {!isConfirmPayPage && (
                 <div ref={headerRef}>
-                    {!isExpanded ? (
-                        <CompactHeader onSearchClick={handleSearchClick} isSticky={!isStayDetailsPage} isTripsPage={isTripsPage} />
-                    ) : (
-                        <AppHeader initialModal={initialModal} onCollapse={handleCollapse} />
-                    )}
+                    <AppHeader
+                        isCompact={!isExpanded}
+                        onSearchClick={handleSearchClick}
+                        initialModal={initialModal}
+                        onCollapse={handleCollapse}
+                        isSticky={!isStayDetailsPage}
+                        isTripsPage={isTripsPage}
+                    />
                 </div>
             )}
             {/* <AppHeader /> */}

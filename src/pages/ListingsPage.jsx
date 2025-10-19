@@ -1,31 +1,61 @@
 import { useEffect, useMemo } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router'
 import { loadStays } from '../store/actions/stay.actions.js'
+import { formatDateWithFullYear } from '../services/util.service.js'
 
 export function ListingsPage() {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
 
   const stays = useSelector(state => state.stayModule.stays)
-  const loggedInUser = useSelector(state => state.userModule.loggedInUser)
+  const loggedInUser = useSelector(state => state.userModule.user)
 
   useEffect(() => {
     loadStays()
   }, [])
 
-  const hostListings = useMemo(() => {
-    // For now, return all stays..
-    if (!stays || !stays.length) return []
-    // return stays
+  const { inProgressStay, publishedListings } = useMemo(() => {
+    if (!stays || !stays.length || !loggedInUser) {
+      return { inProgressStay: null, publishedListings: [] }
+    }
 
-    if (!loggedInUser) return []
-    return stays.filter(stay => stay.host._id === loggedInUser._id)
+    const hostStays = stays.filter(stay => stay.host?._id === loggedInUser._id)
+
+    const inProgress = hostStays.find(stay => stay.summary?.includes('[IN_PROGRESS:'))
+    const published = hostStays.filter(stay => !stay.summary?.includes('[IN_PROGRESS:'))
+
+    return {
+      inProgressStay: inProgress,
+      publishedListings: published
+    }
   }, [stays, loggedInUser])
 
   const handleCreateListing = () => {
-    navigate("/stay/edit")
-    console.log('Creating new listing...')
+    if (inProgressStay) {
+      const match = inProgressStay.summary?.match(/\[IN_PROGRESS:(.*?)\]/)
+      const savedPath = match ? match[1] : '/stay/edit/become-a-host'
+      navigate(savedPath)
+    } else {
+      navigate("/stay/edit")
+    }
+  }
+
+  const handleContinueEditing = () => {
+    if (!inProgressStay) return
+
+    const match = inProgressStay.summary?.match(/\[IN_PROGRESS:(.*?)\]/)
+    const savedPath = match ? match[1] : '/stay/edit/become-a-host'
+    navigate(savedPath)
+  }
+
+  const getFormattedDate = (timestamp) => {
+    if (!timestamp) return ''
+    const date = new Date(timestamp)
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
   }
 
   return (
@@ -33,7 +63,45 @@ export function ListingsPage() {
       <main className="main">
         <h1 className="title">Your listings</h1>
 
-        {hostListings.length === 0 ? (
+        {inProgressStay && (
+          <section className="in-progress-section">
+            <div
+              className="listing-card in-progress-card"
+              onClick={handleContinueEditing}
+            >
+              <div className="listing-image-placeholder">
+                <div className="status-badge">
+                  <span className="status-dot"></span>
+                  In progress
+                </div>
+
+                {inProgressStay.imgUrls?.[0] ? (
+                  <img
+                    src={inProgressStay.imgUrls[0]}
+                    alt="Listing preview"
+                    className="listing-image"
+                  />
+                ) : (
+                  <div className="placeholder-image"></div>
+                )}
+              </div>
+
+              <div className="listing-details">
+                <h3 className="listing-title">
+                  Your {inProgressStay.type || 'Apartment'} listing started{' '}
+                  {formatDateWithFullYear(inProgressStay.createdAt)}
+                </h3>
+                <p className="listing-subtitle">
+                  {inProgressStay.loc?.city
+                    ? `Home in ${inProgressStay.loc.city}, ${inProgressStay.loc.country || ''}`
+                    : 'Location not set yet'}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {publishedListings.length === 0 && !inProgressStay ? (
           <div className="empty-state">
             <div className="icon-container">
               <img
@@ -51,10 +119,11 @@ export function ListingsPage() {
               Create listing
             </button>
           </div>
-        ) : (
+        ) : publishedListings.length > 0 ? (
           <section className="listing-list-section">
+            <h2 className="section-title">Published listings</h2>
             <ul className="listing-preview-list">
-              {hostListings.map((stay) => (
+              {publishedListings.map((stay) => (
                 <li key={stay._id} className="listing-preview">
                   <div className="listing-image-wrapper">
                     <Link to={`/stay/${stay._id}`} className="listing-link">
@@ -84,7 +153,7 @@ export function ListingsPage() {
               ))}
             </ul>
           </section>
-        )}
+        ) : null}
       </main>
     </div>
   )

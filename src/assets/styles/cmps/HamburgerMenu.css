@@ -109,6 +109,7 @@
 button.menu-row {
 	margin: 0;
 	padding-block-start: 0.5rem;
+	width: 100%;
 }
 
 .menu-row:hover {

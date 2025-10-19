@@ -8,12 +8,14 @@ export const SET_WATCHED_USER = 'SET_WATCHED_USER'
 export const REMOVE_USER = 'REMOVE_USER'
 export const SET_USERS = 'SET_USERS'
 export const SET_SCORE = 'SET_SCORE'
+export const SET_IS_LOADING = 'SET_IS_LOADING'
 
 const initialState = {
     count: 10,
-    user: userService.getLoggedinUser(),
+    user: userService.getLoggedinUser() || null,
     users: [],
-    watchedUser : null
+    watchedUser: null,
+    isLoading: false,
 }
 
 export function userReducer(state = initialState, action) {
@@ -21,6 +23,12 @@ export function userReducer(state = initialState, action) {
     switch (action.type) {
         case INCREMENT:
             newState = { ...state, count: state.count + 1 }
+            break
+        case SET_IS_LOADING:
+            newState = {
+                ...state,
+                isLoading: action.isLoading
+            }
             break
         case DECREMENT:
             newState = { ...state, count: state.count - 1 }

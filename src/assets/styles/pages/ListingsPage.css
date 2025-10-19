@@ -131,3 +131,92 @@
   color: var(--gray2);
   margin: 0;
 }
+
+.in-progress-section {
+  display: flex;
+  flex-direction: column;
+  justify-self: start;
+  gap: 1rem;
+}
+
+.listing-card {
+  background-color: var(--white);
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  transition: box-shadow 0.2s ease;
+}
+
+.status-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--white);
+  color: var(--gray3);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--pending);
+}
+
+.listing-image-placeholder {
+  position: relative;
+  background-color: var(--img-placeholder-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  background-color: var(--gray6);
+}
+
+.listing-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.listing-details {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.listing-title {
+  font-weight: 500;
+  color: var(--gray3);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.listing-subtitle {
+  color: var(--gray2);
+  font-size: 0.875rem;
+}
+
+.in-progress-card {
+  position: relative;
+}
+
+.in-progress-card * {
+  pointer-events: none;
+}
+
+.in-progress-card {
+  pointer-events: auto;
+}

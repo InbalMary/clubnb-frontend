@@ -77,7 +77,7 @@ export function HamburgerMenu() {
                     <button
                         className="menu-row menu-row-host"
                         role="menuitem"
-                        onClick={() => handleNavigation('/hosting')}
+                        onClick={() => handleNavigation('/hosting/reservations')}
                     >
                         <div className="menu-row-text">
                             <span className="menu-title">Switch to hosting</span>

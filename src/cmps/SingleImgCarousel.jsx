@@ -57,13 +57,6 @@ export function SingleImgCarousel({ images = [] }) {
                 )}
             </div>
             <CarouselDots total={images.length} currentIndex={currentIndex} />
-            {/* <div className='img-carousel-dots'>
-                {images.map((_, idx) => (
-                    <span key={idx}
-                        className={`carousel-dot ${idx === currentIndex ? "active" : ""}`}
-                    />
-                ))}
-            </div> */}
         </div>
     )
 }
