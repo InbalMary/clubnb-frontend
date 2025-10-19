@@ -2117,7 +2117,7 @@ export const demoStays = [
     },
 
     {
-        "_id": "city-019",
+        "_id": "city-055",
         "name": "Paris Apartment with River Seine View",
         "type": "City stays",
         "imgUrls": [
