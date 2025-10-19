@@ -11,10 +11,6 @@
 	height: 42px;
 }
 
-.hamburger-menu-btn:hover {
-	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.18);
-}
-
 .hamburger-menu-btn .hamburger {
 	display: flex;
 	align-items: center;

@@ -37,21 +37,21 @@
 }
 
 .tab-button:hover {
-    color: var(--gray3);
+    color: var(--primary-clr);
 }
 
 .tab-button.active {
-    color: var(--accent, var(--res-active));
+    color: var(--accent, var(--primary-clr));
 }
 
 .tab-button.active::after {
     content: '';
     position: absolute;
-    bottom: -0.0625rem;
+    bottom: 0.5rem;
     left: 0;
     right: 0;
     height: 0.125rem;
-    background-color: var(--accent, var(--res-active));
+    background-color: var(--accent, var(--primary-clr));
 }
 
 .table-container {
@@ -59,7 +59,7 @@
 }
 
 .reservations-table {
-    width: 80%;
+    width: 100%;
     border-collapse: collapse;
 }
 
@@ -85,11 +85,10 @@
 .reservations-table thead th.sortable {
     cursor: pointer;
     user-select: none;
-    color: var(--accent, var(--res-active));
 }
 
 .reservations-table thead th.sortable:hover {
-    color: var(--accent, var(--res-active));
+    color: var(--accent, var(--primary-clr));
 }
 
 .reservations-table tbody td {
@@ -99,10 +98,6 @@
     color: var(--gray2);
     font-family: cereal-medium;
     vertical-align: middle;
-}
-
-.reservations-table tbody td:first-child {
-    padding-left: 0;
 }
 
 .reservations-table tbody tr {
@@ -115,6 +110,7 @@
 
 .status-dropdown {
     padding: calc(0.25rem + 1px) calc(0.5rem + 1px);
+    margin-inline-start: 1rem;
     font-size: 0.875rem;
     font-family: cereal-medium;
     border: 1px solid var(--gray4);
@@ -151,8 +147,8 @@
 }
 
 .guest-avatar {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     background-color: var(--gray3);
     flex-shrink: 0;
