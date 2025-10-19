@@ -85,7 +85,7 @@
 }
 
 .header-actions .host-link:hover {
-    background-color: var(--gray5);
+    background-color: var(--gray8);
 }
 
 .header-actions button:has(.change-lng),
