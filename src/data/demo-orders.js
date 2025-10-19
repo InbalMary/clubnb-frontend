@@ -125,7 +125,7 @@ export const demoOrders = [
                 sentAt: '2025-10-12T09:32:00Z',
             },
         ],
-        status: 'pending', // approved / rejected
+        status: 'rejected', // approved / rejected
         bookedAt: '2025-03-10',
     },
     {

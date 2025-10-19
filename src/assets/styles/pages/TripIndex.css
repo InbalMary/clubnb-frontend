@@ -81,13 +81,13 @@
 }
 
 .year-badge {
-    background-color: var(--gray8);
+    background-color: var(--gray1);
     border: none;
-    border-radius: 1.25rem;
-    padding: 0.625rem 0.75rem;
+    border-radius: 16px;
+    padding: 0.5rem 0.75rem;
     font-size: clamp(0.813rem, 0.9vw, 0.875rem);
     font-weight: 600;
-    color: var(--gray2);
+    color: var(--gray3);
     cursor: default;
     font-family: cereal-regular, Circular, -apple-system, BlinkMacSystemFont, ' Roboto', sans-serif;
 }
@@ -154,6 +154,14 @@
     font-size: clamp(0.813rem, 0.9vw, 0.875rem);
     color: var(--gray2);
     margin: 0;
+}
+
+.status-dot.approved {
+    background-color: var(--confirmed);
+}
+
+.status-dot.rejected {
+    background-color: var(--canceled);
 }
 
 @media (max-width: 1128px) {
