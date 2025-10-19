@@ -10,12 +10,13 @@ import { userService } from '../services/user'
 import { StayList } from '../cmps/StayList'
 import { StayFilter } from '../cmps/StayFilter'
 import { useNavigate } from 'react-router'
+import { StayListSkeleton } from '../cmps/StayListSkeleton'
 
 export function StayIndex() {
 
-    // const [ filterBy, setFilterBy ] = useState(stayService.getDefaultFilter())
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+    const isLoading = useSelector(storeState => storeState.stayModule.isLoading)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -25,7 +26,7 @@ export function StayIndex() {
     async function onRemoveStay(stayId) {
         try {
             await removeStay(stayId)
-            showSuccessMsg('Stay removed')            
+            showSuccessMsg('Stay removed')
         } catch (err) {
             showErrorMsg('Cannot remove stay')
         }
@@ -45,7 +46,7 @@ export function StayIndex() {
 
     async function onUpdateStay(stay) {
         const price = +prompt('New price?', stay.price) || 0
-        if(price === 0 || price === stay.price) return
+        if (price === 0 || price === stay.price) return
 
         const stayToSave = { ...stay, price }
         try {
@@ -53,15 +54,20 @@ export function StayIndex() {
             showSuccessMsg(`Stay updated, new price: ${savedStay.price}`)
         } catch (err) {
             showErrorMsg('Cannot update stay')
-        }        
+        }
     }
 
     return (
         <section className="stay-index">
-            <StayList 
-                stays={stays}
-                onRemoveStay={onRemoveStay} 
-                onUpdateStay={onUpdateStay}/>
+            {isLoading ? (
+                <StayListSkeleton categories={stays} />
+
+            ) : (
+                <StayList
+                    stays={stays}
+                    onRemoveStay={onRemoveStay}
+                    onUpdateStay={onUpdateStay} />
+            )}
             {/* <div className='temporary-add-stay-btn'>
                 {userService.getLoggedinUser() && <button onClick={onAddStay}>Add a Stay</button>}
             </div> */}

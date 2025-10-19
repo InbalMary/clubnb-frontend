@@ -13,7 +13,6 @@ export function Explore() {
 
     useEffect(() => {
         if (city) {
-            setFilterBy({ city })
             loadStays({ city })
         } else {
             loadStays()
