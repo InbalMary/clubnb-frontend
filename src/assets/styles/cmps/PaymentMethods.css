@@ -18,19 +18,31 @@
         z-index: 0;
     }
 
-    .credit-card-block input {
+    .fake-input {
         border: none;
         border-radius: 0;
         padding: 0.75rem 1rem;
         width: 100%;
         font-size: 1rem;
-        outline: none;
+        color: var(--gray9);
+        background: white;
+    }
+
+    .zipcode.fake-input,
+    .country.fake-input {
+        border: 1px solid var(--gray9);
+        border-radius: 8px;
+    }
+
+    .full-row {
+        grid-column: 1 /-1;
     }
 
     .expiry-wrap {
         grid-column: 1;
         position: relative;
     }
+
 
     .cvv-wrap {
         grid-column: 2;
@@ -71,56 +83,6 @@
         width: 1px;
         height: 100%;
         background: var(--gray9);
-    }
-
-    /* Generic focused input style */
-    .credit-card-block input:focus {
-        border: 2px solid black;
-        border-radius: 8px;
-        outline: none;
-        z-index: 3;
-        position: relative;
-
-    }
-
-    .expiry-wrap input:focus {
-        margin-top: -1px;
-        width: calc(100% + 1px);
-    }
-
-    .cvv-wrap input:focus {
-        margin-top: -1px;
-        margin-right: -1px;
-        /* eat into right divider */
-        width: calc(100% + 1px);
-    }
-
-    /* Card number focus - hide both halves */
-    .card-number-wrap:focus-within::before,
-    .card-number-wrap:focus-within::after {
-        display: none;
-    }
-
-    /* Expiry focus → hide only LEFT half & hide vertical divider */
-    .credit-card-block:has(.expiry-wrap:focus-within) .card-number-wrap::before,
-    .credit-card-block:has(.expiry-wrap:focus-within) .expiry-wrap::after {
-        display: none;
-    }
-
-    /* When cvv focused → hide vertical + bottom divider */
-    .credit-card-block:has(.cvv-wrap:focus-within) .expiry-wrap::after,
-    .credit-card-block:has(.cvv-wrap:focus-within) .card-number-wrap::after {
-        display: none;
-    }
-
-
-    input.country,
-    input.zipcode {
-        grid-column: 1/ -1;
-        border-radius: 8px;
-        padding: 0.75rem 1rem;
-        border: 1px solid var(--gray9);
-        font-size: 1rem;
     }
 
 }
