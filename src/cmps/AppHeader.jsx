@@ -27,7 +27,13 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 
 	// Show skeleton only during initial loading
 	if (isLoading) {
-		return <AppHeaderSkeleton isCompact={isCompact} isIndexPage={isIndexPage} />
+		return <AppHeaderSkeleton
+			isCompact={isCompact}
+			isIndexPage={isIndexPage}
+			isHostPage={isHostPage}
+			isTripsPage={isTripsPage}
+			isSticky={isSticky}
+		/>
 	}
 
 	const headerClass = isCompact
