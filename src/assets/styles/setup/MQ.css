@@ -48,7 +48,7 @@
 
 @media (min-width: 1440px) {
     .main-container {
-        grid-template-columns: minmax(auto, 2.75rem) minmax(1352px, 1fr) minmax(auto, 2.75rem);
+        grid-template-columns: minmax(auto, 3.4rem) minmax(1352px, 1fr) minmax(auto, 3.4rem);
     }
 
     .carousel-list {
