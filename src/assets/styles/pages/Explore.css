@@ -245,19 +245,6 @@
 }
 
 .modal-popup {
-    &.wishlist-modal.open {
-        position: absolute;
-        top: -180px;
-        height: 700px;
-        width: 500px;
-        max-width: 280px;
-        /* overflow: hidden; */
-
-        header {
-            min-height: 72px;
-            padding: 0rem;
-        }
-    }
 
     &.map-stay-preview.open {
         position: absolute;
