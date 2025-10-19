@@ -407,30 +407,33 @@ export function DetailsSkeleton() {
 
 export function ExploreSkeleton({ stays }) {
     return (
-        <div className="loading-overlay">
-            <div className="skeleton-explore-page">
-                <div className="skeleton-explore-wrapper">
 
-                    <div className="skeleton skeleton-title-block"></div>
-                    <div className="skeleton-explore-grid">
-                        {stays.map(stay => (
-                            <div className="skeleton skeleton-card"
-                                key={stay._id} >
-                                <div className="skeleton skeleton-img"></div>
-                                <div className="stay-info">
-                                    <div className="wrapper flex justify-between">
-                                        <div className="skeleton skeleton-line short"></div>
-                                        <div className="skeleton skeleton-line-tiny"></div>
+        <div className="loading-overlay">
+
+                <div className="skeleton-explore-page">
+                    <div className="skeleton-explore-wrapper">
+
+                        <div className="skeleton skeleton-title-block"></div>
+                        <div className="skeleton-explore-grid">
+                            {stays.map(stay => (
+                                <div className="skeleton-card"
+                                    key={stay._id} >
+                                    <div className="skeleton skeleton-img"></div>
+                                    <div className="stay-info">
+                                        <div className="wrapper flex justify-between">
+                                            <div className="skeleton skeleton-line short"></div>
+                                            <div className="skeleton skeleton-line-tiny"></div>
+                                        </div>
+                                        <div className="skeleton skeleton-line"></div>
+                                        <div className="skeleton skeleton-line tiny"></div>
                                     </div>
-                                    <div className="skeleton skeleton-line"></div>
-                                    <div className="skeleton skeleton-line tiny"></div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
+                    <div className="skeleton map-skeleton"></div>
                 </div>
-                <div className="skeleton map-skeleton"></div>
-            </div>
+            
         </div>
     )
 }
