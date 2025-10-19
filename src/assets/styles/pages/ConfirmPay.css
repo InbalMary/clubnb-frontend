@@ -188,4 +188,70 @@
     align-self: end;
 }
 
+/*Message Host*/
+.msg-host-block {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0 0;
+}
+
+.msg-host-intro,
+.msg-host-hosting-since {
+    font-size: 14px;
+    color: var(--gray2);
+}
+
+.msg-host-greeting {
+    font-size: 14px;
+}
+
+.msg-host-img {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+}
+
+.msg-host-avatar {
+    display: flex;
+    align-items: center;
+
+}
+
+.msg-host-info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+}
+
+.msg-host-intro {
+    margin: 8px 0 16px;
+}
+
+.msg-host-hosting-since {
+    margin-top: 4px;
+}
+
+.msg-host-avatar-greeting {
+    margin: 0 0 16px;
+}
+
+.msg-host-greeting {
+    margin: 12px 0 0;
+}
+
+.msg-host-textarea {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.msg-host-textarea::placeholder {
+    font-size: 1rem;
+    font-family: cereal-regular;
+}
+
+.msg-host-btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
 /*RIGHT COLUMN at ReservationSummary.css*/

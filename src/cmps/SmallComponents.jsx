@@ -414,7 +414,7 @@ export function ExploreSkeleton({ stays }) {
                     <div className="skeleton skeleton-title-block"></div>
                     <div className="skeleton-explore-grid">
                         {stays.map(stay => (
-                            <div className="skelton skeleton-card"
+                            <div className="skeleton skeleton-card"
                                 key={stay._id} >
                                 <div className="skeleton skeleton-img"></div>
                                 <div className="stay-info">
@@ -429,7 +429,7 @@ export function ExploreSkeleton({ stays }) {
                         ))}
                     </div>
                 </div>
-            <div className="skeleton map-skeleton"></div>
+                <div className="skeleton map-skeleton"></div>
             </div>
         </div>
     )

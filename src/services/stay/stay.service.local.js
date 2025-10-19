@@ -32,9 +32,9 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
         )
     }
 
-    if (type) {
-        stays = stays.filter(stay => stay.type === type)
-    }
+    // if (type) {
+    //     stays = stays.filter(stay => stay.type === type)
+    // }
 
     if (destination) {
         const regex = new RegExp(destination, 'i')

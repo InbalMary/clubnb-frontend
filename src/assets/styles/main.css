@@ -23,6 +23,7 @@
 @import "./pages/ReservationsPage.css";
 @import "./pages/ListingsPage.css";
 @import "./pages/Explore.css";
+@import "./pages/ConfirmPay.css";
 
 
 /* Cmps */
@@ -57,11 +58,10 @@
 @import "cmps/StickyContainer.css";
 @import "cmps/StayHeader.css";
 @import "cmps/HostInfo.css";
-@import "cmps/ConfirmPay.css";
+
 @import "cmps/RadioButtons.css";
 @import "cmps/PaymentMethods.css";
 @import "cmps/ReservationSummary.css";
-@import "cmps/MsgHost.css";
 @import "cmps/StayListSkeleton.css";
 @import "cmps/StepLocation.css";
 @import "cmps/SingleImgCarousel.css";

@@ -7,23 +7,18 @@ import { ExploreMap } from '../cmps/ExploreMap'
 import { ExploreSkeleton } from '../cmps/SmallComponents'
 
 export function Explore() {
-    const { city, type } = useParams()
+    const { city } = useParams()
     const { stays, isLoading } = useSelector(storeState => storeState.stayModule)
-    // console.log('Explore render triggered', { type, stays, isLoading })
     const [hoveredId, setHoveredId] = useState(null)
 
     useEffect(() => {
-        console.log('Explore type param:', type)
-        if (type) {
-            setFilterBy({ type })
-            loadStays({ type })
-        } else if (city) {
+        if (city) {
             setFilterBy({ city })
             loadStays({ city })
         } else {
             loadStays()
         }
-    }, [type, city])
+    }, [city])
 
     // if (!type || city) return <ExploreSkeleton stays={stays} />
 
@@ -35,7 +30,7 @@ export function Explore() {
                 {isLoading ? (
                     <ExploreSkeleton stays={stays} />
                 ) : (
-                    <h4 className='explore-title'>Over {stays?.length - 1} homes</h4>
+                    <h4 className='explore-title'>Over {stays?.length - 1} homes in {city}</h4>
                 )}
                 {/* grid of stays */}
                 <div className="explore-grid">
