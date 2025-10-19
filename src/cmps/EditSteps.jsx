@@ -32,7 +32,7 @@ export function WelcomeStep({ onNext }) {
                                     <div className="step-text">
                                         <h3>Make it stand out</h3>
                                         <p>
-                                            Add 5 or more photos plus a title and description—we'll help you out.
+                                            Add 5 or more photos plus a title and description- we'll help you out.
                                         </p>
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@ export function WelcomeStep({ onNext }) {
                 </div>
             </main>
 
-            <footer className="welcome-footer">
+            <footer className="welcome-footer step-footer">
                 <button className="btn btn-pink get-started-button" onClick={onNext}>
                     Get started
                 </button>
