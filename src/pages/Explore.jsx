@@ -25,29 +25,33 @@ export function Explore() {
     return (
         // main-container
         <section className="explore-page ">
-            <div className="items-wrapper">
+            {isLoading ? (
+                <ExploreSkeleton stays={stays} />
 
-                {isLoading ? (
-                    <ExploreSkeleton stays={stays} />
-                ) : (
-                    <h4 className='explore-title'>Over {stays?.length - 1} homes in {city}</h4>
-                )}
-                {/* grid of stays */}
-                <div className="explore-grid">
-                    {stays?.map(stay => (
-                        <div
-                            key={stay._id}
-                            onMouseEnter={() => setHoveredId(stay._id)}
-                            onMouseLeave={() => setHoveredId(null)}
-                        >
-                            <StayPreview key={stay._id} stay={stay} isBig={true} />
+            ) : (
+                <>
+                    <div className="items-wrapper">
+
+                        <h4 className='explore-title'>Over {stays?.length - 1} homes in {city}</h4>
+                        {/* grid of stays */}
+                        <div className="explore-grid">
+                            {stays?.map(stay => (
+                                <div
+                                    key={stay._id}
+                                    onMouseEnter={() => setHoveredId(stay._id)}
+                                    onMouseLeave={() => setHoveredId(null)}
+                                >
+                                    <StayPreview key={stay._id} stay={stay} isBig={true} />
+                                </div>
+
+                            ))}
                         </div>
-
-                    ))}
-                </div>
-            </div>
-            <ExploreMap locations={stays} hoveredId={hoveredId} />
-        </section>
+                    </div>
+                    <ExploreMap locations={stays} hoveredId={hoveredId} />
+                </>
+            )
+            }
+        </section >
 
 
     )
