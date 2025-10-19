@@ -41,12 +41,12 @@ export function CarouselDots({ total, currentIndex }) {
             ]
             classes = ["dot-small", "dot-normal", "dot-normal active", "dot-normal", "dot-small"]
         }
-
-        console.log("currentIndex:", currentIndex, "visible:", visible, "classes:", classes)
-        return visible.map((idx, pos) => ({ idx, className: classes[pos] }))
+        return visible.map((visibleIdx, dotPos) => ({
+            idx: visibleIdx, //the actual image index in the carousel 
+            className: classes[dotPos] // the style for this dot's position
+        }))
     }
     const visibleDots = getVisibleDots(total, currentIndex)
-
 
     return (
 
