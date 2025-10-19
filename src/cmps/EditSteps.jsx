@@ -1,3 +1,6 @@
+import { useState } from "react"
+import { ImgUploader } from "./ImgUploader"
+
 export function WelcomeStep({ onNext }) {
     return (
         <>
@@ -406,4 +409,79 @@ export function StepAmenities({ amenities, setAmenities }) {
             </div>
         </main>
     )
+}
+
+
+export function StepPhoto({ photos, setPhotos }) {
+  const [uploadedImages, setUploadedImages] = useState(photos || [])
+
+  const handleImageUpload = (imgUrl) => {
+    const newImages = [...uploadedImages, imgUrl]
+    setUploadedImages(newImages)
+    setPhotos(newImages)
+  }
+
+  return (
+    <div className="step-photo-container">
+      <div className="step-photo-content">
+        <h1 className="step-photo-title">Add some photos of your apartment</h1>
+        <p className="step-photo-subtitle">
+          You'll need 5 photos to get started. You can add more or make changes later.
+        </p>
+
+        <div className="photo-upload-area">
+          <div className="camera-icon-container">
+            <img src="/img/camera.png" alt="camera" className="camera-icon" />
+          </div>
+          
+          <ImgUploader onUploaded={handleImageUpload} />
+          
+          {uploadedImages.length > 0 && (
+            <div className="uploaded-images-preview">
+              {uploadedImages.map((img, idx) => (
+                <img key={idx} src={img} alt={`uploaded ${idx}`} className="preview-image" />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function StepTitle({ title, setTitle }) {
+  const [charCount, setCharCount] = useState(title?.length || 0)
+  const maxChars = 50
+
+  const handleTitleChange = (e) => {
+    const value = e.target.value
+    if (value.length <= maxChars) {
+      setTitle(value)
+      setCharCount(value.length)
+    }
+  }
+
+  return (
+    <div className="step-title-container">
+      <div className="step-title-content">
+        <h1 className="step-title-heading">Now, let's give your apartment a title</h1>
+        <p className="step-title-subtitle">
+          Short titles work best. Have fun with it—you can always change it later.
+        </p>
+
+        <div className="title-input-wrapper">
+          <textarea
+            className="title-textarea"
+            value={title || ''}
+            onChange={handleTitleChange}
+            placeholder=""
+            maxLength={maxChars}
+          />
+          <div className="char-counter">
+            {charCount}/{maxChars}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
