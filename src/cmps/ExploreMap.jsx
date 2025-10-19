@@ -3,18 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import { Modal } from './Modal'
 import { StayPreview } from './StayPreview'
 import { useClickOutside } from '../customHooks/useClickOutside'
+
 export function ExploreMap({ locations, hoveredId }) {
-    return (
-        <div className="explore-map-wrapper">
-
-            <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-                <ExploreMapController locations={locations} hoveredId={hoveredId} />
-            </APIProvider>
-        </div>
-    )
-}
-
-function ExploreMapController({ locations, hoveredId }) {
 
     const [activeLocation, setActiveLocation] = useState(null)
 
@@ -24,53 +14,82 @@ function ExploreMapController({ locations, hoveredId }) {
 
     const [hoverMarker, setHoverMarker] = useState(null)
     const attachedMarkers = useRef(new Set())
-
+    const [center, setCenter] = useState(null)
+    const [zoom, setZoom] = useState(10)
 
     // Following changes in locations for setting zoom
     useEffect(() => {
+        if (!locations?.length) return
         if (mapRef.current && locations?.length) {
-            fitMapToLocations(mapRef.current, locations)
+            // fitMapToLocations(mapRef.current, locations) //
+            const calculatedCenter = getLocationsCenter(locations)
+            setCenter(calculatedCenter)
+            const calculatedZoom = getLocationsZoom(locations)
+            setZoom(calculatedZoom)
         }
+
+    }, [locations])
+
+    useEffect(() => {
+        if (!locations?.length) return
+        const calculatedCenter = getLocationsCenter(locations)
+        setCenter(calculatedCenter)
+        const calculatedZoom = getLocationsZoom(locations)
+        setZoom(calculatedZoom)
+
     }, [locations])
 
     // Opening modal on click
 
     useEffect(() => {
+        attachMarkerListeners()
+    }, [locations])
+
+    // Make  marker pop on hover in front of another from stay preview
+    useEffect(() => {
+        if (hoveredId) updateMarkerZIndexes({ hoverId: hoveredId })
+
+    }, [hoveredId])
+
+    const handleMouseEnter = (id) => {
+        setHoverMarker(id)
+        updateMarkerZIndexes({ hoverId: id })
+    }
+
+    const handleMouseLeave = () => {
+        setHoverMarker(null)
+        updateMarkerZIndexes({})
+    }
+
+    function updateMarkerZIndexes({ activeId = null, hoverId = null }) {
+        Object.entries(markerRefs.current).forEach(([key, marker]) => {
+            if (!marker) return;
+            if (key === activeId) marker.zIndex = 999;
+            else if (key === hoverId) marker.zIndex = 500;
+            else marker.zIndex = 1;
+        });
+    }
+
+    function attachMarkerListeners() {
         Object.entries(markerRefs.current).forEach(([id, marker]) => {
-            if (marker && !attachedMarkers.current[id]) {
-                marker?.addListener('click', () => setActiveLocation(locations?.find(l => l._id === id)))
+            if (marker && !attachedMarkers.current.has(id)) {
+                marker.addListener("click", () => handleMarkerClick(id))
                 attachedMarkers.current.add(id)
             }
         })
-    }, [locations])
-
-    // Make every marker pop on hover in front of another
-
-    useEffect(() => {
-        Object.entries(markerRefs.current).forEach(([id, marker]) => {
-            if (!marker) return
-            marker.zIndex = id === hoveredId ? 999 : 1
-        })
-    }, [hoveredId])
-
-    function handleMouseEnter(id) {
-        setHoverMarker(id)
-        Object.entries(markerRefs.current).forEach(([key, marker]) => {
-            if (marker) marker.zIndex = key === id ? 999 : 1
-            else if (marker) marker.zIndex = key === hoveredId ? 999 : 1
-        })
     }
 
-    function handleMouseLeave() {
-        setHoverMarker(null)
-        Object.values(markerRefs.current).forEach(marker => {
-            if (marker) marker.zIndex = 1
-        })
-    }
+    function handleMarkerClick(id) {
+        // 1️⃣ Find the corresponding location
+        const location = locations?.find((l) => l._id === id)
+        if (!location) return
 
+        setActiveLocation(location)
+        updateMarkerZIndexes({ activeId: id })
+    }
     // Locations center for map
 
-    const getLocationsCenter = (locations) => {
+    function getLocationsCenter(locations) {
         if (locations?.length) {
 
             let latSum = 0
@@ -90,7 +109,7 @@ function ExploreMapController({ locations, hoveredId }) {
 
     // Locations zoom 
 
-    const getLocationsZoom = (locations) => {
+    function getLocationsZoom(locations) {
         if (!locations?.length) return 6
 
         let minLat = Infinity, maxLat = -Infinity
@@ -116,10 +135,9 @@ function ExploreMapController({ locations, hoveredId }) {
         return 3
     }
 
-
     // Handle loading map
 
-    const handleMapLoad = (mapInstance) => {
+    function handleMapLoad(mapInstance, locations) {
         mapRef.current = mapInstance
 
         if (locations?.length) {
@@ -132,79 +150,85 @@ function ExploreMapController({ locations, hoveredId }) {
 
         const bounds = new window.google.maps.LatLngBounds()
         locations.forEach(loc => bounds.extend({ lat: loc.loc.lat, lng: loc.loc.lng }))
-
         map.fitBounds(bounds)
 
         // Cap zoom
         const listener = window.google.maps.event.addListenerOnce(map, "bounds_changed", () => {
             const zoom = map.getZoom()
-            map.setZoom(Math.min(Math.max(zoom, 3), 15)) // keep between 3–15
+            map.setZoom(Math.min(Math.max(zoom, 3), 15)) 
         })
-
         // Cleanup
         return () => window.google.maps.event.removeListener(listener)
     }
 
-    const center = getLocationsCenter(locations)
-    const zoom = getLocationsZoom(locations)
 
-
-    if (!mapRef) return 
-    // if (!mapRef) return <ExploreSkeleton stays={locations} />
+    if (!mapRef) return
+    if (!center || !zoom) {
+        return <div className="explore-map-wrapper">Loading map...</div>
+    }
 
     return (
-        <>
-            <Map onLoad={handleMapLoad}
-                // center={center}
-                ref={mapRef}
-                // zoom={zoom}
-                defaultZoom={zoom}
-                defaultCenter={center}
-                options={{
+        // <>
+        <div className="explore-map-wrapper">
 
-                    disableDefaultUI: true,
-                    zoomControl: true,
-                    streetViewControl: true,
-                }}
+            <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
 
-                style={{ height: '100%', width: '100%' }}
-                mapId="4596e122b459cf79cc58b24d"
-            >
-                {locations?.map((location, idx) => (
+                <Map onLoad={handleMapLoad}
+                    ref={mapRef}
+                    defaultZoom={zoom}
+                    defaultCenter={center}
+                    options={{
+
+                        disableDefaultUI: true,
+                        zoomControl: true,
+                        streetViewControl: true,
+                    }}
+
+                    style={{ height: '100%', width: '100%' }}
+                    mapId="4596e122b459cf79cc58b24d"
+                >
+                    {locations?.map((location, idx) => (
 
 
-                    < AdvancedMarker key={idx} position={{ lat: location?.loc.lat, lng: location?.loc.lng }}
-                        ref={(el) => markerRefs.current[location._id] = el}
-                        onClick={(e) => {
-                            e.domEvent.stopPropagation()
-                            setActiveLocation(location)
-                        }}
-                        onMouseEnter={() => handleMouseEnter(location._id)}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        <div className={`marker-wrapper ${hoverMarker === location._id ? 'hovered' : ''} ${hoveredId === location._id ? 'hovered-outside' : ''}`}>
-                            <span className={`marker btn-pill ${activeLocation?._id === location._id ? 'active' : ''}`}>${location.price}</span>
-                        </div>
+                        < AdvancedMarker key={idx} position={{ lat: location?.loc.lat, lng: location?.loc.lng }}
+                            ref={(el) => markerRefs.current[location._id] = el}
+                            onClick={() => {
+                                handleMarkerClick(location._id)
+                            }}
+                            onMouseEnter={() => handleMouseEnter(location._id)
+                            }
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <div className={`marker-wrapper 
+                            ${activeLocation?._id === location._id ? 'active' : ''}
+                            ${hoverMarker === location._id ? 'hovered' : ''} 
+                            ${hoveredId === location._id ? 'hovered-outside' : ''}
+                            `}
+                            >
+                                <span className={`marker btn-pill ${activeLocation?._id === location._id ? 'active' : ''}`}>${location.price}</span>
+                            </div>
 
-                        {activeLocation?._id === location._id &&
-                            <Modal
-                                ref={modalRef}
-                                header=" "
-                                isOpen={activeLocation !== null}
-                                onClose={(e) => {
-                                    e?.stopPropagation?.()
-                                    setActiveLocation(null)
-                                }}
-                                closePosition="right"
-                                className={`map-stay-preview`}
-                                useBackdrop={false}>
-                                <StayPreview key={location._id} stay={location} isBig={true} />
-                            </Modal>
-                        }
-                    </AdvancedMarker>
-                )
-                )}
-            </Map >
-        </>
+                            {activeLocation?._id === location._id &&
+                                <Modal
+                                    ref={modalRef}
+                                    header=" "
+                                    isOpen={activeLocation !== null}
+                                    onClose={(e) => {
+                                        e?.stopPropagation?.()
+                                        setActiveLocation(null)
+                                    }}
+                                    closePosition="right"
+                                    className={`map-stay-preview`}
+                                    useBackdrop={false}>
+                                    <StayPreview key={location._id} stay={location} isBig={true} />
+                                </Modal>
+                            }
+                        </AdvancedMarker>
+                    )
+                    )}
+                </Map >
+                {/* </> */}
+            </APIProvider>
+        </div >
     )
 }
