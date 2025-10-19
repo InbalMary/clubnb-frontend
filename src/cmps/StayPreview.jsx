@@ -45,8 +45,6 @@ export function StayPreview({ stay, isBig = false }) {
 
             <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`}
                 className='stay-link'
-                target="_blank"
-                rel="noopener noreferrer"
             >
                 {isBig ? (
                     <SingleImgCarousel images={stay.imgUrls} />
@@ -127,9 +125,7 @@ export function StayPreview({ stay, isBig = false }) {
             ) : (
                 // Default layout (non-Explore)
                 <header>
-                    <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className="stay-name"
-                        target="_blank"
-                        rel="noopener noreferrer">
+                    <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className="stay-name">
                         {stay.name}
                     </Link>
                 </header>
