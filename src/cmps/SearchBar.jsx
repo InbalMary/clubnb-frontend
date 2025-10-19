@@ -18,8 +18,8 @@ export function SearchBar({ initialModal = null }) {
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [activeModal, setActiveModal] = useState(initialModal)
-    // const { dateRange, setDateRange } = useDateRange()
-    const { dateRange, setDateRange } = useDateContext()
+    const { dateRange, setDateRange } = useDateRange()
+    // const { dateRange, setDateRange } = useDateContext()
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
 
     const searchBarRef = useRef(null)
