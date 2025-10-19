@@ -22,6 +22,7 @@ import { TripIndex } from './pages/TripIndex.jsx'
 import { ReservationsPage } from './pages/ReservationsPage.jsx'
 import { ListingsPage } from './pages/ListingsPage.jsx'
 import { Explore } from './pages/Explore.jsx'
+import { Wishlist } from './pages/WishList.jsx'
 
 export function RootCmp() {
     const {
@@ -31,6 +32,7 @@ export function RootCmp() {
         isStayDetailsPage,
         isConfirmPayPage,
         isTripsPage,
+        isWishlistPage,
         headerRef,
         handleSearchClick,
         handleCollapse
@@ -52,6 +54,7 @@ export function RootCmp() {
                         onCollapse={handleCollapse}
                         isSticky={!isStayDetailsPage}
                         isTripsPage={isTripsPage}
+                        isWishlistPage={isWishlistPage}
                     />
                 </div>
             )}
@@ -85,6 +88,7 @@ export function RootCmp() {
                     <Route path="stay/:stayId/confirm-pay" element={<ConfirmPay />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="trips" element={<TripIndex />} />
+                    <Route path="wishlist" element={<Wishlist />} />
 
                     <Route path="messages" element={<MsgIndex />} />
                     {/* <Route path="chat" element={<ChatApp />} /> */}

@@ -1,0 +1,50 @@
+import { store } from '../store'
+import { wishlistService } from '../../services/wishlist'
+import { ADD_WISHLIST, REMOVE_WISHLIST, SET_WISHLISTS, UPDATE_WISHLIST, SET_IS_LOADING } from '../reducers/wishlist.reducer'
+
+export async function loadWishlists(userId) {
+    try {
+        store.dispatch({ type: SET_IS_LOADING, isLoading: true })
+        const wishlists = await wishlistService.query(userId)
+        store.dispatch({ type: SET_WISHLISTS, wishlists })
+        return wishlists
+    } catch (err) {
+        console.error('Cannot load wishlists', err)
+        throw err
+    } finally {
+        store.dispatch({ type: SET_IS_LOADING, isLoading: false })
+    }
+}
+
+export async function addWishlist(wishlist) {
+    try {
+        const savedWishlist = await wishlistService.save(wishlist)
+        store.dispatch({ type: ADD_WISHLIST, wishlist: savedWishlist })
+        return savedWishlist
+    } catch (err) {
+        console.error('Cannot add wishlist', err)
+        throw err
+    }
+}
+
+
+export async function updateWishlist(wishlist) {
+    try {
+        const savedWishlist = await wishlistService.save(wishlist)
+        store.dispatch({ type: UPDATE_WISHLIST, wishlist: savedWishlist })
+        return savedWishlist
+    } catch (err) {
+        console.error('Cannot update wishlist', err)
+        throw err
+    }
+}
+
+export async function removeWishlist(wishlistId) {
+    try {
+        await wishlistService.remove(wishlistId)
+        store.dispatch({ type: REMOVE_WISHLIST, wishlistId })
+    } catch (err) {
+        console.error('Cannot remove wishlist', err)
+        throw err
+    }
+}
