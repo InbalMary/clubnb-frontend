@@ -67,7 +67,7 @@ export function RootCmp() {
                         <Route path="vision" element={<AboutVision />} />
                     </Route> */}
                     <Route path="" element={<StayIndex />} />
-                    <Route path="explore/type/:type" element={<Explore />} />
+                    {/* <Route path="explore/type/:type" element={<Explore />} /> */}
                     <Route path="explore/city/:city" element={<Explore />} />
                     <Route path="stay/edit" element={<StayEdit />} />
                     <Route path="stay/edit/:stayId" element={<StayEdit />} />
