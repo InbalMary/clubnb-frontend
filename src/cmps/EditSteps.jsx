@@ -577,64 +577,26 @@ export function StepFinishIntro() {
 }
 
 export function StepPrice({ price, setPrice }) {
-    const [weekendPremium, setWeekendPremium] = useState(4)
-    const [guestPrice, setGuestPrice] = useState(price || 768)
-
-    useEffect(() => {
-        if (price) {
-            setGuestPrice(price)
-        }
-    }, [price])
-
-    const handlePremiumChange = (e) => {
-        const value = parseInt(e.target.value)
-        setWeekendPremium(value)
+    const handleChange = (e) => {
+        const newPrice = parseInt(e.target.value) || 0
+        setPrice(newPrice)
     }
-
-    const weekendPrice = Math.round(guestPrice * (1 + weekendPremium / 100))
-
-    useEffect(() => {
-        setPrice(guestPrice)
-    }, [guestPrice, setPrice])
 
     return (
         <div className="step-price-container step-container">
             <div className="step-price-content">
-                <h1 className="step-price-heading step-title">Set a weekend price</h1>
+                <h1 className="step-price-heading step-title">Set a price per night</h1>
                 <p className="step-price-subtitle step-subtitle">
                     Add a premium for Fridays and Saturdays.
                 </p>
-
-                <div className="price-display">
-                    <span className="currency-symbol">$</span>
-                    <span className="price-amount">{weekendPrice}</span>
-                </div>
-
                 <div className="guest-price-info">
-                    Guest price <span className="guest-price-amount">${guestPrice}</span>
-                </div>
-
-                <div className="weekend-premium-section">
-                    <div className="premium-header">
-                        <span className="premium-label">Weekend premium</span>
-                        <span className="premium-value">{weekendPremium}%</span>
-                    </div>
-                    <div className="premium-tip">Tip: Try 4%</div>
-
-                    <div className="premium-slider-container">
-                        <input
-                            type="range"
-                            min="0"
-                            max="99"
-                            value={weekendPremium}
-                            onChange={handlePremiumChange}
-                            className="premium-slider"
-                        />
-                        <div className="slider-labels">
-                            <span>0%</span>
-                            <span>99%</span>
-                        </div>
-                    </div>
+                    <input
+                        type="number"
+                        value={price}
+                        onChange={handleChange}
+                        min="0"
+                        className="price-input"
+                    /> <span className="dolar-sign">$</span>
                 </div>
             </div>
         </div>
