@@ -20,12 +20,12 @@ export function Explore() {
     }, [city])
 
     // if (!type || city) return <ExploreSkeleton stays={stays} />
+    // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
     return (
-        // main-container
         <section className="explore-page ">
             {isLoading ? (
-                <ExploreSkeleton stays={stays} />
+                <div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
             ) : (
                 <>
