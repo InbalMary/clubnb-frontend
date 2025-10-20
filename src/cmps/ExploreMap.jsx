@@ -63,11 +63,11 @@ export function ExploreMap({ locations, hoveredId }) {
 
     function updateMarkerZIndexes({ activeId = null, hoverId = null }) {
         Object.entries(markerRefs.current).forEach(([key, marker]) => {
-            if (!marker) return;
-            if (key === activeId) marker.zIndex = 999;
-            else if (key === hoverId) marker.zIndex = 500;
-            else marker.zIndex = 1;
-        });
+            if (!marker) return
+            if (key === activeId) marker.zIndex = 999
+            else if (key === hoverId) marker.zIndex = 500
+            else marker.zIndex = 1
+        })
     }
 
     function attachMarkerListeners() {
@@ -155,7 +155,7 @@ export function ExploreMap({ locations, hoveredId }) {
         // Cap zoom
         const listener = window.google.maps.event.addListenerOnce(map, "bounds_changed", () => {
             const zoom = map.getZoom()
-            map.setZoom(Math.min(Math.max(zoom, 3), 15)) 
+            map.setZoom(Math.min(Math.max(zoom, 3), 15))
         })
         // Cleanup
         return () => window.google.maps.event.removeListener(listener)
@@ -168,7 +168,6 @@ export function ExploreMap({ locations, hoveredId }) {
     }
 
     return (
-        // <>
         <div className="explore-map-wrapper">
 
             <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
@@ -178,7 +177,6 @@ export function ExploreMap({ locations, hoveredId }) {
                     defaultZoom={zoom}
                     defaultCenter={center}
                     options={{
-
                         disableDefaultUI: true,
                         zoomControl: true,
                         streetViewControl: true,
@@ -187,8 +185,8 @@ export function ExploreMap({ locations, hoveredId }) {
                     style={{ height: '100%', width: '100%' }}
                     mapId="4596e122b459cf79cc58b24d"
                 >
-                    {locations?.map((location, idx) => (
 
+                    {locations?.map((location, idx) => (
 
                         < AdvancedMarker key={idx} position={{ lat: location?.loc.lat, lng: location?.loc.lng }}
                             ref={(el) => markerRefs.current[location._id] = el}
@@ -200,7 +198,6 @@ export function ExploreMap({ locations, hoveredId }) {
                             onMouseLeave={handleMouseLeave}
                         >
                             <div className={`marker-wrapper 
-                            ${activeLocation?._id === location._id ? 'active' : ''}
                             ${hoverMarker === location._id ? 'hovered' : ''} 
                             ${hoveredId === location._id ? 'hovered-outside' : ''}
                             `}
@@ -208,7 +205,22 @@ export function ExploreMap({ locations, hoveredId }) {
                                 <span className={`marker btn-pill ${activeLocation?._id === location._id ? 'active' : ''}`}>${location.price}</span>
                             </div>
 
-                            {activeLocation?._id === location._id &&
+                            {activeLocation && (
+                                <InfoWindow
+                                    options={{
+                                        disableDefaultUI: true
+                                    }}
+                                    position={{ lat: activeLocation.loc.lat, lng: activeLocation.loc.lng }}
+                                    onCloseClick={() => setActiveLocation(null)}
+                                >
+                                    <StayPreview key={activeLocation._id} stay={activeLocation} isBig={true} />
+                                </InfoWindow>)}
+                        </AdvancedMarker>
+                    )
+                    )}
+                </Map >
+            </APIProvider>
+            {/* {activeLocation?._id === location._id &&
                                 <Modal
                                     ref={modalRef}
                                     header=" "
@@ -222,13 +234,8 @@ export function ExploreMap({ locations, hoveredId }) {
                                     useBackdrop={false}>
                                     <StayPreview key={location._id} stay={location} isBig={true} />
                                 </Modal>
-                            }
-                        </AdvancedMarker>
-                    )
-                    )}
-                </Map >
-                {/* </> */}
-            </APIProvider>
+                            } */}
         </div >
     )
 }
+
