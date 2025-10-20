@@ -19,6 +19,7 @@
 
 .carousel-list>li {
     scroll-snap-align: start;
+    max-height: 255px;
     /* each card’s left edge is the snap point */
 }
 
