@@ -550,13 +550,6 @@
     align-items: center;
 }
 
-.intro-video {
-    width: 100%;
-    max-width: 34.375rem;
-    height: auto;
-    border-radius: 0.75rem;
-}
-
 /* amenities step */
 .step-selection-content .selection-header-wrapper {
     width: 100%;
@@ -625,27 +618,6 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-}
-
-.upload-label {
-    padding: 0.875rem 1.5rem;
-    border: 1px solid var(--gray3);
-    border-radius: 0.5rem;
-    background-color: var(--white);
-    color: var(--gray3);
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.upload-label:hover {
-    background-color: var(--gray8);
-    border-color: var(--gray3);
-}
-
-.upload-input {
-    display: none;
 }
 
 .uploaded-images-preview {

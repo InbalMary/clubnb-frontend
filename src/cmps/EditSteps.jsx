@@ -341,7 +341,7 @@ export function StepStandOutIntro() {
 
             <div className="intro-media-section">
                 <video
-                    className="intro-video"
+                    className="step-video"
                     autoPlay
                     loop
                     muted
@@ -414,6 +414,32 @@ export function StepAmenities({ amenities, setAmenities }) {
 
 export function StepPhoto({ photos, setPhotos }) {
     const [uploadedImages, setUploadedImages] = useState(photos || [])
+
+    const defaultImages = [
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/03a602e5-5a6f-41f1-9c55-793b70fb8c90.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/4d05c8ea-1382-4dd9-868a-4f2c14183448.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/43eb8ce8-0a5f-4bb3-a83a-5b3152f9e166.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/9ce30618-1e5a-4a98-8eae-a31e4e996640.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/3d725987-45ab-4def-9d56-cbb5d5a3b9c8.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-49033715/original/cf3a8fe5-2aed-48ff-90c7-e064ac611593.jpeg?im_w=480",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-49460966/original/a3126fc2-c456-467a-8a88-0c5d43506555.jpeg?im_w=480"
+    ]
+
+    useEffect(() => {
+        const currentImages = uploadedImages.length > 0 ? uploadedImages : []
+        setUploadedImages(currentImages)
+    }, [])
+
+    useEffect(() => {
+        if (uploadedImages.length > 0 && uploadedImages.length < 5) {
+            const numNeeded = 5 - uploadedImages.length
+            const imagesToAdd = defaultImages.slice(0, numNeeded)
+            const updatedImages = [...uploadedImages, ...imagesToAdd]
+            setPhotos(updatedImages)
+        } else {
+            setPhotos(uploadedImages)
+        }
+    }, [uploadedImages])
 
     const handleImageUpload = (imgUrl) => {
         const newImages = [...uploadedImages, imgUrl]
@@ -536,7 +562,7 @@ export function StepFinishIntro() {
 
             <div className="finish-intro-media-section">
                 <video
-                    className="finish-intro-video"
+                    className="step-video"
                     autoPlay
                     loop
                     muted
@@ -585,7 +611,7 @@ export function StepPrice({ price, setPrice }) {
                 </div>
 
                 <div className="guest-price-info">
-                    Guest price <span className="guest-price-amount">${guestPrice}</span>                    
+                    Guest price <span className="guest-price-amount">${guestPrice}</span>
                 </div>
 
                 <div className="weekend-premium-section">
