@@ -78,8 +78,8 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 				{!isCompact && user?.isAdmin && <NavLink to="/admin">Admin</NavLink>}
 
 				<div className="header-actions">
-					<NavLink to={to}>
-						<span className="host-link">{text}</span>
+					<NavLink to={user ? to : "/auth/login"}>
+						<span className="host-link">{user ? text : "Become a host"}</span>
 					</NavLink>
 
 					{user && user.imgUrl ? (
