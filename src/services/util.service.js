@@ -114,6 +114,7 @@ export function formatDate(date) {
 }
 
 export function formatName(str) {
+    if (!str) return ''
     return str
         .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // Add space between lowercase and uppercase letters
         .replace(/([A-Z])/, (match) => match.toLowerCase()) // Lowercase all the uppercase letters

@@ -332,7 +332,7 @@ export function StepStandOutIntro() {
     return (
         <main className="step-intro-content step-container">
             <div className="intro-text-section">
-                <div className="intro-step-label">Step 2</div>
+                <div className="step-label">Step 2</div>
                 <h1 className="intro-title step-title">Make your place stand out</h1>
                 <p className="intro-description">
                     In this step, you'll add some of the amenities your place offers, plus 5 or more photos. Then, you'll create a title and description.
@@ -527,7 +527,7 @@ export function StepFinishIntro() {
     return (
         <main className="step-finish-intro-content step-container">
             <div className="finish-intro-text-section">
-                <div className="finish-intro-step-label">Step 3</div>
+                <div className="step-label">Step 3</div>
                 <h1 className="finish-intro-title step-title">Finish up and publish</h1>
                 <p className="finish-intro-description">
                     Finally, you'll choose booking settings, set up pricing, and publish your listing.

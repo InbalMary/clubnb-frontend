@@ -3,8 +3,8 @@ export function StayListSkeleton({ categories }) {
 
     return (
         <section className="stay-list-section main-container">
-            {categories.map(type => (
-                <div className="stay-row" key={type}>
+            {categories.map((type, idx) => (
+                <div className="stay-row" key={idx}>
                     {/* Row header */}
                     <div className="stay-row-header">
                         <div className="skeleton skeleton-title-block"></div>
