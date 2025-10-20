@@ -22,7 +22,8 @@ import { TripIndex } from './pages/TripIndex.jsx'
 import { ReservationsPage } from './pages/ReservationsPage.jsx'
 import { ListingsPage } from './pages/ListingsPage.jsx'
 import { Explore } from './pages/Explore.jsx'
-import { Wishlist } from './pages/WishList.jsx'
+import { WishlistIndex } from './pages/WishlistIndex.jsx'
+import { WishlistDetails } from './pages/WishlistDetails.jsx'
 
 export function RootCmp() {
     const {
@@ -88,8 +89,8 @@ export function RootCmp() {
                     <Route path="stay/:stayId/confirm-pay" element={<ConfirmPay />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="trips" element={<TripIndex />} />
-                    <Route path="wishlist" element={<Wishlist />} />
-
+                    <Route path="wishlists" element={<WishlistIndex />} />
+                    <Route path="/wishlists/:id" element={<WishlistDetails />} />
                     <Route path="messages" element={<MsgIndex />} />
                     {/* <Route path="chat" element={<ChatApp />} /> */}
                     <Route path="hosting" element={<BecomeHostForm />} />

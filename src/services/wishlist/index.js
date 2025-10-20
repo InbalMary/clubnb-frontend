@@ -13,15 +13,8 @@ function getEmptyWishlist() {
     }
 }
 
-// function getDefaultFilter() {
-//     return {
-//         userId: '',
-//         title: '',
-//     }
-// }
-
 const service = (VITE_LOCAL === 'true') ? local : remote
-export const wishlistService = { getEmptyWishlist, getDefaultFilter, ...service }
+export const wishlistService = { getEmptyWishlist, ...service }
 
 // Easy access to this service from the dev tools console
 if (DEV) window.wishlistService = wishlistService

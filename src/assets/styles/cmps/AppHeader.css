@@ -29,6 +29,14 @@
     grid-column: 1;
 }
 
+.logo-header,
+.logo-header:focus,
+.logo-header:hover {
+    text-decoration: none;
+    outline: none;
+
+}
+
 .logo-header .icon svg {
     height: 32px;
     display: block;

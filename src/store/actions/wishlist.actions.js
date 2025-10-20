@@ -1,6 +1,6 @@
 import { store } from '../store'
 import { wishlistService } from '../../services/wishlist'
-import { ADD_WISHLIST, REMOVE_WISHLIST, SET_WISHLISTS, UPDATE_WISHLIST, SET_IS_LOADING } from '../reducers/wishlist.reducer'
+import { ADD_WISHLIST, REMOVE_WISHLIST, SET_WISHLISTS, SET_WISHLIST, UPDATE_WISHLIST, SET_IS_LOADING } from '../reducers/wishlist.reducer'
 
 export async function loadWishlists(userId) {
     try {
@@ -10,6 +10,20 @@ export async function loadWishlists(userId) {
         return wishlists
     } catch (err) {
         console.error('Cannot load wishlists', err)
+        throw err
+    } finally {
+        store.dispatch({ type: SET_IS_LOADING, isLoading: false })
+    }
+}
+
+export async function loadWishlist(wishlistId) {
+    try {
+        store.dispatch({ type: SET_IS_LOADING, isLoading: true })
+        const wishlist = await wishlistService.getById(wishlistId)
+        store.dispatch({ type: SET_WISHLIST, wishlist })
+        return wishlist
+    } catch (err) {
+        console.error('Cannot load wishlist', err)
         throw err
     } finally {
         store.dispatch({ type: SET_IS_LOADING, isLoading: false })

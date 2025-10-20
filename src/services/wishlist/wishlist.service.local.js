@@ -1,6 +1,7 @@
 
 import { storageService } from '../async-storage.service'
 import { userService } from '../user'
+import { demoWishlists } from "../../data/demo-wishlist"
 
 const STORAGE_KEY_WISHLIST = 'wishlist'
 
@@ -18,9 +19,9 @@ window.cs = wishlistService
 
 
 async function query(userId) {
-    const wishlists = await storageService.query(STORAGE_KEY_WISHLIST)
+    const wishlists = await storageService.query(STORAGE_KEY_WISHLIST) || []
     if (!userId) return wishlists
-    return wishlists.filter(wl => wl.byUser._id === userId) //??
+    return wishlists.filter(wishlist => wishlist.byUser._id === userId) //??
 }
 
 function getById(wishlistId) {
@@ -35,11 +36,11 @@ async function save(wishlist) {
     if (wishlist._id) {
         return storageService.put(STORAGE_KEY_WISHLIST, wishlist)
     } else {
+        const loggedinUser = userService.getLoggedinUse()
         const wishlistToSave = {
+            ...wishlist,
             _id: makeId(),
-            title: wishlist.title || 'My wishlist',
-            byUser: loggedInUser,
-            stays: wishlist.stays || [],   // array of stayIds or stay objects
+            byUser: loggedinUser,
             createdAt: Date.now(),
         }
         return storageService.post(STORAGE_KEY_WISHLIST, wishlistToSave)
