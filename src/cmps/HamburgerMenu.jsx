@@ -34,7 +34,8 @@ export function HamburgerMenu() {
     }
 
     function handleNavigation(path) {
-        navigate(path)
+        if (!user) navigate("/auth/login")
+        else navigate(path)
         setIsOpen(false)
     }
 
