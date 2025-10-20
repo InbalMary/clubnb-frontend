@@ -3,7 +3,7 @@ import { useNavigate, useParams, useLocation } from "react-router-dom"
 import { stayService } from '../services/stay/'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { StepLocation } from "../cmps/StepLocation"
-import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm, StepBasics, StepStandOutIntro, StepAmenities, StepPhoto, StepTitle } from '../cmps/EditSteps.jsx'
+import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm, StepBasics, StepStandOutIntro, StepAmenities, StepPhoto, StepTitle, StepDescription, StepFinishIntro, StepPrice } from '../cmps/EditSteps.jsx'
 import { loadStay } from "../store/actions/stay.actions.js"
 import { StepMapConfirm } from "../cmps/StepMapConfirm.jsx"
 
@@ -41,6 +41,8 @@ export function StayEdit() {
     const [amenities, setAmenities] = useState([])
     const [photos, setPhotos] = useState([])
     const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [price, setPrice] = useState(237)
 
     const placeTypes = [
         { id: 'house', label: 'House' },
@@ -76,7 +78,10 @@ export function StayEdit() {
     ]
 
     useEffect(() => {
-        if (location.pathname.includes('title')) setCurrentStep(11)
+        if (location.pathname.includes('price')) setCurrentStep(14)
+        else if (location.pathname.includes('finish-intro')) setCurrentStep(13)
+        else if (location.pathname.includes('description')) setCurrentStep(12)
+        else if (location.pathname.includes('title')) setCurrentStep(11)
         else if (location.pathname.includes('photos')) setCurrentStep(10)
         else if (location.pathname.includes('amenities')) setCurrentStep(9)
         else if (location.pathname.includes('stand-out')) setCurrentStep(8)
@@ -108,6 +113,8 @@ export function StayEdit() {
                     setAmenities(stayFromStore.amenities || [])
                     setPhotos(stayFromStore.imgUrls || [])
                     setTitle(stayFromStore.name || '')
+                    setDescription(stayFromStore.summary || '')
+                    setPrice(stayFromStore.price || 237)
 
                     if (stayFromStore.loc) {
                         setLoc({
@@ -135,7 +142,10 @@ export function StayEdit() {
             '/stand-out',
             '/amenities',
             '/photos',
-            '/title'
+            '/title',
+            '/description',
+            '/finish-intro',
+            '/price'
         ]
 
         if (step === 0) return '/stay/edit/become-a-host'
@@ -166,7 +176,9 @@ export function StayEdit() {
                 bathrooms,
                 amenities,
                 imgUrls: photos,
-                name: title
+                name: title,
+                summary: description,
+                price
             }
 
             const savedStay = await stayService.save(stayId ? { ...updatedStay, _id: stayId } : updatedStay)
@@ -184,7 +196,10 @@ export function StayEdit() {
                 '/stand-out',
                 '/amenities',
                 '/photos',
-                '/title'
+                '/title',
+                '/description',
+                '/finish-intro',
+                '/price'
             ]
             if (currentStep < nextRoutes.length)
                 navigate(`/stay/edit/${savedStay._id}${nextRoutes[currentStep]}`)
@@ -211,6 +226,9 @@ export function StayEdit() {
         if (currentStep === 9) navigate(`/stay/edit/${stayId}/stand-out`)
         if (currentStep === 10) navigate(`/stay/edit/${stayId}/amenities`)
         if (currentStep === 11) navigate(`/stay/edit/${stayId}/photos`)
+        if (currentStep === 12) navigate(`/stay/edit/${stayId}/title`)
+        if (currentStep === 13) navigate(`/stay/edit/${stayId}/description`)
+        if (currentStep === 14) navigate(`/stay/edit/${stayId}/finish-intro`)
     }
 
     const handleSaveExit = async () => {
@@ -241,6 +259,8 @@ export function StayEdit() {
                 amenities,
                 imgUrls: photos,
                 name: title,
+                summary: description,
+                price,
                 summary: `[IN_PROGRESS:${savedPath}]${stayData.summary?.replace(/\[IN_PROGRESS:.*?\]/, '') || ''}`
             })
             showSuccessMsg('Progress saved')
@@ -258,6 +278,7 @@ export function StayEdit() {
         if (currentStep === 5 && (!loc.street || !loc.city)) return true
         if (currentStep === 10 && photos.length < 1) return true
         if (currentStep === 11 && !title) return true
+        if (currentStep === 12 && !description) return true
         return false
     }
 
@@ -327,6 +348,18 @@ export function StayEdit() {
                     title={title}
                     setTitle={setTitle}
                 />
+            case 12:
+                return <StepDescription
+                    description={description}
+                    setDescription={setDescription}
+                />
+            case 13:
+                return <StepFinishIntro />
+            case 14:
+                return <StepPrice
+                    price={price}
+                    setPrice={setPrice}
+                />
             default: return null
         }
     }
@@ -365,7 +398,7 @@ export function StayEdit() {
                         onClick={handleNext}
                         disabled={isNextDisabled()}
                     >
-                        Next
+                        {currentStep === 14 ? 'Publish' : 'Next'}
                     </button>
                 </footer>
             )}

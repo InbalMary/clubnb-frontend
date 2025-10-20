@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ImgUploader } from "./ImgUploader"
 
 export function WelcomeStep({ onNext }) {
@@ -187,7 +187,7 @@ export function StepAddressForm({ loc, setLoc }) {
         <div className="step-address-form-container step-container">
             <div className="address-form-content">
                 <h1 className="address-form-title step-title">Confirm your address</h1>
-                <p className="address-form-subtitle">
+                <p className="address-form-subtitle step-subtitle">
                     Your address is only shared with guests after they've made a reservation.
                 </p>
 
@@ -292,7 +292,7 @@ export function StepBasics({ guests, setGuests, bedrooms, setBedrooms, beds, set
         <main className="step-basics-content step-container">
             <div className="basics-header">
                 <h1 className="basics-title step-title">Share some basics about your place</h1>
-                <p className="basics-subtitle">
+                <p className="basics-subtitle step-subtitle">
                     You'll add more details later, like bed types.
                 </p>
             </div>
@@ -383,12 +383,12 @@ export function StepAmenities({ amenities, setAmenities }) {
                 <h1 className="selection-title step-title">
                     Tell guests what your place has to offer
                 </h1>
-                <p className="selection-subtitle">
+                <p className="selection-subtitle step-subtitle">
                     You can add more amenities after you publish your listing.
                 </p>
                 <h2 className="selection-section-title">What about these guest favorites?</h2>
             </div>
-            
+
             <div className="place-types-grid">
                 {guestFavorites.map(amenity => (
                     <button
@@ -413,75 +413,204 @@ export function StepAmenities({ amenities, setAmenities }) {
 
 
 export function StepPhoto({ photos, setPhotos }) {
-  const [uploadedImages, setUploadedImages] = useState(photos || [])
+    const [uploadedImages, setUploadedImages] = useState(photos || [])
 
-  const handleImageUpload = (imgUrl) => {
-    const newImages = [...uploadedImages, imgUrl]
-    setUploadedImages(newImages)
-    setPhotos(newImages)
-  }
+    const handleImageUpload = (imgUrl) => {
+        const newImages = [...uploadedImages, imgUrl]
+        setUploadedImages(newImages)
+        setPhotos(newImages)
+    }
 
-  return (
-    <div className="step-photo-container step-container">
-      <div className="step-photo-content">
-        <h1 className="step-photo-title step-title">Add some photos of your apartment</h1>
-        <p className="step-photo-subtitle">
-          You'll need 5 photos to get started. You can add more or make changes later.
-        </p>
+    return (
+        <div className="step-photo-container step-container">
+            <div className="step-photo-content">
+                <h1 className="step-photo-title step-title">Add some photos of your apartment</h1>
+                <p className="step-photo-subtitle step-subtitle">
+                    You'll need 5 photos to get started. You can add more or make changes later.
+                </p>
 
-        <div className="photo-upload-area">
-          <div className="camera-icon-container">
-            <img src="/img/camera.png" alt="camera" className="camera-icon" />
-          </div>
-          
-          <ImgUploader onUploaded={handleImageUpload} />
-          
-          {uploadedImages.length > 0 && (
-            <div className="uploaded-images-preview">
-              {uploadedImages.map((img, idx) => (
-                <img key={idx} src={img} alt={`uploaded ${idx}`} className="preview-image" />
-              ))}
+                <div className="photo-upload-area">
+                    <div className="camera-icon-container">
+                        <img src="/img/camera.png" alt="camera" className="camera-icon" />
+                    </div>
+
+                    <ImgUploader onUploaded={handleImageUpload} />
+
+                    {uploadedImages.length > 0 && (
+                        <div className="uploaded-images-preview">
+                            {uploadedImages.map((img, idx) => (
+                                <img key={idx} src={img} alt={`uploaded ${idx}`} className="preview-image" />
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
-          )}
         </div>
-      </div>
-    </div>
-  )
+    )
 }
 
 export function StepTitle({ title, setTitle }) {
-  const [charCount, setCharCount] = useState(title?.length || 0)
-  const maxChars = 50
+    const [charCount, setCharCount] = useState(title?.length || 0)
+    const maxChars = 50
 
-  const handleTitleChange = (e) => {
-    const value = e.target.value
-    if (value.length <= maxChars) {
-      setTitle(value)
-      setCharCount(value.length)
+    const handleTitleChange = (e) => {
+        const value = e.target.value
+        if (value.length <= maxChars) {
+            setTitle(value)
+            setCharCount(value.length)
+        }
     }
-  }
 
-  return (
-    <div className="step-title-container step-container">
-      <div className="step-title-content">
-        <h1 className="step-title-heading step-title">Now, let's give your apartment a title</h1>
-        <p className="step-title-subtitle">
-          Short titles work best. Have fun with it—you can always change it later.
-        </p>
+    return (
+        <div className="step-title-container step-container">
+            <div className="step-title-content">
+                <h1 className="step-title-heading step-title">Now, let's give your apartment a title</h1>
+                <p className="step-title-subtitle step-subtitle">
+                    Short titles work best. Have fun with it- you can always change it later.
+                </p>
 
-        <div className="title-input-wrapper">
-          <textarea
-            className="title-textarea"
-            value={title || ''}
-            onChange={handleTitleChange}
-            placeholder=""
-            maxLength={maxChars}
-          />
-          <div className="char-counter">
-            {charCount}/{maxChars}
-          </div>
+                <div className="title-input-wrapper">
+                    <textarea
+                        className="title-textarea"
+                        value={title || ''}
+                        onChange={handleTitleChange}
+                        placeholder=""
+                        maxLength={maxChars}
+                    />
+                    <div className="char-counter">
+                        {charCount}/{maxChars}
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  )
+    )
+}
+
+export function StepDescription({ description, setDescription }) {
+    const [charCount, setCharCount] = useState(description?.length || 0)
+    const maxChars = 500
+
+    const handleDescriptionChange = (e) => {
+        const value = e.target.value
+        if (value.length <= maxChars) {
+            setDescription(value)
+            setCharCount(value.length)
+        }
+    }
+
+    return (
+        <div className="step-description-container step-container">
+            <div className="step-description-content">
+                <h1 className="step-description-heading step-title">Create your description</h1>
+                <p className="step-description-subtitle step-subtitle">
+                    Share what makes your place special.
+                </p>
+
+                <div className="description-input-wrapper">
+                    <textarea
+                        className="description-textarea"
+                        value={description || ''}
+                        onChange={handleDescriptionChange}
+                        placeholder=""
+                        maxLength={maxChars}
+                    />
+                    <div className="description-char-counter">
+                        {charCount}/{maxChars}
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export function StepFinishIntro() {
+    return (
+        <main className="step-finish-intro-content step-container">
+            <div className="finish-intro-text-section">
+                <div className="finish-intro-step-label">Step 3</div>
+                <h1 className="finish-intro-title step-title">Finish up and publish</h1>
+                <p className="finish-intro-description">
+                    Finally, you'll choose booking settings, set up pricing, and publish your listing.
+                </p>
+            </div>
+
+            <div className="finish-intro-media-section">
+                <video
+                    className="finish-intro-video"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source src="/img/video/finish-up.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </main>
+    )
+}
+
+export function StepPrice({ price, setPrice }) {
+    const [weekendPremium, setWeekendPremium] = useState(4)
+    const [guestPrice, setGuestPrice] = useState(price || 768)
+
+    useEffect(() => {
+        if (price) {
+            setGuestPrice(price)
+        }
+    }, [price])
+
+    const handlePremiumChange = (e) => {
+        const value = parseInt(e.target.value)
+        setWeekendPremium(value)
+    }
+
+    const weekendPrice = Math.round(guestPrice * (1 + weekendPremium / 100))
+
+    useEffect(() => {
+        setPrice(guestPrice)
+    }, [guestPrice, setPrice])
+
+    return (
+        <div className="step-price-container step-container">
+            <div className="step-price-content">
+                <h1 className="step-price-heading step-title">Set a weekend price</h1>
+                <p className="step-price-subtitle step-subtitle">
+                    Add a premium for Fridays and Saturdays.
+                </p>
+
+                <div className="price-display">
+                    <span className="currency-symbol">$</span>
+                    <span className="price-amount">{weekendPrice}</span>
+                </div>
+
+                <div className="guest-price-info">
+                    Guest price <span className="guest-price-amount">${guestPrice}</span>                    
+                </div>
+
+                <div className="weekend-premium-section">
+                    <div className="premium-header">
+                        <span className="premium-label">Weekend premium</span>
+                        <span className="premium-value">{weekendPremium}%</span>
+                    </div>
+                    <div className="premium-tip">Tip: Try 4%</div>
+
+                    <div className="premium-slider-container">
+                        <input
+                            type="range"
+                            min="0"
+                            max="99"
+                            value={weekendPremium}
+                            onChange={handlePremiumChange}
+                            className="premium-slider"
+                        />
+                        <div className="slider-labels">
+                            <span>0%</span>
+                            <span>99%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 }
