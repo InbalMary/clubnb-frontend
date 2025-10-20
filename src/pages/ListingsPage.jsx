@@ -48,16 +48,6 @@ export function ListingsPage() {
     navigate(savedPath)
   }
 
-  const getFormattedDate = (timestamp) => {
-    if (!timestamp) return ''
-    const date = new Date(timestamp)
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
-  }
-
   return (
     <div className="listing-container">
       <main className="main">
@@ -99,7 +89,7 @@ export function ListingsPage() {
               <div className="listing-details">
                 <h3 className="listing-title">
                   Your {inProgressStay.type || 'Apartment'} listing started{' '}
-                  {formatDateWithFullYear(inProgressStay.createdAt)}
+                  {formatDateWithFullYear(inProgressStay.startDate)}
                 </h3>
                 <p className="listing-subtitle">
                   {inProgressStay.loc?.city
