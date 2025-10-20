@@ -4,10 +4,10 @@ import { ImgUploader } from "./ImgUploader"
 export function WelcomeStep({ onNext }) {
     return (
         <>
-            <main className="welcome-screen">
+            <main className="welcome-screen step-container">
                 <div className="welcome-content">
                     <div className="welcome-left">
-                        <h1 className="welcome-title">
+                        <h1 className="welcome-title step-title">
                             It's easy to get started on Clubnb
                         </h1>
                     </div>
@@ -74,10 +74,10 @@ export function WelcomeStep({ onNext }) {
 
 export function StepIntro() {
     return (
-        <main className="step-main-content">
+        <main className="step-main-content step-container">
             <div className="step-left">
                 <div className="step-label">Step 1</div>
-                <h1 className="step-main-title">Tell us about your place</h1>
+                <h1 className="step-main-title step-title">Tell us about your place</h1>
                 <p className="step-main-description">
                     In this step, we'll ask you which type of property you have and if
                     guests will book the entire place or just a room. Then let us know
@@ -102,8 +102,8 @@ export function StepIntro() {
 
 export function PlaceTypeStep({ placeTypes, selectedPlaceType, onSelect }) {
     return (
-        <main className="step-selection-content">
-            <h1 className="selection-title">
+        <main className="step-selection-content step-container">
+            <h1 className="selection-title step-title">
                 Which of these best describes your place?
             </h1>
             <div className="place-types-grid">
@@ -130,8 +130,8 @@ export function PlaceTypeStep({ placeTypes, selectedPlaceType, onSelect }) {
 
 export function PrivacyTypeStep({ privacyTypes, selectedPrivacyType, onSelect }) {
     return (
-        <main className="step-selection-content">
-            <h1 className="selection-title">
+        <main className="step-selection-content step-container">
+            <h1 className="selection-title step-title">
                 What type of place will guests have?
             </h1>
             <div className="privacy-types-list">
@@ -184,9 +184,9 @@ export function StepAddressForm({ loc, setLoc }) {
     }
 
     return (
-        <div className="step-address-form-container">
+        <div className="step-address-form-container step-container">
             <div className="address-form-content">
-                <h1 className="address-form-title">Confirm your address</h1>
+                <h1 className="address-form-title step-title">Confirm your address</h1>
                 <p className="address-form-subtitle">
                     Your address is only shared with guests after they've made a reservation.
                 </p>
@@ -289,9 +289,9 @@ export function StepBasics({ guests, setGuests, bedrooms, setBedrooms, beds, set
     }
 
     return (
-        <main className="step-basics-content">
+        <main className="step-basics-content step-container">
             <div className="basics-header">
-                <h1 className="basics-title">Share some basics about your place</h1>
+                <h1 className="basics-title step-title">Share some basics about your place</h1>
                 <p className="basics-subtitle">
                     You'll add more details later, like bed types.
                 </p>
@@ -330,10 +330,10 @@ export function StepBasics({ guests, setGuests, bedrooms, setBedrooms, beds, set
 
 export function StepStandOutIntro() {
     return (
-        <main className="step-intro-content">
+        <main className="step-intro-content step-container">
             <div className="intro-text-section">
                 <div className="intro-step-label">Step 2</div>
-                <h1 className="intro-title">Make your place stand out</h1>
+                <h1 className="intro-title step-title">Make your place stand out</h1>
                 <p className="intro-description">
                     In this step, you'll add some of the amenities your place offers, plus 5 or more photos. Then, you'll create a title and description.
                 </p>
@@ -378,9 +378,9 @@ export function StepAmenities({ amenities, setAmenities }) {
     }
 
     return (
-        <main className="step-selection-content step-selection-grid">
+        <main className="step-selection-content step-selection-grid step-container">
             <div className="selection-header-wrapper">
-                <h1 className="selection-title">
+                <h1 className="selection-title step-title">
                     Tell guests what your place has to offer
                 </h1>
                 <p className="selection-subtitle">
@@ -422,9 +422,9 @@ export function StepPhoto({ photos, setPhotos }) {
   }
 
   return (
-    <div className="step-photo-container">
+    <div className="step-photo-container step-container">
       <div className="step-photo-content">
-        <h1 className="step-photo-title">Add some photos of your apartment</h1>
+        <h1 className="step-photo-title step-title">Add some photos of your apartment</h1>
         <p className="step-photo-subtitle">
           You'll need 5 photos to get started. You can add more or make changes later.
         </p>
@@ -462,9 +462,9 @@ export function StepTitle({ title, setTitle }) {
   }
 
   return (
-    <div className="step-title-container">
+    <div className="step-title-container step-container">
       <div className="step-title-content">
-        <h1 className="step-title-heading">Now, let's give your apartment a title</h1>
+        <h1 className="step-title-heading step-title">Now, let's give your apartment a title</h1>
         <p className="step-title-subtitle">
           Short titles work best. Have fun with it—you can always change it later.
         </p>
