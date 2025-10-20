@@ -15,7 +15,7 @@ export function StayList() {
     return (
         <section className='stay-list-section main-container'>
             {groups.map(city => {
-                const rowStays = stays.filter(stay => stay.loc.city === city)
+                const rowStays = stays.filter(stay => stay.loc.city === city && !stay.summary?.includes('[IN_PROGRESS:'))
                 if (!rowStays.length) return null
 
                 return (

@@ -177,7 +177,7 @@ export function StayEdit() {
                 amenities,
                 imgUrls: photos,
                 name: title,
-                summary: description,
+                summary: currentStep === 14 ? description : `[IN_PROGRESS]${description || ''}`,
                 price
             }
 
@@ -204,7 +204,7 @@ export function StayEdit() {
             if (currentStep < nextRoutes.length)
                 navigate(`/stay/edit/${savedStay._id}${nextRoutes[currentStep]}`)
             else {
-                showSuccessMsg('Stay setup complete!')
+                showSuccessMsg('Stay published successfully!')
                 navigate('/hosting/listings')
             }
         } catch (err) {
@@ -233,6 +233,11 @@ export function StayEdit() {
 
     const handleSaveExit = async () => {
         try {
+            if (currentStep === 0 || !stayId) {
+                navigate('/hosting/listings')
+                return
+            }
+
             const fullAddress = loc.street
                 ? `${loc.street}${loc.entrance ? `, Entrance ${loc.entrance}` : ''}${loc.apt ? `, Apt ${loc.apt}` : ''}, ${loc.city}${loc.postalCode ? `, ${loc.postalCode}` : ''}, ${loc.country}`
                 : address || stayData.address || ''
@@ -259,9 +264,8 @@ export function StayEdit() {
                 amenities,
                 imgUrls: photos,
                 name: title,
-                summary: description,
-                price,
-                summary: `[IN_PROGRESS:${savedPath}]${stayData.summary?.replace(/\[IN_PROGRESS:.*?\]/, '') || ''}`
+                summary: `[IN_PROGRESS:${savedPath}]${description || ''}`,
+                price
             })
             showSuccessMsg('Progress saved')
             navigate('/hosting/listings')

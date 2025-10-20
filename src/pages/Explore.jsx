@@ -34,7 +34,7 @@ export function Explore() {
                         <h4 className='explore-title'>Over {stays?.length - 1} homes in {city}</h4>
                         {/* grid of stays */}
                         <div className="explore-grid">
-                            {stays?.map(stay => (
+                            {stays?.filter(stay => !stay.summary?.includes('[IN_PROGRESS:')).map(stay => (
                                 <div
                                     key={stay._id}
                                     onMouseEnter={() => setHoveredId(stay._id)}
