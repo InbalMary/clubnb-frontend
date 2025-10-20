@@ -63,14 +63,14 @@ export function ListingsPage() {
       <main className="main">
         <div className="listings-header">
           <h1 className="title">Your listings</h1>
-          <button
-            className="guest-button guest-button-plus"
-            onClick={handleCreateListing}
-            aria-label="Add new listing">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
-              <path d="M2 16h28M16 2v28"></path>
-            </svg>
-          </button>
+          {(inProgressStay || publishedListings.length > 0) && (
+            <button
+              className="plus-btn btn btn-round"
+              onClick={handleCreateListing}
+              aria-label="Add new listing">
+              <img src={`/img/plus.svg`} alt="create another listing" className="plus-icon" />
+            </button>
+          )}
         </div>
 
         {inProgressStay && (

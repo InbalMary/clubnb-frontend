@@ -79,7 +79,7 @@
 }
 
 .reservations-table thead th:first-child {
-    padding-left: 0;
+    padding-left: 1rem;
 }
 
 .reservations-table thead th.sortable {
