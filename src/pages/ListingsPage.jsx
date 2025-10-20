@@ -61,7 +61,17 @@ export function ListingsPage() {
   return (
     <div className="listing-container">
       <main className="main">
-        <h1 className="title">Your listings</h1>
+        <div className="listings-header">
+          <h1 className="title">Your listings</h1>
+          <button
+            className="guest-button guest-button-plus"
+            onClick={handleCreateListing}
+            aria-label="Add new listing">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
+              <path d="M2 16h28M16 2v28"></path>
+            </svg>
+          </button>
+        </div>
 
         {inProgressStay && (
           <section className="in-progress-section">
@@ -101,25 +111,7 @@ export function ListingsPage() {
           </section>
         )}
 
-        {publishedListings.length === 0 && !inProgressStay ? (
-          <div className="empty-state">
-            <div className="icon-container">
-              <img
-                className="house-icon"
-                src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/4aae4ed7-5939-4e76-b100-e69440ebeae4.png?im_w=240"
-                alt="House icon"
-              />
-            </div>
-
-            <p className="empty-text">
-              Create a listing with Clubnb Setup and start getting booked.
-            </p>
-
-            <button onClick={handleCreateListing} className="btn create-button">
-              Create listing
-            </button>
-          </div>
-        ) : publishedListings.length > 0 ? (
+        {publishedListings.length > 0 && (
           <section className="listing-list-section">
             <h2 className="section-title">Published listings</h2>
             <ul className="listing-preview-list">
@@ -153,7 +145,27 @@ export function ListingsPage() {
               ))}
             </ul>
           </section>
-        ) : null}
+        )}
+
+        {!inProgressStay && publishedListings.length === 0 && (
+          <div className="empty-state">
+            <div className="icon-container">
+              <img
+                className="house-icon"
+                src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/4aae4ed7-5939-4e76-b100-e69440ebeae4.png?im_w=240"
+                alt="House icon"
+              />
+            </div>
+
+            <p className="empty-text">
+              Create a listing with Clubnb Setup and start getting booked.
+            </p>
+
+            <button onClick={handleCreateListing} className="btn create-button">
+              Create listing
+            </button>
+          </div>
+        )}
       </main>
     </div>
   )

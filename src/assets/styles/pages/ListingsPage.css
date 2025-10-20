@@ -220,3 +220,9 @@
 .in-progress-card {
   pointer-events: auto;
 }
+
+.listings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
