@@ -1,103 +1,3 @@
-/* .explore-page {
-    position: relative;
-    margin-top: 96px;
-    display: grid;
-    grid-template-columns: minmax(auto, 49rem) minmax(24.5rem, auto);
-    grid-template-areas:
-        "list map";
-    gap: 3rem;
-
-    .explore-map-wrapper {
-        position: sticky;
-        top: 120px;
-        grid-area: map;
-        height: 83vh;
-        margin-top: 1.5rem;
-        border-radius: 25px;
-        overflow: hidden;
-    }
-
-    .explore-items-wrapper {
-        grid-area: list;
-    }
-}
-
-
-.explore-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-
-    gap: 1.5rem;
-    padding: 0 48px;
-}
-
-.stay-preview.big {
-    max-width: 320px;
-    height: 100%;
-    width: 100%;
-}
-
-.explore-title {
-    48px
-    padding: 24px 0;
-    font-size: 14px;
-}
-
-.stay-preview.big .stay-image-wrapper {
-    height: 304px;
-}
-
-.stay-preview.big .stay-name {
-    font-size: 0.938rem;
-}
-
-.stay-preview.big .stay-card-details,
-.stay-preview.big .stay-card-dates {
-    font-size: 0.938rem;
-    color: var(--gray2);
-}
-
-.stay-preview.big .stay-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.25rem;
-}
-
-.stay-preview.big .stay-rating {
-    display: flex;
-    align-items: center;
-    color: var(--gray3);
-    gap: 0.2rem;
-}
-
-.stay-preview.big .stay-summary {
-    font-size: 0.938rem;
-    color: var(--gray2);
-    line-height: 1.3;
-
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    show "…"
-}
-
-.stay-preview.big .guest-favorite-badge {
-    font-size: 14px;
-    padding: 0.36rem 0.7rem;
-}
-
-.stay-preview.big .stay-price {
-    color: var(--gray3);
-    text-decoration: underline;
-    font-weight: 600;
-}
-
-.explore-cancellation-policy {
-    font-size: 12px;
-} */
-
 .explore-page {
     position: relative;
     margin-top: 96px;
@@ -111,7 +11,7 @@
         position: sticky;
         top: 120px;
         grid-area: map;
-        height: 83vh;
+        height: 80vh;
         margin-top: 1.5rem;
         border-radius: 25px;
         overflow: hidden;
@@ -125,15 +25,12 @@
 
 .explore-grid {
     display: grid;
-    /* grid-template-columns: repeat(3, 1fr); */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-
+    grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
     gap: 1.5rem;
-    /* padding: 0 48px; */
 }
 
 .stay-preview.big {
-    max-width: 320px;
+    max-width: 350px;
     height: 100%;
     width: 100%;
 }
@@ -144,29 +41,22 @@
     font-size: 14px;
 }
 
-.stay-preview.big .stay-image-wrapper {
-    /* height: 304px; */
-}
-
-.stay-preview.big .stay-name {
-    font-size: 0.938rem;
-
-}
-
-.stay-preview.big .stay-card-details,
-.stay-preview.big .stay-card-dates {
-    font-size: 0.938rem;
+.stay-preview.big .stay-info * {
+    font-size: 0.975rem;
     color: var(--gray2);
+    letter-spacing: .2px;
 }
 
 .stay-preview.big .stay-header {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    align-items: start;
+    font-family: cereal-light;
+    font-weight: 700;
     overflow: hidden;
 
     .stay-name {
+        color: var(--gray3);
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
@@ -181,8 +71,6 @@
 }
 
 .stay-preview.big .stay-summary {
-    font-size: 0.938rem;
-    color: var(--gray2);
     line-height: 1.3;
 
     white-space: nowrap;
@@ -201,11 +89,11 @@
 .stay-preview.big .stay-price {
     color: var(--gray3);
     text-decoration: underline;
-    font-weight: 600;
+    font-family: cereal-medium;
 }
 
 .explore-cancellation-policy {
-    font-size: 12px;
+    font-size: 13px;
 }
 
 
@@ -261,6 +149,7 @@
     padding: 0;
     box-shadow: 0 2px 7px 1px rgba(159, 159, 159, 0.15);
     max-height: 300px !important;
+    max-width: 330px !important;
 
     /* header */
     .gm-style-iw-chr {
@@ -306,6 +195,7 @@
             aspect-ratio: 14/13;
 
             .stay-image-wrapper {
+                max-height: 215px;
 
                 .single-img-carousel,
                 .carousel-window,
@@ -346,15 +236,9 @@
                 flex-direction: row-reverse;
                 flex-wrap: wrap;
                 justify-content: start;
-                gap: .3rem;
-                column-gap: .6rem;
-                padding-inline: .8rem;
-                padding-bottom: 1em;
-
-                .stay-header {
-                    font-size: 1.2em;
-                    font-family: cereal-regular;
-                }
+                gap: .1rem;
+                column-gap: .5rem;
+                padding-inline: .9rem;
 
                 p.stay-summary {
                     overflow: hidden;
@@ -369,6 +253,7 @@
                 .stay-price {
                     text-decoration: none;
                     padding-right: 2px;
+                    font-family: cereal-regular;
                 }
             }
         }
