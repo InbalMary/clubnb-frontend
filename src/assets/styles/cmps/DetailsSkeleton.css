@@ -231,7 +231,7 @@
     grid-template-areas: "list map";
     gap: 3rem;
     margin-top: 20px;
-    margin-inline: 3%;
+    margin-inline: 6%;
 }
 
 .skeleton.skeleton-title-block {
