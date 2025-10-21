@@ -51,7 +51,7 @@
 }
 
 .div-for-focus:focus .preview-carousel-controls {
-        visibility: visible;
+    visibility: visible;
 
 }
 
@@ -211,13 +211,13 @@
             max-height: 300px !important;
             max-width: 330px !important;
 
-            .preview-carousel-btn {
-                position: absolute;
-                top: 50%;
-                transform: translate(-30%);
-            }
+
 
             .stay-image-wrapper {
+                .preview-carousel-btn {
+                    top: 50%;
+                    transform: translate(-50% -50%);
+                }
 
                 .single-img-carousel,
                 .carousel-window,
