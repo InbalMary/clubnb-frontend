@@ -6,7 +6,7 @@ export function StayMap({ location }) {
     return (
         <>
             <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-                <MapController location={location} />
+                <MapController key={`${location?.lat}-${location?.lng}`} location={location} />
             </APIProvider>
         </>
     )
@@ -31,14 +31,23 @@ function MapController({ location }) {
         !isNaN(initialCoords.lng)
     )
 
-    const [coords, setCoords] = useState(
-        isValidCoords ? initialCoords : fallbackCoords
-    )
+    const [coords, setCoords] = useState(null)
     useEffect(() => {
-        if (mapRef.current) {
-            setCoords(coords)
+        const lat = Number(location?.lat);
+        const lng = Number(location?.lng);
+
+        if (!isNaN(lat) && !isNaN(lng)) {
+            const newCoords = { lat, lng }
+            setCoords(newCoords)
+
+            if (mapRef.current) {
+                mapRef.current.panTo(newCoords);
+                // setCoords(newCoords)
+            }
         }
-    }, [coords])
+        // if (mapRef.current) {
+        // }
+    }, [location])
 
     function handleClick(event) {
         const latLng = event.detail.latLng
@@ -61,7 +70,11 @@ function MapController({ location }) {
                 mapId="4596e122b459cf79cc58b24d"
             >
                 <AdvancedMarker position={coords || fallbackCoords}>
-                    <HomeMarkerIcon size={48} fill="#222222ff" />
+                    <div className="home-icon-div">
+
+                        <HomeMarkerIcon size={28} fill="#ffffffff" />
+                        <span className="small-square" />
+                    </div>
 
 
                 </AdvancedMarker>
