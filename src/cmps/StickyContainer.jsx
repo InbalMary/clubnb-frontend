@@ -257,14 +257,16 @@ function TotalCount({ stay, startDate, endDate }) {
             </div>
 
 
-            <div className="total clean-calc">
-                <span className="link ">
-                    Cleaning fee
-                </span>
-                <span>
-                    ${stay.cleaningFee}
-                </span>
-            </div>
+            {stay?.cleaningFee &&
+                <div className="total clean-calc">
+                    <span className="link ">
+                        Cleaning fee
+                    </span>
+                    <span>
+                        ${stay.cleaningFee}
+                    </span>
+                </div>
+            }
             <div className="border"></div>
 
             <div className="total total-calc">
