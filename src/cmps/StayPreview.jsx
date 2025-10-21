@@ -1,13 +1,18 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 import { formatStayDates, calculateNights, formatDate } from '../services/util.service.js'
 import { svgControls, statSvgs } from './Svgs.jsx'
 import { Modal } from './Modal.jsx'
 import { showSuccessMsg } from '../services/event-bus.service.js'
 import { SingleImgCarousel } from './SingleImgCarousel.jsx'
+import { addWishlist, removeStayFromWishlist, removeWishlist } from '../store/actions/wishlist.actions.js'
 
 export function StayPreview({ stay, isBig = false }) {
-
+    // console.log('Stay recieved in preview:', stay);
+    const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
+    const navigate = useNavigate()
     const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
     const [isAddedToWishlist, setIsAddedToWishlist] = useState(false)
 
@@ -17,22 +22,59 @@ export function StayPreview({ stay, isBig = false }) {
         setIsWishlistModalOpen(false)
     }
 
-    function onCreateWishlist() {
-        console.log(stay._id, 'was added to wishlist')
-        showSuccessMsg('Saved to wishlist', stay.imgUrls?.[0])
-        setIsAddedToWishlist(true) // heart becomes red
-        setIsWishlistModalOpen(false)
+    async function onCreateWishlist() {
+        try {
+            const year = new Date().getFullYear()
+            const newWishlist = {
+                title: `${stay.loc.city}, ${stay.loc.country} ${year}`,
+                city: stay.loc.city,
+                country: stay.loc.country,
+                stays: [
+                    {
+                        _id: stay._id,
+                        name: stay.name,
+                        imgUrl: stay.imgUrls?.[0]
+                    }
+                ],
+                createdAt: Date.now(),
+            }
+            const savedWishlist = await addWishlist(newWishlist)
+            console.log(`${stay.name} was added to wishlist ${savedWishlist.title}`)
+            showSuccessMsg(`Created wishlist ${savedWishlist.title}`, stay.imgUrls?.[0])
+            navigate('/wishlists')
+
+            setIsAddedToWishlist(true) // heart becomes red
+            setIsWishlistModalOpen(false)
+        } catch (err) {
+            console.error('Cannot create wishlist', err)
+        }
     }
 
-    function onToggleWishlist() {
+    async function onToggleWishlist() {
         console.log('heart clicked')
-
-        if (isAddedToWishlist) {
-            console.log(stay._id, 'removed from wishlist')
-            showSuccessMsg(`Removed from wishlist`, stay.imgUrls?.[0])
-            setIsAddedToWishlist(false) // heart unclicked
-        } else {
-            setIsWishlistModalOpen(true)
+        try {
+            if (isAddedToWishlist) {
+                const wishlistWithStay = wishlists.find(wishlist =>
+                    wishlist.stays.some(stayInList => stayInList._id === stay._id)
+                )
+                if (wishlistWithStay) {
+                    if (wishlistWithStay.stays.length === 1) {
+                        await removeWishlist(wishlistWithStay._id)
+                        console.log('Removed entire wishlist', wishlistWithStay._id)
+                        console.log('Deleting from wishlistWithStay:', wishlistWithStay)
+                        showSuccessMsg(`Wishlist ${wishlistWithStay.title} deleted`, stay.imgUrls?.[0])
+                    } else {
+                        await removeStayFromWishlist(wishlistWithStay, stay._id)
+                        console.log(stay._id, 'removed from wishlist')
+                        showSuccessMsg(`Removed from wishlist ${wishlistWithStay.title}`, stay.imgUrls?.[0])
+                    }
+                }
+                setIsAddedToWishlist(false) // heart unclicked
+            } else {
+                setIsWishlistModalOpen(true)
+            }
+        } catch (err) {
+            console.error('Error toggling wishlist:', err)
         }
     }
 

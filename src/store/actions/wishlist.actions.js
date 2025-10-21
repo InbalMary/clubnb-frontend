@@ -1,4 +1,4 @@
-import { store } from '../store'
+import { store } from '../../store/store'
 import { wishlistService } from '../../services/wishlist'
 import { ADD_WISHLIST, REMOVE_WISHLIST, SET_WISHLISTS, SET_WISHLIST, UPDATE_WISHLIST, SET_IS_LOADING } from '../reducers/wishlist.reducer'
 
@@ -59,6 +59,21 @@ export async function removeWishlist(wishlistId) {
         store.dispatch({ type: REMOVE_WISHLIST, wishlistId })
     } catch (err) {
         console.error('Cannot remove wishlist', err)
+        throw err
+    }
+}
+
+export async function removeStayFromWishlist(wishlist, stayId) {
+    try {
+        const updatedWishlist = {
+            ...wishlist,
+            stays: wishlist.stays.filter(stay => stay._id !== stayId)
+        }
+        const savedWishlist = await wishlistService.save(updatedWishlist)
+        store.dispatch({ type: UPDATE_WISHLIST, wishlist: savedWishlist })
+        return savedWishlist
+    } catch (err) {
+        console.error('Cannot remove stay from wishlist', err)
         throw err
     }
 }

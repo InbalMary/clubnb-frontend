@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import { useEffect } from 'react'
-import { Link } from "react-router"
+import { Link } from "react-router-dom"
 import { loadWishlists, removeWishlist } from "../store/actions/wishlist.actions"
 import { svgControls } from "../cmps/Svgs"
 import { showSuccessMsg } from "../services/event-bus.service"
@@ -15,7 +15,7 @@ export function WishlistIndex() {
 
     function onRemoveWishlist(wishlist) {
         removeWishlist(wishlist._id)
-        showSuccessMsg(`Wishlist deleted`, wishlist.stays?.[0]?.imgUrl)
+        showSuccessMsg(`Wishlist ${wishlist.title} deleted`, wishlist.stays?.[0]?.imgUrl)
     }
 
     if (isLoading) return <div>Loading wishlists...</div>
@@ -26,8 +26,8 @@ export function WishlistIndex() {
                 <h1 className="wishlists-index-title">Wishlists</h1>
                 <ul className="wishlist-list">
                     {wishlists.map(wishlist => {
-                        const firstStay = wishlist.stays[0]
-                        const year = new Date(wishlist.createdAt).getFullYear()
+                        const firstStay = wishlist.stays?.[0]
+
 
                         return (
                             <li key={wishlist._id} className="wishlist-preview">
@@ -46,8 +46,8 @@ export function WishlistIndex() {
                                         className="wishlist-stay-img"
                                     />
                                     <div className="wishlist-info">
-                                        <h4>{wishlist.city}, {wishlist.country} {year}</h4>
-                                        <p>{wishlist.stays.length} saved</p>
+                                        <h4>{wishlist.title}</h4>
+                                        <p>{wishlist.stays?.length || 0} saved</p>
                                     </div>
                                 </Link>
                             </li>
