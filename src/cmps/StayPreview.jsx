@@ -86,8 +86,6 @@ export function StayPreview({ stay, isBig = false }) {
 
             <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`}
                 className='stay-link'
-                target="_blank"
-                rel="noopener noreferrer"
             >
                 {isBig ? (
                     <SingleImgCarousel images={stay.imgUrls} />
@@ -163,14 +161,12 @@ export function StayPreview({ stay, isBig = false }) {
                 // Explore layout: name + rating on one line
                 <div className="stay-header">
                     <span className="stay-name">{stay.name}</span>
-                    <span className="stay-rating">{statSvgs.starSmall}{stay.rating}({stay.numReviews || 0})</span>
+                    <span className="stay-rating">{statSvgs.starSmall}{stay.rating}<span className="gap" />({stay.numReviews || 0})</span>
                 </div>
             ) : (
                 // Default layout (non-Explore)
                 <header>
-                    <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className="stay-name"
-                        target="_blank"
-                        rel="noopener noreferrer">
+                    <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className="stay-name">
                         {stay.name}
                     </Link>
                 </header>

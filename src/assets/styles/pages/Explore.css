@@ -11,7 +11,7 @@
         position: sticky;
         top: 120px;
         grid-area: map;
-        height: 83vh;
+        height: 80vh;
         margin-top: 1.5rem;
         border-radius: 25px;
         overflow: hidden;
@@ -25,15 +25,12 @@
 
 .explore-grid {
     display: grid;
-    /* grid-template-columns: repeat(3, 1fr); */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-
+    grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
     gap: 1.5rem;
-    /* padding: 0 48px; */
 }
 
 .stay-preview.big {
-    max-width: 320px;
+    max-width: 350px;
     height: 100%;
     width: 100%;
 }
@@ -44,41 +41,42 @@
     font-size: 14px;
 }
 
-.stay-preview.big .stay-image-wrapper {
-    /* height: 304px; */
-}
-
-.stay-preview.big .stay-name {
-    font-size: 0.938rem;
-}
-
-.stay-preview.big .stay-card-details,
-.stay-preview.big .stay-card-dates {
-    font-size: 0.938rem;
+.stay-preview.big .stay-info * {
+    font-size: 0.975rem;
     color: var(--gray2);
+    letter-spacing: .2px;
 }
 
 .stay-preview.big .stay-header {
     display: flex;
+    width: 100%;
     justify-content: space-between;
-    align-items: center;
-    margin-top: 0.25rem;
+    font-family: cereal-light;
+    font-weight: 700;
+    overflow: hidden;
+
+    .stay-name {
+        color: var(--gray3);
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
 }
 
 .stay-preview.big .stay-rating {
     display: flex;
     align-items: center;
     color: var(--gray3);
-    gap: 0.2rem;
+    gap: 0.1rem;
 }
 
 .stay-preview.big .stay-summary {
-    font-size: 0.938rem;
-    color: var(--gray2);
     line-height: 1.3;
 
     white-space: nowrap;
+    /* keep it on one line */
     overflow: hidden;
+    /* hide the overflow */
     text-overflow: ellipsis;
     /* show "…" */
 }
@@ -91,9 +89,177 @@
 .stay-preview.big .stay-price {
     color: var(--gray3);
     text-decoration: underline;
-    font-weight: 600;
+    font-family: cereal-medium;
 }
 
 .explore-cancellation-policy {
-    font-size: 12px;
+    font-size: 13px;
+}
+
+
+/* Map Styling */
+.marker.btn-pill {
+    font-family: cereal-medium;
+    font-size: 1.1rem;
+    line-height: 1rem;
+    background-color: white;
+    padding: .3rem .5rem;
+    outline: 1px solid var(--gray7);
+    box-shadow: 0px 2px 6px 1px #2222225c;
+    cursor: pointer;
+    user-select: none;
+}
+
+.marker.btn-pill.active {
+    background-color: var(--gray3);
+    color: white;
+}
+
+.marker-wrapper {
+    position: relative;
+    transition: transform 0.15s ease;
+}
+
+.marker-wrapper.hovered {
+    transform: scale(1.1);
+}
+
+.marker-wrapper.active {
+    transform: scale(1.1);
+}
+
+.marker-wrapper.hovered-outside {
+    transition: all 0.3s ease;
+
+    transform: scale(1.11);
+
+    .marker.btn-pill {
+        background-color: var(--gray3);
+        color: white;
+    }
+}
+
+/* infoWindow styling modal*/
+
+.gm-style .gm-style-iw-c {
+    position: absolute;
+    top: -25px;
+    border-radius: 25px;
+
+    padding: 0;
+    box-shadow: 0 2px 7px 1px rgba(159, 159, 159, 0.15);
+    max-height: 300px !important;
+    max-width: 330px !important;
+
+    /* header */
+    .gm-style-iw-chr {
+        position: relative;
+        padding: 0;
+        height: 0;
+
+        >button {
+            position: absolute;
+            display: block;
+            opacity: 1;
+            z-index: 5;
+            top: .5rem;
+            right: .6rem;
+            background-color: rgba(236, 236, 236, 0.78) !important;
+            border-radius: 50px;
+            box-shadow: -1px 3px 8px 1px #4545455c;
+            display: flex;
+            justify-items: center;
+            margin: 0px;
+            width: 2rem !important;
+            height: 2rem !important;
+            transition: scale .1s ease !important;
+
+            span {
+                margin: 0 !important;
+                width: 1.3rem !important;
+                height: 1.3rem !important;
+            }
+
+            &:hover {
+                background-color: white !important;
+                scale: 1.08;
+            }
+        }
+    }
+
+    /* main */
+    .gm-style-iw-d {
+        overflow: hidden !important;
+
+        .stay-preview.big {
+            aspect-ratio: 14/13;
+
+            .stay-image-wrapper {
+                max-height: 215px;
+
+                .single-img-carousel,
+                .carousel-window,
+                .carousel-track,
+                .carousel-slide,
+                .carousel-slide img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 0 0 0 0;
+                }
+
+                .heart-btn {
+                    position: absolute;
+                    top: .5rem;
+                    right: 3.5rem;
+                    background-color: #ffffffe1;
+                    box-shadow: -1px 3px 8px 1px #2222225c;
+                    border-radius: 50px;
+                    transition: transform 0.2s ease;
+
+                    &:hover {
+                        background-color: var(--white);
+                        scale: 1.0;
+                        transform: scale(1.05);
+                    }
+
+                    .heart-icon svg {
+                        display: block;
+                        fill: none;
+                        height: 1.2rem;
+                        width: 1.2rem;
+                        stroke: var(--gray3);
+                    }
+                }
+            }
+
+            .stay-info:not(:first-child) {
+                flex-direction: row-reverse;
+                flex-wrap: wrap;
+                justify-content: start;
+                gap: .1rem;
+                column-gap: .5rem;
+                padding-inline: .9rem;
+
+                p.stay-summary {
+                    overflow: hidden;
+                    text-overflow: ellipsis !important;
+                }
+
+                p.stay-card-details,
+                p.explore-cancellation-policy {
+                    display: none;
+                }
+
+                .stay-price {
+                    text-decoration: none;
+                    padding-right: 2px;
+                    font-family: cereal-regular;
+                }
+            }
+        }
+    }
+}
+
+.gm-style .gm-style-iw-tc::after {
+    visibility: hidden !important;
 }

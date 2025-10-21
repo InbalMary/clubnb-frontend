@@ -5,12 +5,14 @@ import { appHeaderSvg } from './Svgs'
 import { SearchBar } from './SearchBar'
 import { CompactHeader } from './CompactHeader'
 import { HamburgerMenu } from './HamburgerMenu.jsx'
+import { AppHeaderSkeleton } from './AppHeaderSkeleton'
 import { useRef } from 'react'
 import { useClickOutside } from '../customHooks/useClickOutside.js'
 import { useEscapeKey } from '../customHooks/useEscapeKey.js'
 
 export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, isSticky, isTripsPage, isWishlistPage }) {
 	const user = useSelector(storeState => storeState.userModule.user)
+	const isLoading = useSelector(storeState => storeState.userModule.isLoading)
 	const headerRef = useRef(null)
 	const location = useLocation()
 	const isIndexPage = location.pathname === '/' || location.pathname === ''
@@ -22,6 +24,17 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 
 	useClickOutside([headerRef], onCollapse)
 	useEscapeKey(onCollapse)
+
+	// Show skeleton only during initial loading
+	if (isLoading) {
+		return <AppHeaderSkeleton
+			isCompact={isCompact}
+			isIndexPage={isIndexPage}
+			isHostPage={isHostPage}
+			isTripsPage={isTripsPage}
+			isSticky={isSticky}
+		/>
+	}
 
 	const headerClass = isCompact
 		? `compact-header full ${!isSticky ? 'no-sticky main-content' : ''} ${isIndexPage ? 'index-page' : ''}`
@@ -66,8 +79,8 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 				{!isCompact && user?.isAdmin && <NavLink to="/admin">Admin</NavLink>}
 
 				<div className="header-actions">
-					<NavLink to={to}>
-						<span className="host-link">{text}</span>
+					<NavLink to={user ? to : "/auth/login"}>
+						<span className="host-link">{user ? text : "Become a host"}</span>
 					</NavLink>
 
 					{user && user.imgUrl ? (

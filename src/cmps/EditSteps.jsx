@@ -1,10 +1,13 @@
+import { useEffect, useState } from "react"
+import { ImgUploader } from "./ImgUploader"
+
 export function WelcomeStep({ onNext }) {
     return (
         <>
-            <main className="welcome-screen">
+            <main className="welcome-screen step-container">
                 <div className="welcome-content">
                     <div className="welcome-left">
-                        <h1 className="welcome-title">
+                        <h1 className="welcome-title step-title">
                             It's easy to get started on Clubnb
                         </h1>
                     </div>
@@ -71,10 +74,10 @@ export function WelcomeStep({ onNext }) {
 
 export function StepIntro() {
     return (
-        <main className="step-main-content">
+        <main className="step-main-content step-container">
             <div className="step-left">
                 <div className="step-label">Step 1</div>
-                <h1 className="step-main-title">Tell us about your place</h1>
+                <h1 className="step-main-title step-title main-step-title">Tell us about your place</h1>
                 <p className="step-main-description">
                     In this step, we'll ask you which type of property you have and if
                     guests will book the entire place or just a room. Then let us know
@@ -99,8 +102,8 @@ export function StepIntro() {
 
 export function PlaceTypeStep({ placeTypes, selectedPlaceType, onSelect }) {
     return (
-        <main className="step-selection-content">
-            <h1 className="selection-title">
+        <main className="step-selection-content step-container">
+            <h1 className="selection-title step-title">
                 Which of these best describes your place?
             </h1>
             <div className="place-types-grid">
@@ -127,8 +130,8 @@ export function PlaceTypeStep({ placeTypes, selectedPlaceType, onSelect }) {
 
 export function PrivacyTypeStep({ privacyTypes, selectedPrivacyType, onSelect }) {
     return (
-        <main className="step-selection-content">
-            <h1 className="selection-title">
+        <main className="step-selection-content step-container">
+            <h1 className="selection-title step-title">
                 What type of place will guests have?
             </h1>
             <div className="privacy-types-list">
@@ -181,10 +184,10 @@ export function StepAddressForm({ loc, setLoc }) {
     }
 
     return (
-        <div className="step-address-form-container">
+        <div className="step-address-form-container step-container">
             <div className="address-form-content">
-                <h1 className="address-form-title">Confirm your address</h1>
-                <p className="address-form-subtitle">
+                <h1 className="address-form-title step-title">Confirm your address</h1>
+                <p className="address-form-subtitle step-subtitle">
                     Your address is only shared with guests after they've made a reservation.
                 </p>
 
@@ -286,10 +289,10 @@ export function StepBasics({ guests, setGuests, bedrooms, setBedrooms, beds, set
     }
 
     return (
-        <main className="step-basics-content">
+        <main className="step-basics-content step-container">
             <div className="basics-header">
-                <h1 className="basics-title">Share some basics about your place</h1>
-                <p className="basics-subtitle">
+                <h1 className="basics-title step-title">Share some basics about your place</h1>
+                <p className="basics-subtitle step-subtitle">
                     You'll add more details later, like bed types.
                 </p>
             </div>
@@ -327,10 +330,10 @@ export function StepBasics({ guests, setGuests, bedrooms, setBedrooms, beds, set
 
 export function StepStandOutIntro() {
     return (
-        <main className="step-intro-content">
+        <main className="step-intro-content step-container">
             <div className="intro-text-section">
-                <div className="intro-step-label">Step 2</div>
-                <h1 className="intro-title">Make your place stand out</h1>
+                <div className="step-label">Step 2</div>
+                <h1 className="intro-title step-title main-step-title">Make your place stand out</h1>
                 <p className="intro-description">
                     In this step, you'll add some of the amenities your place offers, plus 5 or more photos. Then, you'll create a title and description.
                 </p>
@@ -338,7 +341,7 @@ export function StepStandOutIntro() {
 
             <div className="intro-media-section">
                 <video
-                    className="intro-video"
+                    className="step-video"
                     autoPlay
                     loop
                     muted
@@ -375,17 +378,17 @@ export function StepAmenities({ amenities, setAmenities }) {
     }
 
     return (
-        <main className="step-selection-content step-selection-grid">
+        <main className="step-selection-content step-selection-grid step-container">
             <div className="selection-header-wrapper">
-                <h1 className="selection-title">
+                <h1 className="selection-title step-title">
                     Tell guests what your place has to offer
                 </h1>
-                <p className="selection-subtitle">
+                <p className="selection-subtitle step-subtitle">
                     You can add more amenities after you publish your listing.
                 </p>
                 <h2 className="selection-section-title">What about these guest favorites?</h2>
             </div>
-            
+
             <div className="place-types-grid">
                 {guestFavorites.map(amenity => (
                     <button
@@ -405,5 +408,197 @@ export function StepAmenities({ amenities, setAmenities }) {
                 ))}
             </div>
         </main>
+    )
+}
+
+
+export function StepPhoto({ photos, setPhotos }) {
+    const [uploadedImages, setUploadedImages] = useState(photos || [])
+
+    const defaultImages = [
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/03a602e5-5a6f-41f1-9c55-793b70fb8c90.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/4d05c8ea-1382-4dd9-868a-4f2c14183448.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/43eb8ce8-0a5f-4bb3-a83a-5b3152f9e166.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/9ce30618-1e5a-4a98-8eae-a31e4e996640.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/3d725987-45ab-4def-9d56-cbb5d5a3b9c8.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-49033715/original/cf3a8fe5-2aed-48ff-90c7-e064ac611593.jpeg?im_w=480",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-49460966/original/a3126fc2-c456-467a-8a88-0c5d43506555.jpeg?im_w=480"
+    ]
+
+    useEffect(() => {
+        const currentImages = uploadedImages.length > 0 ? uploadedImages : []
+        setUploadedImages(currentImages)
+    }, [])
+
+    useEffect(() => {
+        if (uploadedImages.length > 0 && uploadedImages.length < 5) {
+            const numNeeded = 5 - uploadedImages.length
+            const imagesToAdd = defaultImages.slice(0, numNeeded)
+            const updatedImages = [...uploadedImages, ...imagesToAdd]
+            setPhotos(updatedImages)
+        } else {
+            setPhotos(uploadedImages)
+        }
+    }, [uploadedImages])
+
+    const handleImageUpload = (imgUrl) => {
+        const newImages = [...uploadedImages, imgUrl]
+        setUploadedImages(newImages)
+        setPhotos(newImages)
+    }
+
+    return (
+        <div className="step-photo-container step-container">
+            <div className="step-photo-content">
+                <h1 className="step-photo-title step-title">Add some photos of your apartment</h1>
+                <p className="step-photo-subtitle step-subtitle">
+                    You'll need 5 photos to get started. You can add more or make changes later.
+                </p>
+
+                <div className="photo-upload-area">
+                    <div className="camera-icon-container">
+                        <img src="/img/camera.png" alt="camera" className="camera-icon" />
+                    </div>
+
+                    <ImgUploader onUploaded={handleImageUpload} />
+
+                    {uploadedImages.length > 0 && (
+                        <div className="uploaded-images-preview">
+                            {uploadedImages.map((img, idx) => (
+                                <img key={idx} src={img} alt={`uploaded ${idx}`} className="preview-image" />
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export function StepTitle({ title, setTitle }) {
+    const [charCount, setCharCount] = useState(title?.length || 0)
+    const maxChars = 50
+
+    const handleTitleChange = (e) => {
+        const value = e.target.value
+        if (value.length <= maxChars) {
+            setTitle(value)
+            setCharCount(value.length)
+        }
+    }
+
+    return (
+        <div className="step-title-container step-container">
+            <div className="step-title-content">
+                <h1 className="step-title-heading step-title">Now, let's give your apartment a title</h1>
+                <p className="step-title-subtitle step-subtitle">
+                    Short titles work best. Have fun with it- you can always change it later.
+                </p>
+
+                <div className="title-input-wrapper">
+                    <textarea
+                        className="title-textarea"
+                        value={title || ''}
+                        onChange={handleTitleChange}
+                        placeholder=""
+                        maxLength={maxChars}
+                    />
+                    <div className="char-counter">
+                        {charCount}/{maxChars}
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export function StepDescription({ description, setDescription }) {
+    const [charCount, setCharCount] = useState(description?.length || 0)
+    const maxChars = 500
+
+    const handleDescriptionChange = (e) => {
+        const value = e.target.value
+        if (value.length <= maxChars) {
+            setDescription(value)
+            setCharCount(value.length)
+        }
+    }
+
+    return (
+        <div className="step-description-container step-container">
+            <div className="step-description-content">
+                <h1 className="step-description-heading step-title">Create your description</h1>
+                <p className="step-description-subtitle step-subtitle">
+                    Share what makes your place special.
+                </p>
+
+                <div className="description-input-wrapper">
+                    <textarea
+                        className="description-textarea"
+                        value={description || ''}
+                        onChange={handleDescriptionChange}
+                        placeholder=""
+                        maxLength={maxChars}
+                    />
+                    <div className="description-char-counter">
+                        {charCount}/{maxChars}
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export function StepFinishIntro() {
+    return (
+        <main className="step-finish-intro-content step-container">
+            <div className="finish-intro-text-section">
+                <div className="step-label">Step 3</div>
+                <h1 className="finish-intro-title step-title main-step-title">Finish up and publish</h1>
+                <p className="finish-intro-description">
+                    Finally, you'll choose booking settings, set up pricing, and publish your listing.
+                </p>
+            </div>
+
+            <div className="finish-intro-media-section">
+                <video
+                    className="step-video"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source src="/img/video/finish-up.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </main>
+    )
+}
+
+export function StepPrice({ price, setPrice }) {
+    const handleChange = (e) => {
+        const newPrice = parseInt(e.target.value) || 0
+        setPrice(newPrice)
+    }
+
+    return (
+        <div className="step-price-container step-container">
+            <div className="step-price-content">
+                <h1 className="step-price-heading step-title">Set a price per night</h1>
+                <p className="step-price-subtitle step-subtitle">
+                    Add a premium for Fridays and Saturdays.
+                </p>
+                <div className="guest-price-info">
+                    <input
+                        type="number"
+                        value={price}
+                        onChange={handleChange}
+                        min="0"
+                        className="price-input"
+                    /> <span className="dolar-sign">$</span>
+                </div>
+            </div>
+        </div>
     )
 }

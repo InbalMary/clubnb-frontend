@@ -3,7 +3,7 @@ import { useNavigate, useParams, useLocation } from "react-router-dom"
 import { stayService } from '../services/stay/'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { StepLocation } from "../cmps/StepLocation"
-import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm, StepBasics, StepStandOutIntro, StepAmenities } from '../cmps/EditSteps.jsx'
+import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm, StepBasics, StepStandOutIntro, StepAmenities, StepPhoto, StepTitle, StepDescription, StepFinishIntro, StepPrice } from '../cmps/EditSteps.jsx'
 import { loadStay } from "../store/actions/stay.actions.js"
 import { StepMapConfirm } from "../cmps/StepMapConfirm.jsx"
 
@@ -39,6 +39,10 @@ export function StayEdit() {
     const [beds, setBeds] = useState(1)
     const [bathrooms, setBathrooms] = useState(1)
     const [amenities, setAmenities] = useState([])
+    const [photos, setPhotos] = useState([])
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [price, setPrice] = useState(237)
 
     const placeTypes = [
         { id: 'house', label: 'House' },
@@ -74,7 +78,12 @@ export function StayEdit() {
     ]
 
     useEffect(() => {
-        if (location.pathname.includes('amenities')) setCurrentStep(9)
+        if (location.pathname.includes('price')) setCurrentStep(14)
+        else if (location.pathname.includes('finish-intro')) setCurrentStep(13)
+        else if (location.pathname.includes('description')) setCurrentStep(12)
+        else if (location.pathname.includes('title')) setCurrentStep(11)
+        else if (location.pathname.includes('photos')) setCurrentStep(10)
+        else if (location.pathname.includes('amenities')) setCurrentStep(9)
         else if (location.pathname.includes('stand-out')) setCurrentStep(8)
         else if (location.pathname.includes('floor-plan')) setCurrentStep(7)
         else if (location.pathname.includes('confirm-location')) setCurrentStep(6)
@@ -102,6 +111,10 @@ export function StayEdit() {
                     setBeds(stayFromStore.beds || 1)
                     setBathrooms(stayFromStore.bathrooms || 1)
                     setAmenities(stayFromStore.amenities || [])
+                    setPhotos(stayFromStore.imgUrls || [])
+                    setTitle(stayFromStore.name || '')
+                    setDescription(stayFromStore.summary || '')
+                    setPrice(stayFromStore.price || 237)
 
                     if (stayFromStore.loc) {
                         setLoc({
@@ -127,7 +140,12 @@ export function StayEdit() {
             '/confirm-location',
             '/floor-plan',
             '/stand-out',
-            '/amenities'
+            '/amenities',
+            '/photos',
+            '/title',
+            '/description',
+            '/finish-intro',
+            '/price'
         ]
 
         if (step === 0) return '/stay/edit/become-a-host'
@@ -156,7 +174,11 @@ export function StayEdit() {
                 bedrooms,
                 beds,
                 bathrooms,
-                amenities
+                amenities,
+                imgUrls: photos,
+                name: title,
+                summary: currentStep === 14 ? description : `[IN_PROGRESS]${description || ''}`,
+                price
             }
 
             const savedStay = await stayService.save(stayId ? { ...updatedStay, _id: stayId } : updatedStay)
@@ -172,12 +194,17 @@ export function StayEdit() {
                 '/confirm-location',
                 '/floor-plan',
                 '/stand-out',
-                '/amenities'
+                '/amenities',
+                '/photos',
+                '/title',
+                '/description',
+                '/finish-intro',
+                '/price'
             ]
             if (currentStep < nextRoutes.length)
                 navigate(`/stay/edit/${savedStay._id}${nextRoutes[currentStep]}`)
             else {
-                showSuccessMsg('Stay setup complete!')
+                showSuccessMsg('Stay published successfully!')
                 navigate('/hosting/listings')
             }
         } catch (err) {
@@ -197,10 +224,20 @@ export function StayEdit() {
         if (currentStep === 7) navigate(`/stay/edit/${stayId}/confirm-location`)
         if (currentStep === 8) navigate(`/stay/edit/${stayId}/floor-plan`)
         if (currentStep === 9) navigate(`/stay/edit/${stayId}/stand-out`)
+        if (currentStep === 10) navigate(`/stay/edit/${stayId}/amenities`)
+        if (currentStep === 11) navigate(`/stay/edit/${stayId}/photos`)
+        if (currentStep === 12) navigate(`/stay/edit/${stayId}/title`)
+        if (currentStep === 13) navigate(`/stay/edit/${stayId}/description`)
+        if (currentStep === 14) navigate(`/stay/edit/${stayId}/finish-intro`)
     }
 
     const handleSaveExit = async () => {
         try {
+            if (currentStep === 0 || !stayId) {
+                navigate('/hosting/listings')
+                return
+            }
+
             const fullAddress = loc.street
                 ? `${loc.street}${loc.entrance ? `, Entrance ${loc.entrance}` : ''}${loc.apt ? `, Apt ${loc.apt}` : ''}, ${loc.city}${loc.postalCode ? `, ${loc.postalCode}` : ''}, ${loc.country}`
                 : address || stayData.address || ''
@@ -225,7 +262,10 @@ export function StayEdit() {
                 beds,
                 bathrooms,
                 amenities,
-                summary: `[IN_PROGRESS:${savedPath}]${stayData.summary?.replace(/\[IN_PROGRESS:.*?\]/, '') || ''}`
+                imgUrls: photos,
+                name: title,
+                summary: `[IN_PROGRESS:${savedPath}]${description || ''}`,
+                price
             })
             showSuccessMsg('Progress saved')
             navigate('/hosting/listings')
@@ -240,6 +280,9 @@ export function StayEdit() {
         if (currentStep === 3 && !selectedPrivacyType) return true
         if (currentStep === 4 && !address) return true
         if (currentStep === 5 && (!loc.street || !loc.city)) return true
+        if (currentStep === 10 && photos.length < 1) return true
+        if (currentStep === 11 && !title) return true
+        if (currentStep === 12 && !description) return true
         return false
     }
 
@@ -299,6 +342,28 @@ export function StayEdit() {
                     amenities={amenities}
                     setAmenities={setAmenities}
                 />
+            case 10:
+                return <StepPhoto
+                    photos={photos}
+                    setPhotos={setPhotos}
+                />
+            case 11:
+                return <StepTitle
+                    title={title}
+                    setTitle={setTitle}
+                />
+            case 12:
+                return <StepDescription
+                    description={description}
+                    setDescription={setDescription}
+                />
+            case 13:
+                return <StepFinishIntro />
+            case 14:
+                return <StepPrice
+                    price={price}
+                    setPrice={setPrice}
+                />
             default: return null
         }
     }
@@ -337,7 +402,7 @@ export function StayEdit() {
                         onClick={handleNext}
                         disabled={isNextDisabled()}
                     >
-                        Next
+                        {currentStep === 14 ? 'Publish' : 'Next'}
                     </button>
                 </footer>
             )}

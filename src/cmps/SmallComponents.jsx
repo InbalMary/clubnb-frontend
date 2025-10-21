@@ -407,14 +407,15 @@ export function DetailsSkeleton() {
 
 export function ExploreSkeleton({ stays }) {
     return (
-        <div className="loading-overlay">
+
+        <div>
             <div className="skeleton-explore-page">
                 <div className="skeleton-explore-wrapper">
 
                     <div className="skeleton skeleton-title-block"></div>
                     <div className="skeleton-explore-grid">
                         {stays.map(stay => (
-                            <div className="skeleton skeleton-card"
+                            <div className="skeleton-card"
                                 key={stay._id} >
                                 <div className="skeleton skeleton-img"></div>
                                 <div className="stay-info">
@@ -431,6 +432,17 @@ export function ExploreSkeleton({ stays }) {
                 </div>
                 <div className="skeleton map-skeleton"></div>
             </div>
+
+        </div>
+    )
+}
+
+export function DotsLoader() {
+    return (
+        <div className="dots-loader">
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <span className="dot"></span>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 
 import { storageService } from '../async-storage.service'
-import { formatName, makeId } from '../util.service'
+import { formatDate, formatName, makeId } from '../util.service'
 import { userService } from '../user'
 import { demoStays } from '../../data/demo-stays'
 
@@ -131,17 +131,24 @@ async function remove(stayId) {
 }
 
 async function save(stay) {
+    const today = new Date()
+    const fiveDaysLater = new Date()
+    fiveDaysLater.setDate(today.getDate() + 5)
+
+    const stayWithDefaults = {
+        ...stay,
+        startDate: stay.startDate || formatDate(today),
+        endDate: stay.endDate || formatDate(fiveDaysLater),
+        // Later, owner is set by the backend
+        host: stay.host && stay.host._id ? stay.host : userService.getLoggedinUser(),
+        reviews: stay.reviews || [],
+        likedByUsers: stay.likedByUsers || []
+    }
+
     if (stay._id) {
-        return storageService.put(STORAGE_KEY, stay)
+        return storageService.put(STORAGE_KEY, stayWithDefaults)
     } else {
-        const stayToSave = {
-            ...stay,
-            // Later, owner is set by the backend
-            host: stay.host && stay.host._id ? stay.host : userService.getLoggedinUser(),
-            reviews: stay.reviews || [],
-            likedByUsers: stay.likedByUsers || []
-        }
-        return storageService.post(STORAGE_KEY, stayToSave)
+        return storageService.post(STORAGE_KEY, stayWithDefaults)
     }
 }
 

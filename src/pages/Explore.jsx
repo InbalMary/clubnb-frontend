@@ -13,7 +13,6 @@ export function Explore() {
 
     useEffect(() => {
         if (city) {
-            setFilterBy({ city })
             loadStays({ city })
         } else {
             loadStays()
@@ -21,33 +20,37 @@ export function Explore() {
     }, [city])
 
     // if (!type || city) return <ExploreSkeleton stays={stays} />
+    // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
     return (
-        // main-container
         <section className="explore-page ">
-            <div className="items-wrapper">
+            {isLoading ? (
+                <div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
-                {isLoading ? (
-                    <ExploreSkeleton stays={stays} />
-                ) : (
-                    <h4 className='explore-title'>Over {stays?.length - 1} homes in {city}</h4>
-                )}
-                {/* grid of stays */}
-                <div className="explore-grid">
-                    {stays?.map(stay => (
-                        <div
-                            key={stay._id}
-                            onMouseEnter={() => setHoveredId(stay._id)}
-                            onMouseLeave={() => setHoveredId(null)}
-                        >
-                            <StayPreview key={stay._id} stay={stay} isBig={true} />
+            ) : (
+                <>
+                    <div className="items-wrapper">
+
+                        <h4 className='explore-title'>Over {stays?.length - 1} homes in {city}</h4>
+                        {/* grid of stays */}
+                        <div className="explore-grid">
+                            {stays?.filter(stay => !stay.summary?.includes('[IN_PROGRESS:')).map(stay => (
+                                <div
+                                    key={stay._id}
+                                    onMouseEnter={() => setHoveredId(stay._id)}
+                                    onMouseLeave={() => setHoveredId(null)}
+                                >
+                                    <StayPreview key={stay._id} stay={stay} isBig={true} />
+                                </div>
+
+                            ))}
                         </div>
-
-                    ))}
-                </div>
-            </div>
-            <ExploreMap locations={stays} hoveredId={hoveredId} />
-        </section>
+                    </div>
+                    <ExploreMap locations={stays} hoveredId={hoveredId} />
+                </>
+            )
+            }
+        </section >
 
 
     )

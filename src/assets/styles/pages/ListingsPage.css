@@ -220,3 +220,34 @@
 .in-progress-card {
   pointer-events: auto;
 }
+
+.listings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listings-header .plus-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--gray1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  padding: 0;
+  margin-inline-start: 0.75rem;
+  font-size: 1.5rem;
+}
+
+.listings-header .plus-btn:hover {
+  background-color: var(--gray5);
+}
+
+.listings-header .plus-icon {
+  height: 16px;
+  width: 16px;
+}

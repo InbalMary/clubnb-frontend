@@ -18,8 +18,8 @@ export function SearchBar({ initialModal = null }) {
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [activeModal, setActiveModal] = useState(initialModal)
-    // const { dateRange, setDateRange } = useDateRange()
-    const { dateRange, setDateRange } = useDateContext()
+    const { dateRange, setDateRange } = useDateRange()
+    // const { dateRange, setDateRange } = useDateContext()
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
 
     const searchBarRef = useRef(null)
@@ -171,10 +171,16 @@ export function SearchBar({ initialModal = null }) {
     const handleSearch = () => {
         setActiveModal(null)
 
-        if (destination?.name) {
-            const cityKey = destination.name.split(',')[0].trim()
-            navigate(`/explore/city/${cityKey}`)
-        }
+        // if (destination?.name) {
+        //     const cityKey = destination.name.split(',')[0].trim()
+        //     navigate(`/explore/city/${cityKey}`)
+        // }
+        setFilterBy({
+            destination: destination?.name || null,
+            startDate: dateRange.from ? formatDate(dateRange.from) : null,
+            endDate: dateRange.to ? formatDate(dateRange.to) : null,
+            guests,
+        })
     }
     const hasGuestValues = guests.adults > 0 || guests.children > 0 || guests.infants > 0 || guests.pets > 0
 

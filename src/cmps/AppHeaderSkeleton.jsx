@@ -1,6 +1,6 @@
-export function AppHeaderSkeleton({ isCompact, isIndexPage }) {
-	const headerClass = isCompact 
-		? `compact-header full ${isIndexPage ? 'index-page' : ''}`
+export function AppHeaderSkeleton({ isCompact, isIndexPage, isHostPage, isTripsPage, isSticky }) {
+	const headerClass = isCompact
+		? `compact-header full ${!isSticky ? 'no-sticky main-content' : ''} ${isIndexPage ? 'index-page' : ''}`
 		: `app-header full ${isIndexPage ? 'index-page' : ''}`
 
 	const containerClass = isCompact ? 'compact-header-content' : 'nav-bar'
@@ -13,8 +13,16 @@ export function AppHeaderSkeleton({ isCompact, isIndexPage }) {
 					<div className="skeleton skeleton-logo"></div>
 				</div>
 
-				{/* Middle area - search bar skeleton */}
-				{isCompact && (
+				{/* Host navigation skeleton- hosting */}
+				{isCompact && isHostPage && (
+					<nav className="host-navigation">
+						<div className="skeleton skeleton-nav-item"></div>
+						<div className="skeleton skeleton-nav-item"></div>
+					</nav>
+				)}
+
+				{/* Search bar skeleton -(no host and no trips) */}
+				{isCompact && !isHostPage && !isTripsPage && (
 					<div className="compact-search-button skeleton-search-compact">
 						<div className="skeleton skeleton-search-text"></div>
 						<div className="skeleton skeleton-search-divider"></div>
@@ -33,7 +41,7 @@ export function AppHeaderSkeleton({ isCompact, isIndexPage }) {
 				</div>
 			</div>
 
-			{/* Expanded search area skeleton */}
+			{/* Expanded search area skeleton- home page*/}
 			{!isCompact && (
 				<div className="expanded-header-search">
 					<div className="skeleton skeleton-expanded-search"></div>

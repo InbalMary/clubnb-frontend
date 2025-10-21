@@ -45,8 +45,8 @@ export function StayDetails() {
     }
   }, [isLoading])
 
-  // const { dateRange, setDateRange } = useDateRange()
-  const { dateRange, setDateRange } = useDateContext()
+  const { dateRange, setDateRange } = useDateRange()
+  // const { dateRange, setDateRange } = useDateContext()
   
   const [modalType, setModalType] = useState(null)
   const [selectedReviewIdx, setSelectedReviewIdx] = useState(null)

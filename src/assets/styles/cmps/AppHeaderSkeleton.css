@@ -82,3 +82,17 @@
 .skeleton-header.index-page .skeleton {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+.skeleton-nav-item {
+    width: 90px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+.skeleton-header.index-page .skeleton {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.skeleton-header.index-page .skeleton-search-divider {
+    background-color: rgba(255, 255, 255, 0.3);
+}

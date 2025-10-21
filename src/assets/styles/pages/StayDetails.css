@@ -306,6 +306,27 @@
             height: 500px;
         }
 
+        .home-icon-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: var(--gray3);
+            width: 48px;
+            height: 48px;
+            border-radius: 50px;
+
+            .small-square {
+                background: linear-gradient(135deg, rgba(0, 0, 0, 0) 50%, rgb(34, 34, 34) 50%);
+                border-radius: 2px;
+                bottom: -4px;
+                height: 12px;
+                left: 50%;
+                position: absolute;
+                transform: translate(-50%, 0px) rotate(45deg);
+                width: 12px;
+            }
+        }
 
         .where-map {
             padding-block: 1rem;

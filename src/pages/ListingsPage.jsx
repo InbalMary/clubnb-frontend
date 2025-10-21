@@ -3,12 +3,14 @@ import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router'
 import { loadStays } from '../store/actions/stay.actions.js'
 import { formatDateWithFullYear } from '../services/util.service.js'
+import { DotsLoader } from '../cmps/SmallComponents.jsx'
 
 export function ListingsPage() {
   const navigate = useNavigate()
 
   const stays = useSelector(state => state.stayModule.stays)
   const loggedInUser = useSelector(state => state.userModule.user)
+  const isLoading = useSelector(storeState => storeState.userModule.isLoading)
 
   useEffect(() => {
     loadStays()
@@ -48,20 +50,22 @@ export function ListingsPage() {
     navigate(savedPath)
   }
 
-  const getFormattedDate = (timestamp) => {
-    if (!timestamp) return ''
-    const date = new Date(timestamp)
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
-  }
+  if (isLoading) return <DotsLoader />
 
   return (
     <div className="listing-container">
       <main className="main">
-        <h1 className="title">Your listings</h1>
+        <div className="listings-header">
+          <h1 className="title">Your listings</h1>
+          {(inProgressStay || publishedListings.length > 0) && (
+            <button
+              className="plus-btn btn btn-round"
+              onClick={handleCreateListing}
+              aria-label="Add new listing">
+              <img src={`/img/plus.svg`} alt="create another listing" className="plus-icon" />
+            </button>
+          )}
+        </div>
 
         {inProgressStay && (
           <section className="in-progress-section">
@@ -89,7 +93,7 @@ export function ListingsPage() {
               <div className="listing-details">
                 <h3 className="listing-title">
                   Your {inProgressStay.type || 'Apartment'} listing started{' '}
-                  {formatDateWithFullYear(inProgressStay.createdAt)}
+                  {formatDateWithFullYear(inProgressStay.startDate)}
                 </h3>
                 <p className="listing-subtitle">
                   {inProgressStay.loc?.city
@@ -101,25 +105,7 @@ export function ListingsPage() {
           </section>
         )}
 
-        {publishedListings.length === 0 && !inProgressStay ? (
-          <div className="empty-state">
-            <div className="icon-container">
-              <img
-                className="house-icon"
-                src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/4aae4ed7-5939-4e76-b100-e69440ebeae4.png?im_w=240"
-                alt="House icon"
-              />
-            </div>
-
-            <p className="empty-text">
-              Create a listing with Clubnb Setup and start getting booked.
-            </p>
-
-            <button onClick={handleCreateListing} className="btn create-button">
-              Create listing
-            </button>
-          </div>
-        ) : publishedListings.length > 0 ? (
+        {publishedListings.length > 0 && (
           <section className="listing-list-section">
             <h2 className="section-title">Published listings</h2>
             <ul className="listing-preview-list">
@@ -153,7 +139,27 @@ export function ListingsPage() {
               ))}
             </ul>
           </section>
-        ) : null}
+        )}
+
+        {!inProgressStay && publishedListings.length === 0 && (
+          <div className="empty-state">
+            <div className="icon-container">
+              <img
+                className="house-icon"
+                src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/4aae4ed7-5939-4e76-b100-e69440ebeae4.png?im_w=240"
+                alt="House icon"
+              />
+            </div>
+
+            <p className="empty-text">
+              Create a listing with Clubnb Setup and start getting booked.
+            </p>
+
+            <button onClick={handleCreateListing} className="btn create-button">
+              Create listing
+            </button>
+          </div>
+        )}
       </main>
     </div>
   )

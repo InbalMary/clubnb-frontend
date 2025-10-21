@@ -288,8 +288,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-05"
+        "startDate": "2025-12-21",
+        "endDate": "2025-12-25"
     },
     {
         "_id": "city-010",
@@ -431,8 +431,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-05"
+        "startDate": "2025-12-04",
+        "endDate": "2025-12-15"
     },
     {
         "_id": "city-011",
@@ -717,8 +717,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-05"
+        "startDate": "2025-11-11",
+        "endDate": "2025-11-25"
     },
     {
         "_id": "city-045",
@@ -1432,8 +1432,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-05"
+        "startDate": "2025-12-29",
+        "endDate": "2026-1-05"
     },
     //////////////PARIS
 
@@ -2282,8 +2282,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-25"
+        "startDate": "2025-12-20",
+        "endDate": "2025-12-29"
     },
 
     {
@@ -5804,6 +5804,8 @@ export const demoStays = [
         "startDate": "2025-11-02",
         "endDate": "2025-11-07"
     },
+
+
     {
         "_id": "city-006",
         "name": "New York Downtown Studio",
@@ -8876,8 +8878,125 @@ export const demoStays = [
         "likedByUsers": [],
         "startDate": "2025-11-15",
         "endDate": "2025-11-22"
-    }
+    },
 
+    {
+        "_id": "villa0443",
+        "name": "Bucharest Luxury Escape",
+        "type": "Villas",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/17839fc7-2fe8-4138-bb6a-c4807e5ad696.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-783318457757912864/original/686ba598-7cf1-447d-bd85-469370f188d4.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-49033715/original/cf3a8fe5-2aed-48ff-90c7-e064ac611593.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-49033715/original/de592d02-49c0-49a3-87c3-a7e5299b2617.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-17834311/original/58f048dd-ad7d-4817-ae1e-94148da67a77.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/12a52192-c3bf-43e2-9707-6598be1e1d56.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/67087c91-e030-4b43-9927-c8ee2de1f746.jpg?im_w=720",
+        ],
+        "cleaningFee": 45,
+        "price": 400,
+        "summary": "Elegant villa in central Bucharest, Romania’s vibrant capital. Combines modern design with cozy European charm.\n\nTwo bedrooms, a spacious living area, and a fully equipped kitchen provide comfort for up to five guests. Relax on the terrace or stroll to local cafes, boutiques, and historic landmarks.\n\nPerfect for families, couples, or friends seeking a stylish city retreat in the heart of Bucharest.",
+        "rooms": [
+            {
+                "roomType": "living room",
+                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-51191183/original/61af37c6-0d27-49d0-91d7-6fca59ca2e01.jpeg?im_w=720",
+                "bedType": "sofa bed"
+            },
+            {
+                "roomType": "bedroom",
+                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-783318457757912864/original/686ba598-7cf1-447d-bd85-469370f188d4.jpeg?im_w=720",
+                "bedType": "double bed"
+            }
+        ],
+        "guests": 5,
+        "bathrooms": 2,
+        "bedrooms": 2,
+        "beds": 2,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "bedroom.extraPillows",
+            "bedroom.roomShades",
+            "kitchen.coffeeMaker",
+            "kitchen.dishes",
+            "outdoor.privatePatio",
+            "location.beach",
+            "features.breakfast",
+            "safety.smokeAlarm"
+        ],
+        "highlights": [
+            {
+                "main": "Central Location",
+                "sub": "Just steps from Bucharest’s main attractions and vibrant nightlife.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Historic District",
+                "sub": "Located in a charming area close to Bucharest’s Old Town.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Private Terrace",
+                "sub": "Enjoy morning coffee or evening relaxation on the outdoor terrace.",
+                "imgUrl": "outdoor.privatePatio"
+            }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-tlv-05",
+            "firstName": "Tal",
+            "fullname": "Tal Ben-David",
+            "location": "Bucharest, Romania",
+            "about": "I enjoy helping guests discover the hidden gems of Bucharest while enjoying a relaxing stay.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/12.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1614556800000,
+            "rating": 4.93,
+            "numReviews": 78,
+            "yearsHosting": 3,
+            "responseRate": 95,
+            "responseTime": "within a few hours",
+            "coHosts": [],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Bucharest" },
+                { "icon": "work", "text": "Passionate about local culture and hosting" }
+            ]
+        },
+        "loc": {
+            "country": "Romania",
+            "countryCode": "RO",
+            "city": "Bucharest",
+            "address": "Central Bucharest, Romania",
+            "lat": 44.4268,
+            "lng": 26.1025
+        },
+        "reviews": [
+            {
+                "at": "2024-04-05T00:00:00.000Z",
+                "by": { "_id": "r-801", "fullname": "Maya", "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg" },
+                "txt": "Beautiful villa in a quiet yet central location. The terrace is lovely, and the city center is just a short walk away. Tal was a fantastic host.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-05-10T00:00:00.000Z",
+                "by": { "_id": "r-802", "fullname": "Shai", "imgUrl": "https://randomuser.me/api/portraits/men/57.jpg" },
+                "txt": "Perfect spot for a relaxing getaway. The interiors are stylish, clean, and comfortable. Loved exploring Bucharest’s Old Town nearby.",
+                "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 5, "location": 5, "value": 4.9 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "startDate": "2025-11-15",
+        "endDate": "2025-11-22"
+    }
 
 
 

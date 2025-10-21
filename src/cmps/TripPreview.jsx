@@ -12,6 +12,10 @@ export function TripPreview({ order }) {
     return (
         <article className="trip-preview">
             <div className='trip-image-wrapper'>
+                <div className="status-badge">
+                  <span className={`status-dot ${order.status}`}></span>
+                  {order.status}
+                </div>
                 <Link to={`/stay/${stay._id}`} className='trip-link'>
                     <img
                         src={stay.imgUrls?.[0] || stay.imgUrl || 'https://picsum.photos/200/200?random=1'}
