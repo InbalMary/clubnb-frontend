@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router";
-import { useSHowOnScroll } from "../customHooks/useShowOnScroll";
+import { useIsShortPage, useSHowOnScroll } from "../customHooks/useShowOnScroll";
 import { MiniStickyContainer } from "./SmallComponents";
 
 export function StayHeader({ refs, stay, startDate, endDate }) {
@@ -11,7 +11,7 @@ export function StayHeader({ refs, stay, startDate, endDate }) {
 
     const stickyHeader = useSHowOnScroll(570)
     const stickyReserve = useSHowOnScroll(2450)
-    const isShortPage =  useSHowOnScroll(1300)
+    const isShortPage = useIsShortPage(1200)
 
     function handleClick() {
         const from = startDate
@@ -36,9 +36,13 @@ export function StayHeader({ refs, stay, startDate, endDate }) {
                         <span className="span-nav" onClick={() => scrollToSection(refs.reviewRef)}>Reviews <div className="border-bot"></div></span>
                         <span className="span-nav" onClick={() => scrollToSection(refs.locationRef)}>Location <div className="border-bot"></div></span>
 
-                        {stickyReserve  &&
+                        {isShortPage ? (
                             <MiniStickyContainer stay={stay} startDate={startDate} endDate={endDate} onClick={handleClick} />
-                        }
+                        ) : (
+                            stickyReserve && (
+                                <MiniStickyContainer stay={stay} startDate={startDate} endDate={endDate} onClick={handleClick} />
+                            )
+                        )}
                     </nav>
 
                 </div>

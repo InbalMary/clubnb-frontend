@@ -52,7 +52,7 @@ export function StayRating({ reviews }) {
             return {
                 category,
                 formattedName: formatName(category),
-                avg: avg || 0,
+                avg: avg || null,
                 svg: svgs?.[category] || null
             }
         })
@@ -61,6 +61,7 @@ export function StayRating({ reviews }) {
     }
 
     function getAvgRate(reviews) {
+        if (!reviews?.length) return 0
         let totalSum = 0
         let totalReviews = 0
 
