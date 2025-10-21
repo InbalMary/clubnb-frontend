@@ -5,16 +5,17 @@ import { useSelector } from 'react-redux'
 import { formatStayDates, calculateNights, formatDate } from '../services/util.service.js'
 import { svgControls, statSvgs } from './Svgs.jsx'
 import { Modal } from './Modal.jsx'
-import { showSuccessMsg } from '../services/event-bus.service.js'
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { SingleImgCarousel } from './SingleImgCarousel.jsx'
 import { addWishlist, removeStayFromWishlist, removeWishlist } from '../store/actions/wishlist.actions.js'
 
 export function StayPreview({ stay, isBig = false }) {
-    // console.log('Stay recieved in preview:', stay);
-    const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
-    const navigate = useNavigate()
+    const navigate = useNavigate() //TEMPORARY
     const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
-    const [isAddedToWishlist, setIsAddedToWishlist] = useState(false)
+    const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
+    const isAddedToWishlist = wishlists.some(wl =>
+        wl.stays.some(stayInList => stayInList._id === stay._id)
+    )
 
     const isGuestFavorite = stay.host?.rating > 4.8
 
@@ -41,9 +42,8 @@ export function StayPreview({ stay, isBig = false }) {
             const savedWishlist = await addWishlist(newWishlist)
             console.log(`${stay.name} was added to wishlist ${savedWishlist.title}`)
             showSuccessMsg(`Created wishlist ${savedWishlist.title}`, stay.imgUrls?.[0])
-            navigate('/wishlists')
+            navigate('/wishlists') //Temporary navigate
 
-            setIsAddedToWishlist(true) // heart becomes red
             setIsWishlistModalOpen(false)
         } catch (err) {
             console.error('Cannot create wishlist', err)
@@ -61,7 +61,6 @@ export function StayPreview({ stay, isBig = false }) {
                     if (wishlistWithStay.stays.length === 1) {
                         await removeWishlist(wishlistWithStay._id)
                         console.log('Removed entire wishlist', wishlistWithStay._id)
-                        console.log('Deleting from wishlistWithStay:', wishlistWithStay)
                         showSuccessMsg(`Wishlist ${wishlistWithStay.title} deleted`, stay.imgUrls?.[0])
                     } else {
                         await removeStayFromWishlist(wishlistWithStay, stay._id)
@@ -69,12 +68,12 @@ export function StayPreview({ stay, isBig = false }) {
                         showSuccessMsg(`Removed from wishlist ${wishlistWithStay.title}`, stay.imgUrls?.[0])
                     }
                 }
-                setIsAddedToWishlist(false) // heart unclicked
             } else {
                 setIsWishlistModalOpen(true)
             }
         } catch (err) {
             console.error('Error toggling wishlist:', err)
+            showErrorMsg('Could not update wishlist, please try again.')
         }
     }
 
