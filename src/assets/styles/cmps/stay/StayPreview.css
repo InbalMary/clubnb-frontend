@@ -66,9 +66,8 @@
 
 .preview-carousel-btn {
     position: absolute;
-    top: 50%;
-    bottom: 50%;
-    transform: translate(-50% -50%);
+    top: 45%;
+    transform: translate(-30% );
     width: 1.8rem;
     height: 1.8rem;
     background-color: #ffffffd1;
