@@ -1,15 +1,23 @@
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { loadStays, setFilterBy } from '../store/actions/stay.actions'
+import { loadStays } from '../store/actions/stay.actions'
 import { StayPreview } from '../cmps/StayPreview'
 import { ExploreMap } from '../cmps/ExploreMap'
 import { ExploreSkeleton } from '../cmps/SmallComponents'
+import { useClickOutside } from '../customHooks/useClickOutside'
 
 export function Explore() {
     const { city } = useParams()
     const { stays, isLoading } = useSelector(storeState => storeState.stayModule)
+
     const [hoveredId, setHoveredId] = useState(null)
+    const [focusedStayId, setFocusedStayId] = useState(null)
+    const previewRef = useRef(null)
+
+    useClickOutside([previewRef], () => {
+        setFocusedStayId(null)
+    })
 
     useEffect(() => {
         if (city) {
@@ -35,18 +43,30 @@ export function Explore() {
                         {/* grid of stays */}
                         <div className="explore-grid">
                             {stays?.filter(stay => !stay.summary?.includes('[IN_PROGRESS:')).map(stay => (
-                                <div
+                                <div className="div-for-focus"
                                     key={stay._id}
                                     onMouseEnter={() => setHoveredId(stay._id)}
                                     onMouseLeave={() => setHoveredId(null)}
+
+                                tabIndex={0}
                                 >
-                                    <StayPreview key={stay._id} stay={stay} isBig={true} />
+                                    <StayPreview key={stay._id}
+                                        ref={previewRef}
+                                        stay={stay}
+                                        isBig={true}
+                                        isFocused={focusedStayId === stay._id}
+                                        // onRequestFocus={() => setFocusedStayId(stay._id)}
+                                        onRequestFocus={() => {
+                                            console.log('Focus requested for', stay._id)
+                                            setFocusedStayId(stay._id)
+                                        }}
+                                    />
                                 </div>
 
                             ))}
                         </div>
                     </div>
-                    <ExploreMap locations={stays} hoveredId={hoveredId} />
+                    <ExploreMap tabIndex={0} locations={stays} hoveredId={hoveredId} />
                 </>
             )
             }

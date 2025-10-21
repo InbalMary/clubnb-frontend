@@ -42,6 +42,19 @@
     font-size: 14px;
 }
 
+.div-for-focus {
+    padding: 2px;
+
+    &:focus {
+        border-radius: 23px;
+    }
+}
+
+.div-for-focus:focus .preview-carousel-controls {
+        visibility: visible;
+
+}
+
 .stay-preview.big .stay-info * {
     font-size: 0.955rem;
     color: var(--gray2);
