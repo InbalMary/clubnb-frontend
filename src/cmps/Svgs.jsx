@@ -277,6 +277,16 @@ export const svgControls = {
     </svg>,
     chevronUp: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style={{ stroke: "#222222", strokeWidth: 4, display: "block", height: "16px", width: "16px" }}>
         <path fill="none" d="M4 20 15.3 8.7a1 1 0 0 1 1.4 0L28 20"></path>
+    </svg>,
+    deleteeModal: <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16 16"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        style={{ display: "block", height: "16px", width: "16px", fill: "currentColor" }}
+    >
+        <path d="M10 .38c.31 0 .57.23.62.53V2.5H14v2h-1V14a1 1 0 0 1-.88 1H4a1 1 0 0 1-1-.88V4.5H2v-2h3.38V1c0-.31.23-.57.53-.62H10zM6.12 4.5H4.88v9h1.25v-9zm2.5 0H7.38v9h1.25v-9zm2.5 0H9.88v9h1.24v-9zM9.38 1.62H6.62v.88h2.75v-.87z" />
     </svg>
 }
 

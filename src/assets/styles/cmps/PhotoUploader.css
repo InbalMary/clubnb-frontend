@@ -1,0 +1,158 @@
+.upload-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.upload-modal {
+    background: var(--white);
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 35rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 0.5rem 1.75rem rgba(0, 0, 0, 0.28);
+}
+
+.upload-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem 0.25rem;
+}
+
+.upload-modal-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gray3);
+    margin: 0;
+}
+
+.upload-modal-subtitle {
+    font-size: 0.875rem;
+    color: var(--gray2);
+    text-align: center;
+    margin: 0;
+}
+
+.header-modal-action-icons {
+    height: 1.125rem;
+    width: 1.125rem;
+}
+
+.modal-close-button,
+.modal-add-button,
+.modal-delete-button,
+.browse-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close-button,
+.modal-add-button {
+    background: none;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.modal-delete-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+}
+
+.modal-delete-button svg {
+  width: 60%;
+  height: 60%;
+  fill: var(--white);
+}
+
+.modal-close-button:hover,
+.modal-add-button:hover {
+    background: var(--gray8);
+}
+
+.upload-drop-zone {
+    margin: 1.5rem;
+    padding: 1.5rem 0.5rem;
+    border: 2px dashed var(--gray6);
+    border-radius: 0.75rem;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.upload-drop-zone.drag-active {
+    border-color: var(--gray3);
+    background: var(--gray8);
+}
+
+.upload-icon {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.upload-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--gray3);
+    margin: 0 0 0.5rem 0;
+}
+
+.upload-subtitle {
+    font-size: 1rem;
+    color: var(--gray2);
+    margin: 0 0 1.5rem 0;
+}
+
+.upload-modal-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--gray4);
+}
+
+.back-button {
+    text-decoration: none;
+}
+
+.modal-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+    max-height: 25rem;
+    overflow-y: auto;
+}
+
+.modal-preview-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: var(--gray8);
+}
+
+.modal-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-photo {
+    height: 4rem;
+    width: 4rem;
+}
+
+.browse-button {
+    width: fit-content;
+    margin-inline: auto;
+}

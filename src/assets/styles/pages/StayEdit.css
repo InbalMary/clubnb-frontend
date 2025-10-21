@@ -388,8 +388,13 @@
     background: var(--reserve-btn-hover);
 }
 
-.selection-title.step-title,
-.address-form-title {
+.basics-title.step-title,
+.address-form-title,
+.selection-header-wrapper .step-title,
+.step-photo-title.step-title,
+.step-title-heading.step-title,
+.step-description-heading.step-title,
+.step-price-heading.step-title {
     margin-block-end: 0.5rem;
 }
 
@@ -602,7 +607,7 @@
     color: var(--gray2);
     line-height: 1.5rem;
     margin: 0;
-    margin-block-end: 0.75rem;
+    margin-block-end: 2rem;
     text-align: left;
 }
 
