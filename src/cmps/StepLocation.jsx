@@ -117,8 +117,10 @@ export function StepLocation({ address, setAddress, location, setLocation, loc, 
                     {showDropdown && (
                         <div className="location-dropdown">
                             <button className="location-dropdown-item current-location" type="button" onClick={handleCurrentLocation}>
-                                <img src={`/img/step3/cur-loc.svg`} alt="current location" className="step4-icon" />
-                                <span>Use my current location</span>
+                                <div className="loc-icon-wrap">
+                                    <img src={`/img/step3/cur-loc.svg`} alt="current location" className="step4-icon" />
+                                </div>
+                                <span className="cur-loc">Use my current location</span>
                             </button>
 
                             {suggestions.length > 0 && <div className="dropdown-divider"></div>}
@@ -130,8 +132,10 @@ export function StepLocation({ address, setAddress, location, setLocation, loc, 
                                     className="location-dropdown-item"
                                     onClick={() => handlePredictionSelect(suggestion)}
                                 >
-                                    <img src={`/img/step3/loc.svg`} alt="current location" className="step4-icon" />
-                                    <span>{suggestion.description}</span>
+                                    <div className="loc-icon-wrap">
+                                        <img src={`/img/step3/loc.svg`} alt="current location" className="step4-icon" />
+                                    </div>
+                                    <span className="cur-loc">{suggestion.description}</span>
                                 </button>
                             ))}
                         </div>

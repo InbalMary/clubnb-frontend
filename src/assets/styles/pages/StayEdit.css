@@ -61,7 +61,7 @@
 
 .step-left {
     flex: 1;
-    max-width: 600px;
+    max-width: 630px;
 }
 
 .step-label {
@@ -83,6 +83,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 500px;
 }
 
 .step-video {
@@ -97,8 +98,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 5rem;
-    padding-top: 6.5rem;
+    justify-content: space-between;
+    /* padding: 3rem 5rem; */
+    padding-block-start: 6.5rem;
+    padding-block-end: 5rem;
     max-width: 75rem;
     margin: 0 auto;
     width: 100%;
@@ -122,7 +125,7 @@
     background: var(--white);
     cursor: pointer;
     transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
-    min-height: 7rem;
+    /* min-height: 7rem; */
     position: relative;
 }
 
@@ -148,7 +151,7 @@
 
 .place-icon {
     font-size: 2rem;
-    margin-bottom: 0.75rem;
+    /* margin-bottom: 0.75rem; */
 }
 
 .place-label {
@@ -283,9 +286,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: clamp(3rem, 10vw, 18.75rem);
+    gap: clamp(3rem, 10vw, 6rem);
     max-width: 80rem;
     margin: 0 auto;
+    margin-block-end: 2rem;
     width: 100%;
 }
 
@@ -296,14 +300,18 @@
 }
 
 .step-title {
-    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-size: 32px;
     font-weight: 600;
     line-height: 1.1;
     color: var(--gray3);
     margin: 0;
-    margin-block-end: 1rem;
+    margin-block-end: 1.5rem;
     text-align: left;
     max-width: 650px;
+}
+
+.main-step-title {
+    font-size: 48px;
 }
 
 .welcome-right {
@@ -326,6 +334,10 @@
 
 .welcome-step:last-child {
     border-bottom: none;
+}
+
+.welcome-title {
+    font-size: 56px;
 }
 
 .step-info {
@@ -376,6 +388,16 @@
     background: var(--reserve-btn-hover);
 }
 
+.selection-title.step-title,
+.address-form-title {
+    margin-block-end: 0.5rem;
+}
+
+.selection-subtitle.step-subtitle,
+.address-form-subtitle.step-subtitle {
+    margin-block-end: 2.5rem;
+}
+
 .address-form-content {
     max-width: 39.375rem;
     width: 100%;
@@ -383,7 +405,7 @@
 
 .country-field {
     margin-bottom: 1.5rem;
-    border: 1px solid var(--gray6);
+    border: 1px solid var(--gray9);
     border-radius: 0.5rem;
     overflow: hidden;
 }
@@ -393,7 +415,7 @@
     flex-direction: column;
     gap: 0;
     background-color: var(--white);
-    border: 1px solid var(--gray6);
+    border: 1px solid var(--gray9);
     border-radius: 0.5rem;
     overflow: hidden;
 }
@@ -402,7 +424,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    border-bottom: 1px solid var(--gray6);
+    border-bottom: 1px solid var(--gray9);
 }
 
 .form-field:last-child {
@@ -458,12 +480,12 @@
 /* step basics */
 .basics-header {
     text-align: center;
-    margin-bottom: 2rem;
+    max-width: 530px;
 }
 
 .basics-list {
     width: 100%;
-    max-width: 39.375rem;
+    max-width: 530px;
 }
 
 .basics-item {
@@ -523,6 +545,15 @@
     text-align: center;
 }
 
+.step-selection-content.step-container,
+.step-basics-content.step-container {
+    justify-content: flex-start;
+}
+
+.step-basics-content.basics-header {
+    text-align: start;
+}
+
 /* stand out step */
 .step-intro-content {
     flex-direction: row;
@@ -535,6 +566,8 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    max-width: 450px;
+    margin-left: auto;
 }
 
 .intro-description {
@@ -548,6 +581,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 500px;
 }
 
 /* amenities step */
