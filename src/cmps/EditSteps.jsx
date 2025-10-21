@@ -465,7 +465,7 @@ export function StepPhoto({ photos, setPhotos }) {
                     </div>
 
                     <button
-                        className="btn btn-black add-photos-button"
+                        className="create-button btn"
                         onClick={() => setIsModalOpen(true)}
                     >
                         Add photos

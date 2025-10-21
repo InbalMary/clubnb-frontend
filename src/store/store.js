@@ -5,6 +5,7 @@ import { userReducer } from './reducers/user.reducer'
 import { msgReducer } from './reducers/msg.reducer'
 import { systemReducer } from './reducers/system.reducer'
 import { orderReducer } from './reducers/order.reducer'
+import { wishlistReducer } from './reducers/wishlist.reducer'
 
 const rootReducer = combineReducers({
     stayModule: stayReducer,
@@ -12,10 +13,11 @@ const rootReducer = combineReducers({
     systemModule: systemReducer,
     msgModule: msgReducer,
     orderModule: orderReducer,
+    wishlistModule: wishlistReducer,
 })
 
 
-const middleware = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() : undefined
+const middleware = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() : undefined
 export const store = createStore(rootReducer, middleware)
 
 // For debug:

@@ -116,8 +116,7 @@ export function ListingsPage() {
                       <img
                         src={
                           stay.imgUrls?.[0] ||
-                          stay.imgUrl ||
-                          'https://picsum.photos/300/300?random=2'
+                          stay.imgUrl || `/img/upload-photo.svg`
                         }
                         alt={stay.name}
                         className="listing-image"
