@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { ImgUploader } from "./ImgUploader"
+import { PhotoUploader } from "./PhotoUploader"
 
 export function WelcomeStep({ onNext }) {
     return (
@@ -414,6 +415,7 @@ export function StepAmenities({ amenities, setAmenities }) {
 
 export function StepPhoto({ photos, setPhotos }) {
     const [uploadedImages, setUploadedImages] = useState(photos || [])
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     const defaultImages = [
         "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM2ODA5NTAwMDQ2NDMzNTkwNA==/original/03a602e5-5a6f-41f1-9c55-793b70fb8c90.jpeg?im_w=720",
@@ -442,9 +444,11 @@ export function StepPhoto({ photos, setPhotos }) {
     }, [uploadedImages])
 
     const handleImageUpload = (imgUrl) => {
-        const newImages = [...uploadedImages, imgUrl]
-        setUploadedImages(newImages)
-        setPhotos(newImages)
+        setUploadedImages(prev => {
+            const newImages = [...prev, imgUrl]
+            setPhotos(newImages)
+            return newImages
+        })
     }
 
     return (
@@ -460,7 +464,12 @@ export function StepPhoto({ photos, setPhotos }) {
                         <img src="/img/camera.png" alt="camera" className="camera-icon" />
                     </div>
 
-                    <ImgUploader onUploaded={handleImageUpload} />
+                    <button
+                        className="create-button btn"
+                        onClick={() => setIsModalOpen(true)}
+                    >
+                        Add photos
+                    </button>
 
                     {uploadedImages.length > 0 && (
                         <div className="uploaded-images-preview">
@@ -471,6 +480,12 @@ export function StepPhoto({ photos, setPhotos }) {
                     )}
                 </div>
             </div>
+
+            <PhotoUploader
+                onUploaded={handleImageUpload}
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
         </div>
     )
 }

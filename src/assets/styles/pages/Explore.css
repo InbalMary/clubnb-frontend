@@ -1,6 +1,7 @@
 .explore-page {
     position: relative;
     margin-top: 96px;
+    padding-inline: 3rem;
     display: grid;
     grid-template-columns: minmax(auto, 49rem) minmax(24.5rem, auto);
     grid-template-areas:
