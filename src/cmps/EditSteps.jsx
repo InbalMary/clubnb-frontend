@@ -444,9 +444,11 @@ export function StepPhoto({ photos, setPhotos }) {
     }, [uploadedImages])
 
     const handleImageUpload = (imgUrl) => {
-        const newImages = [...uploadedImages, imgUrl]
-        setUploadedImages(newImages)
-        setPhotos(newImages)
+        setUploadedImages(prev => {
+            const newImages = [...prev, imgUrl]
+            setPhotos(newImages)
+            return newImages
+        })
     }
 
     return (
