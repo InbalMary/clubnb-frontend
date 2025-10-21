@@ -1,5 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router'
+import { useEffect } from 'react'
 
+import { loadWishlists } from './store/actions/wishlist.actions.js'
 import { StayIndex } from './pages/StayIndex.jsx'
 import { MsgIndex } from './pages/MsgIndex.jsx'
 import { ChatApp } from './pages/Chat.jsx'
@@ -22,6 +24,8 @@ import { TripIndex } from './pages/TripIndex.jsx'
 import { ReservationsPage } from './pages/ReservationsPage.jsx'
 import { ListingsPage } from './pages/ListingsPage.jsx'
 import { Explore } from './pages/Explore.jsx'
+import { WishlistIndex } from './pages/WishlistIndex.jsx'
+import { WishlistDetails } from './pages/WishlistDetails.jsx'
 
 export function RootCmp() {
     const {
@@ -31,6 +35,7 @@ export function RootCmp() {
         isStayDetailsPage,
         isConfirmPayPage,
         isTripsPage,
+        isWishlistPage,
         headerRef,
         handleSearchClick,
         handleCollapse
@@ -39,6 +44,9 @@ export function RootCmp() {
     useClickOutside([headerRef], () => {
         if (isExpanded && initialModal) handleCollapse()
     })
+    useEffect(() => {
+        loadWishlists()
+    }, [])
 
     return (
         <div>
@@ -52,6 +60,7 @@ export function RootCmp() {
                         onCollapse={handleCollapse}
                         isSticky={!isStayDetailsPage}
                         isTripsPage={isTripsPage}
+                        isWishlistPage={isWishlistPage}
                     />
                 </div>
             )}
@@ -90,7 +99,8 @@ export function RootCmp() {
                     <Route path="stay/:stayId/confirm-pay" element={<ConfirmPay />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="trips" element={<TripIndex />} />
-
+                    <Route path="wishlists" element={<WishlistIndex />} />
+                    <Route path="/wishlists/:id" element={<WishlistDetails />} />
                     <Route path="messages" element={<MsgIndex />} />
                     {/* <Route path="chat" element={<ChatApp />} /> */}
                     <Route path="hosting" element={<BecomeHostForm />} />

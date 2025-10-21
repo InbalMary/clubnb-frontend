@@ -16,6 +16,7 @@ export function useHeaderState() {
     const isTripsPage = location.pathname === '/trips'
     const isHostPage = location.pathname.includes("hosting")
     const isExplorePage = location.pathname.startsWith("/explore/")
+    const isWishlistPage = location.pathname.startsWith("/wishlist")
 
     const showBackdrop = (isExpanded && initialModal) || (isStayDetailsPage && isExpanded)
 
@@ -31,7 +32,7 @@ export function useHeaderState() {
         if (prevPath !== '/' && isIndexPage) {
             setIsExpanded(true)
             setHasScrolled(false)
-        } else if (isTripsPage || isHostPage || isExplorePage || isStayEditPage) {
+        } else if (isTripsPage || isWishlistPage || isHostPage || isExplorePage || isStayEditPage) {
             setIsExpanded(false)
             setHasScrolled(true)
         } else {
@@ -44,7 +45,7 @@ export function useHeaderState() {
 
     // Handle scroll behavior
     useEffect(() => {
-        if (isStayDetailsPage || isStayEditPage || isTripsPage || isHostPage || isExplorePage) {
+        if (isStayDetailsPage || isStayEditPage || isTripsPage || isWishlistPage || isHostPage || isExplorePage) {
             if (!initialModal) setIsExpanded(false)
             return
         }
@@ -66,7 +67,7 @@ export function useHeaderState() {
 
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
-    }, [isExpanded, initialModal, isStayDetailsPage, isStayEditPage, isTripsPage, isHostPage, isExplorePage, hasScrolled])
+    }, [isExpanded, initialModal, isStayDetailsPage, isStayEditPage, isTripsPage, isWishlistPage, isHostPage, isExplorePage, hasScrolled])
 
     const handleSearchClick = (modalType) => {
         setInitialModal(modalType)
@@ -95,6 +96,7 @@ export function useHeaderState() {
         isStayEditPage,
         isConfirmPayPage,
         isTripsPage,
+        isWishlistPage,
         headerRef,
         handleSearchClick,
         handleCollapse
