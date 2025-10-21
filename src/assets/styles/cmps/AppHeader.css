@@ -276,3 +276,15 @@ body:has(.app-header) .stay-index {
 body:has(.compact-header) .main-container .stay-details {
     margin-block-start: 96px;
 }
+
+@media (max-width: 768px) {
+
+    .app-header .search-bar-wrapper, 
+    .app-header .nav-bar {
+        display: none;        
+    }
+
+    .app-header {
+        min-height: 7rem;
+    }
+}

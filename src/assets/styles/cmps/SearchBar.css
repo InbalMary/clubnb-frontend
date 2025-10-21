@@ -15,7 +15,7 @@
   border: 1px solid var(--gray6);
   border-radius: 32px;
   background-color: var(--white);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);  
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   height: 66px;
   max-width: 850px;
   width: 100%;
@@ -68,7 +68,7 @@
 
 .search-bar-wrapper .search-item-container .search.close-btn:hover {
   transition: 0.3s;
-  background-color: var( --gray1);
+  background-color: var(--gray1);
 }
 
 .search-bar-wrapper .search-item-container .search.close-btn svg {
@@ -85,7 +85,7 @@
 }
 
 .search-section:not(.active) .search.close-btn {
-    display: none;
+  display: none;
 }
 
 .search-section-who {
@@ -159,7 +159,7 @@
   opacity: 1;
 }
 
-.search-section:hover + .search-divider,
+.search-section:hover+.search-divider,
 .search-divider:has(+ .search-section:hover) {
   opacity: 0;
   transition: opacity 0.15s ease;
@@ -194,6 +194,96 @@
   stroke-width: 4;
   overflow: visible;
 }
+
+.search-bar-mobile-wrapper .anywhere-icon,
+.search-bar-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .search-bar-wrapper {
+    display: none;
+  }
+
+  .search-bar-mobile-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .search-bar-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 0.9em 1.4em;
+    font-size: 1rem;
+    color: #333;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    width: 90%;
+    max-width: 320px;
+    transition: all 0.25s ease;
+  }
+
+  /* אפקט עדין בלחיצה */
+  .search-bar-mobile:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  }
+
+  /* האייקון של זכוכית המגדלת */
+  .search-bar-mobile span:first-child svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 3;
+    color: var(--gray3);
+  }
+
+  /* הטקסט Start your search */
+  .search-bar-mobile span:last-child {
+    font-weight: 500;
+    color: #555;
+  }
+
+  /* האייקון של Anywhere */
+  .compact-search-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-bar-mobile-wrapper .anywhere-icon {
+    display: block;
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+  }
+
+  .anywhere-icon:hover {
+    transform: scale(1.05);
+  }
+
+  .search-mobile-icon {
+    width: 18px;
+    height: 18px;
+    stroke: #555;
+    stroke-width: 3.5;
+    fill: none;
+  }
+
+  
+}
+
+
+
 
 
 

@@ -185,93 +185,111 @@ export function SearchBar({ initialModal = null }) {
     const hasGuestValues = guests.adults > 0 || guests.children > 0 || guests.infants > 0 || guests.pets > 0
 
     return (
-        <div className="search-bar-wrapper" ref={searchBarRef}>
-            <div className="search-item-container">
-                <WhereAutocomplete
-                    ref={whereModalRef}
-                    destinations={destinations}
-                    isOpen={activeModal === 'where'}
-                    onOpenChange={(open) => setActiveModal(open ? 'where' : null)}
-                    onDestinationSelect={handleDestinationSelect}
-                />
+        <div className="search-bar-container">
+            <div className="search-bar-mobile-wrapper">
+                <div className="search-bar-mobile"
+                    onClick={() => setActiveModal("where")}>
+                    <span>{appHeaderSvg.search}</span>
+                    <span>Start your search</span>
+                </div>
+                <span className="compact-search-icon">
+                    <img
+                        className="anywhere-icon"
+                        src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/4aae4ed7-5939-4e76-b100-e69440ebeae4.png?im_w=240"
+                        alt=""
+                    />
+                </span>
+            </div>
 
-                <div className="search-divider"></div>
+            <div className="search-bar-wrapper" ref={searchBarRef}>
+                <div className="search-item-container">
+                    <WhereAutocomplete
+                        ref={whereModalRef}
+                        destinations={destinations}
+                        isOpen={activeModal === 'where'}
+                        onOpenChange={(open) => setActiveModal(open ? 'where' : null)}
+                        onDestinationSelect={handleDestinationSelect}
+                    />
 
-                <DateSelector
-                    label="Check in"
-                    isHeader={true}
-                    date={dateRange.from}
-                    isActive={activeModal === 'checkin'}
-                    onClick={() => setActiveModal('checkin')}
-                    onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
-                />
+                    <div className="search-divider"></div>
 
-                <div className="search-divider"></div>
+                    <DateSelector
+                        label="Check in"
+                        isHeader={true}
+                        date={dateRange.from}
+                        isActive={activeModal === 'checkin'}
+                        onClick={() => setActiveModal('checkin')}
+                        onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
+                    />
 
-                <DateSelector
-                    label="Check out"
-                    isHeader={true}
-                    date={dateRange.to}
-                    isActive={activeModal === 'checkout'}
-                    onClick={() => setActiveModal('checkout')}
-                    onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
-                />
+                    <div className="search-divider"></div>
 
-                <div className="search-divider"></div>
+                    <DateSelector
+                        label="Check out"
+                        isHeader={true}
+                        date={dateRange.to}
+                        isActive={activeModal === 'checkout'}
+                        onClick={() => setActiveModal('checkout')}
+                        onClear={() => setDateRange(prev => ({ ...prev, to: null, from: null }))}
+                    />
 
-                <div
-                    className={`search-section search-section-who ${activeModal === 'who' ? 'active' : ''}`}
-                    onClick={() => setActiveModal("who")}
-                >
-                    <div className="search-content">
-                        <div className="search-label">Who</div>
-                        <div className={`search-placeholder ${hasGuestValues ? 'has-value' : ''}`}
-                        >{formatGuestsText(guests)}</div>
-                        {hasGuestValues && (
-                            <button
-                                className="search close-btn"
-                                onClick={(ev) => {
-                                    ev.stopPropagation()
-                                    setGuests({ adults: 0, children: 0, infants: 0, pets: 0 })
-                                }}
-                                aria-label="Clear guests"
-                            >
-                                {svgControls.closeModal}
-                            </button>
-                        )}
-                    </div>
-                    <button
-                        className="search-button"
-                        onClick={(ev) => {
-                            ev.stopPropagation()
-                            handleSearch()
-                        }}
+                    <div className="search-divider"></div>
+
+                    <div
+                        className={`search-section search-section-who ${activeModal === 'who' ? 'active' : ''}`}
+                        onClick={() => setActiveModal("who")}
                     >
-                        <span>{appHeaderSvg.search}</span>
-                        <span className="search-button-text">Search</span>
-                    </button>
+                        <div className="search-content">
+                            <div className="search-label">Who</div>
+                            <div className={`search-placeholder ${hasGuestValues ? 'has-value' : ''}`}
+                            >{formatGuestsText(guests)}</div>
+                            {hasGuestValues && (
+                                <button
+                                    className="search close-btn"
+                                    onClick={(ev) => {
+                                        ev.stopPropagation()
+                                        setGuests({ adults: 0, children: 0, infants: 0, pets: 0 })
+                                    }}
+                                    aria-label="Clear guests"
+                                >
+                                    {svgControls.closeModal}
+                                </button>
+                            )}
+                        </div>
+                        <button
+                            className="search-button"
+                            onClick={(ev) => {
+                                ev.stopPropagation()
+                                handleSearch()
+                            }}
+                        >
+                            <span>{appHeaderSvg.search}</span>
+                            <span className="search-button-text">Search</span>
+                        </button>
+                    </div>
+
+                    {activeModal === "who" && (
+                        <div className="guest-modal-content" ref={guestModalRef}>
+                            <GuestSelector
+                                ref={guestSelectorRef}
+                                onGuestsChange={setGuests}
+                                initialGuests={guests}
+                            />
+                        </div>
+                    )}
                 </div>
 
-                {activeModal === "who" && (
-                    <div className="guest-modal-content" ref={guestModalRef}>
-                        <GuestSelector
-                            ref={guestSelectorRef}
-                            onGuestsChange={setGuests}
-                            initialGuests={guests}
+                {(activeModal === "checkin" || activeModal === "checkout") && (
+                    <div className="modal" ref={dateModalRef}>
+                        <DateRangePicker
+                            value={dateRange}
+                            onComplete={handleDateComplete}
+                            activeField={activeModal}
                         />
                     </div>
                 )}
             </div>
-
-            {(activeModal === "checkin" || activeModal === "checkout") && (
-                <div className="modal" ref={dateModalRef}>
-                    <DateRangePicker
-                        value={dateRange}
-                        onComplete={handleDateComplete}
-                        activeField={activeModal}
-                    />
-                </div>
-            )}
+            
         </div>
     )
 }
