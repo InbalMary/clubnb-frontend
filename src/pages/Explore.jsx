@@ -23,7 +23,7 @@ export function Explore() {
     // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
     return (
-        <section className="explore-page ">
+        <section className="explore-page full">
             {isLoading ? (
                 <div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 

@@ -147,63 +147,6 @@
 }
 
 
-/* 
-
-.skeleton-explore-page {
-    margin-top: 96px;
-
-    display: grid;
-    grid-template-columns: minmax(auto, 49rem) minmax(24.5rem, auto);
-    grid-template-areas:
-        "list map";
-    gap: 3rem;
-
-    .skeleton-explore-wrapper {
-        grid-area: list;
-    }
-}
-
-.skeleton-explore-grid {
-    display: grid;
-
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
-.skeleton-title-block {
-    width: 150px;
-    height: 22px;
-}
-
-.skeleton-card {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-}
-
-.skeleton-card .stay-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding-inline-start: 0.25rem;
-    padding-top: 0.53rem;
-}
-
-.skeleton-img {
-    width: 100%;
-    height: 200px;
-    aspect-ratio: 1.025 / 1;
-}
-
-.map-skeleton {
-    height: 83vh;
-    margin-top: 1.5rem;
-    border-radius: 25px;
-    pointer-events: none;
-    background-color: var(--gray4);
-    animation: pulse 1.6s infinite ease-in-out;
-} */
 /* === General Skeleton Animation === */
 .skeleton {
     background: linear-gradient(90deg,
@@ -231,7 +174,7 @@
     grid-template-areas: "list map";
     gap: 3rem;
     margin-top: 20px;
-    margin-inline: 6%;
+    margin-inline: 3%;
 }
 
 .skeleton.skeleton-title-block {
