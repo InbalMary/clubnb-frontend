@@ -1,3 +1,5 @@
+import { demoWishlists } from "../../data/demo-wishlist"
+
 export const SET_WISHLISTS = 'SET_WISHLISTS'
 export const SET_WISHLIST = 'SET_WISHLIST'
 export const ADD_WISHLIST = 'ADD_WISHLIST'
@@ -6,7 +8,7 @@ export const REMOVE_WISHLIST = 'REMOVE_WISHLIST'
 export const SET_IS_LOADING = 'SET_IS_LOADING'
 
 const initialState = {
-    wishlists: [],
+    wishlists: demoWishlists,
     wishlist: null, //current wishlist
     isLoading: false,
 }

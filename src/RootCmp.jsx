@@ -1,5 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router'
+import { useEffect } from 'react'
 
+import { loadWishlists } from './store/actions/wishlist.actions.js'
 import { StayIndex } from './pages/StayIndex.jsx'
 import { MsgIndex } from './pages/MsgIndex.jsx'
 import { ChatApp } from './pages/Chat.jsx'
@@ -42,6 +44,9 @@ export function RootCmp() {
     useClickOutside([headerRef], () => {
         if (isExpanded && initialModal) handleCollapse()
     })
+    useEffect(() => {
+        loadWishlists()
+    }, [])
 
     return (
         <div>

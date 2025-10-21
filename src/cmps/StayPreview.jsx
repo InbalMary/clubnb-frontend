@@ -7,12 +7,19 @@ import { svgControls, statSvgs } from './Svgs.jsx'
 import { Modal } from './Modal.jsx'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { SingleImgCarousel } from './SingleImgCarousel.jsx'
-import { addWishlist, removeStayFromWishlist, removeWishlist } from '../store/actions/wishlist.actions.js'
+import { addWishlist, removeStayFromWishlist, removeWishlist, addStayToWishlist } from '../store/actions/wishlist.actions.js'
+import { demoWishlists } from '../data/demo-wishlist.js'
+
 
 export function StayPreview({ stay, isBig = false }) {
-    const navigate = useNavigate() //TEMPORARY
+    const navigate = useNavigate() //TEMPORARY to see wishlist CRUD
     const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
+    const [isCreateWishlistModalOpen, setIsCreateWishlistModalOpen] = useState(false)
+    const [newTitle, setNewTitle] = useState('')
+    const [showInputClearBtn, setShowInputClearBtn] = useState(true)
+
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
+
     const isAddedToWishlist = wishlists.some(wl =>
         wl.stays.some(stayInList => stayInList._id === stay._id)
     )
@@ -26,8 +33,9 @@ export function StayPreview({ stay, isBig = false }) {
     async function onCreateWishlist() {
         try {
             const year = new Date().getFullYear()
+            const title = newTitle?.trim() ? newTitle : `${stay.loc.city}, ${stay.loc.country} ${year}`
             const newWishlist = {
-                title: `${stay.loc.city}, ${stay.loc.country} ${year}`,
+                title,
                 city: stay.loc.city,
                 country: stay.loc.country,
                 stays: [
@@ -43,8 +51,9 @@ export function StayPreview({ stay, isBig = false }) {
             console.log(`${stay.name} was added to wishlist ${savedWishlist.title}`)
             showSuccessMsg(`Created wishlist ${savedWishlist.title}`, stay.imgUrls?.[0])
             navigate('/wishlists') //Temporary navigate
-
             setIsWishlistModalOpen(false)
+            setNewTitle('')
+            setShowInputClearBtn(false)
         } catch (err) {
             console.error('Cannot create wishlist', err)
         }
@@ -74,6 +83,18 @@ export function StayPreview({ stay, isBig = false }) {
         } catch (err) {
             console.error('Error toggling wishlist:', err)
             showErrorMsg('Could not update wishlist, please try again.')
+        }
+    }
+
+    async function onSelectWishlistFromModal(wishlist) {
+        try {
+            const updatedWishlist = await addStayToWishlist(wishlist, stay)
+            setIsWishlistModalOpen(false)
+            showSuccessMsg(`Added to wishlist ${updatedWishlist.title}`, stay.imgUrls?.[0])
+            navigate('/wishlists') //Temprary navigate
+        } catch (err) {
+            console.error('Cannot add stay to wishlist', err)
+            showErrorMsg('Could not add to wishlist, please try again.')
         }
     }
 
@@ -116,41 +137,96 @@ export function StayPreview({ stay, isBig = false }) {
                     closePosition="right"
                     className="wishlist-modal"
                     footer={
-                        <button onClick={onCreateWishlist} className='create-wishlist-btn'>
+                        <button onClick={() => {
+                            setIsWishlistModalOpen(false)
+                            setNewTitle(`${stay.loc.city}, ${stay.loc.country} ${new Date().getFullYear()}`)
+                            setShowInputClearBtn(true)
+                            setIsCreateWishlistModalOpen(true)
+
+                        }}
+                            className='create-wishlist-btn'>
                             Create new wishlist
                         </button>
                     }
                 >
                     <div className='wishlist-modal'>
-                        {/* TODO later: check for existing wishlists for this user/stay and render selection here */}
-                        <ul className='wishlist-modal-list'> {/*placeholder for wishlist data*/}
-                            <li>
-                                <img src="https://a0.muscache.com/im/pictures/eaaf0e52-c8b3-49c6-b79b-51188e5fb598.jpg?im_w=720"
-                                    className='wishlist-modal-img' />
-                                <span className='stay-name'>Barcelona trip</span>
-                            </li>
-                            <li>
-                                <img src="https://a0.muscache.com/im/pictures/21820279/b015a76d_original.jpg?im_w=720"
-                                    className='wishlist-modal-img' />
-                                <span className='stay-name'>Berlin weekend</span>
-                            </li>
-                            <li>
-                                <img src="https://a0.muscache.com/im/pictures/a113bb3b-58db-40f1-975e-538372cab82e.jpg?im_w=720"
-                                    className='wishlist-modal-img' />
-                                <span className='stay-name'>Paris</span>
-                            </li>
-                            <li>
-                                <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-38518438/original/9ee33bf2-5e7e-41e2-a643-152e26bd470e.jpeg?im_w=720"
-                                    className='wishlist-modal-img' />
-                                <span className='stay-name'>London</span>
-                            </li>
-                            <li>
-                                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1508277709145554241/original/c86ae438-462e-468f-a7d5-f2d321ee8bf8.jpeg?im_w=720"
-                                    className='wishlist-modal-img' />
-                                <span className='stay-name'>New York</span>
-                            </li>
+                        <ul className='wishlist-modal-list'>
+                            {wishlists.map(wishlist => (
+                                <li
+                                    key={wishlist._id}
+                                    onClick={() => onSelectWishlistFromModal(wishlist)}
+                                >
+                                    <img src={wishlist.stays?.[0].imgUrl} alt={wishlist.title} className="wishlist-modal-img" />
+                                    <span className="stay-name">{wishlist.title}</span>
+                                </li>
+                            ))}
                         </ul>
-
+                    </div>
+                </Modal>
+            )}
+            {isCreateWishlistModalOpen && (
+                <Modal
+                    header={
+                        <>
+                            <button className='btn btn-transparent btn-round back'
+                                onClick={() => {
+                                    setIsCreateWishlistModalOpen(false)
+                                    setIsWishlistModalOpen(true)
+                                }}
+                            >
+                                {svgControls.backArrow}
+                            </button>
+                            <span className='creat-wishlist-modal-title'>Create wishlist</span>
+                        </>
+                    }
+                    isOpen={isCreateWishlistModalOpen}
+                    onClose={() => {
+                        setIsCreateWishlistModalOpen(false)
+                        setIsWishlistModalOpen(true)
+                    }}
+                    className="create-wishlist-modal"
+                    showCloseBtn={false}
+                    footer={
+                        <div className="create-footer-actions">
+                            <button className='btn create-cancel-btn btn-transparent'
+                                onClick={() => {
+                                    setIsCreateWishlistModalOpen(false)
+                                    setIsWishlistModalOpen(true)
+                                }}>
+                                Cancel
+                            </button>
+                            <button className='btn create-btn btn-black'
+                                onClick={onCreateWishlist}>
+                                Create
+                            </button>
+                        </div>
+                    }
+                >
+                    <div className='rename-input-wrapper'>
+                        <input
+                            className='rename-input'
+                            type="text"
+                            value={newTitle}
+                            onChange={(ev) => {
+                                setNewTitle(ev.target.value)
+                                if (ev.target.value !== '') {
+                                    setShowInputClearBtn(false)
+                                }
+                            }}
+                            placeholder="Name"
+                        />
+                        {showInputClearBtn && newTitle && (
+                            <button
+                                type="button"
+                                className="btn btn-gray btn-round clear-input-btn"
+                                onClick={() => {
+                                    setNewTitle('')
+                                    setShowInputClearBtn(false)
+                                }}
+                            >
+                                {svgControls.closeModal}
+                            </button>
+                        )}
                     </div>
 
                 </Modal>

@@ -30,7 +30,10 @@ function getById(wishlistId) {
 }
 
 async function remove(wishlistId) {
-    await storageService.remove(STORAGE_KEY_WISHLIST, wishlistId)
+    const wishlists = await storageService.query(STORAGE_KEY_WISHLIST) || []
+    const updatedWishlists = wishlists.filter(wl => wl._id !== wishlistId)
+    localStorage.setItem(STORAGE_KEY_WISHLIST, JSON.stringify(updatedWishlists))
+    return updatedWishlists
 }
 
 async function save(wishlist) {
@@ -42,6 +45,8 @@ async function save(wishlist) {
         return storageService.put(STORAGE_KEY_WISHLIST, updatedWishlist)
     } else {
         const loggedinUser = userService.getLoggedinUser()
+        const year = new Date().getFullYear()
+
         const wishlistToSave = {
             _id: makeId(),
             byUser: loggedinUser,

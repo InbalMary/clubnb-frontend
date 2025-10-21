@@ -84,6 +84,27 @@ export const demoWishlists = [
         ],
         createdAt: Date.now() - 1000 * 60 * 60 * 24 * 7, // 1 week ago
     },
+    {
+        _id: 'wl105',
+        title: 'Bali Bungalow',
+        byUser: demoUser,
+        city: 'Bali',
+        country: 'Indonesia',
+        stays: [
+            {
+                _id: 's108',
+                name: 'Rustic Bungalow',
+                imgUrl: 'https://a0.muscache.com/im/pictures/miso/Hosting-52676634/original/c6447fe3-1ea3-40c4-a347-56a5d79b7e18.jpeg?im_w=720',
+
+            },
+            {
+                _id: 's109',
+                name: 'Bungalow with balcony',
+                imgUrl: 'https://a0.muscache.com/im/pictures/miso/Hosting-1019120441924581642/original/cf33de17-4728-4eff-86d2-a6d292fb74ba.jpeg?im_w=720',
+            },
+        ],
+        createdAt: Date.now() - 1000 * 60 * 60 * 24 * 7, // 1 week ago
+    },
 
 ]
 

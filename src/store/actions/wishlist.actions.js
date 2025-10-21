@@ -63,6 +63,21 @@ export async function removeWishlist(wishlistId) {
     }
 }
 
+export async function addStayToWishlist(wishlist, stay) {
+    try {
+        const updatedWishlist = {
+            ...wishlist,
+            stays: [...wishlist.stays, stay]
+        }
+        const savedWishlist = await wishlistService.save(updatedWishlist)
+        store.dispatch({ type: UPDATE_WISHLIST, wishlist: savedWishlist })
+        return savedWishlist
+    } catch (err) {
+        console.error('Cannot add stay to wishlist', err)
+        throw err
+    }
+}
+
 export async function removeStayFromWishlist(wishlist, stayId) {
     try {
         const updatedWishlist = {
