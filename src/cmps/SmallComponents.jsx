@@ -436,3 +436,13 @@ export function ExploreSkeleton({ stays }) {
         </div>
     )
 }
+
+export function DotsLoader() {
+    return (
+        <div className="dots-loader">
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <span className="dot"></span>
+        </div>
+    )
+}

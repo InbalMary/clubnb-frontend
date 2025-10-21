@@ -3,12 +3,14 @@ import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router'
 import { loadStays } from '../store/actions/stay.actions.js'
 import { formatDateWithFullYear } from '../services/util.service.js'
+import { DotsLoader } from '../cmps/SmallComponents.jsx'
 
 export function ListingsPage() {
   const navigate = useNavigate()
 
   const stays = useSelector(state => state.stayModule.stays)
   const loggedInUser = useSelector(state => state.userModule.user)
+  const isLoading = useSelector(storeState => storeState.userModule.isLoading)
 
   useEffect(() => {
     loadStays()
@@ -47,6 +49,8 @@ export function ListingsPage() {
     const savedPath = match ? match[1] : '/stay/edit/become-a-host'
     navigate(savedPath)
   }
+
+  if (isLoading) return <DotsLoader />
 
   return (
     <div className="listing-container">

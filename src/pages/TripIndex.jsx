@@ -2,6 +2,7 @@ import { useSelector } from "react-redux"
 import { loadOrders } from "../store/actions/order.actions.js"
 import { useEffect, useState } from "react"
 import { TripList } from '../cmps/TripList'
+import { DotsLoader } from "../cmps/SmallComponents.jsx"
 
 export function TripIndex() {
     const [activeTab, setActiveTab] = useState('upcoming')
@@ -53,7 +54,7 @@ export function TripIndex() {
 
             <div className="trip-content">
                 {isLoading ? (
-                    <p className="loading-msg">Loading...</p>
+                    <DotsLoader />
                 ) : filteredOrders.length === 0 ? (
                     <p className="no-trips">
                         {activeTab === 'upcoming' 

@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { loadOrders, updateOrder } from '../store/actions/order.actions';
 import { formatDateWithFullYear, formatGuestsText, capitalizeFirst } from '../services/util.service';
+import { DotsLoader } from '../cmps/SmallComponents';
 
 export function ReservationsPage() {
     const [activeTab, setActiveTab] = useState('all')
@@ -9,6 +10,7 @@ export function ReservationsPage() {
 
     const loggedInUser = useSelector((state) => state.userModule.loggedInUser)
     const orders = useSelector(storeState => storeState.orderModule.orders)
+    const isLoading = useSelector(storeState => storeState.orderModule.isLoading)
 
     useEffect(() => {
         loadOrders()
@@ -70,9 +72,7 @@ export function ReservationsPage() {
         }
     }
 
-    if (!orders) {
-        return <div className="reservations-container">Loading...</div>
-    }
+    if (isLoading || !orders) return <DotsLoader />
 
     return (
         <div className="reservations-container">
