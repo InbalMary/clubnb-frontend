@@ -95,7 +95,7 @@ export function WishlistModal({ stay, isOpen, onClose }) {
                                 onClick={() => onSelectWishlistFromModal(wishlist)}
                             >
                                 <img
-                                    src={wishlist.stays?.[0]?.imgUrl}
+                                    src={wishlist.stays?.[0]?.imgUrls?.[0]}
                                     alt={wishlist.title}
                                     className="wishlist-modal-img"
                                 />
