@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { svgControls } from './Svgs.jsx'
 import { CarouselDots } from './CarouselDots.jsx'
 
-export function SingleImgCarousel({ images = [] }) {
+export function SingleImgCarousel({ images = [], onRequestFocus }) {
     const [currentIndex, setCurrentIndex] = useState(0)
 
     const atStart = currentIndex === 0
@@ -30,7 +30,6 @@ export function SingleImgCarousel({ images = [] }) {
                     ))}
                 </div>
             </div>
-
             <div className="preview-carousel-controls">
                 {!atStart && (
                     <button className="preview-carousel-btn left"
@@ -38,6 +37,7 @@ export function SingleImgCarousel({ images = [] }) {
                             ev.stopPropagation()
                             ev.preventDefault()
                             scroll(-1)
+                            onRequestFocus?.()
                         }}
                     >
                         <span className='preview-carousel-icon'>{svgControls.chevronLeft}</span>
@@ -49,6 +49,7 @@ export function SingleImgCarousel({ images = [] }) {
                             ev.stopPropagation()
                             ev.preventDefault()
                             scroll(1)
+                            onRequestFocus?.()
                         }
                         }
                     >

@@ -10,8 +10,8 @@ export function StayHeader({ refs, stay, startDate, endDate }) {
     }
 
     const stickyHeader = useSHowOnScroll(570)
-    const stickyReserve = useSHowOnScroll(2450)
-    const isShortPage = useIsShortPage(1200)
+    const stickyReserve = useSHowOnScroll(2300)
+    // const isShortPage = useIsShortPage(1200)
 
     function handleClick() {
         const from = startDate
@@ -36,13 +36,9 @@ export function StayHeader({ refs, stay, startDate, endDate }) {
                         <span className="span-nav" onClick={() => scrollToSection(refs.reviewRef)}>Reviews <div className="border-bot"></div></span>
                         <span className="span-nav" onClick={() => scrollToSection(refs.locationRef)}>Location <div className="border-bot"></div></span>
 
-                        {isShortPage ? (
+                        {stickyReserve &&
                             <MiniStickyContainer stay={stay} startDate={startDate} endDate={endDate} onClick={handleClick} />
-                        ) : (
-                            stickyReserve && (
-                                <MiniStickyContainer stay={stay} startDate={startDate} endDate={endDate} onClick={handleClick} />
-                            )
-                        )}
+                        }
                     </nav>
 
                 </div>

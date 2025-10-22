@@ -62,6 +62,57 @@
         cursor: pointer;
     }
 
+    .share-btns-container {
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+
+        .heart-icon,
+        .share-icon {
+            display: flex;
+            align-items: center;
+            gap: .2rem;
+
+            .link {
+                font-size: .875rem;
+                font-family: cereal-light;
+                font-weight: 600;
+                text-underline-offset: 1.5px;
+            }
+        }
+
+        .share-btn,
+        .save-heart-btn {
+            display: flex;
+            align-items: center;
+            height: 30px;
+            border-radius: 8px;
+            background: none;
+            padding:.5rem;
+            &:hover{
+                background-color: var(--gray8);
+            }
+        }
+
+        .heart-icon svg {
+            display: block;
+            fill: none;
+            height: 1rem;
+            width: 1rem;
+            stroke: var(--gray3);
+            stroke-width: 2.5;
+            overflow: visible;
+            cursor: pointer;
+
+        }
+
+        .heart-icon.active svg {
+            stroke: var(--primary-clr);
+            fill: var(--primary-clr);
+        }
+
+    }
+
     .details-imgs {
         display: grid;
         grid-template-columns: repeat(4, minmax(auto, 276px));

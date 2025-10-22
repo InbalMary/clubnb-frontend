@@ -287,9 +287,12 @@ export const svgControls = {
         style={{ display: "block", height: "16px", width: "16px", fill: "currentColor" }}
     >
         <path d="M10 .38c.31 0 .57.23.62.53V2.5H14v2h-1V14a1 1 0 0 1-.88 1H4a1 1 0 0 1-1-.88V4.5H2v-2h3.38V1c0-.31.23-.57.53-.62H10zM6.12 4.5H4.88v9h1.25v-9zm2.5 0H7.38v9h1.25v-9zm2.5 0H9.88v9h1.24v-9zM9.38 1.62H6.62v.88h2.75v-.87z" />
+    </svg>,
+
+    share: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style={{ stroke: "#222222", strokeWidth: 2.5, display: "block", height: "16px", width: "16px" }}>
+        <path d="m27 18v9c0 1.1046-.8954 2-2 2h-18c-1.10457 0-2-.8954-2-2v-9m11-15v21m-10-11 9.2929-9.29289c.3905-.39053 1.0237-.39053 1.4142 0l9.2929 9.29289" fill="none"></path>
     </svg>
 }
-
 
 
 export const reviewSvgs = {

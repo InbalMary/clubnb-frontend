@@ -3,7 +3,7 @@
     margin-top: 96px;
     padding-inline: 3rem;
     display: grid;
-    grid-template-columns: minmax(auto, 49rem) minmax(24.5rem, auto);
+    grid-template-columns: 2fr 1.5fr;
     grid-template-areas:
         "list map";
     gap: 3rem;
@@ -42,10 +42,23 @@
     font-size: 14px;
 }
 
+.div-for-focus {
+    padding: 2px;
+
+    &:focus {
+        border-radius: 23px;
+    }
+}
+
+.div-for-focus:focus .preview-carousel-controls {
+    visibility: visible;
+
+}
+
 .stay-preview.big .stay-info * {
-    font-size: 0.975rem;
+    font-size: 0.955rem;
     color: var(--gray2);
-    letter-spacing: .2px;
+    line-height: .9rem;
 }
 
 .stay-preview.big .stay-header {
@@ -58,6 +71,7 @@
 
     .stay-name {
         color: var(--gray3);
+        padding-inline-end: 7px;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
@@ -66,13 +80,12 @@
 
 .stay-preview.big .stay-rating {
     display: flex;
-    align-items: center;
+    align-items: start;
     color: var(--gray3);
-    gap: 0.1rem;
 }
 
 .stay-preview.big .stay-summary {
-    line-height: 1.3;
+    line-height: 1.2;
 
     white-space: nowrap;
     /* keep it on one line */
@@ -83,20 +96,23 @@
 }
 
 .stay-preview.big .guest-favorite-badge {
-    font-size: 14px;
+    font-size: 13px;
     padding: 0.36rem 0.7rem;
 }
 
-.stay-preview.big .stay-price {
-    color: var(--gray3);
-    text-decoration: underline;
-    font-family: cereal-medium;
+.stay-preview.big .stay-price-wrap {
+    padding-block-start: .5rem;
+
+    .stay-price {
+        color: var(--gray3);
+        text-decoration: underline;
+        font-family: cereal-medium;
+    }
 }
 
-.explore-cancellation-policy {
-    font-size: 13px;
+.stay-preview.big .explore-cancellation-policy {
+    font-size: 12px;
 }
-
 
 /* Map Styling */
 .marker.btn-pill {
@@ -149,8 +165,9 @@
 
     padding: 0;
     box-shadow: 0 2px 7px 1px rgba(159, 159, 159, 0.15);
-    max-height: 300px !important;
-    max-width: 330px !important;
+
+
+    flex: 1;
 
     /* header */
     .gm-style-iw-chr {
@@ -193,10 +210,18 @@
         overflow: hidden !important;
 
         .stay-preview.big {
-            aspect-ratio: 14/13;
+            aspect-ratio: 1/1;
+            max-height: 300px !important;
+            max-width: 330px !important;
+
+
 
             .stay-image-wrapper {
-                max-height: 215px;
+                .preview-carousel-btn {
+                    top: 50%;
+                    transform: translate(-50% -50%);
+                }
+
 
                 .single-img-carousel,
                 .carousel-window,
@@ -240,17 +265,22 @@
                 gap: .1rem;
                 column-gap: .5rem;
                 padding-inline: .9rem;
+                padding-block: .9rem;
 
+                
                 p.stay-summary {
                     overflow: hidden;
                     text-overflow: ellipsis !important;
                 }
-
+                
                 p.stay-card-details,
                 p.explore-cancellation-policy {
                     display: none;
                 }
-
+                
+                .stay-price-wrap {
+                    padding-block-start: 0;
+                }
                 .stay-price {
                     text-decoration: none;
                     padding-right: 2px;

@@ -3,9 +3,9 @@ import { useParams, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { loadStay, addStayReview } from '../store/actions/stay.actions'
+import { loadStay } from '../store/actions/stay.actions'
 
-import { amenitiesSvg, reviewSvgs } from '../cmps/Svgs'
+import { amenitiesSvg, svgControls } from '../cmps/Svgs'
 import { LongTxt } from '../cmps/LongTxt'
 import { Modal } from '../cmps/Modal'
 import { DateRangePicker } from '../cmps/DateRangePicker'
@@ -15,12 +15,11 @@ import { AmenitiesLongList, AmenitiesShortList, CalendarStayDates, Capacity, Det
 import { getAmenitiesData } from '../services/stay/stay.service.local'
 import { StickyContainer } from '../cmps/StickyContainer'
 import { HostInfo } from '../cmps/HostInfo'
-import { hostSvgs } from '../cmps/Svgs'
-import { useDateContext } from '../context/DateRangeProvider'
 import { StayMap } from '../cmps/StayMap'
 import { StayHeader } from '../cmps/StayHeader'
 import { useDateRange } from '../customHooks/useDateRange'
-import { useEffectUpdate } from '../customHooks/useEffectUpdate'
+import { removeStayFromWishlist, removeWishlist } from '../store/actions/wishlist.actions'
+import { WishlistModal } from '../cmps/WishListModal'
 
 
 export function StayDetails() {
@@ -46,10 +45,44 @@ export function StayDetails() {
   }, [isLoading])
 
   const { dateRange, setDateRange } = useDateRange()
-  // const { dateRange, setDateRange } = useDateContext()
-  
+
   const [modalType, setModalType] = useState(null)
   const [selectedReviewIdx, setSelectedReviewIdx] = useState(null)
+
+  const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
+  const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
+
+  const isAddedToWishlist = stay?._id && Array.isArray(wishlists)
+    ? wishlists.some(wl =>
+      Array.isArray(wl.stays) &&
+      wl.stays.some(stayInList => stayInList?._id === stay._id)
+    )
+    : false
+
+  async function onToggleWishlist(ev) {
+    ev.stopPropagation()
+    try {
+      if (isAddedToWishlist) {
+        const wishlistWithStay = wishlists.find(wishlist =>
+          wishlist.stays.some(stayInList => stayInList._id === stay._id)
+        )
+        if (wishlistWithStay) {
+          if (wishlistWithStay.stays.length === 1) {
+            await removeWishlist(wishlistWithStay._id)
+            showSuccessMsg(`Wishlist ${wishlistWithStay.title} deleted`, stay.imgUrls?.[0])
+          } else {
+            await removeStayFromWishlist(wishlistWithStay, stay._id)
+            showSuccessMsg(`Removed from wishlist ${wishlistWithStay.title}`, stay.imgUrls?.[0])
+          }
+        }
+      } else {
+        setIsWishlistModalOpen(true)
+      }
+    } catch (err) {
+      console.error('Error toggling wishlist:', err)
+      showErrorMsg('Could not update wishlist, please try again.')
+    }
+  }
 
   const refs = {
     photoRef: useRef(null),
@@ -99,7 +132,26 @@ export function StayDetails() {
         )}
 
         <div className="main-content">
-          <h1 ref={refs.photoRef}>{stay?.name}</h1>
+          <div className="share-wishlist flex justify-between">
+            <h1 ref={refs.photoRef}>{stay?.name}</h1>
+            <div className="share-btns-container flex">
+              <button  className="share-btn">
+                <span className="share-icon">{svgControls.share}<span className="link">Share</span></span>
+              </button>
+
+              <button  className="save-heart-btn" onClick={onToggleWishlist}>
+                <span className={`heart-icon ${isAddedToWishlist ? 'active' : ''}`}>{svgControls.heart}
+                  <span className="link">{isAddedToWishlist ? 'Saved' : 'Save'}</span>
+                </span>
+              </button>
+              <WishlistModal
+                stay={stay}
+                isOpen={isWishlistModalOpen}
+                isAddedToWishlist={isAddedToWishlist}
+                onClose={() => setIsWishlistModalOpen(false)}
+              />
+            </div>
+          </div>
 
           <StayImgs stay={stay} />
 
