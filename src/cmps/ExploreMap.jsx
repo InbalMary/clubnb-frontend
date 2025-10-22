@@ -4,7 +4,7 @@ import { Modal } from './Modal'
 import { StayPreview } from './StayPreview'
 import { useClickOutside } from '../customHooks/useClickOutside'
 
-export function ExploreMap({ locations, hoveredId }) {
+export function ExploreMap({ locations, hoveredId, onToggleWishlist }) {
 
     const [activeLocation, setActiveLocation] = useState(null)
 
@@ -213,7 +213,7 @@ export function ExploreMap({ locations, hoveredId }) {
                                     position={{ lat: activeLocation.loc.lat, lng: activeLocation.loc.lng }}
                                     onCloseClick={() => setActiveLocation(null)}
                                 >
-                                    <StayPreview key={activeLocation._id} stay={activeLocation} isBig={true} />
+                                    <StayPreview key={activeLocation._id} stay={activeLocation} isBig={true} onToggleWishlist={onToggleWishlist} />
                                 </InfoWindow>)}
                         </AdvancedMarker>
                     )
