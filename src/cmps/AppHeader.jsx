@@ -67,14 +67,17 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 					</nav>
 				)}
 
+				{/* Desktop compact header - hidden on mobile */}
 				{isCompact && !isHostPage && (
-					<CompactHeader
-						onSearchClick={onSearchClick}
-						isTripsPage={isTripsPage}
-						isWishlistPage={isWishlistPage}
-						isWishlistDetailsPage={isWishlistDetailsPage}
-						isStayDetailsPage={isStayDetailsPage}
-					/>
+					<div className="desktop-compact-header">
+						<CompactHeader
+							onSearchClick={onSearchClick}
+							isTripsPage={isTripsPage}
+							isWishlistPage={isWishlistPage}
+							isWishlistDetailsPage={isWishlistDetailsPage}
+							isStayDetailsPage={isStayDetailsPage}
+						/>
+					</div>
 				)}
 
 				{!isCompact && user?.isAdmin && <NavLink to="/admin">Admin</NavLink>}
@@ -98,6 +101,14 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 				</div>
 			</div>
 
+			{/* Mobile compact header - uses SearchBar like expanded */}
+			{isCompact && !isHostPage && (
+				<div className="mobile-compact-search">
+					<SearchBar initialModal={initialModal} />
+				</div>
+			)}
+
+			{/* Desktop expanded header */}
 			{!isCompact && (
 				<div className="expanded-header-search">
 					<SearchBar initialModal={initialModal} />

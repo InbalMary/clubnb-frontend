@@ -15,7 +15,7 @@
   border: 1px solid var(--gray6);
   border-radius: 32px;
   background-color: var(--white);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);  
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   height: 66px;
   max-width: 850px;
   width: 100%;
@@ -68,7 +68,7 @@
 
 .search-bar-wrapper .search-item-container .search.close-btn:hover {
   transition: 0.3s;
-  background-color: var( --gray1);
+  background-color: var(--gray1);
 }
 
 .search-bar-wrapper .search-item-container .search.close-btn svg {
@@ -85,7 +85,7 @@
 }
 
 .search-section:not(.active) .search.close-btn {
-    display: none;
+  display: none;
 }
 
 .search-section-who {
@@ -159,7 +159,7 @@
   opacity: 1;
 }
 
-.search-section:hover + .search-divider,
+.search-section:hover+.search-divider,
 .search-divider:has(+ .search-section:hover) {
   opacity: 0;
   transition: opacity 0.15s ease;
@@ -195,26 +195,3 @@
   overflow: visible;
 }
 
-
-
-/* Placeholder modal content for now..*/
-/* .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 150px;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 32px;
-  border-radius: 16px;
-  min-width: 400px;
-} */

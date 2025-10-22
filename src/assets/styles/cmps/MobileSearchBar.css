@@ -1,0 +1,425 @@
+/* Mobile Search Bar - Hidden on Desktop */
+.search-bar-mobile-wrapper {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .search-bar-mobile-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 1rem;
+        gap: 1.5rem;
+    }
+
+    .search-bar-wrapper {
+        display: none !important;
+    }
+
+    .app-header.full,
+    .compact-header.full {
+        max-width: 100vw;
+    }
+
+}
+
+.search-bar-mobile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--white);
+    border: 1px solid var(--gray6);
+    border-radius: 999px;
+    padding: 0.9em 1.4em;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    width: 90%;
+    max-width: 320px;
+    transition: all 0.25s ease;
+}
+
+.search-bar-mobile:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.search-bar-mobile span:first-child svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 3;
+}
+
+.search-bar-mobile span:last-child {
+    font-weight: 500;
+    color: var(--gray2);
+}
+
+.compact-search-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anywhere-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.anywhere-icon:hover {
+    transform: scale(1.05);
+}
+
+/* Mobile Modal */
+.mobile-search-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.mobile-search-modal {
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.mobile-modal-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--gray6);
+    flex-shrink: 0;
+}
+
+.mobile-modal-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mobile-search-section {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--gray6);
+    max-width: 100vw;
+}
+
+.mobile-search-section:last-child {
+    border-bottom: none;
+}
+
+.mobile-search-section h3 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: var(--gray3);
+}
+
+/* Where Input */
+.mobile-input-box {
+    border: 1px solid var(--gray6);
+    border-radius: 0.75rem;
+    background: var(--white);
+    transition: border-color 0.2s;
+}
+
+.mobile-input-box.active {
+    border-color: var(--gray3);
+}
+
+.mobile-input-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 0.75rem;
+}
+
+.mobile-input-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
+
+.mobile-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--gray3);
+    background: transparent;
+}
+
+.mobile-input::placeholder {
+    color: var(--gray2);
+}
+
+.mobile-suggestions {
+    margin-top: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.mobile-suggestions-header {
+    font-size: 0.875rem;
+    color: var(--gray2);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.mobile-suggestion-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.mobile-suggestion-item:active {
+    background-color: var(--gray1);
+}
+
+.mobile-suggestion-item:hover {
+    background-color: var(--gray1);
+}
+
+.mobile-suggestion-icon {
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: var(--gray1);
+}
+
+.mobile-suggestion-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mobile-suggestion-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.mobile-suggestion-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray3);
+    margin-bottom: 0.25rem;
+}
+
+.mobile-suggestion-desc {
+    font-size: 0.875rem;
+    color: var(--gray2);
+}
+
+/* Date Trigger */
+.mobile-date-trigger {
+    width: 100%;
+    border: 1px solid var(--gray6);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    background: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: border-color 0.2s;
+}
+
+.mobile-date-trigger.active {
+    border-color: var(--gray3);
+}
+
+.mobile-date-trigger-content {
+    flex: 1;
+    font-size: 1rem;
+    color: var(--gray3);
+}
+
+.mobile-date-placeholder {
+    color: var(--gray2);
+}
+
+/* Date Picker */
+.mobile-date-picker {
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.mobile-date-picker .rdp {
+    margin: 0;
+    width: 100%;
+}
+
+.mobile-date-picker .rdp-months {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+.mobile-date-picker .rdp-month {
+    width: 100%;
+}
+
+.mobile-date-picker .rdp-nav {
+    display: none;
+}
+
+.mobile-date-picker .rdp-month_caption {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.mobile-date-picker .rdp-caption_label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray3);
+}
+
+.mobile-date-picker .rdp-weekdays {
+    margin-bottom: 0.5rem;
+}
+
+.mobile-date-picker .rdp-weekday {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gray3);
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.mobile-date-picker .rdp-day {
+    padding: 0;
+    text-align: center;
+}
+
+.mobile-date-picker .rdp-day_button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--gray3);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-date-picker .rdp-day_button:hover:not(:disabled) {
+    background: var(--gray1);
+}
+
+.mobile-date-picker .rdp-day_button:disabled {
+    color: var(--gray9);
+    cursor: not-allowed;
+}
+
+.mobile-date-picker .rdp-day.rdp-selected .rdp-day_button,
+.mobile-date-picker .rdp-day.rdp-range_start .rdp-day_button,
+.mobile-date-picker .rdp-day.rdp-range_end .rdp-day_button,
+.mobile-date-picker .rdp-day.rdp-day_start .rdp-day_button,
+.mobile-date-picker .rdp-day.rdp-day_end .rdp-day_button {
+    background: var(--gray3);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.mobile-date-picker .rdp-day.rdp-range_middle {
+    position: relative;
+}
+
+.mobile-date-picker .rdp-day.rdp-range_middle::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gray1);
+    z-index: -1;
+}
+
+.mobile-date-picker .rdp-day.rdp-range_middle .rdp-day_button {
+    background: transparent;
+    color: var(--gray3);
+}
+
+/* Guest Trigger */
+.mobile-guest-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid var(--gray6);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    background: var(--white);
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--gray3);
+    transition: border-color 0.2s;
+}
+
+.mobile-guest-trigger.active {
+    border-color: var(--gray3);
+}
+
+/* Guest Selector */
+.mobile-guest-selector {
+    margin-top: 1rem;
+}
+
+.mobile-guest-selector .guest-selector {
+    max-height: 300px;
+}
+
+.mobile-guest-selector .simplebar-track.simplebar-vertical {
+    display: none;
+}
+
+/* Footer */
+.mobile-modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--gray6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+    background: var(--white);
+    max-width: 100vw;
+}
+
+.mobile-clear-btn {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-family: cereal-medium;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--gray3);
+}
+
+.mobile-search-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.mobile-search-btn svg {
+    width: 16px;
+    height: 16px;
+}

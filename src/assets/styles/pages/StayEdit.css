@@ -162,19 +162,6 @@
     text-align: left;
 }
 
-.step-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid var(--gray6);
-    background-color: var(--white);
-    z-index: 100;
-}
-
 .back-button {
     background: none;
     border: none;
@@ -841,4 +828,42 @@
     font-size: 4rem;
     font-family: cereal-medium;
     color: var(--gray3);
+}
+
+.step-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 80px;
+    background-color: var(--white);
+    z-index: 10;
+}
+
+.progress-bar-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    display: flex;
+    gap: 8px;
+    padding: 0 80px;
+}
+
+.progress-segment {
+    flex: 1;
+    height: 100%;
+    background-color: var(--gray6);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--gray3);
+    transition: width 0.3s ease;
 }

@@ -49,3 +49,27 @@
     height: 0.875rem;
     fill: var(--gray3);
 }
+
+@media (max-width: 768px) {
+    .app-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 12px 16px;
+        height: 56px;
+    }
+
+    body {
+        padding-bottom: 56px;
+    }
+
+    .app-footer .logo-header {
+        font-size: 16px;
+    }
+
+    .app-footer .footer-right {
+        gap: 16px;
+    }
+}

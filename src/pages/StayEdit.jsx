@@ -394,6 +394,23 @@ export function StayEdit() {
 
             {currentStep > 0 && (
                 <footer className="step-footer">
+                    <div className="progress-bar-container" style={{ padding: 0 }}>
+                        <div className="progress-segment">
+                            <div className="progress-fill"
+                                style={{ width: currentStep >= 1 && currentStep <= 5 ? `${(currentStep / 5) * 100}%` : currentStep > 5 ? '100%' : '0%' }}
+                            />
+                        </div>
+                        <div className="progress-segment">
+                            <div className="progress-fill"
+                                style={{ width: currentStep >= 6 && currentStep <= 10 ? `${((currentStep - 5) / 5) * 100}%` : currentStep > 10 ? '100%' : '0%' }}
+                            />
+                        </div>
+                        <div className="progress-segment">
+                            <div className="progress-fill"
+                                style={{ width: currentStep >= 11 && currentStep <= 14 ? `${((currentStep - 10) / 4) * 100}%` : '0%' }}
+                            />
+                        </div>
+                    </div>
                     <button className="back-button" onClick={handleBack}>
                         Back
                     </button>
