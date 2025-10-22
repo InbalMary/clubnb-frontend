@@ -4,13 +4,13 @@ import { appHeaderSvg, svgControls } from "./Svgs";
 import { WhereAutocomplete } from "./WhereAutocomplete";
 import { DateSelector } from "./DateSelector";
 import { DateRangePicker } from "./DateRangePicker";
+import { SearchBarMobile } from "./SearchBarMobile";
 import { useDateRange } from "../customHooks/useDateRange";
 import { GuestSelector } from "./GuestSelector";
 import { formatDate, formatGuestsText } from '../services/util.service'
 import { useSelector } from "react-redux";
 import { setFilterBy } from '../store/actions/stay.actions.js'
 import { useClickOutside } from "../customHooks/useClickOutside.js";
-import { useDateContext } from "../context/DateRangeProvider.jsx";
 
 export function SearchBar({ initialModal = null }) {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
@@ -19,7 +19,6 @@ export function SearchBar({ initialModal = null }) {
     const [searchParams, setSearchParams] = useSearchParams()
     const [activeModal, setActiveModal] = useState(initialModal)
     const { dateRange, setDateRange } = useDateRange()
-    // const { dateRange, setDateRange } = useDateContext()
     const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
 
     const searchBarRef = useRef(null)
@@ -147,13 +146,6 @@ export function SearchBar({ initialModal = null }) {
         if (guests.infants) params.set('infants', guests.infants.toString())
         if (guests.pets) params.set('pets', guests.pets.toString())
         setSearchParams(params, { replace: true })
-
-        // setFilterBy({
-        //     destination: destination?.name || null,
-        //     startDate: dateRange.from ? formatDate(dateRange.from) : null,
-        //     endDate: dateRange.to ? formatDate(dateRange.to) : null,
-        //     guests,
-        // })
     }, [destination, dateRange, guests])
 
     const handleDateComplete = (range) => {
@@ -170,7 +162,6 @@ export function SearchBar({ initialModal = null }) {
 
     const handleSearch = () => {
         setActiveModal(null)
-
         // if (destination?.name) {
         //     const cityKey = destination.name.split(',')[0].trim()
         //     navigate(`/explore/city/${cityKey}`)
@@ -182,25 +173,24 @@ export function SearchBar({ initialModal = null }) {
             guests,
         })
     }
+    
     const hasGuestValues = guests.adults > 0 || guests.children > 0 || guests.infants > 0 || guests.pets > 0
 
     return (
         <div className="search-bar-container">
-            <div className="search-bar-mobile-wrapper">
-                <div className="search-bar-mobile"
-                    onClick={() => setActiveModal("where")}>
-                    <span>{appHeaderSvg.search}</span>
-                    <span>Start your search</span>
-                </div>
-                <span className="compact-search-icon">
-                    <img
-                        className="anywhere-icon"
-                        src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/4aae4ed7-5939-4e76-b100-e69440ebeae4.png?im_w=240"
-                        alt=""
-                    />
-                </span>
-            </div>
+            {/* Mobile Search Bar */}
+            <SearchBarMobile
+                destinations={destinations}
+                dateRange={dateRange}
+                setDateRange={setDateRange}
+                guests={guests}
+                setGuests={setGuests}
+                destination={destination}
+                setDestination={setDestination}
+                onSearch={handleSearch}
+            />
 
+            {/* Desktop Search Bar */}
             <div className="search-bar-wrapper" ref={searchBarRef}>
                 <div className="search-item-container">
                     <WhereAutocomplete
