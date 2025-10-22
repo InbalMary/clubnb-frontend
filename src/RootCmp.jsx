@@ -29,6 +29,7 @@ import { WishlistDetails } from './pages/WishlistDetails.jsx'
 
 export function RootCmp() {
     const {
+        isIndexPage,
         isExpanded,
         initialModal,
         showBackdrop,
@@ -115,7 +116,9 @@ export function RootCmp() {
                     </Route>
                 </Routes>
             </main>
-            <AppFooter />
+            <AppFooter
+                isIndexPage={isIndexPage}
+                isStayDetailsPage={isStayDetailsPage} />
         </div>
     )
 }
