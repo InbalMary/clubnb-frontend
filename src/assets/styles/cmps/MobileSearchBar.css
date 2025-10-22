@@ -22,9 +22,6 @@
         max-width: 100vw;
     }
 
-    body:has(.app-header) .stay-index {
-        margin-block-start: 150px;
-    }
 }
 
 .search-bar-mobile {

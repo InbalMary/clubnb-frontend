@@ -108,7 +108,7 @@
         display: block;
     }
 
-    .compact-header-content,
+    /* .compact-header-content, */
     .mobile-compact-search .anywhere-icon {
         display: none;        
     }
