@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     z-index: 1100;
+    cursor: pointer;
 }
 
 .wishlist-modal-list {
@@ -16,6 +17,8 @@
     aspect-ratio: 1/1;
     border-radius: 1.25rem;
     margin-bottom: 0.5rem;
+    box-shadow: 6px 6px 11px rgb(0 0 0 / 11%),
+        -3px -3px 5px rgb(0 0 0 / 6%);
 }
 
 .modal-popup.wishlist-modal header {
@@ -68,4 +71,77 @@
 
 .create-wishlist-btn:hover {
     background-color: black;
+}
+
+/*Create-rename modal*/
+.modal-popup.create-wishlist-modal {
+    display: flex;
+    flex-direction: column;
+    width: 568px;
+    height: auto;
+    max-width: none;
+    max-height: 80vh;
+}
+
+
+.create-wishlist-modal header {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    font-weight: 600;
+    color: var(--gray3);
+}
+
+.create-wishlist-modal header .back {
+    margin-right: auto;
+}
+
+.create-wishlist-modal header .creat-wishlist-modal-title {
+    flex: 1;
+    text-align: center;
+}
+
+.btn.back {
+    padding: 0.5rem 0.5rem;
+}
+
+.rename-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.rename-input {
+    position: relative;
+    padding: 1rem 1rem;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--gray3);
+    border: 1px solid var(--gray9);
+    border-radius: 12px;
+    margin: 0.75rem 0 1.2rem;
+}
+
+.clear-input-btn svg {
+    display: block;
+    stroke: var(--gray3);
+    stroke-width: 3;
+    width: 0.75rem;
+    height: 0.75rem;
+
+}
+
+.clear-input-btn {
+    position: absolute;
+    padding: 0.3rem 0.3rem;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.create-footer-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.025rem;
+    border-top: 1px solid var(--gray6);
 }
