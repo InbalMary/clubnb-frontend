@@ -16,6 +16,13 @@ export function ExploreMap({ locations, hoveredId, onToggleWishlist }) {
     const attachedMarkers = useRef(new Set())
     const [center, setCenter] = useState(null)
     const [zoom, setZoom] = useState(10)
+    const [focusedStayId, setFocusedStayId] = useState(null)
+
+    const previewRef = useRef(null)
+
+    useClickOutside([previewRef], () => {
+        setFocusedStayId(null)
+    })
 
     // Following changes in locations for setting zoom
     useEffect(() => {
@@ -80,7 +87,6 @@ export function ExploreMap({ locations, hoveredId, onToggleWishlist }) {
     }
 
     function handleMarkerClick(id) {
-        // 1️⃣ Find the corresponding location
         const location = locations?.find((l) => l._id === id)
         if (!location) return
 
@@ -213,28 +219,17 @@ export function ExploreMap({ locations, hoveredId, onToggleWishlist }) {
                                     position={{ lat: activeLocation.loc.lat, lng: activeLocation.loc.lng }}
                                     onCloseClick={() => setActiveLocation(null)}
                                 >
-                                    <StayPreview key={activeLocation._id} stay={activeLocation} isBig={true} onToggleWishlist={onToggleWishlist} />
+                                    <StayPreview
+                                        key={activeLocation._id}
+                                        stay={activeLocation} isBig={true} onToggleWishlist={onToggleWishlist}
+                                        isFocused={focusedStayId === activeLocation._id}
+                                        onRequestFocus={() => setFocusedStayId(activeLocation._id)} />
                                 </InfoWindow>)}
                         </AdvancedMarker>
                     )
                     )}
                 </Map >
             </APIProvider>
-            {/* {activeLocation?._id === location._id &&
-                                <Modal
-                                    ref={modalRef}
-                                    header=" "
-                                    isOpen={activeLocation !== null}
-                                    onClose={(e) => {
-                                        e?.stopPropagation?.()
-                                        setActiveLocation(null)
-                                    }}
-                                    closePosition="right"
-                                    className={`map-stay-preview`}
-                                    useBackdrop={false}>
-                                    <StayPreview key={location._id} stay={location} isBig={true} />
-                                </Modal>
-                            } */}
         </div >
     )
 }

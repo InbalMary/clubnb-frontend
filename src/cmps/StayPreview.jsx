@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { formatStayDates, calculateNights } from '../services/util.service.js'
 import { svgControls, statSvgs } from './Svgs.jsx'
 import { SingleImgCarousel } from './SingleImgCarousel.jsx'
 
 
-export function StayPreview({ stay, isBig = false, onToggleWishlist }) {
+export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, onToggleWishlist }) {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const isAddedToWishlist = wishlists.some(wl =>
         wl.stays.some(stayInList => stayInList._id === stay._id)
@@ -15,14 +16,14 @@ export function StayPreview({ stay, isBig = false, onToggleWishlist }) {
     const numNights = calculateNights(stay.startDate, stay.endDate)
     const totalPrice = stay.price * numNights
 
-    return <article className={`stay-preview ${isBig ? 'big' : ''}`}>
+    return <article className={`stay-preview ${isBig ? 'big' : ''} ${isFocused ? 'at-focus' : ''}`}>
         <div className='stay-image-wrapper'>
 
             <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`}
                 className='stay-link'
             >
                 {isBig ? (
-                    <SingleImgCarousel images={stay.imgUrls} />
+                    <SingleImgCarousel images={stay.imgUrls} onRequestFocus={onRequestFocus} />
                 ) : (
                     <img
                         src={stay.imgUrls?.[0] || 'https://picsum.photos/200/200?random=1'}
