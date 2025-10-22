@@ -78,6 +78,10 @@ export function SearchBarMobile({ destinations, dateRange, setDateRange, guests,
         setDateRange({ from: null, to: null })
     }
 
+    const handleGuestsClear = () => {
+        setGuests({ adults: 0, children: 0, infants: 0, pets: 0 })
+    }
+
     if (!isOpen) {
         return (
             <div className="search-bar-mobile-wrapper">
@@ -223,6 +227,20 @@ export function SearchBarMobile({ destinations, dateRange, setDateRange, guests,
                             onClick={() => setActiveSection(activeSection === 'guests' ? null : 'guests')}
                         >
                             <span>{formatGuestsText(guests)}</span>
+                            {(guests.adults > 0 ||
+                                guests.children > 0 ||
+                                guests.infants > 0 ||
+                                guests.pets > 0) && (
+                                    <button
+                                        className="modal-close-button btn btn-round"
+                                        onClick={(e) => {
+                                            e.stopPropagation()
+                                            handleGuestsClear()
+                                        }}
+                                    >
+                                        <img src="/img/close.svg" alt="close icon" className="camera-icon header-modal-action-icons" />
+                                    </button>
+                                )}
                         </div>
 
                         {activeSection === 'guests' && (
@@ -230,9 +248,8 @@ export function SearchBarMobile({ destinations, dateRange, setDateRange, guests,
                                 <GuestSelector
                                     onGuestsChange={setGuests}
                                     initialGuests={guests}
-                                />                              
+                                />
                             </div>
-
                         )}
                     </div>
                 </div>
