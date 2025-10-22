@@ -10,7 +10,7 @@ import { useRef } from 'react'
 import { useClickOutside } from '../customHooks/useClickOutside.js'
 import { useEscapeKey } from '../customHooks/useEscapeKey.js'
 
-export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, isSticky, isTripsPage, isWishlistPage }) {
+export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, isSticky, isTripsPage, isWishlistPage, isWishlistDetailsPage }) {
 	const user = useSelector(storeState => storeState.userModule.user)
 	const isLoading = useSelector(storeState => storeState.userModule.isLoading)
 	const headerRef = useRef(null)
@@ -74,6 +74,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 							onSearchClick={onSearchClick}
 							isTripsPage={isTripsPage}
 							isWishlistPage={isWishlistPage}
+							isWishlistDetailsPage={isWishlistDetailsPage}
 							isStayDetailsPage={isStayDetailsPage}
 						/>
 					</div>

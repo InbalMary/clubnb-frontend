@@ -6,7 +6,7 @@ import { svgControls, statSvgs } from './Svgs.jsx'
 import { SingleImgCarousel } from './SingleImgCarousel.jsx'
 
 
-export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, onToggleWishlist }) {
+export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, onToggleWishlist, hideDetails, isInactive }) {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const isAddedToWishlist = wishlists.some(wl =>
         wl.stays.some(stayInList => stayInList._id === stay._id)
@@ -35,7 +35,9 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
 
             <button
                 onClick={() => onToggleWishlist(stay)}
-                className={`heart-btn ${isAddedToWishlist ? 'active' : ''}`}
+                className={`heart-btn 
+                    ${isAddedToWishlist ? 'active' : ''}
+                 ${isInactive ? 'inactive' : ''}`}
                 aria-label={isAddedToWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
             >
                 <span className="heart-icon">{svgControls.heart}</span>
@@ -49,7 +51,15 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
                 // Explore layout: name + rating on one line
                 <div className="stay-header">
                     <span className="stay-name">{stay.name}</span>
-                    <span className="stay-rating">{statSvgs.starSmall}{stay.rating}<span className="gap" />({stay.numReviews || 0})</span>
+                    <span className="stay-rating">
+                        {statSvgs.starSmall}{stay.rating}
+                        {!hideDetails && (
+                            <>
+                                <span className="gap" />
+                                ({stay.numReviews || 0})
+                            </>
+                        )}
+                    </span>
                 </div>
             ) : (
                 // Default layout (non-Explore)
@@ -64,36 +74,45 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
                 <>
                     <p className="stay-summary">{stay.summary}</p>
                     <p className='stay-card-details'>
-                        {stay.bedrooms} {stay.bedrooms === 1 ? 'bedroom' : 'bedrooms'}
-                        <span className='separator'>{' '}•</span>
+                        {!hideDetails && (
+                            <>
+                                {stay.bedrooms} {stay.bedrooms === 1 ? 'bedroom' : 'bedrooms'}
+                                <span className='separator'>{' '}•</span>
+                            </>
+                        )}
+
                         {' '}{stay.beds} {stay.beds === 1 ? 'bed' : 'beds'}
                     </p>
                 </>
             )}
-            <p className='stay-card-dates'>{formattedDates}</p>
-            <div className='stay-card-details'>
-                {isBig ? (
-                    <div className="stay-price-wrap">
-                        <span className="stay-price">
-                            ${totalPrice.toLocaleString()}
-                        </span>
-                        <span className="stay-nights">
-                            {' '} for {numNights} {numNights === 1 ? 'night' : 'nights'}
-                        </span>
-                    </div>
+            {!hideDetails && (
+                <p className='stay-card-dates'>{formattedDates}</p>
+            )}
 
-                ) : (
-                    <div className="stay-price-rating">
-                        <span className='stay-price'>
-                            ${totalPrice.toLocaleString()}{' '}for {numNights} {numNights === 1 ? 'night' : 'nights'}
-                        </span>
-                        <span className='separator'>{' '}•</span>
-                        <span className='stay-rating'>
-                            <span className='star-icon-xs'>{statSvgs.starXSmall}</span>
-                            <span>{stay.rating || 4.85}</span>
-                        </span>
-                    </div>
-                )}
+            <div className='stay-card-details'>
+                {!hideDetails && (
+                    isBig ? (
+                        <div className="stay-price-wrap">
+                            <span className="stay-price">
+                                ${totalPrice.toLocaleString()}
+                            </span>
+                            <span className="stay-nights">
+                                {' '} for {numNights} {numNights === 1 ? 'night' : 'nights'}
+                            </span>
+                        </div>
+
+                    ) : (
+                        <div className="stay-price-rating">
+                            <span className='stay-price'>
+                                ${totalPrice.toLocaleString()}{' '}for {numNights} {numNights === 1 ? 'night' : 'nights'}
+                            </span>
+                            <span className='separator'>{' '}•</span>
+                            <span className='stay-rating'>
+                                <span className='star-icon-xs'>{statSvgs.starXSmall}</span>
+                                <span>{stay.rating || 4.85}</span>
+                            </span>
+                        </div>
+                    ))}
 
             </div>
             {isBig && stay.freeCancellation && (

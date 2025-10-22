@@ -15,7 +15,7 @@ export function WishlistIndex() {
 
     function onRemoveWishlist(wishlist) {
         removeWishlist(wishlist._id)
-        showSuccessMsg(`Wishlist ${wishlist.title} deleted`, wishlist.stays?.[0]?.imgUrl)
+        showSuccessMsg(`Wishlist ${wishlist.title} deleted`, wishlist.stays?.[0]?.imgUrls?.[0])
     }
 
     if (isLoading) return <div>Loading wishlists...</div>
@@ -39,9 +39,11 @@ export function WishlistIndex() {
                                         onRemoveWishlist(wishlist)
                                     }}
                                 >{svgControls.closeModal}</button>
-                                <Link to={`/wishlists/${wishlist._id}`}>
+                                <Link to={`/wishlists/${wishlist._id}`}
+                                    state={{ wishlist }}
+                                >
                                     <img
-                                        src={firstStay?.imgUrl}
+                                        src={firstStay?.imgUrls?.[0]}
                                         alt={firstStay?.name || 'Wishlist preview'}
                                         className="wishlist-stay-img"
                                     />
