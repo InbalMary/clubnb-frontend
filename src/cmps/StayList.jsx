@@ -1,14 +1,18 @@
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { StayPreview } from './StayPreview'
 import { Carousel } from './Carousel'
 import { svgControls } from './Svgs'
 import { StayListSkeleton } from './StayListSkeleton'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-
+import { Modal } from './Modal.jsx'
+import { useWishlistModal } from '../customHooks/useWishlistModal.js'
 
 export function StayList() {
     const navigate = useNavigate()
+    const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const { stays, isLoading } = useSelector(storeState => storeState.stayModule)
+    const wm = useWishlistModal(wishlists)
+
     const groups = [...new Set(stays.map(stay => stay.loc.city))]
     if (isLoading) return <StayListSkeleton categories={groups} />
 
@@ -43,13 +47,114 @@ export function StayList() {
                         >
                             {rowStays.map((stay) => (
                                 <li key={stay._id}>
-                                    <StayPreview stay={stay} />
+                                    <StayPreview stay={stay} onToggleWishlist={wm.onToggleWishlist} />
                                 </li>
                             ))}
                         </Carousel>
                     </div>
                 )
             })}
+            {wm.isWishlistModalOpen && wm.activeStay && (
+                <Modal
+                    header="Save to wishlist"
+                    isOpen={wm.isWishlistModalOpen}
+                    onClose={() => wm.setIsWishlistModalOpen(false)}
+                    closePosition="right"
+                    className="wishlist-modal"
+                    footer={
+                        <button className='create-wishlist-btn'
+                            onClick={() => {
+                                wm.setIsWishlistModalOpen(false)
+                                wm.setNewTitle(`${wm.activeStay.loc.city}, ${wm.activeStay.loc.country} ${new Date().getFullYear()}`)
+                                wm.setShowInputClearBtn(true)
+                                wm.setIsCreateWishlistModalOpen(true)
+                            }}
+                        >
+                            Create new wishlist
+                        </button>
+                    }
+                >
+                    <ul className='wishlist-modal-list'>
+                        {wishlists.map(wishlist => (
+                            <li
+                                key={wishlist._id}
+                                onClick={() => wm.onSelectWishlistFromModal(wishlist)}
+                            >
+                                <img src={wishlist.stays?.[0].imgUrl} alt={wishlist.title} className="wishlist-modal-img" />
+                                <span className="stay-name">{wishlist.title}</span>
+                            </li>
+                        ))}
+                    </ul>
+
+                </Modal>
+            )}
+            {wm.isCreateWishlistModalOpen && (
+                <Modal
+                    header={
+                        <>
+                            <button className='btn btn-transparent btn-round back'
+                                onClick={() => {
+                                    wm.setIsCreateWishlistModalOpen(false)
+                                    wm.setIsWishlistModalOpen(true)
+                                }}
+                            >
+                                {svgControls.backArrow}
+                            </button>
+                            <span className='creat-wishlist-modal-title'>Create wishlist</span>
+                        </>
+                    }
+                    isOpen={wm.isCreateWishlistModalOpen}
+                    onClose={() => {
+                        wm.setIsCreateWishlistModalOpen(false)
+                        wm.setIsWishlistModalOpen(true)
+                    }}
+                    className="create-wishlist-modal"
+                    showCloseBtn={false}
+                    footer={
+                        <div className="create-footer-actions">
+                            <button className='btn create-cancel-btn btn-transparent'
+                                onClick={() => {
+                                    wm.setIsCreateWishlistModalOpen(false)
+                                    wm.setIsWishlistModalOpen(true)
+                                }}>
+                                Cancel
+                            </button>
+                            <button className='btn create-btn btn-black'
+                                onClick={wm.onCreateWishlist}>
+                                Create
+                            </button>
+                        </div>
+                    }
+                >
+                    <div className='rename-input-wrapper'>
+                        <input
+                            className='rename-input'
+                            type="text"
+                            value={wm.newTitle}
+                            onChange={(ev) => {
+                                wm.setNewTitle(ev.target.value)
+                                if (ev.target.value !== '') {
+                                    wm.setShowInputClearBtn(false)
+                                }
+                            }}
+                            placeholder="Name"
+                        />
+                        {wm.showInputClearBtn && wm.newTitle && (
+                            <button
+                                type="button"
+                                className="btn btn-gray btn-round clear-input-btn"
+                                onClick={() => {
+                                    wm.setNewTitle('')
+                                    wm.setShowInputClearBtn(false)
+                                }}
+                            >
+                                {svgControls.closeModal}
+                            </button>
+                        )}
+                    </div>
+
+                </Modal>
+            )}
         </section >
     )
 }

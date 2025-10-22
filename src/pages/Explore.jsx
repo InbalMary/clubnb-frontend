@@ -6,11 +6,15 @@ import { StayPreview } from '../cmps/StayPreview'
 import { ExploreMap } from '../cmps/ExploreMap'
 import { ExploreSkeleton } from '../cmps/SmallComponents'
 import { useClickOutside } from '../customHooks/useClickOutside'
+import { useWishlistModal } from '../customHooks/useWishlistModal'
+import { Modal } from '../cmps/Modal'
 
 export function Explore() {
-    const { city } = useParams()
+    const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const { stays, isLoading } = useSelector(storeState => storeState.stayModule)
 
+    const wm = useWishlistModal(wishlists)
+    const { city } = useParams()
     const [hoveredId, setHoveredId] = useState(null)
     const [focusedStayId, setFocusedStayId] = useState(null)
     const previewRef = useRef(null)
@@ -48,31 +52,97 @@ export function Explore() {
                                     onMouseEnter={() => setHoveredId(stay._id)}
                                     onMouseLeave={() => setHoveredId(null)}
 
-                                tabIndex={0}
+                                    tabIndex={0}
                                 >
-                                    <StayPreview key={stay._id}
-                                        ref={previewRef}
-                                        stay={stay}
-                                        isBig={true}
-                                        isFocused={focusedStayId === stay._id}
+                                    <StayPreview key={stay._id} stay={stay} isBig={true} onToggleWishlist={wm.onToggleWishlist} isFocused={focusedStayId === stay._id}
                                         // onRequestFocus={() => setFocusedStayId(stay._id)}
                                         onRequestFocus={() => {
                                             console.log('Focus requested for', stay._id)
                                             setFocusedStayId(stay._id)
-                                        }}
-                                    />
+                                        }} />
                                 </div>
 
                             ))}
                         </div>
                     </div>
-                    <ExploreMap tabIndex={0} locations={stays} hoveredId={hoveredId} />
+                    <ExploreMap tabIndex={0} locations={stays} hoveredId={hoveredId} onToggleWishlist={wm.onToggleWishlist} />
                 </>
-            )
-            }
+            )}
+
+            {wm.isWishlistModalOpen && wm.activeStay && (
+                <Modal
+                    header="Save to wishlist"
+                    isOpen={wm.isWishlistModalOpen}
+                    onClose={() => wm.setIsWishlistModalOpen(false)}
+                    closePosition="right"
+                    className="wishlist-modal"
+                    footer={
+                        <button className='create-wishlist-btn'
+                            onClick={() => {
+                                wm.setIsWishlistModalOpen(false)
+                                wm.setNewTitle(`${wm.activeStay.loc.city}, ${wm.activeStay.loc.country} ${new Date().getFullYear()}`)
+                                wm.setShowInputClearBtn(true)
+                                wm.setIsCreateWishlistModalOpen(true)
+                            }}
+                        >
+                            Create new wishlist
+                        </button>
+                    }
+                >
+                    <ul className='wishlist-modal-list'>
+                        {wishlists.map(wishlist => (
+                            <li
+                                key={wishlist._id}
+                                onClick={() => wm.onSelectWishlistFromModal(wishlist)}
+                            >
+                                <img src={wishlist.stays?.[0].imgUrl} alt={wishlist.title} className="wishlist-modal-img" />
+                                <span className="stay-name">{wishlist.title}</span>
+                            </li>
+                        ))}
+                    </ul>
+
+                </Modal>
+            )}
+            {wm.isCreateWishlistModalOpen && (
+                <Modal
+                    header={
+                        <>
+                            <button className='btn btn-transparent btn-round back'
+                                onClick={() => {
+                                    wm.setIsCreateWishlistModalOpen(false)
+                                    wm.setIsWishlistModalOpen(true)
+                                }}
+                            >
+                                {svgControls.backArrow}
+                            </button>
+                            <span className='creat-wishlist-modal-title'>Create wishlist</span>
+                        </>
+                    }
+                    isOpen={wm.isCreateWishlistModalOpen}
+                    onClose={() => {
+                        wm.setIsCreateWishlistModalOpen(false)
+                        wm.setIsWishlistModalOpen(true)
+                    }}
+                    className="create-wishlist-modal"
+                    showCloseBtn={false}
+                    footer={
+                        <div className="create-footer-actions">
+                            <button className='btn create-cancel-btn btn-transparent'
+                                onClick={() => {
+                                    wm.setIsCreateWishlistModalOpen(false)
+                                    wm.setIsWishlistModalOpen(true)
+                                }}>
+                                Cancel
+                            </button>
+                            <button className='btn create-btn btn-black'
+                                onClick={wm.onCreateWishlist}>
+                                Create
+                            </button>
+                        </div>
+                    }
+                ></Modal>
+            )}
         </section >
-
-
     )
 }
 
