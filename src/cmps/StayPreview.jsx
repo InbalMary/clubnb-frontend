@@ -6,7 +6,7 @@ import { svgControls, statSvgs } from './Svgs.jsx'
 import { SingleImgCarousel } from './SingleImgCarousel.jsx'
 
 
-export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, onToggleWishlist, hideDetails }) {
+export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, onToggleWishlist, hideDetails, isInactive }) {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const isAddedToWishlist = wishlists.some(wl =>
         wl.stays.some(stayInList => stayInList._id === stay._id)
@@ -35,7 +35,9 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
 
             <button
                 onClick={() => onToggleWishlist(stay)}
-                className={`heart-btn ${isAddedToWishlist ? 'active' : ''}`}
+                className={`heart-btn 
+                    ${isAddedToWishlist ? 'active' : ''}
+                 ${isInactive ? 'inactive' : ''}`}
                 aria-label={isAddedToWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
             >
                 <span className="heart-icon">{svgControls.heart}</span>

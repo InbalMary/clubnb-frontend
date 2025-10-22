@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { StayPreview } from '../cmps/StayPreview'
 import { ExploreMap } from '../cmps/ExploreMap'
-import { showSuccessMsg } from '../services/event-bus.service'
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { svgControls } from '../cmps/Svgs'
+import { addStayToWishlist, removeStayFromWishlist } from '../store/actions/wishlist.actions'
 
 export function WishlistDetails() {
     const { state } = useLocation()
@@ -24,22 +25,27 @@ export function WishlistDetails() {
         imgUrls: stay.imgUrls || (stay.imgUrl ? [stay.imgUrl] : []),
     }))
 
-    console.log('wishlist:', wishlist)
-    console.log('stays:', wishlist?.stays)
-
-    function onToggleHeart(stay) {
+    async function onToggleHeart(stay) {
         const isInactive = inactiveHearts.includes(stay._id)
 
         if (isInactive) {
             // Make it red again
             setInactiveHearts(prev => prev.filter(id => id !== stay._id))
             showSuccessMsg(`Added back to wishlist ${wishlist.title}`, stay.imgUrls?.[0])
+            try {
+                await addStayToWishlist(wishlist, stay)
+            } catch (err) {
+                console.error('Failed to add stay back:', err)
+                showErrorMsg('Could not add stay back, please try again.')
+            }
+
         } else {
             // Make it gray temporarily
             setInactiveHearts(prev => [...prev, stay._id])
+            showSuccessMsg(`Removed from wishlist ${wishlist.title}`, stay.imgUrls?.[0])
             try {
                 removeStayFromWishlist(wishlist, stay._id)
-                showSuccessMsg(`Removed from wishlist ${wishlist.title}`, stay.imgUrls?.[0])
+
             } catch (err) {
                 console.error('Failed to remove stay:', err)
                 showErrorMsg('Could not remove from wishlist, please try again.')

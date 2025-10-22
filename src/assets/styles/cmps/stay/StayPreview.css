@@ -58,18 +58,24 @@
     fill: var(--primary-clr);
 }
 
+.heart-btn.inactive .heart-icon svg path {
+    fill: rgba(0, 0, 0, 0.3);
+    /* or var(--gray4) */
+}
+
 /* Preview carousel buttons */
 
 .preview-carousel-controls {
     display: flex;
     visibility: hidden;
 }
-.stay-preview.big:hover .preview-carousel-controls{
+
+.stay-preview.big:hover .preview-carousel-controls {
     visibility: visible;
 }
 
-.stay-preview.big.at-focus .preview-carousel-controls{
-        visibility: visible;
+.stay-preview.big.at-focus .preview-carousel-controls {
+    visibility: visible;
 }
 
 .preview-carousel-btn {
