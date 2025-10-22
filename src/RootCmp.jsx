@@ -36,6 +36,7 @@ export function RootCmp() {
         isConfirmPayPage,
         isTripsPage,
         isWishlistPage,
+        isWishlistDetailsPage,
         headerRef,
         handleSearchClick,
         handleCollapse
@@ -61,6 +62,7 @@ export function RootCmp() {
                         isSticky={!isStayDetailsPage}
                         isTripsPage={isTripsPage}
                         isWishlistPage={isWishlistPage}
+                        isWishlistDetailsPage={isWishlistDetailsPage}
                     />
                 </div>
             )}

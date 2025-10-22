@@ -95,7 +95,7 @@ export function Explore() {
                                 key={wishlist._id}
                                 onClick={() => wm.onSelectWishlistFromModal(wishlist)}
                             >
-                                <img src={wishlist.stays?.[0].imgUrl} alt={wishlist.title} className="wishlist-modal-img" />
+                                <img src={wishlist.stays?.[0].imgUrls?.[0]} alt={wishlist.title} className="wishlist-modal-img" />
                                 <span className="stay-name">{wishlist.title}</span>
                             </li>
                         ))}

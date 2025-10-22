@@ -1,9 +1,9 @@
 import { appHeaderSvg } from "./Svgs"
 
-export function CompactHeader({ onSearchClick, isTripsPage, isWishlistPage, isStayDetailsPage }) {
+export function CompactHeader({ onSearchClick, isTripsPage, isWishlistPage, isWishlistDetailsPage, isStayDetailsPage }) {
     return (
         <button
-            className={`compact-search-button ${isTripsPage || isWishlistPage ? 'hidden' : ''}`}
+            className={`compact-search-button ${isTripsPage || isWishlistPage || isWishlistDetailsPage ? 'hidden' : ''}`}
             onClick={() => onSearchClick(null)}
         >
             <div className="compact-search-content">
