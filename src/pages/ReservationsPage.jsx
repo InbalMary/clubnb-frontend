@@ -199,7 +199,7 @@ export function ReservationsPage() {
                                                 </div>
                                             </td>
                                             <td className="date-cell">{formatDateWithFullYear(order.startDate)}</td>
-                                            <td className="date-cell">{formatDateWithFullYear(order.endDate)}</td>
+                                            <td className="date-cell checkout-date-cell">{formatDateWithFullYear(order.endDate)}</td>
                                             <td className="listing-cell">{order.stay.name}</td>
                                             <td className="payout-cell">${order.totalPrice}</td>
                                         </tr>

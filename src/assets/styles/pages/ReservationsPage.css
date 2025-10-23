@@ -86,7 +86,7 @@
     background-color: var(--gray8);
 }
 
-.guests-cell {
+.reservations-container .guests-cell {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -193,6 +193,7 @@
 .cards-container .sort-button {
     height: 2.25rem;
     margin-bottom: 1rem;
+    color: var(--gray3);
 }
 
 .reservation-card {
@@ -387,6 +388,27 @@
 
     .confirm-message {
         font-size: 1.2rem;
-        margin-bottom: 3rem;
+        margin-bottom: 2.75rem;
     }
+
+    /* hide table checkout in table mobile and minimize the view.. */
+    .checkout-date-cell,
+    table thead th:nth-last-child(3) {
+        display: none;
+    }
+
+    .status-dropdown {
+        padding: 0;
+        margin-inline: 0;
+    }
+
+    .reservations-container .guests-cell {
+        flex-direction: column;
+    }
+
+    .reservations-table thead th,
+    .reservations-table tbody td {
+        padding-inline-end: 0.1rem;
+        font-size: 12px;
+    }    
 }
