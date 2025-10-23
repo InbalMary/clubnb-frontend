@@ -222,7 +222,7 @@
   justify-content: space-between;
 }
 
-.listings-header .plus-btn {
+.plus-btn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -238,7 +238,7 @@
   font-size: 1.5rem;
 }
 
-.listings-header .plus-btn:hover {
+.plus-btn:hover {
   background-color: var(--gray5);
 }
 

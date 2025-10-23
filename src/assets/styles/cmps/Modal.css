@@ -219,3 +219,38 @@
         font-weight: 600;
     }
 }
+
+
+@media (max-width: 768px) {
+    .modal-popup {
+        width: 90%;
+        height: 60%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        padding: 2rem;
+    }
+
+    .modal-popup header {
+        padding: 0.75rem 1rem;
+        min-height: auto;
+    }
+
+    .modal-popup .main-modal {
+        padding: 1rem;
+        overflow-y: auto;
+    }
+
+    .modal-popup .close-btn {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+}
