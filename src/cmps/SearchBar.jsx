@@ -173,6 +173,13 @@ export function SearchBar({ initialModal = null }) {
             endDate: dateRange.to ? formatDate(dateRange.to) : null,
             guests: totalGuests,
         })
+
+        if (destination?.name) {
+            const cityName = destination.name.split(',')[0].trim()
+            const encodedCity = encodeURIComponent(cityName)
+
+            navigate(`/explore/city/${encodedCity}`)
+        }
     }
     
     const hasGuestValues = guests.adults > 0 || guests.children > 0 || guests.infants > 0 || guests.pets > 0
@@ -280,7 +287,7 @@ export function SearchBar({ initialModal = null }) {
                     </div>
                 )}
             </div>
-            
+
         </div>
     )
 }
