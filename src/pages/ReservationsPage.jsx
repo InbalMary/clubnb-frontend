@@ -5,6 +5,7 @@ import { formatDateWithFullYear, formatGuestsText, capitalizeFirst } from '../se
 import { DotsLoader } from '../cmps/SmallComponents';
 import { Modal } from '../cmps/Modal';
 import { appHeaderSvg } from '../cmps/Svgs';
+import confetti from 'canvas-confetti';
 
 export function ReservationsPage() {
     const [activeTab, setActiveTab] = useState('all')
@@ -77,6 +78,16 @@ export function ReservationsPage() {
             const newStatus = action === 'approve' ? 'approved' : 'rejected'
             const updatedOrder = { ...order, status: newStatus }
             await updateOrder(updatedOrder)
+
+            //confeti effect after approval 🎊
+            if (action === 'approve') {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#FF385C', '#00A699', '#FFB400', '#8B5CF6', '#EC4899']
+                })
+            }
         } catch (err) {
             console.error('Failed to update order status:', err)
         } finally {
