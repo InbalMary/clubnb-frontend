@@ -6,12 +6,13 @@ import { ExploreMap } from '../cmps/ExploreMap'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { svgControls } from '../cmps/Svgs'
 import { addStayToWishlist, removeStayFromWishlist } from '../store/actions/wishlist.actions'
+import { WishlistDetailsSkeleton } from '../cmps/WishlistDetailsSkeleton'
 
 export function WishlistDetails() {
     const { state } = useLocation()
     const { id } = useParams()
     const navigate = useNavigate()
-
+    const isLoading = useSelector(storeState => storeState.wishlistModule.isLoading)
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const wishlist = state?.wishlist || wishlists.find(wl => wl._id === id)
     const [hoveredId, setHoveredId] = useState(null)
@@ -62,6 +63,8 @@ export function WishlistDetails() {
         ...stay,
         loc: stay.loc || { lat: 32.08, lng: 34.78 }, // e.g. Tel Aviv fallback
     }))
+
+    if (isLoading) return <WishlistDetailsSkeleton />
 
     return (
         <section className="wishlist-details full">
