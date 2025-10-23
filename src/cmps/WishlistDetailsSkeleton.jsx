@@ -1,18 +1,14 @@
 
 
-export function WishlistDetails() {
+export function WishlistDetailsSkeleton() {
     const placeholders = Array.from({ length: 4 })
 
     return (
         <section className="wishlist-details full">
+            {/* Left column */}
             <div className="wishlist-items-wrapper">
                 {/* Header */}
                 <div className="wishlist-details-header">
-                    <div className="wishlist-header-top">
-                        <div className="skeleton skeleton-btn"></div>
-                        <div className="skeleton skeleton-btn"></div>
-                    </div>
-
                     <div className="skeleton skeleton-title-block large"></div>
                 </div>
                 {/* Stay grid */}
@@ -25,10 +21,12 @@ export function WishlistDetails() {
                         </div>
                     ))}
                 </div>
-                {/* Map placeholder */}
-                <div className="wishlist-map-skeleton skeleton"></div>
-
             </div>
+            {/* Map placeholder */}
+            <div className="explore-map-wrapper">
+                <div className="wishlist-map-skeleton skeleton"></div>
+            </div>
+
         </section>
     )
 }
