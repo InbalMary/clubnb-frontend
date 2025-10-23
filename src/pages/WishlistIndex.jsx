@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { loadWishlists, removeWishlist } from "../store/actions/wishlist.actions"
 import { svgControls } from "../cmps/Svgs"
 import { showSuccessMsg } from "../services/event-bus.service"
+import { WishlistIndexSkeleton } from "../cmps/WishlistIndexSkeleton"
 
 export function WishlistIndex() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
@@ -18,7 +19,7 @@ export function WishlistIndex() {
         showSuccessMsg(`Wishlist ${wishlist.title} deleted`, wishlist.stays?.[0]?.imgUrls?.[0])
     }
 
-    if (isLoading) return <div>Loading wishlists...</div>
+    if (isLoading) return <WishlistIndexSkeleton />
 
     return (
         <section className="wishlists-index">
