@@ -12,6 +12,7 @@ import { Modal } from '../cmps/Modal'
 export function Explore() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const { stays, isLoading } = useSelector(storeState => storeState.stayModule)
+    const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
 
     const wm = useWishlistModal(wishlists)
     const { city } = useParams()
@@ -54,12 +55,18 @@ export function Explore() {
 
                                     tabIndex={0}
                                 >
-                                    <StayPreview key={stay._id} stay={stay} isBig={true} onToggleWishlist={wm.onToggleWishlist} isFocused={focusedStayId === stay._id}
+                                    <StayPreview key={stay._id}
+                                        stay={stay}
+                                        isBig={true}
+                                        onToggleWishlist={wm.onToggleWishlist}
+                                        isFocused={focusedStayId === stay._id}
                                         // onRequestFocus={() => setFocusedStayId(stay._id)}
                                         onRequestFocus={() => {
                                             console.log('Focus requested for', stay._id)
                                             setFocusedStayId(stay._id)
-                                        }} />
+                                        }}
+                                        hideDetails={filterBy?.startDate && filterBy?.endDate}
+                                    />
                                 </div>
 
                             ))}

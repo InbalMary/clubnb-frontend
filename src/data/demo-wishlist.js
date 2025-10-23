@@ -1,3 +1,5 @@
+import { demoStays } from "./demo-stays"
+
 const demoUser = { _id: 'u101', fullname: 'Alice Chang' }
 
 export const demoWishlists = [
@@ -21,7 +23,9 @@ export const demoWishlists = [
                     "https://a0.muscache.com/im/pictures/72140cb9-a92a-40b5-b27e-c0d9809cd397.jpg?im_w=480",
                     "https://a0.muscache.com/im/pictures/eca86db9-89c5-4d76-8c8d-08054cb7e07e.jpg?im_w=480",
                     "https://a0.muscache.com/im/pictures/28ec2182-cff2-41cd-8e11-c5f8c4148f23.jpg?im_w=480",
-                ]
+                ],
+                lat: 41.3851,
+                lng: 2.1734
             },
             {
                 _id: 's102',
@@ -36,7 +40,9 @@ export const demoWishlists = [
                     "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1394855747314311569/original/ad9482c6-1783-472d-a938-3d65fa0ae2a7.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1394855747314311569/original/6f0b194c-cb3a-4e83-915d-64f400a813a7.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1394855747314311569/original/064da6c4-751f-4df9-85a0-982673023318.jpeg?im_w=960",
-                ]
+                ],
+                lat: 41.3832,
+                lng: 2.1824
             },
         ],
         createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30, // 1 month ago
@@ -61,7 +67,9 @@ export const demoWishlists = [
                     "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1526155629581591675/original/722f655a-f087-45a5-836d-cd9aa696db39.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1526155629581591675/original/bb36d46a-cc9d-4a75-b029-a1c18bf185d8.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1526155629581591675/original/7f54a878-79ef-4d9c-8411-6c3a608f3ebb.jpeg?im_w=960",
-                ]
+                ],
+                lat: 40.759,
+                lng: -73.985
             },
             {
                 _id: 's104',
@@ -76,7 +84,9 @@ export const demoWishlists = [
                     "https://a0.muscache.com/im/pictures/miso/Hosting-691676460109271194/original/583db50d-b4e7-413c-b87a-8343cf3e884e.png?im_w=480",
                     "https://a0.muscache.com/im/pictures/prohost-api/Hosting-691676460109271194/original/6fb6e350-e9d2-4735-9aeb-df74a4d3de70.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/prohost-api/Hosting-691676460109271194/original/af2d2de9-bcb4-4a8d-ad57-9562def3c563.jpeg?im_w=960",
-                ]
+                ],
+                lat: 40.7742,
+                lng: -73.9654
             },
         ],
         createdAt: Date.now() - 1000 * 60 * 60 * 24 * 7, // 1 week ago
@@ -101,7 +111,9 @@ export const demoWishlists = [
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MzQzNTg0NDY=/original/ce0cd732-8a90-42ac-87ea-3d4fe2b9f2f4.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MzQzNTg0NDY=/original/2c1460c6-6655-44ae-8748-f004117ea1a3.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MzQzNTg0NDY=/original/d622991c-1344-4dbe-90df-6317bafc52aa.jpeg?im_w=960",
-                ]
+                ],
+                lat: 32.065,
+                lng: 34.777
             },
             {
                 _id: 's106',
@@ -116,7 +128,9 @@ export const demoWishlists = [
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-1499241797877148255/original/46042ac1-1c91-425a-a49e-8f6dce1d1589.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-1499241797877148255/original/3401d91f-551d-4891-a7a6-5d0ae0f3917f.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-1499241797877148255/original/f4c96348-cf44-4492-a817-abb442775e7a.jpeg?im_w=480",
-                ]
+                ],
+                lat: 32.0853,
+                lng: 34.7818
             },
         ],
         createdAt: Date.now() - 1000 * 60 * 60 * 24 * 7, // 1 week ago
@@ -141,7 +155,9 @@ export const demoWishlists = [
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-1502839437221730399/original/4d4b68ef-eb39-4363-a1d1-21b8f7d8c4bc.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-1502839437221730399/original/e7fcb3cf-ea93-4414-8a6f-baba9fed8c68.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-1502839437221730399/original/40eebbf6-592f-437b-957e-07424921e323.jpeg?im_w=960",
-                ]
+                ],
+                lat: 48.8619,
+                lng: 2.3361
             },
             {
                 _id: 's108',
@@ -156,7 +172,9 @@ export const demoWishlists = [
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-1231991186372791293/original/832a3ec0-e5a2-4bdd-a363-b31d71268e7e.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-1231991186372791293/original/267eeaf6-9627-4c06-8882-23abcb0dc848.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-1231991186372791293/original/2095d94f-adcd-4b2d-a696-be7ff10a6b66.jpeg?im_w=960",
-                ]
+                ],
+                lat: 48.8738,
+                lng: 2.3321
             },
         ],
         createdAt: Date.now() - 1000 * 60 * 60 * 24 * 7, // 1 week ago
@@ -181,7 +199,9 @@ export const demoWishlists = [
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-1430825605016107872/original/8b33b148-508b-48b7-9317-d6b8fae9e8cd.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-1430825605016107872/original/44ff42c0-df3e-4852-a1b5-751b65487a50.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/miso/Hosting-1430798282653568595/original/2178b294-3421-40e1-ab26-7ff5f532beb5.jpeg?im_w=960",
-                ]
+                ],
+                lat: -8.648,
+                lng: 115.131
             },
             {
                 _id: 's109',
@@ -196,7 +216,9 @@ export const demoWishlists = [
                     "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDY5NTk4Ng%3D%3D/original/f8674240-b93d-4910-9f5e-e47e31617797.jpeg?im_w=480",
                     "https://a0.muscache.com/im/pictures/355e3a88-1445-40ef-a137-9493975e9d74.jpg?im_w=480",
                     "https://a0.muscache.com/im/pictures/ccffb1af-e48f-402c-a2f8-4f452bd086c9.jpg?im_w=480",
-                ]
+                ],
+                lat: -8.792,
+                lng: 115.168
             },
         ],
         createdAt: Date.now() - 1000 * 60 * 60 * 24 * 7, // 1 week ago
