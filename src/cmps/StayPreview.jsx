@@ -72,7 +72,7 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
 
             {isBig && (
                 <>
-                    <p className="stay-summary">{stay.summary}</p>
+                    <p className="stay-summary" title={stay.summary}>{stay.summary}</p>
                     <p className='stay-card-details'>
                         {!hideDetails && (
                             <>

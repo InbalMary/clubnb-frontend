@@ -18,7 +18,7 @@ export const demoStays = [
         ],
         "price": 150,
         "cleaningFee": 40,
-        "summary": "Stay in the heart of Shibuya in this modern, compact apartment designed for travelers who want to explore Tokyo with ease. \n\nLocated minutes from Shibuya Crossing, the apartment offers convenient access to restaurants, nightlife, and shopping.\n\nThis cozy one-bedroom apartment includes everything you need for a comfortable stay — fast Wi-Fi, a small kitchen, and modern Japanese design touches.\n\nPerfect for solo travelers or couples visiting Tokyo for short city breaks or business trips.",
+        "summary": "Stay in the heart of Shibuya in this modern, compact apartment designed for travelers who want to explore Tokyo with ease.",
         "rooms": [
             {
                 "roomType": "bedroom",
@@ -162,7 +162,7 @@ export const demoStays = [
         ],
         "price": 162,
         "cleaningFee": 40,
-        "summary": "Stay in the heart of Shibuya in this modern, compact apartment designed for travelers who want to explore Tokyo with ease. \n\nLocated minutes from Shibuya Crossing, the apartment offers convenient access to restaurants, nightlife, and shopping.\n\nThis cozy one-bedroom apartment includes everything you need for a comfortable stay — fast Wi-Fi, a small kitchen, and modern Japanese design touches.\n\nPerfect for solo travelers or couples visiting Tokyo for short city breaks or business trips.",
+        "summary": "Stay in the heart of Shibuya in this modern, compact apartment designed for travelers who want to explore Tokyo with ease.",
         "rooms": [
             {
                 "roomType": "bedroom",
