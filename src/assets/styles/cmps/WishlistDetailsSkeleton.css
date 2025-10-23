@@ -1,0 +1,26 @@
+.skeleton-title-block.large {
+    width: 40%;
+    height: 2rem;
+    border-radius: 8px;
+}
+
+.wishlist-map-skeleton {
+    grid-area: map;
+    width: 100%;
+    height: calc(100vh - 100px);
+    border-radius: 1rem;
+    background-color: var(--gray5);
+}
+
+.wishlist-stay-card.skeleton-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.wishlist-stay-card .skeleton-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 1.25rem;
+    overflow: hidden;
+}
