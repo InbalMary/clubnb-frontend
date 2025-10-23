@@ -19,7 +19,11 @@
 
     .app-header.full,
     .compact-header.full {
-        max-width: 100vw;
+        padding-inline: 2rem;
+    }
+
+    .compact-header.full:not(.no-sticky):not(.index-page) {
+        height: 56px;
     }
 
 }

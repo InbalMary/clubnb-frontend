@@ -110,6 +110,8 @@
 
     .compact-header-content .brand,
     .compact-header-content .host-link,
+    .compact-header-content .header-actions, 
+    .compact-header-content .host-navigation,
     .mobile-compact-search .anywhere-icon {
         display: none;        
     }
