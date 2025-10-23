@@ -71,7 +71,10 @@ export function useWishlistModal(wishlists) {
                     {
                         _id: activeStay._id,
                         name: activeStay.name,
-                        imgUrls: activeStay.imgUrls || []
+                        imgUrls: activeStay.imgUrls || [],
+                        summary: activeStay.summary,
+                        beds: activeStay.beds,
+                        rating: activeStay.host?.rating
                     }
                 ],
                 createdAt: Date.now(),
