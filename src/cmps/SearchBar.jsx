@@ -162,15 +162,13 @@ export function SearchBar({ initialModal = null }) {
 
     const handleSearch = () => {
         setActiveModal(null)
-        // if (destination?.name) {
-        //     const cityKey = destination.name.split(',')[0].trim()
-        //     navigate(`/explore/city/${cityKey}`)
-        // }
+        const totalGuests = guests.adults + guests.children
+        
         setFilterBy({
             destination: destination?.name || null,
             startDate: dateRange.from ? formatDate(dateRange.from) : null,
             endDate: dateRange.to ? formatDate(dateRange.to) : null,
-            guests,
+            guests: totalGuests,
         })
     }
     
