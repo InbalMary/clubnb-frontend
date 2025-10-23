@@ -152,12 +152,15 @@ export function SearchBar({ initialModal = null }) {
         setDateRange(range)
 
         if (activeModal === 'checkin' && range.from && !range.to) {
-            setActiveModal('checkout')
+            setTimeout(() => setActiveModal('checkout'), 0)
+        } else if (activeModal === 'checkout' && range.to) {
+            setTimeout(() => setActiveModal('who'), 0)
         }
     }
 
     const handleDestinationSelect = (dest) => {
         setDestination(dest)
+        setTimeout(() => setActiveModal('checkin'), 0)
     }
 
     const handleSearch = () => {
