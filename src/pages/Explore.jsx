@@ -1,7 +1,7 @@
 import { useParams, useSearchParams } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { loadStays } from '../store/actions/stay.actions'
+import { loadStays, setFilterBy } from '../store/actions/stay.actions'
 import { StayPreview } from '../cmps/StayPreview'
 import { ExploreMap } from '../cmps/ExploreMap'
 import { ExploreSkeleton } from '../cmps/SmallComponents'
@@ -29,20 +29,34 @@ export function Explore() {
     // if (!type || city) return <ExploreSkeleton stays={stays} />
     // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
-    useEffect(() => {
-        const startDate = searchParams.get('startDate')
-        const endDate = searchParams.get('endDate')
-        const guestsParam = searchParams.get('guests')
-        
-        const filterParams = {
-            city: city || null,
-            startDate: startDate || null,
-            endDate: endDate || null,
-            guests: guestsParam ? parseInt(guestsParam) : null
-        }
+   useEffect(() => {
+    const startDate = searchParams.get('startDate') || null
+    const endDate = searchParams.get('endDate') || null
+    const adults = searchParams.get('adults') || null
+    const children = searchParams.get('children') || null
 
-        loadStays(filterParams)
-    }, [city, searchParams])
+    const filterParams = {
+        city: city || null,
+        startDate,
+        endDate,
+        guests: (adults || children) ? (parseInt(adults || 0) + parseInt(children || 0)) : null
+    }
+
+    loadStays(filterParams)
+
+    return () => {
+        const isNavigatingHome = window.location.pathname === '/' || window.location.pathname === ''
+        if (isNavigatingHome) {
+            setFilterBy({
+                destination: null,
+                startDate: null,
+                endDate: null,
+                guests: null
+            })
+        }
+    }
+}, [city, searchParams])
+
 
     const filteredStays = stays?.filter(stay => {
         if (stay.summary?.includes('[IN_PROGRESS:')) {

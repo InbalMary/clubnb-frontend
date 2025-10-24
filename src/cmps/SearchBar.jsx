@@ -135,7 +135,6 @@ export function SearchBar({ initialModal = null }) {
             guests.children === 0
 
         if (isInitialRender) return
-        if (window.location.pathname.includes('/explore/city')) return
 
         const params = new URLSearchParams()
         if (destination?.name) params.set('destination', destination.name)
@@ -145,7 +144,10 @@ export function SearchBar({ initialModal = null }) {
         if (guests.children) params.set('children', guests.children.toString())
         if (guests.infants) params.set('infants', guests.infants.toString())
         if (guests.pets) params.set('pets', guests.pets.toString())
-        setSearchParams(params, { replace: true })
+        
+        if (!window.location.pathname.includes('/explore/city')) {
+            setSearchParams(params, { replace: true })
+        }
     }, [destination, dateRange, guests])
 
     const handleDateComplete = (range) => {
@@ -164,7 +166,6 @@ export function SearchBar({ initialModal = null }) {
     }
 
     const handleSearch = () => {
-        setActiveModal(null)
         const totalGuests = guests.adults + guests.children
         
         const filterParams = {
@@ -183,11 +184,26 @@ export function SearchBar({ initialModal = null }) {
             const params = new URLSearchParams()
             if (dateRange.from) params.set('startDate', formatDate(dateRange.from))
             if (dateRange.to) params.set('endDate', formatDate(dateRange.to))
-            if (totalGuests > 0) params.set('guests', totalGuests.toString())
+            if (guests.adults) params.set('adults', guests.adults.toString())
+            if (guests.children) params.set('children', guests.children.toString())
+            if (guests.infants) params.set('infants', guests.infants.toString())
+            if (guests.pets) params.set('pets', guests.pets.toString())
 
             const queryString = params.toString()
+            setActiveModal(null)
             navigate(`/explore/city/${encodedCity}${queryString ? `?${queryString}` : ''}`)
+        } else if (window.location.pathname.includes('/explore/city')) {
+            const params = new URLSearchParams()
+            if (dateRange.from) params.set('startDate', formatDate(dateRange.from))
+            if (dateRange.to) params.set('endDate', formatDate(dateRange.to))
+            if (guests.adults) params.set('adults', guests.adults.toString())
+            if (guests.children) params.set('children', guests.children.toString())
+            if (guests.infants) params.set('infants', guests.infants.toString())
+            if (guests.pets) params.set('pets', guests.pets.toString())
+            setActiveModal(null)
+            setSearchParams(params, { replace: true })
         } else {
+            setActiveModal(null)
             loadStays(filterParams)
         }
     }
@@ -268,6 +284,7 @@ export function SearchBar({ initialModal = null }) {
                             className="search-button"
                             onClick={(ev) => {
                                 ev.stopPropagation()
+                                setActiveModal(null)
                                 handleSearch()
                             }}
                         >
