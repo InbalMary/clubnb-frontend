@@ -414,9 +414,9 @@ export function ExploreSkeleton({ stays }) {
 
                     <div className="skeleton skeleton-title-block"></div>
                     <div className="skeleton-explore-grid">
-                        {stays.map(stay => (
+                        {stays.map((stay, idx) => (
                             <div className="skeleton-card"
-                                key={stay._id} >
+                                key={idx} >
                                 <div className="skeleton skeleton-img"></div>
                                 <div className="stay-info">
                                     <div className="wrapper flex justify-between">

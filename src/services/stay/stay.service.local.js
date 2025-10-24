@@ -63,10 +63,18 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
     }
 
     if (guests) {
-        const totalGuests = (guests.adults || 0) + (guests.children || 0)
-        // Note: infants and pets don't count for now
+        let totalGuests
+        if (typeof guests === 'number') {
+            totalGuests = guests
+        } else {
+            totalGuests = (guests.adults || 0) + (guests.children || 0)
+        }
+
         if (totalGuests > 0) {
-            stays = stays.filter(stay => stay.capacity >= totalGuests)
+            stays = stays.filter(stay => {
+                const stayCapacity = stay.capacity || stay.guests || 0
+                return stayCapacity >= totalGuests
+            })
         }
     }
 
@@ -101,7 +109,7 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
         imgUrls: stay.imgUrls,
         price: stay.price,
         summary: stay.summary,
-        capacity: stay.capacity,
+        capacity: stay.capacity || stay.guests || 0,
         bathrooms: stay.bathrooms,
         bedrooms: stay.bedrooms,
         beds: stay.beds,

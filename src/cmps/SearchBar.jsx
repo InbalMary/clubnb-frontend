@@ -9,7 +9,7 @@ import { useDateRange } from "../customHooks/useDateRange";
 import { GuestSelector } from "./GuestSelector";
 import { formatDate, formatGuestsText } from '../services/util.service'
 import { useSelector } from "react-redux";
-import { setFilterBy } from '../store/actions/stay.actions.js'
+import { setFilterBy, loadStays } from '../store/actions/stay.actions.js'
 import { useClickOutside } from "../customHooks/useClickOutside.js";
 
 export function SearchBar({ initialModal = null }) {
@@ -167,18 +167,28 @@ export function SearchBar({ initialModal = null }) {
         setActiveModal(null)
         const totalGuests = guests.adults + guests.children
         
-        setFilterBy({
+        const filterParams = {
             destination: destination?.name || null,
             startDate: dateRange.from ? formatDate(dateRange.from) : null,
             endDate: dateRange.to ? formatDate(dateRange.to) : null,
-            guests: totalGuests,
-        })
+            guests: totalGuests > 0 ? totalGuests : null,
+        }
+        
+        setFilterBy(filterParams)
 
         if (destination?.name) {
             const cityName = destination.name.split(',')[0].trim()
             const encodedCity = encodeURIComponent(cityName)
 
-            navigate(`/explore/city/${encodedCity}`)
+            const params = new URLSearchParams()
+            if (dateRange.from) params.set('startDate', formatDate(dateRange.from))
+            if (dateRange.to) params.set('endDate', formatDate(dateRange.to))
+            if (totalGuests > 0) params.set('guests', totalGuests.toString())
+
+            const queryString = params.toString()
+            navigate(`/explore/city/${encodedCity}${queryString ? `?${queryString}` : ''}`)
+        } else {
+            loadStays(filterParams)
         }
     }
     
