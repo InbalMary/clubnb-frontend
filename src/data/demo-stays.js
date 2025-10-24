@@ -5138,8 +5138,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-10-12",
-        "endDate": "2025-10-18"
+        "startDate": "2025-10-24",
+        "endDate": "2025-10-30"
     },
     {
         "_id": "city-037",
@@ -9563,8 +9563,8 @@ export const demoStays = [
             }
         ],
         likedByUsers: [],
-        startDate: '2025-07-01',
-        endDate: '2025-07-06'
+        startDate: '2025-10-24',
+        endDate: '2025-10-30'
     },
     {
         _id: 's106',
@@ -9913,7 +9913,7 @@ export const demoStays = [
         endDate: '2025-05-23'
     },
     {
-        _id: 's108',
+        _id: 's109',
         name: 'Rustic Bungalow',
         type: 'Beach stays',
         price: 180,
@@ -10026,7 +10026,7 @@ export const demoStays = [
         endDate: '2025-08-08'
     },
     {
-        _id: 's109',
+        _id: 's110',
         name: 'Bungalow with Balcony',
         type: 'Tropical stays',
         price: 210,

@@ -187,7 +187,7 @@ export const demoWishlists = [
         country: 'Indonesia',
         stays: [
             {
-                _id: 's108',
+                _id: 's109',
                 name: 'Rustic Bungalow',
                 rating: 4.3,
                 beds: 1,
@@ -204,7 +204,7 @@ export const demoWishlists = [
                 lng: 115.131
             },
             {
-                _id: 's109',
+                _id: 's110',
                 name: 'Bungalow with balcony',
                 rating: 4.8,
                 beds: 1,
