@@ -64,6 +64,12 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 						>
 							Listings
 						</NavLink>
+						<NavLink
+							to="/hosting/dashboard"
+							className={({ isActive }) => `host-nav-item ${isActive ? 'active' : ''}`}
+						>
+							Dashboared
+						</NavLink>
 					</nav>
 				)}
 
