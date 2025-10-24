@@ -1,13 +1,14 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { loadStays } from '../store/actions/stay.actions'
+import { loadStays, setFilterBy } from '../store/actions/stay.actions'
 import { StayPreview } from '../cmps/StayPreview'
 import { ExploreMap } from '../cmps/ExploreMap'
 import { ExploreSkeleton } from '../cmps/SmallComponents'
 import { useClickOutside } from '../customHooks/useClickOutside'
 import { useWishlistModal } from '../customHooks/useWishlistModal'
 import { Modal } from '../cmps/Modal'
+import { svgControls } from '../cmps/Svgs'
 
 export function Explore() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
@@ -16,6 +17,7 @@ export function Explore() {
 
     const wm = useWishlistModal(wishlists)
     const { city } = useParams()
+    const [searchParams] = useSearchParams()
     const [hoveredId, setHoveredId] = useState(null)
     const [focusedStayId, setFocusedStayId] = useState(null)
     const previewRef = useRef(null)
@@ -24,16 +26,55 @@ export function Explore() {
         setFocusedStayId(null)
     })
 
-    useEffect(() => {
-        if (city) {
-            loadStays({ city })
-        } else {
-            loadStays()
-        }
-    }, [city])
-
     // if (!type || city) return <ExploreSkeleton stays={stays} />
     // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
+
+   useEffect(() => {
+    const startDate = searchParams.get('startDate') || null
+    const endDate = searchParams.get('endDate') || null
+    const adults = searchParams.get('adults') || null
+    const children = searchParams.get('children') || null
+
+    const filterParams = {
+        city: city || null,
+        startDate,
+        endDate,
+        guests: (adults || children) ? (parseInt(adults || 0) + parseInt(children || 0)) : null
+    }
+
+    loadStays(filterParams)
+
+    return () => {
+        const isNavigatingHome = window.location.pathname === '/' || window.location.pathname === ''
+        if (isNavigatingHome) {
+            setFilterBy({
+                destination: null,
+                startDate: null,
+                endDate: null,
+                guests: null
+            })
+        }
+    }
+}, [city, searchParams])
+
+
+    const filteredStays = stays?.filter(stay => {
+        if (stay.summary?.includes('[IN_PROGRESS:')) {
+            return false
+        }
+
+        const guestsParam = searchParams.get('guests')
+        if (guestsParam) {
+            const requestedGuests = parseInt(guestsParam)
+            const stayCapacity = stay.capacity || 0
+            
+            if (stayCapacity < requestedGuests) {
+                return false
+            }
+        }
+
+        return true
+    })
 
     return (
         <section className="explore-page full">
@@ -44,10 +85,10 @@ export function Explore() {
                 <>
                     <div className="items-wrapper">
 
-                        <h4 className='explore-title'>Over {stays?.length - 1} homes in {city}</h4>
+                        <h4 className='explore-title'>Over {filteredStays?.length || 0} homes in {city}</h4>
                         {/* grid of stays */}
                         <div className="explore-grid">
-                            {stays?.filter(stay => !stay.summary?.includes('[IN_PROGRESS:')).map(stay => (
+                            {filteredStays?.map(stay => (
                                 <div className="div-for-focus"
                                     key={stay._id}
                                     onMouseEnter={() => setHoveredId(stay._id)}
@@ -72,7 +113,7 @@ export function Explore() {
                             ))}
                         </div>
                     </div>
-                    <ExploreMap tabIndex={0} locations={stays} hoveredId={hoveredId} onToggleWishlist={wm.onToggleWishlist} />
+                    <ExploreMap tabIndex={0} locations={filteredStays} hoveredId={hoveredId} onToggleWishlist={wm.onToggleWishlist} />
                 </>
             )}
 

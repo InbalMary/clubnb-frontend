@@ -7,6 +7,49 @@ export const appHeaderSvg = {
 
     search: <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{ display: "block", fill: "none", stroke: "currentColor", strokeWidth: 5.33333, overflow: "visible", }}><path d="m20.666 20.666 10 10" /><path d="m24.0002 12.6668c0 6.2593-5.0741 11.3334-11.3334 11.3334-6.2592 0-11.3333-5.0741-11.3333-11.3334 0-6.2592 5.0741-11.3333 11.3333-11.3333 6.2593 0 11.3334 5.0741 11.3334 11.3333z" fill="none" /></svg>,
 
+    msgs: <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{ display: "block", fill: "none", height: "24px", width: "24px", stroke: "currentColor", strokeWidth: 3, overflow: "visible" }}>
+        <path d="m25.5 3.5c2.2091 0 4 1.79086 4 4v13.8333c0 2.2092-1.7909 4-4 4h-5.8192l-3.6808 4.5-3.6832-4.5h-5.8168c-2.20914 0-4-1.7908-4-4v-13.8333c0-2.20914 1.79086-4 4-4z" fill="none" />
+    </svg>,
+
+
+    listing: <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{ display: "block", fill: "none", height: "24px", width: "24px", stroke: "currentColor", strokeWidth: 3, overflow: "visible" }}>
+        <path d="m7 3h18c2.2091 0 4 1.79086 4 4v18c0 2.2091-1.7909 4-4 4h-18c-2.20914 0-4-1.7909-4-4v-18c0-2.20914 1.79086-4 4-4z" />
+        <path d="m9 9h6" />
+    </svg>,
+
+
+    calendar: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style={{ display: "block", height: "24px", width: "24px", fill: "currentColor" }}>
+        <path d="M28 2h-6V0h-2v2h-8V0h-2v2H4a2 2 0 0 0-2 2v21a5 5 0 0 0 5 5h12.59a2.01 2.01 0 0 0 1.41-.59L29.41 21a2.01 2.01 0 0 0 .59-1.41V4a2 2 0 0 0-2-2Zm-8 25.59V23a3 3 0 0 1 3-3h4.59ZM28 10H4v2h24v6h-5a5 5 0 0 0-5 5v5H7a3 3 0 0 1-3-3V4h6v2h2V4h8v2h2V4h6Z" />
+    </svg>,
+
+    today: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style={{ display: "block", height: "24px", width: "24px", fill: "currentColor" }}>
+        <path d="M24.67 1.67H7.33a3 3 0 0 0-3 3v26.47L16 23.84l11.67 7.3V4.67a3 3 0 0 0-3-3zm0 2h.11a1 1 0 0 1 .89 1v22.86L16 21.49l-9.67 6.04V4.67a1 1 0 0 1 1-1z" />
+    </svg>,
+
+    menu: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style={{ display: "block", fill: "none", height: "24px", width: "24px", stroke: "currentColor", strokeWidth: 3, overflow: "visible" }}>
+        <g fill="none">
+            <path d="M2 16h28M2 24h28M2 8h28" />
+        </g>
+    </svg>,
+
+    cards: <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        aria-label="Change to List view"
+        role="img"
+        focusable="false"
+        style={{
+            display: "block",
+            fill: "none",
+            height: "1rem",
+            width: "1rem",
+            stroke: "currentColor",
+            strokeWidth: 3,
+            overflow: "visible",
+        }}
+    >
+        <path d="M29 19v10H3V19Zm0-16v10H3V3Z" strokeLinejoin="round" />
+    </svg>
 }
 
 export const amenitiesSvg = {
