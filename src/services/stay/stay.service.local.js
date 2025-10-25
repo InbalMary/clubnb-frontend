@@ -1,6 +1,6 @@
 
 import { storageService } from '../async-storage.service'
-import { formatDate, formatName, makeId } from '../util.service'
+import { formatDate, formatName, makeId, getSuggestedStayRange } from '../util.service'
 import { userService } from '../user'
 import { demoStays } from '../../data/demo-stays'
 
@@ -125,7 +125,8 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
         likedByUsers: stay.likedByUsers,
         freeCancellation: Math.random() > 0.5,
         // add rating for demo/testing between 4.4–5.0
-        rating: (Math.random() * 0.6 + 4.4).toFixed(2)
+        rating: (Math.random() * 0.6 + 4.4).toFixed(2),
+        suggestedRange: getSuggestedStayRange(stay)
     }))
 
     return stays

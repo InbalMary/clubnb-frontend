@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { formatStayDates, calculateNights, getSuggestedStayRange } from '../services/util.service.js'
+import { formatStayDates, calculateNights } from '../services/util.service.js'
 import { svgControls, statSvgs } from './Svgs.jsx'
 import { SingleImgCarousel } from './SingleImgCarousel.jsx'
 
@@ -17,21 +17,17 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
     let formattedDates = null
     let numNights = 0
     const hasPrice = typeof stay.price === 'number' && !isNaN(stay.price)
+    const hasSelectedDates = filterBy.startDate && filterBy.endDate
 
-    if (filterBy.startDate && filterBy.endDate) {
+    if (hasSelectedDates) {
         formattedDates = formatStayDates(filterBy.startDate, filterBy.endDate)
         numNights = calculateNights(filterBy.startDate, filterBy.endDate)
     }
 
-    if (isBig && !filterBy.startDate && !filterBy.endDate) {
-        const suggestedRange = getSuggestedStayRange(stay)
-        if (suggestedRange) {
-            formattedDates = formatStayDates(suggestedRange.start, suggestedRange.end)
-        }
+    if (isBig && !hasSelectedDates && stay.suggestedRange) {
+        formattedDates = formatStayDates(stay.suggestedRange.start, stay.suggestedRange.end)
         numNights = 5
     }
-    const hasSelectedDates = filterBy.startDate && filterBy.endDate
-
 
     return <article className={`stay-preview ${isBig ? 'big' : ''} ${isFocused ? 'at-focus' : ''}`}>
         <div className='stay-image-wrapper'>
