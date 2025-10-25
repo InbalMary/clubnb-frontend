@@ -193,7 +193,7 @@ export function getSuggestedStayRange(stay, nights = 5) {
     const totalDays = Math.floor((until - from) / (1000 * 60 * 60 * 24))
     if (totalDays <= nights) return { start: from, end: until }
 
-    const offset = Math.floor(Math.random() * (totalDays - nights))
+    const offset = Math.floor(totalDays / 3)
     const start = new Date(from)
     start.setDate(start.getDate() + offset)
     const end = new Date(start)

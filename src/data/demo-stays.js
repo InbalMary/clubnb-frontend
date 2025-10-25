@@ -153,11 +153,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/miso/Hosting-1418052834421385269/original/7047179d-9693-4087-b2c0-7834b0326c92.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/d2005118-0d38-4e7b-af5e-52d9bafc8cd6.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/0b21e61e-341f-416f-9ce0-2dde2a878f16.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/5f4274e5-3804-42ab-8843-f41916bedbdd.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/31fb820e-1ca0-42a9-92db-723f07a96ede.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/45a46b17-0f61-4ec9-aa66-5ee140db3e62.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-28344100/original/cd9debc3-e839-4731-95b0-35bd3cffe7f0.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-28344100/original/a398f1f8-69a9-4f0e-bd3a-0a20a9cefa55.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-28344100/original/07385983-2040-41ba-bd53-4c98b43c598e.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-28344100/original/d7fffeb7-d4d3-426b-b7e3-4bb465f83411.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-28344100/original/6a755b62-87d9-466d-8f04-e07958d60bfe.jpeg?im_w=480",
 
         ],
         "price": 162,
@@ -297,11 +297,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ5NTU5NjE5MzEzOTY0NzYwOA==/original/4dce0e5e-a908-4788-9c10-3c3e645097b1.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/0b21e61e-341f-416f-9ce0-2dde2a878f16.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/5f4274e5-3804-42ab-8843-f41916bedbdd.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/31fb820e-1ca0-42a9-92db-723f07a96ede.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/45a46b17-0f61-4ec9-aa66-5ee140db3e62.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/d2005118-0d38-4e7b-af5e-52d9bafc8cd6.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMwMDQ5ODkwMjM3NjM2NjI5NQ%3D%3D/original/55dcbb58-c105-4984-8831-4ae2114f5040.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1300498902376366295/original/feba3d42-04ca-4e8d-b53b-469a8dcc4034.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1300498902376366295/original/248f7272-e52e-4dce-95da-23d72e8d7aee.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1300498902376366295/original/fbd4107b-7b8a-4cb2-b0ce-950b6e392efb.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMwMDQ5ODkwMjM3NjM2NjI5NQ%3D%3D/original/019141f1-1852-43ab-8b65-27156ce27ddc.jpeg?im_w=1200"
         ],
         "price": 178,
         "cleaningFee": 40,
@@ -440,11 +440,12 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-1504217191714848453/original/fe029d33-4eeb-466a-8504-d8ebb7e85017.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/0b21e61e-341f-416f-9ce0-2dde2a878f16.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/5f4274e5-3804-42ab-8843-f41916bedbdd.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/31fb820e-1ca0-42a9-92db-723f07a96ede.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/45a46b17-0f61-4ec9-aa66-5ee140db3e62.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/d2005118-0d38-4e7b-af5e-52d9bafc8cd6.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1321267735966421713/original/b5310857-c273-4e24-82f4-1d803e315f66.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1321267735966421713/original/e22f4f20-429f-40b8-a12f-6e5df90952f4.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1321267735966421713/original/5947ab2b-1c17-4d47-91b0-1a93882d1e70.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1321267735966421713/original/333f1432-d526-45d1-bb7f-c840d9144fca.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1321267735966421713/original/e1be652e-3043-4f82-88ae-257532c85aad.jpeg?im_w=720",
+
         ],
         "price": 210,
         "cleaningFee": 40,
@@ -583,11 +584,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/67ef8796-2113-4803-b66e-6d7d0594ef7e.jpg?im_w=1200",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/0b21e61e-341f-416f-9ce0-2dde2a878f16.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/5f4274e5-3804-42ab-8843-f41916bedbdd.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/31fb820e-1ca0-42a9-92db-723f07a96ede.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/45a46b17-0f61-4ec9-aa66-5ee140db3e62.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/d2005118-0d38-4e7b-af5e-52d9bafc8cd6.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/c21363b5-7530-4a0b-86dd-962d68e2fda6.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/da2ce554-26ed-4fd1-9155-fa17165485b8.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/8fe6e4e8-1e06-4560-8e15-1e7f16dc6da7.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/a6d7ffd3-4562-4eda-a93c-2fbefe47fef9.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-30777195/original/8d1d3dea-ccae-4a85-9d8d-149e388c49aa.jpeg?im_w=480",
         ],
         "price": 188,
         "cleaningFee": 40,
@@ -726,11 +727,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/miso/Hosting-1021345628711144352/original/2cacb2a8-f217-45b4-89ef-6abbaa50fb86.jpeg?im_w=1200",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/0b21e61e-341f-416f-9ce0-2dde2a878f16.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/5f4274e5-3804-42ab-8843-f41916bedbdd.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/31fb820e-1ca0-42a9-92db-723f07a96ede.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/45a46b17-0f61-4ec9-aa66-5ee140db3e62.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/d2005118-0d38-4e7b-af5e-52d9bafc8cd6.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/miso/Hosting-852001004610683993/original/15a275f5-3b11-42e4-8fd2-2efd9bbde94c.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/0ff0230d-0f9f-406c-9cfc-f885be4a7f85.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-852001004610683993/original/fd8e8934-7517-47ab-a56b-ac9949119834.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODUyMDAxMDA0NjEwNjgzOTkz/original/17826758-9b84-4726-9d0f-b52d8cbe4e4d.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODUyMDAxMDA0NjEwNjgzOTkz/original/aad585c3-1dae-4f1d-85e0-542f39166849.jpeg?im_w=480",
         ],
         "price": 145,
         "cleaningFee": 40,
@@ -869,11 +870,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/miso/Hosting-1435280965797403907/original/e4092487-f4d4-4e5d-a78e-1f0eca41c0eb.jpeg?im_w=1200",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/0b21e61e-341f-416f-9ce0-2dde2a878f16.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/5f4274e5-3804-42ab-8843-f41916bedbdd.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/31fb820e-1ca0-42a9-92db-723f07a96ede.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/45a46b17-0f61-4ec9-aa66-5ee140db3e62.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/d2005118-0d38-4e7b-af5e-52d9bafc8cd6.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/1ae87252-2a81-49fc-83bf-373a85223580.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/d7f00b17-a5e7-4d26-9d0c-5d3cb4847bd8.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/c72ce21f-7ffd-4742-9184-be188a81e356.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/8d467761-b721-403c-8ef3-64692be18777.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/c587b98a-ddae-420b-a0b8-c7792e7825fc.jpg?im_w=480",
         ],
         "price": 250,
         "cleaningFee": 40,
@@ -1012,11 +1013,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/miso/Hosting-1418052834421385269/original/7047179d-9693-4087-b2c0-7834b0326c92.jpeg?im_w=1200",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/0b21e61e-341f-416f-9ce0-2dde2a878f16.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/5f4274e5-3804-42ab-8843-f41916bedbdd.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/31fb820e-1ca0-42a9-92db-723f07a96ede.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/45a46b17-0f61-4ec9-aa66-5ee140db3e62.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/d2005118-0d38-4e7b-af5e-52d9bafc8cd6.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1369917020266348513/original/e56b357e-4928-4987-a698-71e8369d460e.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1369917020266348513/original/446f6612-5aef-45df-8a25-cc80a874ca0e.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1369917020266348513/original/96d3ec56-1069-4186-814d-c7aa9a6ceaa1.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1369917020266348513/original/912f3394-93b7-419d-ac00-20004653d54a.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1369917020266348513/original/207ddf09-ef26-4bb4-92e3-99027ed15ee1.jpeg?im_w=480",
         ],
         "price": 199,
         "cleaningFee": 40,
@@ -1155,11 +1156,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxMTI4NTAwMDczOTQzNzA4MA==/original/c7a105de-3f19-4d0e-9bfa-c4763c4cadfe.jpeg?im_w=1200",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/0b21e61e-341f-416f-9ce0-2dde2a878f16.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/5f4274e5-3804-42ab-8843-f41916bedbdd.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/31fb820e-1ca0-42a9-92db-723f07a96ede.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/45a46b17-0f61-4ec9-aa66-5ee140db3e62.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/d2005118-0d38-4e7b-af5e-52d9bafc8cd6.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1405922597957315901/original/22f247d3-e7e9-47eb-9cce-389b2e37758b.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQwNTkyMjU5Nzk1NzMxNTkwMQ==/original/4cc26608-2439-4cda-82bc-a3de5b79caa6.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQwNTkyMjU5Nzk1NzMxNTkwMQ==/original/3d825836-0d37-4f0f-8f9d-3b91c0f79fd5.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1405922597957315901/original/eafaf045-b8a3-4892-8aad-3d21b8d1b3a4.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQwNTkyMjU5Nzk1NzMxNTkwMQ==/original/b8f8fe06-ce9c-4893-aff9-0e4967e12fb1.jpeg?im_w=480",
         ],
         "price": 275,
         "cleaningFee": 40,
@@ -1298,11 +1299,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/miso/Hosting-49886862/original/946ea23e-84c7-4f1f-bc11-b8aca4f8131f.jpeg?im_w=1200",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/0b21e61e-341f-416f-9ce0-2dde2a878f16.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/5f4274e5-3804-42ab-8843-f41916bedbdd.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/31fb820e-1ca0-42a9-92db-723f07a96ede.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/45a46b17-0f61-4ec9-aa66-5ee140db3e62.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTUwODQwNzU2NTE1MzE4ODE5Mg==/original/d2005118-0d38-4e7b-af5e-52d9bafc8cd6.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1312709738733053637/original/de6293ff-8e60-4b05-9c0e-b32b6a94a347.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1312709738733053637/original/24b8f9f9-c936-457f-a573-845cb3e90a49.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1312709738733053637/original/eec8f47a-0175-49d1-93de-9141d6f065a9.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1312709738733053637/original/213f3c37-151e-4543-a2bf-d6f137280555.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1312709738733053637/original/0b9249df-b764-4ec3-8ed5-f9779da26a00.jpeg?im_w=480",
         ],
         "price": 158,
         "cleaningFee": 40,
@@ -1612,11 +1613,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/miso/Hosting-6849340/original/37ac83f4-a00b-4fcc-96cf-d08ebfe22f72.jpeg?im_w=480",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/4ff0cfa0-cfda-41ff-934c-05dbc254ecf2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/a90d09cd-c7ea-4661-bbe1-550582faef1c.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/cbdb75d3-0177-48cb-af38-788a7a10811d.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/80433843-5e99-45f6-9e9b-284ee8afbd8e.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1441648200599182463/original/fd48295d-5a8b-417a-81ce-23a97f538737.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1441648200599182463/original/152fc8d4-1b05-4d53-a2eb-7caede2a1e16.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1441648200599182463/original/a9bca981-52fa-4a32-93b3-3a2d7933ad99.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1441648200599182463/original/b6a9021a-f421-4f1b-a853-91d946fdf9ad.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1441648200599182463/original/d8bc0ca5-2927-422f-bd80-d7b24ffd101f.jpeg?im_w=480",
         ],
         "price": 250,
         "cleaningFee": 40,
@@ -1782,11 +1783,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/89424760/6ce8798b_original.jpg?im_w=480",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/4ff0cfa0-cfda-41ff-934c-05dbc254ecf2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/a90d09cd-c7ea-4661-bbe1-550582faef1c.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/cbdb75d3-0177-48cb-af38-788a7a10811d.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/80433843-5e99-45f6-9e9b-284ee8afbd8e.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/miso/Hosting-968771051178341370/original/2f1d9b12-60c5-4fd4-9c92-0295ece9151a.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-968771051178341370/original/c9937d93-819c-4d1d-ba81-244cbe6b8cd4.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-968771051178341370/original/1e3b1b9d-7c42-4e31-9584-bf9136f9a274.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-968771051178341370/original/eeac133d-9db2-42f6-9f6d-694f0f5ce018.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-968771051178341370/original/c01cfe38-3f9b-49e7-82ae-738ad22586b8.jpeg?im_w=480",
         ],
         "price": 282,
         "cleaningFee": 40,
@@ -1952,11 +1953,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/miso/Hosting-6849340/original/35cd7a4c-a52b-4303-ba63-34f49460c0ab.jpeg?im_w=960",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/4ff0cfa0-cfda-41ff-934c-05dbc254ecf2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/a90d09cd-c7ea-4661-bbe1-550582faef1c.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/cbdb75d3-0177-48cb-af38-788a7a10811d.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/80433843-5e99-45f6-9e9b-284ee8afbd8e.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMxMDU5Nzc2MDMxNTE4MzI4OA==/original/c7c6564a-920e-43e9-ae33-84d305cbd07c.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMxMDU5Nzc2MDMxNTE4MzI4OA==/original/3c0779c1-0e12-4527-9832-42f4c95af206.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMxMDU5Nzc2MDMxNTE4MzI4OA==/original/79745dc2-32a6-4af9-aa3c-83592ca53620.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMxMDU5Nzc2MDMxNTE4MzI4OA==/original/6a8535b4-47a2-4735-89b3-71df0822cd04.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMxMDU5Nzc2MDMxNTE4MzI4OA==/original/3aa6d5f3-8087-48e1-9cc7-008c38def4e6.jpeg?im_w=480",
         ],
         "price": 310,
         "cleaningFee": 40,
@@ -2122,11 +2123,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-1049203733781841601/original/40a75875-24b3-44a9-98ff-863a4eea14b5.jpeg?im_w=480",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/4ff0cfa0-cfda-41ff-934c-05dbc254ecf2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/a90d09cd-c7ea-4661-bbe1-550582faef1c.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/cbdb75d3-0177-48cb-af38-788a7a10811d.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/80433843-5e99-45f6-9e9b-284ee8afbd8e.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MjMwMjg2MA==/original/70bf62c9-0683-4277-ab6b-3bc644cd8ec3.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MjMwMjg2MA==/original/fa93d363-bf5a-4e4d-af69-a9a58ed0b5d2.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MjMwMjg2MA==/original/4a6f4005-603c-4a84-9788-6893fd2b495f.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/55741045/78bdc586_original.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MjMwMjg2MA==/original/45371aee-52d2-476d-a4d9-ca647573658e.jpeg?im_w=480",
         ],
         "price": 290,
         "cleaningFee": 40,
@@ -2292,11 +2293,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-1049203733781841601/original/98019d0b-5bdc-4dcc-b951-1bd419b1bb08.jpeg?im_w=480",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/4ff0cfa0-cfda-41ff-934c-05dbc254ecf2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/a90d09cd-c7ea-4661-bbe1-550582faef1c.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/cbdb75d3-0177-48cb-af38-788a7a10811d.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/80433843-5e99-45f6-9e9b-284ee8afbd8e.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1010792962971213940/original/c05473af-fad7-4d0b-a095-23924d6af3f0.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTAxMDc5Mjk2Mjk3MTIxMzk0MA%3D%3D/original/225bcb5d-265e-48db-8720-b8ca24288319.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1010792962971213940/original/af5475cd-7dd3-45e4-b39a-bd533d703205.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1010792962971213940/original/74f4e063-edc2-4119-bda5-2785b270d1c9.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1010792962971213940/original/dc68b0f2-f32f-4f4a-887c-378d31cb907e.jpeg?im_w=480",
         ],
         "price": 350,
         "cleaningFee": 40,
@@ -2462,11 +2463,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1515730578755014671/original/a93d1b35-2ac1-469b-82d4-413438283400.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/4ff0cfa0-cfda-41ff-934c-05dbc254ecf2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/a90d09cd-c7ea-4661-bbe1-550582faef1c.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/cbdb75d3-0177-48cb-af38-788a7a10811d.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/80433843-5e99-45f6-9e9b-284ee8afbd8e.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/bc1156be-c40e-4383-8ab8-d34457968d12.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/b864f2cd-5a2a-479f-951f-60d5212c1c01.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDAyOTQyMTc%3D/original/f8440db3-f108-4205-8e06-37ff80b6a871.png?im_w=480",
+            "https://a0.muscache.com/im/pictures/c3f8640f-1b66-4907-bd64-5197e753cbb6.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/3b66d27d-cd54-49c2-8d75-dbd34f0f97d8.jpg?im_w=1200",
         ],
         "price": 270,
         "cleaningFee": 40,
@@ -2632,11 +2633,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/5e7ac6b0-cae9-46c8-a4c2-ea05b8f0514f.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/4ff0cfa0-cfda-41ff-934c-05dbc254ecf2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/a90d09cd-c7ea-4661-bbe1-550582faef1c.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/cbdb75d3-0177-48cb-af38-788a7a10811d.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/80433843-5e99-45f6-9e9b-284ee8afbd8e.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1201395491647487940/original/1cb5121e-263d-4c7c-aeb1-e33fee6a9a72.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1201395491647487940/original/af406d87-aaa3-4af2-aa9e-b7a1cc7a3b7c.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1201395491647487940/original/7aa6fb45-6dce-4cfe-b212-c727f70fcc43.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1201395491647487940/original/94c4db43-56bb-4e05-87f5-c5bd4ec46daf.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1201395491647487940/original/f433a445-e705-4242-a013-e52f03924492.jpeg?im_w=480",
         ],
         "price": 150,
         "cleaningFee": 40,
@@ -2802,11 +2803,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/ef393391-b3bf-41e9-b56b-d167f1b088b4.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/4ff0cfa0-cfda-41ff-934c-05dbc254ecf2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/a90d09cd-c7ea-4661-bbe1-550582faef1c.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/cbdb75d3-0177-48cb-af38-788a7a10811d.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/80433843-5e99-45f6-9e9b-284ee8afbd8e.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-51465528/original/7e465cce-9844-4095-a1ca-23e3b5157c80.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-51465528/original/4791418c-47c3-4553-8cae-55e0cef036f1.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-51465528/original/c69dfdf1-1851-4b31-9d18-130d9c995531.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-51465528/original/66849965-147f-4169-8f91-8617637a8521.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-51465528/original/cb2706f9-51d1-4190-8eaf-3686f0fa238a.jpeg?im_w=480",
         ],
         "price": 245,
         "cleaningFee": 40,
@@ -2972,11 +2973,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-1508183325576136408/original/620e10ac-3163-416a-825d-8fb09948c97f.jpeg?im_w=960",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/4ff0cfa0-cfda-41ff-934c-05dbc254ecf2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/a90d09cd-c7ea-4661-bbe1-550582faef1c.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/cbdb75d3-0177-48cb-af38-788a7a10811d.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/80433843-5e99-45f6-9e9b-284ee8afbd8e.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1349280673758019454/original/713774af-bd39-4572-9c32-b7b035d0d9a3.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1349280673758019454/original/5532b81b-957a-4b6e-ad7f-8d8496371bc6.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1349280673758019454/original/5f4b1ee9-9433-4538-97e2-d887d287b83c.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1349280673758019454/original/3a4f9beb-9e50-4c46-a676-e82502595ec6.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1349280673758019454/original/dc9938d7-cc89-4323-9d4d-50a9251d16fb.jpeg?im_w=480",
         ],
         "price": 220,
         "cleaningFee": 40,
@@ -3142,11 +3143,11 @@ export const demoStays = [
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-993366530097020792/original/3b2b2012-fb1e-44fe-b5d6-9c591724a273.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/4ff0cfa0-cfda-41ff-934c-05dbc254ecf2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/a90d09cd-c7ea-4661-bbe1-550582faef1c.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/cbdb75d3-0177-48cb-af38-788a7a10811d.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1416050010477128654/original/80433843-5e99-45f6-9e9b-284ee8afbd8e.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNjA1MDAxMDQ3NzEyODY1NA==/original/d839b0cc-dea7-489d-9af0-239f565b05a5.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/miso/Hosting-922188021148815743/original/05b3be2d-b21d-45ea-bf8c-b24ac5eeb3ae.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-922188021148815743/original/66d29615-7cd3-440a-8eed-7577a946dda5.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-922188021148815743/original/1f6525fa-d002-4bc6-be37-755b8c41125b.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-922188021148815743/original/f05d11d7-1c4a-41d1-b6d4-cbbeb2653e76.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-922188021148815743/original/ea7e646b-af6b-44c6-8aae-138e9a0f4bb2.jpeg?im_w=480",
         ],
         "price": 320,
         "cleaningFee": 40,
@@ -5795,7 +5796,7 @@ export const demoStays = [
         "availableUntil": "2025-11-07"
     },
 
-
+    /////////////NEW YORK
     {
         "_id": "city-006",
         "name": "New York Downtown Studio",
@@ -5964,6 +5965,671 @@ export const demoStays = [
         "availableFrom": "2025-12-05",
         "availableUntil": "2025-12-10"
     },
+    {
+        "_id": "city-200",
+        "name": "Cozy Upper West Side Apartment",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/f9bdc4af-dd6f-4429-b18b-979c648e68ca.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/6b375c03-7572-47ba-87c6-d9af394d7b16.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/17d074ff-ea7a-4a5a-83f0-b8fcd25d47d1.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/afa471c2-6aeb-4d06-a986-42f69ad1aa00.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/3f2d2814-761d-4c8c-95ed-5d520bacc6af.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/ad11c025-d7e4-40fd-a79a-a43f08c0f31f.jpg?im_w=720",
+        ],
+        "price": 230,
+        "cleaningFee": 45,
+        "summary": `A warm, light-filled one-bedroom on the Upper West Side. Steps from Central Park and Riverside Park, perfect for morning jogs or picnics.
+    \n\nRelax in a calm, classic NYC apartment with vintage touches, hardwood floors, and a small reading nook. Cafés and the 1 train are just around the corner.
+    \n\nIdeal for couples or solo travelers who want an authentic neighborhood experience.`,
+        "rooms": [
+            { "roomType": "entire apartment", "bedType": "queen bed", "imgUrl": "" }
+        ],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi", "essentials.tv", "kitchen.coffeeMaker",
+            "bedroom.hangers", "safety.smokeAlarm", "services.lockBox"
+        ],
+        "highlights": [
+            { "main": "Near Central Park", "sub": "Walk to the park in 5 minutes.", "imgUrl": "location.center" },
+            { "main": "Peaceful Neighborhood", "sub": "Classic prewar building, quiet block.", "imgUrl": "essentials.home" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-7",
+            "firstName": "Ella",
+            "fullname": "Ella Friedman",
+            "location": "New York, USA",
+            "about": "Writer and lifelong New Yorker — happy to share the city’s literary gems and cozy cafés.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1496275200000,
+            "rating": 4.96,
+            "numReviews": 175,
+            "yearsHosting": 6,
+            "responseRate": 100,
+            "responseTime": "within an hour",
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Manhattan" },
+                { "icon": "work", "text": "Writer and book editor" }
+            ]
+        },
+        "loc": {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "New York",
+            "address": "West 80th Street, New York, USA",
+            "lat": 40.7831,
+            "lng": -73.9742
+        },
+        "reviews": [
+            {
+                "_id": "r-ny-7001",
+                "at": "2024-03-10T00:00:00.000Z",
+                "by": {
+                    "_id": "u-7001",
+                    "fullname": "Sophie",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg",
+                    "id": "60717001"
+                },
+                "txt": "Beautiful, calm apartment near Central Park. Ella was kind and gave great brunch tips.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 5.0,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.7
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-ny-7002",
+                "at": "2024-05-05T00:00:00.000Z",
+                "by": {
+                    "_id": "u-7002",
+                    "fullname": "James",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/41.jpg",
+                    "id": "60717002"
+                },
+                "txt": "Classic NYC feel with modern comfort. Loved the sunlight and quiet block.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.8,
+                    "accuracy": 4.7,
+                    "location": 4.9,
+                    "value": 4.6
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-12-10",
+        "availableUntil": "2026-01-15"
+    },
+    {
+        "_id": "city-201",
+        "name": "Modern Williamsburg Loft",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/miso/Hosting-787065483397206331/original/dd1dae80-ba4b-4f01-9e28-0fa327671668.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-787065483397206331/original/ec568232-1aab-4879-a050-af3afd64d5e6.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-787065483397206331/original/bd158182-fd49-416e-be3d-2e586dc3705a.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-787065483397206331/original/649a106a-debe-44e4-8fce-b1e3a51d30ea.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-787065483397206331/original/8e0ff942-aed6-4f66-9ae7-f92943c75b5e.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-787065483397206331/original/90610e8f-db1a-4460-a5ca-23e7770d91a8.jpeg?im_w=720",
+        ],
+        "price": 260,
+        "cleaningFee": 50,
+        "summary": `Stylish loft in the heart of Williamsburg, Brooklyn. High ceilings, open layout, and art-filled walls.
+    \n\nLocated near the L train, you'll reach Manhattan in 10 minutes. Surrounded by trendy bars, music venues, and local markets.
+    \n\nPerfect for creatives, couples, or solo travelers seeking a true Brooklyn vibe.`,
+        "rooms": [
+            { "roomType": "loft", "bedType": "king bed", "imgUrl": "" }
+        ],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi", "essentials.workSpace", "kitchen.coffeeMaker",
+            "safety.smokeAlarm", "services.lockBox", "family.crib"
+        ],
+        "highlights": [
+            { "main": "Creative Loft", "sub": "Open plan with art and plants.", "imgUrl": "essentials.workSpace" },
+            { "main": "Near Music Venues", "sub": "Live shows every night nearby.", "imgUrl": "music.jazz" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-8",
+            "firstName": "Noah",
+            "fullname": "Noah Benson",
+            "location": "New York, USA",
+            "about": "Musician and producer living in Brooklyn. I love sharing local tips for great live shows.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/45.jpg",
+            "isSuperhost": false,
+            "isVerified": true,
+            "signupDate": 1554076800000,
+            "rating": 4.88,
+            "numReviews": 130,
+            "yearsHosting": 4,
+            "responseRate": 97,
+            "responseTime": "within a few hours",
+            "personalFacts": [
+                { "icon": "music", "text": "Plays guitar and piano" },
+                { "icon": "born", "text": "Born in Brooklyn" }
+            ]
+        },
+        "loc": {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "New York",
+            "address": "Bedford Ave, Williamsburg, Brooklyn, USA",
+            "lat": 40.7166,
+            "lng": -73.9580
+        },
+        "reviews": [
+            {
+                "_id": "r-ny-8001",
+                "at": "2024-02-22T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8001",
+                    "fullname": "Liam",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/34.jpg",
+                    "id": "60718001"
+                },
+                "txt": "Awesome Brooklyn vibe. Noah’s music tips were spot-on!",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 4.9,
+                    "value": 4.5
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-ny-8002",
+                "at": "2024-04-18T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8002",
+                    "fullname": "Elena",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/28.jpg",
+                    "id": "60718002"
+                },
+                "txt": "Stylish loft close to everything. Felt like living in an art studio.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 4.8,
+                    "checkIn": 4.7,
+                    "accuracy": 4.8,
+                    "location": 4.9,
+                    "value": 4.6
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-25",
+        "availableUntil": "2025-12-20"
+    },
+    {
+        "_id": "city-202",
+        "name": "Sunny Harlem Brownstone Room",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-50888320/original/d2a779f3-9d46-43c7-b89c-e548a0a4fae4.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-50888320/original/7152669d-0541-4055-9911-f4c15bb770fc.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-50888320/original/6ced11a9-d424-44a2-86ff-3ff767675c20.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-50888320/original/2cf870d8-5978-4e17-8748-3cf2046cd030.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-50888320/original/b2df3308-1b98-4fbc-8cfb-8735ec142307.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-50888320/original/b2df3308-1b98-4fbc-8cfb-8735ec142307.jpeg?im_w=720",
+        ],
+        "price": 140,
+        "cleaningFee": 25,
+        "summary": `Private room in a historic Harlem brownstone. Spacious, cozy, and full of natural light. Shared kitchen and living room with friendly hosts.
+    \n\nMinutes from 125th Street and the Apollo Theater, with great soul food spots nearby.
+    \n\nIdeal for solo travelers or friends seeking a warm local stay.`,
+        "rooms": [
+            { "roomType": "private room", "bedType": "double bed", "imgUrl": "" }
+        ],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi", "essentials.tv", "kitchen.coffeeMaker",
+            "services.houseKeeping", "location.center"
+        ],
+        "highlights": [
+            { "main": "Historic Building", "sub": "Classic brownstone charm.", "imgUrl": "heritage.home" },
+            { "main": "Near Apollo Theater", "sub": "Walk to iconic Harlem venues.", "imgUrl": "music.jazz" }
+        ],
+        "roomType": "Private room",
+        "host": {
+            "_id": "host-city-9",
+            "firstName": "Tanya",
+            "fullname": "Tanya Moore",
+            "location": "New York, USA",
+            "about": "Born and raised in Harlem — I love welcoming visitors to our neighborhood’s vibrant culture.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/32.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1509494400000,
+            "rating": 4.93,
+            "numReviews": 210,
+            "yearsHosting": 7,
+            "responseRate": 98,
+            "responseTime": "within an hour",
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Harlem" },
+                { "icon": "work", "text": "Community organizer and art lover" }
+            ]
+        },
+        "loc": {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "New York",
+            "address": "West 124th Street, Harlem, New York, USA",
+            "lat": 40.8116,
+            "lng": -73.9465
+        },
+        "reviews": [
+            {
+                "_id": "r-ny-9001",
+                "at": "2024-01-28T00:00:00.000Z",
+                "by": {
+                    "_id": "u-9001",
+                    "fullname": "Derek",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/21.jpg",
+                    "id": "60719001"
+                },
+                "txt": "Warm, welcoming stay. Tanya made me feel at home instantly.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 5.0,
+                    "accuracy": 4.8,
+                    "location": 4.7,
+                    "value": 4.8
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-ny-9002",
+                "at": "2024-03-16T00:00:00.000Z",
+                "by": {
+                    "_id": "u-9002",
+                    "fullname": "Rachel",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg",
+                    "id": "60719002"
+                },
+                "txt": "Loved the local vibe and soulful cafés nearby.",
+                "rate": {
+                    "cleanliness": 4.7,
+                    "communication": 4.9,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 4.9,
+                    "value": 4.7
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            }
+        ]
+        ,
+        "likedByUsers": [],
+        "availableFrom": "2025-12-01",
+        "availableUntil": "2026-02-15"
+    },
+    {
+        "_id": "city-205",
+        "name": "SoHo Artist’s Loft",
+        "type": "City stays",
+        "imgUrls": ["https://a0.muscache.com/im/pictures/4e25f953-0650-4ccf-8a43-a06e4b502b3d.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/169bcb78-c4f2-4ebc-968f-a0b2c97d9067.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/0122c745-bd79-42bd-96f8-0518f28a389c.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/f9266da6-a7de-4b6f-a8e9-f31b08b16264.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/82c614a9-85d9-4deb-8120-7bcf095c6d1a.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-20812587/original/be56f559-bfcb-4045-b4a7-be6fa33351f1.jpeg?im_w=1200",
+        ],
+        "price": 290,
+        "cleaningFee": 60,
+        "summary": `Spacious industrial loft with exposed brick and modern art. Large windows overlooking SoHo’s iconic streets.
+    \n\nBright workspace and open kitchen — perfect for longer creative stays.`,
+        "rooms": [
+            { "roomType": "loft", "bedType": "queen bed", "imgUrl": "" }
+        ],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi", "essentials.workSpace", "kitchen.coffeeMaker",
+            "safety.smokeAlarm", "services.lockBox"
+        ],
+        "highlights": [
+            { "main": "Artist Loft", "sub": "Open-plan creative space.", "imgUrl": "essentials.workSpace" },
+            { "main": "Prime SoHo Location", "sub": "Shops, galleries, cafés downstairs.", "imgUrl": "location.center" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-10",
+            "firstName": "Leo",
+            "fullname": "Leo Adams",
+            "location": "New York, USA",
+            "about": "Photographer and painter. Love sharing my favorite gallery routes in SoHo.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/31.jpg",
+            "isSuperhost": false,
+            "isVerified": true,
+            "signupDate": 1606867200000,
+            "rating": 4.85,
+            "numReviews": 88,
+            "yearsHosting": 3,
+            "responseRate": 96,
+            "responseTime": "within a few hours",
+            "personalFacts": [
+                { "icon": "work", "text": "Freelance photographer" },
+                { "icon": "school", "text": "Studied fine arts in NYU" }
+            ]
+        },
+        "loc": {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "New York",
+            "address": "Spring Street, SoHo, Manhattan, New York, USA",
+            "lat": 40.7240,
+            "lng": -74.0020
+        },
+        "reviews": [
+            {
+                "_id": "r-ny-1001",
+                "at": "2024-03-20T00:00:00.000Z",
+                "by": {
+                    "_id": "u-1001",
+                    "fullname": "Natalie",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/25.jpg",
+                    "id": "60711001"
+                },
+                "txt": "Spacious, inspiring space — exactly like the photos. Perfect for working remotely.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 4.9,
+                    "checkIn": 4.8,
+                    "accuracy": 4.9,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 6,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-ny-1002",
+                "at": "2024-06-01T00:00:00.000Z",
+                "by": {
+                    "_id": "u-1002",
+                    "fullname": "Victor",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/36.jpg",
+                    "id": "60711002"
+                },
+                "txt": "Loved the natural light and art on the walls. Leo’s local gallery guide was gold.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.9,
+                    "location": 5.0,
+                    "value": 4.7
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-15",
+        "availableUntil": "2026-01-05"
+    },
+    {
+        "_id": "city-203",
+        "name": "East Village Garden Flat",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-28667823/original/0323e74c-10c7-4c28-b905-181465ff48ac.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-28667823/original/0e0f5a43-3370-4c21-9e84-7da65a365132.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-28667823/original/08821018-80ff-49fd-bcf6-6c8c708b5690.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-28667823/original/9dda4a7f-160c-4af1-863b-0c794b9a687c.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1384207415200635749/original/725e6de1-4108-4627-b13f-50e56f1c2a67.png?im_w=480",
+            "https://a0.muscache.com/im/pictures/airflow/Hosting-28667823/original/6558fea4-4cd0-40da-afb0-b129d5a6d8f3.jpg?im_w=720",
+        ],
+        "price": 210,
+        "cleaningFee": 40,
+        "summary": `Charming apartment with a private garden patio in the East Village. Eclectic design and peaceful outdoor space for morning coffee.
+    \n\nWalk to Tompkins Square Park, live music, and classic NYC diners.`,
+        "rooms": [
+            { "roomType": "entire apartment", "bedType": "double bed", "imgUrl": "" }
+        ],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi", "kitchen.coffeeMaker", "safety.smokeAlarm",
+            "essentials.workSpace", "location.center"
+        ],
+        "highlights": [
+            { "main": "Private Garden", "sub": "Peaceful escape in the city.", "imgUrl": "essentials.home" },
+            { "main": "Local Restaurants", "sub": "Steps from East Village dining.", "imgUrl": "location.center" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-11",
+            "firstName": "Ava",
+            "fullname": "Ava Castillo",
+            "location": "New York, USA",
+            "about": "Urban gardener and food blogger. Love recommending cozy brunch spots.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/15.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1525132800000,
+            "rating": 4.98,
+            "numReviews": 205,
+            "yearsHosting": 5,
+            "responseRate": 100,
+            "responseTime": "within an hour",
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Queens" },
+                { "icon": "work", "text": "Food blogger & gardener" }
+            ]
+        },
+        "loc": {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "New York",
+            "address": "East 9th Street, East Village, New York, USA",
+            "lat": 40.7279,
+            "lng": -73.9822
+        },
+        "reviews": [
+            {
+                "_id": "r-ny-1101",
+                "at": "2024-03-14T00:00:00.000Z",
+                "by": {
+                    "_id": "u-1101",
+                    "fullname": "Hannah",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/31.jpg",
+                    "id": "60711101"
+                },
+                "txt": "Private garden was the highlight! Peaceful yet close to nightlife.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 4.9,
+                    "value": 4.7
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-ny-1102",
+                "at": "2024-05-01T00:00:00.000Z",
+                "by": {
+                    "_id": "u-1102",
+                    "fullname": "Chris",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/44.jpg",
+                    "id": "60711102"
+                },
+                "txt": "Cozy and well-decorated. Ava’s café recommendations were perfect.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 5.0,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-12-01",
+        "availableUntil": "2026-02-01"
+    },
+    {
+        "_id": "city-204",
+        "name": "Chelsea Designer Suite",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/1ebba296-ba2d-4e8b-a27d-edf67f654122.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-555005271135605811/original/83a32b38-dc91-41e5-87d7-1edf0d7ea401.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/a5bf4e5a-0e31-45fc-807e-92172556b378.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-555005271135605811/original/eda39715-be99-4e3f-af6f-314fdf79df86.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/f72b2c2d-703d-482d-8c78-f40855ac7f70.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/6d517f7e-cb7a-4d6d-a21c-a262e3dabbf2.jpg?im_w=1200",
+        ],
+        "price": 275,
+        "cleaningFee": 50,
+        "summary": `Elegant one-bedroom suite with designer furniture and large windows overlooking Chelsea rooftops.
+    \n\nClose to the High Line, art galleries, and Hudson Yards.`,
+        "rooms": [
+            { "roomType": "entire apartment", "bedType": "queen bed", "imgUrl": "" }
+        ],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi", "essentials.tv", "kitchen.coffeeMaker",
+            "essentials.workSpace", "safety.smokeAlarm"
+        ],
+        "highlights": [
+            { "main": "Designer Suite", "sub": "Curated art and furniture.", "imgUrl": "essentials.design" },
+            { "main": "High Line Access", "sub": "Walk to parks and galleries.", "imgUrl": "location.center" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-city-12",
+            "firstName": "Ethan",
+            "fullname": "Ethan Brooks",
+            "location": "New York, USA",
+            "about": "Architect and art lover, happy to share insider tips for gallery hopping.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/26.jpg",
+            "isSuperhost": false,
+            "isVerified": true,
+            "signupDate": 1585699200000,
+            "rating": 4.9,
+            "numReviews": 120,
+            "yearsHosting": 4,
+            "responseRate": 98,
+            "responseTime": "within a few hours",
+            "personalFacts": [
+                { "icon": "school", "text": "Graduated from Columbia Architecture" },
+                { "icon": "languages", "text": "Speaks English and French" }
+            ]
+        },
+        "loc": {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "New York",
+            "address": "West 23rd Street, Chelsea, New York, USA",
+            "lat": 40.7465,
+            "lng": -74.0014
+        },
+        "reviews": [
+            {
+                "_id": "r-ny-1201",
+                "at": "2024-04-09T00:00:00.000Z",
+                "by": {
+                    "_id": "u-1201",
+                    "fullname": "Isabelle",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/45.jpg",
+                    "id": "60711201"
+                },
+                "txt": "Beautiful design and spotless apartment. Great location near the High Line.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 4.9,
+                    "checkIn": 4.9,
+                    "accuracy": 4.9,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-ny-1202",
+                "at": "2024-07-03T00:00:00.000Z",
+                "by": {
+                    "_id": "u-1202",
+                    "fullname": "Adam",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/19.jpg",
+                    "id": "60711202"
+                },
+                "txt": "Ethan’s suite felt like an art gallery. Quiet, elegant, and convenient.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 5.0,
+                    "accuracy": 4.9,
+                    "location": 4.9,
+                    "value": 4.7
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-20",
+        "availableUntil": "2026-01-10"
+    },
+
+    /////ROME
     {
         "_id": "city-007",
         "name": "Rome Historic Apartment",
@@ -6136,6 +6802,345 @@ export const demoStays = [
         "availableUntil": "2025-09-30"
     },
     {
+        "_id": "rome-x3a1",
+        "name": "Trastevere Terrace Apartment",
+        "type": "City stays",
+        "imgUrls": ["", "", "", "", "", ""],
+        "price": 190,
+        "cleaningFee": 35,
+        "summary": `Sunny one-bedroom apartment in Trastevere with a private terrace overlooking cobbled streets.
+  \n\nWalk to Campo de' Fiori in 10 minutes. Warm interiors, perfect for morning coffee or evening aperitivo.`,
+        "rooms": [{ "roomType": "entire apartment", "bedType": "queen bed", "imgUrl": "" }],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "host": {
+            "_id": "hRome01",
+            "fullname": "Giulia Rossi",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/65.jpg",
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Trastevere" },
+                { "icon": "work", "text": "Event planner who loves hosting" }
+            ]
+        },
+        "loc": {
+            "country": "Italy",
+            "city": "Rome",
+            "address": "Via della Scala, Trastevere, Rome, Italy",
+            "lat": 41.8882,
+            "lng": 12.4688
+        },
+        "reviews": [
+            {
+                "_id": "r-rome-001",
+                "at": "2024-04-12T00:00:00.000Z",
+                "by": { "fullname": "Charlotte", "imgUrl": "https://randomuser.me/api/portraits/women/42.jpg" },
+                "txt": "The terrace was magical. Giulia was quick to help and super kind.",
+                "rate": { "cleanliness": 4.9, "communication": 5.0, "checkIn": 4.9, "accuracy": 4.8, "location": 5.0, "value": 4.8 },
+                "nights": 4
+            }
+        ],
+        "availableFrom": "2025-11-15",
+        "availableUntil": "2026-02-10"
+    },
+    {
+        "_id": "rome-y9p5",
+        "name": "Vatican View Studio",
+        "type": "City stays",
+        "imgUrls": ["", "", "", "", "", ""],
+        "price": 160,
+        "cleaningFee": 30,
+        "summary": `Compact studio next to St. Peter’s Basilica. Clean, bright, and ideal for short stays.`,
+        "rooms": [{ "roomType": "studio", "bedType": "double bed", "imgUrl": "" }],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "host": {
+            "_id": "hRome02",
+            "fullname": "Marco De Luca",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/52.jpg",
+            "personalFacts": [
+                { "icon": "born", "text": "Born near Vatican City" },
+                { "icon": "languages", "text": "Speaks Italian, English, and Spanish" }
+            ]
+        },
+        "loc": {
+            "country": "Italy",
+            "city": "Rome",
+            "address": "Via delle Fornaci, Rome, Italy",
+            "lat": 41.9023,
+            "lng": 12.4560
+        },
+        "reviews": [
+            {
+                "_id": "r-rome-002",
+                "at": "2024-05-08T00:00:00.000Z",
+                "by": { "fullname": "Thomas", "imgUrl": "https://randomuser.me/api/portraits/men/27.jpg" },
+                "txt": "Fantastic location and easy check-in. Marco even arranged a taxi for me.",
+                "rate": { "cleanliness": 4.8, "communication": 5.0, "checkIn": 5.0, "accuracy": 4.7, "location": 5.0, "value": 4.7 },
+                "nights": 3
+            }
+        ],
+        "availableFrom": "2025-12-01",
+        "availableUntil": "2026-03-10"
+    },
+    {
+        "_id": "rome-a82m",
+        "name": "Colosseum View Loft",
+        "type": "City stays",
+        "imgUrls": ["", "", "", "", "", ""],
+        "price": 220,
+        "cleaningFee": 45,
+        "summary": `Spacious loft apartment with a direct view of the Colosseum. Modern design meets ancient history.`,
+        "rooms": [{ "roomType": "loft", "bedType": "queen bed", "imgUrl": "" }],
+        "guests": 3,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 2,
+        "host": {
+            "_id": "hRome03",
+            "fullname": "Lorenzo Mancini",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/40.jpg",
+            "personalFacts": [
+                { "icon": "school", "text": "Studied architecture at Sapienza" },
+                { "icon": "work", "text": "Restoration architect passionate about old Rome" }
+            ]
+        },
+        "loc": {
+            "country": "Italy",
+            "city": "Rome",
+            "address": "Via di San Giovanni, Rome, Italy",
+            "lat": 41.8903,
+            "lng": 12.4922
+        },
+        "reviews": [
+            {
+                "_id": "r-rome-003",
+                "at": "2024-03-02T00:00:00.000Z",
+                "by": { "fullname": "Emily", "imgUrl": "https://randomuser.me/api/portraits/women/16.jpg" },
+                "txt": "Waking up to the Colosseum view felt unreal. Lorenzo was a wonderful host.",
+                "rate": { "cleanliness": 5.0, "communication": 4.9, "checkIn": 5.0, "accuracy": 5.0, "location": 5.0, "value": 4.8 },
+                "nights": 5
+            }
+        ],
+        "availableFrom": "2025-11-25",
+        "availableUntil": "2026-02-15"
+    },
+    {
+        "_id": "rome-r43z",
+        "name": "Pantheon Piazza Apartment",
+        "type": "City stays",
+        "imgUrls": ["", "", "", "", "", ""],
+        "price": 240,
+        "cleaningFee": 50,
+        "summary": `Historic flat with wooden beams and modern touches overlooking Piazza della Rotonda.`,
+        "rooms": [{ "roomType": "apartment", "bedType": "king bed", "imgUrl": "" }],
+        "guests": 4,
+        "bathrooms": 2,
+        "bedrooms": 2,
+        "beds": 2,
+        "host": {
+            "_id": "hRome04",
+            "fullname": "Elena Caruso",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/38.jpg",
+            "personalFacts": [
+                { "icon": "born", "text": "Born near Piazza Navona" },
+                { "icon": "music", "text": "Plays piano in a local jazz trio" }
+            ]
+        },
+        "loc": {
+            "country": "Italy",
+            "city": "Rome",
+            "address": "Piazza della Rotonda, Rome, Italy",
+            "lat": 41.8996,
+            "lng": 12.4769
+        },
+        "reviews": [
+            {
+                "_id": "r-rome-004",
+                "at": "2024-06-18T00:00:00.000Z",
+                "by": { "fullname": "George", "imgUrl": "https://randomuser.me/api/portraits/men/22.jpg" },
+                "txt": "Elena’s apartment is right in the heart of Rome. You can hear street musicians at night — magical!",
+                "rate": { "cleanliness": 4.8, "communication": 5.0, "checkIn": 4.9, "accuracy": 4.8, "location": 5.0, "value": 4.7 },
+                "nights": 4
+            }
+        ],
+        "availableFrom": "2025-10-20",
+        "availableUntil": "2026-02-01"
+    },
+    {
+        "_id": "rome-p57d",
+        "name": "Campo de' Fiori Hideaway",
+        "type": "City stays",
+        "imgUrls": ["", "", "", "", "", ""],
+        "price": 180,
+        "cleaningFee": 35,
+        "summary": `Quiet retreat steps from Rome’s most famous market. Traditional decor, modern comfort.`,
+        "rooms": [{ "roomType": "apartment", "bedType": "double bed", "imgUrl": "" }],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "host": {
+            "_id": "hRome05",
+            "fullname": "Davide Romano",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/49.jpg",
+            "personalFacts": [
+                { "icon": "work", "text": "Chef who teaches local cooking classes" },
+                { "icon": "languages", "text": "Speaks Italian and English" }
+            ]
+        },
+        "loc": {
+            "country": "Italy",
+            "city": "Rome",
+            "address": "Via dei Giubbonari, Rome, Italy",
+            "lat": 41.8958,
+            "lng": 12.4728
+        },
+        "reviews": [
+            {
+                "_id": "r-rome-005",
+                "at": "2024-07-20T00:00:00.000Z",
+                "by": { "fullname": "Anna", "imgUrl": "https://randomuser.me/api/portraits/women/19.jpg" },
+                "txt": "Perfect location and delicious homemade pasta from Davide’s class!",
+                "rate": { "cleanliness": 4.9, "communication": 5.0, "checkIn": 5.0, "accuracy": 4.9, "location": 5.0, "value": 4.8 },
+                "nights": 3
+            }
+        ],
+        "availableFrom": "2025-12-05",
+        "availableUntil": "2026-02-28"
+    },
+    {
+        "_id": "rome-q99h",
+        "name": "Monti District Loft",
+        "type": "City stays",
+        "imgUrls": ["", "", "", "", "", ""],
+        "price": 210,
+        "cleaningFee": 40,
+        "summary": `Trendy loft with exposed brick and balcony views of the Colosseum. Great restaurants nearby.`,
+        "rooms": [{ "roomType": "loft", "bedType": "king bed", "imgUrl": "" }],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "host": {
+            "_id": "hRome06",
+            "fullname": "Chiara Bianchi",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/52.jpg",
+            "personalFacts": [
+                { "icon": "school", "text": "Studied fine arts in Rome" },
+                { "icon": "work", "text": "Interior designer and art curator" }
+            ]
+        },
+        "loc": {
+            "country": "Italy",
+            "city": "Rome",
+            "address": "Via Urbana, Monti, Rome, Italy",
+            "lat": 41.8945,
+            "lng": 12.4903
+        },
+        "reviews": [
+            {
+                "_id": "r-rome-006",
+                "at": "2024-08-02T00:00:00.000Z",
+                "by": { "fullname": "Paul", "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg" },
+                "txt": "Loved the design and Chiara’s local restaurant map was spot on.",
+                "rate": { "cleanliness": 4.9, "communication": 5.0, "checkIn": 5.0, "accuracy": 5.0, "location": 5.0, "value": 4.7 },
+                "nights": 4
+            }
+        ],
+        "availableFrom": "2025-10-15",
+        "availableUntil": "2026-01-30"
+    },
+    {
+        "_id": "rome-f72v",
+        "name": "Testaccio Modern Flat",
+        "type": "City stays",
+        "imgUrls": ["", "", "", "", "", ""],
+        "price": 150,
+        "cleaningFee": 25,
+        "summary": `Bright, modern apartment in Rome’s authentic Testaccio district. Local markets, bakeries, and nightlife within walking distance.`,
+        "rooms": [{ "roomType": "apartment", "bedType": "queen bed", "imgUrl": "" }],
+        "guests": 3,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 2,
+        "host": {
+            "_id": "hRome07",
+            "fullname": "Federico Galli",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/43.jpg",
+            "personalFacts": [
+                { "icon": "born", "text": "Born and raised in Testaccio" },
+                { "icon": "music", "text": "Plays guitar in a local band" }
+            ]
+        },
+        "loc": {
+            "country": "Italy",
+            "city": "Rome",
+            "address": "Via Marmorata, Testaccio, Rome, Italy",
+            "lat": 41.8769,
+            "lng": 12.4784
+        },
+        "reviews": [
+            {
+                "_id": "r-rome-007",
+                "at": "2024-09-15T00:00:00.000Z",
+                "by": { "fullname": "Marta", "imgUrl": "https://randomuser.me/api/portraits/women/47.jpg" },
+                "txt": "Such a lively neighborhood and Federico’s hospitality was top-notch!",
+                "rate": { "cleanliness": 4.8, "communication": 5.0, "checkIn": 5.0, "accuracy": 4.8, "location": 5.0, "value": 4.9 },
+                "nights": 5
+            }
+        ],
+        "availableFrom": "2025-12-10",
+        "availableUntil": "2026-03-05"
+    },
+    {
+        "_id": "rome-l31n",
+        "name": "Spanish Steps Penthouse",
+        "type": "City stays",
+        "imgUrls": ["", "", "", "", "", ""],
+        "price": 300,
+        "cleaningFee": 60,
+        "summary": `Luxury penthouse with panoramic rooftop near the Spanish Steps. Elevator, marble finishes, and skyline views.`,
+        "rooms": [{ "roomType": "penthouse", "bedType": "king bed", "imgUrl": "" }],
+        "guests": 4,
+        "bathrooms": 2,
+        "bedrooms": 2,
+        "beds": 2,
+        "host": {
+            "_id": "hRome08",
+            "fullname": "Alessandra Vitale",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+            "personalFacts": [
+                { "icon": "languages", "text": "Speaks Italian, English, and German" },
+                { "icon": "work", "text": "Works as an art historian" }
+            ]
+        },
+        "loc": {
+            "country": "Italy",
+            "city": "Rome",
+            "address": "Via dei Condotti, Rome, Italy",
+            "lat": 41.9059,
+            "lng": 12.4823
+        },
+        "reviews": [
+            {
+                "_id": "r-rome-008",
+                "at": "2024-10-05T00:00:00.000Z",
+                "by": { "fullname": "Oliver", "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg" },
+                "txt": "Truly stunning penthouse. Alessandra was charming and knowledgeable about art spots nearby.",
+                "rate": { "cleanliness": 5.0, "communication": 5.0, "checkIn": 5.0, "accuracy": 5.0, "location": 5.0, "value": 4.8 },
+                "nights": 4
+            }
+        ],
+        "availableFrom": "2025-11-10",
+        "availableUntil": "2026-02-20"
+    },
+
+    /////////////////////DUBAI
+    {
         "_id": "city-008",
         "name": "Dubai Marina Apartment",
         "type": "City stays",
@@ -6306,7 +7311,7 @@ export const demoStays = [
         "availableFrom": "2025-08-15",
         "availableUntil": "2025-08-20"
     },
-    // ////////////////////
+    // ////////////////////Barcelona
 
     {
         "_id": "beach-001",
@@ -8987,6 +9992,7 @@ export const demoStays = [
         "availableFrom": "2025-11-15",
         "availableUntil": "2025-11-22"
     },
+    ///
     {
         _id: 's101',
         name: 'Beach House',
@@ -9039,6 +10045,10 @@ export const demoStays = [
             numReviews: 74,
             responseRate: 98,
             responseTime: 'within an hour',
+            personalFacts: [
+                { "icon": "born", "text": "Born in Barcelona" },
+                { "icon": "work", "text": "Passionate about local culture and hosting" }
+            ],
             about: 'I love welcoming guests from around the world and sharing my city’s culture.',
         },
         loc: {
@@ -9153,6 +10163,10 @@ export const demoStays = [
             numReviews: 58,
             responseRate: 97,
             responseTime: 'within a few hours',
+            personalFacts: [
+                { icon: 'born', text: 'Born in Barcelona' },
+                { icon: 'languages', text: 'Speaks Spanish, Catalan, and English' }
+            ],
             about: 'Architect and proud host. I love helping guests discover Barcelona’s architecture and food scene.'
         },
         loc: {
@@ -9267,6 +10281,10 @@ export const demoStays = [
             numReviews: 63,
             responseRate: 99,
             responseTime: 'within an hour',
+            personalFacts: [
+                { icon: 'work', text: 'Works in creative marketing and loves meeting travelers' },
+                { icon: 'languages', text: 'Speaks English and Spanish fluently' }
+            ],
             about: 'Designer and lifelong New Yorker who loves sharing the best local coffee shops and art galleries.'
         },
         loc: {
@@ -9381,6 +10399,10 @@ export const demoStays = [
             numReviews: 51,
             responseRate: 97,
             responseTime: 'within a few hours',
+            personalFacts: [
+                { icon: 'born', text: 'Born in Brooklyn' },
+                { icon: 'music', text: 'Plays saxophone in a local jazz band' }
+            ],
             about: 'Born and raised in NYC. I love interior design, coffee, and sharing tips about hidden gems in the city.'
         },
         loc: {
@@ -9392,7 +10414,7 @@ export const demoStays = [
             lng: -73.9654
         },
         imgUrls: [
-            'https://a0.muscache.com/im/pictures/miso/Hosting-8152916/original/8109a5bc-665a-4d06-a40f-1c6c020bc17e.jpeg?im_w=720',
+            'https://a0.muscache.com/im/pictures/9f645432-c3ac-450c-b92b-eed83db704a6.jpg?im_w=960',
             'https://a0.muscache.com/im/pictures/prohost-api/Hosting-691676460109271194/original/5d03cd91-6312-453d-a753-c908a873408a.jpeg?im_w=480',
             'https://a0.muscache.com/im/pictures/prohost-api/Hosting-691676460109271194/original/b80e5fde-3b6b-4721-87f2-c1d64f9c827e.jpeg?im_w=480',
             'https://a0.muscache.com/im/pictures/miso/Hosting-691676460109271194/original/583db50d-b4e7-413c-b87a-8343cf3e884e.png?im_w=480',
@@ -9496,6 +10518,10 @@ export const demoStays = [
             numReviews: 89,
             responseRate: 99,
             responseTime: 'within an hour',
+            personalFacts: [
+                { icon: 'born', text: 'Born in Tel Aviv' },
+                { icon: 'work', text: 'Works as a graphic designer inspired by city life' }
+            ],
             about: 'Designer and lifelong Tel Aviv local. I love sharing my favorite cafés and beach spots with guests.'
         },
         loc: {
@@ -9613,6 +10639,10 @@ export const demoStays = [
             numReviews: 67,
             responseRate: 98,
             responseTime: 'within an hour',
+            personalFacts: [
+                { icon: 'music', text: 'Guitarist who performs in local bars on weekends' },
+                { icon: 'languages', text: 'Speaks Hebrew, English, and some Spanish' }
+            ],
             about: 'Architect and host passionate about Tel Aviv’s modernist heritage and Mediterranean lifestyle.'
         },
         loc: {
@@ -9727,6 +10757,10 @@ export const demoStays = [
             numReviews: 45,
             responseRate: 96,
             responseTime: 'within a few hours',
+            personalFacts: [
+                { icon: 'born', text: 'Born and raised in Paris' },
+                { icon: 'work', text: 'Works as an interior designer with a love for vintage markets' }
+            ],
             about: 'Art historian and Paris native who loves recommending hidden art galleries and cozy cafés.'
         },
         loc: {
@@ -9842,6 +10876,10 @@ export const demoStays = [
             numReviews: 38,
             responseRate: 95,
             responseTime: 'within a few hours',
+            personalFacts: [
+                { icon: 'school', text: 'Studied culinary arts at Le Cordon Bleu' },
+                { icon: 'languages', text: 'Speaks French, English, and Italian' }
+            ],
             about: 'Architect and Paris native, passionate about restoring old buildings and sharing their charm with guests.'
         },
         loc: {
@@ -9955,6 +10993,10 @@ export const demoStays = [
             numReviews: 72,
             responseRate: 98,
             responseTime: 'within an hour',
+            personalFacts: [
+                { icon: 'born', text: 'Born in Ubud' },
+                { icon: 'work', text: 'Manages the retreat with her family' }
+            ],
             about: 'Local host passionate about Balinese culture and eco-friendly living. I love sharing hidden beaches and food recommendations.'
         },
         loc: {
@@ -10069,6 +11111,10 @@ export const demoStays = [
             numReviews: 64,
             responseRate: 99,
             responseTime: 'within an hour',
+            personalFacts: [
+                { icon: 'school', text: 'Studied hospitality in Denpasar' },
+                { icon: 'languages', text: 'Speaks Indonesian and English' }
+            ],
             about: 'Balinese host who loves gardening, cooking, and introducing guests to local traditions and culture.'
         },
         loc: {
