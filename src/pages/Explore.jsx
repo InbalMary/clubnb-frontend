@@ -29,33 +29,33 @@ export function Explore() {
     // if (!type || city) return <ExploreSkeleton stays={stays} />
     // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
-   useEffect(() => {
-    const startDate = searchParams.get('startDate') || null
-    const endDate = searchParams.get('endDate') || null
-    const adults = searchParams.get('adults') || null
-    const children = searchParams.get('children') || null
+    useEffect(() => {
+        const startDate = searchParams.get('startDate') || null
+        const endDate = searchParams.get('endDate') || null
+        const adults = searchParams.get('adults') || null
+        const children = searchParams.get('children') || null
 
-    const filterParams = {
-        city: city || null,
-        startDate,
-        endDate,
-        guests: (adults || children) ? (parseInt(adults || 0) + parseInt(children || 0)) : null
-    }
-
-    loadStays(filterParams)
-
-    return () => {
-        const isNavigatingHome = window.location.pathname === '/' || window.location.pathname === ''
-        if (isNavigatingHome) {
-            setFilterBy({
-                destination: null,
-                startDate: null,
-                endDate: null,
-                guests: null
-            })
+        const filterParams = {
+            city: city || null,
+            startDate,
+            endDate,
+            guests: (adults || children) ? (parseInt(adults || 0) + parseInt(children || 0)) : null
         }
-    }
-}, [city, searchParams])
+
+        loadStays(filterParams)
+
+        return () => {
+            const isNavigatingHome = window.location.pathname === '/' || window.location.pathname === ''
+            if (isNavigatingHome) {
+                setFilterBy({
+                    destination: null,
+                    startDate: null,
+                    endDate: null,
+                    guests: null
+                })
+            }
+        }
+    }, [city, searchParams])
 
 
     const filteredStays = stays?.filter(stay => {
@@ -67,7 +67,7 @@ export function Explore() {
         if (guestsParam) {
             const requestedGuests = parseInt(guestsParam)
             const stayCapacity = stay.capacity || 0
-            
+
             if (stayCapacity < requestedGuests) {
                 return false
             }
@@ -106,7 +106,6 @@ export function Explore() {
                                             console.log('Focus requested for', stay._id)
                                             setFocusedStayId(stay._id)
                                         }}
-                                        hideDetails={filterBy?.startDate && filterBy?.endDate}
                                     />
                                 </div>
 

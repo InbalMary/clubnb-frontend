@@ -32,9 +32,9 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
         )
     }
 
-    // if (type) {
-    //     stays = stays.filter(stay => stay.type === type)
-    // }
+    if (type) {
+        stays = stays.filter(stay => stay.type === type)
+    }
 
     if (destination) {
         const regex = new RegExp(destination, 'i')
@@ -53,12 +53,14 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
         const filterEnd = new Date(endDate.replace(/\//g, '-'))
 
         stays = stays.filter(stay => {
-            if (!stay.startDate || !stay.endDate) return true
+            if (!stay.availableFrom || !stay.availableUntil) return true
+            // if (!stay.startDate || !stay.endDate) return true
 
-            const stayStart = new Date(stay.startDate)
-            const stayEnd = new Date(stay.endDate)
+            const availableFrom = new Date(stay.availableFrom)
+            const availableUntil = new Date(stay.availableUntil)
 
-            return filterStart >= stayStart && filterEnd <= stayEnd
+            return filterStart >= availableFrom && filterEnd <= availableUntil
+            // return filterStart >= stayStart && filterEnd <= stayEnd
         })
     }
 
@@ -114,8 +116,8 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
         bedrooms: stay.bedrooms,
         beds: stay.beds,
         roomType: stay.roomType,
-        startDate: stay.startDate,
-        endDate: stay.endDate,
+        availableFrom: stay.availableFrom,
+        availableUntil: stay.availableUntil,
         host: stay.host,
         loc: stay.loc,
         reviews: stay.reviews,

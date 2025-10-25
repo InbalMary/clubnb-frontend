@@ -1,8 +1,8 @@
+import { generateAvailability } from "../services/util.service"
+
 export const demoStays = [
 
     // ---- City stays (8) ----
-
-
     //////////////////////////////////////////////
     {
         "_id": "city-001",
@@ -144,8 +144,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-05"
+        "availableFrom": "2025-12-01",
+        "availableUntil": "2025-12-05"
     },
     {
         "_id": "city-009",
@@ -288,8 +288,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-21",
-        "endDate": "2025-12-25"
+        "availableFrom": "2025-12-21",
+        "availableUntil": "2025-12-25"
     },
     {
         "_id": "city-010",
@@ -431,8 +431,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-04",
-        "endDate": "2025-12-15"
+        "availableFrom": "2025-12-04",
+        "availableUntil": "2025-12-15"
     },
     {
         "_id": "city-011",
@@ -574,8 +574,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-05"
+        "availableFrom": "2025-12-01",
+        "availableUntil": "2025-12-05"
     },
     {
         "_id": "city-012",
@@ -717,8 +717,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-11",
-        "endDate": "2025-11-25"
+        "availableFrom": "2025-11-11",
+        "availableUntil": "2025-11-25"
     },
     {
         "_id": "city-045",
@@ -860,8 +860,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-05"
+        "availableFrom": "2025-12-01",
+        "availableUntil": "2025-12-05"
     },
     {
         "_id": "city-013",
@@ -1003,8 +1003,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-05"
+        "availableFrom": "2025-12-01",
+        "availableUntil": "2025-12-05"
     },
     {
         "_id": "city-014",
@@ -1146,8 +1146,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-05"
+        "availableFrom": "2025-12-01",
+        "availableUntil": "2025-12-05"
     },
     {
         "_id": "city-015",
@@ -1289,8 +1289,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-05"
+        "availableFrom": "2025-12-01",
+        "availableUntil": "2025-12-05"
     },
     {
         "_id": "city-016",
@@ -1432,8 +1432,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-29",
-        "endDate": "2026-1-05"
+        "availableFrom": "2025-12-29",
+        "availableUntil": "2026-1-05"
     },
     //////////////PARIS
 
@@ -1602,8 +1602,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-25"
+        "availableFrom": "2025-11-20",
+        "availableUntil": "2025-11-25"
     },
 
     {
@@ -1772,8 +1772,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-25"
+        "availableFrom": "2025-11-20",
+        "availableUntil": "2025-11-25"
     },
 
     {
@@ -1942,8 +1942,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-25"
+        "availableFrom": "2025-11-20",
+        "availableUntil": "2025-11-25"
     },
 
     {
@@ -2112,8 +2112,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-25"
+        "availableFrom": "2025-11-20",
+        "availableUntil": "2025-11-25"
     },
 
     {
@@ -2282,8 +2282,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-20",
-        "endDate": "2025-12-29"
+        "availableFrom": "2025-12-20",
+        "availableUntil": "2025-12-29"
     },
 
     {
@@ -2452,8 +2452,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-25"
+        "availableFrom": "2025-11-20",
+        "availableUntil": "2025-11-25"
     },
 
     {
@@ -2622,8 +2622,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-25"
+        "availableFrom": "2025-11-20",
+        "availableUntil": "2025-11-25"
     },
 
     {
@@ -2792,8 +2792,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-25"
+        "availableFrom": "2025-11-20",
+        "availableUntil": "2025-11-25"
     },
 
     {
@@ -2962,8 +2962,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-25"
+        "availableFrom": "2025-11-20",
+        "availableUntil": "2025-11-25"
     },
 
     {
@@ -3132,8 +3132,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-25"
+        "availableFrom": "2025-11-20",
+        "availableUntil": "2025-11-25"
     },
 
     {
@@ -3302,8 +3302,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-20",
-        "endDate": "2025-11-25"
+        "availableFrom": "2025-11-20",
+        "availableUntil": "2025-11-25"
     },
     ////////////BERLIN
     {
@@ -3348,7 +3348,6 @@ export const demoStays = [
             "bookingOptions.instantBook",
             "kitchen.oven",
             "kitchen.table",
-            "bedroom.hangers",
             "bedroom.doubleBed",
             "safety.firstAid",
             "features.gym",
@@ -3470,8 +3469,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-15",
-        "endDate": "2025-09-20"
+        "availableFrom": "2025-09-15",
+        "availableUntil": "2025-09-20"
     },
     {
         "_id": "city-028",
@@ -3515,7 +3514,6 @@ export const demoStays = [
             "bookingOptions.instantBook",
             "kitchen.oven",
             "kitchen.table",
-            "bedroom.hangers",
             "bedroom.doubleBed",
             "safety.firstAid",
             "features.gym",
@@ -3637,8 +3635,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-15",
-        "endDate": "2025-09-20"
+        "availableFrom": "2025-09-15",
+        "availableUntil": "2025-09-20"
     },
     {
         "_id": "city-029",
@@ -3682,7 +3680,6 @@ export const demoStays = [
             "bookingOptions.instantBook",
             "kitchen.oven",
             "kitchen.table",
-            "bedroom.hangers",
             "bedroom.doubleBed",
             "safety.firstAid",
             "features.gym",
@@ -3804,8 +3801,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-15",
-        "endDate": "2025-09-20"
+        "availableFrom": "2025-09-15",
+        "availableUntil": "2025-09-20"
     },
     {
         "_id": "city-030",
@@ -3849,7 +3846,6 @@ export const demoStays = [
             "bookingOptions.instantBook",
             "kitchen.oven",
             "kitchen.table",
-            "bedroom.hangers",
             "bedroom.doubleBed",
             "safety.firstAid",
             "features.gym",
@@ -3971,8 +3967,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-15",
-        "endDate": "2025-09-20"
+        "availableFrom": "2025-09-15",
+        "availableUntil": "2025-09-20"
     },
     {
         "_id": "city-031",
@@ -4016,7 +4012,6 @@ export const demoStays = [
             "bookingOptions.instantBook",
             "kitchen.oven",
             "kitchen.table",
-            "bedroom.hangers",
             "bedroom.doubleBed",
             "safety.firstAid",
             "features.gym",
@@ -4138,8 +4133,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-15",
-        "endDate": "2025-09-20"
+        "availableFrom": "2025-09-15",
+        "availableUntil": "2025-09-20"
     },
     {
         "_id": "city-032",
@@ -4183,7 +4178,6 @@ export const demoStays = [
             "bookingOptions.instantBook",
             "kitchen.oven",
             "kitchen.table",
-            "bedroom.hangers",
             "bedroom.doubleBed",
             "safety.firstAid",
             "features.gym",
@@ -4305,8 +4299,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-15",
-        "endDate": "2025-09-20"
+        "availableFrom": "2025-09-15",
+        "availableUntil": "2025-09-20"
     },
     {
         "_id": "city-033",
@@ -4350,7 +4344,6 @@ export const demoStays = [
             "bookingOptions.instantBook",
             "kitchen.oven",
             "kitchen.table",
-            "bedroom.hangers",
             "bedroom.doubleBed",
             "safety.firstAid",
             "features.gym",
@@ -4472,8 +4465,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-15",
-        "endDate": "2025-09-20"
+        "availableFrom": "2025-09-15",
+        "availableUntil": "2025-09-20"
     },
     {
         "_id": "city-034",
@@ -4517,7 +4510,6 @@ export const demoStays = [
             "bookingOptions.instantBook",
             "kitchen.oven",
             "kitchen.table",
-            "bedroom.hangers",
             "bedroom.doubleBed",
             "safety.firstAid",
             "features.gym",
@@ -4639,8 +4631,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-15",
-        "endDate": "2025-09-20"
+        "availableFrom": "2025-09-15",
+        "availableUntil": "2025-09-20"
     },
     {
         "_id": "city-035",
@@ -4684,7 +4676,6 @@ export const demoStays = [
             "bookingOptions.instantBook",
             "kitchen.oven",
             "kitchen.table",
-            "bedroom.hangers",
             "bedroom.doubleBed",
             "safety.firstAid",
             "features.gym",
@@ -4806,8 +4797,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-15",
-        "endDate": "2025-09-20"
+        "availableFrom": "2025-09-15",
+        "availableUntil": "2025-09-20"
     },
     {
         "_id": "city-036",
@@ -4851,7 +4842,6 @@ export const demoStays = [
             "bookingOptions.instantBook",
             "kitchen.oven",
             "kitchen.table",
-            "bedroom.hangers",
             "bedroom.doubleBed",
             "safety.firstAid",
             "features.gym",
@@ -4973,8 +4963,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-15",
-        "endDate": "2025-09-20"
+        "availableFrom": "2025-09-15",
+        "availableUntil": "2025-09-20"
     },
     ////////////////TEL AVIV
     {
@@ -5138,8 +5128,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-10-24",
-        "endDate": "2025-10-30"
+        "availableFrom": "2025-10-24",
+        "availableUntil": "2025-10-30"
     },
     {
         "_id": "city-037",
@@ -5302,8 +5292,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-10-12",
-        "endDate": "2025-10-18"
+        "availableFrom": "2025-10-12",
+        "availableUntil": "2025-10-18"
     },
     {
         "_id": "city-038",
@@ -5466,8 +5456,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-10-12",
-        "endDate": "2025-10-18"
+        "availableFrom": "2025-10-12",
+        "availableUntil": "2025-10-18"
     },
     {
         "_id": "city-039",
@@ -5630,8 +5620,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-10-12",
-        "endDate": "2025-10-18"
+        "availableFrom": "2025-10-12",
+        "availableUntil": "2025-10-18"
     },
     //////////////////LONDON
     {
@@ -5801,8 +5791,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-02",
-        "endDate": "2025-11-07"
+        "availableFrom": "2025-11-02",
+        "availableUntil": "2025-11-07"
     },
 
 
@@ -5971,8 +5961,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-05",
-        "endDate": "2025-12-10"
+        "availableFrom": "2025-12-05",
+        "availableUntil": "2025-12-10"
     },
     {
         "_id": "city-007",
@@ -6142,8 +6132,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-25",
-        "endDate": "2025-09-30"
+        "availableFrom": "2025-09-25",
+        "availableUntil": "2025-09-30"
     },
     {
         "_id": "city-008",
@@ -6313,8 +6303,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-08-15",
-        "endDate": "2025-08-20"
+        "availableFrom": "2025-08-15",
+        "availableUntil": "2025-08-20"
     },
     // ////////////////////
 
@@ -6551,8 +6541,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-07-10",
-        "endDate": "2025-07-15"
+        "availableFrom": "2025-07-10",
+        "availableUntil": "2025-07-15"
     },
     {
         "_id": "beach-002",
@@ -6701,8 +6691,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-08-01",
-        "endDate": "2025-08-06"
+        "availableFrom": "2025-08-01",
+        "availableUntil": "2025-08-06"
     },
     {
         "_id": "beach-003",
@@ -6850,8 +6840,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-03",
-        "endDate": "2025-09-08"
+        "availableFrom": "2025-09-03",
+        "availableUntil": "2025-09-08"
     },
     {
         "_id": "beach-004",
@@ -6936,8 +6926,8 @@ export const demoStays = [
             { "at": "2023-08-20T00:00:00.000Z", "by": { "_id": "r-7005", "fullname": "Oliver", "imgUrl": "https://randomuser.me/api/portraits/men/41.jpg" }, "txt": "Cozy apartment with stunning beach views. Highly recommended.", "rate": { "cleanliness": 4.9, "communication": 4.9, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.7 }, "nights": 5, "withKids": false, "withPet": false }
         ],
         "likedByUsers": [],
-        "startDate": "2025-12-01",
-        "endDate": "2025-12-07"
+        "availableFrom": "2025-12-01",
+        "availableUntil": "2025-12-07"
     },
     {
         "_id": "beach-005",
@@ -7013,8 +7003,8 @@ export const demoStays = [
             { "at": "2023-11-20T00:00:00.000Z", "by": { "_id": "r-8002", "fullname": "Nikos", "imgUrl": "https://randomuser.me/api/portraits/men/43.jpg" }, "txt": "Breathtaking views! Everything was perfect.", "rate": { "cleanliness": 4.9, "communication": 5, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.7 }, "nights": 4, "withKids": false, "withPet": false }
         ],
         "likedByUsers": [],
-        "startDate": "2025-06-20",
-        "endDate": "2025-06-25"
+        "availableFrom": "2025-06-20",
+        "availableUntil": "2025-06-25"
     },
     {
         "_id": "beach-006",
@@ -7091,8 +7081,8 @@ export const demoStays = [
             { "at": "2024-04-10T00:00:00.000Z", "by": { "_id": "r-9001", "fullname": "Isabela", "imgUrl": "https://randomuser.me/api/portraits/women/48.jpg" }, "txt": "Amazing pool and location. Perfect flat for beach lovers.", "rate": { "cleanliness": 5, "communication": 4.9, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 4, "withKids": false, "withPet": false }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-10",
-        "endDate": "2025-11-15"
+        "availableFrom": "2025-11-10",
+        "availableUntil": "2025-11-15"
     },
     {
         "_id": "beach-007",
@@ -7168,8 +7158,8 @@ export const demoStays = [
             { "at": "2024-06-01T00:00:00.000Z", "by": { "_id": "r-10001", "fullname": "Mia", "imgUrl": "https://randomuser.me/api/portraits/women/49.jpg" }, "txt": "Amazing villa with breathtaking views. Perfect for our family!", "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 7, "withKids": true, "withPet": false }
         ],
         "likedByUsers": [],
-        "startDate": "2025-07-15",
-        "endDate": "2025-07-21"
+        "availableFrom": "2025-07-15",
+        "availableUntil": "2025-07-21"
     },
     {
         "_id": "beach-008",
@@ -7242,8 +7232,8 @@ export const demoStays = [
             { "at": "2024-02-15T00:00:00.000Z", "by": { "_id": "r-11001", "fullname": "Lily", "imgUrl": "https://randomuser.me/api/portraits/women/50.jpg" }, "txt": "Charming bungalow! Peaceful and steps from the beach.", "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 5, "withKids": false, "withPet": false }
         ],
         "likedByUsers": [],
-        "startDate": "2025-05-20",
-        "endDate": "2025-05-25"
+        "availableFrom": "2025-05-20",
+        "availableUntil": "2025-05-25"
     },
 
     //////////////////
@@ -7392,8 +7382,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-07-15",
-        "endDate": "2025-07-20"
+        "availableFrom": "2025-07-15",
+        "availableUntil": "2025-07-20"
     },
     {
         "_id": "villa002",
@@ -7466,8 +7456,8 @@ export const demoStays = [
             { "at": "2024-02-15T00:00:00.000Z", "by": { "_id": "r-11001", "fullname": "Lily", "imgUrl": "https://randomuser.me/api/portraits/women/50.jpg" }, "txt": "Charming bungalow! Peaceful and steps from the beach.", "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 5, "withKids": false, "withPet": false }
         ],
         "likedByUsers": [],
-        "startDate": "2025-05-20",
-        "endDate": "2025-05-25"
+        "availableFrom": "2025-05-20",
+        "availableUntil": "2025-05-25"
     },
     {
         "_id": "villa003",
@@ -7612,8 +7602,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-09-10",
-        "endDate": "2025-09-17"
+        "availableFrom": "2025-09-10",
+        "availableUntil": "2025-09-17"
     }
     ,
     {
@@ -7759,8 +7749,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-10-05",
-        "endDate": "2025-10-12"
+        "availableFrom": "2025-10-05",
+        "availableUntil": "2025-10-12"
     }
     ,
     {
@@ -7878,8 +7868,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-05-12",
-        "endDate": "2025-05-18"
+        "availableFrom": "2025-05-12",
+        "availableUntil": "2025-05-18"
     },
     {
         "_id": "villa010",
@@ -8058,8 +8048,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-10-05",
-        "endDate": "2025-10-12"
+        "availableFrom": "2025-10-05",
+        "availableUntil": "2025-10-12"
     },
 
     {
@@ -8368,8 +8358,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-01",
-        "endDate": "2025-11-08"
+        "availableFrom": "2025-11-01",
+        "availableUntil": "2025-11-08"
     },
     {
         "_id": "villa009",
@@ -8483,8 +8473,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-01",
-        "endDate": "2025-11-08"
+        "availableFrom": "2025-11-01",
+        "availableUntil": "2025-11-08"
     },
     {
         "_id": "villa011",
@@ -8628,8 +8618,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-10-12",
-        "endDate": "2025-10-19"
+        "availableFrom": "2025-10-12",
+        "availableUntil": "2025-10-19"
     },
     {
         "_id": "villa012",
@@ -8758,8 +8748,8 @@ export const demoStays = [
             },
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-01",
-        "endDate": "2025-11-08"
+        "availableFrom": "2025-11-01",
+        "availableUntil": "2025-11-08"
     },
     {
         "_id": "villa013",
@@ -8876,8 +8866,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-15",
-        "endDate": "2025-11-22"
+        "availableFrom": "2025-11-15",
+        "availableUntil": "2025-11-22"
     },
 
     {
@@ -8994,8 +8984,8 @@ export const demoStays = [
             }
         ],
         "likedByUsers": [],
-        "startDate": "2025-11-15",
-        "endDate": "2025-11-22"
+        "availableFrom": "2025-11-15",
+        "availableUntil": "2025-11-22"
     },
     {
         _id: 's101',
@@ -9106,8 +9096,8 @@ export const demoStays = [
             }
         ],
         likedByUsers: [],
-        startDate: '2025-06-01',
-        endDate: '2025-06-05'
+        availableFrom: '2025-06-01',
+        availableUntil: '2025-06-05'
     },
     {
         _id: 's102',
@@ -9220,8 +9210,8 @@ export const demoStays = [
             }
         ],
         likedByUsers: [],
-        startDate: '2025-07-10',
-        endDate: '2025-07-15'
+        availableFrom: '2025-07-10',
+        availableUntil: '2025-07-15'
     },
     {
         _id: 's103',
@@ -9334,8 +9324,8 @@ export const demoStays = [
             }
         ],
         likedByUsers: [],
-        startDate: '2025-09-10',
-        endDate: '2025-09-15'
+        availableFrom: '2025-09-10',
+        availableUntil: '2025-09-15'
     },
     {
         _id: 's104',
@@ -9448,8 +9438,8 @@ export const demoStays = [
             }
         ],
         likedByUsers: [],
-        startDate: '2025-09-16',
-        endDate: '2025-09-20'
+        availableFrom: '2025-09-16',
+        availableUntil: '2025-09-20'
     },
     {
         _id: 's105',
@@ -9563,8 +9553,8 @@ export const demoStays = [
             }
         ],
         likedByUsers: [],
-        startDate: '2025-10-24',
-        endDate: '2025-10-30'
+        availableFrom: '2025-10-24',
+        availableUntil: '2025-10-30'
     },
     {
         _id: 's106',
@@ -9680,8 +9670,8 @@ export const demoStays = [
             }
         ],
         likedByUsers: [],
-        startDate: '2025-07-07',
-        endDate: '2025-07-12'
+        availableFrom: '2025-07-07',
+        availableUntil: '2025-07-12'
     },
     {
         _id: 's107',
@@ -9794,8 +9784,8 @@ export const demoStays = [
             }
         ],
         likedByUsers: [],
-        startDate: '2025-05-15',
-        endDate: '2025-05-18'
+        availableFrom: '2025-05-15',
+        availableUntil: '2025-05-18'
     },
     {
         _id: 's108',
@@ -9909,8 +9899,8 @@ export const demoStays = [
             }
         ],
         likedByUsers: [],
-        startDate: '2025-05-19',
-        endDate: '2025-05-23'
+        availableFrom: '2025-05-19',
+        availableUntil: '2025-05-23'
     },
     {
         _id: 's109',
@@ -10022,8 +10012,8 @@ export const demoStays = [
             }
         ],
         likedByUsers: [],
-        startDate: '2025-08-02',
-        endDate: '2025-08-08'
+        availableFrom: '2025-08-02',
+        availableUntil: '2025-08-08'
     },
     {
         _id: 's110',
@@ -10136,8 +10126,12 @@ export const demoStays = [
             }
         ],
         likedByUsers: [],
-        startDate: '2025-08-10',
-        endDate: '2025-08-15'
+        availableFrom: '2025-08-10',
+        availableUntil: '2025-08-15'
     },
 
-]
+].map(stay => ({
+    ...stay,
+    ...generateAvailability()
+}))
+

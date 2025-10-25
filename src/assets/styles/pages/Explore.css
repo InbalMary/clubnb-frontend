@@ -58,7 +58,7 @@
 .stay-preview.big .stay-info * {
     font-size: 0.955rem;
     color: var(--gray2);
-    line-height: .9rem;
+    line-height: 1.2;
 }
 
 .stay-preview.big .stay-header {
@@ -86,13 +86,9 @@
 
 .stay-preview.big .stay-summary {
     line-height: 1.2;
-
     white-space: nowrap;
-    /* keep it on one line */
     overflow: hidden;
-    /* hide the overflow */
     text-overflow: ellipsis;
-    /* show "…" */
 }
 
 .stay-preview.big .guest-favorite-badge {
@@ -103,10 +99,16 @@
 .stay-preview.big .stay-price-wrap {
     padding-block-start: .5rem;
 
-    .stay-price {
+    .price-number {
+        font-family: cereal-medium;
         color: var(--gray3);
         text-decoration: underline;
-        font-family: cereal-medium;
+    }
+
+    .price-text {
+        font-family: cereal-regular;
+        color: var(--gray2);
+        text-decoration: none;
     }
 }
 
@@ -267,20 +269,21 @@
                 padding-inline: .9rem;
                 padding-block: .9rem;
 
-                
+
                 p.stay-summary {
                     overflow: hidden;
                     text-overflow: ellipsis !important;
                 }
-                
+
                 p.stay-card-details,
                 p.explore-cancellation-policy {
                     display: none;
                 }
-                
+
                 .stay-price-wrap {
                     padding-block-start: 0;
                 }
+
                 .stay-price {
                     text-decoration: none;
                     padding-right: 2px;

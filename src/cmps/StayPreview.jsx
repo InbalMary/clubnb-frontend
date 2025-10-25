@@ -1,25 +1,42 @@
-import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { formatStayDates, calculateNights } from '../services/util.service.js'
+import { formatStayDates, calculateNights, getSuggestedStayRange } from '../services/util.service.js'
 import { svgControls, statSvgs } from './Svgs.jsx'
 import { SingleImgCarousel } from './SingleImgCarousel.jsx'
 
 
 export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, onToggleWishlist, hideDetails, isInactive }) {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
+    const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+
     const isAddedToWishlist = wishlists.some(wl =>
         wl.stays.some(stayInList => stayInList._id === stay._id)
     )
     const isGuestFavorite = stay.host?.rating > 4.8
-    const formattedDates = formatStayDates(stay.startDate, stay.endDate)
-    const numNights = calculateNights(stay.startDate, stay.endDate)
-    const totalPrice = stay.price * numNights
+
+    let formattedDates = null
+    let numNights = 0
+    const hasPrice = typeof stay.price === 'number' && !isNaN(stay.price)
+
+    if (filterBy.startDate && filterBy.endDate) {
+        formattedDates = formatStayDates(filterBy.startDate, filterBy.endDate)
+        numNights = calculateNights(filterBy.startDate, filterBy.endDate)
+    }
+
+    if (isBig && !filterBy.startDate && !filterBy.endDate) {
+        const suggestedRange = getSuggestedStayRange(stay)
+        if (suggestedRange) {
+            formattedDates = formatStayDates(suggestedRange.start, suggestedRange.end)
+        }
+        numNights = 5
+    }
+    const hasSelectedDates = filterBy.startDate && filterBy.endDate
+
 
     return <article className={`stay-preview ${isBig ? 'big' : ''} ${isFocused ? 'at-focus' : ''}`}>
         <div className='stay-image-wrapper'>
 
-            <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`}
+            <Link to={`/stay/${stay._id}?startDate=${filterBy.startDate || stay.availableFrom}&endDate=${filterBy.endDate || stay.availableUntil}`}
                 className='stay-link'
             >
                 {isBig ? (
@@ -64,7 +81,7 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
             ) : (
                 // Default layout (non-Explore)
                 <header>
-                    <Link to={`/stay/${stay._id}?startDate=${stay.startDate}&endDate=${stay.endDate}`} className="stay-name">
+                    <Link to={`/stay/${stay._id}?startDate=${stay.availableFrom}&endDate=${stay.availableUntil}`} className="stay-name">
                         {stay.name}
                     </Link>
                 </header>
@@ -80,31 +97,49 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
                                 <span className='separator'>{' '}•</span>
                             </>
                         )}
-
                         {' '}{stay.beds} {stay.beds === 1 ? 'bed' : 'beds'}
                     </p>
                 </>
             )}
             {!hideDetails && (
-                <p className='stay-card-dates'>{formattedDates}</p>
+                // if small card and user selected dates - show them
+                !isBig && hasSelectedDates ? (
+                    <p className="stay-card-dates">
+                        {formatStayDates(filterBy.startDate, filterBy.endDate)}
+                    </p>
+                ) : (
+                    //  if Explore and no selected dates - show suggested range
+                    isBig && !hasSelectedDates && formattedDates && (
+                        <p className="stay-card-dates">{formattedDates}</p>
+                    )
+                )
             )}
 
             <div className='stay-card-details'>
                 {!hideDetails && (
                     isBig ? (
-                        <div className="stay-price-wrap">
-                            <span className="stay-price">
-                                ${totalPrice.toLocaleString()}
-                            </span>
-                            <span className="stay-nights">
-                                {' '} for {numNights} {numNights === 1 ? 'night' : 'nights'}
-                            </span>
-                        </div>
-
+                        hasPrice && (
+                            <div className="stay-price-wrap">
+                                <span className="stay-price">
+                                    <span className="price-number">
+                                        ${(stay.price * (numNights || 5)).toLocaleString()}
+                                    </span>
+                                    <span className="price-text">
+                                        {numNights > 0
+                                            ? ` for ${numNights} ${numNights === 1 ? 'night' : 'nights'}`
+                                            : ' total for 5 nights'}
+                                    </span>
+                                </span>
+                            </div>
+                        )
                     ) : (
                         <div className="stay-price-rating">
+
                             <span className='stay-price'>
-                                ${totalPrice.toLocaleString()}{' '}for {numNights} {numNights === 1 ? 'night' : 'nights'}
+                                ${(stay.price * (numNights || 1)).toLocaleString()}
+                                {numNights > 0
+                                    ? ` for ${numNights} ${numNights === 1 ? 'night' : 'nights'}`
+                                    : ' per night'}
                             </span>
                             <span className='separator'>{' '}•</span>
                             <span className='stay-rating'>
@@ -115,7 +150,7 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
                     ))}
 
             </div>
-            {isBig && stay.freeCancellation && (
+            {isBig && !hideDetails && stay.freeCancellation && (
                 <p className='explore-cancellation-policy'>Free cancellation</p>
             )}
         </div>

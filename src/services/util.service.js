@@ -164,3 +164,40 @@ export const formatDateRange = (startDateString, endDateString) => {
         return `${startMonth} ${startDay}-${endMonth} ${endDay}, ${year}`
     }
 }
+
+export function generateAvailability(minMonths = 1, maxMonths = 6) {
+    const start = new Date()
+
+    const randomStartDay = Math.floor(Math.random() * 10)
+    start.setDate(start.getDate() + randomStartDay)
+
+    const end = new Date(start)
+
+    const randomMonths = Math.floor(Math.random() * (maxMonths - minMonths + 1)) + minMonths
+    end.setMonth(end.getMonth() + randomMonths)
+
+    const randomEndDay = Math.floor(Math.random() * 15) - 7
+    end.setDate(end.getDate() + randomEndDay)
+    return {
+        availableFrom: formatDate(start),
+        availableUntil: formatDate(end)
+    }
+}
+
+export function getSuggestedStayRange(stay, nights = 5) {
+    if (!stay.availableFrom || !stay.availableUntil) return null
+
+    const from = new Date(stay.availableFrom)
+    const until = new Date(stay.availableUntil)
+
+    const totalDays = Math.floor((until - from) / (1000 * 60 * 60 * 24))
+    if (totalDays <= nights) return { start: from, end: until }
+
+    const offset = Math.floor(Math.random() * (totalDays - nights))
+    const start = new Date(from)
+    start.setDate(start.getDate() + offset)
+    const end = new Date(start)
+    end.setDate(start.getDate() + nights)
+
+    return { start, end }
+}
