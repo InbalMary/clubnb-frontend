@@ -56,7 +56,20 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
         if (startDate && endDate) {
             setDateRange({ from: new Date(startDate), to: new Date(endDate) })
         }
-    }, [startDate, endDate])
+        if (adults || children || infants || pets) {
+
+            setGuests({
+                adults: parseInt(adults) || 0,
+                children: parseInt(children) || 0,
+                infants: parseInt(infants) || 0,
+                pets: parseInt(pets) || 0,
+            })
+        }
+
+    }, [startDate, endDate, adults,      
+        children,
+        infants,
+        pets])
 
 
     useEffect(() => {
@@ -79,11 +92,19 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
                 params.delete('endDate')
                 changed = true
             }
+            const updateGuestParam = (key, value) => {
+                if (value > 0) {
+                    params.set(key, value.toString())
+                } else {
+                    params.delete(key)
+                }
+                changed = true
+            }
 
-            if (guests.adults) params.set('adults', guests.adults.toString())
-            if (guests.children) params.set('children', guests.children.toString())
-            if (guests.infants) params.set('infants', guests.infants.toString())
-            if (guests.pets) params.set('pets', guests.pets.toString())
+            updateGuestParam('adults', guests.adults)
+            updateGuestParam('children', guests.children)
+            updateGuestParam('infants', guests.infants)
+            updateGuestParam('pets', guests.pets)
 
             if (changed) setSearchParams(params, { replace: true })
         }, 300)
@@ -117,7 +138,7 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
     function handleOnClear() {
         setUserCleared(true)
         setDateRange({ from: null, to: null })
-
+        // sessionStorage.removeItem(`savedParams_${stayId}`)
         const params = new URLSearchParams(searchParams)
         params.delete('startDate')
         params.delete('endDate')
@@ -130,6 +151,7 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
     })
 
     function handleClick() {
+        // sessionStorage.setItem(`savedParams_${stay._id}`, params)
         const from = dateRange.from || startDate
         const to = dateRange.to || endDate
 
