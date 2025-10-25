@@ -32,7 +32,9 @@ export function ConfirmPay() { //later send order as a prop from a parent
     }
 
     function handleBackClick() {
-        navigate(-1)
+        const link = `/stay/${order?.stay?._id}?startDate=${order?.startDate}&endDate=${order?.endDate}
+                    &adults=${order?.guests.adults}&children=${order?.guests.children}&infants=${order?.guests.infants}`
+        navigate(link)
     }
 
     async function handleReserveClick() {
