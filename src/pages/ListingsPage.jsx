@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router'
 import { loadStays } from '../store/actions/stay.actions.js'
 import { formatDateWithFullYear } from '../services/util.service.js'
 import { DotsLoader } from '../cmps/SmallComponents.jsx'
+import { svgControls } from '../cmps/Svgs'
 
 export function ListingsPage() {
   const navigate = useNavigate()
@@ -49,6 +50,12 @@ export function ListingsPage() {
     const savedPath = match ? match[1] : '/stay/edit/become-a-host'
     navigate(savedPath)
   }
+
+  const handleEditListing = (stay, ev) => {
+  ev.preventDefault()
+  ev.stopPropagation()
+  navigate(`/stay/edit/${stay._id}`, { state: { stay } })
+}
 
   if (isLoading) return <DotsLoader />
 
@@ -112,6 +119,7 @@ export function ListingsPage() {
               {publishedListings.map((stay) => (
                 <li key={stay._id} className="listing-preview">
                   <div className="listing-image-wrapper">
+                    <button onClick={(ev) => handleEditListing(stay._id, ev)} aria-label="Edit listing" className='plus-btn btn btn-round pencil-btn'>{svgControls.pencil}</button>
                     <Link to={`/stay/${stay._id}`} className="listing-link">
                       <img
                         src={
