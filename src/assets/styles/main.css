@@ -33,6 +33,7 @@
 @import "cmps/UserMsg";
 
 @import "cmps/LoginSignup";
+@import "cmps/LoginSignupModal";
 @import "cmps/Chat";
 @import "cmps/Modal.css";
 @import "cmps/DetailsSkeleton.css";

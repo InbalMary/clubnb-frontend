@@ -3,6 +3,8 @@
     inset: 0 0 0 0;
     background-color: hsla(0, 0%, 19%, 0.419);
     z-index: 12;
+    pointer-events: all;
+    overflow: hidden;
 }
 
 .modal-popup {

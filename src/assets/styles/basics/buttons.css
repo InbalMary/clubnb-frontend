@@ -132,3 +132,48 @@ button {
     transition: 0.3s;
     background-color: #f7f7f7;
 }
+
+.pink {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    height: 46px;
+    --palette-bg-secondary-core-hover: radial-gradient(circle at var(--mouse-x) var(--mouse-y),
+            /* #fb4163 5%, */
+            #f12050 20.5%,
+            #E61E4D 30%,
+            #e21257 40%,
+            #D70466 67.5%,
+            #d80767 70%,
+            /* #af1a51 100% */
+            #D70466 100%);
+    position: relative;
+
+    background-image:
+        var(--palette-bg-secondary-core-hover, var(--palette-bg-secondary-core-hover));
+
+    background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
+    background-size: 200%;
+
+
+    padding: .8rem 2rem;
+    font-size: 1rem;
+    font-family: cereal-medium;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-size: 150%;
+    border-radius: 50px;
+    outline: none;
+    transition:
+        background-position 1s ease-in-out,
+        filter 1s ease-in-out,
+        opacity 1.25s ease-in-out;
+
+    filter: contrast(89%);
+}
+
+.pink:hover {
+    transition: filter 1s ease-in-out;
+
+    filter: contrast(100%);
+}
