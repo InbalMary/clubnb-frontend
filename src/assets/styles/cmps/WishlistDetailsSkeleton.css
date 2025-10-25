@@ -1,0 +1,48 @@
+.skeleton-title-block.large {
+    width: 40%;
+    height: 2rem;
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+.wishlist-details.full .wishlist-details-grid:has(.skeleton) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: start;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+
+.wishlist-items-wrapper {
+    grid-area: list;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline: 1rem;
+    padding-top: 1rem;
+}
+
+.wishlist-map-skeleton {
+    grid-area: map;
+    width: 100%;
+    height: calc(100vh - 100px);
+    border-radius: 1rem;
+    background-color: var(--gray5);
+}
+
+.wishlist-stay-card.skeleton-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: auto;
+}
+
+.wishlist-stay-card .skeleton-img {
+    width: 100%;
+    height: 345px;
+    aspect-ratio: 1 / 1;
+    border-radius: 1.25rem;
+    overflow: hidden;
+}

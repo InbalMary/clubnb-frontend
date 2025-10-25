@@ -89,3 +89,34 @@
     height: 48px;
     width: 48px;
 }
+
+.mobile-compact-search {
+    display: none;
+}
+
+.desktop-compact-header {
+    display: block;
+}
+
+/* Mobile - hide CompactHeader, show SearchBar */
+@media (max-width: 743px) {
+    .desktop-compact-header {
+        display: none;
+    }
+
+    .mobile-compact-search {
+        display: block;
+    }
+
+    .compact-header-content .brand,
+    .compact-header-content .host-link,
+    .compact-header-content .header-actions, 
+    .compact-header-content .host-navigation,
+    .mobile-compact-search .anywhere-icon {
+        display: none;        
+    }
+
+    .mobile-compact-search button {
+        width: auto;
+    }
+}

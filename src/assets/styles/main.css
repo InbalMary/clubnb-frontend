@@ -25,6 +25,8 @@
 @import "./pages/Explore.css";
 @import "./pages/ConfirmPay.css";
 @import "./pages/WishlistIndex.css";
+@import "./pages/WishlistDetails.css";
+@import "./pages/HostDashboard.css";
 
 
 /* Cmps */
@@ -71,6 +73,9 @@
 @import "cmps/AppHeaderSkeleton.css";
 @import "cmps/DotsLoader.css";
 @import "cmps/PhotoUploader.css";
+@import "cmps/MobileSearchBar.css";
+@import "cmps/WishlistIndexSkeleton.css";
+@import "cmps/WishlistDetailsSkeleton.css";
 
 
 

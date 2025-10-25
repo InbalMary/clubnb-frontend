@@ -103,6 +103,7 @@
 
 .btn.back {
     padding: 0.5rem 0.5rem;
+    z-index: 3;
 }
 
 .rename-input-wrapper {
@@ -135,7 +136,7 @@
     padding: 0.3rem 0.3rem;
     right: 0.75rem;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-60%);
 }
 
 .create-footer-actions {

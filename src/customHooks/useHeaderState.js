@@ -89,6 +89,7 @@ export function useHeaderState() {
     }
 
     return {
+        isIndexPage,
         isExpanded,
         initialModal,
         showBackdrop,

@@ -16,9 +16,28 @@ export function StayList() {
     const groups = [...new Set(stays.map(stay => stay.loc.city))]
     if (isLoading) return <StayListSkeleton categories={groups} />
 
+    const rowTitles = groups.map((city, i) => {
+        const phrases = [
+            'Popular homes in',
+            'Explore',
+            'Top-rated stays in',
+            'Discover',
+            'Vacation rentals in',
+            'Unique places in',
+            'Homes guests love in',
+            'Stay near attractions in',
+            'Trending destinations in',
+            'Beautiful getaways in',
+            'Perfect stays for families in',
+            'Charming places to stay in'
+        ]
+        const phrase = phrases[i % phrases.length] //cycle phrases
+        return `${phrase} ${city}`
+    })
+
     return (
         <section className='stay-list-section main-container'>
-            {groups.map(city => {
+            {groups.map((city, idx) => {
                 const rowStays = stays.filter(stay => stay.loc.city === city && !stay.summary?.includes('[IN_PROGRESS:'))
                 if (!rowStays.length) return null
 
@@ -30,7 +49,7 @@ export function StayList() {
                         <Carousel
                             renderControls={({ scrollState, scrollRow }) => (
                                 <div className='stay-row-header'>
-                                    <h3 className="stay-list-title" onClick={() => navigate(`/explore/city/${city}`)}>{city}
+                                    <h3 className="stay-list-title" onClick={() => navigate(`/explore/city/${city}`)}>{rowTitles[idx]}
                                         <span className='right-pointer'>{svgControls.chevronRight}</span>
                                     </h3>
 
@@ -80,7 +99,7 @@ export function StayList() {
                                 key={wishlist._id}
                                 onClick={() => wm.onSelectWishlistFromModal(wishlist)}
                             >
-                                <img src={wishlist.stays?.[0].imgUrl} alt={wishlist.title} className="wishlist-modal-img" />
+                                <img src={wishlist.stays?.[0].imgUrls?.[0]} alt={wishlist.title} className="wishlist-modal-img" />
                                 <span className="stay-name">{wishlist.title}</span>
                             </li>
                         ))}

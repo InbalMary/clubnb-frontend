@@ -41,6 +41,14 @@ async function save(wishlist) {
         const updatedWishlist = {
             ...wishlist,
             updatedAt: Date.now(),
+            stays: (wishlist.stays || []).map(stay => ({
+                ...stay,
+                imgUrls: stay.imgUrls || (stay.imgUrl ? [stay.imgUrl] : []),
+                summary: stay.summary || 'Beautiful stay with modern amenities.',
+                beds: stay.beds || 1,
+                rating: stay.rating || 4.85,
+                loc: stay.loc || { lat: 32.08, lng: 34.78 }, // temporary placeholder
+            }))
         }
         return storageService.put(STORAGE_KEY_WISHLIST, updatedWishlist)
     } else {
@@ -51,7 +59,14 @@ async function save(wishlist) {
             _id: makeId(),
             byUser: loggedinUser,
             createdAt: Date.now(),
-            stays: wishlist.stays || [],
+            stays: (wishlist.stays || []).map(stay => ({
+                ...stay,
+                imgUrls: stay.imgUrls || (stay.imgUrl ? [stay.imgUrl] : []),
+                summary: stay.summary || 'Beautiful stay with modern amenities.',
+                beds: stay.beds || 1,
+                rating: stay.rating || 4.85,
+                loc: stay.loc || { lat: 32.08, lng: 34.78 },
+            })),
             city: wishlist.city || '',
             country: wishlist.country || '',
             title: wishlist.title || `${wishlist.city}, ${wishlist.country} ${year}`,

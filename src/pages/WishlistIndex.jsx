@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { loadWishlists, removeWishlist } from "../store/actions/wishlist.actions"
 import { svgControls } from "../cmps/Svgs"
 import { showSuccessMsg } from "../services/event-bus.service"
+import { WishlistIndexSkeleton } from "../cmps/WishlistIndexSkeleton"
 
 export function WishlistIndex() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
@@ -15,10 +16,10 @@ export function WishlistIndex() {
 
     function onRemoveWishlist(wishlist) {
         removeWishlist(wishlist._id)
-        showSuccessMsg(`Wishlist ${wishlist.title} deleted`, wishlist.stays?.[0]?.imgUrl)
+        showSuccessMsg(`Wishlist ${wishlist.title} deleted`, wishlist.stays?.[0]?.imgUrls?.[0])
     }
 
-    if (isLoading) return <div>Loading wishlists...</div>
+    if (isLoading) return <WishlistIndexSkeleton />
 
     return (
         <section className="wishlists-index">
@@ -39,9 +40,11 @@ export function WishlistIndex() {
                                         onRemoveWishlist(wishlist)
                                     }}
                                 >{svgControls.closeModal}</button>
-                                <Link to={`/wishlists/${wishlist._id}`}>
+                                <Link to={`/wishlists/${wishlist._id}`}
+                                    state={{ wishlist }}
+                                >
                                     <img
-                                        src={firstStay?.imgUrl}
+                                        src={firstStay?.imgUrls?.[0]}
                                         alt={firstStay?.name || 'Wishlist preview'}
                                         className="wishlist-stay-img"
                                     />

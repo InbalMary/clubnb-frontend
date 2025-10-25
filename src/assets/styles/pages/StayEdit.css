@@ -162,19 +162,6 @@
     text-align: left;
 }
 
-.step-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid var(--gray6);
-    background-color: var(--white);
-    z-index: 100;
-}
-
 .back-button {
     background: none;
     border: none;
@@ -378,7 +365,7 @@
     object-fit: contain;
 }
 
-.welcome-footer {
+.step-footer.welcome-footer {
     border-top: 1px solid var(--gray5);
     display: flex;
     justify-content: flex-end;
@@ -797,7 +784,7 @@
 
 /* Step Price Styles */
 .step-price-content {
-    max-width: 39.375rem;
+    max-width: 350px;
     width: 100%;
     text-align: center;
     display: flex;
@@ -809,11 +796,8 @@
 }
 
 .guest-price-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
 }
 
 .guest-price-info label {
@@ -823,22 +807,62 @@
 .price-input {
     padding: 0.75rem 0.5rem;
     font-size: 4rem;
-    border: 3px solid var(--gray9);
+    border: none;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    outline: none;
+    box-shadow: none;
     max-width: 170px;
     color: var(--gray3);
-    transition: border-color 0.2s;
     font-family: cereal-medium;
+    outline: none;
+    transition: background-color 0.2s, border-color 0.2s;
+    background-color: transparent;
+    caret-color: var(--primary-color);
 }
 
 .price-input:focus {
-    border-color: var(--gray3);
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .dolar-sign {
     font-size: 4rem;
     font-family: cereal-medium;
     color: var(--gray3);
+}
+
+.step-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 80px;
+    background-color: var(--white);
+    z-index: 10;
+}
+
+.progress-bar-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    display: flex;
+    gap: 8px;
+    padding: 0 80px;
+}
+
+.progress-segment {
+    flex: 1;
+    height: 100%;
+    background-color: var(--gray6);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--gray3);
+    transition: width 0.3s ease;
 }

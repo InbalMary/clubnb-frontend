@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { addWishlist, addStayToWishlist, removeWishlist, removeStayFromWishlist } from '../store/actions/wishlist.actions.js'
+import { addWishlist, addStayToWishlist, removeWishlist, removeStayFromWishlist, updateWishlist } from '../store/actions/wishlist.actions.js'
 import { useNavigate } from 'react-router-dom'
 
 export function useWishlistModal(wishlists) {
     const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
     const [isCreateWishlistModalOpen, setIsCreateWishlistModalOpen] = useState(false)
+    const [isRenameModalOpen, setIsRenameModalOpen] = useState(false)
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+
     const [activeStay, setActiveStay] = useState(null)
     const [newTitle, setNewTitle] = useState('')
     const [showInputClearBtn, setShowInputClearBtn] = useState(true)
@@ -71,7 +74,10 @@ export function useWishlistModal(wishlists) {
                     {
                         _id: activeStay._id,
                         name: activeStay.name,
-                        imgUrl: activeStay.imgUrls?.[0]
+                        imgUrls: activeStay.imgUrls || [],
+                        summary: activeStay.summary,
+                        beds: activeStay.beds,
+                        rating: activeStay.host?.rating
                     }
                 ],
                 createdAt: Date.now(),
@@ -89,10 +95,36 @@ export function useWishlistModal(wishlists) {
         }
     }
 
+    async function onRenameWishlist(wishlistId, newTitle) {
+        try {
+            const wishlistToUpdate = wishlists.find(wl => wl._id === wishlistId)
+            if (!wishlistToUpdate) throw new Error('Wishlist not found')
+
+            const updatedWishlist = {
+                ...wishlistToUpdate,
+                title: newTitle.trim(),
+                updatedAt: Date.now(),
+            }
+
+            const savedWishlist = await updateWishlist(updatedWishlist)
+            const imgUrl = savedWishlist.stays?.[0]?.imgUrls?.[0]
+            showSuccessMsg(`Wishlist renamed to "${savedWishlist.title}"`, imgUrl)
+            setIsRenameModalOpen(false)
+            setNewTitle('')
+            setShowInputClearBtn(false)
+        } catch (err) {
+            console.error('Cannot rename wishlist', err)
+            showErrorMsg('Could not rename wishlist, please try again.')
+        }
+    }
+
+
     return {
         // state
         isWishlistModalOpen,
         isCreateWishlistModalOpen,
+        isRenameModalOpen,
+        isDeleteModalOpen,
         activeStay,
         newTitle,
         showInputClearBtn,
@@ -102,9 +134,12 @@ export function useWishlistModal(wishlists) {
         setActiveStay,
         setNewTitle,
         setShowInputClearBtn,
+        setIsRenameModalOpen,
+        setIsDeleteModalOpen,
         // handlers
         onToggleWishlist,
         onSelectWishlistFromModal,
-        onCreateWishlist
+        onCreateWishlist,
+        onRenameWishlist,
     }
 }

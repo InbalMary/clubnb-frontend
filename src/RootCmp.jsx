@@ -26,9 +26,11 @@ import { ListingsPage } from './pages/ListingsPage.jsx'
 import { Explore } from './pages/Explore.jsx'
 import { WishlistIndex } from './pages/WishlistIndex.jsx'
 import { WishlistDetails } from './pages/WishlistDetails.jsx'
+import { HostDashboard } from './pages/HostDashboard.jsx'
 
 export function RootCmp() {
     const {
+        isIndexPage,
         isExpanded,
         initialModal,
         showBackdrop,
@@ -36,6 +38,7 @@ export function RootCmp() {
         isConfirmPayPage,
         isTripsPage,
         isWishlistPage,
+        isWishlistDetailsPage,
         headerRef,
         handleSearchClick,
         handleCollapse
@@ -61,6 +64,7 @@ export function RootCmp() {
                         isSticky={!isStayDetailsPage}
                         isTripsPage={isTripsPage}
                         isWishlistPage={isWishlistPage}
+                        isWishlistDetailsPage={isWishlistDetailsPage}
                     />
                 </div>
             )}
@@ -106,6 +110,7 @@ export function RootCmp() {
                     <Route path="hosting" element={<BecomeHostForm />} />
                     <Route path="hosting/reservations" element={<ReservationsPage />} />
                     <Route path="hosting/listings" element={<ListingsPage />} />
+                    <Route path="hosting/dashboard" element={<HostDashboard  />} />
                     <Route path="hosting/add-listing-about" element={<ListingEdit />} />
                     <Route path="host" element={<HostDetails />} />
 
@@ -115,7 +120,9 @@ export function RootCmp() {
                     </Route>
                 </Routes>
             </main>
-            <AppFooter />
+            <AppFooter
+                isIndexPage={isIndexPage}
+                isStayDetailsPage={isStayDetailsPage} />
         </div>
     )
 }
