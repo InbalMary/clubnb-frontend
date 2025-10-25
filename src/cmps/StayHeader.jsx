@@ -1,10 +1,13 @@
 import { useNavigate, useParams } from "react-router";
 import { useIsShortPage, useSHowOnScroll } from "../customHooks/useShowOnScroll";
 import { MiniStickyContainer } from "./SmallComponents";
+import { setCurrentOrder } from "../store/actions/order.actions";
+import { calculateNights } from "../services/util.service";
 
-export function StayHeader({ refs, stay, startDate, endDate }) {
+export function StayHeader({ refs, stay, guests, startDate, endDate }) {
     const { stayId } = useParams()
     const navigate = useNavigate()
+
     const scrollToSection = (ref) => {
         ref.current?.scrollIntoView({ behavior: 'smooth' })
     }
@@ -16,10 +19,27 @@ export function StayHeader({ refs, stay, startDate, endDate }) {
     function handleClick() {
         const from = startDate
         const to = endDate
-        console.log('from:', from, 'to:', to, 'stayId:', stayId)
 
         if (from && to) {
-            navigate(`/stay/${stayId}/confirm-pay`)
+            const numNights = calculateNights(from, to)
+            const pricePerNight = stay.price
+            const cleaningFee = stay.cleaningFee || 0
+            const serviceFee = Math.round(pricePerNight * 0.1)
+
+            const order = {
+                stay,
+                host: stay.host,
+                startDate: from,
+                endDate: to,
+                guests,
+                numNights,
+                pricePerNight,
+                cleaningFee,
+                serviceFee,
+                totalPrice: numNights * pricePerNight
+            }
+            setCurrentOrder(order)
+            navigate(`/stay/${stay._id}/confirm-pay`, { state: { order } })
         } else {
             scrollToSection(refs.stickyContainerRef)
         }

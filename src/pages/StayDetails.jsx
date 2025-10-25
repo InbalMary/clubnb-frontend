@@ -33,7 +33,9 @@ export function StayDetails() {
   const isLoading = useSelector(storeState => storeState.stayModule.isLoading)
 
   useEffect(() => {
-    if (stayId) loadStay(stayId)
+    if (stayId)
+      loadStay(stayId)
+
   }, [stayId])
 
   useEffect(() => {
@@ -118,6 +120,16 @@ export function StayDetails() {
 
   const amenitiesData = getAmenitiesData(amenitiesSvg, stay?.amenities)
 
+  function getGuestsFromParams(params) {
+    return {
+      adults: Number(params.get('adults')),
+      children: Number(params.get('children')),
+      infants: Number(params.get('infants')),
+      pets: Number(params.get('pets')),
+    }
+  }
+
+  const guests = getGuestsFromParams(searchParams)
 
   if (!stay) return <div className="loading-overlay"><DetailsSkeleton />  </div>
 
@@ -135,11 +147,11 @@ export function StayDetails() {
           <div className="share-wishlist flex justify-between">
             <h1 ref={refs.photoRef}>{stay?.name}</h1>
             <div className="share-btns-container flex">
-              <button  className="share-btn">
+              <button className="share-btn">
                 <span className="share-icon">{svgControls.share}<span className="link">Share</span></span>
               </button>
 
-              <button  className="save-heart-btn" onClick={onToggleWishlist}>
+              <button className="save-heart-btn" onClick={onToggleWishlist}>
                 <span className={`heart-icon ${isAddedToWishlist ? 'active' : ''}`}>{svgControls.heart}
                   <span className="link">{isAddedToWishlist ? 'Saved' : 'Save'}</span>
                 </span>
@@ -155,7 +167,7 @@ export function StayDetails() {
 
           <StayImgs stay={stay} />
 
-          <StayHeader refs={refs} stay={stay} startDate={startDate} endDate={endDate} />
+          <StayHeader refs={refs} stay={stay} guests={guests} startDate={startDate} endDate={endDate} />
           <div className="details-container">
             <div className="content">
 
