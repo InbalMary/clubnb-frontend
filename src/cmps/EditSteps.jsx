@@ -358,14 +358,14 @@ export function StepStandOutIntro() {
 
 export function StepAmenities({ amenities, setAmenities }) {
     const guestFavorites = [
-        { id: 'essentials-wifi', label: 'Wifi' },
-        { id: 'essentials-tv', label: 'TV' },
-        { id: 'kitchen', label: 'Kitchen' },
-        { id: 'appliances-washer', label: 'Washer' },
-        { id: 'parking-free', label: 'Free parking on premises' },
-        { id: 'parking-paid', label: 'Paid parking on premises' },
-        { id: 'heating-airConditioning', label: 'Air conditioning' },
-        { id: 'workspace-dedicated', label: 'Dedicated workspace' }
+        { id: 'essentials.wifi', label: 'Wifi' },
+        { id: 'essentials.tv', label: 'TV' },
+        { id: 'kitchen.oven', label: 'Kitchen' },
+        { id: 'bathroom.washer', label: 'Washer' },
+        { id: 'parking.freeParking', label: 'Free parking on premises' },
+        { id: 'parking.paid', label: 'Paid parking on premises' },
+        { id: 'essentials.airCon', label: 'Air conditioning' },
+        { id: 'essentials.workSpace', label: 'Dedicated workspace' }
     ]
 
     const toggleAmenity = (amenityId) => {
