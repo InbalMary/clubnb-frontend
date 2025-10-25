@@ -147,8 +147,8 @@ async function save(stay) {
 
     const stayWithDefaults = {
         ...stay,
-        startDate: stay.startDate || formatDate(today),
-        endDate: stay.endDate || formatDate(fiveDaysLater),
+        availableFrom: stay.availableFrom || formatDate(today),
+        availableUntil: stay.availableUntil || formatDate(fiveDaysLater),
         // Later, owner is set by the backend
         host: stay.host && stay.host._id ? stay.host : userService.getLoggedinUser(),
         reviews: stay.reviews || [],

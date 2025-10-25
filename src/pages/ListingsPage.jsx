@@ -93,7 +93,7 @@ export function ListingsPage() {
               <div className="listing-details">
                 <h3 className="listing-title">
                   Your {inProgressStay.type || 'Apartment'} listing started{' '}
-                  {formatDateWithFullYear(inProgressStay.startDate)}
+                  {formatDateWithFullYear(inProgressStay.availableFrom)}
                 </h3>
                 <p className="listing-subtitle">
                   {inProgressStay.loc?.city
