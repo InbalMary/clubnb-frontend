@@ -246,3 +246,12 @@
   height: 16px;
   width: 16px;
 }
+
+.listing-image-wrapper .pencil-btn {
+  margin-block-end: 0.5rem;
+}
+
+.listing-image-wrapper .pencil-btn svg {
+  height: 18px;
+  width: 18px;
+}
