@@ -5795,7 +5795,734 @@ export const demoStays = [
         "availableFrom": "2025-11-02",
         "availableUntil": "2025-11-07"
     },
-
+    {
+        "_id": "london-hfy01",
+        "name": "Kensington Garden Apartment",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwNTY3MTg5MzgxMzYyNDE3NQ==/original/0904c892-952d-4e1a-90c0-85b127d0682e.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwNTY3MTg5MzgxMzYyNDE3NQ==/original/b641b8f6-68c8-46a2-88d0-2277813e9bde.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwNTY3MTg5MzgxMzYyNDE3NQ==/original/edfcd225-c244-4102-b1a9-c4750e922891.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwNTY3MTg5MzgxMzYyNDE3NQ==/original/7b7ff559-0b6b-4010-8f56-2bf6a1d290e1.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwNTY3MTg5MzgxMzYyNDE3NQ==/original/518b028d-e9a8-4d2e-8ef8-ef87c00a5f6e.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1205671893813624175/original/74a2c3cc-5a3a-4e2b-8eab-b6e5ee070abe.jpeg?im_w=720",
+        ],
+        "price": 260,
+        "cleaningFee": 40,
+        "summary": "Elegant apartment near Kensington Gardens with easy access to Hyde Park and museums. Bright interiors, marble bathroom, and private balcony for morning coffee.",
+        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "" }],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": ["essentials.wifi", "essentials.tv", "kitchen.coffeeMaker", "bedroom.hangers", "bookingOptions.instantBook", "safety.smokeAlarm"],
+        "highlights": [
+            { "main": "Hyde Park Views", "sub": "Walk to the gardens in minutes.", "imgUrl": "location.park" },
+            { "main": "Quiet & Elegant", "sub": "Refined design in a calm neighborhood.", "imgUrl": "bedroom.doubleBed" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-lon01",
+            "firstName": "Amelia",
+            "fullname": "Amelia",
+            "location": "London, United Kingdom",
+            "about": "Designer living near Kensington, sharing my love for London’s parks and galleries.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/26.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1514764800000,
+            "rating": 4.94,
+            "numReviews": 210,
+            "yearsHosting": 7,
+            "responseRate": 98,
+            "responseTime": "within an hour",
+            "coHosts": [{ "name": "Henry", "imgUrl": "https://randomuser.me/api/portraits/men/43.jpg" }],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in London" },
+                { "icon": "languages", "text": "Speaks English, Italian, and French" }
+            ]
+        },
+        "loc": {
+            "country": "United Kingdom",
+            "countryCode": "GB",
+            "city": "London",
+            "address": "Kensington, London, UK",
+            "lat": 51.501,
+            "lng": -0.190
+        },
+        "reviews": [
+            {
+                "_id": "r-lon-101",
+                "at": "2024-03-12T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8101",
+                    "fullname": "Isabelle",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/42.jpg",
+                    "id": "70100101"
+                },
+                "txt": "Beautiful flat close to the park — spotless and peaceful.",
+                "rate": { "cleanliness": 5.0, "communication": 5.0, "checkIn": 4.9, "accuracy": 4.9, "location": 5.0, "value": 4.8 },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-lon-102",
+                "at": "2023-11-22T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8102",
+                    "fullname": "Oliver",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/47.jpg",
+                    "id": "70100102"
+                },
+                "txt": "Wonderful host — Amelia gave great local restaurant advice.",
+                "rate": { "cleanliness": 4.9, "communication": 5.0, "checkIn": 5.0, "accuracy": 4.8, "location": 4.9, "value": 4.7 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-10",
+        "availableUntil": "2025-11-17"
+    },
+    {
+        "_id": "london-hfy02",
+        "name": "Shoreditch Loft Retreat",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/955e713f-ba84-4447-b5a3-0b09d9bade6c.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-934366/original/aae7d0ff-6c46-4c6f-8abc-51c91b8adced.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-934366/original/ef48475a-892c-4256-a4e9-f96af557128d.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-934366/original/b9f06199-c14a-47b3-8c25-acaa355a798f.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/b8eaa113-51a0-42af-8354-67b134ea6369.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/0e8778ec-8b19-414c-9760-c02655b922a9.jpg?im_w=1200",
+        ],
+        "price": 220,
+        "cleaningFee": 35,
+        "summary": "Stylish open-plan loft in the heart of Shoreditch. Exposed brick, high ceilings, and creative décor make this perfect for artists and couples.",
+        "rooms": [{ "roomType": "studio", "bedType": "king", "imgUrl": "" }],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": ["essentials.wifi", "essentials.workSpace", "kitchen.coffeeMaker", "safety.firstAid", "safety.smokeAlarm"],
+        "highlights": [
+            { "main": "Trendy Area", "sub": "Art galleries and coffee shops steps away.", "imgUrl": "location.center" },
+            { "main": "Industrial Style", "sub": "Loft charm with modern comfort.", "imgUrl": "bedroom.doubleBed" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-lon02",
+            "firstName": "Ethan",
+            "fullname": "Ethan",
+            "location": "London, United Kingdom",
+            "about": "Creative director who loves interior design and local markets.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/28.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1522540800000,
+            "rating": 4.92,
+            "numReviews": 180,
+            "yearsHosting": 6,
+            "responseRate": 97,
+            "responseTime": "within an hour",
+            "coHosts": [{ "name": "Alice", "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg" }],
+            "personalFacts": [
+                { "icon": "music", "text": "Jazz guitarist on weekends" },
+                { "icon": "work", "text": "Creative director" }
+            ]
+        },
+        "loc": {
+            "country": "United Kingdom",
+            "countryCode": "GB",
+            "city": "London",
+            "address": "Shoreditch, London, UK",
+            "lat": 51.526,
+            "lng": -0.077
+        },
+        "reviews": [
+            {
+                "_id": "r-lon-201",
+                "at": "2024-01-28T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8201",
+                    "fullname": "Grace",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/37.jpg",
+                    "id": "70100201"
+                },
+                "txt": "Felt like home instantly — loved the neighborhood vibe.",
+                "rate": { "cleanliness": 4.9, "communication": 5.0, "checkIn": 4.9, "accuracy": 4.8, "location": 5.0, "value": 4.7 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-lon-202",
+                "at": "2023-09-05T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8202",
+                    "fullname": "Lucas",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg",
+                    "id": "70100202"
+                },
+                "txt": "Spacious and well-designed. Great spot for remote work.",
+                "rate": { "cleanliness": 4.8, "communication": 4.9, "checkIn": 5.0, "accuracy": 4.8, "location": 4.9, "value": 4.8 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-03",
+        "availableUntil": "2025-11-12"
+    },
+    {
+        "_id": "london-hfy03",
+        "name": "Notting Hill Townhouse",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1321324198754939838/original/7956a8ca-82c5-4497-bbdd-82a20f81a5e1.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMzMDYxOTMwNjg0OTY0NDMzNQ%3D%3D/original/5983dc59-84fd-4a58-ae3f-5280d6955588.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMzMDYxOTMwNjg0OTY0NDMzNQ%3D%3D/original/f55c7cda-581b-49b5-9e28-c32ba00dc33e.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1321324198754939838/original/74e5db70-a6c1-4a92-b0e5-479052cb1be3.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMzMDYxOTMwNjg0OTY0NDMzNQ%3D%3D/original/5309be08-a718-46f8-946e-5c326f466772.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1321324198754939838/original/74e5db70-a6c1-4a92-b0e5-479052cb1be3.jpeg?im_w=720",
+        ],
+        "price": 280,
+        "cleaningFee": 45,
+        "summary": "Charming townhouse near Portobello Market. Pastel façades, cobblestone streets, and boutique shopping right outside your door.",
+        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "" }],
+        "guests": 3,
+        "bathrooms": 2,
+        "bedrooms": 2,
+        "beds": 2,
+        "amenities": ["essentials.wifi", "kitchen.coffeeMaker", "safety.smokeAlarm", "family.crib", "services.lockBox"],
+        "highlights": [
+            { "main": "Market Nearby", "sub": "Portobello Market just around the corner.", "imgUrl": "location.market" },
+            { "main": "Classic Design", "sub": "Bright interiors with soft colors and art books.", "imgUrl": "bedroom.doubleBed" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-lon03",
+            "firstName": "Clara",
+            "fullname": "Clara",
+            "location": "London, United Kingdom",
+            "about": "Local photographer sharing my colorful Notting Hill home.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/19.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1538352000000,
+            "rating": 4.96,
+            "numReviews": 150,
+            "yearsHosting": 5,
+            "responseRate": 99,
+            "responseTime": "within an hour",
+            "coHosts": [{ "name": "Tom", "imgUrl": "https://randomuser.me/api/portraits/men/37.jpg" }],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Camden" },
+                { "icon": "work", "text": "Freelance photographer" }
+            ]
+        },
+        "loc": {
+            "country": "United Kingdom",
+            "countryCode": "GB",
+            "city": "London",
+            "address": "Notting Hill, London, UK",
+            "lat": 51.509,
+            "lng": -0.205
+        },
+        "reviews": [
+            {
+                "_id": "r-lon-301",
+                "at": "2024-04-05T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8301",
+                    "fullname": "Ella",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/27.jpg",
+                    "id": "70100301"
+                },
+                "txt": "Loved the pastel streets — very authentic and cozy stay.",
+                "rate": { "cleanliness": 4.9, "communication": 4.9, "checkIn": 4.8, "accuracy": 4.8, "location": 5.0, "value": 4.7 },
+                "nights": 4,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "_id": "r-lon-302",
+                "at": "2023-12-17T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8302",
+                    "fullname": "Hugo",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/39.jpg",
+                    "id": "70100302"
+                },
+                "txt": "Perfect location and great host! Clara was very helpful.",
+                "rate": { "cleanliness": 4.8, "communication": 5.0, "checkIn": 4.9, "accuracy": 4.8, "location": 5.0, "value": 4.8 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-08",
+        "availableUntil": "2025-11-16"
+    },
+    {
+        "_id": "london-hfy04",
+        "name": "Camden Canal Loft",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1200761770557415189/original/e78879f1-a4a0-460d-a2f4-717697f21e4d.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1200761770557415189/original/07c31210-f1e7-451f-932f-1b518b1cfc2b.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1200761770557415189/original/0def5790-9f29-42ca-96e7-75f32f70d017.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1200761770557415189/original/599f0f98-4fad-48cd-b173-20aff74c813c.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1200761770557415189/original/0d17cb5f-3abe-4fcf-abb3-40de955cf081.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1200761770557415189/original/0def5790-9f29-42ca-96e7-75f32f70d017.jpeg?im_w=720",
+        ],
+        "price": 210,
+        "cleaningFee": 35,
+        "summary": "Bright loft overlooking Regent’s Canal. Perfect for music lovers, near Camden Market and live venues.",
+        "rooms": [{ "roomType": "studio", "bedType": "king", "imgUrl": "" }],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": ["essentials.wifi", "essentials.workSpace", "kitchen.coffeeMaker", "safety.firstAid", "services.lockBox"],
+        "highlights": [
+            { "main": "Canal Views", "sub": "Enjoy morning coffee overlooking the water.", "imgUrl": "location.center" },
+            { "main": "Music Scene", "sub": "Walk to Camden gigs and markets.", "imgUrl": "music.guitar" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-lon04",
+            "firstName": "Jack",
+            "fullname": "Jack",
+            "location": "London, United Kingdom",
+            "about": "Musician hosting travelers who love the creative side of London.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1543622400000,
+            "rating": 4.91,
+            "numReviews": 120,
+            "yearsHosting": 4,
+            "responseRate": 99,
+            "responseTime": "within an hour",
+            "coHosts": [{ "name": "Leah", "imgUrl": "https://randomuser.me/api/portraits/women/45.jpg" }],
+            "personalFacts": [
+                { "icon": "music", "text": "Performs in Camden on weekends" },
+                { "icon": "born", "text": "Born in Manchester" }
+            ]
+        },
+        "loc": {
+            "country": "United Kingdom",
+            "countryCode": "GB",
+            "city": "London",
+            "address": "Camden Town, London, UK",
+            "lat": 51.541,
+            "lng": -0.147
+        },
+        "reviews": [
+            {
+                "_id": "r-lon-401",
+                "at": "2024-02-08T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8401",
+                    "fullname": "Sophie",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/38.jpg",
+                    "id": "70100401"
+                },
+                "txt": "Loved the canal view — peaceful yet right near the action.",
+                "rate": { "cleanliness": 4.9, "communication": 4.8, "checkIn": 5.0, "accuracy": 4.9, "location": 5.0, "value": 4.8 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-lon-402",
+                "at": "2023-11-14T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8402",
+                    "fullname": "Daniel",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/46.jpg",
+                    "id": "70100402"
+                },
+                "txt": "Cozy and bright loft — great spot for exploring Camden.",
+                "rate": { "cleanliness": 4.8, "communication": 4.9, "checkIn": 4.9, "accuracy": 4.8, "location": 4.9, "value": 4.6 },
+                "nights": 3,
+                "withKids": false,
+                "withPet": true
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-04",
+        "availableUntil": "2025-11-09"
+    },
+    {
+        "_id": "london-hfy05",
+        "name": "Covent Garden Studio",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1442072486844571600/original/ecfb6004-befa-4e90-bc64-deb7012f6975.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1442072486844571600/original/f420b400-1544-49c4-857e-2fe14e1f6c9b.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1442072486844571600/original/d9e3ab69-d555-4df0-bd87-0087e510cb16.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1442072486844571600/original/d16ef5a1-9ef2-4ae9-86b1-256e5466baec.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1442072486844571600/original/dfda7ea1-55d6-423b-9a5c-8ba3a538c60f.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-1442072486844571600/original/85997d61-be67-4e88-bcb7-1cbd622691ec.jpeg?im_w=1200",
+        ],
+        "price": 230,
+        "cleaningFee": 30,
+        "summary": "Compact studio steps from the Royal Opera House and West End theatres. Ideal for couples or solo travelers who love London’s culture.",
+        "rooms": [{ "roomType": "studio", "bedType": "double", "imgUrl": "" }],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": ["essentials.wifi", "essentials.tv", "safety.smokeAlarm", "kitchen.coffeeMaker"],
+        "highlights": [
+            { "main": "Theatre District", "sub": "Perfect base for West End shows.", "imgUrl": "location.center" },
+            { "main": "Cozy & Modern", "sub": "Minimalist design with comfort.", "imgUrl": "bedroom.doubleBed" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-lon05",
+            "firstName": "Olivia",
+            "fullname": "Olivia",
+            "location": "London, United Kingdom",
+            "about": "Opera enthusiast and travel blogger who loves meeting guests from around the world.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/35.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1551398400000,
+            "rating": 4.93,
+            "numReviews": 190,
+            "yearsHosting": 5,
+            "responseRate": 97,
+            "responseTime": "within an hour",
+            "coHosts": [{ "name": "Nina", "imgUrl": "https://randomuser.me/api/portraits/women/33.jpg" }],
+            "personalFacts": [
+                { "icon": "music", "text": "Studied classical singing" },
+                { "icon": "languages", "text": "Speaks English, Spanish, and French" }
+            ]
+        },
+        "loc": {
+            "country": "United Kingdom",
+            "countryCode": "GB",
+            "city": "London",
+            "address": "Covent Garden, London, UK",
+            "lat": 51.512,
+            "lng": -0.122
+        },
+        "reviews": [
+            {
+                "_id": "r-lon-501",
+                "at": "2024-05-03T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8501",
+                    "fullname": "Noah",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/26.jpg",
+                    "id": "70100501"
+                },
+                "txt": "Fantastic location! Clean and great value for central London.",
+                "rate": { "cleanliness": 5.0, "communication": 4.9, "checkIn": 4.8, "accuracy": 4.9, "location": 5.0, "value": 4.7 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-lon-502",
+                "at": "2023-09-28T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8502",
+                    "fullname": "Chloe",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/32.jpg",
+                    "id": "70100502"
+                },
+                "txt": "Perfect for a theatre trip. Everything walkable!",
+                "rate": { "cleanliness": 4.9, "communication": 5.0, "checkIn": 4.9, "accuracy": 4.8, "location": 5.0, "value": 4.8 },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-01",
+        "availableUntil": "2025-11-06"
+    },
+    {
+        "_id": "london-hfy06",
+        "name": "Marylebone Chic Apartment",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/miso/Hosting-20511404/original/f0ed66d7-82cc-48bd-95e0-ce2b48963c79.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-20511404/original/322e3a88-f3bb-40b3-842c-cb8916f2348e.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-20511404/original/2262a3f0-0ae4-4612-90fa-1bd3677b617b.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-20511404/original/41203415-fcb7-48ea-a2a5-e3161cb27047.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-20511404/original/89511b2f-9ff1-4307-9bec-29953d0f3a80.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-20511404/original/e84b43ed-9926-49b3-b169-c4eb040fb185.jpeg?im_w=720",
+        ],
+        "price": 250,
+        "cleaningFee": 40,
+        "summary": "Elegant apartment with modern British décor near Baker Street and Oxford Circus. Great choice for couples or business travelers.",
+        "rooms": [{ "roomType": "bedroom", "bedType": "king", "imgUrl": "" }],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": ["essentials.wifi", "safety.smokeAlarm", "kitchen.coffeeMaker", "bedroom.hangers"],
+        "highlights": [
+            { "main": "Upscale Area", "sub": "Quiet street close to Regent’s Park.", "imgUrl": "location.center" },
+            { "main": "Stylish Comfort", "sub": "Neutral tones and soft lighting.", "imgUrl": "bedroom.doubleBed" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-lon06",
+            "firstName": "George",
+            "fullname": "George",
+            "location": "London, United Kingdom",
+            "about": "Interior designer passionate about timeless spaces and hospitality.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/25.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1538352000000,
+            "rating": 4.95,
+            "numReviews": 210,
+            "yearsHosting": 6,
+            "responseRate": 98,
+            "responseTime": "within an hour",
+            "coHosts": [{ "name": "Ella", "imgUrl": "https://randomuser.me/api/portraits/women/28.jpg" }],
+            "personalFacts": [
+                { "icon": "school", "text": "Studied architecture in London" },
+                { "icon": "languages", "text": "Speaks English and Italian" }
+            ]
+        },
+        "loc": {
+            "country": "United Kingdom",
+            "countryCode": "GB",
+            "city": "London",
+            "address": "Marylebone, London, UK",
+            "lat": 51.522,
+            "lng": -0.156
+        },
+        "reviews": [
+            {
+                "_id": "r-lon-601",
+                "at": "2024-02-17T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8601",
+                    "fullname": "Mila",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/46.jpg",
+                    "id": "70100601"
+                },
+                "txt": "Peaceful and elegant space — perfect for a London trip.",
+                "rate": { "cleanliness": 5.0, "communication": 5.0, "checkIn": 4.9, "accuracy": 4.9, "location": 5.0, "value": 4.8 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-lon-602",
+                "at": "2023-10-03T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8602",
+                    "fullname": "Leo",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "id": "70100602"
+                },
+                "txt": "Loved the design touches. George is a great host.",
+                "rate": { "cleanliness": 4.9, "communication": 4.9, "checkIn": 4.9, "accuracy": 4.8, "location": 4.9, "value": 4.7 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-05",
+        "availableUntil": "2025-11-11"
+    },
+    {
+        "_id": "london-hfy07",
+        "name": "Southbank River View Flat",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1208488419618903295/original/ae3f7803-781a-4298-af3d-9913220297a7.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwODQ4ODQxOTYxODkwMzI5NQ%3D%3D/original/1e7bf81c-6601-4860-838b-2602329a6f0f.png?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1208488419618903295/original/87dae9c2-8a7a-4fd3-9569-d90336522f9d.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwODQ4ODQxOTYxODkwMzI5NQ==/original/18c8d8a3-68cf-480b-94dd-69485351ea06.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwODQ4ODQxOTYxODkwMzI5NQ==/original/fe0a3582-ba61-47aa-9289-44f5f63e3e34.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwODQ4ODQxOTYxODkwMzI5NQ%3D%3D/original/1e7bf81c-6601-4860-838b-2602329a6f0f.png?im_w=720",
+        ],
+        "price": 270,
+        "cleaningFee": 45,
+        "summary": "Panoramic views of the Thames, modern interiors, and walking distance to the Tate Modern and London Eye.",
+        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "" }],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": ["essentials.wifi", "kitchen.coffeeMaker", "safety.smokeAlarm", "services.lockBox"],
+        "highlights": [
+            { "main": "River Views", "sub": "Floor-to-ceiling windows overlooking the Thames.", "imgUrl": "location.waterfront" },
+            { "main": "Walk Everywhere", "sub": "Minutes from galleries and landmarks.", "imgUrl": "location.center" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-lon07",
+            "firstName": "Sienna",
+            "fullname": "Sienna",
+            "location": "London, United Kingdom",
+            "about": "Architect turned host. I love modern design and sharing London’s art scene.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/30.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1546300800000,
+            "rating": 4.97,
+            "numReviews": 250,
+            "yearsHosting": 7,
+            "responseRate": 99,
+            "responseTime": "within an hour",
+            "coHosts": [{ "name": "Jonas", "imgUrl": "https://randomuser.me/api/portraits/men/35.jpg" }],
+            "personalFacts": [
+                { "icon": "school", "text": "Studied architecture at UCL" },
+                { "icon": "work", "text": "Works in sustainable design" }
+            ]
+        },
+        "loc": {
+            "country": "United Kingdom",
+            "countryCode": "GB",
+            "city": "London",
+            "address": "Southbank, London, UK",
+            "lat": 51.505,
+            "lng": -0.098
+        },
+        "reviews": [
+            {
+                "_id": "r-lon-701",
+                "at": "2024-03-21T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8701",
+                    "fullname": "Ava",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg",
+                    "id": "70100701"
+                },
+                "txt": "Amazing view and close to everything. Highly recommend!",
+                "rate": { "cleanliness": 5.0, "communication": 4.9, "checkIn": 5.0, "accuracy": 5.0, "location": 5.0, "value": 4.8 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-lon-702",
+                "at": "2023-09-11T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8702",
+                    "fullname": "Ethan",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/31.jpg",
+                    "id": "70100702"
+                },
+                "txt": "Spotless and modern flat with breathtaking river view.",
+                "rate": { "cleanliness": 5.0, "communication": 5.0, "checkIn": 4.9, "accuracy": 4.9, "location": 5.0, "value": 4.8 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-09",
+        "availableUntil": "2025-11-15"
+    },
+    {
+        "_id": "london-hfy08",
+        "name": "Westminster Balcony Flat",
+        "type": "City stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/972f21ce-4d9d-49f6-bf10-a0b12ce46407.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/a045a868-f957-4ae8-bee0-c2d3594bb430.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/26727aac-34bf-4003-a7eb-faafd0c68231.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/6346bb69-0572-4f30-9998-b99fade833ad.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/b6c0f4d7-c38a-4c17-b1af-4b4ddb71668d.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/e83f32f3-5335-43b4-8c52-f9c898ac0221.jpg?im_w=1200",
+        ],
+        "price": 275,
+        "cleaningFee": 45,
+        "summary": "Modern apartment with private balcony and partial view of Big Ben. Secure building and top location for sightseeing.",
+        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "" }],
+        "guests": 2,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": ["essentials.wifi", "essentials.tv", "kitchen.coffeeMaker", "safety.smokeAlarm"],
+        "highlights": [
+            { "main": "Central Location", "sub": "Walk to Westminster Abbey and Parliament.", "imgUrl": "location.center" },
+            { "main": "Balcony View", "sub": "Watch the sunset over the city skyline.", "imgUrl": "outdoor.view" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-lon08",
+            "firstName": "Henry",
+            "fullname": "Henry",
+            "location": "London, United Kingdom",
+            "about": "Finance professional who loves hosting travelers and sharing city tips.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/41.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1535760000000,
+            "rating": 4.9,
+            "numReviews": 175,
+            "yearsHosting": 6,
+            "responseRate": 98,
+            "responseTime": "within an hour",
+            "coHosts": [{ "name": "Martha", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in London" },
+                { "icon": "work", "text": "Works in finance near Westminster" }
+            ]
+        },
+        "loc": {
+            "country": "United Kingdom",
+            "countryCode": "GB",
+            "city": "London",
+            "address": "Westminster, London, UK",
+            "lat": 51.498,
+            "lng": -0.131
+        },
+        "reviews": [
+            {
+                "_id": "r-lon-801",
+                "at": "2024-04-18T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8801",
+                    "fullname": "Sofia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "id": "70100801"
+                },
+                "txt": "Best location in London. Everything was spotless.",
+                "rate": { "cleanliness": 5.0, "communication": 4.9, "checkIn": 5.0, "accuracy": 4.9, "location": 5.0, "value": 4.8 },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-lon-802",
+                "at": "2023-12-20T00:00:00.000Z",
+                "by": {
+                    "_id": "u-8802",
+                    "fullname": "Marcus",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg",
+                    "id": "70100802"
+                },
+                "txt": "Modern flat and great host. The balcony was a treat!",
+                "rate": { "cleanliness": 4.9, "communication": 5.0, "checkIn": 4.9, "accuracy": 4.8, "location": 5.0, "value": 4.7 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-06",
+        "availableUntil": "2025-11-13"
+    },
     /////////////NEW YORK
     {
         "_id": "city-006",
@@ -6805,7 +7532,14 @@ export const demoStays = [
         "_id": "rome-x3a1",
         "name": "Trastevere Terrace Apartment",
         "type": "City stays",
-        "imgUrls": ["", "", "", "", "", ""],
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1395792802417683549/original/7f02e48c-3ec6-4129-961e-e5d6a267e017.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1395792802417683549/original/ff5b1299-cc24-404a-83dd-30ee32bf231d.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1395792802417683549/original/9bc13d0f-db68-4d4d-84fb-a231d36ecb36.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1395792802417683549/original/b1ee30e1-c679-4b62-9bac-c599ce78eaa7.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1395792802417683549/original/a58026a9-a21c-41a5-a3a8-b9ab1203ebfc.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1395792802417683549/original/dc881683-651c-4192-8742-f6a73655e526.jpeg?im_w=720",
+        ],
         "price": 190,
         "cleaningFee": 35,
         "summary": `Sunny one-bedroom apartment in Trastevere with a private terrace overlooking cobbled streets.
@@ -6848,7 +7582,14 @@ export const demoStays = [
         "_id": "rome-y9p5",
         "name": "Vatican View Studio",
         "type": "City stays",
-        "imgUrls": ["", "", "", "", "", ""],
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA5ODUzMzMwMTEzMjcyNTI5MQ%3D%3D/original/cb031bb4-612d-49ff-8ef1-36a48781086a.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA5ODUzMzMwMTEzMjcyNTI5MQ%3D%3D/original/4852ae32-2a56-4e2c-b009-09daf9ac5c87.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/28e2c339-9507-4e2b-a51a-73a6b7daa661.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA5ODUzMzMwMTEzMjcyNTI5MQ%3D%3D/original/f709f7a1-fb88-4ff1-99e6-035672733829.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1098533301132725291/original/3f94e1df-7779-40c1-98ff-1f2e9f373ddc.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA5ODUzMzMwMTEzMjcyNTI5MQ%3D%3D/original/f709f7a1-fb88-4ff1-99e6-035672733829.jpeg?im_w=720",
+        ],
         "price": 160,
         "cleaningFee": 30,
         "summary": `Compact studio next to St. Peter’s Basilica. Clean, bright, and ideal for short stays.`,
@@ -6890,7 +7631,14 @@ export const demoStays = [
         "_id": "rome-a82m",
         "name": "Colosseum View Loft",
         "type": "City stays",
-        "imgUrls": ["", "", "", "", "", ""],
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/miso/Hosting-25308754/original/507357ad-38a9-43a0-8888-9e7ffa23af54.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/0437ec56-a35e-4e06-b7c0-78c1761e6427.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/c4ac2a8f-9de6-47fa-89a4-bf3873f0c4a2.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-25308754/original/db2895f3-a5ed-4c0b-bedd-f1badfb02a7f.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-25308754/original/32e374ec-2b50-4b77-89bd-5901588cb682.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-25308754/original/d4eff9ae-37b6-425e-9d5c-b28fdcaaa0e7.jpeg?im_w=720",
+        ],
         "price": 220,
         "cleaningFee": 45,
         "summary": `Spacious loft apartment with a direct view of the Colosseum. Modern design meets ancient history.`,
@@ -6932,7 +7680,14 @@ export const demoStays = [
         "_id": "rome-r43z",
         "name": "Pantheon Piazza Apartment",
         "type": "City stays",
-        "imgUrls": ["", "", "", "", "", ""],
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTAzMDg3NDQ0MTAzODA3MTk5Mg%3D%3D/original/abeba45a-e858-4447-9605-c66ab84b275c.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTAzMDg3NDQ0MTAzODA3MTk5Mg%3D%3D/original/f189c769-6bf2-4c59-8693-3910f015195c.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTAzMDg3NDQ0MTAzODA3MTk5Mg%3D%3D/original/0ff1b8f3-8272-42ea-8ad4-16ef10a43948.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTAzMDg3NDQ0MTAzODA3MTk5Mg%3D%3D/original/4952957a-cec1-4baa-a8d8-14a36f408fe5.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTAzMDg3NDQ0MTAzODA3MTk5Mg%3D%3D/original/92177d31-ef8f-4bc6-98ca-4df454cb8d7e.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTAzMDg3NDQ0MTAzODA3MTk5Mg%3D%3D/original/68a737a3-dca0-49df-9c2b-46b9f49e4819.jpeg?im_w=720",
+        ],
         "price": 240,
         "cleaningFee": 50,
         "summary": `Historic flat with wooden beams and modern touches overlooking Piazza della Rotonda.`,
@@ -6974,7 +7729,14 @@ export const demoStays = [
         "_id": "rome-p57d",
         "name": "Campo de' Fiori Hideaway",
         "type": "City stays",
-        "imgUrls": ["", "", "", "", "", ""],
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/66653764/a7f9f4f8_original.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/66653829/dedcb664_original.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/66653860/ca536768_original.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/66653805/a5b9fe9b_original.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/66653783/3e760cbb_original.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/66653783/3e760cbb_original.jpg?im_w=1200",
+        ],
         "price": 180,
         "cleaningFee": 35,
         "summary": `Quiet retreat steps from Rome’s most famous market. Traditional decor, modern comfort.`,
@@ -7016,7 +7778,14 @@ export const demoStays = [
         "_id": "rome-q99h",
         "name": "Monti District Loft",
         "type": "City stays",
-        "imgUrls": ["", "", "", "", "", ""],
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-29273928-unapproved/original/3f0ba3a9-aeb5-47d4-a441-62b3e571930d.JPEG?im_w=960",
+            "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-29273928-unapproved/original/31be006e-cc37-4faa-aafa-1f2709a4993b.JPEG?im_w=480",
+            "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-29273928-unapproved/original/0817a0b5-24ef-458e-bfd1-f4efea2461e9.JPEG?im_w=480",
+            "https://a0.muscache.com/im/pictures/5126f526-8dc7-465e-98d9-81c36f778283.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-29273928-unapproved/original/3addaee5-9926-4c2d-8ce5-ad14722c2012.JPEG?im_w=480",
+            "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-29273928-unapproved/original/d175e905-c00e-46b3-bfda-bf4f477e033d.JPEG?im_w=720",
+        ],
         "price": 210,
         "cleaningFee": 40,
         "summary": `Trendy loft with exposed brick and balcony views of the Colosseum. Great restaurants nearby.`,
@@ -7058,7 +7827,14 @@ export const demoStays = [
         "_id": "rome-f72v",
         "name": "Testaccio Modern Flat",
         "type": "City stays",
-        "imgUrls": ["", "", "", "", "", ""],
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/miso/Hosting-53567688/original/8285e445-8a3b-46a4-a97e-fb147781a67e.jpeg?im_w=960",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-53567688/original/03d53766-1d60-45f9-aff7-cb6d6e76373c.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-53567688/original/cc8a753e-5acc-4320-b390-6b451f0047df.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-53567688/original/1e63c2d3-9b7f-4444-8fbe-74eb6b84e6fd.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-53567688/original/de03d4a2-c54b-43cd-be68-bb97e39540c4.jpeg?im_w=480",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-53567688/original/03d53766-1d60-45f9-aff7-cb6d6e76373c.jpeg?im_w=1200",
+        ],
         "price": 150,
         "cleaningFee": 25,
         "summary": `Bright, modern apartment in Rome’s authentic Testaccio district. Local markets, bakeries, and nightlife within walking distance.`,
@@ -7100,7 +7876,14 @@ export const demoStays = [
         "_id": "rome-l31n",
         "name": "Spanish Steps Penthouse",
         "type": "City stays",
-        "imgUrls": ["", "", "", "", "", ""],
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/61d2e32b-0906-4d7f-9048-4cb47979fb45.jpg?im_w=960",
+            "https://a0.muscache.com/im/pictures/5f7c644c-a0e0-4a22-aaae-1dca07dc7886.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/ec7aff25-a004-4146-addf-af4f2caf22dd.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/e0d03f90-7427-45b8-be74-4ea5880d20e4.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/e01e24dc-f5ef-4e98-b55b-a862241ac61d.jpg?im_w=480",
+            "https://a0.muscache.com/im/pictures/3de6dabf-9676-4a38-b88f-4c3d1adc38f8.jpg?im_w=1200",
+        ],
         "price": 300,
         "cleaningFee": 60,
         "summary": `Luxury penthouse with panoramic rooftop near the Spanish Steps. Elevator, marble finishes, and skyline views.`,
@@ -7139,38 +7922,34 @@ export const demoStays = [
         "availableUntil": "2026-02-20"
     },
 
-    /////////////////////DUBAI
+    // ////////////////////Barcelona
     {
         "_id": "city-008",
-        "name": "Dubai Marina Apartment",
+        "name": "Barcelona Port Apartment",
         "type": "City stays",
         "imgUrls": [
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMwODc5ODA5MTk2NDIzODIwMg==/original/490634e7-77fe-4ec3-818e-86e73fda973e.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/205547f1-3963-4a56-a1d3-cfb20123223e.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/205547f1-3963-4a56-a1d3-cfb20123223e.jpeg?im_w=720",
             "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/f5d01f4e-c519-49b9-a747-8a6a4130d0a2.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/853d4455-9c4e-4efc-a194-2e860a50d2a5.jpeg?im_w=720"
+            "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/853d4455-9c4e-4efc-a194-2e860a50d2a5.jpeg?im_w=720",
         ],
-        "price": 260,
+        "price": 240,
         "cleaningFee": 40,
-        "summary": `High-rise apartment with marina views. Modern interior, 
-        great for families or groups looking to enjoy Dubai Marina and nearby attractions.
-        \n\nOverlooking the dazzling Dubai Marina, this upscale apartment offers panoramic skyline views, 
-        designer interiors, and access to a private infinity pool. \n\nThe open-concept living area is perfect
-         for entertaining, while floor-to-ceiling glass floods the space with natural light. 
-         Walk to world-class restaurants, beaches, and the Marina Mall, or unwind on your balcony with 
-         the sunset reflecting off the city’s glass towers.
-         \n\nIdeal for luxury seekers and business travelers alike.`,
+        "summary": `Bright seafront apartment in Barcelona’s Port Olímpic with views of the Mediterranean. Modern décor, two bedrooms, and a short walk to Barceloneta Beach.
+  \n\nEnjoy morning coffee on the balcony watching the marina come alive. Open-plan living and full kitchen make it ideal for families or small groups.
+  \n\nSteps away from restaurants, beach clubs, and Ciutadella Park. Easy metro access to El Born and Gothic Quarter.
+  \n\nPerfect for travelers seeking both relaxation and urban adventure.`,
         "rooms": [
             {
                 "roomType": "bedroom",
                 "bedType": "double bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMwODc5ODA5MTk2NDIzODIwMg==/original/490634e7-77fe-4ec3-818e-86e73fda973e.jpeg?im_w=720"
+                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-52389087/original/0a3b4d78-4f0b-4f69-9f80-4511b2f8132c.jpeg?im_w=720"
             },
             {
                 "roomType": "bedroom",
-                "bedType": "sofa",
-                "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQxNTcyNTc3MzY2ODE0MDY2Mg==/original/205547f1-3963-4a56-a1d3-cfb20123223e.jpeg?im_w=720",
+                "bedType": "sofa bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-52389087/original/ee31e567-40a3-4424-97d1-4a7f3b05d40f.jpeg?im_w=720"
             }
         ],
         "guests": 4,
@@ -7181,7 +7960,6 @@ export const demoStays = [
             "location.beach",
             "services.lockBox",
             "safety.smokeAlarm",
-            "notIncluded.noDryer",
             "essentials.wifi",
             "essentials.tv",
             "kitchen.coffeeMaker",
@@ -7192,126 +7970,371 @@ export const demoStays = [
             "family.crib",
             "location.center",
             "safety.firstAid",
-            "location.beach",
-            "services.houseKeeping",
+            "services.houseKeeping"
         ],
         "highlights": [
             {
-                "main": "Marina Views",
-                "sub": "Sweeping water views from high floors.",
-                "imgUrl": "location.waterFront"
+                "main": "Port Olímpic Views",
+                "sub": "See yachts and beach sunsets from your balcony.",
+                "imgUrl": "location.waterfront"
             },
             {
-                "main": "Modern High-rise",
-                "sub": "Contemporary amenities and easy marina access.",
-                "imgUrl": "features.grill"
+                "main": "Beach Access",
+                "sub": "Only 3 minutes’ walk to Barceloneta sands.",
+                "imgUrl": "location.beach"
             },
             {
-                "main": "Great for Families",
-                "sub": "Roomy layout and nearby family attractions.",
-                "imgUrl": "family.boardGames"
+                "main": "Modern & Spacious",
+                "sub": "Contemporary décor and bright open layout.",
+                "imgUrl": "bedroom.doubleBed"
             }
         ],
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-8",
-            "firstName": "Omar",
-            "fullname": "Omar",
-            "location": "Dubai, UAE",
-            "about": "Hospitality professional who wants guests to enjoy the Marina lifestyle.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/66.jpg",
-            "isSuperhost": false,
+            "firstName": "Lucía",
+            "fullname": "Lucía",
+            "location": "Barcelona, Spain",
+            "about": "Hospitality manager who loves the sea and Mediterranean lifestyle. Born and raised in Barcelona.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/44.jpg",
+            "isSuperhost": true,
             "isVerified": true,
-            "signupDate": 1612137600000,
-            "rating": 4.8,
-            "numReviews": 89,
-            "yearsHosting": 3,
-            "responseRate": 93,
-            "responseTime": "within a few hours",
-            "coHosts": [],
+            "signupDate": 1609459200000,
+            "rating": 4.9,
+            "numReviews": 102,
+            "yearsHosting": 4,
+            "responseRate": 98,
+            "responseTime": "within an hour",
+            "coHosts": [
+                { "name": "Carlos", "imgUrl": "https://randomuser.me/api/portraits/men/53.jpg" }
+            ],
             "personalFacts": [
-                { "icon": "born", "text": "Born in Dubai" },
-                { "icon": "work", "text": "Property manager" }
+                { "icon": "born", "text": "Born in Barcelona" },
+                { "icon": "work", "text": "Hospitality and event manager" }
             ]
         },
         "loc": {
-            "country": "United Arab Emirates",
-            "countryCode": "AE",
-            "city": "Dubai",
-            "address": "Dubai Marina, Dubai, UAE",
-            "lat": 25.0800,
-            "lng": 55.1400
+            "country": "Spain",
+            "countryCode": "ES",
+            "city": "Barcelona",
+            "address": "Port Olímpic, Barcelona, Spain",
+            "lat": 41.387,
+            "lng": 2.197
         },
         "reviews": [
             {
-                "at": "2024-09-02T00:00:00.000Z",
+                "_id": "r-bcn-801",
+                "at": "2024-08-20T00:00:00.000Z",
                 "by": {
-                    "_id": "r-8001",
-                    "fullname": "Farah",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/55.jpg",
+                    "_id": "u-9801",
+                    "fullname": "Marcos",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/60.jpg",
                     "id": "80711825"
                 },
-                "txt": "Lovely flat with great marina views. Very comfortable for our family.",
+                "txt": "Wonderful apartment near the beach — very clean and modern.",
                 "rate": {
-                    "cleanliness": 4.8,
-                    "communication": 4.7,
-                    "checkIn": 4.6,
-                    "accuracy": 4.5,
-                    "location": 4.9,
-                    "value": 4.4
+                    "cleanliness": 4.9,
+                    "communication": 4.9,
+                    "checkIn": 4.8,
+                    "accuracy": 4.9,
+                    "location": 5.0,
+                    "value": 4.7
                 },
-                "nights": 7,
+                "nights": 6,
                 "withKids": true,
                 "withPet": false
             },
             {
-                "at": "2023-12-15T00:00:00.000Z",
+                "_id": "r-bcn-802",
+                "at": "2023-12-11T00:00:00.000Z",
                 "by": {
-                    "_id": "r-8002",
-                    "fullname": "Owen",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/70.jpg",
+                    "_id": "u-9802",
+                    "fullname": "Sophie",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/31.jpg",
                     "id": "80711826"
                 },
-                "txt": "Modern and clean. Marina is beautiful at night.",
+                "txt": "Lovely views of the marina — Lucía was kind and quick to reply.",
                 "rate": {
-                    "cleanliness": 4.7,
-                    "communication": 4.6,
-                    "checkIn": 4.5,
-                    "accuracy": 4.4,
-                    "location": 4.8,
-                    "value": 4.1
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 5.0,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.6
                 },
                 "nights": 4,
                 "withKids": false,
                 "withPet": false
             },
             {
-                "at": "2023-07-20T00:00:00.000Z",
+                "_id": "r-bcn-803",
+                "at": "2023-06-25T00:00:00.000Z",
                 "by": {
-                    "_id": "r-8003",
-                    "fullname": "Hannah",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/19.jpg",
+                    "_id": "u-9803",
+                    "fullname": "Elena",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/24.jpg",
                     "id": "80711827"
                 },
-                "txt": "Great building, safe and family-friendly — easy access to restaurants.",
+                "txt": "The apartment was bright, comfortable, and close to everything.",
                 "rate": {
-                    "cleanliness": 4.6,
-                    "communication": 4.5,
-                    "checkIn": 4.3,
-                    "accuracy": 4.4,
-                    "location": 4.7,
-                    "value": 4.0
+                    "cleanliness": 4.7,
+                    "communication": 4.9,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.5
                 },
                 "nights": 5,
-                "withKids": true,
+                "withKids": false,
                 "withPet": false
             }
         ],
         "likedByUsers": [],
-        "availableFrom": "2025-08-15",
-        "availableUntil": "2025-08-20"
+        "availableFrom": "2025-08-10",
+        "availableUntil": "2025-08-18"
     },
-    // ////////////////////Barcelona
+    {
+        "_id": "beach-007",
+        "name": "Barceloneta Beach Villa",
+        "type": "Beach stays",
+        "imgUrls": ["https://a0.muscache.com/im/pictures/ff1d5477-665b-43b5-afe8-8f4a3d08993b.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/7b835dcb-1ecd-4b5a-9d71-7463ca12f1d0.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/06ffaab1-114e-418b-b061-fd27a0b4e3f0.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/f1b11a2f-65b7-4956-af88-282bf66421fb.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/466e682e-805a-43ce-9657-e8d121ab51fb.jpg?im_w=720",
+        ],
+        "price": 330,
+        "cleaningFee": 45,
+        "summary": "Mediterranean-style villa with direct access to Barceloneta Beach. Ideal for families or groups seeking sun, sea, and local life.\n\nOpen and airy interiors, whitewashed walls, and panoramic terraces overlooking the sea. \n\nWalk to tapas bars, markets, and the old harbor. Perfect blend of beach serenity and city energy.\n\nIdeal for travelers wanting to unwind in comfort and wake up to sea breeze and golden light.",
+        "rooms": [
+            {
+                "roomType": "living room",
+                "bedType": "sofa bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-53228476/original/07b314b9-02a9-47b5-8141-c22bcd92f760.jpeg?im_w=720"
+            }
+        ],
+        "guests": 6,
+        "bathrooms": 2,
+        "bedrooms": 3,
+        "beds": 3,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "kitchen.fridge",
+            "kitchen.dishes",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "location.beach",
+            "outdoor.privatePatio",
+            "outdoor.beachEssentials",
+            "features.grill",
+            "bookingOptions.instantBook",
+            "services.lockBox"
+        ],
+        "highlights": [
+            { "main": "Direct Beach Access", "sub": "Step right onto Barceloneta sands.", "imgUrl": "location.beach" },
+            { "main": "Spacious Interiors", "sub": "Ideal for families or groups.", "imgUrl": "bedroom.hangers" },
+            { "main": "Sea-View Terrace", "sub": "Enjoy tapas or BBQs overlooking the Mediterranean.", "imgUrl": "features.grill" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-7",
+            "firstName": "Isabella",
+            "fullname": "Isabella Martínez",
+            "location": "Barcelona, Spain",
+            "about": "Architect and beach lover — I designed this villa to reflect Barcelona’s coastal charm and relaxed lifestyle.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/42.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1606780800000,
+            "rating": 4.95,
+            "numReviews": 162,
+            "yearsHosting": 4,
+            "responseRate": 98,
+            "responseTime": "within an hour",
+            "coHosts": [
+                { "name": "Miguel", "imgUrl": "https://randomuser.me/api/portraits/men/40.jpg" }
+            ],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Barcelona" },
+                { "icon": "work", "text": "Architect & design consultant" }
+            ]
+        },
+        "loc": {
+            "country": "Spain",
+            "countryCode": "ES",
+            "city": "Barcelona",
+            "address": "Barceloneta Beach, Barcelona, Spain",
+            "lat": 41.3733,
+            "lng": 2.1923
+        },
+        "reviews": [
+            {
+                "_id": "r-bcn-901",
+                "at": "2024-06-05T00:00:00.000Z",
+                "by": {
+                    "_id": "u-9901",
+                    "fullname": "Nora",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/50.jpg",
+                    "id": "90711825"
+                },
+                "txt": "Beautiful beach house! Clean, stylish, and perfect for our group vacation.",
+                "rate": { "cleanliness": 5.0, "communication": 5.0, "checkIn": 5.0, "accuracy": 4.9, "location": 5.0, "value": 4.8 },
+                "nights": 6,
+                "withKids": true,
+                "withPet": false
+            },
+            {
+                "_id": "r-bcn-902",
+                "at": "2023-09-28T00:00:00.000Z",
+                "by": {
+                    "_id": "u-9902",
+                    "fullname": "Carlos",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "id": "90711826"
+                },
+                "txt": "The location couldn’t be better — we could walk barefoot to the sea every morning!",
+                "rate": { "cleanliness": 4.9, "communication": 4.8, "checkIn": 4.9, "accuracy": 4.8, "location": 5.0, "value": 4.7 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-07-10",
+        "availableUntil": "2025-07-18"
+    },
+    {
+        "_id": "beach-006",
+        "name": "Barceloneta Rooftop Flat",
+        "type": "Beach stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/76f2fd79-878d-4d29-a33f-4c033f31060a.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/d2888b0c-01d8-4174-8ccf-7c0a1300f72b.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/80d68232-a837-4d00-971e-77cbf7bff93b.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/94e49367-aef9-4cb5-806c-1e9e429842c7.jpeg?im_w=720",
+            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/eb5d4e3e-4606-4ae3-865d-eed2d2a1e62c.jpeg?im_w=720"
+        ],
+        "price": 175,
+        "cleaningFee": 40,
+        "summary": "Modern flat with a rooftop pool and sea view, just a short stroll from Barceloneta Beach.\n\nBright open layout with floor-to-ceiling windows, a fully equipped kitchen, and sunny terrace.\n\nPerfect base for exploring the beach promenade, local tapas bars, and Port Vell marina.\n\nIdeal for couples or small groups looking for comfort and a prime beach location.",
+        "rooms": [
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-54567290/original/abec5b17-2204-43b2-a690-6c7b2c9f3580.jpeg?im_w=720"
+            }
+        ],
+        "guests": 3,
+        "bathrooms": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "kitchen.fridge",
+            "kitchen.microwave",
+            "bathroom.shampoo",
+            "bathroom.bodySoap",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "location.beach",
+            "outdoor.sunLoungers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "services.lockBox"
+        ],
+        "highlights": [
+            { "main": "Rooftop Pool", "sub": "Relax under the sun with sea views.", "imgUrl": "outdoor.sunLoungers" },
+            { "main": "Beachside Living", "sub": "Just steps from Barceloneta Beach.", "imgUrl": "location.beach" },
+            { "main": "Bright & Airy", "sub": "Modern flat with large windows and terrace.", "imgUrl": "kitchen.coffeeMaker" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-6",
+            "firstName": "Marc",
+            "fullname": "Marc Costa",
+            "location": "Barcelona, Spain",
+            "about": "Surfer, designer, and lifelong Barceloneta local — I love sharing my neighborhood’s beach charm and best local eats.",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/49.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1612137600000,
+            "rating": 4.93,
+            "numReviews": 95,
+            "yearsHosting": 4,
+            "responseRate": 97,
+            "responseTime": "within an hour",
+            "coHosts": [
+                { "name": "Clara", "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg" }
+            ],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Barcelona" },
+                { "icon": "work", "text": "Freelance designer & surf enthusiast" }
+            ]
+        },
+        "loc": {
+            "country": "Spain",
+            "countryCode": "ES",
+            "city": "Barcelona",
+            "address": "Barceloneta, Barcelona, Spain",
+            "lat": 41.3809,
+            "lng": 2.1895
+        },
+        "reviews": [
+            {
+                "_id": "r-bcn-701",
+                "at": "2024-04-12T00:00:00.000Z",
+                "by": {
+                    "_id": "u-9701",
+                    "fullname": "Lucía",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/51.jpg",
+                    "id": "90711825"
+                },
+                "txt": "Loved the rooftop pool and view! Amazing location right near the beach.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.9,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-bcn-702",
+                "at": "2023-09-10T00:00:00.000Z",
+                "by": {
+                    "_id": "u-9702",
+                    "fullname": "Hugo",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg",
+                    "id": "90711826"
+                },
+                "txt": "Perfect for a beach trip — Marc was a great host and the flat was spotless.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 4.9,
+                    "checkIn": 5.0,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.7
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-11-05",
+        "availableUntil": "2025-11-12"
+    },
 
     {
         "_id": "beach-001",
@@ -7549,6 +8572,126 @@ export const demoStays = [
         "availableFrom": "2025-07-10",
         "availableUntil": "2025-07-15"
     },
+    {
+        "_id": "beach-004",
+        "name": "Costa Brava Seaside Apartment",
+        "type": "Beach stays",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/6b2612bb-fbc6-4745-8e03-6b4ad0af55e4.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/4aabafdb-0fcb-49b0-9f96-6e60a7a1b6f9.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/df57f963-4163-4118-a936-792e761b8fb1.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/caa7839a-7260-41aa-be85-aa18bd4329a2.jpg?im_w=720",
+            "https://a0.muscache.com/im/pictures/d6975d05-e8a3-486b-8553-93f3a74b281f.jpg?im_w=720"
+        ],
+        "price": 235,
+        "cleaningFee": 40,
+        "summary": "Modern coastal apartment overlooking the Costa Brava — part of the greater Barcelona seaside region. Steps from turquoise waters and charming Mediterranean paths.\n\nBright open-concept living area with large windows and a sunlit terrace.\n\nEnjoy local seafood in nearby taverns or day trips to central Barcelona — just over an hour away.\n\nPerfect for couples or families who love both relaxation and culture.",
+        "rooms": [
+            {
+                "roomType": "living room",
+                "bedType": "sofa",
+                "imgUrl": "https://a0.muscache.com/im/pictures/caa7839a-7260-41aa-be85-aa18bd4329a2.jpg?im_w=720"
+            },
+            {
+                "roomType": "bedroom",
+                "bedType": "double bed",
+                "imgUrl": "https://a0.muscache.com/im/pictures/4aabafdb-0fcb-49b0-9f96-6e60a7a1b6f9.jpg?im_w=720"
+            }
+        ],
+        "guests": 4,
+        "bathrooms": 2,
+        "bedrooms": 2,
+        "beds": 3,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "bedroom.hangers",
+            "kitchen.fridge",
+            "kitchen.oven",
+            "kitchen.dishes",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "location.beach",
+            "outdoor.sunLoungers",
+            "features.breakfast",
+            "bookingOptions.instantBook",
+            "services.houseKeeping"
+        ],
+        "highlights": [
+            { "main": "Sea Views", "sub": "Overlooking Costa Brava’s turquoise coast.", "imgUrl": "location.beach" },
+            { "main": "Modern Comfort", "sub": "Bright interiors and full kitchen amenities.", "imgUrl": "kitchen.coffeeMaker" },
+            { "main": "Near Barcelona", "sub": "Quick drive or train ride to the city.", "imgUrl": "services.houseKeeping" }
+        ],
+        "roomType": "Entire home/apt",
+        "host": {
+            "_id": "host-beach-4",
+            "firstName": "Clara",
+            "fullname": "Clara Puig",
+            "location": "Barcelona, Spain",
+            "about": "Nature lover and photographer — I adore sharing the magic of Costa Brava’s cliffs, beaches, and morning light.",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/45.jpg",
+            "isSuperhost": true,
+            "isVerified": true,
+            "signupDate": 1614556800000,
+            "rating": 4.93,
+            "numReviews": 118,
+            "yearsHosting": 4,
+            "responseRate": 96,
+            "responseTime": "within an hour",
+            "coHosts": [
+                { "name": "Jordi", "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg" }
+            ],
+            "personalFacts": [
+                { "icon": "born", "text": "Born in Girona, near Barcelona" },
+                { "icon": "work", "text": "Photographer & coastal guide" }
+            ]
+        },
+        "loc": {
+            "country": "Spain",
+            "countryCode": "ES",
+            "city": "Barcelona",
+            "address": "Costa Brava Coastline, Barcelona Province, Spain",
+            "lat": 41.6991,
+            "lng": 2.8473
+        },
+        "reviews": [
+            {
+                "_id": "r-bcn-601",
+                "at": "2024-05-10T00:00:00.000Z",
+                "by": {
+                    "_id": "u-9601",
+                    "fullname": "Liam",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/42.jpg",
+                    "id": "60711825"
+                },
+                "txt": "Beautiful apartment with incredible views — peaceful and very clean.",
+                "rate": { "cleanliness": 5, "communication": 4.9, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "_id": "r-bcn-602",
+                "at": "2024-02-15T00:00:00.000Z",
+                "by": {
+                    "_id": "u-9602",
+                    "fullname": "Emma",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/40.jpg",
+                    "id": "60711826"
+                },
+                "txt": "Loved the coast and the calm. Clara was an amazing host.",
+                "rate": { "cleanliness": 4.9, "communication": 5, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.7 },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            }
+        ],
+        "likedByUsers": [],
+        "availableFrom": "2025-12-01",
+        "availableUntil": "2025-12-07"
+    },
+
     {
         "_id": "beach-002",
         "name": "Miami Oceanview Condo",
@@ -7849,92 +8992,6 @@ export const demoStays = [
         "availableUntil": "2025-09-08"
     },
     {
-        "_id": "beach-004",
-        "name": "Sydney Bondi Apartment",
-        "type": "Beach stays",
-        "imgUrls": [
-            "https://a0.muscache.com/im/pictures/6b2612bb-fbc6-4745-8e03-6b4ad0af55e4.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/4aabafdb-0fcb-49b0-9f96-6e60a7a1b6f9.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/df57f963-4163-4118-a936-792e761b8fb1.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/caa7839a-7260-41aa-be85-aa18bd4329a2.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/d6975d05-e8a3-486b-8553-93f3a74b281f.jpg?im_w=720"
-        ],
-        "price": 240,
-        "cleaningFee": 40,
-        "summary": "Modern apartment overlooking Bondi Beach, steps from the sand and iconic coastal walks. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
-        "rooms": [
-            {
-                "roomType": "living room",
-                "bedType": "sofa",
-                "imgUrl": "https://a0.muscache.com/im/pictures/caa7839a-7260-41aa-be85-aa18bd4329a2.jpg?im_w=720",
-            },
-            {
-                "roomType": "bedroom",
-                "bedType": "double bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/4aabafdb-0fcb-49b0-9f96-6e60a7a1b6f9.jpg?im_w=720"
-            }
-        ],
-        "guests": 4,
-        "bathrooms": 2,
-        "bedrooms": 2,
-        "beds": 3,
-        "amenities": [
-            "essentials.wifi",
-            "essentials.tv",
-            "kitchen.coffeeMaker",
-            "bedroom.hangers",
-            "kitchen.fridge",
-            "kitchen.oven",
-            "kitchen.dishes",
-            "safety.smokeAlarm",
-            "safety.firstAid",
-            "location.beach",
-            "outdoor.sunLoungers",
-            "features.breakfast",
-            "bookingOptions.instantBook",
-            "services.houseKeeping",
-            "notIncluded.noDryer"
-        ],
-        "highlights": [
-            { "main": "Ocean Views", "sub": "Enjoy Bondi Beach right from your balcony.", "imgUrl": "location.beach" },
-            { "main": "Modern Comfort", "sub": "Fully equipped kitchen and spacious living area.", "imgUrl": "kitchen.coffeeMaker" },
-            { "main": "Walk to Cafés", "sub": "Local cafés and boutiques just steps away.", "imgUrl": "services.lockBox" }
-        ],
-        "roomType": "Entire home/apt",
-        "host": {
-            "_id": "host-beach-4",
-            "firstName": "Sophie",
-            "fullname": "Sophie Carter",
-            "location": "Sydney, Australia",
-            "about": "Lover of the ocean and coffee culture — I keep my apartment cozy and stylish.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/45.jpg",
-            "isSuperhost": true,
-            "isVerified": true,
-            "signupDate": 1614556800000,
-            "rating": 4.92,
-            "numReviews": 102,
-            "yearsHosting": 4,
-            "responseRate": 95,
-            "responseTime": "within an hour",
-            "coHosts": [],
-            "personalFacts": [
-                { "icon": "born", "text": "Born in Sydney" },
-                { "icon": "work", "text": "Photographer & travel lover" }
-            ]
-        },
-        "loc": { "country": "Australia", "countryCode": "AU", "city": "Sydney", "address": "Bondi Beach, Sydney", "lat": -33.8908, "lng": 151.2743 },
-        "reviews": [
-            { "at": "2024-05-10T00:00:00.000Z", "by": { "_id": "r-7001", "fullname": "Liam", "imgUrl": "https://randomuser.me/api/portraits/men/42.jpg" }, "txt": "Perfect apartment with ocean views! Spacious and clean.", "rate": { "cleanliness": 5, "communication": 4.9, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 5, "withKids": false, "withPet": false },
-            { "at": "2024-02-15T00:00:00.000Z", "by": { "_id": "r-7002", "fullname": "Emma", "imgUrl": "https://randomuser.me/api/portraits/women/40.jpg" }, "txt": "Loved Bondi! Apartment had everything we needed.", "rate": { "cleanliness": 4.9, "communication": 5, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.7 }, "nights": 4, "withKids": false, "withPet": false },
-            { "at": "2023-12-30T00:00:00.000Z", "by": { "_id": "r-7003", "fullname": "Noah", "imgUrl": "https://randomuser.me/api/portraits/men/39.jpg" }, "txt": "Amazing stay, close to the beach and cafes.", "rate": { "cleanliness": 5, "communication": 4.8, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 6, "withKids": false, "withPet": false },
-            { "at": "2023-11-12T00:00:00.000Z", "by": { "_id": "r-7004", "fullname": "Ava", "imgUrl": "https://randomuser.me/api/portraits/women/41.jpg" }, "txt": "Stylish apartment with everything you need. Loved the balcony.", "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 3, "withKids": false, "withPet": false },
-            { "at": "2023-08-20T00:00:00.000Z", "by": { "_id": "r-7005", "fullname": "Oliver", "imgUrl": "https://randomuser.me/api/portraits/men/41.jpg" }, "txt": "Cozy apartment with stunning beach views. Highly recommended.", "rate": { "cleanliness": 4.9, "communication": 4.9, "checkIn": 5, "accuracy": 4.8, "location": 5, "value": 4.7 }, "nights": 5, "withKids": false, "withPet": false }
-        ],
-        "likedByUsers": [],
-        "availableFrom": "2025-12-01",
-        "availableUntil": "2025-12-07"
-    },
-    {
         "_id": "beach-005",
         "name": "Santorini Cliffside Apartment",
         "type": "Beach stays",
@@ -8011,161 +9068,7 @@ export const demoStays = [
         "availableFrom": "2025-06-20",
         "availableUntil": "2025-06-25"
     },
-    {
-        "_id": "beach-006",
-        "name": "Rio Copacabana Flat",
-        "type": "Beach stays",
-        "imgUrls": [
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/76f2fd79-878d-4d29-a33f-4c033f31060a.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/d2888b0c-01d8-4174-8ccf-7c0a1300f72b.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/80d68232-a837-4d00-971e-77cbf7bff93b.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/94e49367-aef9-4cb5-806c-1e9e429842c7.jpeg?im_w=720",
-            "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/eb5d4e3e-4606-4ae3-865d-eed2d2a1e62c.jpeg?im_w=720"
-        ],
-        "price": 160,
-        "cleaningFee": 40,
-        "summary": "Flat with rooftop pool near Copacabana Beach. Enjoy sunny Rio and stunning sea views. \n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
-        "rooms": [
-            {
-                "roomType": "bedroom",
-                "bedType": "single bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-1439541309047020537/original/eb5d4e3e-4606-4ae3-865d-eed2d2a1e62c.jpeg?im_w=720"
-            }
-        ],
-        "guests": 3,
-        "bathrooms": 1,
-        "bedrooms": 1,
-        "beds": 1,
-        "amenities": [
-            "essentials.wifi",
-            "essentials.tv",
-            "kitchen.coffeeMaker",
-            "bedroom.hangers",
-            "kitchen.fridge",
-            "kitchen.microwave",
-            "bathroom.shampoo",
-            "bathroom.bodySoap",
-            "safety.smokeAlarm",
-            "safety.firstAid",
-            "location.beach",
-            "outdoor.sunLoungers",
-            "features.breakfast",
-            "bookingOptions.instantBook",
-            "services.lockBox",
-            "notIncluded.noDryer"
-        ],
-        "highlights": [
-            { "main": "Rooftop Pool", "sub": "Enjoy the sun with a view of Copacabana.", "imgUrl": "features.breakfast" },
-            { "main": "Central Location", "sub": "Steps from shops, cafes, and the beach.", "imgUrl": "location.beach" },
-            { "main": "Modern Flat", "sub": "Fully equipped kitchen and living space.", "imgUrl": "kitchen.coffeeMaker" }
-        ],
-        "roomType": "Entire home/apt",
-        "host": {
-            "_id": "host-beach-6",
-            "firstName": "Carlos",
-            "fullname": "Carlos Silva",
-            "location": "Rio de Janeiro, Brazil",
-            "about": "Beach lover and surfer — I enjoy hosting travelers in my sunny city.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/44.jpg",
-            "isSuperhost": true,
-            "isVerified": true,
-            "signupDate": 1606780800000,
-            "rating": 4.91,
-            "numReviews": 88,
-            "yearsHosting": 4,
-            "responseRate": 94,
-            "responseTime": "within a few hours",
-            "coHosts": [],
-            "personalFacts": [
-                { "icon": "born", "text": "Born in Rio" },
-                { "icon": "work", "text": "Surf instructor & local guide" }
-            ]
-        },
-        "loc": { "country": "Brazil", "countryCode": "BR", "city": "Rio de Janeiro", "address": "Copacabana, Rio", "lat": -22.9711, "lng": -43.1822 },
-        "reviews": [
-            { "at": "2024-04-10T00:00:00.000Z", "by": { "_id": "r-9001", "fullname": "Isabela", "imgUrl": "https://randomuser.me/api/portraits/women/48.jpg" }, "txt": "Amazing pool and location. Perfect flat for beach lovers.", "rate": { "cleanliness": 5, "communication": 4.9, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 4, "withKids": false, "withPet": false }
-        ],
-        "likedByUsers": [],
-        "availableFrom": "2025-11-10",
-        "availableUntil": "2025-11-15"
-    },
-    {
-        "_id": "beach-007",
-        "name": "Malibu Ocean Villa",
-        "type": "Beach stays",
-        "imgUrls": [
-            "https://a0.muscache.com/im/pictures/ff1d5477-665b-43b5-afe8-8f4a3d08993b.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/7b835dcb-1ecd-4b5a-9d71-7463ca12f1d0.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/06ffaab1-114e-418b-b061-fd27a0b4e3f0.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/f1b11a2f-65b7-4956-af88-282bf66421fb.jpg?im_w=720",
-            "https://a0.muscache.com/im/pictures/466e682e-805a-43ce-9657-e8d121ab51fb.jpg?im_w=720"
-        ],
-        "price": 350,
-        "cleaningFee": 40,
-        "summary": "Spacious villa with direct beach access in Malibu. Ideal for large groups or family retreats.\n\nThe open-concept living area is perfect for entertaining, while floor-to-ceiling glass floods the space with natural light. \n\nGrab a coffee from the café downstairs, explore galleries and boutiques within steps, and return to a peaceful retreat above the bustle. \n\nPerfect for creatives, solo travelers, or couples who love being in the center of cultural energy.",
-        "rooms": [
-            {
-                "roomType": "living room",
-                "bedType": "sofa bed",
-                "imgUrl": "https://a0.muscache.com/im/pictures/466e682e-805a-43ce-9657-e8d121ab51fb.jpg?im_w=720"
-            }
-        ],
-        "guests": 6,
-        "bathrooms": 2,
-        "bedrooms": 3,
-        "beds": 3,
-        "amenities": [
-            "essentials.wifi",
-            "essentials.tv",
-            "kitchen.coffeeMaker",
-            "bedroom.hangers",
-            "kitchen.fridge",
-            "kitchen.dishes",
-            "safety.smokeAlarm",
-            "safety.firstAid",
-            "location.beach",
-            "outdoor.privatePatio",
-            "outdoor.beachEssentials",
-            "features.grill",
-            "bookingOptions.instantBook",
-            "services.lockBox",
-            "notIncluded.noDryer"
-        ],
-        "highlights": [
-            { "main": "Direct Beach Access", "sub": "Step right onto Malibu sand from the villa.", "imgUrl": "location.beach" },
-            { "main": "Spacious Interiors", "sub": "Perfect for families or groups.", "imgUrl": "bedroom.hangers" },
-            { "main": "Outdoor Grill", "sub": "Enjoy BBQs with ocean views.", "imgUrl": "features.grill" }
-        ],
-        "roomType": "Entire home/apt",
-        "host": {
-            "_id": "host-beach-7",
-            "firstName": "Anna",
-            "fullname": "Anna Thompson",
-            "location": "California, USA",
-            "about": "Beach lover and interior designer — I make my villa comfortable for guests seeking the ultimate Malibu experience.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/47.jpg",
-            "isSuperhost": true,
-            "isVerified": true,
-            "signupDate": 1598918400000,
-            "rating": 4.96,
-            "numReviews": 145,
-            "yearsHosting": 5,
-            "responseRate": 97,
-            "responseTime": "within an hour",
-            "coHosts": [],
-            "personalFacts": [
-                { "icon": "born", "text": "Born in California" },
-                { "icon": "work", "text": "Interior designer & Airbnb host" }
-            ]
-        },
-        "loc": { "country": "USA", "countryCode": "US", "city": "Malibu", "address": "Malibu Beach", "lat": 34.0259, "lng": -118.7798 },
-        "reviews": [
-            { "at": "2024-06-01T00:00:00.000Z", "by": { "_id": "r-10001", "fullname": "Mia", "imgUrl": "https://randomuser.me/api/portraits/women/49.jpg" }, "txt": "Amazing villa with breathtaking views. Perfect for our family!", "rate": { "cleanliness": 5, "communication": 5, "checkIn": 5, "accuracy": 4.9, "location": 5, "value": 4.8 }, "nights": 7, "withKids": true, "withPet": false }
-        ],
-        "likedByUsers": [],
-        "availableFrom": "2025-07-15",
-        "availableUntil": "2025-07-21"
-    },
+
     {
         "_id": "beach-008",
         "name": "Bali Beach Bungalow",
