@@ -1,4 +1,5 @@
 import { storageService } from '../async-storage.service'
+import { loadFromStorage } from '../util.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
@@ -17,7 +18,8 @@ export const userService = {
 async function getUsers() {
     const users = await storageService.query('user')
     return users.map(user => {
-        delete user.password
+        // Leave password for dev mode in order to load users
+        // delete user.password
         return user
     })
 }
@@ -35,7 +37,7 @@ async function update({ _id, score }) {
     user.score = score
     await storageService.put('user', user)
 
-	// When admin updates other user's details, do not update loggedinUser
+    // When admin updates other user's details, do not update loggedinUser
     const loggedinUser = getLoggedinUser()
     if (loggedinUser._id === user._id) saveLoggedinUser(user)
 
@@ -51,8 +53,8 @@ async function login(userCred) {
 
 async function signup(userCred) {
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
-    userCred.score = 10000
-
+    //    when in dev mode - leave the password 
+    // delete user.password
     const user = await storageService.post('user', userCred)
     return saveLoggedinUser(user)
 }
@@ -66,28 +68,30 @@ function getLoggedinUser() {
 }
 
 function saveLoggedinUser(user) {
-	user = { 
-        _id: user._id, 
-        fullname: user.fullname, 
-        imgUrl: user.imgUrl, 
-        score: user.score, 
-        isAdmin: user.isAdmin 
+    user = {
+        _id: user._id,
+        fullname: user.fullname,
+        imgUrl: user.imgUrl,
+        score: user.score,
+        isAdmin: user.isAdmin
     }
-	sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
-	return user
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    return user
 }
 
 // To quickly create an admin user, uncomment the next line
-// _createAdmin()
+_createAdmin()
 async function _createAdmin() {
-    const user = {
-        username: 'admin',
-        password: 'admin',
-        fullname: 'Mustafa Adminsky',
-        imgUrl: 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
-        score: 10000,
+    const users = await getUsers()
+    let user = users.some(user => user.username === 'guest')
+    if (user) return
+
+    user = {
+        username: 'guest',
+        password: 'guest',
+        fullname: 'Leah Weiss',
+        imgUrl: 'https://randomuser.me/api/portraits/women/10.jpg',
     }
 
-    const newUser = await storageService.post('user', userCred)
-    console.log('newUser: ', newUser)
+    const newUser = await storageService.post('user', user)
 }

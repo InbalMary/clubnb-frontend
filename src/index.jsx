@@ -16,13 +16,14 @@ import './store/reducers/stay.reducer'
 import './store/actions/stay.actions'
 import { DateRangeProvider } from './context/DateRangeProvider'
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
 	<Provider store={store}>
 		<Router>
-			<DateRangeProvider>
+				{/* <DateRangeProvider> */}
 				<RootCmp />
-			</DateRangeProvider>
+				{/* </DateRangeProvider> */}
 		</Router>
 	</Provider>
 )

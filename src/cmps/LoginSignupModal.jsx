@@ -1,15 +1,16 @@
 import { Modal } from './Modal'
 import { ImgUploader } from './ImgUploader'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useImperativeHandle, forwardRef, useRef } from 'react'
 
 import { userService } from '../services/user'
 import { login, signup } from '../store/actions/user.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { useLocation, useNavigate } from 'react-router'
+import { logoSvgs } from './Svgs'
 import { FancyButton } from './SmallComponents'
 import { useSelector } from 'react-redux'
 import { useScrollLock } from '../customHooks/useScrollLock'
-
+import { jwtDecode } from 'jwt-decode'
 
 export function LoginSignupModal({ isOpen, onClose }) {
 
@@ -26,7 +27,6 @@ export function LoginSignupModal({ isOpen, onClose }) {
         loadGuestUser()
     }, [])
     useScrollLock(isOpen)
-
 
     async function loadGuestUser() {
         try {
@@ -182,10 +182,79 @@ export function LoginSignupModal({ isOpen, onClose }) {
             <div className="login-options">
                 <button onClick={handleToggleType} className="btn">{modalType === 'login' ? 'Signup' : 'Login'}</button>
                 <button onClick={onGuestLogin} className="btn">Login as a guest</button>
-             
+                <GoogleLoginButton onClose={onClose} />
             </div>
 
         </Modal >
     )
+}
 
+
+function GoogleLoginButton({ onClose }) {
+
+    const navigate = useNavigate()
+    let tokenClient
+
+    useEffect(() => {
+        const script = document.createElement("script")
+        script.src = "https://accounts.google.com/gsi/client"
+        script.async = true
+        script.onload = () => {
+            tokenClient = google.accounts.oauth2.initTokenClient({
+                client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+                scope: "openid email profile",
+                callback: (tokenResponse) => {
+                    // Step 2: After choosing account, trigger ID token sign-in
+                    google.accounts.id.initialize({
+                        client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+                        callback: handleGoogleLogin,
+                        auto_select: true,
+                    })
+                    google.accounts.id.prompt() // Step 3: show the ID token popup
+                }
+            })
+        }
+        document.body.appendChild(script)
+
+        return () => {
+            document.body.removeChild(script)
+        }
+    }, [])
+
+    async function handleGoogleLogin(credentialResponse) {
+        try {
+            const decoded = jwtDecode(credentialResponse.credential)
+            const googleUser = {
+                username: decoded.email,
+                fullname: decoded.name,
+                imgUrl: decoded.picture,
+                password: decoded.sub, // unique Google ID
+            }
+
+            let user = await login(googleUser)
+
+            if (!user) {
+                user = await signup(googleUser)
+            }
+
+            showSuccessMsg(`Welcome, ${user.fullname}!`)
+            onClose?.()
+            navigate('/')
+        } catch (err) {
+            console.error('Google login failed:', err)
+            showErrorMsg('Google login failed. Please try again.')
+        }
+    }
+
+    const handleLoginClick = () => {
+        // Step 1: Force account selection
+        if (!tokenClient) return showErrorMsg("Google client not loaded yet.")
+        tokenClient.requestAccessToken({ prompt: "select_account" })
+    }
+
+    return (
+        <button onClick={handleLoginClick} className="btn google">
+            <span className="logo">{logoSvgs.google}</span>
+            Continue with Google</button>
+    )
 }
