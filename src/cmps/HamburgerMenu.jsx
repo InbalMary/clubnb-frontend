@@ -5,9 +5,11 @@ import { appHeaderSvg } from './Svgs'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/actions/user.actions'
 import { useClickOutside } from "../customHooks/useClickOutside";
+import { LoginSignupModal } from './LoginSignupModal'
 
 export function HamburgerMenu() {
     const [isOpen, setIsOpen] = useState(false)
+    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
 
@@ -33,9 +35,18 @@ export function HamburgerMenu() {
         }
     }
 
+    // function handleNavigation(path) {
+    //     if (!user) navigate("/auth/login")
+    //     else navigate(path)
+    //     setIsOpen(false)
+    // }
     function handleNavigation(path) {
-        if (!user) navigate("/auth/login")
-        else navigate(path)
+        if (!user && path === '/auth/login' ) {
+            setIsLoginModalOpen(true)
+        } else {
+            navigate(path)
+        }
+
         setIsOpen(false)
     }
 
@@ -143,6 +154,7 @@ export function HamburgerMenu() {
                     )}
                 </div>
             )}
+            <LoginSignupModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)}/>
         </>
     )
 }
