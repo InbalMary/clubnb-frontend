@@ -21,7 +21,7 @@ export function StepLocation({ address, setAddress, location, setLocation, loc, 
 
         if (isGoogleReady && autocompleteServiceRef.current && value) {
             autocompleteServiceRef.current.getPlacePredictions(
-                { input: value, types: ["address"], componentRestrictions: { country: "il" } },
+                { input: value, types: ["address"] },
                 (predictions, status) => setSuggestions(status === window.google.maps.places.PlacesServiceStatus.OK ? predictions : [])
             )
         } else setSuggestions([])
