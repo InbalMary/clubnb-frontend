@@ -13,7 +13,7 @@ export function ReservationsPage() {
     const [viewMode, setViewMode] = useState('table')
     const [confirmModal, setConfirmModal] = useState({ isOpen: false, order: null, action: null })
 
-    const loggedInUser = useSelector((state) => state.userModule.loggedInUser)
+    const loggedInUser = useSelector((state) => state.userModule.user)
     const orders = useSelector(storeState => storeState.orderModule.orders)
     const isLoading = useSelector(storeState => storeState.orderModule.isLoading)
 
