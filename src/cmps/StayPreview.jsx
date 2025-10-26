@@ -23,10 +23,16 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
         formattedDates = formatStayDates(filterBy.startDate, filterBy.endDate)
         numNights = calculateNights(filterBy.startDate, filterBy.endDate)
     }
-
-    if (isBig && !hasSelectedDates && stay.suggestedRange) {
+    else if (isBig && !hasSelectedDates && stay.suggestedRange) {
         formattedDates = formatStayDates(stay.suggestedRange.start, stay.suggestedRange.end)
         numNights = 5
+    }
+    else if (!isBig && !hasSelectedDates && stay.suggestedRange) {
+        const { start } = stay.suggestedRange
+        const end = new Date(start)
+        end.setDate(start.getDate() + 2)
+        formattedDates = formatStayDates(start, end)
+        numNights = 2
     }
 
     return <article className={`stay-preview ${isBig ? 'big' : ''} ${isFocused ? 'at-focus' : ''}`}>
@@ -109,8 +115,13 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
                     </p>
                 ) : (
                     //  if Explore and no selected dates - show suggested range
-                    isBig && !hasSelectedDates && formattedDates && (
+                    isBig && !hasSelectedDates && formattedDates ? (
                         <p className="stay-card-dates">{formattedDates}</p>
+                    ) : (
+                        //small cards, no selected dates - show 2-night default range
+                        !isBig && !hasSelectedDates && formattedDates && (
+                            <p className="stay-card-dates">{formattedDates}</p>
+                        )
                     )
                 )
             )}
@@ -122,12 +133,10 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
                             <div className="stay-price-wrap">
                                 <span className="stay-price">
                                     <span className="price-number">
-                                        ${(stay.price * (numNights || 5)).toLocaleString()}
+                                        ${(stay.price * numNights).toLocaleString()}
                                     </span>
                                     <span className="price-text">
-                                        {numNights > 0
-                                            ? ` for ${numNights} ${numNights === 1 ? 'night' : 'nights'}`
-                                            : ' total for 5 nights'}
+                                        {` for ${numNights} ${numNights === 1 ? 'night' : 'nights'}`}
                                     </span>
                                 </span>
                             </div>
@@ -136,15 +145,13 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
                         <div className="stay-price-rating">
 
                             <span className='stay-price'>
-                                ${(stay.price * (numNights || 1)).toLocaleString()}
-                                {numNights > 0
-                                    ? ` for ${numNights} ${numNights === 1 ? 'night' : 'nights'}`
-                                    : ' per night'}
+                                ${(stay.price * numNights).toLocaleString()}
+                                {` for ${numNights} ${numNights === 1 ? 'night' : 'nights'}`}
                             </span>
                             <span className='separator'>{' '}•</span>
                             <span className='stay-rating'>
                                 <span className='star-icon-xs'>{statSvgs.starXSmall}</span>
-                                <span>{stay.host.rating || 4.85}</span>
+                                <span>{stay.host?.rating || 4.85}</span>
                             </span>
                         </div>
                     ))}

@@ -121,10 +121,10 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
         host: stay.host,
         loc: stay.loc,
         reviews: stay.reviews,
-        numReviews: stay.host.numReviews,
-        likedByUsers: stay.likedByUsers,
+        numReviews: stay.host.numReviews || 0,
+        likedByUsers: stay.likedByUsers || [],
         freeCancellation: Math.random() > 0.5,
-        rating: stay.host?.rating ? +stay.host.rating : null,
+        rating: stay.host.rating ? +stay.host.rating : null,
         suggestedRange: getSuggestedStayRange(stay)
     }))
 
