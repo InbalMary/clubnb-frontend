@@ -104,7 +104,7 @@ export function RootCmp() {
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="trips" element={<TripIndex />} />
                     <Route path="wishlists" element={<WishlistIndex />} />
-                    <Route path="/wishlists/:id" element={<WishlistDetails />} />
+                    <Route path="wishlists/:id" element={<WishlistDetails />} />
                     <Route path="messages" element={<MsgIndex />} />
                     {/* <Route path="chat" element={<ChatApp />} /> */}
                     <Route path="hosting" element={<BecomeHostForm />} />
