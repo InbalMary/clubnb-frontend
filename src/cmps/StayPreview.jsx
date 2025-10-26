@@ -144,7 +144,7 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
                             <span className='separator'>{' '}•</span>
                             <span className='stay-rating'>
                                 <span className='star-icon-xs'>{statSvgs.starXSmall}</span>
-                                <span>{stay.rating || 4.85}</span>
+                                <span>{stay.host.rating || 4.85}</span>
                             </span>
                         </div>
                     ))}

@@ -124,8 +124,7 @@ async function query(filterBy = { txt: '', minPrice: 0 }) {
         numReviews: stay.host.numReviews,
         likedByUsers: stay.likedByUsers,
         freeCancellation: Math.random() > 0.5,
-        // add rating for demo/testing between 4.4–5.0
-        rating: (Math.random() * 0.6 + 4.4).toFixed(2),
+        rating: stay.host?.rating ? +stay.host.rating : null,
         suggestedRange: getSuggestedStayRange(stay)
     }))
 
