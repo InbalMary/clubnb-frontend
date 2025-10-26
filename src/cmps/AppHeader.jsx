@@ -110,14 +110,14 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 			{/* Mobile compact header - uses SearchBar like expanded */}
 			{isCompact && !isHostPage && (
 				<div className="mobile-compact-search">
-					<SearchBar initialModal={initialModal} />
+					<SearchBar initialModal={initialModal} onCollapse={onCollapse} />
 				</div>
 			)}
 
 			{/* Desktop expanded header */}
 			{!isCompact && (
 				<div className="expanded-header-search">
-					<SearchBar initialModal={initialModal} />
+					<SearchBar initialModal={initialModal} onCollapse={onCollapse} />
 				</div>
 			)}
 		</header>

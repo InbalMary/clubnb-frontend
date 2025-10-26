@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import { setFilterBy, loadStays } from '../store/actions/stay.actions.js'
 import { useClickOutside } from "../customHooks/useClickOutside.js";
 
-export function SearchBar({ initialModal = null }) {
+export function SearchBar({ initialModal = null, onCollapse }) {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
     const navigate = useNavigate()
 
@@ -166,6 +166,8 @@ export function SearchBar({ initialModal = null }) {
     }
 
     const handleSearch = () => {
+        setActiveModal(null)
+        
         const totalGuests = guests.adults + guests.children
         
         const filterParams = {
@@ -190,8 +192,8 @@ export function SearchBar({ initialModal = null }) {
             if (guests.pets) params.set('pets', guests.pets.toString())
 
             const queryString = params.toString()
-            setActiveModal(null)
             navigate(`/explore/city/${encodedCity}${queryString ? `?${queryString}` : ''}`)
+            if (onCollapse) onCollapse()
         } else if (window.location.pathname.includes('/explore/city')) {
             const params = new URLSearchParams()
             if (dateRange.from) params.set('startDate', formatDate(dateRange.from))
@@ -200,10 +202,9 @@ export function SearchBar({ initialModal = null }) {
             if (guests.children) params.set('children', guests.children.toString())
             if (guests.infants) params.set('infants', guests.infants.toString())
             if (guests.pets) params.set('pets', guests.pets.toString())
-            setActiveModal(null)
             setSearchParams(params, { replace: true })
+            if (onCollapse) onCollapse()
         } else {
-            setActiveModal(null)
             loadStays(filterParams)
         }
     }
@@ -284,7 +285,6 @@ export function SearchBar({ initialModal = null }) {
                             className="search-button"
                             onClick={(ev) => {
                                 ev.stopPropagation()
-                                setActiveModal(null)
                                 handleSearch()
                             }}
                         >
