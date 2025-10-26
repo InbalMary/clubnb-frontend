@@ -143,13 +143,13 @@ async function remove(stayId) {
 
 async function save(stay) {
     const today = new Date()
-    const fiveDaysLater = new Date()
-    fiveDaysLater.setDate(today.getDate() + 5)
+    const twoMounthsLater = new Date()
+    twoMounthsLater.setDate(today.getDate() + 60)
 
     const stayWithDefaults = {
         ...stay,
         availableFrom: stay.availableFrom || formatDate(today),
-        availableUntil: stay.availableUntil || formatDate(fiveDaysLater),
+        availableUntil: stay.availableUntil || formatDate(twoMounthsLater),
         // Later, owner is set by the backend
         host: stay.host && stay.host._id ? stay.host : userService.getLoggedinUser(),
         reviews: stay.reviews || [],

@@ -31,7 +31,7 @@ function WhereAutocompleteContent({ destinations, className = "", isOpen, onOpen
             if (window.google?.maps?.places && !isGoogleReady) {
                 autocompleteServiceRef.current = new window.google.maps.places.AutocompleteService()
                 setIsGoogleReady(true)
-                console.log('Google Places API initialized')
+                // console.log('Google Places API initialized')
                 return true
             }
             return false
@@ -89,14 +89,14 @@ function WhereAutocompleteContent({ destinations, className = "", isOpen, onOpen
             setSuggestions(filtered)
 
             if (isGoogleReady && autocompleteServiceRef.current) {
-                console.log('Calling Google Places API with:', inputValue)
+                // console.log('Calling Google Places API with:', inputValue)
                 autocompleteServiceRef.current.getPlacePredictions(
                     { 
                         input: inputValue,
                         types: ['(cities)']
                     },
                     (predictions, status) => {
-                        console.log('Google API Response:', status, predictions)
+                        // console.log('Google API Response:', status, predictions)
                         if (status === window.google.maps.places.PlacesServiceStatus.OK && predictions) {
                             setGoogleSuggestions(predictions)
                         } else {
