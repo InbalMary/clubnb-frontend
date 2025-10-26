@@ -256,6 +256,7 @@
                         height: 1.2rem;
                         width: 1.2rem;
                         stroke: var(--gray3);
+                        transform: translate(2%, 7%);
                     }
                 }
             }

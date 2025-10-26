@@ -73,15 +73,18 @@ export function WishlistDetails() {
         showSuccessMsg(`Wishlist ${wishlist.title} deleted`, wishlist.stays?.[0]?.imgUrls?.[0])
     }
 
-
-    //TEMPORARY FOR DESIGN. LATER add lat and lng to wishlist stay object
     const staysWithCoords = stays.map(stay => ({
         ...stay,
         loc: stay.loc || { lat: 32.08, lng: 34.78 }, // e.g. Tel Aviv fallback
     }))
+    // console.log('staysWithCoords:', staysWithCoords.map(s => ({
+    //     name: s.name,
+    //     lat: s.loc?.lat,
+    //     lng: s.loc?.lng
+    // })))
+
 
     if (isLoading) return <WishlistDetailsSkeleton />
-    console.log('Delete modal state:', wm.isDeleteModalOpen)
 
     return (
         <section className="wishlist-details full">
@@ -131,6 +134,11 @@ export function WishlistDetails() {
                 locations={staysWithCoords}
                 hoveredId={hoveredId}
                 onToggleWishlist={onToggleHeart}
+                customMarker={(stay, { isActive, isHovered }) => (
+                    <div className={`wishlist-marker ${isHovered ? 'hovered' : ''} ${isActive ? 'active' : ''}`}>
+                        {svgControls.house}
+                    </div>
+                )}
             />
             {/*SETTINGS MODAL*/}
             {isDotsMenuOpen && (

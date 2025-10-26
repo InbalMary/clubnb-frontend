@@ -4,7 +4,7 @@ import { Modal } from './Modal'
 import { StayPreview } from './StayPreview'
 import { useClickOutside } from '../customHooks/useClickOutside'
 
-export function ExploreMap({ locations, hoveredId, onToggleWishlist }) {
+export function ExploreMap({ locations, hoveredId, onToggleWishlist, customMarker }) {
 
     const [activeLocation, setActiveLocation] = useState(null)
 
@@ -194,7 +194,9 @@ export function ExploreMap({ locations, hoveredId, onToggleWishlist }) {
 
                     {locations?.map((location, idx) => (
 
-                        < AdvancedMarker key={idx} position={{ lat: location?.loc.lat, lng: location?.loc.lng }}
+                        < AdvancedMarker
+                            key={idx}
+                            position={{ lat: location?.loc.lat, lng: location?.loc.lng }}
                             ref={(el) => markerRefs.current[location._id] = el}
                             onClick={() => {
                                 handleMarkerClick(location._id)
@@ -203,14 +205,24 @@ export function ExploreMap({ locations, hoveredId, onToggleWishlist }) {
                             }
                             onMouseLeave={handleMouseLeave}
                         >
-                            <div className={`marker-wrapper 
+                            {customMarker ? (
+                                customMarker(location, {
+                                    isActive: activeLocation?._id === location._id,
+                                    isHovered: hoverMarker === location._id || hoveredId === location._id
+                                })
+                            ) : (
+                                <div className={`marker-wrapper 
                             ${hoverMarker === location._id ? 'hovered' : ''} 
                             ${hoveredId === location._id ? 'hovered-outside' : ''}
                             `}
-                            >
-                                <span className={`marker btn-pill ${activeLocation?._id === location._id ? 'active' : ''}`}>${location.price}</span>
-                            </div>
-
+                                >
+                                    <span
+                                        className={`marker btn-pill 
+                                ${activeLocation?._id === location._id ? 'active' : ''}`}
+                                    >${location.price}
+                                    </span>
+                                </div>
+                            )}
                             {activeLocation && (
                                 <InfoWindow
                                     options={{
