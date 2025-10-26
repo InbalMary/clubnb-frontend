@@ -35,10 +35,14 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
         numNights = 2
     }
 
+    const start = filterBy.startDate || stay.suggestedRange?.start || stay.availableFrom
+    const end = filterBy.endDate || stay.suggestedRange?.end || stay.availableUntil
+
+
     return <article className={`stay-preview ${isBig ? 'big' : ''} ${isFocused ? 'at-focus' : ''}`}>
         <div className='stay-image-wrapper'>
 
-            <Link to={`/stay/${stay._id}?startDate=${filterBy.startDate || stay.availableFrom}&endDate=${filterBy.endDate || stay.availableUntil}
+            <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}
             &adults=${filterBy.adults || 1}&children=${filterBy?.children || ''}&infants=${filterBy?.infants}`
             }
                 className='stay-link'
@@ -85,7 +89,7 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
             ) : (
                 // Default layout (non-Explore)
                 <header>
-                    <Link to={`/stay/${stay._id}?startDate=${filterBy.startDate || stay.availableFrom}&endDate=${filterBy.endDate || stay.availableUntil}
+                    <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}
                     &adults=${filterBy.adults || 1}&children=${filterBy?.children || ''}&infants=${filterBy?.infants}`
                     } className="stay-name">
                         {stay.name}
