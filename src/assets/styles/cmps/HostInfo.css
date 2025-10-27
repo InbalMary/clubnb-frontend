@@ -8,6 +8,10 @@
     align-items: start;
     border-top: 1px solid var(--gray6);
     padding-block: 40px;
+
+    &.mobile {
+        grid-template-columns: none;
+    }
 }
 
 .host-layout>h2 {
