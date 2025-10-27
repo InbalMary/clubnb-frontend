@@ -2,7 +2,7 @@
 import { storageService } from '../async-storage.service'
 import { userService } from '../user'
 import { demoWishlists } from "../../data/demo-wishlist"
-import { makeId } from '../util.service'
+import { makeId, getSuggestedStayRange } from '../util.service'
 
 const STORAGE_KEY_WISHLIST = 'wishlist'
 
@@ -20,7 +20,14 @@ window.cs = wishlistService
 
 
 async function query(userId) {
-    const wishlists = await storageService.query(STORAGE_KEY_WISHLIST) || []
+    let wishlists = await storageService.query(STORAGE_KEY_WISHLIST) || []
+    wishlists = wishlists.map(wl => ({
+        ...wl,
+        stays: (wl.stays || []).map(stay => ({
+            ...stay,
+            suggestedRange: stay.suggestedRange || getSuggestedStayRange(stay),
+        })),
+    }))
     if (!userId) return wishlists
     return wishlists.filter(wishlist => wishlist.byUser._id === userId)
 }
@@ -48,6 +55,7 @@ async function save(wishlist) {
                 beds: stay.beds || 1,
                 rating: stay.rating || 4.85,
                 loc: stay.loc || { lat: 32.08, lng: 34.78 }, // temporary placeholder
+                suggestedRange: getSuggestedStayRange(stay),
             }))
         }
         return storageService.put(STORAGE_KEY_WISHLIST, updatedWishlist)
@@ -66,6 +74,7 @@ async function save(wishlist) {
                 beds: stay.beds || 1,
                 rating: stay.rating || 4.85,
                 loc: stay.loc || { lat: 32.08, lng: 34.78 },
+                suggestedRange: getSuggestedStayRange(stay),
             })),
             city: wishlist.city || '',
             country: wishlist.country || '',

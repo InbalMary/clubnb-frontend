@@ -258,6 +258,11 @@
                         stroke: var(--gray3);
                         transform: translate(2%, 7%);
                     }
+
+                    &.active .heart-icon svg {
+                        fill: var(--primary-clr);
+                        stroke: none;
+                    }
                 }
             }
 

@@ -5,7 +5,7 @@ import { svgControls, statSvgs } from './Svgs.jsx'
 import { SingleImgCarousel } from './SingleImgCarousel.jsx'
 
 
-export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, onToggleWishlist, hideDetails, isInactive }) {
+export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, onToggleWishlist, hideDetails, isInactive, fromWishlist }) {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
 
@@ -30,9 +30,9 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
     else if (!isBig && !hasSelectedDates && stay.suggestedRange) {
         const { start } = stay.suggestedRange
         const startDate = new Date(start)
-        const end = new Date(start)
+        const end = new Date(startDate)
         end.setDate(startDate.getDate() + 2)
-        formattedDates = formatStayDates(start, end)
+        formattedDates = formatStayDates(startDate, end)
         numNights = 2
     }
 
