@@ -10,14 +10,16 @@ export function TripIndex() {
     const isLoading = useSelector(storeState => storeState.orderModule.isLoading)
 
     useEffect(() => {
-        loadOrders()
+        if (!orders || orders.length === 0) {
+            loadOrders()
+        }
     }, [])
 
     const filterOrders = () => {
         if (!orders || orders.length === 0) return []
-        
+
         const now = new Date()
-        
+
         if (activeTab === 'upcoming') {
             return orders.filter(order => {
                 const startDate = new Date(order.startDate)
@@ -38,13 +40,13 @@ export function TripIndex() {
             <h1 className="trip-title">Trips</h1>
 
             <div className="trip-tabs">
-                <button 
+                <button
                     className={`tab ${activeTab === 'upcoming' ? 'active' : ''}`}
                     onClick={() => setActiveTab('upcoming')}
                 >
                     Upcoming
                 </button>
-                <button 
+                <button
                     className={`tab ${activeTab === 'past' ? 'active' : ''}`}
                     onClick={() => setActiveTab('past')}
                 >
@@ -57,8 +59,8 @@ export function TripIndex() {
                     <DotsLoader />
                 ) : filteredOrders.length === 0 ? (
                     <p className="no-trips">
-                        {activeTab === 'upcoming' 
-                            ? 'No upcoming trips yet' 
+                        {activeTab === 'upcoming'
+                            ? 'No upcoming trips yet'
                             : 'No past trips'}
                     </p>
                 ) : (
