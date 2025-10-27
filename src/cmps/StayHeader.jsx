@@ -4,7 +4,7 @@ import { MiniStickyContainer } from "./SmallComponents";
 import { setCurrentOrder } from "../store/actions/order.actions";
 import { calculateNights } from "../services/util.service";
 
-export function StayHeader({ refs, stay, guests, startDate, endDate }) {
+export function StayHeader({ refs, stay,onClick, startDate, endDate }) {
     const { stayId } = useParams()
     const navigate = useNavigate()
 
@@ -16,34 +16,34 @@ export function StayHeader({ refs, stay, guests, startDate, endDate }) {
     const stickyReserve = useSHowOnScroll(2300)
     // const isShortPage = useIsShortPage(1200)
 
-    function handleClick() {
-        const from = startDate
-        const to = endDate
+    // function handleClick() {
+    //     const from = startDate
+    //     const to = endDate
 
-        if (from && to) {
-            const numNights = calculateNights(from, to)
-            const pricePerNight = stay.price
-            const cleaningFee = stay.cleaningFee || 0
-            const serviceFee = Math.round(pricePerNight * 0.1)
+    //     if (from && to) {
+    //         const numNights = calculateNights(from, to)
+    //         const pricePerNight = stay.price
+    //         const cleaningFee = stay.cleaningFee || 0
+    //         const serviceFee = Math.round(pricePerNight * 0.1)
 
-            const order = {
-                stay,
-                host: stay.host,
-                startDate: from,
-                endDate: to,
-                guests,
-                numNights,
-                pricePerNight,
-                cleaningFee,
-                serviceFee,
-                totalPrice: numNights * pricePerNight
-            }
-            setCurrentOrder(order)
-            navigate(`/stay/${stay._id}/confirm-pay`, { state: { order } })
-        } else {
-            scrollToSection(refs.stickyContainerRef)
-        }
-    }
+    //         const order = {
+    //             stay,
+    //             host: stay.host,
+    //             startDate: from,
+    //             endDate: to,
+    //             guests,
+    //             numNights,
+    //             pricePerNight,
+    //             cleaningFee,
+    //             serviceFee,
+    //             totalPrice: numNights * pricePerNight
+    //         }
+    //         setCurrentOrder(order)
+    //         navigate(`/stay/${stay._id}/confirm-pay`, { state: { order } })
+    //     } else {
+    //         scrollToSection(refs.stickyContainerRef)
+    //     }
+    // }
 
     return (
         <div className="details-header">
@@ -57,7 +57,7 @@ export function StayHeader({ refs, stay, guests, startDate, endDate }) {
                         <span className="span-nav" onClick={() => scrollToSection(refs.locationRef)}>Location <div className="border-bot"></div></span>
 
                         {stickyReserve &&
-                            <MiniStickyContainer stay={stay} startDate={startDate} endDate={endDate} onClick={handleClick} />
+                            <MiniStickyContainer stay={stay} startDate={startDate} endDate={endDate} onClick={onClick} />
                         }
                     </nav>
 

@@ -163,6 +163,16 @@ h2.add-dates_sticky {
         border-radius: 1rem;
         z-index: 1;
 
+        &.small.med.big {
+            left: -30%;
+        }
+        &.med.big {
+            left: -20%;
+        }
+        &.big {
+            left: -8%;
+        }
+
         >header {
             min-height: 0;
             padding: 1rem;
@@ -297,4 +307,3 @@ h2.add-dates_sticky {
         }
     }
 }
-

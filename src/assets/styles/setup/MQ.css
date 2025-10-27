@@ -58,8 +58,11 @@
 
 @media (min-width: 1128px) {
     .main-container {
-
         grid-template-columns: minmax(2.5rem, 1fr) minmax(auto, 1352px) minmax(2.5rem, 1fr);
+
+        &.big-layout {
+            grid-template-columns: minmax(auto, 1fr) minmax(auto, 1110px) minmax(2.3rem, 1fr);
+        }
     }
 
 

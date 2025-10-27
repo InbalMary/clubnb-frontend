@@ -9,6 +9,7 @@ import { calculateNights, formatDate, formatGuestsText } from "../services/util.
 import { Modal } from "./Modal"
 import { svgControls } from "./Svgs"
 import { setCurrentOrder } from "../store/actions/order.actions"
+import { useIsBreakPoint } from "../customHooks/useIsBreakPoint"
 
 export function StickyContainer({ stay, dateRange, setDateRange }) {
 
@@ -66,7 +67,7 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
             })
         }
 
-    }, [startDate, endDate, adults,      
+    }, [startDate, endDate, adults,
         children,
         infants,
         pets])
@@ -179,8 +180,12 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
             setModalType('checkin')
         }
     }
+    const isSmall = useIsBreakPoint(800)
+    const isMed = useIsBreakPoint(880)
+    const isBig = useIsBreakPoint(960)
 
     const hasGuestValues = guests.adults > 0 || guests.children > 0 || guests.infants > 0 || guests.pets > 0
+
 
     return (
         <div ref={containerRef} className="sticky-container-wrap">
@@ -232,7 +237,13 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
                     isOpen={modalType !== null}
                     onClose={() => setModalType(null)}
                     closePosition="none"
-                    className={`${modalType === 'who' ? 'guests' : 'calendar'}`}
+                    className={`${modalType === 'who' ? 'guests' : 'calendar'} 
+                    ${isSmall ? 'small' : ''}
+                    ${isMed ? 'med' : ''}
+                    ${isBig ? 'big' : ''}
+                    
+                    
+                    `}
                     useBackdrop={false}>
 
                     {(modalType === "checkin" || modalType === "checkout") &&
