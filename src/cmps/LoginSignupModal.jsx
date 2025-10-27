@@ -28,6 +28,10 @@ export function LoginSignupModal({ isOpen, onClose }) {
     }, [])
     useScrollLock(isOpen)
 
+    useEffect(() => {
+        setModalType(isSignup ? 'signup' : 'login')
+    }, [isSignup])
+
     async function loadGuestUser() {
         try {
             const users = await userService.getUsers()
@@ -59,7 +63,7 @@ export function LoginSignupModal({ isOpen, onClose }) {
 
     async function onLogin(credentials) {
         try {
-            if (isSignup) {
+            if (modalType === 'signup') {
                 await signup(credentials)
                 showSuccessMsg('Signed in successfully')
             } else {
@@ -70,7 +74,7 @@ export function LoginSignupModal({ isOpen, onClose }) {
             onClose()
             navigate('/')
         } catch (err) {
-            const msg = isSignup
+            const msg = modalType === 'signup'
                 ? 'Had a problem signing up'
                 : 'Had a problem logging in'
             showErrorMsg(msg)
