@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { DateSelector, StickyDateSelector } from "./DateSelector"
 import { DateRangePicker } from "./DateRangePicker"
 import { useClickOutside } from "../customHooks/useClickOutside"
-import { CalendarStayDates, FancyButton, RareFind } from "./SmallComponents"
+import { CalendarStayDates, FancyButton, RareFind, TotalCount } from "./SmallComponents"
 import { useNavigate, useParams, useSearchParams } from "react-router-dom"
 import { GuestSelector } from "./GuestSelector"
 import { calculateNights, formatDate, formatGuestsText } from "../services/util.service"
@@ -272,45 +272,3 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
     )
 }
 
-
-
-function TotalCount({ stay, startDate, endDate }) {
-    const price = stay.price
-    const numNights = calculateNights(startDate, endDate)
-    const totalPrice = price * numNights
-
-    return (
-        <div className="payment-summary">
-
-            <div className="total price-calc">
-                <span className="link"> {`$ ${stay.price}`} X {numNights} {numNights === 1 ? 'night' : 'nights'} </span>
-                <span>
-                    ${totalPrice}
-                </span>
-            </div>
-
-
-            {stay?.cleaningFee &&
-                <div className="total clean-calc">
-                    <span className="link ">
-                        Cleaning fee
-                    </span>
-                    <span>
-                        ${stay.cleaningFee}
-                    </span>
-                </div>
-            }
-            <div className="border"></div>
-
-            <div className="total total-calc">
-                <span className="bold">
-                    Total
-                </span>
-                <span className="bold">
-                    ${(stay.cleaningFee || 0) + (totalPrice || 0)}
-
-                </span>
-            </div>
-        </div>
-    )
-}
