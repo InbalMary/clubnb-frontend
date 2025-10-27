@@ -120,6 +120,8 @@
     padding-block: 1rem 2.1rem;
 
     .rate-wrapper {
+        display: flex;
+        flex-direction: column;
 
         .rating.big {
             display: flex;
@@ -141,8 +143,9 @@
         }
 
         .rating-categories {
-            display: flex;
-            flex-direction: row;
+            display: grid;
+            grid-template-columns: repeat(7, minmax(100px, 195px));
+
             padding-block-end: 2.5rem;
 
             >li.icons-rating:not(:last-child) {
@@ -156,7 +159,6 @@
                 flex-direction: column;
                 justify-content: space-between;
                 padding-inline: 1.5rem 3.3rem;
-                width: 160px;
 
                 span.svg-rate-icon {
                     padding-top: .5rem;
@@ -201,6 +203,7 @@
                 }
 
                 .overall-rating-bar {
+                    width:100%;
                     display: flex;
                     align-items: center;
                     flex-direction: row;

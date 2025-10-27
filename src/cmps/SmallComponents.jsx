@@ -4,6 +4,8 @@ import { calculateNights, capitalizeFirst, debounce } from "../services/util.ser
 import { getRandomItems } from "../services/util.service"
 import { useEffect, useRef, useState } from "react"
 import diamond from "../assets/svgs/diamond.png"
+import { SingleImgCarousel } from "./SingleImgCarousel"
+import { useIsBreakPoint } from "../customHooks/useIsBreakPoint"
 
 export function Highlights({ stay }) {
     if (!stay?.highlights || !Array.isArray(stay?.highlights)) return null
@@ -46,13 +48,29 @@ export function Capacity({ stay }) {
 }
 
 export function StayImgs({ stay }) {
+
+    // <section className="details-imgs">
+    //     {stay.imgUrls.map((url, idx) =>
+    //         <div key={idx + 1} className={`img-container img-${idx + 1}`}><img src={url} /></div>
+    //     )}
+    // </section>
+    const isMobile = useIsBreakPoint(743)
+    if (!stay?.imgUrls?.length) return null
     return (
-        <section className="details-imgs">
-            {stay.imgUrls.map((url, idx) =>
-                <div key={idx + 1} className={`img-container img-${idx + 1}`}><img src={url} /></div>
+        <section className={`details-imgs ${isMobile ? 'mobile' : 'desktop'}`}>
+            {isMobile ? (
+                <SingleImgCarousel images={stay.imgUrls} />
+            ) : (
+                stay.imgUrls.map((url, idx) => (
+                    <div key={idx} className={`img-container img-${idx + 1}`}>
+                        <img src={url} alt={`Stay image ${idx + 1}`} />
+                    </div>
+                ))
             )}
         </section>
     )
+
+
 }
 
 export function AmenitiesShortList({ amenitiesData }) {
@@ -293,10 +311,10 @@ export function HomeMarkerIcon({ size = 48, fill = '#fefefe' }) {
 }
 
 export function MiniStickyContainer({ stay, startDate, endDate, onClick }) {
-
+    const isMobile = useIsBreakPoint(743)
     return (
-        <div className="mini-sticky-container">
-            <div className="mini-rating-wrapper">
+        <div className={`mini-sticky-container ${isMobile ? 'mobile' : ''}`}>
+            <div className={`mini-rating-wrapper ${isMobile ? 'mobile' : ''}`}>
                 <RareFind showRareMsg={false}
                     showPriceInfo={true}
                     stay={stay}

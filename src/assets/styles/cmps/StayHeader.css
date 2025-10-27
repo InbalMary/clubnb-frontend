@@ -10,6 +10,7 @@
         right: 0;
         height: 5rem;
         background-color: white;
+        padding: 1rem 2.5rem 1rem 2.5rem;
         border-bottom: 1px solid var(--gray6);
 
         .nav-bar {
@@ -32,8 +33,8 @@
                         position: absolute;
                         display: block;
                         width: 100%;
-                        height:4px;
-                        background-color:var(--gray3);
+                        height: 4px;
+                        background-color: var(--gray3);
                         bottom: -30px;
                     }
                 }

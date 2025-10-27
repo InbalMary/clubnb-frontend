@@ -3,8 +3,11 @@ import { DayPicker } from "react-day-picker";
 import { enUS } from 'date-fns/locale'
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
+import { useIsBreakPoint } from "../customHooks/useIsBreakPoint";
 
-export function DateRangePicker({ onComplete, value, activeField }) {
+export function DateRangePicker({ onComplete, numberOfMonths = 2, value, activeField }) {
+    const isCalendarBreakPoint = useIsBreakPoint(1220)
+  
     const handleDateSelect = (range) => {
         if (!range) return
 
@@ -33,13 +36,13 @@ export function DateRangePicker({ onComplete, value, activeField }) {
     }
 
     return (
-        <div className="date-modal-content">
+        <div className={`date-modal-content ${isCalendarBreakPoint ? 'single' : ''}`}>
             <SimpleBar style={{ maxHeight: "calc(100vh - 200px)", overflowX: "hidden" }}>
                 <DayPicker
                     mode="range"
                     selected={value.from && value.to ? value : undefined}
                     onSelect={handleDateSelect}
-                    numberOfMonths={2}
+                    numberOfMonths={numberOfMonths}
                     disabled={{ before: new Date() }}
                     modifiers={modifiers}
                     modifiersClassNames={modifiersClassNames}
