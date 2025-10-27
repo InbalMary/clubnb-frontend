@@ -1,6 +1,7 @@
 import { store } from '../../store/store'
 import { wishlistService } from '../../services/wishlist'
 import { ADD_WISHLIST, REMOVE_WISHLIST, SET_WISHLISTS, SET_WISHLIST, UPDATE_WISHLIST, SET_IS_LOADING } from '../reducers/wishlist.reducer'
+import { getSuggestedStayRange } from '../../services/util.service'
 
 export async function loadWishlists(userId) {
     try {
@@ -67,7 +68,13 @@ export async function addStayToWishlist(wishlist, stay) {
     try {
         const updatedWishlist = {
             ...wishlist,
-            stays: [...wishlist.stays, stay]
+            stays: [
+                ...wishlist.stays,
+                {
+                    ...stay,
+                    suggestedRange: stay.suggestedRange || getSuggestedStayRange(stay)
+                },
+            ],
         }
         const savedWishlist = await wishlistService.save(updatedWishlist)
         store.dispatch({ type: UPDATE_WISHLIST, wishlist: savedWishlist })

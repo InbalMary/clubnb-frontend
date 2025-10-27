@@ -4,7 +4,7 @@ import { Modal } from './Modal'
 import { StayPreview } from './StayPreview'
 import { useClickOutside } from '../customHooks/useClickOutside'
 
-export function ExploreMap({ locations, hoveredId, onToggleWishlist, customMarker }) {
+export function ExploreMap({ locations, hoveredId, onToggleWishlist, customMarker, isWishlistMap = false }) {
 
     const [activeLocation, setActiveLocation] = useState(null)
 
@@ -233,7 +233,10 @@ export function ExploreMap({ locations, hoveredId, onToggleWishlist, customMarke
                                 >
                                     <StayPreview
                                         key={activeLocation._id}
-                                        stay={activeLocation} isBig={true} onToggleWishlist={onToggleWishlist}
+                                        stay={activeLocation}
+                                        isBig={true}
+                                        onToggleWishlist={onToggleWishlist}
+                                        hideDetails={isWishlistMap}
                                         isFocused={focusedStayId === activeLocation._id}
                                         onRequestFocus={() => setFocusedStayId(activeLocation._id)} />
                                 </InfoWindow>)}
