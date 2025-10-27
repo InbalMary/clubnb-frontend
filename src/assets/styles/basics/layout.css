@@ -1,6 +1,6 @@
 .main-container {
     display: grid;
-    grid-template-columns: minmax(1.8rem, 1fr) minmax(auto, 909px) minmax(1.8rem, 1fr);
+    /* grid-template-columns: minmax(1.8rem, 1fr) minmax(auto, 909px) minmax(1.8rem, 1fr); */
     min-height: 100vh;
 
     >* {

@@ -1,13 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
-
-
 
 .stay-details>* {
     font-size: 1rem;
     line-height: 1.25rem;
     grid-template-columns: subgrid;
 }
-
 
 h1 {
     font-size: 1.625rem;
@@ -96,7 +92,6 @@ span.link {
         stroke-width: 2.5;
         overflow: visible;
         cursor: pointer;
-
     }
 
     .heart-icon.active svg {
@@ -106,7 +101,7 @@ span.link {
 
 }
 
-.details-imgs {
+.details-imgs.desktop {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 50% 50%;
@@ -119,10 +114,9 @@ span.link {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* display: block; */
     }
 
-    .img-1 {
+    .img-container.img-1 {
         grid-row: span 2;
         grid-column: span 2;
     }
@@ -130,7 +124,6 @@ span.link {
 
 .details-container {
     display: grid;
-    /* grid-template-columns: minmax(auto, 2fr) minmax(auto, .3fr) minmax(auto, 370px); */
     grid-template-columns: minmax(auto, 2fr) minmax(auto, .3fr) minmax(auto, 1fr);
 
     .sticky-ref {
@@ -302,6 +295,11 @@ span.link {
                 grid-auto-flow: row;
                 column-gap: 2rem;
 
+                &.mobile {
+                    grid-template-columns: none;
+
+                }
+
                 li:nth-child(9),
                 li:last-child {
                     padding-bottom: 1rem;
@@ -343,9 +341,16 @@ span.link {
             justify-content: center;
         }
 
-        td.rdp-day {
-            width: clamp(4rem, 9vw, 5rem);
-            height: clamp(3rem, 7vh, 5rem);
+
+        td.rdp-day,
+        .rdp-weekday {
+            width: clamp(2rem, 89vh, 8rem);
+
+            .rdp-day_button {
+                height: 100%;
+                width: 100%;
+                aspect-ratio: 1/1;
+            }
         }
 
     }
@@ -402,55 +407,29 @@ span.link {
     }
 }
 
-/* } */
-
-
-
-@media (min-width: 1127px) {
-
-    .stay-details {
-        /* max-width: 1280px; */
-        /* display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 50% 50%;
-        aspect-ratio: 2.6 / 1;
-        gap: 8px;
-        border-radius: 12px;
-        overflow: hidden; */
-    }
-
-}
 
 @media (max-width: 743px) {
 
     /* Details page */
-
     .main-content {
         display: flex;
         flex-direction: column;
 
-        .details-imgs {
-            /* position: relative; */
-            display: block;
+        .details-imgs.mobile {
+            scroll-snap-align: center;
 
-            .img-container {
-                display: none;
+            .carousel-list {
+                display: grid;
+                grid-auto-flow: column;
+                grid-auto-columns: 100%;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
             }
 
-            .preview-carousel-controls {
-                visibility: visible;
-
-                .preview-carousel-btn {
-                    width: 2rem;
-                    height: 2rem;
-                    background: none;
-                    box-shadow: none;
-
-                    .preview-carousel-icon svg {
-                        height: 1.5rem;
-                        width: 1.5rem;
-                    }
-                }
+            img {
+                width: 100%;
+                height: clamp(20rem, 60vw, 32rem);
+                object-fit: cover;
             }
         }
 
@@ -499,7 +478,6 @@ span.link {
             }
         }
 
-
         .details-container {
             display: flex;
             flex-direction: column;
@@ -522,13 +500,11 @@ span.link {
 
                 td.rdp-day,
                 .rdp-weekday {
-                    width: clamp(4rem, 15vw, 5rem);
-                    height: clamp(1rem, 4vh, 6rem);
+                    width: clamp(2rem, 89vh, 8rem);
 
                     .rdp-day_button {
-                        width: clamp(3rem, 10vw, 5rem);
-                        height: clamp(3rem, 10vh, 5rem);
-
+                        height: 100%;
+                        width: 100%;
                         aspect-ratio: 1/1;
                     }
                 }
@@ -537,6 +513,8 @@ span.link {
         }
     }
 
-
+    button.open-modal.mobile {
+        width: 100%;
+    }
 
 }
