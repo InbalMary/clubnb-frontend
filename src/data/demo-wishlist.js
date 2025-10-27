@@ -2,7 +2,7 @@ import { demoStays } from "./demo-stays"
 
 const demoUser = { _id: 'u101', fullname: 'Alice Chang' }
 
-export const demoWishlists = [
+const baseWishlists = [
     {
         _id: 'wl101',
         title: 'Barcelona Summer',
@@ -245,4 +245,12 @@ export const demoWishlists = [
     },
 
 ]
+
+export const demoWishlists = baseWishlists.map(wl => ({
+    ...wl,
+    stays: wl.stays.map(minStay => {
+        const fullStay = demoStays.find(s => s._id === minStay._id)
+        return { ...fullStay, ...minStay } // full fields + any overrides
+    })
+}))
 

@@ -42,13 +42,15 @@ async function save(order) {
             _id: order._id || makeId(),
             hostId: order.hostId,
             guest: order.guest,
+            guestId: order.guest?._id || order.guestId,
             totalPrice: order.totalPrice,
             startDate: order.startDate,
             endDate: order.endDate,
             guests: order.guests,
-            stay: order.stay, //instead of  order: order.order
+            stay: order.stay,
             msgs: order.msgs || [],
-            status: order.status || 'pending'
+            status: order.status || 'pending',
+            bookedAt: order.bookedAt || new Date().toISOString()
         }
         return storageService.post(STORAGE_KEY_ORDER, orderToSave)
     }

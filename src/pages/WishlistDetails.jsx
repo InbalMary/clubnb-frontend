@@ -77,14 +77,9 @@ export function WishlistDetails() {
         ...stay,
         loc: stay.loc || { lat: 32.08, lng: 34.78 }, // e.g. Tel Aviv fallback
     }))
-    // console.log('staysWithCoords:', staysWithCoords.map(s => ({
-    //     name: s.name,
-    //     lat: s.loc?.lat,
-    //     lng: s.loc?.lng
-    // })))
-
 
     if (isLoading) return <WishlistDetailsSkeleton />
+    console.log(svgControls.heart)
 
     return (
         <section className="wishlist-details full">
@@ -134,9 +129,16 @@ export function WishlistDetails() {
                 locations={staysWithCoords}
                 hoveredId={hoveredId}
                 onToggleWishlist={onToggleHeart}
+                isWishlistMap={true}
                 customMarker={(stay, { isActive, isHovered }) => (
-                    <div className={`wishlist-marker ${isHovered ? 'hovered' : ''} ${isActive ? 'active' : ''}`}>
+                    <div
+                        className={`wishlist-marker
+                        ${isHovered ? 'hovered' : ''}
+                        ${hoveredId === stay._id ? 'hovered-outside' : ''}
+                        ${isActive ? 'active' : ''}`}
+                    >
                         {svgControls.house}
+                        <span className="marker-heart">{svgControls.heart}</span>
                     </div>
                 )}
             />

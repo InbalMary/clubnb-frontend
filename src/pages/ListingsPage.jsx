@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router'
-import { loadStays } from '../store/actions/stay.actions.js'
+import { loadStays, removeStay } from '../store/actions/stay.actions.js'
 import { formatDateWithFullYear } from '../services/util.service.js'
 import { DotsLoader } from '../cmps/SmallComponents.jsx'
 import { svgControls } from '../cmps/Svgs'
@@ -52,10 +52,28 @@ export function ListingsPage() {
   }
 
   const handleEditListing = (stay, ev) => {
-  ev.preventDefault()
-  ev.stopPropagation()
-  navigate(`/stay/edit/${stay._id}`, { state: { stay } })
-}
+    ev.preventDefault()
+    ev.stopPropagation()
+    navigate(`/stay/edit/${stay._id}`, { state: { stay } })
+  }
+
+  const handleDeleteListing = async (stayId, ev) => {
+    ev.preventDefault()
+    ev.stopPropagation()
+
+    const isConfirmed = window.confirm('Are you sure you want to delete this listing?')
+
+    if (!isConfirmed) return
+
+    try {
+      await removeStay(stayId)
+
+      await loadStays()
+    } catch (error) {
+      console.error('Failed to delete listing:', error)
+      alert('Failed to delete listing. Please try again.')
+    }
+  }
 
   if (isLoading) return <DotsLoader />
 
@@ -119,7 +137,10 @@ export function ListingsPage() {
               {publishedListings.map((stay) => (
                 <li key={stay._id} className="listing-preview">
                   <div className="listing-image-wrapper">
-                    <button onClick={(ev) => handleEditListing(stay._id, ev)} aria-label="Edit listing" className='plus-btn btn btn-round pencil-btn'>{svgControls.pencil}</button>
+                    <div className='host-actions-btns'>
+                      <button onClick={(ev) => handleEditListing(stay._id, ev)} aria-label="Edit listing" className='plus-btn btn btn-round pencil-btn'>{svgControls.pencil}</button>
+                      <button onClick={(ev) => handleDeleteListing(stay._id, ev)} aria-label="Edit listing" className='plus-btn btn btn-round pencil-btn'>{svgControls.deleteeModal}</button>
+                    </div>
                     <Link to={`/stay/${stay._id}`} className="listing-link">
                       <img
                         src={

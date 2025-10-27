@@ -8,6 +8,7 @@ export function HostInfo({ host }) {
     if (!host) return null
     const isMobile = useIsBreakPoint(744)
     const fallbackImgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
+
     return (
         <section className="host-info">
 
@@ -20,7 +21,7 @@ export function HostInfo({ host }) {
                         {/* Left card column: avatar + name + badges */}
                         <div className='host-card-left'>
                             <div className="host-avatar-wrapper">
-                                <img src={host.pictureUrl || fallbackImgUrl} alt={host.firstName || 'John'} className="host-avatar" />
+                                <img src={host.pictureUrl || fallbackImgUrl} alt={host.firstName || host.fullname || 'John'} className="host-avatar" />
                                 {host.isVerified && (
                                     <span className="verified-badge">
                                         <img src={verified} alt="Verified" />
@@ -31,7 +32,7 @@ export function HostInfo({ host }) {
 
                             <div className='host-card-details'>
                                 <div className="host-name">
-                                    <h3>{host.firstName || 'John'}</h3>
+                                    <h3>{host.firstName || host.fullname || 'John'}</h3>
                                     {host.isSuperhost && (
                                         <span className="superhost-badge">
                                             {/*TODO: change to svg if possible*/}
