@@ -20,11 +20,10 @@ export function TripIndex() {
         if (!orders || orders.length === 0 || !loggedinUser) return []
 
         const now = new Date()
-        const userId = loggedinUser._id
-
+        const userId = loggedinUser._id.toString()
         const userOrders = orders.filter(order => {
-            const isUserGuest = order.guest?._id === userId || order.guestId === userId
-            return isUserGuest
+            const guestId = order.guest?._id?.toString() || order.guestId?.toString()
+            return guestId === userId
         })
 
         if (activeTab === 'upcoming') {
