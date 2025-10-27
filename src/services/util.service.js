@@ -125,6 +125,23 @@ export function capitalizeFirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+ export function getAvgRate(reviews) {
+        let totalSum = 0
+        let totalReviews = 0
+
+        reviews.forEach((review) => {
+            const rates = Object.values(review.rate).reduce((sum, currentValue) => sum + currentValue, 0)
+
+            const avgRateForReview = rates / Object.values(review.rate).length
+
+            totalSum += avgRateForReview
+            totalReviews += 1
+        })
+        const avgRate = totalSum / totalReviews
+        const roundedAverage = avgRate.toFixed(2)
+        if (isNaN(roundedAverage)) return 0
+        return roundedAverage
+    }
 
 export function formatGuestsText(guests) {
     const counts = [
