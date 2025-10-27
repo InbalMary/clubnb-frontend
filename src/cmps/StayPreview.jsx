@@ -29,8 +29,9 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
     }
     else if (!isBig && !hasSelectedDates && stay.suggestedRange) {
         const { start } = stay.suggestedRange
+        const startDate = new Date(start)
         const end = new Date(start)
-        end.setDate(start.getDate() + 2)
+        end.setDate(startDate.getDate() + 2)
         formattedDates = formatStayDates(start, end)
         numNights = 2
     }
