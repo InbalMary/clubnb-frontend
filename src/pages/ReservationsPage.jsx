@@ -18,20 +18,26 @@ export function ReservationsPage() {
     const isLoading = useSelector(storeState => storeState.orderModule.isLoading)
 
     useEffect(() => {
-        loadOrders()
-    }, [])
+        if (loggedInUser?._id) {
+            // console.log('Loading orders for hostId:', loggedInUser._id)
+            loadOrders({ hostId: loggedInUser._id })
+        }
+    }, [loggedInUser, orders?.length])
 
     const hostOrders = useMemo(() => {
         if (!orders) {
             console.log('No orders available')
             return []
         }
-        // console.log('Total orders:', orders.length)
-        // For now, return all orders..
-        return orders
 
-        // if (!loggedInUser) return []
-        // return orders.filter(order => order.host._id === loggedInUser._id)
+        if (!loggedInUser) return []
+
+        // Filter orders where the logged in user is the host
+        return orders.filter(order => {
+            const hostId = order.host?._id?.toString() || order.hostId?.toString()
+            const userId = loggedInUser._id.toString()
+            return hostId === userId
+        })
     }, [orders, loggedInUser])
 
     const filteredOrders = useMemo(() => {
@@ -39,10 +45,12 @@ export function ReservationsPage() {
 
         switch (activeTab) {
             case 'upcoming':
-                return hostOrders.filter(order =>
+                const upcoming = hostOrders.filter(order =>
                     new Date(order.startDate) > now &&
                     (order.status === 'approved' || order.status === 'pending')
                 )
+                // console.log('Upcoming orders:', upcoming)
+                return upcoming
             case 'completed':
                 return hostOrders.filter(order =>
                     new Date(order.endDate) < now &&
@@ -321,7 +329,7 @@ export function ReservationsPage() {
                         <p className="confirm-message">
                             Are you sure you want to {confirmModal.action === 'approve' ? 'approve' : 'reject'} this booking?
                         </p>
-                       
+
 
                         <div className="confirm-actions">
                             <button
