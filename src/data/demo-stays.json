@@ -64,14 +64,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "622f3403e36c59e6164faf93",
-      "firstName": "Takumi",
-      "fullname": "Takumi",
+      "firstName": "Izumi",
+      "fullname": "Izumi",
       "location": "Tokyo, Japan",
       "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-      "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/men/12.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.75,
       "numReviews": 102,
       "yearsHosting": 4,
@@ -79,8 +81,8 @@
       "responseTime": "within an hour",
       "coHosts": [
         {
-          "name": "Aya",
-          "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg"
+          "name": "Ami",
+          "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg"
         }
       ],
       "personalFacts": [
@@ -107,8 +109,8 @@
         "at": "2024-05-11T00:00:00.000Z",
         "by": {
           "_id": "622f3407e36c59e6164fc004",
-          "fullname": "Sophie",
-          "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+          "fullname": "Bella",
+          "imgUrl": "https://randomuser.me/api/portraits/women/57.jpg",
           "id": "10711825"
         },
         "txt": "Fantastic location near Shibuya — clean, modern, and perfect for a short stay.",
@@ -128,11 +130,11 @@
         "at": "2024-03-22T00:00:00.000Z",
         "by": {
           "_id": "622f3407e36c59e6164fc012",
-          "fullname": "James",
-          "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+          "fullname": "John",
+          "imgUrl": "https://randomuser.me/api/portraits/men/45.jpg",
           "id": "10711826"
         },
-        "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+        "txt": "Izumi was a great host — super responsive and helpful with local tips.",
         "rate": {
           "cleanliness": 4.8,
           "communication": 5,
@@ -197,14 +199,14 @@
     ],
     "highlights": [
       {
-        "main": "Central Shibuya Location",
-        "sub": "Steps away from the iconic Shibuya Crossing and top restaurants.",
-        "imgUrl": "location.center"
-      },
-      {
         "main": "Compact and Modern",
         "sub": "Thoughtfully designed for maximum comfort in a small space.",
         "imgUrl": "outdoor.privatePatio"
+      },
+      {
+        "main": "Central Shibuya Location",
+        "sub": "Steps away from the iconic Shibuya Crossing and top restaurants.",
+        "imgUrl": "location.center"
       },
       {
         "main": "Perfect for couples",
@@ -222,7 +224,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.69,
       "numReviews": 102,
       "yearsHosting": 4,
@@ -280,7 +284,7 @@
         "by": {
           "_id": "622f3407e36c59e6164fc012",
           "fullname": "James",
-          "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/men/57.jpg",
           "id": "10711826"
         },
         "txt": "Takumi was a great host — super responsive and helpful with local tips.",
@@ -353,27 +357,29 @@
         "imgUrl": "location.center"
       },
       {
-        "main": "Compact and Modern",
-        "sub": "Thoughtfully designed for maximum comfort in a small space.",
-        "imgUrl": "outdoor.privatePatio"
-      },
-      {
         "main": "Perfect for couples",
         "sub": "Guests rated this space highly for its convenience and privacy.",
         "imgUrl": "family.crib"
+      },
+      {
+        "main": "Compact and Modern",
+        "sub": "Thoughtfully designed for maximum comfort in a small space.",
+        "imgUrl": "outdoor.privatePatio"
       }
     ],
     "roomType": "Entire home/apt",
     "host": {
       "_id": "622f3403e36c59e6164faf93",
-      "firstName": "Takumi",
-      "fullname": "Takumi",
+      "firstName": "Aiko",
+      "fullname": "Aiko",
       "location": "Tokyo, Japan",
       "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-      "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/women/12.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.9,
       "numReviews": 102,
       "yearsHosting": 4,
@@ -382,7 +388,7 @@
       "coHosts": [
         {
           "name": "Aya",
-          "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg"
+          "imgUrl": "https://randomuser.me/api/portraits/women/74.jpg"
         }
       ],
       "personalFacts": [
@@ -409,11 +415,32 @@
         "at": "2024-05-11T00:00:00.000Z",
         "by": {
           "_id": "622f3407e36c59e6164fc004",
+          "fullname": "Bob",
+          "imgUrl": "https://randomuser.me/api/portraits/men/59.jpg",
+          "id": "10711825"
+        },
+        "txt": "Fantastic location near Ginza — clean, modern, and perfect for a short stay.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.7
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-05-11T00:00:00.000Z",
+        "by": {
+          "_id": "622f3407e36c59e6164fc004",
           "fullname": "Sophie",
           "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
           "id": "10711825"
         },
-        "txt": "Fantastic location near Ginza — clean, modern, and perfect for a short stay.",
+        "txt": "Fantastic location near Shibuya — clean, modern, and perfect for a short stay.",
         "rate": {
           "cleanliness": 4.9,
           "communication": 5,
@@ -434,7 +461,28 @@
           "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
           "id": "10711826"
         },
-        "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+        "txt": "The host was very responsive and helped us figure out train routes. She even left a small snack gift for us when we arrived — such a sweet touch.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.7,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-22T00:00:00.000Z",
+        "by": {
+          "_id": "622f3407e36c59e6164fc012",
+          "fullname": "Ron",
+          "imgUrl": "https://randomuser.me/api/portraits/men/25.jpg",
+          "id": "10711826"
+        },
+        "txt": "We absolutely loved this apartment! It’s spotless, modern, and has everything a traveler needs — even a washing machine which was super helpful. The bed was really comfortable and the AC kept the room cool during hot days.",
         "rate": {
           "cleanliness": 4.8,
           "communication": 5,
@@ -517,14 +565,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "622f3403e36c59e6164faf93",
-      "firstName": "Takumi",
-      "fullname": "Takumi",
+      "firstName": "Aki",
+      "fullname": "Aki",
       "location": "Tokyo, Japan",
       "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-      "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/men/23.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.78,
       "numReviews": 102,
       "yearsHosting": 4,
@@ -532,8 +582,8 @@
       "responseTime": "within an hour",
       "coHosts": [
         {
-          "name": "Aya",
-          "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg"
+          "name": "Kaya",
+          "imgUrl": "https://randomuser.me/api/portraits/women/45.jpg"
         }
       ],
       "personalFacts": [
@@ -561,7 +611,7 @@
         "by": {
           "_id": "622f3407e36c59e6164fc004",
           "fullname": "Sophie",
-          "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/women/50.jpg",
           "id": "10711825"
         },
         "txt": "Fantastic location near Akasuka — clean, modern, and perfect for a short stay.",
@@ -578,14 +628,35 @@
         "withPet": false
       },
       {
+        "at": "2024-05-11T00:00:00.000Z",
+        "by": {
+          "_id": "622f3407e36c59e6164fc004",
+          "fullname": "Carol",
+          "imgUrl": "https://randomuser.me/api/portraits/women/76.jpg",
+          "id": "10711825"
+        },
+        "txt": "For the price, we couldn’t believe the quality. The place isn’t huge, but it’s laid out so efficiently. There’s storage everywhere and the bathroom is surprisingly spacious.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.7
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
         "at": "2024-03-22T00:00:00.000Z",
         "by": {
           "_id": "622f3407e36c59e6164fc012",
-          "fullname": "James",
-          "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+          "fullname": "Mark",
+          "imgUrl": "https://randomuser.me/api/portraits/men/89.jpg",
           "id": "10711826"
         },
-        "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+        "txt": "The kitchenette made breakfast easy, and we enjoyed our coffee with a view before heading out. Everything in the apartment is clearly labeled and easy to use.",
         "rate": {
           "cleanliness": 4.8,
           "communication": 5,
@@ -595,6 +666,27 @@
           "value": 4.8
         },
         "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-22T00:00:00.000Z",
+        "by": {
+          "_id": "622f3407e36c59e6164fc012",
+          "fullname": "Ben",
+          "imgUrl": "https://randomuser.me/api/portraits/men/75.jpg",
+          "id": "10711826"
+        },
+        "txt": "We absolutely loved this apartment! It’s spotless, modern, and has everything a traveler needs — even a washing machine which was super helpful. The bed was really comfortable and the AC kept the room cool during hot days.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.7,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 7,
         "withKids": false,
         "withPet": false
       }
@@ -668,14 +760,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "622f3403e36c59e6164faf93",
-      "firstName": "Takumi",
-      "fullname": "Takumi",
+      "firstName": "Kaito",
+      "fullname": "Kaito",
       "location": "Tokyo, Japan",
       "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-      "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/men/92.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.92,
       "numReviews": 102,
       "yearsHosting": 4,
@@ -683,8 +777,8 @@
       "responseTime": "within an hour",
       "coHosts": [
         {
-          "name": "Aya",
-          "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg"
+          "name": "Becca",
+          "imgUrl": "https://randomuser.me/api/portraits/women/24.jpg"
         }
       ],
       "personalFacts": [
@@ -711,11 +805,11 @@
         "at": "2024-05-11T00:00:00.000Z",
         "by": {
           "_id": "622f3407e36c59e6164fc004",
-          "fullname": "Sophie",
-          "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+          "fullname": "Jenny",
+          "imgUrl": "https://randomuser.me/api/portraits/women/47.jpg",
           "id": "10711825"
         },
-        "txt": "Fantastic location near Roppongi — clean, modern, and perfect for a short stay.",
+        "txt": "The neighborhood has incredible ramen and sushi spots — we tried three different places in one block! Already missing it.",
         "rate": {
           "cleanliness": 4.9,
           "communication": 5,
@@ -732,11 +826,11 @@
         "at": "2024-03-22T00:00:00.000Z",
         "by": {
           "_id": "622f3407e36c59e6164fc012",
-          "fullname": "James",
-          "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+          "fullname": "Jerry",
+          "imgUrl": "https://randomuser.me/api/portraits/men/27.jpg",
           "id": "10711826"
         },
-        "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+        "txt": "The subway is extremely close, making it simple to visit all major spots. We especially enjoyed Senso-ji and Tokyo Skytree.",
         "rate": {
           "cleanliness": 4.8,
           "communication": 5,
@@ -746,6 +840,27 @@
           "value": 4.8
         },
         "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-22T00:00:00.000Z",
+        "by": {
+          "_id": "622f3407e36c59e6164fc012",
+          "fullname": "Guy",
+          "imgUrl": "https://randomuser.me/api/portraits/men/76.jpg",
+          "id": "10711826"
+        },
+        "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.7,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 7,
         "withKids": false,
         "withPet": false
       }
@@ -819,14 +934,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "622f3403e36c59e6164faf93",
-      "firstName": "Takumi",
-      "fullname": "Takumi",
+      "firstName": "Masami",
+      "fullname": "Masami",
       "location": "Tokyo, Japan",
       "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-      "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/women/90.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.88,
       "numReviews": 102,
       "yearsHosting": 4,
@@ -835,7 +952,7 @@
       "coHosts": [
         {
           "name": "Aya",
-          "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg"
+          "imgUrl": "https://randomuser.me/api/portraits/women/94.jpg"
         }
       ],
       "personalFacts": [
@@ -859,35 +976,14 @@
     },
     "reviews": [
       {
-        "at": "2024-05-11T00:00:00.000Z",
-        "by": {
-          "_id": "622f3407e36c59e6164fc004",
-          "fullname": "Sophie",
-          "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
-          "id": "10711825"
-        },
-        "txt": "Fantastic location near Shibuya — clean, modern, and perfect for a short stay.",
-        "rate": {
-          "cleanliness": 4.9,
-          "communication": 5,
-          "checkIn": 4.8,
-          "accuracy": 4.8,
-          "location": 5,
-          "value": 4.7
-        },
-        "nights": 4,
-        "withKids": false,
-        "withPet": false
-      },
-      {
         "at": "2024-03-22T00:00:00.000Z",
         "by": {
           "_id": "622f3407e36c59e6164fc012",
-          "fullname": "James",
-          "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+          "fullname": "Jerayah",
+          "imgUrl": "https://randomuser.me/api/portraits/men/22.jpg",
           "id": "10711826"
         },
-        "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+        "txt": "The subway is extremely close, making it simple to visit all major spots. We especially enjoyed Senso-ji and Tokyo Skytree.",
         "rate": {
           "cleanliness": 4.8,
           "communication": 5,
@@ -897,6 +993,48 @@
           "value": 4.8
         },
         "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-22T00:00:00.000Z",
+        "by": {
+          "_id": "622f3407e36c59e6164fc012",
+          "fullname": "Sintia",
+          "imgUrl": "https://randomuser.me/api/portraits/women/76.jpg",
+          "id": "10711826"
+        },
+        "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.7,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 7,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-22T00:00:00.000Z",
+        "by": {
+          "_id": "622f3407e36c59e6164fc012",
+          "fullname": "Karl",
+          "imgUrl": "https://randomuser.me/api/portraits/men/35.jpg",
+          "id": "10711826"
+        },
+        "txt": "Masami was a great host — super responsive and helpful with local tips. The bed was really comfortable and the AC kept the room cool during hot days.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.7,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 9,
         "withKids": false,
         "withPet": false
       }
@@ -970,14 +1108,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "622f3403e36c59e6164faf93",
-      "firstName": "Takumi",
-      "fullname": "Takumi",
+      "firstName": "Nana",
+      "fullname": "Nana",
       "location": "Tokyo, Japan",
       "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-      "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/women/85.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.76,
       "numReviews": 102,
       "yearsHosting": 4,
@@ -1013,11 +1153,11 @@
         "at": "2024-05-11T00:00:00.000Z",
         "by": {
           "_id": "622f3407e36c59e6164fc004",
-          "fullname": "Sophie",
-          "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+          "fullname": "Sophia",
+          "imgUrl": "https://randomuser.me/api/portraits/women/16.jpg",
           "id": "10711825"
         },
-        "txt": "Fantastic location near Ebisu — clean, modern, and perfect for a short stay.",
+        "txt": "Our host went above and beyond. She arranged transportation for us when we landed super late and checked in every day to make sure we were okay.",
         "rate": {
           "cleanliness": 4.9,
           "communication": 5,
@@ -1034,11 +1174,53 @@
         "at": "2024-03-22T00:00:00.000Z",
         "by": {
           "_id": "622f3407e36c59e6164fc012",
-          "fullname": "James",
-          "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+          "fullname": "Sintia",
+          "imgUrl": "https://randomuser.me/api/portraits/women/70.jpg",
           "id": "10711826"
         },
-        "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+        "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.7,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 7,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-22T00:00:00.000Z",
+        "by": {
+          "_id": "622f3407e36c59e6164fc012",
+          "fullname": "Karl",
+          "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg",
+          "id": "10711826"
+        },
+        "txt": "Nana was a great host — super responsive and helpful with local tips. The bed was really comfortable and the AC kept the room cool during hot days.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.7,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 9,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-22T00:00:00.000Z",
+        "by": {
+          "_id": "622f3407e36c59e6164fc012",
+          "fullname": "James",
+          "imgUrl": "https://randomuser.me/api/portraits/men/13.jpg",
+          "id": "10711826"
+        },
+        "txt": "Nana was a great host — super responsive and helpful with local tips.",
         "rate": {
           "cleanliness": 4.8,
           "communication": 5,
@@ -1125,10 +1307,12 @@
       "fullname": "Takumi",
       "location": "Tokyo, Japan",
       "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-      "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/men/98.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.91,
       "numReviews": 102,
       "yearsHosting": 4,
@@ -1136,8 +1320,8 @@
       "responseTime": "within an hour",
       "coHosts": [
         {
-          "name": "Aya",
-          "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg"
+          "name": "Beth",
+          "imgUrl": "https://randomuser.me/api/portraits/women/42.jpg"
         }
       ],
       "personalFacts": [
@@ -1165,7 +1349,7 @@
         "by": {
           "_id": "622f3407e36c59e6164fc004",
           "fullname": "Sophie",
-          "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/women/18.jpg",
           "id": "10711825"
         },
         "txt": "Fantastic location near Akihabara — clean, modern, and perfect for a short stay.",
@@ -1185,8 +1369,8 @@
         "at": "2024-03-22T00:00:00.000Z",
         "by": {
           "_id": "622f3407e36c59e6164fc012",
-          "fullname": "James",
-          "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+          "fullname": "Kaleb",
+          "imgUrl": "https://randomuser.me/api/portraits/men/41.jpg",
           "id": "10711826"
         },
         "txt": "Takumi was a great host — super responsive and helpful with local tips.",
@@ -1276,10 +1460,12 @@
       "fullname": "Takumi",
       "location": "Tokyo, Japan",
       "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-      "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/men/98.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.33,
       "numReviews": 102,
       "yearsHosting": 4,
@@ -1329,6 +1515,27 @@
           "value": 4.7
         },
         "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-22T00:00:00.000Z",
+        "by": {
+          "_id": "622f3407e36c59e6164fc012",
+          "fullname": "Sintia",
+          "imgUrl": "https://randomuser.me/api/portraits/women/60.jpg",
+          "id": "10711826"
+        },
+        "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.7,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 7,
         "withKids": false,
         "withPet": false
       },
@@ -1423,14 +1630,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "622f3403e36c59e6164faf93",
-      "firstName": "Takumi",
-      "fullname": "Takumi",
+      "firstName": "Moriko",
+      "fullname": "Moriko",
       "location": "Tokyo, Japan",
       "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-      "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/men/18.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.87,
       "numReviews": 102,
       "yearsHosting": 4,
@@ -1438,8 +1647,8 @@
       "responseTime": "within an hour",
       "coHosts": [
         {
-          "name": "Aya",
-          "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg"
+          "name": "Kiki",
+          "imgUrl": "https://randomuser.me/api/portraits/women/94.jpg"
         }
       ],
       "personalFacts": [
@@ -1467,7 +1676,7 @@
         "by": {
           "_id": "622f3407e36c59e6164fc004",
           "fullname": "Sophie",
-          "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/women/33.jpg",
           "id": "10711825"
         },
         "txt": "Fantastic location near Meguro — clean, modern, and perfect for a short stay.",
@@ -1487,11 +1696,11 @@
         "at": "2024-03-22T00:00:00.000Z",
         "by": {
           "_id": "622f3407e36c59e6164fc012",
-          "fullname": "James",
-          "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+          "fullname": "Karl",
+          "imgUrl": "https://randomuser.me/api/portraits/men/58.jpg",
           "id": "10711826"
         },
-        "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+        "txt": "We loved the keyless entry and smart home features — lights, AC, everything was so easy. Charging ports everywhere was a lifesaver.",
         "rate": {
           "cleanliness": 4.8,
           "communication": 5,
@@ -1572,14 +1781,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "host-city-2",
-      "firstName": "Élodie",
-      "fullname": "Élodie",
+      "firstName": "Jules",
+      "fullname": "Jules",
       "location": "Paris, France",
       "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-      "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/women/31.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.97,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -1611,7 +1822,7 @@
         "by": {
           "_id": "r-2001",
           "fullname": "Chloé",
-          "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/women/38.jpg",
           "id": "20711825"
         },
         "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -1632,7 +1843,7 @@
         "by": {
           "_id": "r-2002",
           "fullname": "Liam",
-          "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/men/31.jpg",
           "id": "20711826"
         },
         "txt": "Great place for a couple — elegant and centrally located.",
@@ -1653,7 +1864,7 @@
         "by": {
           "_id": "r-2003",
           "fullname": "Ana",
-          "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg",
           "id": "20711827"
         },
         "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -1745,7 +1956,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.78,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -1776,8 +1989,8 @@
         "at": "2024-07-14T00:00:00.000Z",
         "by": {
           "_id": "r-2001",
-          "fullname": "Chloé",
-          "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+          "fullname": "Colette",
+          "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg",
           "id": "20711825"
         },
         "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -1797,8 +2010,50 @@
         "at": "2023-11-02T00:00:00.000Z",
         "by": {
           "_id": "r-2002",
+          "fullname": "Andre",
+          "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg",
+          "id": "20711826"
+        },
+        "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 4.7,
+          "accuracy": 4.6,
+          "location": 5,
+          "value": 4.5
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-14T00:00:00.000Z",
+        "by": {
+          "_id": "r-2001",
+          "fullname": "Chloé",
+          "imgUrl": "https://randomuser.me/api/portraits/women/18.jpg",
+          "id": "20711825"
+        },
+        "txt": "Très charmant !We loved how central the apartment was. We could walk to the Louvre in 10 minutes and Notre-Dame in 15. Transportation couldn’t be easier.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.6
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-2002",
           "fullname": "Liam",
-          "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/men/43.jpg",
           "id": "20711826"
         },
         "txt": "Great place for a couple — elegant and centrally located.",
@@ -1819,10 +2074,31 @@
         "by": {
           "_id": "r-2003",
           "fullname": "Ana",
-          "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg",
           "id": "20711827"
         },
-        "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
+        "txt": "The moment we walked in, we were in love — tall windows, vintage decor, and that classic Paris balcony. It felt straight out of a movie.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.7,
+          "location": 5,
+          "value": 4.4
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-05-20T00:00:00.000Z",
+        "by": {
+          "_id": "r-2003",
+          "fullname": "Ana",
+          "imgUrl": "https://randomuser.me/api/portraits/women/17.jpg",
+          "id": "20711827"
+        },
+        "txt": "Staying here made Paris feel familiar. The host was warm and very communicative, and check-in was quick and simple.",
         "rate": {
           "cleanliness": 4.9,
           "communication": 5,
@@ -1904,14 +2180,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "host-city-2",
-      "firstName": "Élodie",
-      "fullname": "Élodie",
+      "firstName": "Charlotte",
+      "fullname": "Charlotte",
       "location": "Paris, France",
       "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-      "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/women/61.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.91,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -1939,32 +2217,11 @@
     },
     "reviews": [
       {
-        "at": "2024-07-14T00:00:00.000Z",
-        "by": {
-          "_id": "r-2001",
-          "fullname": "Chloé",
-          "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
-          "id": "20711825"
-        },
-        "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
-        "rate": {
-          "cleanliness": 5,
-          "communication": 5,
-          "checkIn": 4.9,
-          "accuracy": 4.8,
-          "location": 5,
-          "value": 4.6
-        },
-        "nights": 5,
-        "withKids": false,
-        "withPet": false
-      },
-      {
         "at": "2023-11-02T00:00:00.000Z",
         "by": {
           "_id": "r-2002",
-          "fullname": "Liam",
-          "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+          "fullname": "Rafael",
+          "imgUrl": "https://randomuser.me/api/portraits/men/44.jpg",
           "id": "20711826"
         },
         "txt": "Great place for a couple — elegant and centrally located.",
@@ -1985,7 +2242,70 @@
         "by": {
           "_id": "r-2003",
           "fullname": "Ana",
-          "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/women/74.jpg",
+          "id": "20711827"
+        },
+        "txt": "The moment we walked in, we were in love — tall windows, vintage decor, and that classic Paris balcony. It felt straight out of a movie.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.7,
+          "location": 5,
+          "value": 4.4
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-05-20T00:00:00.000Z",
+        "by": {
+          "_id": "r-2003",
+          "fullname": "Clair",
+          "imgUrl": "https://randomuser.me/api/portraits/women/57.jpg",
+          "id": "20711827"
+        },
+        "txt": "Staying here made Paris feel familiar. The host was warm and very communicative, and check-in was quick and simple.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.7,
+          "location": 5,
+          "value": 4.4
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-2002",
+          "fullname": "Liam",
+          "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+          "id": "20711826"
+        },
+        "txt": "Not a generic hotel — this place has personality. Beautiful wooden floors, art on the walls, and a tiny café right downstairs where the barista greeted us every morning.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 4.7,
+          "accuracy": 4.6,
+          "location": 5,
+          "value": 4.5
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-05-20T00:00:00.000Z",
+        "by": {
+          "_id": "r-2003",
+          "fullname": "Ana",
+          "imgUrl": "https://randomuser.me/api/portraits/women/11.jpg",
           "id": "20711827"
         },
         "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -2070,14 +2390,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "host-city-2",
-      "firstName": "Élodie",
-      "fullname": "Élodie",
+      "firstName": "Mark",
+      "fullname": "Mark",
       "location": "Paris, France",
       "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-      "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/men/21.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.68,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -2129,8 +2451,8 @@
         "at": "2023-11-02T00:00:00.000Z",
         "by": {
           "_id": "r-2002",
-          "fullname": "Liam",
-          "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+          "fullname": "Gabe",
+          "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg",
           "id": "20711826"
         },
         "txt": "Great place for a couple — elegant and centrally located.",
@@ -2236,14 +2558,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "host-city-2",
-      "firstName": "Élodie",
-      "fullname": "Élodie",
+      "firstName": "Ambre",
+      "fullname": "Ambre",
       "location": "Paris, France",
       "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-      "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/women/29.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.87,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -2271,23 +2595,23 @@
     },
     "reviews": [
       {
-        "at": "2024-07-14T00:00:00.000Z",
+        "at": "2023-05-20T00:00:00.000Z",
         "by": {
-          "_id": "r-2001",
-          "fullname": "Chloé",
-          "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
-          "id": "20711825"
+          "_id": "r-2003",
+          "fullname": "Clair",
+          "imgUrl": "https://randomuser.me/api/portraits/women/57.jpg",
+          "id": "20711827"
         },
-        "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+        "txt": "Staying here made Paris feel familiar. The host was warm and very communicative, and check-in was quick and simple.",
         "rate": {
-          "cleanliness": 5,
+          "cleanliness": 4.9,
           "communication": 5,
-          "checkIn": 4.9,
-          "accuracy": 4.8,
+          "checkIn": 4.8,
+          "accuracy": 4.7,
           "location": 5,
-          "value": 4.6
+          "value": 4.4
         },
-        "nights": 5,
+        "nights": 2,
         "withKids": false,
         "withPet": false
       },
@@ -2296,10 +2620,10 @@
         "by": {
           "_id": "r-2002",
           "fullname": "Liam",
-          "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/men/70.jpg",
           "id": "20711826"
         },
-        "txt": "Great place for a couple — elegant and centrally located.",
+        "txt": "Not a generic hotel — this place has personality. Beautiful wooden floors, art on the walls, and a tiny café right downstairs where the barista greeted us every morning.",
         "rate": {
           "cleanliness": 4.8,
           "communication": 4.9,
@@ -2316,11 +2640,11 @@
         "at": "2023-05-20T00:00:00.000Z",
         "by": {
           "_id": "r-2003",
-          "fullname": "Ana",
-          "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+          "fullname": "Beth",
+          "imgUrl": "https://randomuser.me/api/portraits/women/91.jpg",
           "id": "20711827"
         },
-        "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
+        "txt": "There are so many restaurants nearby — we barely scratched the surface. We want to come back with family next time.",
         "rate": {
           "cleanliness": 4.9,
           "communication": 5,
@@ -2409,7 +2733,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.55,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -2440,8 +2766,8 @@
         "at": "2024-07-14T00:00:00.000Z",
         "by": {
           "_id": "r-2001",
-          "fullname": "Chloé",
-          "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+          "fullname": "Mark",
+          "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg",
           "id": "20711825"
         },
         "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -2461,11 +2787,11 @@
         "at": "2023-11-02T00:00:00.000Z",
         "by": {
           "_id": "r-2002",
-          "fullname": "Liam",
-          "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+          "fullname": "Ben",
+          "imgUrl": "https://randomuser.me/api/portraits/men/10.jpg",
           "id": "20711826"
         },
-        "txt": "Great place for a couple — elegant and centrally located.",
+        "txt": "There are so many restaurants nearby — we barely scratched the surface. We want to come back with family next time.",
         "rate": {
           "cleanliness": 4.8,
           "communication": 4.9,
@@ -2482,8 +2808,8 @@
         "at": "2023-05-20T00:00:00.000Z",
         "by": {
           "_id": "r-2003",
-          "fullname": "Ana",
-          "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+          "fullname": "Norah",
+          "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg",
           "id": "20711827"
         },
         "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -2575,7 +2901,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.82,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -2645,23 +2973,44 @@
         "withPet": false
       },
       {
-        "at": "2023-05-20T00:00:00.000Z",
+        "at": "2024-07-14T00:00:00.000Z",
         "by": {
-          "_id": "r-2003",
-          "fullname": "Ana",
-          "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
-          "id": "20711827"
+          "_id": "r-2001",
+          "fullname": "Colette",
+          "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg",
+          "id": "20711825"
         },
-        "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
+        "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
         "rate": {
-          "cleanliness": 4.9,
+          "cleanliness": 5,
           "communication": 5,
-          "checkIn": 4.8,
-          "accuracy": 4.7,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
           "location": 5,
-          "value": 4.4
+          "value": 4.6
         },
-        "nights": 2,
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-2002",
+          "fullname": "Andre",
+          "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg",
+          "id": "20711826"
+        },
+        "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 4.7,
+          "accuracy": 4.6,
+          "location": 5,
+          "value": 4.5
+        },
+        "nights": 3,
         "withKids": false,
         "withPet": false
       }
@@ -2734,14 +3083,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "host-city-2",
-      "firstName": "Élodie",
-      "fullname": "Élodie",
+      "firstName": "Maine",
+      "fullname": "Maine",
       "location": "Paris, France",
       "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-      "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/women/42.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.92,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -2773,7 +3124,7 @@
         "by": {
           "_id": "r-2001",
           "fullname": "Chloé",
-          "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg",
           "id": "20711825"
         },
         "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -2814,7 +3165,7 @@
         "at": "2023-05-20T00:00:00.000Z",
         "by": {
           "_id": "r-2003",
-          "fullname": "Ana",
+          "fullname": "Keren",
           "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
           "id": "20711827"
         },
@@ -2828,6 +3179,48 @@
           "value": 4.4
         },
         "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-14T00:00:00.000Z",
+        "by": {
+          "_id": "r-2001",
+          "fullname": "Colette",
+          "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg",
+          "id": "20711825"
+        },
+        "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.6
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-2002",
+          "fullname": "Andre",
+          "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg",
+          "id": "20711826"
+        },
+        "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 4.7,
+          "accuracy": 4.6,
+          "location": 5,
+          "value": 4.5
+        },
+        "nights": 3,
         "withKids": false,
         "withPet": false
       }
@@ -2900,14 +3293,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "host-city-2",
-      "firstName": "Élodie",
-      "fullname": "Élodie",
+      "firstName": "Lore",
+      "fullname": "Lore",
       "location": "Paris, France",
       "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-      "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/men/26.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.75,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -2939,7 +3334,7 @@
         "by": {
           "_id": "r-2001",
           "fullname": "Chloé",
-          "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/women/64.jpg",
           "id": "20711825"
         },
         "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -2959,8 +3354,8 @@
         "at": "2023-11-02T00:00:00.000Z",
         "by": {
           "_id": "r-2002",
-          "fullname": "Liam",
-          "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+          "fullname": "Ken",
+          "imgUrl": "https://randomuser.me/api/portraits/men/73.jpg",
           "id": "20711826"
         },
         "txt": "Great place for a couple — elegant and centrally located.",
@@ -2981,7 +3376,7 @@
         "by": {
           "_id": "r-2003",
           "fullname": "Ana",
-          "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/women/62.jpg",
           "id": "20711827"
         },
         "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -2994,6 +3389,48 @@
           "value": 4.4
         },
         "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-14T00:00:00.000Z",
+        "by": {
+          "_id": "r-2001",
+          "fullname": "Colette",
+          "imgUrl": "https://randomuser.me/api/portraits/women/59.jpg",
+          "id": "20711825"
+        },
+        "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.6
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-2002",
+          "fullname": "Andre",
+          "imgUrl": "https://randomuser.me/api/portraits/men/29.jpg",
+          "id": "20711826"
+        },
+        "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 4.7,
+          "accuracy": 4.6,
+          "location": 5,
+          "value": 4.5
+        },
+        "nights": 3,
         "withKids": false,
         "withPet": false
       }
@@ -3066,14 +3503,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "host-city-2",
-      "firstName": "Élodie",
-      "fullname": "Élodie",
+      "firstName": "Hugo",
+      "fullname": "Hugo",
       "location": "Paris, France",
       "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-      "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/women/95.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.95,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -3104,8 +3543,8 @@
         "at": "2024-07-14T00:00:00.000Z",
         "by": {
           "_id": "r-2001",
-          "fullname": "Chloé",
-          "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+          "fullname": "Jean",
+          "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg",
           "id": "20711825"
         },
         "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -3126,7 +3565,7 @@
         "by": {
           "_id": "r-2002",
           "fullname": "Liam",
-          "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg",
           "id": "20711826"
         },
         "txt": "Great place for a couple — elegant and centrally located.",
@@ -3146,8 +3585,8 @@
         "at": "2023-05-20T00:00:00.000Z",
         "by": {
           "_id": "r-2003",
-          "fullname": "Ana",
-          "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+          "fullname": "Etienne",
+          "imgUrl": "https://randomuser.me/api/portraits/women/72.jpg",
           "id": "20711827"
         },
         "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -3232,14 +3671,16 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "host-city-2",
-      "firstName": "Élodie",
-      "fullname": "Élodie",
+      "firstName": "Alexis",
+      "fullname": "Alexis",
       "location": "Paris, France",
       "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-      "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/men/60.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.56,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -3270,8 +3711,8 @@
         "at": "2024-07-14T00:00:00.000Z",
         "by": {
           "_id": "r-2001",
-          "fullname": "Chloé",
-          "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+          "fullname": "Remi",
+          "imgUrl": "https://randomuser.me/api/portraits/men/54.jpg",
           "id": "20711825"
         },
         "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -3292,7 +3733,7 @@
         "by": {
           "_id": "r-2002",
           "fullname": "Liam",
-          "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/men/32.jpg",
           "id": "20711826"
         },
         "txt": "Great place for a couple — elegant and centrally located.",
@@ -3313,7 +3754,7 @@
         "by": {
           "_id": "r-2003",
           "fullname": "Ana",
-          "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+          "imgUrl": "https://randomuser.me/api/portraits/women/16.jpg",
           "id": "20711827"
         },
         "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -3326,6 +3767,48 @@
           "value": 4.4
         },
         "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-14T00:00:00.000Z",
+        "by": {
+          "_id": "r-2001",
+          "fullname": "Colette",
+          "imgUrl": "https://randomuser.me/api/portraits/women/33.jpg",
+          "id": "20711825"
+        },
+        "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.6
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-2002",
+          "fullname": "Andre",
+          "imgUrl": "https://randomuser.me/api/portraits/men/23.jpg",
+          "id": "20711826"
+        },
+        "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 4.7,
+          "accuracy": 4.6,
+          "location": 5,
+          "value": 4.5
+        },
+        "nights": 3,
         "withKids": false,
         "withPet": false
       }
@@ -3385,12 +3868,12 @@
       {
         "main": "Old Meets New",
         "sub": "Modern design in a beautifully restored 19th-century building.",
-        "imgUrl": "interior.modern"
+        "imgUrl": "features.breakfast"
       },
       {
         "main": "Well Connected",
         "sub": "Metro and tram stations within a 3-minute walk.",
-        "imgUrl": "features.transport"
+        "imgUrl": "location.center"
       }
     ],
     "roomType": "Entire home/apt",
@@ -3400,10 +3883,12 @@
       "fullname": "Balázs Kovács",
       "location": "Budapest, Hungary",
       "about": "Local designer and music lover who enjoys helping guests explore Budapest’s creative side.",
-      "pictureUrl": "https://randomuser.me/api/portraits/men/47.jpg",
+      "pictureUrl": "https://randomuser.me/api/portraits/men/27.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1572566400000,
+      "signupDate": {
+        "$numberLong": "1572566400000"
+      },
       "rating": 4.77,
       "numReviews": 82,
       "yearsHosting": 4,
@@ -3435,7 +3920,7 @@
         "by": {
           "_id": "r-3101",
           "fullname": "Zsófia",
-          "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg"
+          "imgUrl": "https://randomuser.me/api/portraits/women/27.jpg"
         },
         "txt": "Fantastic location near the ruin bars and metro! The apartment was spotless and comfortable.",
         "rate": {
@@ -3455,7 +3940,7 @@
         "by": {
           "_id": "r-3102",
           "fullname": "David",
-          "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg"
+          "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg"
         },
         "txt": "Perfect stay for exploring Budapest — loved the mix of history and style. Great host!",
         "rate": {
@@ -3475,7 +3960,7 @@
         "by": {
           "_id": "r-3103",
           "fullname": "Elena",
-          "imgUrl": "https://randomuser.me/api/portraits/women/40.jpg"
+          "imgUrl": "https://randomuser.me/api/portraits/women/88.jpg"
         },
         "txt": "Charming, bright, and close to everything. I’d definitely return.",
         "rate": {
@@ -3546,12 +4031,12 @@
       {
         "main": "Artistic Loft",
         "sub": "Industrial charm meets cozy design in the heart of Pest.",
-        "imgUrl": "interior.loft"
+        "imgUrl": "features.grill"
       },
       {
         "main": "Great Transport Links",
         "sub": "Close to metro line M2 and trams 4–6 for easy city access.",
-        "imgUrl": "features.transport"
+        "imgUrl": "location.center"
       }
     ],
     "roomType": "Entire home/apt",
@@ -3564,7 +4049,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/47.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1572566400000,
+      "signupDate": {
+        "$numberLong": "1572566400000"
+      },
       "rating": 4.58,
       "numReviews": 65,
       "yearsHosting": 4,
@@ -3707,12 +4194,12 @@
       {
         "main": "Industrial Design",
         "sub": "Exposed brick walls and high ceilings create a modern urban feel.",
-        "imgUrl": "interior.loft"
+        "imgUrl": "features.grill"
       },
       {
         "main": "Easy City Access",
         "sub": "Minutes from metro lines and tram stops to explore Pest and Buda.",
-        "imgUrl": "features.transport"
+        "imgUrl": "location.center"
       }
     ],
     "roomType": "Entire home/apt",
@@ -3725,7 +4212,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/44.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1588291200000,
+      "signupDate": {
+        "$numberLong": "1588291200000"
+      },
       "rating": 4.88,
       "numReviews": 71,
       "yearsHosting": 4,
@@ -3863,7 +4352,7 @@
       {
         "main": "Sunny Balcony",
         "sub": "Enjoy a quiet breakfast with views over Budapest’s rooftops.",
-        "imgUrl": "outdoor.balcony"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
         "main": "Central Location",
@@ -3873,7 +4362,7 @@
       {
         "main": "Modern Design",
         "sub": "Compact yet stylish, with bright interiors and comfort essentials.",
-        "imgUrl": "interior.modern"
+        "imgUrl": "features.breakfast"
       }
     ],
     "roomType": "Entire home/apt",
@@ -3886,7 +4375,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/49.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1593561600000,
+      "signupDate": {
+        "$numberLong": "1593561600000"
+      },
       "rating": 4.86,
       "numReviews": 59,
       "yearsHosting": 3,
@@ -4029,12 +4520,12 @@
       {
         "main": "Elegant Design",
         "sub": "Classic details with modern touches and soft lighting.",
-        "imgUrl": "interior.elegant"
+        "imgUrl": "features.breakfast"
       },
       {
         "main": "Quiet Retreat",
         "sub": "Peaceful residential building in central Pest.",
-        "imgUrl": "features.relax"
+        "imgUrl": "bedroom.doubleBed"
       }
     ],
     "roomType": "Entire home/apt",
@@ -4047,7 +4538,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/48.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1577836800000,
+      "signupDate": {
+        "$numberLong": "1577836800000"
+      },
       "rating": 4.63,
       "numReviews": 88,
       "yearsHosting": 5,
@@ -4190,12 +4683,12 @@
       {
         "main": "Industrial Loft Design",
         "sub": "Modern interiors with high ceilings and open-plan layout.",
-        "imgUrl": "interior.loft"
+        "imgUrl": "features.grill"
       },
       {
         "main": "Walk Everywhere",
         "sub": "Short walk to Deák Square, Andrassy Avenue, and metro connections.",
-        "imgUrl": "features.transport"
+        "imgUrl": "location.center"
       }
     ],
     "roomType": "Entire home/apt",
@@ -4208,7 +4701,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/50.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.49,
       "numReviews": 64,
       "yearsHosting": 4,
@@ -4346,17 +4841,17 @@
       {
         "main": "Private Terrace",
         "sub": "Spacious outdoor space for morning coffee or evening wine.",
-        "imgUrl": "outdoor.terrace"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
         "main": "Peaceful Location",
         "sub": "Close to Margaret Island and the Danube promenade.",
-        "imgUrl": "location.riverside"
+        "imgUrl": "location.waterFront"
       },
       {
         "main": "Modern Interiors",
         "sub": "Bright living space with soft tones and stylish furniture.",
-        "imgUrl": "interior.modern"
+        "imgUrl": "features.breakfast"
       }
     ],
     "roomType": "Entire home/apt",
@@ -4369,7 +4864,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/44.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1598918400000,
+      "signupDate": {
+        "$numberLong": "1598918400000"
+      },
       "rating": 4.93,
       "numReviews": 91,
       "yearsHosting": 4,
@@ -4512,12 +5009,12 @@
       {
         "main": "Elegant Style",
         "sub": "Refined design with warm tones and quality finishes.",
-        "imgUrl": "interior.elegant"
+        "imgUrl": "features.breakfast"
       },
       {
         "main": "Walk to Everything",
         "sub": "Cafés, music venues, and metro stations all nearby.",
-        "imgUrl": "features.walkable"
+        "imgUrl": "location.center"
       }
     ],
     "roomType": "Entire home/apt",
@@ -4530,7 +5027,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/28.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1588291200000,
+      "signupDate": {
+        "$numberLong": "1588291200000"
+      },
       "rating": 4.91,
       "numReviews": 82,
       "yearsHosting": 4,
@@ -4673,12 +5172,12 @@
       {
         "main": "Cozy & Modern",
         "sub": "Stylish décor with a warm, homey atmosphere.",
-        "imgUrl": "interior.modern"
+        "imgUrl": "features.breakfast"
       },
       {
         "main": "Walk Everywhere",
         "sub": "Minutes from metro lines, cafés, and restaurants.",
-        "imgUrl": "features.walkable"
+        "imgUrl": "location.center"
       }
     ],
     "roomType": "Entire home/apt",
@@ -4691,7 +5190,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/49.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1596240000000,
+      "signupDate": {
+        "$numberLong": "1596240000000"
+      },
       "rating": 4.78,
       "numReviews": 67,
       "yearsHosting": 4,
@@ -4829,7 +5330,7 @@
       {
         "main": "Industrial Charm",
         "sub": "Exposed brick and tall windows in a historic building.",
-        "imgUrl": "interior.industrial"
+        "imgUrl": "features.grill"
       },
       {
         "main": "Central Yet Quiet",
@@ -4839,7 +5340,7 @@
       {
         "main": "Modern Design",
         "sub": "Stylish open-plan layout with designer furnishings.",
-        "imgUrl": "interior.modern"
+        "imgUrl": "features.breakfast"
       }
     ],
     "roomType": "Entire home/apt",
@@ -4852,7 +5353,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/45.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1606780800000,
+      "signupDate": {
+        "$numberLong": "1606780800000"
+      },
       "rating": 4.79,
       "numReviews": 104,
       "yearsHosting": 5,
@@ -5010,7 +5513,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/33.jpg",
       "isSuperhost": false,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.86,
       "numReviews": 59,
       "yearsHosting": 2,
@@ -5171,7 +5676,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/33.jpg",
       "isSuperhost": false,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.79,
       "numReviews": 59,
       "yearsHosting": 2,
@@ -5332,7 +5839,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/33.jpg",
       "isSuperhost": false,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.67,
       "numReviews": 59,
       "yearsHosting": 2,
@@ -5493,7 +6002,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/33.jpg",
       "isSuperhost": false,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.86,
       "numReviews": 59,
       "yearsHosting": 2,
@@ -5657,7 +6168,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/29.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1514764800000,
+      "signupDate": {
+        "$numberLong": "1514764800000"
+      },
       "rating": 4.9,
       "numReviews": 170,
       "yearsHosting": 6,
@@ -5775,7 +6288,7 @@
       {
         "roomType": "bedroom",
         "bedType": "queen",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwNTY3MTg5MzgxMzYyNDE3NQ==/original/edfcd225-c244-4102-b1a9-c4750e922891.jpeg?im_w=480"
       }
     ],
     "guests": 2,
@@ -5794,7 +6307,7 @@
       {
         "main": "Hyde Park Views",
         "sub": "Walk to the gardens in minutes.",
-        "imgUrl": "location.park"
+        "imgUrl": "location.mountainView"
       },
       {
         "main": "Quiet & Elegant",
@@ -5812,7 +6325,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/26.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1514764800000,
+      "signupDate": {
+        "$numberLong": "1514764800000"
+      },
       "rating": 4.75,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -5911,7 +6426,7 @@
       {
         "roomType": "studio",
         "bedType": "king",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-934366/original/ef48475a-892c-4256-a4e9-f96af557128d.jpeg?im_w=480"
       }
     ],
     "guests": 2,
@@ -5947,7 +6462,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/28.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1522540800000,
+      "signupDate": {
+        "$numberLong": "1522540800000"
+      },
       "rating": 4.92,
       "numReviews": 180,
       "yearsHosting": 6,
@@ -6046,7 +6563,7 @@
       {
         "roomType": "bedroom",
         "bedType": "queen",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMzMDYxOTMwNjg0OTY0NDMzNQ%3D%3D/original/5983dc59-84fd-4a58-ae3f-5280d6955588.jpeg?im_w=480"
       }
     ],
     "guests": 3,
@@ -6064,7 +6581,7 @@
       {
         "main": "Market Nearby",
         "sub": "Portobello Market just around the corner.",
-        "imgUrl": "location.market"
+        "imgUrl": "location.center"
       },
       {
         "main": "Classic Design",
@@ -6082,7 +6599,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/19.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1538352000000,
+      "signupDate": {
+        "$numberLong": "1538352000000"
+      },
       "rating": 4.96,
       "numReviews": 150,
       "yearsHosting": 5,
@@ -6181,7 +6700,7 @@
       {
         "roomType": "studio",
         "bedType": "king",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1200761770557415189/original/07c31210-f1e7-451f-932f-1b518b1cfc2b.jpeg?im_w=480"
       }
     ],
     "guests": 2,
@@ -6199,12 +6718,12 @@
       {
         "main": "Canal Views",
         "sub": "Enjoy morning coffee overlooking the water.",
-        "imgUrl": "location.center"
+        "imgUrl": "location.waterFront"
       },
       {
         "main": "Music Scene",
         "sub": "Walk to Camden gigs and markets.",
-        "imgUrl": "music.guitar"
+        "imgUrl": "location.center"
       }
     ],
     "roomType": "Entire home/apt",
@@ -6217,7 +6736,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1543622400000,
+      "signupDate": {
+        "$numberLong": "1543622400000"
+      },
       "rating": 4.66,
       "numReviews": 120,
       "yearsHosting": 4,
@@ -6316,7 +6837,7 @@
       {
         "roomType": "studio",
         "bedType": "double",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1442072486844571600/original/f420b400-1544-49c4-857e-2fe14e1f6c9b.jpeg?im_w=480"
       }
     ],
     "guests": 2,
@@ -6351,7 +6872,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/35.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1551398400000,
+      "signupDate": {
+        "$numberLong": "1551398400000"
+      },
       "rating": 4.93,
       "numReviews": 190,
       "yearsHosting": 5,
@@ -6450,7 +6973,7 @@
       {
         "roomType": "bedroom",
         "bedType": "king",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-20511404/original/322e3a88-f3bb-40b3-842c-cb8916f2348e.jpeg?im_w=480"
       }
     ],
     "guests": 2,
@@ -6485,7 +7008,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/25.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1538352000000,
+      "signupDate": {
+        "$numberLong": "1538352000000"
+      },
       "rating": 4.2,
       "numReviews": 210,
       "yearsHosting": 6,
@@ -6584,7 +7109,7 @@
       {
         "roomType": "bedroom",
         "bedType": "queen",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwODQ4ODQxOTYxODkwMzI5NQ%3D%3D/original/1e7bf81c-6601-4860-838b-2602329a6f0f.png?im_w=480"
       }
     ],
     "guests": 2,
@@ -6601,7 +7126,7 @@
       {
         "main": "River Views",
         "sub": "Floor-to-ceiling windows overlooking the Thames.",
-        "imgUrl": "location.waterfront"
+        "imgUrl": "location.waterFront"
       },
       {
         "main": "Walk Everywhere",
@@ -6619,7 +7144,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/30.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1546300800000,
+      "signupDate": {
+        "$numberLong": "1546300800000"
+      },
       "rating": 4.75,
       "numReviews": 250,
       "yearsHosting": 7,
@@ -6718,7 +7245,7 @@
       {
         "roomType": "bedroom",
         "bedType": "queen",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/a045a868-f957-4ae8-bee0-c2d3594bb430.jpg?im_w=480"
       }
     ],
     "guests": 2,
@@ -6740,7 +7267,7 @@
       {
         "main": "Balcony View",
         "sub": "Watch the sunset over the city skyline.",
-        "imgUrl": "outdoor.view"
+        "imgUrl": "outdoor.sunLoungers"
       }
     ],
     "roomType": "Entire home/apt",
@@ -6753,7 +7280,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/41.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1535760000000,
+      "signupDate": {
+        "$numberLong": "1535760000000"
+      },
       "rating": 4.78,
       "numReviews": 175,
       "yearsHosting": 6,
@@ -6890,7 +7419,7 @@
       {
         "main": "Classic NYC Studio",
         "sub": "Compact, clean and full of city energy.",
-        "imgUrl": "bedroom.double bed"
+        "imgUrl": "bedroom.doubleBed"
       }
     ],
     "roomType": "Entire home/apt",
@@ -6903,7 +7432,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/12.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1496275200000,
+      "signupDate": {
+        "$numberLong": "1496275200000"
+      },
       "rating": 4.95,
       "numReviews": 240,
       "yearsHosting": 8,
@@ -7021,7 +7552,7 @@
       {
         "roomType": "entire apartment",
         "bedType": "queen bed",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/3f2d2814-761d-4c8c-95ed-5d520bacc6af.jpg?im_w=480"
       }
     ],
     "guests": 2,
@@ -7045,7 +7576,7 @@
       {
         "main": "Peaceful Neighborhood",
         "sub": "Classic prewar building, quiet block.",
-        "imgUrl": "essentials.home"
+        "imgUrl": "outdoor.privatePatio"
       }
     ],
     "roomType": "Entire home/apt",
@@ -7058,7 +7589,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/12.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1496275200000,
+      "signupDate": {
+        "$numberLong": "1496275200000"
+      },
       "rating": 4.78,
       "numReviews": 175,
       "yearsHosting": 6,
@@ -7151,7 +7684,7 @@
       {
         "roomType": "loft",
         "bedType": "king bed",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-787065483397206331/original/8e0ff942-aed6-4f66-9ae7-f92943c75b5e.jpeg?im_w=480"
       }
     ],
     "guests": 2,
@@ -7175,7 +7708,7 @@
       {
         "main": "Near Music Venues",
         "sub": "Live shows every night nearby.",
-        "imgUrl": "music.jazz"
+        "imgUrl": "location.center"
       }
     ],
     "roomType": "Entire home/apt",
@@ -7188,7 +7721,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/45.jpg",
       "isSuperhost": false,
       "isVerified": true,
-      "signupDate": 1554076800000,
+      "signupDate": {
+        "$numberLong": "1554076800000"
+      },
       "rating": 4.65,
       "numReviews": 130,
       "yearsHosting": 4,
@@ -7281,7 +7816,7 @@
       {
         "roomType": "private room",
         "bedType": "double bed",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-50888320/original/7152669d-0541-4055-9911-f4c15bb770fc.jpeg?im_w=480"
       }
     ],
     "guests": 2,
@@ -7304,7 +7839,7 @@
       {
         "main": "Near Apollo Theater",
         "sub": "Walk to iconic Harlem venues.",
-        "imgUrl": "music.jazz"
+        "imgUrl": "features.breakfast"
       }
     ],
     "roomType": "Private room",
@@ -7317,7 +7852,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/32.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1509494400000,
+      "signupDate": {
+        "$numberLong": "1509494400000"
+      },
       "rating": 4.93,
       "numReviews": 210,
       "yearsHosting": 7,
@@ -7446,7 +7983,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/31.jpg",
       "isSuperhost": false,
       "isVerified": true,
-      "signupDate": 1606867200000,
+      "signupDate": {
+        "$numberLong": "1606867200000"
+      },
       "rating": 4.85,
       "numReviews": 88,
       "yearsHosting": 3,
@@ -7557,7 +8096,7 @@
       {
         "main": "Private Garden",
         "sub": "Peaceful escape in the city.",
-        "imgUrl": "essentials.home"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
         "main": "Local Restaurants",
@@ -7575,7 +8114,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/15.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1525132800000,
+      "signupDate": {
+        "$numberLong": "1525132800000"
+      },
       "rating": 4.69,
       "numReviews": 205,
       "yearsHosting": 5,
@@ -7686,7 +8227,7 @@
       {
         "main": "Designer Suite",
         "sub": "Curated art and furniture.",
-        "imgUrl": "essentials.design"
+        "imgUrl": "features.breakfast"
       },
       {
         "main": "High Line Access",
@@ -7704,7 +8245,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/26.jpg",
       "isSuperhost": false,
       "isVerified": true,
-      "signupDate": 1585699200000,
+      "signupDate": {
+        "$numberLong": "1585699200000"
+      },
       "rating": 4.9,
       "numReviews": 120,
       "yearsHosting": 4,
@@ -7848,7 +8391,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/50.jpg",
       "isSuperhost": false,
       "isVerified": true,
-      "signupDate": 1420070400000,
+      "signupDate": {
+        "$numberLong": "1420070400000"
+      },
       "rating": 4.88,
       "numReviews": 134,
       "yearsHosting": 9,
@@ -7973,6 +8518,38 @@
     "bathrooms": 1,
     "bedrooms": 1,
     "beds": 1,
+    "amenities": [
+      "essentials.wifi",
+      "essentials.tv",
+      "essentials.airCon",
+      "kitchen.coffeeMaker",
+      "kitchen.cookingBasics",
+      "bedroom.hangers",
+      "outdoor.privatePatio",
+      "location.center",
+      "safety.smokeAlarm",
+      "safety.firstAid",
+      "bookingOptions.instantBook",
+      "services.lockBox",
+      "family.crib"
+    ],
+    "highlights": [
+      {
+        "main": "Private Terrace",
+        "sub": "Enjoy morning espresso or evening aperitivo overlooking Trastevere’s rooftops.",
+        "imgUrl": "outdoor.privatePatio"
+      },
+      {
+        "main": "Historic Neighborhood",
+        "sub": "Stay in the heart of Trastevere, surrounded by cobbled streets and local cafés.",
+        "imgUrl": "location.center"
+      },
+      {
+        "main": "Cozy Interiors",
+        "sub": "Warm design and natural light create a relaxing atmosphere.",
+        "imgUrl": "bedroom.doubleBed"
+      }
+    ],
     "host": {
       "_id": "host-city-8",
       "firstName": "Giulia",
@@ -7982,7 +8559,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/65.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1509494400000,
+      "signupDate": {
+        "$numberLong": "1509494400000"
+      },
       "rating": 4.92,
       "numReviews": 87,
       "yearsHosting": 7,
@@ -8060,6 +8639,37 @@
     "bathrooms": 1,
     "bedrooms": 1,
     "beds": 1,
+    "highlights": [
+      {
+        "main": "Steps from the Vatican",
+        "sub": "Stay just a short walk from St. Peter’s Basilica and Vatican Museums.",
+        "imgUrl": "location.center"
+      },
+      {
+        "main": "Bright & Comfortable",
+        "sub": "Natural light, cozy design, and modern touches for a relaxing stay.",
+        "imgUrl": "bedroom.doubleBed"
+      },
+      {
+        "main": "Perfect for Short Stays",
+        "sub": "Compact layout with everything you need for a city getaway.",
+        "imgUrl": "essentials.wifi"
+      }
+    ],
+    "amenities": [
+      "essentials.wifi",
+      "essentials.airCon",
+      "essentials.tv",
+      "kitchen.coffeeMaker",
+      "kitchen.cookingBasics",
+      "bedroom.hangers",
+      "location.center",
+      "safety.smokeAlarm",
+      "safety.firstAid",
+      "bookingOptions.instantBook",
+      "services.lockBox",
+      "features.breakfast"
+    ],
     "host": {
       "_id": "host-city-9",
       "firstName": "Marco",
@@ -8069,7 +8679,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/52.jpg",
       "isSuperhost": false,
       "isVerified": true,
-      "signupDate": 1483228800000,
+      "signupDate": {
+        "$numberLong": "1483228800000"
+      },
       "rating": 4.5,
       "numReviews": 102,
       "yearsHosting": 8,
@@ -8147,6 +8759,39 @@
     "bathrooms": 1,
     "bedrooms": 1,
     "beds": 2,
+    "highlights": [
+      {
+        "main": "Colosseum Views",
+        "sub": "Wake up to a breathtaking view of one of the world’s most iconic landmarks.",
+        "imgUrl": "location.mountainView"
+      },
+      {
+        "main": "Modern Loft Design",
+        "sub": "Spacious interiors blending contemporary style with historic surroundings.",
+        "imgUrl": "bedroom.doubleBed"
+      },
+      {
+        "main": "Prime Location",
+        "sub": "Steps from Rome’s ancient ruins, cafés, and lively piazzas.",
+        "imgUrl": "location.center"
+      }
+    ],
+    "amenities": [
+      "essentials.wifi",
+      "essentials.airCon",
+      "essentials.tv",
+      "essentials.workSpace",
+      "kitchen.coffeeMaker",
+      "kitchen.cookingBasics",
+      "bedroom.hangers",
+      "bedroom.closet",
+      "location.center",
+      "safety.smokeAlarm",
+      "safety.firstAid",
+      "bookingOptions.instantBook",
+      "services.lockBox",
+      "features.breakfast"
+    ],
     "host": {
       "_id": "host-city-10",
       "firstName": "Lorenzo",
@@ -8156,7 +8801,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/40.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1514764800000,
+      "signupDate": {
+        "$numberLong": "1514764800000"
+      },
       "rating": 4.94,
       "numReviews": 76,
       "yearsHosting": 6,
@@ -8234,6 +8881,40 @@
     "bathrooms": 2,
     "bedrooms": 2,
     "beds": 2,
+    "highlights": [
+      {
+        "main": "View of the Pantheon",
+        "sub": "Wake up to one of Rome’s most iconic landmarks right outside your window.",
+        "imgUrl": "location.mountainView"
+      },
+      {
+        "main": "Historic Character",
+        "sub": "Exposed wooden beams and traditional architecture meet modern comfort.",
+        "imgUrl": "features.grill"
+      },
+      {
+        "main": "Prime Piazza Location",
+        "sub": "Stay directly on Piazza della Rotonda, surrounded by cafés and culture.",
+        "imgUrl": "location.center"
+      }
+    ],
+    "amenities": [
+      "essentials.wifi",
+      "essentials.airCon",
+      "essentials.tv",
+      "essentials.workSpace",
+      "kitchen.coffeeMaker",
+      "kitchen.cookingBasics",
+      "bedroom.doubleBed",
+      "bedroom.hangers",
+      "bedroom.closet",
+      "location.center",
+      "safety.smokeAlarm",
+      "safety.firstAid",
+      "bookingOptions.instantBook",
+      "services.lockBox",
+      "features.breakfast"
+    ],
     "host": {
       "_id": "host-city-11",
       "firstName": "Elena",
@@ -8243,7 +8924,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/38.jpg",
       "isSuperhost": false,
       "isVerified": true,
-      "signupDate": 1546300800000,
+      "signupDate": {
+        "$numberLong": "1546300800000"
+      },
       "rating": 4.7,
       "numReviews": 63,
       "yearsHosting": 5,
@@ -8321,6 +9004,39 @@
     "bathrooms": 1,
     "bedrooms": 1,
     "beds": 1,
+    "highlights": [
+      {
+        "main": "Steps from Campo de' Fiori",
+        "sub": "Explore Rome’s iconic market and vibrant piazza just around the corner.",
+        "imgUrl": "location.center"
+      },
+      {
+        "main": "Traditional Charm",
+        "sub": "Classic Roman decor and warm tones create an inviting retreat.",
+        "imgUrl": "features.breakfast"
+      },
+      {
+        "main": "Quiet Comfort",
+        "sub": "Relax after sightseeing in a peaceful apartment with modern amenities.",
+        "imgUrl": "bedroom.doubleBed"
+      }
+    ],
+    "amenities": [
+      "essentials.wifi",
+      "essentials.airCon",
+      "essentials.tv",
+      "kitchen.coffeeMaker",
+      "kitchen.cookingBasics",
+      "bedroom.hangers",
+      "bedroom.closet",
+      "location.center",
+      "safety.smokeAlarm",
+      "safety.firstAid",
+      "bookingOptions.instantBook",
+      "services.lockBox",
+      "features.breakfast",
+      "family.crib"
+    ],
     "host": {
       "_id": "host-city-12",
       "firstName": "Davide",
@@ -8330,7 +9046,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/49.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1577836800000,
+      "signupDate": {
+        "$numberLong": "1577836800000"
+      },
       "rating": 4.95,
       "numReviews": 91,
       "yearsHosting": 5,
@@ -8401,13 +9119,47 @@
       {
         "roomType": "loft",
         "bedType": "king bed",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-29273928-unapproved/original/3addaee5-9926-4c2d-8ce5-ad14722c2012.JPEG?im_w=480"
       }
     ],
     "guests": 2,
     "bathrooms": 1,
     "bedrooms": 1,
     "beds": 1,
+    "highlights": [
+      {
+        "main": "Colosseum Views",
+        "sub": "Enjoy balcony views of Rome’s most famous monument right from your loft.",
+        "imgUrl": "location.mountainView"
+      },
+      {
+        "main": "Trendy Monti Neighborhood",
+        "sub": "Boutiques, cafés, and wine bars just steps from your door.",
+        "imgUrl": "location.center"
+      },
+      {
+        "main": "Industrial Loft Style",
+        "sub": "Exposed brick, high ceilings, and modern design for a stylish stay.",
+        "imgUrl": "bedroom.doubleBed"
+      }
+    ],
+    "amenities": [
+      "essentials.wifi",
+      "essentials.airCon",
+      "essentials.tv",
+      "essentials.workSpace",
+      "kitchen.coffeeMaker",
+      "kitchen.cookingBasics",
+      "bedroom.hangers",
+      "bedroom.closet",
+      "outdoor.privatePatio",
+      "location.center",
+      "safety.smokeAlarm",
+      "safety.firstAid",
+      "bookingOptions.instantBook",
+      "services.lockBox",
+      "features.breakfast"
+    ],
     "host": {
       "_id": "host-city-13",
       "firstName": "Chiara",
@@ -8417,7 +9169,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/52.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.93,
       "numReviews": 58,
       "yearsHosting": 4,
@@ -8495,6 +9249,39 @@
     "bathrooms": 1,
     "bedrooms": 1,
     "beds": 2,
+    "highlights": [
+      {
+        "main": "Authentic Testaccio Location",
+        "sub": "Experience local Rome — markets, cafés, and nightlife just steps away.",
+        "imgUrl": "location.center"
+      },
+      {
+        "main": "Bright & Modern",
+        "sub": "Stylish interiors filled with natural light and clean design.",
+        "imgUrl": "features.breakfast"
+      },
+      {
+        "main": "Comfort & Convenience",
+        "sub": "Perfect for couples seeking a cozy retreat in a vibrant neighborhood.",
+        "imgUrl": "bedroom.doubleBed"
+      }
+    ],
+    "amenities": [
+      "essentials.wifi",
+      "essentials.airCon",
+      "essentials.tv",
+      "kitchen.coffeeMaker",
+      "kitchen.cookingBasics",
+      "bedroom.hangers",
+      "bedroom.closet",
+      "location.center",
+      "safety.smokeAlarm",
+      "safety.firstAid",
+      "bookingOptions.instantBook",
+      "services.lockBox",
+      "features.breakfast",
+      "family.crib"
+    ],
     "host": {
       "_id": "host-city-14",
       "firstName": "Federico",
@@ -8504,7 +9291,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/43.jpg",
       "isSuperhost": false,
       "isVerified": true,
-      "signupDate": 1546300800000,
+      "signupDate": {
+        "$numberLong": "1546300800000"
+      },
       "rating": 4.86,
       "numReviews": 72,
       "yearsHosting": 5,
@@ -8582,6 +9371,42 @@
     "bathrooms": 2,
     "bedrooms": 2,
     "beds": 2,
+    "highlights": [
+      {
+        "main": "Rooftop with Panoramic Views",
+        "sub": "Enjoy Rome’s skyline from your private terrace above the Spanish Steps.",
+        "imgUrl": "outdoor.sunLoungers"
+      },
+      {
+        "main": "Luxury Interiors",
+        "sub": "Marble finishes and elegant furnishings for a refined stay.",
+        "imgUrl": "bedroom.doubleBed"
+      },
+      {
+        "main": "Prime Location",
+        "sub": "Steps from designer shops, cafés, and historic landmarks.",
+        "imgUrl": "location.center"
+      }
+    ],
+    "amenities": [
+      "essentials.wifi",
+      "essentials.airCon",
+      "essentials.tv",
+      "essentials.workSpace",
+      "kitchen.coffeeMaker",
+      "kitchen.cookingBasics",
+      "bedroom.hangers",
+      "bedroom.closet",
+      "location.center",
+      "outdoor.privatePatio",
+      "features.breakfast",
+      "safety.smokeAlarm",
+      "safety.firstAid",
+      "bookingOptions.instantBook",
+      "services.lockBox",
+      "parking.elevator",
+      "family.crib"
+    ],
     "host": {
       "_id": "host-city-15",
       "firstName": "Alessandra",
@@ -8591,7 +9416,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/56.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.97,
       "numReviews": 109,
       "yearsHosting": 5,
@@ -8698,12 +9525,12 @@
       {
         "main": "Private Terrace",
         "sub": "Enjoy your morning coffee with skyline views.",
-        "imgUrl": "features.outdoorSpace"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
         "main": "Stylish Interior",
         "sub": "Elegant décor and high ceilings with natural light.",
-        "imgUrl": "interior.design"
+        "imgUrl": "features.breakfast"
       }
     ],
     "roomType": "Entire home/apt",
@@ -8716,7 +9543,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/59.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1612137600000,
+      "signupDate": {
+        "$numberLong": "1612137600000"
+      },
       "rating": 4.92,
       "numReviews": 89,
       "yearsHosting": 5,
@@ -8863,7 +9692,7 @@
       {
         "main": "Port Olímpic Views",
         "sub": "See yachts and beach sunsets from your balcony.",
-        "imgUrl": "location.waterfront"
+        "imgUrl": "location.waterFront"
       },
       {
         "main": "Beach Access",
@@ -8886,7 +9715,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/44.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.79,
       "numReviews": 102,
       "yearsHosting": 4,
@@ -9056,7 +9887,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/42.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1606780800000,
+      "signupDate": {
+        "$numberLong": "1606780800000"
+      },
       "rating": 4.78,
       "numReviews": 162,
       "yearsHosting": 4,
@@ -9205,7 +10038,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/49.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1612137600000,
+      "signupDate": {
+        "$numberLong": "1612137600000"
+      },
       "rating": 4.93,
       "numReviews": 95,
       "yearsHosting": 4,
@@ -9364,7 +10199,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/68.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1530403200000,
+      "signupDate": {
+        "$numberLong": "1530403200000"
+      },
       "rating": 4.68,
       "numReviews": 312,
       "yearsHosting": 6,
@@ -9586,7 +10423,7 @@
       {
         "main": "Near Barcelona",
         "sub": "Quick drive or train ride to the city.",
-        "imgUrl": "services.houseKeeping"
+        "imgUrl": "location.center"
       }
     ],
     "roomType": "Entire home/apt",
@@ -9599,7 +10436,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/45.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1614556800000,
+      "signupDate": {
+        "$numberLong": "1614556800000"
+      },
       "rating": 4.93,
       "numReviews": 118,
       "yearsHosting": 4,
@@ -9727,12 +10566,12 @@
       {
         "main": "City Views",
         "sub": "Enjoy skyline views from your private balcony.",
-        "imgUrl": "features.balcony"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
         "main": "Prime Location",
         "sub": "Steps from cafés, nightlife, and cultural sites.",
-        "imgUrl": "location.cityCenter"
+        "imgUrl": "location.center"
       },
       {
         "main": "High-Speed Wi-Fi",
@@ -9750,7 +10589,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/44.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.78,
       "numReviews": 112,
       "yearsHosting": 4,
@@ -9967,7 +10808,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/48.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1612137600000,
+      "signupDate": {
+        "$numberLong": "1612137600000"
+      },
       "rating": 4.92,
       "numReviews": 75,
       "yearsHosting": 4,
@@ -10068,7 +10911,7 @@
       {
         "main": "Infinity Pool Escape",
         "sub": "Swim with sweeping skyline views of Bucharest.",
-        "imgUrl": "features.pool"
+        "imgUrl": "location.pool"
       },
       {
         "main": "Modern Elegance",
@@ -10090,7 +10933,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/48.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1612137600000,
+      "signupDate": {
+        "$numberLong": "1612137600000"
+      },
       "rating": 4.92,
       "numReviews": 75,
       "yearsHosting": 4,
@@ -10286,7 +11131,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/28.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1612137600000,
+      "signupDate": {
+        "$numberLong": "1612137600000"
+      },
       "rating": 4.92,
       "numReviews": 75,
       "yearsHosting": 4,
@@ -10391,7 +11238,7 @@
       {
         "main": "Panoramic City Views",
         "sub": "Enjoy sweeping views of Bucharest’s skyline from the terrace.",
-        "imgUrl": "features.cityView"
+        "imgUrl": "location.mountainView"
       },
       {
         "main": "Private Pool",
@@ -10414,7 +11261,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/11.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1596240000000,
+      "signupDate": {
+        "$numberLong": "1596240000000"
+      },
       "rating": 4.95,
       "numReviews": 82,
       "yearsHosting": 5,
@@ -10617,7 +11466,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/51.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1598918400000,
+      "signupDate": {
+        "$numberLong": "1598918400000"
+      },
       "rating": 4.75,
       "numReviews": 98,
       "yearsHosting": 4,
@@ -10830,7 +11681,9 @@
       "pictureUrl": "https://res.cloudinary.com/dwwzbzmpy/image/upload/v1758112365/cld-sample.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1577836800000,
+      "signupDate": {
+        "$numberLong": "1577836800000"
+      },
       "rating": 4.92,
       "numReviews": 128,
       "yearsHosting": 5,
@@ -10981,7 +11834,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/50.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.79,
       "numReviews": 120,
       "yearsHosting": 5,
@@ -11125,7 +11980,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/52.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1601510400000,
+      "signupDate": {
+        "$numberLong": "1601510400000"
+      },
       "rating": 4.91,
       "numReviews": 85,
       "yearsHosting": 3,
@@ -11311,7 +12168,7 @@
       {
         "main": "Luxury Interiors",
         "sub": "Modern design, floor-to-ceiling windows, and open-plan living for a bright and stylish stay.",
-        "imgUrl": "bedroom.hangers"
+        "imgUrl": "bedroom.doubleBed"
       }
     ],
     "roomType": "Entire home/apt",
@@ -11324,7 +12181,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/54.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.94,
       "numReviews": 90,
       "yearsHosting": 4,
@@ -11508,7 +12367,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/12.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1614556800000,
+      "signupDate": {
+        "$numberLong": "1614556800000"
+      },
       "rating": 4.66,
       "numReviews": 78,
       "yearsHosting": 3,
@@ -11647,7 +12508,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/45.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.56,
       "numReviews": 98,
       "yearsHosting": 4,
@@ -11765,17 +12628,17 @@
       {
         "main": "Central Yet Peaceful",
         "sub": "Near Herăstrău Park with easy metro access.",
-        "imgUrl": "location.cityCenter"
+        "imgUrl": "location.center"
       },
       {
         "main": "Local Charm",
         "sub": "Romanian design meets modern comfort.",
-        "imgUrl": "features.balcony"
+        "imgUrl": "features.grill"
       },
       {
         "main": "Cozy Retreat",
         "sub": "Relax after exploring the heart of Bucharest.",
-        "imgUrl": "bedroom.hangers"
+        "imgUrl": "features.breakfast"
       }
     ],
     "roomType": "Entire home/apt",
@@ -11788,7 +12651,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/40.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1612137600000,
+      "signupDate": {
+        "$numberLong": "1612137600000"
+      },
       "rating": 4.88,
       "numReviews": 89,
       "yearsHosting": 3,
@@ -11998,12 +12863,12 @@
       {
         "main": "Spacious Living",
         "sub": "Bright, open interiors with modern décor and terrace access.",
-        "imgUrl": "bedroom.hangers"
+        "imgUrl": "features.breakfast"
       },
       {
         "main": "Quiet Neighborhood",
         "sub": "Located in a green, residential area just 15 minutes from downtown Bucharest.",
-        "imgUrl": "location.cityCenter"
+        "imgUrl": "location.center"
       }
     ],
     "roomType": "Entire home/apt",
@@ -12016,7 +12881,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/35.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.68,
       "numReviews": 65,
       "yearsHosting": 4,
@@ -12195,12 +13062,12 @@
       {
         "main": "Peaceful Views",
         "sub": "Surrounded by open greenery and fresh air.",
-        "imgUrl": "features.gardenView"
+        "imgUrl": "location.mountainView"
       },
       {
         "main": "Rustic Charm",
         "sub": "Exposed brick and wood create a cozy, natural feel.",
-        "imgUrl": "bedroom.extraPillows"
+        "imgUrl": "features.grill"
       },
       {
         "main": "Outdoor Living",
@@ -12218,7 +13085,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/40.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1580515200000,
+      "signupDate": {
+        "$numberLong": "1580515200000"
+      },
       "rating": 4.95,
       "numReviews": 122,
       "yearsHosting": 6,
@@ -12361,7 +13230,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/12.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1614556800000,
+      "signupDate": {
+        "$numberLong": "1614556800000"
+      },
       "rating": 4.77,
       "numReviews": 78,
       "yearsHosting": 3,
@@ -12457,19 +13328,19 @@
     ],
     "highlights": [
       {
-        "main": "Close to the beach",
+        "main": "Close to the Beach",
         "sub": "Just a short walk from Barcelona’s sandy coastline.",
-        "imgUrl": "location.beachfront"
+        "imgUrl": "location.beach"
       },
       {
-        "main": "Perfect location",
+        "main": "Perfect Location",
         "sub": "Right next to local restaurants and cafés.",
-        "imgUrl": "outdoor.privatePatio"
+        "imgUrl": "location.center"
       },
       {
-        "main": "Cozy interiors",
+        "main": "Cozy Interiors",
         "sub": "Warm lighting and modern furniture for a relaxed stay.",
-        "imgUrl": "interior.livingRoom"
+        "imgUrl": "features.breakfast"
       }
     ],
     "roomType": "Entire home/apt",
@@ -12580,19 +13451,19 @@
     ],
     "highlights": [
       {
-        "main": "Ocean-view balcony",
+        "main": "Ocean-View Balcony",
         "sub": "Enjoy stunning Mediterranean sunsets from your own terrace.",
-        "imgUrl": "outdoor.balcony"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
-        "main": "Historic neighborhood",
+        "main": "Historic Neighborhood",
         "sub": "Located in the Gothic Quarter near lively plazas and markets.",
-        "imgUrl": "location.oldTown"
+        "imgUrl": "location.center"
       },
       {
-        "main": "Sunny interiors",
+        "main": "Sunny Interiors",
         "sub": "Large windows fill the space with natural light all day.",
-        "imgUrl": "interior.livingRoom"
+        "imgUrl": "features.breakfast"
       }
     ],
     "roomType": "Entire home/apt",
@@ -12703,19 +13574,19 @@
     ],
     "highlights": [
       {
-        "main": "Central Midtown location",
+        "main": "Central Midtown Location",
         "sub": "Walk to Times Square, Bryant Park, and major subway lines.",
-        "imgUrl": "location.cityCenter"
+        "imgUrl": "location.center"
       },
       {
-        "main": "Luxury interiors",
+        "main": "Luxury Interiors",
         "sub": "Velvet furniture, modern lighting, and panoramic city windows.",
-        "imgUrl": "interior.livingRoom"
+        "imgUrl": "features.breakfast"
       },
       {
-        "main": "Quiet retreat",
+        "main": "Quiet Retreat",
         "sub": "Soundproof windows and plush bedding for peaceful nights.",
-        "imgUrl": "interior.bedroom"
+        "imgUrl": "essentials.airCon"
       }
     ],
     "roomType": "Entire home/apt",
@@ -12826,19 +13697,19 @@
     ],
     "highlights": [
       {
-        "main": "Central Park views",
+        "main": "Central Park Views",
         "sub": "Wake up to breathtaking views of the park and skyline.",
-        "imgUrl": "location.parkView"
+        "imgUrl": "location.mountainView"
       },
       {
-        "main": "Historic building",
+        "main": "Historic Building",
         "sub": "Beautifully preserved architecture with modern comforts.",
-        "imgUrl": "architecture.historic"
+        "imgUrl": "location.center"
       },
       {
-        "main": "Romantic atmosphere",
+        "main": "Romantic Atmosphere",
         "sub": "Exposed brick, soft lighting, and large windows create the perfect setting.",
-        "imgUrl": "interior.bedroom"
+        "imgUrl": "features.breakfast"
       }
     ],
     "roomType": "Entire home/apt",
@@ -12950,19 +13821,19 @@
     ],
     "highlights": [
       {
-        "main": "Private rooftop terrace",
+        "main": "Private Rooftop Terrace",
         "sub": "Enjoy your morning coffee or sunset dinner overlooking the city.",
-        "imgUrl": "outdoor.rooftop"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
-        "main": "Prime location",
+        "main": "Prime Location",
         "sub": "Just steps away from Rothschild Boulevard and Tel Aviv nightlife.",
-        "imgUrl": "location.cityCenter"
+        "imgUrl": "location.center"
       },
       {
-        "main": "Cozy charm",
+        "main": "Cozy Charm",
         "sub": "Bright interiors and comfortable design perfect for couples.",
-        "imgUrl": "interior.livingRoom"
+        "imgUrl": "features.breakfast"
       }
     ],
     "roomType": "Entire home/apt",
@@ -13076,19 +13947,19 @@
     ],
     "highlights": [
       {
-        "main": "Infinity pool with a view",
+        "main": "Infinity Pool with a View",
         "sub": "Swim while overlooking the Mediterranean coastline.",
-        "imgUrl": "outdoor.pool"
+        "imgUrl": "location.pool"
       },
       {
-        "main": "Architectural gem",
+        "main": "Architectural Gem",
         "sub": "Authentic Bauhaus design featuring clean lines and open spaces.",
-        "imgUrl": "architecture.bauhaus"
+        "imgUrl": "features.gym"
       },
       {
-        "main": "Spacious terrace",
+        "main": "Spacious Terrace",
         "sub": "Perfect for dining al fresco or relaxing under the Tel Aviv sun.",
-        "imgUrl": "outdoor.terrace"
+        "imgUrl": "outdoor.privatePatio"
       }
     ],
     "roomType": "Entire home/apt",
@@ -13199,19 +14070,19 @@
     ],
     "highlights": [
       {
-        "main": "Charming Parisian interiors",
+        "main": "Charming Parisian Interiors",
         "sub": "Classic high ceilings, large windows, and parquet floors.",
-        "imgUrl": "interior.livingRoom"
+        "imgUrl": "features.breakfast"
       },
       {
-        "main": "Central location",
+        "main": "Central Location",
         "sub": "A short walk to the Louvre, Seine River, and metro lines.",
-        "imgUrl": "location.cityCenter"
+        "imgUrl": "location.center"
       },
       {
-        "main": "Perfect for couples",
+        "main": "Perfect for Couples",
         "sub": "Romantic atmosphere with views of typical Paris rooftops.",
-        "imgUrl": "interior.bedroom"
+        "imgUrl": "outdoor.sunLoungers"
       }
     ],
     "roomType": "Entire apartment",
@@ -13323,19 +14194,19 @@
     ],
     "highlights": [
       {
-        "main": "Rooftop views",
+        "main": "Rooftop Views",
         "sub": "Enjoy your morning espresso with breathtaking views of Paris rooftops.",
-        "imgUrl": "outdoor.terrace"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
-        "main": "Historic building",
+        "main": "Historic Building",
         "sub": "Beautifully preserved 19th-century architecture with updated amenities.",
-        "imgUrl": "architecture.historic"
+        "imgUrl": "location.center"
       },
       {
-        "main": "Romantic suite",
+        "main": "Romantic Suite",
         "sub": "Soft lighting and vintage touches create the perfect Parisian atmosphere.",
-        "imgUrl": "interior.bedroom"
+        "imgUrl": "essentials.workSpace"
       }
     ],
     "roomType": "Entire suite",
@@ -13462,17 +14333,17 @@
       {
         "main": "Beachfront Access",
         "sub": "Step directly from your terrace onto warm white sand.",
-        "imgUrl": "location.beachfront"
+        "imgUrl": "location.beach"
       },
       {
         "main": "Tropical Charm",
         "sub": "Handcrafted bamboo furniture and open-air design.",
-        "imgUrl": "interior.livingRoom"
+        "imgUrl": "features.grill"
       },
       {
         "main": "Relax and Unwind",
         "sub": "Enjoy sunsets from your private hammock with ocean breeze.",
-        "imgUrl": "outdoor.hammock"
+        "imgUrl": "outdoor.sunLoungers"
       }
     ],
     "roomType": "Entire bungalow",
@@ -13485,7 +14356,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/56.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1613000000000,
+      "signupDate": {
+        "$numberLong": "1613000000000"
+      },
       "rating": 4.3,
       "numReviews": 72,
       "yearsHosting": 3,
@@ -13598,12 +14471,12 @@
       {
         "main": "Private Pool",
         "sub": "Relax in your own tropical pool under the palms.",
-        "imgUrl": "outdoor.pool"
+        "imgUrl": "location.pool"
       },
       {
         "main": "Tropical Garden",
         "sub": "Surrounded by lush greenery and flowering trees.",
-        "imgUrl": "outdoor.garden"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
         "main": "Close to the Beach",
@@ -13621,7 +14494,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/57.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1612137600000,
+      "signupDate": {
+        "$numberLong": "1612137600000"
+      },
       "rating": 4.9,
       "numReviews": 84,
       "yearsHosting": 4,
@@ -13733,17 +14608,17 @@
       {
         "main": "Ocean View",
         "sub": "Panoramic sea views right from your bed.",
-        "imgUrl": "location.beachfront"
+        "imgUrl": "location.beach"
       },
       {
         "main": "Private Balcony",
         "sub": "Perfect spot for sunsets and morning coffee.",
-        "imgUrl": "outdoor.balcony"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
         "main": "Direct Beach Access",
         "sub": "Walk barefoot from your loft to the sand.",
-        "imgUrl": "outdoor.pathToBeach"
+        "imgUrl": "outdoor.beachEssentials"
       }
     ],
     "roomType": "Entire loft",
@@ -13756,7 +14631,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/54.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1609459200000,
+      "signupDate": {
+        "$numberLong": "1609459200000"
+      },
       "rating": 4.8,
       "numReviews": 67,
       "yearsHosting": 3,
@@ -13867,17 +14744,17 @@
       {
         "main": "Peaceful Surroundings",
         "sub": "Wake up to birdsong and rustling palm leaves.",
-        "imgUrl": "outdoor.garden"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
         "main": "Eco-Friendly Design",
         "sub": "Built from bamboo and natural wood materials.",
-        "imgUrl": "interior.natural"
+        "imgUrl": "features.grill"
       },
       {
         "main": "Perfect for Two",
         "sub": "Private and cozy with a hammock under the trees.",
-        "imgUrl": "outdoor.hammock"
+        "imgUrl": "outdoor.sunLoungers"
       }
     ],
     "roomType": "Entire bungalow",
@@ -13890,7 +14767,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/57.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1612137600000,
+      "signupDate": {
+        "$numberLong": "1612137600000"
+      },
       "rating": 4.85,
       "numReviews": 54,
       "yearsHosting": 3,
@@ -14005,17 +14884,17 @@
       {
         "main": "Private Balcony",
         "sub": "Enjoy sunrises from your hammock overlooking tropical gardens.",
-        "imgUrl": "outdoor.balcony"
+        "imgUrl": "outdoor.privatePatio"
       },
       {
         "main": "Natural Materials",
         "sub": "Built with bamboo, wood, and stone for an authentic island feel.",
-        "imgUrl": "interior.natural"
+        "imgUrl": "features.grill"
       },
       {
         "main": "Open-Air Living",
         "sub": "Spacious deck perfect for reading or yoga.",
-        "imgUrl": "outdoor.deck"
+        "imgUrl": "outdoor.sunLoungers"
       }
     ],
     "roomType": "Entire bungalow",
@@ -14028,7 +14907,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/53.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1613000000000,
+      "signupDate": {
+        "$numberLong": "1613000000000"
+      },
       "rating": 4.8,
       "numReviews": 64,
       "yearsHosting": 4,

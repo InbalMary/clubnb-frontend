@@ -70,11 +70,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Izumi",
+            "fullname": "Izumi",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/12.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -84,7 +84,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Ami", "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -104,8 +104,8 @@ export const demoStays = [
                 "at": "2024-05-11T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
-                    "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "fullname": "Bella",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/57.jpg",
                     "id": "10711825"
                 },
                 "txt": "Fantastic location near Shibuya — clean, modern, and perfect for a short stay.",
@@ -125,11 +125,11 @@ export const demoStays = [
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "John",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/45.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "Izumi was a great host — super responsive and helpful with local tips.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -196,14 +196,14 @@ export const demoStays = [
         ],
         "highlights": [
             {
-                "main": "Central Shibuya Location",
-                "sub": "Steps away from the iconic Shibuya Crossing and top restaurants.",
-                "imgUrl": "location.center"
-            },
-            {
                 "main": "Compact and Modern",
                 "sub": "Thoughtfully designed for maximum comfort in a small space.",
                 "imgUrl": "outdoor.privatePatio"
+            },
+            {
+                "main": "Central Shibuya Location",
+                "sub": "Steps away from the iconic Shibuya Crossing and top restaurants.",
+                "imgUrl": "location.center"
             },
             {
                 "main": "Perfect for couples",
@@ -270,7 +270,7 @@ export const demoStays = [
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
                     "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/57.jpg",
                     "id": "10711826"
                 },
                 "txt": "Takumi was a great host — super responsive and helpful with local tips.",
@@ -344,24 +344,24 @@ export const demoStays = [
                 "imgUrl": "location.center"
             },
             {
+                "main": "Perfect for couples",
+                "sub": "Guests rated this space highly for its convenience and privacy.",
+                "imgUrl": "family.crib"
+            },
+            {
                 "main": "Compact and Modern",
                 "sub": "Thoughtfully designed for maximum comfort in a small space.",
                 "imgUrl": "outdoor.privatePatio"
             },
-            {
-                "main": "Perfect for couples",
-                "sub": "Guests rated this space highly for its convenience and privacy.",
-                "imgUrl": "family.crib"
-            }
         ],
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Aiko",
+            "fullname": "Aiko",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/12.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -371,7 +371,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/74.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -391,11 +391,32 @@ export const demoStays = [
                 "at": "2024-05-11T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
+                    "fullname": "Bob",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/59.jpg",
+                    "id": "10711825"
+                },
+                "txt": "Fantastic location near Ginza — clean, modern, and perfect for a short stay.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.7
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-05-11T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc004",
                     "fullname": "Sophie",
                     "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
                     "id": "10711825"
                 },
-                "txt": "Fantastic location near Ginza — clean, modern, and perfect for a short stay.",
+                "txt": "Fantastic location near Shibuya — clean, modern, and perfect for a short stay.",
                 "rate": {
                     "cleanliness": 4.9,
                     "communication": 5.0,
@@ -416,7 +437,28 @@ export const demoStays = [
                     "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "The host was very responsive and helped us figure out train routes. She even left a small snack gift for us when we arrived — such a sweet touch.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Ron",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/25.jpg",
+                    "id": "10711826"
+                },
+                "txt": "We absolutely loved this apartment! It’s spotless, modern, and has everything a traveler needs — even a washing machine which was super helpful. The bed was really comfortable and the AC kept the room cool during hot days.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -501,11 +543,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Aki",
+            "fullname": "Aki",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/23.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -515,7 +557,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Kaya", "imgUrl": "https://randomuser.me/api/portraits/women/45.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -536,7 +578,7 @@ export const demoStays = [
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
                     "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/50.jpg",
                     "id": "10711825"
                 },
                 "txt": "Fantastic location near Akasuka — clean, modern, and perfect for a short stay.",
@@ -553,14 +595,35 @@ export const demoStays = [
                 "withPet": false
             },
             {
+                "at": "2024-05-11T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc004",
+                    "fullname": "Carol",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/76.jpg",
+                    "id": "10711825"
+                },
+                "txt": "For the price, we couldn’t believe the quality. The place isn’t huge, but it’s laid out so efficiently. There’s storage everywhere and the bathroom is surprisingly spacious.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.7
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Mark",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/89.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "The kitchenette made breakfast easy, and we enjoyed our coffee with a view before heading out. Everything in the apartment is clearly labeled and easy to use.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -572,7 +635,29 @@ export const demoStays = [
                 "nights": 5,
                 "withKids": false,
                 "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Ben",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/75.jpg",
+                    "id": "10711826"
+                },
+                "txt": "We absolutely loved this apartment! It’s spotless, modern, and has everything a traveler needs — even a washing machine which was super helpful. The bed was really comfortable and the AC kept the room cool during hot days.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 7,
+                "withKids": false,
+                "withPet": false
             }
+
         ],
         "likedByUsers": [],
         "availableFrom": "2025-12-01",
@@ -644,11 +729,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Kaito",
+            "fullname": "Kaito",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/92.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -658,7 +743,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Becca", "imgUrl": "https://randomuser.me/api/portraits/women/24.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -678,11 +763,11 @@ export const demoStays = [
                 "at": "2024-05-11T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
-                    "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "fullname": "Jenny",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/47.jpg",
                     "id": "10711825"
                 },
-                "txt": "Fantastic location near Roppongi — clean, modern, and perfect for a short stay.",
+                "txt": "The neighborhood has incredible ramen and sushi spots — we tried three different places in one block! Already missing it.",
                 "rate": {
                     "cleanliness": 4.9,
                     "communication": 5.0,
@@ -699,11 +784,11 @@ export const demoStays = [
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Jerry",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/27.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "The subway is extremely close, making it simple to visit all major spots. We especially enjoyed Senso-ji and Tokyo Skytree.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -713,6 +798,27 @@ export const demoStays = [
                     "value": 4.8
                 },
                 "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Guy",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/76.jpg",
+                    "id": "10711826"
+                },
+                "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 7,
                 "withKids": false,
                 "withPet": false
             }
@@ -787,11 +893,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Masami",
+            "fullname": "Masami",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/90.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -801,7 +907,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/94.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -818,35 +924,14 @@ export const demoStays = [
         },
         "reviews": [
             {
-                "at": "2024-05-11T00:00:00.000Z",
-                "by": {
-                    "_id": "622f3407e36c59e6164fc004",
-                    "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
-                    "id": "10711825"
-                },
-                "txt": "Fantastic location near Shibuya — clean, modern, and perfect for a short stay.",
-                "rate": {
-                    "cleanliness": 4.9,
-                    "communication": 5.0,
-                    "checkIn": 4.8,
-                    "accuracy": 4.8,
-                    "location": 5.0,
-                    "value": 4.7
-                },
-                "nights": 4,
-                "withKids": false,
-                "withPet": false
-            },
-            {
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Jerayah",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/22.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "The subway is extremely close, making it simple to visit all major spots. We especially enjoyed Senso-ji and Tokyo Skytree.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -856,6 +941,48 @@ export const demoStays = [
                     "value": 4.8
                 },
                 "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Sintia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/76.jpg",
+                    "id": "10711826"
+                },
+                "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 7,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Karl",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/35.jpg",
+                    "id": "10711826"
+                },
+                "txt": "Masami was a great host — super responsive and helpful with local tips. The bed was really comfortable and the AC kept the room cool during hot days.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 9,
                 "withKids": false,
                 "withPet": false
             }
@@ -930,11 +1057,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Nana",
+            "fullname": "Nana",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/85.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -964,11 +1091,11 @@ export const demoStays = [
                 "at": "2024-05-11T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
-                    "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "fullname": "Sophia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/16.jpg",
                     "id": "10711825"
                 },
-                "txt": "Fantastic location near Ebisu — clean, modern, and perfect for a short stay.",
+                "txt": "Our host went above and beyond. She arranged transportation for us when we landed super late and checked in every day to make sure we were okay.",
                 "rate": {
                     "cleanliness": 4.9,
                     "communication": 5.0,
@@ -985,11 +1112,53 @@ export const demoStays = [
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Sintia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/70.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 7,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Karl",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg",
+                    "id": "10711826"
+                },
+                "txt": "Nana was a great host — super responsive and helpful with local tips. The bed was really comfortable and the AC kept the room cool during hot days.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 9,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "James",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/13.jpg",
+                    "id": "10711826"
+                },
+                "txt": "Nana was a great host — super responsive and helpful with local tips.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -1077,7 +1246,7 @@ export const demoStays = [
             "fullname": "Takumi",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/98.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -1087,7 +1256,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Beth", "imgUrl": "https://randomuser.me/api/portraits/women/42.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -1108,7 +1277,7 @@ export const demoStays = [
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
                     "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/18.jpg",
                     "id": "10711825"
                 },
                 "txt": "Fantastic location near Akihabara — clean, modern, and perfect for a short stay.",
@@ -1128,8 +1297,8 @@ export const demoStays = [
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Kaleb",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/41.jpg",
                     "id": "10711826"
                 },
                 "txt": "Takumi was a great host — super responsive and helpful with local tips.",
@@ -1220,7 +1389,7 @@ export const demoStays = [
             "fullname": "Takumi",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/98.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -1264,6 +1433,27 @@ export const demoStays = [
                     "value": 4.7
                 },
                 "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Sintia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/60.jpg",
+                    "id": "10711826"
+                },
+                "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 7,
                 "withKids": false,
                 "withPet": false
             },
@@ -1359,11 +1549,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Moriko",
+            "fullname": "Moriko",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/18.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -1373,7 +1563,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Kiki", "imgUrl": "https://randomuser.me/api/portraits/women/94.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -1394,7 +1584,7 @@ export const demoStays = [
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
                     "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/33.jpg",
                     "id": "10711825"
                 },
                 "txt": "Fantastic location near Meguro — clean, modern, and perfect for a short stay.",
@@ -1414,11 +1604,11 @@ export const demoStays = [
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Karl",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/58.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "We loved the keyless entry and smart home features — lights, AC, everything was so easy. Charging ports everywhere was a lifesaver.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -1509,11 +1699,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Jules",
+            "fullname": "Jules",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/31.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -1543,7 +1733,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2001",
                     "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/38.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -1564,7 +1754,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2002",
                     "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/31.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -1585,7 +1775,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2003",
                     "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -1712,8 +1902,8 @@ export const demoStays = [
                 "at": "2024-07-14T00:00:00.000Z",
                 "by": {
                     "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "fullname": "Colette",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -1733,8 +1923,50 @@ export const demoStays = [
                 "at": "2023-11-02T00:00:00.000Z",
                 "by": {
                     "_id": "r-2002",
+                    "fullname": "Andre",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-07-14T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2001",
+                    "fullname": "Chloé",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/18.jpg",
+                    "id": "20711825"
+                },
+                "txt": "Très charmant !We loved how central the apartment was. We could walk to the Louvre in 10 minutes and Notre-Dame in 15. Transportation couldn’t be easier.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
                     "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/43.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -1755,10 +1987,31 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2003",
                     "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg",
                     "id": "20711827"
                 },
-                "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
+                "txt": "The moment we walked in, we were in love — tall windows, vintage decor, and that classic Paris balcony. It felt straight out of a movie.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.4
+                },
+                "nights": 2,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-05-20T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2003",
+                    "fullname": "Ana",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/17.jpg",
+                    "id": "20711827"
+                },
+                "txt": "Staying here made Paris feel familiar. The host was warm and very communicative, and check-in was quick and simple.",
                 "rate": {
                     "cleanliness": 4.9,
                     "communication": 5.0,
@@ -1849,11 +2102,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Charlotte",
+            "fullname": "Charlotte",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/61.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -1879,32 +2132,11 @@ export const demoStays = [
         ,
         "reviews": [
             {
-                "at": "2024-07-14T00:00:00.000Z",
-                "by": {
-                    "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
-                    "id": "20711825"
-                },
-                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
-                "rate": {
-                    "cleanliness": 5.0,
-                    "communication": 5.0,
-                    "checkIn": 4.9,
-                    "accuracy": 4.8,
-                    "location": 5.0,
-                    "value": 4.6
-                },
-                "nights": 5,
-                "withKids": false,
-                "withPet": false
-            },
-            {
                 "at": "2023-11-02T00:00:00.000Z",
                 "by": {
                     "_id": "r-2002",
-                    "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "fullname": "Rafael",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/44.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -1925,7 +2157,70 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2003",
                     "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/74.jpg",
+                    "id": "20711827"
+                },
+                "txt": "The moment we walked in, we were in love — tall windows, vintage decor, and that classic Paris balcony. It felt straight out of a movie.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.4
+                },
+                "nights": 2,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-05-20T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2003",
+                    "fullname": "Clair",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/57.jpg",
+                    "id": "20711827"
+                },
+                "txt": "Staying here made Paris feel familiar. The host was warm and very communicative, and check-in was quick and simple.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.4
+                },
+                "nights": 2,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
+                    "fullname": "Liam",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Not a generic hotel — this place has personality. Beautiful wooden floors, art on the walls, and a tiny café right downstairs where the barista greeted us every morning.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-05-20T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2003",
+                    "fullname": "Ana",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/11.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -2019,11 +2314,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Mark",
+            "fullname": "Mark",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/21.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -2073,8 +2368,8 @@ export const demoStays = [
                 "at": "2023-11-02T00:00:00.000Z",
                 "by": {
                     "_id": "r-2002",
-                    "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "fullname": "Gabe",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -2189,11 +2484,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Ambre",
+            "fullname": "Ambre",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/29.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -2219,23 +2514,23 @@ export const demoStays = [
         ,
         "reviews": [
             {
-                "at": "2024-07-14T00:00:00.000Z",
+                "at": "2023-05-20T00:00:00.000Z",
                 "by": {
-                    "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
-                    "id": "20711825"
+                    "_id": "r-2003",
+                    "fullname": "Clair",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/57.jpg",
+                    "id": "20711827"
                 },
-                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+                "txt": "Staying here made Paris feel familiar. The host was warm and very communicative, and check-in was quick and simple.",
                 "rate": {
-                    "cleanliness": 5.0,
+                    "cleanliness": 4.9,
                     "communication": 5.0,
-                    "checkIn": 4.9,
-                    "accuracy": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 4.7,
                     "location": 5.0,
-                    "value": 4.6
+                    "value": 4.4
                 },
-                "nights": 5,
+                "nights": 2,
                 "withKids": false,
                 "withPet": false
             },
@@ -2244,10 +2539,10 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2002",
                     "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/70.jpg",
                     "id": "20711826"
                 },
-                "txt": "Great place for a couple — elegant and centrally located.",
+                "txt": "Not a generic hotel — this place has personality. Beautiful wooden floors, art on the walls, and a tiny café right downstairs where the barista greeted us every morning.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 4.9,
@@ -2264,11 +2559,11 @@ export const demoStays = [
                 "at": "2023-05-20T00:00:00.000Z",
                 "by": {
                     "_id": "r-2003",
-                    "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "fullname": "Beth",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/91.jpg",
                     "id": "20711827"
                 },
-                "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
+                "txt": "There are so many restaurants nearby — we barely scratched the surface. We want to come back with family next time.",
                 "rate": {
                     "cleanliness": 4.9,
                     "communication": 5.0,
@@ -2392,8 +2687,8 @@ export const demoStays = [
                 "at": "2024-07-14T00:00:00.000Z",
                 "by": {
                     "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "fullname": "Mark",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -2413,11 +2708,11 @@ export const demoStays = [
                 "at": "2023-11-02T00:00:00.000Z",
                 "by": {
                     "_id": "r-2002",
-                    "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "fullname": "Ben",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/10.jpg",
                     "id": "20711826"
                 },
-                "txt": "Great place for a couple — elegant and centrally located.",
+                "txt": "There are so many restaurants nearby — we barely scratched the surface. We want to come back with family next time.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 4.9,
@@ -2434,8 +2729,8 @@ export const demoStays = [
                 "at": "2023-05-20T00:00:00.000Z",
                 "by": {
                     "_id": "r-2003",
-                    "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "fullname": "Norah",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -2601,26 +2896,47 @@ export const demoStays = [
                 "withPet": false
             },
             {
-                "at": "2023-05-20T00:00:00.000Z",
+                "at": "2024-07-14T00:00:00.000Z",
                 "by": {
-                    "_id": "r-2003",
-                    "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
-                    "id": "20711827"
+                    "_id": "r-2001",
+                    "fullname": "Colette",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg",
+                    "id": "20711825"
                 },
-                "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
+                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
                 "rate": {
-                    "cleanliness": 4.9,
+                    "cleanliness": 5.0,
                     "communication": 5.0,
-                    "checkIn": 4.8,
-                    "accuracy": 4.7,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
                     "location": 5.0,
-                    "value": 4.4
+                    "value": 4.6
                 },
-                "nights": 2,
+                "nights": 5,
                 "withKids": false,
                 "withPet": false
-            }
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
+                    "fullname": "Andre",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
         ],
         "likedByUsers": [],
         "availableFrom": "2025-11-20",
@@ -2699,11 +3015,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Maine",
+            "fullname": "Maine",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/42.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -2733,7 +3049,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2001",
                     "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -2774,7 +3090,7 @@ export const demoStays = [
                 "at": "2023-05-20T00:00:00.000Z",
                 "by": {
                     "_id": "r-2003",
-                    "fullname": "Ana",
+                    "fullname": "Keren",
                     "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
                     "id": "20711827"
                 },
@@ -2790,7 +3106,49 @@ export const demoStays = [
                 "nights": 2,
                 "withKids": false,
                 "withPet": false
-            }
+            },
+            {
+                "at": "2024-07-14T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2001",
+                    "fullname": "Colette",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg",
+                    "id": "20711825"
+                },
+                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
+                    "fullname": "Andre",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
         ],
         "likedByUsers": [],
         "availableFrom": "2025-11-20",
@@ -2869,11 +3227,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Lore",
+            "fullname": "Lore",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/26.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -2903,7 +3261,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2001",
                     "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/64.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -2923,8 +3281,8 @@ export const demoStays = [
                 "at": "2023-11-02T00:00:00.000Z",
                 "by": {
                     "_id": "r-2002",
-                    "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "fullname": "Ken",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/73.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -2945,7 +3303,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2003",
                     "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/62.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -2960,7 +3318,49 @@ export const demoStays = [
                 "nights": 2,
                 "withKids": false,
                 "withPet": false
-            }
+            },
+            {
+                "at": "2024-07-14T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2001",
+                    "fullname": "Colette",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/59.jpg",
+                    "id": "20711825"
+                },
+                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
+                    "fullname": "Andre",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/29.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
         ],
         "likedByUsers": [],
         "availableFrom": "2025-11-20",
@@ -3039,11 +3439,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Hugo",
+            "fullname": "Hugo",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/95.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -3072,8 +3472,8 @@ export const demoStays = [
                 "at": "2024-07-14T00:00:00.000Z",
                 "by": {
                     "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "fullname": "Jean",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -3094,7 +3494,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2002",
                     "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -3114,8 +3514,8 @@ export const demoStays = [
                 "at": "2023-05-20T00:00:00.000Z",
                 "by": {
                     "_id": "r-2003",
-                    "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "fullname": "Etienne",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/72.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -3209,11 +3609,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Alexis",
+            "fullname": "Alexis",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/60.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -3242,8 +3642,8 @@ export const demoStays = [
                 "at": "2024-07-14T00:00:00.000Z",
                 "by": {
                     "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "fullname": "Remi",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/54.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -3264,7 +3664,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2002",
                     "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/32.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -3285,7 +3685,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2003",
                     "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/16.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -3300,7 +3700,49 @@ export const demoStays = [
                 "nights": 2,
                 "withKids": false,
                 "withPet": false
-            }
+            },
+            {
+                "at": "2024-07-14T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2001",
+                    "fullname": "Colette",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/33.jpg",
+                    "id": "20711825"
+                },
+                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
+                    "fullname": "Andre",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/23.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
         ],
         "likedByUsers": [],
         "availableFrom": "2025-11-20",
@@ -3359,12 +3801,12 @@ export const demoStays = [
             {
                 "main": "Old Meets New",
                 "sub": "Modern design in a beautifully restored 19th-century building.",
-                "imgUrl": "interior.modern"
+                "imgUrl": "features.breakfast"
             },
             {
                 "main": "Well Connected",
                 "sub": "Metro and tram stations within a 3-minute walk.",
-                "imgUrl": "features.transport"
+                "imgUrl": "location.center"
             }
         ],
         "roomType": "Entire home/apt",
@@ -3374,7 +3816,7 @@ export const demoStays = [
             "fullname": "Balázs Kovács",
             "location": "Budapest, Hungary",
             "about": "Local designer and music lover who enjoys helping guests explore Budapest’s creative side.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/47.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/27.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1572566400000,
@@ -3403,7 +3845,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-3101",
                     "fullname": "Zsófia",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg"
+                    "imgUrl": "https://randomuser.me/api/portraits/women/27.jpg"
                 },
                 "txt": "Fantastic location near the ruin bars and metro! The apartment was spotless and comfortable.",
                 "rate": {
@@ -3423,7 +3865,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-3102",
                     "fullname": "David",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg"
+                    "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg"
                 },
                 "txt": "Perfect stay for exploring Budapest — loved the mix of history and style. Great host!",
                 "rate": {
@@ -3443,7 +3885,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-3103",
                     "fullname": "Elena",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/40.jpg"
+                    "imgUrl": "https://randomuser.me/api/portraits/women/88.jpg"
                 },
                 "txt": "Charming, bright, and close to everything. I’d definitely return.",
                 "rate": {
@@ -3516,12 +3958,12 @@ export const demoStays = [
             {
                 "main": "Artistic Loft",
                 "sub": "Industrial charm meets cozy design in the heart of Pest.",
-                "imgUrl": "interior.loft"
+                "imgUrl": "features.grill"
             },
             {
                 "main": "Great Transport Links",
                 "sub": "Close to metro line M2 and trams 4–6 for easy city access.",
-                "imgUrl": "features.transport"
+                "imgUrl": "location.center"
             }
         ],
         "roomType": "Entire home/apt",
@@ -3673,12 +4115,12 @@ export const demoStays = [
             {
                 "main": "Industrial Design",
                 "sub": "Exposed brick walls and high ceilings create a modern urban feel.",
-                "imgUrl": "interior.loft"
+                "imgUrl": "features.grill"
             },
             {
                 "main": "Easy City Access",
                 "sub": "Minutes from metro lines and tram stops to explore Pest and Buda.",
-                "imgUrl": "features.transport"
+                "imgUrl": "location.center"
             }
         ],
         "roomType": "Entire home/apt",
@@ -3825,7 +4267,7 @@ export const demoStays = [
             {
                 "main": "Sunny Balcony",
                 "sub": "Enjoy a quiet breakfast with views over Budapest’s rooftops.",
-                "imgUrl": "outdoor.balcony"
+                "imgUrl": "outdoor.privatePatio"
             },
             {
                 "main": "Central Location",
@@ -3835,7 +4277,7 @@ export const demoStays = [
             {
                 "main": "Modern Design",
                 "sub": "Compact yet stylish, with bright interiors and comfort essentials.",
-                "imgUrl": "interior.modern"
+                "imgUrl": "features.breakfast"
             }
         ],
         "roomType": "Entire home/apt",
@@ -3986,12 +4428,12 @@ export const demoStays = [
             {
                 "main": "Elegant Design",
                 "sub": "Classic details with modern touches and soft lighting.",
-                "imgUrl": "interior.elegant"
+                "imgUrl": "features.breakfast"
             },
             {
                 "main": "Quiet Retreat",
                 "sub": "Peaceful residential building in central Pest.",
-                "imgUrl": "features.relax"
+                "imgUrl": "bedroom.doubleBed"
             }
         ],
         "roomType": "Entire home/apt",
@@ -4143,12 +4585,12 @@ export const demoStays = [
             {
                 "main": "Industrial Loft Design",
                 "sub": "Modern interiors with high ceilings and open-plan layout.",
-                "imgUrl": "interior.loft"
+                "imgUrl": "features.grill"
             },
             {
                 "main": "Walk Everywhere",
                 "sub": "Short walk to Deák Square, Andrassy Avenue, and metro connections.",
-                "imgUrl": "features.transport"
+                "imgUrl": "location.center"
             }
         ],
         "roomType": "Entire home/apt",
@@ -4294,17 +4736,17 @@ export const demoStays = [
             {
                 "main": "Private Terrace",
                 "sub": "Spacious outdoor space for morning coffee or evening wine.",
-                "imgUrl": "outdoor.terrace"
+                "imgUrl": "outdoor.privatePatio"
             },
             {
                 "main": "Peaceful Location",
                 "sub": "Close to Margaret Island and the Danube promenade.",
-                "imgUrl": "location.riverside"
+                "imgUrl": "location.waterFront"
             },
             {
                 "main": "Modern Interiors",
                 "sub": "Bright living space with soft tones and stylish furniture.",
-                "imgUrl": "interior.modern"
+                "imgUrl": "features.breakfast"
             }
         ],
         "roomType": "Entire home/apt",
@@ -4455,12 +4897,12 @@ export const demoStays = [
             {
                 "main": "Elegant Style",
                 "sub": "Refined design with warm tones and quality finishes.",
-                "imgUrl": "interior.elegant"
+                "imgUrl": "features.breakfast"
             },
             {
                 "main": "Walk to Everything",
                 "sub": "Cafés, music venues, and metro stations all nearby.",
-                "imgUrl": "features.walkable"
+                "imgUrl": "location.center"
             }
         ],
         "roomType": "Entire home/apt",
@@ -4611,12 +5053,12 @@ export const demoStays = [
             {
                 "main": "Cozy & Modern",
                 "sub": "Stylish décor with a warm, homey atmosphere.",
-                "imgUrl": "interior.modern"
+                "imgUrl": "features.breakfast"
             },
             {
                 "main": "Walk Everywhere",
                 "sub": "Minutes from metro lines, cafés, and restaurants.",
-                "imgUrl": "features.walkable"
+                "imgUrl": "location.center"
             }
         ],
         "roomType": "Entire home/apt",
@@ -4762,7 +5204,7 @@ export const demoStays = [
             {
                 "main": "Industrial Charm",
                 "sub": "Exposed brick and tall windows in a historic building.",
-                "imgUrl": "interior.industrial"
+                "imgUrl": "features.grill"
             },
             {
                 "main": "Central Yet Quiet",
@@ -4772,7 +5214,7 @@ export const demoStays = [
             {
                 "main": "Modern Design",
                 "sub": "Stylish open-plan layout with designer furnishings.",
-                "imgUrl": "interior.modern"
+                "imgUrl": "features.breakfast"
             }
         ],
         "roomType": "Entire home/apt",
@@ -5715,14 +6157,14 @@ export const demoStays = [
         "price": 260,
         "cleaningFee": 40,
         "summary": "Elegant apartment near Kensington Gardens with easy access to Hyde Park and museums. Bright interiors, marble bathroom, and private balcony for morning coffee.",
-        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "" }],
+        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwNTY3MTg5MzgxMzYyNDE3NQ==/original/edfcd225-c244-4102-b1a9-c4750e922891.jpeg?im_w=480" }],
         "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
         "beds": 1,
         "amenities": ["essentials.wifi", "essentials.tv", "kitchen.coffeeMaker", "bedroom.hangers", "bookingOptions.instantBook", "safety.smokeAlarm"],
         "highlights": [
-            { "main": "Hyde Park Views", "sub": "Walk to the gardens in minutes.", "imgUrl": "location.park" },
+            { "main": "Hyde Park Views", "sub": "Walk to the gardens in minutes.", "imgUrl": "location.mountainView" },
             { "main": "Quiet & Elegant", "sub": "Refined design in a calm neighborhood.", "imgUrl": "bedroom.doubleBed" }
         ],
         "roomType": "Entire home/apt",
@@ -5806,7 +6248,7 @@ export const demoStays = [
         "price": 220,
         "cleaningFee": 35,
         "summary": "Stylish open-plan loft in the heart of Shoreditch. Exposed brick, high ceilings, and creative décor make this perfect for artists and couples.",
-        "rooms": [{ "roomType": "studio", "bedType": "king", "imgUrl": "" }],
+        "rooms": [{ "roomType": "studio", "bedType": "king", "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-934366/original/ef48475a-892c-4256-a4e9-f96af557128d.jpeg?im_w=480" }],
         "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
@@ -5897,14 +6339,14 @@ export const demoStays = [
         "price": 280,
         "cleaningFee": 45,
         "summary": "Charming townhouse near Portobello Market. Pastel façades, cobblestone streets, and boutique shopping right outside your door.",
-        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "" }],
+        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMzMDYxOTMwNjg0OTY0NDMzNQ%3D%3D/original/5983dc59-84fd-4a58-ae3f-5280d6955588.jpeg?im_w=480" }],
         "guests": 3,
         "bathrooms": 2,
         "bedrooms": 2,
         "beds": 2,
         "amenities": ["essentials.wifi", "kitchen.coffeeMaker", "safety.smokeAlarm", "family.crib", "services.lockBox"],
         "highlights": [
-            { "main": "Market Nearby", "sub": "Portobello Market just around the corner.", "imgUrl": "location.market" },
+            { "main": "Market Nearby", "sub": "Portobello Market just around the corner.", "imgUrl": "location.center" },
             { "main": "Classic Design", "sub": "Bright interiors with soft colors and art books.", "imgUrl": "bedroom.doubleBed" }
         ],
         "roomType": "Entire home/apt",
@@ -5988,15 +6430,23 @@ export const demoStays = [
         "price": 210,
         "cleaningFee": 35,
         "summary": "Bright loft overlooking Regent’s Canal. Perfect for music lovers, near Camden Market and live venues.",
-        "rooms": [{ "roomType": "studio", "bedType": "king", "imgUrl": "" }],
+        "rooms": [{ "roomType": "studio", "bedType": "king", "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1200761770557415189/original/07c31210-f1e7-451f-932f-1b518b1cfc2b.jpeg?im_w=480" }],
         "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
         "beds": 1,
         "amenities": ["essentials.wifi", "essentials.workSpace", "kitchen.coffeeMaker", "safety.firstAid", "services.lockBox"],
         "highlights": [
-            { "main": "Canal Views", "sub": "Enjoy morning coffee overlooking the water.", "imgUrl": "location.center" },
-            { "main": "Music Scene", "sub": "Walk to Camden gigs and markets.", "imgUrl": "music.guitar" }
+            {
+                "main": "Canal Views",
+                "sub": "Enjoy morning coffee overlooking the water.",
+                "imgUrl": "location.waterFront"
+            },
+            {
+                "main": "Music Scene",
+                "sub": "Walk to Camden gigs and markets.",
+                "imgUrl": "location.center"
+            }
         ],
         "roomType": "Entire home/apt",
         "host": {
@@ -6079,7 +6529,7 @@ export const demoStays = [
         "price": 230,
         "cleaningFee": 30,
         "summary": "Compact studio steps from the Royal Opera House and West End theatres. Ideal for couples or solo travelers who love London’s culture.",
-        "rooms": [{ "roomType": "studio", "bedType": "double", "imgUrl": "" }],
+        "rooms": [{ "roomType": "studio", "bedType": "double", "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1442072486844571600/original/f420b400-1544-49c4-857e-2fe14e1f6c9b.jpeg?im_w=480" }],
         "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
@@ -6170,7 +6620,7 @@ export const demoStays = [
         "price": 250,
         "cleaningFee": 40,
         "summary": "Elegant apartment with modern British décor near Baker Street and Oxford Circus. Great choice for couples or business travelers.",
-        "rooms": [{ "roomType": "bedroom", "bedType": "king", "imgUrl": "" }],
+        "rooms": [{ "roomType": "bedroom", "bedType": "king", "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-20511404/original/322e3a88-f3bb-40b3-842c-cb8916f2348e.jpeg?im_w=480" }],
         "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
@@ -6261,14 +6711,14 @@ export const demoStays = [
         "price": 270,
         "cleaningFee": 45,
         "summary": "Panoramic views of the Thames, modern interiors, and walking distance to the Tate Modern and London Eye.",
-        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "" }],
+        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwODQ4ODQxOTYxODkwMzI5NQ%3D%3D/original/1e7bf81c-6601-4860-838b-2602329a6f0f.png?im_w=480" }],
         "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
         "beds": 1,
         "amenities": ["essentials.wifi", "kitchen.coffeeMaker", "safety.smokeAlarm", "services.lockBox"],
         "highlights": [
-            { "main": "River Views", "sub": "Floor-to-ceiling windows overlooking the Thames.", "imgUrl": "location.waterfront" },
+            { "main": "River Views", "sub": "Floor-to-ceiling windows overlooking the Thames.", "imgUrl": "location.waterFront" },
             { "main": "Walk Everywhere", "sub": "Minutes from galleries and landmarks.", "imgUrl": "location.center" }
         ],
         "roomType": "Entire home/apt",
@@ -6352,7 +6802,7 @@ export const demoStays = [
         "price": 275,
         "cleaningFee": 45,
         "summary": "Modern apartment with private balcony and partial view of Big Ben. Secure building and top location for sightseeing.",
-        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "" }],
+        "rooms": [{ "roomType": "bedroom", "bedType": "queen", "imgUrl": "https://a0.muscache.com/im/pictures/a045a868-f957-4ae8-bee0-c2d3594bb430.jpg?im_w=480" }],
         "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
@@ -6360,7 +6810,7 @@ export const demoStays = [
         "amenities": ["essentials.wifi", "essentials.tv", "kitchen.coffeeMaker", "safety.smokeAlarm"],
         "highlights": [
             { "main": "Central Location", "sub": "Walk to Westminster Abbey and Parliament.", "imgUrl": "location.center" },
-            { "main": "Balcony View", "sub": "Watch the sunset over the city skyline.", "imgUrl": "outdoor.view" }
+            { "main": "Balcony View", "sub": "Watch the sunset over the city skyline.", "imgUrl": "outdoor.sunLoungers" }
         ],
         "roomType": "Entire home/apt",
         "host": {
@@ -6490,7 +6940,7 @@ export const demoStays = [
             {
                 "main": "Classic NYC Studio",
                 "sub": "Compact, clean and full of city energy.",
-                "imgUrl": "bedroom.double bed"
+                "imgUrl": "bedroom.doubleBed"
             }
         ],
         "roomType": "Entire home/apt",
@@ -6615,7 +7065,7 @@ export const demoStays = [
     \n\nRelax in a calm, classic NYC apartment with vintage touches, hardwood floors, and a small reading nook. Cafés and the 1 train are just around the corner.
     \n\nIdeal for couples or solo travelers who want an authentic neighborhood experience.`,
         "rooms": [
-            { "roomType": "entire apartment", "bedType": "queen bed", "imgUrl": "" }
+            { "roomType": "entire apartment", "bedType": "queen bed", "imgUrl": "https://a0.muscache.com/im/pictures/3f2d2814-761d-4c8c-95ed-5d520bacc6af.jpg?im_w=480" }
         ],
         "guests": 2,
         "bathrooms": 1,
@@ -6627,7 +7077,7 @@ export const demoStays = [
         ],
         "highlights": [
             { "main": "Near Central Park", "sub": "Walk to the park in 5 minutes.", "imgUrl": "location.center" },
-            { "main": "Peaceful Neighborhood", "sub": "Classic prewar building, quiet block.", "imgUrl": "essentials.home" }
+            { "main": "Peaceful Neighborhood", "sub": "Classic prewar building, quiet block.", "imgUrl": "outdoor.privatePatio" }
         ],
         "roomType": "Entire home/apt",
         "host": {
@@ -6726,7 +7176,7 @@ export const demoStays = [
     \n\nLocated near the L train, you'll reach Manhattan in 10 minutes. Surrounded by trendy bars, music venues, and local markets.
     \n\nPerfect for creatives, couples, or solo travelers seeking a true Brooklyn vibe.`,
         "rooms": [
-            { "roomType": "loft", "bedType": "king bed", "imgUrl": "" }
+            { "roomType": "loft", "bedType": "king bed", "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-787065483397206331/original/8e0ff942-aed6-4f66-9ae7-f92943c75b5e.jpeg?im_w=480" }
         ],
         "guests": 2,
         "bathrooms": 1,
@@ -6738,7 +7188,7 @@ export const demoStays = [
         ],
         "highlights": [
             { "main": "Creative Loft", "sub": "Open plan with art and plants.", "imgUrl": "essentials.workSpace" },
-            { "main": "Near Music Venues", "sub": "Live shows every night nearby.", "imgUrl": "music.jazz" }
+            { "main": "Near Music Venues", "sub": "Live shows every night nearby.", "imgUrl": "location.center" }
         ],
         "roomType": "Entire home/apt",
         "host": {
@@ -6837,7 +7287,7 @@ export const demoStays = [
     \n\nMinutes from 125th Street and the Apollo Theater, with great soul food spots nearby.
     \n\nIdeal for solo travelers or friends seeking a warm local stay.`,
         "rooms": [
-            { "roomType": "private room", "bedType": "double bed", "imgUrl": "" }
+            { "roomType": "private room", "bedType": "double bed", "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-50888320/original/7152669d-0541-4055-9911-f4c15bb770fc.jpeg?im_w=480" }
         ],
         "guests": 2,
         "bathrooms": 1,
@@ -6849,7 +7299,7 @@ export const demoStays = [
         ],
         "highlights": [
             { "main": "Historic Building", "sub": "Classic brownstone charm.", "imgUrl": "heritage.home" },
-            { "main": "Near Apollo Theater", "sub": "Walk to iconic Harlem venues.", "imgUrl": "music.jazz" }
+            { "main": "Near Apollo Theater", "sub": "Walk to iconic Harlem venues.", "imgUrl": "features.breakfast" }
         ],
         "roomType": "Private room",
         "host": {
@@ -7068,7 +7518,7 @@ export const demoStays = [
             "essentials.workSpace", "location.center"
         ],
         "highlights": [
-            { "main": "Private Garden", "sub": "Peaceful escape in the city.", "imgUrl": "essentials.home" },
+            { "main": "Private Garden", "sub": "Peaceful escape in the city.", "imgUrl": "outdoor.privatePatio" },
             { "main": "Local Restaurants", "sub": "Steps from East Village dining.", "imgUrl": "location.center" }
         ],
         "roomType": "Entire home/apt",
@@ -7178,7 +7628,7 @@ export const demoStays = [
             "essentials.workSpace", "safety.smokeAlarm"
         ],
         "highlights": [
-            { "main": "Designer Suite", "sub": "Curated art and furniture.", "imgUrl": "essentials.design" },
+            { "main": "Designer Suite", "sub": "Curated art and furniture.", "imgUrl": "features.breakfast" },
             { "main": "High Line Access", "sub": "Walk to parks and galleries.", "imgUrl": "location.center" }
         ],
         "roomType": "Entire home/apt",
@@ -7454,6 +7904,39 @@ export const demoStays = [
         "bathrooms": 1,
         "bedrooms": 1,
         "beds": 1,
+        "amenities": [
+            "essentials.wifi",
+            "essentials.tv",
+            "essentials.airCon",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "bedroom.hangers",
+            "outdoor.privatePatio",
+            "location.center",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "family.crib"
+        ],
+        "highlights": [
+            {
+                "main": "Private Terrace",
+                "sub": "Enjoy morning espresso or evening aperitivo overlooking Trastevere’s rooftops.",
+                "imgUrl": "outdoor.privatePatio"
+            },
+            {
+                "main": "Historic Neighborhood",
+                "sub": "Stay in the heart of Trastevere, surrounded by cobbled streets and local cafés.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Cozy Interiors",
+                "sub": "Warm design and natural light create a relaxing atmosphere.",
+                "imgUrl": "bedroom.doubleBed"
+            }
+        ],
+
         "host": {
             "_id": "host-city-8",
             "firstName": "Giulia",
@@ -7521,6 +8004,37 @@ export const demoStays = [
         "bathrooms": 1,
         "bedrooms": 1,
         "beds": 1,
+        "highlights": [
+            {
+                "main": "Steps from the Vatican",
+                "sub": "Stay just a short walk from St. Peter’s Basilica and Vatican Museums.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Bright & Comfortable",
+                "sub": "Natural light, cozy design, and modern touches for a relaxing stay.",
+                "imgUrl": "bedroom.doubleBed"
+            },
+            {
+                "main": "Perfect for Short Stays",
+                "sub": "Compact layout with everything you need for a city getaway.",
+                "imgUrl": "essentials.wifi"
+            }
+        ],
+        "amenities": [
+            "essentials.wifi",
+            "essentials.airCon",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "bedroom.hangers",
+            "location.center",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "features.breakfast"
+        ],
         "host": {
             "_id": "host-city-9",
             "firstName": "Marco",
@@ -7587,6 +8101,39 @@ export const demoStays = [
         "bathrooms": 1,
         "bedrooms": 1,
         "beds": 2,
+        "highlights": [
+            {
+                "main": "Colosseum Views",
+                "sub": "Wake up to a breathtaking view of one of the world’s most iconic landmarks.",
+                "imgUrl": "location.mountainView"
+            },
+            {
+                "main": "Modern Loft Design",
+                "sub": "Spacious interiors blending contemporary style with historic surroundings.",
+                "imgUrl": "bedroom.doubleBed"
+            },
+            {
+                "main": "Prime Location",
+                "sub": "Steps from Rome’s ancient ruins, cafés, and lively piazzas.",
+                "imgUrl": "location.center"
+            }
+        ],
+        "amenities": [
+            "essentials.wifi",
+            "essentials.airCon",
+            "essentials.tv",
+            "essentials.workSpace",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "bedroom.hangers",
+            "bedroom.closet",
+            "location.center",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "features.breakfast"
+        ],
         "host": {
             "_id": "host-city-10",
             "firstName": "Lorenzo",
@@ -7653,6 +8200,40 @@ export const demoStays = [
         "bathrooms": 2,
         "bedrooms": 2,
         "beds": 2,
+        "highlights": [
+            {
+                "main": "View of the Pantheon",
+                "sub": "Wake up to one of Rome’s most iconic landmarks right outside your window.",
+                "imgUrl": "location.mountainView"
+            },
+            {
+                "main": "Historic Character",
+                "sub": "Exposed wooden beams and traditional architecture meet modern comfort.",
+                "imgUrl": "features.grill"
+            },
+            {
+                "main": "Prime Piazza Location",
+                "sub": "Stay directly on Piazza della Rotonda, surrounded by cafés and culture.",
+                "imgUrl": "location.center"
+            }
+        ],
+        "amenities": [
+            "essentials.wifi",
+            "essentials.airCon",
+            "essentials.tv",
+            "essentials.workSpace",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "bedroom.doubleBed",
+            "bedroom.hangers",
+            "bedroom.closet",
+            "location.center",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "features.breakfast"
+        ],
         "host": {
             "_id": "host-city-11",
             "firstName": "Elena",
@@ -7719,6 +8300,39 @@ export const demoStays = [
         "bathrooms": 1,
         "bedrooms": 1,
         "beds": 1,
+        "highlights": [
+            {
+                "main": "Steps from Campo de' Fiori",
+                "sub": "Explore Rome’s iconic market and vibrant piazza just around the corner.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Traditional Charm",
+                "sub": "Classic Roman decor and warm tones create an inviting retreat.",
+                "imgUrl": "features.breakfast"
+            },
+            {
+                "main": "Quiet Comfort",
+                "sub": "Relax after sightseeing in a peaceful apartment with modern amenities.",
+                "imgUrl": "bedroom.doubleBed"
+            }
+        ],
+        "amenities": [
+            "essentials.wifi",
+            "essentials.airCon",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "bedroom.hangers",
+            "bedroom.closet",
+            "location.center",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "features.breakfast",
+            "family.crib"
+        ],
         "host": {
             "_id": "host-city-12",
             "firstName": "Davide",
@@ -7781,11 +8395,45 @@ export const demoStays = [
         "price": 210,
         "cleaningFee": 40,
         "summary": `Trendy loft with exposed brick and balcony views of the Colosseum. Great restaurants nearby.`,
-        "rooms": [{ "roomType": "loft", "bedType": "king bed", "imgUrl": "" }],
+        "rooms": [{ "roomType": "loft", "bedType": "king bed", "imgUrl": "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-29273928-unapproved/original/3addaee5-9926-4c2d-8ce5-ad14722c2012.JPEG?im_w=480" }],
         "guests": 2,
         "bathrooms": 1,
         "bedrooms": 1,
         "beds": 1,
+        "highlights": [
+            {
+                "main": "Colosseum Views",
+                "sub": "Enjoy balcony views of Rome’s most famous monument right from your loft.",
+                "imgUrl": "location.mountainView"
+            },
+            {
+                "main": "Trendy Monti Neighborhood",
+                "sub": "Boutiques, cafés, and wine bars just steps from your door.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Industrial Loft Style",
+                "sub": "Exposed brick, high ceilings, and modern design for a stylish stay.",
+                "imgUrl": "bedroom.doubleBed"
+            }
+        ],
+        "amenities": [
+            "essentials.wifi",
+            "essentials.airCon",
+            "essentials.tv",
+            "essentials.workSpace",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "bedroom.hangers",
+            "bedroom.closet",
+            "outdoor.privatePatio",
+            "location.center",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "features.breakfast"
+        ],
         "host": {
             "_id": "host-city-13",
             "firstName": "Chiara",
@@ -7852,6 +8500,39 @@ export const demoStays = [
         "bathrooms": 1,
         "bedrooms": 1,
         "beds": 2,
+        "highlights": [
+            {
+                "main": "Authentic Testaccio Location",
+                "sub": "Experience local Rome — markets, cafés, and nightlife just steps away.",
+                "imgUrl": "location.center"
+            },
+            {
+                "main": "Bright & Modern",
+                "sub": "Stylish interiors filled with natural light and clean design.",
+                "imgUrl": "features.breakfast"
+            },
+            {
+                "main": "Comfort & Convenience",
+                "sub": "Perfect for couples seeking a cozy retreat in a vibrant neighborhood.",
+                "imgUrl": "bedroom.doubleBed"
+            }
+        ],
+        "amenities": [
+            "essentials.wifi",
+            "essentials.airCon",
+            "essentials.tv",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "bedroom.hangers",
+            "bedroom.closet",
+            "location.center",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "features.breakfast",
+            "family.crib"
+        ],
         "host": {
             "_id": "host-city-14",
             "firstName": "Federico",
@@ -7918,6 +8599,42 @@ export const demoStays = [
         "bathrooms": 2,
         "bedrooms": 2,
         "beds": 2,
+        "highlights": [
+            {
+                "main": "Rooftop with Panoramic Views",
+                "sub": "Enjoy Rome’s skyline from your private terrace above the Spanish Steps.",
+                "imgUrl": "outdoor.sunLoungers"
+            },
+            {
+                "main": "Luxury Interiors",
+                "sub": "Marble finishes and elegant furnishings for a refined stay.",
+                "imgUrl": "bedroom.doubleBed"
+            },
+            {
+                "main": "Prime Location",
+                "sub": "Steps from designer shops, cafés, and historic landmarks.",
+                "imgUrl": "location.center"
+            }
+        ],
+        "amenities": [
+            "essentials.wifi",
+            "essentials.airCon",
+            "essentials.tv",
+            "essentials.workSpace",
+            "kitchen.coffeeMaker",
+            "kitchen.cookingBasics",
+            "bedroom.hangers",
+            "bedroom.closet",
+            "location.center",
+            "outdoor.privatePatio",
+            "features.breakfast",
+            "safety.smokeAlarm",
+            "safety.firstAid",
+            "bookingOptions.instantBook",
+            "services.lockBox",
+            "parking.elevator",
+            "family.crib"
+        ],
         "host": {
             "_id": "host-city-15",
             "firstName": "Alessandra",
@@ -8021,14 +8738,15 @@ export const demoStays = [
             {
                 "main": "Private Terrace",
                 "sub": "Enjoy your morning coffee with skyline views.",
-                "imgUrl": "features.outdoorSpace"
+                "imgUrl": "outdoor.privatePatio"
             },
             {
                 "main": "Stylish Interior",
                 "sub": "Elegant décor and high ceilings with natural light.",
-                "imgUrl": "interior.design"
+                "imgUrl": "features.breakfast"
             }
-        ],
+        ]
+        ,
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-37",
@@ -8184,7 +8902,7 @@ export const demoStays = [
             {
                 "main": "Port Olímpic Views",
                 "sub": "See yachts and beach sunsets from your balcony.",
-                "imgUrl": "location.waterfront"
+                "imgUrl": "location.waterFront"
             },
             {
                 "main": "Beach Access",
@@ -8827,9 +9545,21 @@ export const demoStays = [
             "services.houseKeeping"
         ],
         "highlights": [
-            { "main": "Sea Views", "sub": "Overlooking Costa Brava’s turquoise coast.", "imgUrl": "location.beach" },
-            { "main": "Modern Comfort", "sub": "Bright interiors and full kitchen amenities.", "imgUrl": "kitchen.coffeeMaker" },
-            { "main": "Near Barcelona", "sub": "Quick drive or train ride to the city.", "imgUrl": "services.houseKeeping" }
+            {
+                "main": "Sea Views",
+                "sub": "Overlooking Costa Brava’s turquoise coast.",
+                "imgUrl": "location.beach"
+            },
+            {
+                "main": "Modern Comfort",
+                "sub": "Bright interiors and full kitchen amenities.",
+                "imgUrl": "kitchen.coffeeMaker"
+            },
+            {
+                "main": "Near Barcelona",
+                "sub": "Quick drive or train ride to the city.",
+                "imgUrl": "location.center"
+            }
         ],
         "roomType": "Entire home/apt",
         "host": {
@@ -8948,12 +9678,12 @@ export const demoStays = [
             {
                 "main": "City Views",
                 "sub": "Enjoy skyline views from your private balcony.",
-                "imgUrl": "features.balcony"
+                "imgUrl": "outdoor.privatePatio"
             },
             {
                 "main": "Prime Location",
                 "sub": "Steps from cafés, nightlife, and cultural sites.",
-                "imgUrl": "location.cityCenter"
+                "imgUrl": "location.center"
             },
             {
                 "main": "High-Speed Wi-Fi",
@@ -9183,7 +9913,7 @@ export const demoStays = [
             {
                 "main": "Infinity Pool Escape",
                 "sub": "Swim with sweeping skyline views of Bucharest.",
-                "imgUrl": "features.pool"
+                "imgUrl": "location.pool"
             },
             {
                 "main": "Modern Elegance",
@@ -9404,7 +10134,7 @@ export const demoStays = [
             {
                 "main": "Panoramic City Views",
                 "sub": "Enjoy sweeping views of Bucharest’s skyline from the terrace.",
-                "imgUrl": "features.cityView"
+                "imgUrl": "location.mountainView"
             },
             {
                 "main": "Private Pool",
@@ -10148,7 +10878,7 @@ export const demoStays = [
             {
                 "main": "Luxury Interiors",
                 "sub": "Modern design, floor-to-ceiling windows, and open-plan living for a bright and stylish stay.",
-                "imgUrl": "bedroom.hangers"
+                "imgUrl": "bedroom.doubleBed"
             }
         ],
         "roomType": "Entire home/apt",
@@ -10488,17 +11218,17 @@ export const demoStays = [
             {
                 "main": "Central Yet Peaceful",
                 "sub": "Near Herăstrău Park with easy metro access.",
-                "imgUrl": "location.cityCenter"
+                "imgUrl": "location.center"
             },
             {
                 "main": "Local Charm",
                 "sub": "Romanian design meets modern comfort.",
-                "imgUrl": "features.balcony"
+                "imgUrl": "features.grill"
             },
             {
                 "main": "Cozy Retreat",
                 "sub": "Relax after exploring the heart of Bucharest.",
-                "imgUrl": "bedroom.hangers"
+                "imgUrl": "features.breakfast"
             }
         ],
         "roomType": "Entire home/apt",
@@ -10650,12 +11380,12 @@ export const demoStays = [
             {
                 "main": "Spacious Living",
                 "sub": "Bright, open interiors with modern décor and terrace access.",
-                "imgUrl": "bedroom.hangers"
+                "imgUrl": "features.breakfast"
             },
             {
                 "main": "Quiet Neighborhood",
                 "sub": "Located in a green, residential area just 15 minutes from downtown Bucharest.",
-                "imgUrl": "location.cityCenter"
+                "imgUrl": "location.center"
             }
         ],
         "roomType": "Entire home/apt",
@@ -10787,12 +11517,12 @@ export const demoStays = [
             {
                 "main": "Peaceful Views",
                 "sub": "Surrounded by open greenery and fresh air.",
-                "imgUrl": "features.gardenView"
+                "imgUrl": "location.mountainView"
             },
             {
                 "main": "Rustic Charm",
                 "sub": "Exposed brick and wood create a cozy, natural feel.",
-                "imgUrl": "bedroom.extraPillows"
+                "imgUrl": "features.grill"
             },
             {
                 "main": "Outdoor Living",
@@ -10996,19 +11726,19 @@ export const demoStays = [
         ],
         "highlights": [
             {
-                "main": "Close to the beach",
+                "main": "Close to the Beach",
                 "sub": "Just a short walk from Barcelona’s sandy coastline.",
-                "imgUrl": "location.beachfront"
+                "imgUrl": "location.beach"
             },
             {
-                "main": "Perfect location",
+                "main": "Perfect Location",
                 "sub": "Right next to local restaurants and cafés.",
-                "imgUrl": "outdoor.privatePatio"
+                "imgUrl": "location.center"
             },
             {
-                "main": "Cozy interiors",
+                "main": "Cozy Interiors",
                 "sub": "Warm lighting and modern furniture for a relaxed stay.",
-                "imgUrl": "interior.livingRoom"
+                "imgUrl": "features.breakfast"
             }
         ],
         "roomType": "Entire home/apt",
@@ -11114,21 +11844,22 @@ export const demoStays = [
         ],
         "highlights": [
             {
-                "main": "Ocean-view balcony",
+                "main": "Ocean-View Balcony",
                 "sub": "Enjoy stunning Mediterranean sunsets from your own terrace.",
-                "imgUrl": "outdoor.balcony"
+                "imgUrl": "outdoor.privatePatio"
             },
             {
-                "main": "Historic neighborhood",
+                "main": "Historic Neighborhood",
                 "sub": "Located in the Gothic Quarter near lively plazas and markets.",
-                "imgUrl": "location.oldTown"
+                "imgUrl": "location.center"
             },
             {
-                "main": "Sunny interiors",
+                "main": "Sunny Interiors",
                 "sub": "Large windows fill the space with natural light all day.",
-                "imgUrl": "interior.livingRoom"
+                "imgUrl": "features.breakfast"
             }
-        ],
+        ]
+        ,
         "roomType": "Entire home/apt",
         "host": {
             "_id": "u502",
@@ -11232,21 +11963,22 @@ export const demoStays = [
         ],
         "highlights": [
             {
-                "main": "Central Midtown location",
+                "main": "Central Midtown Location",
                 "sub": "Walk to Times Square, Bryant Park, and major subway lines.",
-                "imgUrl": "location.cityCenter"
+                "imgUrl": "location.center"
             },
             {
-                "main": "Luxury interiors",
+                "main": "Luxury Interiors",
                 "sub": "Velvet furniture, modern lighting, and panoramic city windows.",
-                "imgUrl": "interior.livingRoom"
+                "imgUrl": "features.breakfast"
             },
             {
-                "main": "Quiet retreat",
+                "main": "Quiet Retreat",
                 "sub": "Soundproof windows and plush bedding for peaceful nights.",
-                "imgUrl": "interior.bedroom"
+                "imgUrl": "essentials.airCon"
             }
-        ],
+        ]
+        ,
         "roomType": "Entire home/apt",
         "host": {
             "_id": "u503",
@@ -11350,19 +12082,19 @@ export const demoStays = [
         ],
         "highlights": [
             {
-                "main": "Central Park views",
+                "main": "Central Park Views",
                 "sub": "Wake up to breathtaking views of the park and skyline.",
-                "imgUrl": "location.parkView"
+                "imgUrl": "location.mountainView"
             },
             {
-                "main": "Historic building",
+                "main": "Historic Building",
                 "sub": "Beautifully preserved architecture with modern comforts.",
-                "imgUrl": "architecture.historic"
+                "imgUrl": "location.center"
             },
             {
-                "main": "Romantic atmosphere",
+                "main": "Romantic Atmosphere",
                 "sub": "Exposed brick, soft lighting, and large windows create the perfect setting.",
-                "imgUrl": "interior.bedroom"
+                "imgUrl": "features.breakfast"
             }
         ],
         "roomType": "Entire home/apt",
@@ -11469,21 +12201,22 @@ export const demoStays = [
         ],
         "highlights": [
             {
-                "main": "Private rooftop terrace",
+                "main": "Private Rooftop Terrace",
                 "sub": "Enjoy your morning coffee or sunset dinner overlooking the city.",
-                "imgUrl": "outdoor.rooftop"
+                "imgUrl": "outdoor.privatePatio"
             },
             {
-                "main": "Prime location",
+                "main": "Prime Location",
                 "sub": "Just steps away from Rothschild Boulevard and Tel Aviv nightlife.",
-                "imgUrl": "location.cityCenter"
+                "imgUrl": "location.center"
             },
             {
-                "main": "Cozy charm",
+                "main": "Cozy Charm",
                 "sub": "Bright interiors and comfortable design perfect for couples.",
-                "imgUrl": "interior.livingRoom"
+                "imgUrl": "features.breakfast"
             }
-        ],
+        ]
+        ,
         "roomType": "Entire home/apt",
         "host": {
             "_id": "u505",
@@ -11590,19 +12323,19 @@ export const demoStays = [
         ],
         "highlights": [
             {
-                "main": "Infinity pool with a view",
+                "main": "Infinity Pool with a View",
                 "sub": "Swim while overlooking the Mediterranean coastline.",
-                "imgUrl": "outdoor.pool"
+                "imgUrl": "location.pool"
             },
             {
-                "main": "Architectural gem",
+                "main": "Architectural Gem",
                 "sub": "Authentic Bauhaus design featuring clean lines and open spaces.",
-                "imgUrl": "architecture.bauhaus"
+                "imgUrl": "features.gym"
             },
             {
-                "main": "Spacious terrace",
+                "main": "Spacious Terrace",
                 "sub": "Perfect for dining al fresco or relaxing under the Tel Aviv sun.",
-                "imgUrl": "outdoor.terrace"
+                "imgUrl": "outdoor.privatePatio"
             }
         ],
         "roomType": "Entire home/apt",
@@ -11708,21 +12441,22 @@ export const demoStays = [
         ],
         "highlights": [
             {
-                "main": "Charming Parisian interiors",
+                "main": "Charming Parisian Interiors",
                 "sub": "Classic high ceilings, large windows, and parquet floors.",
-                "imgUrl": "interior.livingRoom"
+                "imgUrl": "features.breakfast"
             },
             {
-                "main": "Central location",
+                "main": "Central Location",
                 "sub": "A short walk to the Louvre, Seine River, and metro lines.",
-                "imgUrl": "location.cityCenter"
+                "imgUrl": "location.center"
             },
             {
-                "main": "Perfect for couples",
+                "main": "Perfect for Couples",
                 "sub": "Romantic atmosphere with views of typical Paris rooftops.",
-                "imgUrl": "interior.bedroom"
+                "imgUrl": "outdoor.sunLoungers"
             }
-        ],
+        ]
+        ,
         "roomType": "Entire apartment",
         "host": {
             "_id": "u507",
@@ -11827,21 +12561,22 @@ export const demoStays = [
         ],
         "highlights": [
             {
-                "main": "Rooftop views",
+                "main": "Rooftop Views",
                 "sub": "Enjoy your morning espresso with breathtaking views of Paris rooftops.",
-                "imgUrl": "outdoor.terrace"
+                "imgUrl": "outdoor.privatePatio"
             },
             {
-                "main": "Historic building",
+                "main": "Historic Building",
                 "sub": "Beautifully preserved 19th-century architecture with updated amenities.",
-                "imgUrl": "architecture.historic"
+                "imgUrl": "location.center"
             },
             {
-                "main": "Romantic suite",
+                "main": "Romantic Suite",
                 "sub": "Soft lighting and vintage touches create the perfect Parisian atmosphere.",
-                "imgUrl": "interior.bedroom"
+                "imgUrl": "essentials.workSpace"
             }
-        ],
+        ]
+        ,
         "roomType": "Entire suite",
         "host": {
             "_id": "u508",
@@ -11958,10 +12693,23 @@ export const demoStays = [
             "safety.fireExtinguisher"
         ],
         "highlights": [
-            { "main": "Beachfront Access", "sub": "Step directly from your terrace onto warm white sand.", "imgUrl": "location.beachfront" },
-            { "main": "Tropical Charm", "sub": "Handcrafted bamboo furniture and open-air design.", "imgUrl": "interior.livingRoom" },
-            { "main": "Relax and Unwind", "sub": "Enjoy sunsets from your private hammock with ocean breeze.", "imgUrl": "outdoor.hammock" }
+            {
+                "main": "Beachfront Access",
+                "sub": "Step directly from your terrace onto warm white sand.",
+                "imgUrl": "location.beach"
+            },
+            {
+                "main": "Tropical Charm",
+                "sub": "Handcrafted bamboo furniture and open-air design.",
+                "imgUrl": "features.grill"
+            },
+            {
+                "main": "Relax and Unwind",
+                "sub": "Enjoy sunsets from your private hammock with ocean breeze.",
+                "imgUrl": "outdoor.sunLoungers"
+            }
         ],
+
         "roomType": "Entire bungalow",
         "host": {
             "_id": "host-bali-09",
@@ -12055,10 +12803,23 @@ export const demoStays = [
             "services.lockBox"
         ],
         "highlights": [
-            { "main": "Private Pool", "sub": "Relax in your own tropical pool under the palms.", "imgUrl": "outdoor.pool" },
-            { "main": "Tropical Garden", "sub": "Surrounded by lush greenery and flowering trees.", "imgUrl": "outdoor.garden" },
-            { "main": "Close to the Beach", "sub": "Just a 5-minute walk to Denpasar’s coastline.", "imgUrl": "location.beach" }
+            {
+                "main": "Private Pool",
+                "sub": "Relax in your own tropical pool under the palms.",
+                "imgUrl": "location.pool"
+            },
+            {
+                "main": "Tropical Garden",
+                "sub": "Surrounded by lush greenery and flowering trees.",
+                "imgUrl": "outdoor.privatePatio"
+            },
+            {
+                "main": "Close to the Beach",
+                "sub": "Just a 5-minute walk to Denpasar’s coastline.",
+                "imgUrl": "location.beach"
+            }
         ],
+
         "roomType": "Entire villa",
         "host": {
             "_id": "host-bali-11",
@@ -12144,10 +12905,23 @@ export const demoStays = [
             "safety.smokeAlarm"
         ],
         "highlights": [
-            { "main": "Ocean View", "sub": "Panoramic sea views right from your bed.", "imgUrl": "location.beachfront" },
-            { "main": "Private Balcony", "sub": "Perfect spot for sunsets and morning coffee.", "imgUrl": "outdoor.balcony" },
-            { "main": "Direct Beach Access", "sub": "Walk barefoot from your loft to the sand.", "imgUrl": "outdoor.pathToBeach" }
-        ],
+            {
+                "main": "Ocean View",
+                "sub": "Panoramic sea views right from your bed.",
+                "imgUrl": "location.beach"
+            },
+            {
+                "main": "Private Balcony",
+                "sub": "Perfect spot for sunsets and morning coffee.",
+                "imgUrl": "outdoor.privatePatio"
+            },
+            {
+                "main": "Direct Beach Access",
+                "sub": "Walk barefoot from your loft to the sand.",
+                "imgUrl": "outdoor.beachEssentials"
+            }
+        ]
+        ,
         "roomType": "Entire loft",
         "host": {
             "_id": "host-bali-12",
@@ -12232,10 +13006,23 @@ export const demoStays = [
             "bookingOptions.selfCheckin"
         ],
         "highlights": [
-            { "main": "Peaceful Surroundings", "sub": "Wake up to birdsong and rustling palm leaves.", "imgUrl": "outdoor.garden" },
-            { "main": "Eco-Friendly Design", "sub": "Built from bamboo and natural wood materials.", "imgUrl": "interior.natural" },
-            { "main": "Perfect for Two", "sub": "Private and cozy with a hammock under the trees.", "imgUrl": "outdoor.hammock" }
+            {
+                "main": "Peaceful Surroundings",
+                "sub": "Wake up to birdsong and rustling palm leaves.",
+                "imgUrl": "outdoor.privatePatio"
+            },
+            {
+                "main": "Eco-Friendly Design",
+                "sub": "Built from bamboo and natural wood materials.",
+                "imgUrl": "features.grill"
+            },
+            {
+                "main": "Perfect for Two",
+                "sub": "Private and cozy with a hammock under the trees.",
+                "imgUrl": "outdoor.sunLoungers"
+            }
         ],
+
         "roomType": "Entire bungalow",
         "host": {
             "_id": "host-bali-13",
@@ -12324,9 +13111,21 @@ export const demoStays = [
             "safety.fireExtinguisher"
         ],
         "highlights": [
-            { "main": "Private Balcony", "sub": "Enjoy sunrises from your hammock overlooking tropical gardens.", "imgUrl": "outdoor.balcony" },
-            { "main": "Natural Materials", "sub": "Built with bamboo, wood, and stone for an authentic island feel.", "imgUrl": "interior.natural" },
-            { "main": "Open-Air Living", "sub": "Spacious deck perfect for reading or yoga.", "imgUrl": "outdoor.deck" }
+            {
+                "main": "Private Balcony",
+                "sub": "Enjoy sunrises from your hammock overlooking tropical gardens.",
+                "imgUrl": "outdoor.privatePatio"
+            },
+            {
+                "main": "Natural Materials",
+                "sub": "Built with bamboo, wood, and stone for an authentic island feel.",
+                "imgUrl": "features.grill"
+            },
+            {
+                "main": "Open-Air Living",
+                "sub": "Spacious deck perfect for reading or yoga.",
+                "imgUrl": "outdoor.sunLoungers"
+            }
         ],
         "roomType": "Entire bungalow",
         "host": {
