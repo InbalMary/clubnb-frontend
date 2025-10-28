@@ -235,7 +235,7 @@ export function MiniHost({ stay }) {
     const fallbackImgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
 
     return (<div className="mini-host flex">
-        <img className="host-img" src={stay.host.pictureUrl || fallbackImgUrl} />
+        <img className="host-img" src={ stay.host.imgUrl || stay.host.pictureUrl || fallbackImgUrl} />
         <span>
             <h3>Hosted by {stay.host.fullname}</h3>
             <span className="light"> {stay.host.isSuperhost ? "Superhost" : ''} <span className="dot light" /> </span>
