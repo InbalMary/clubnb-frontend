@@ -1,14 +1,14 @@
-.explore-page,
-.wishlist-details.full {
+/* .explore-page, */
+.wishlist-details {
     display: grid;
     grid-template-columns: minmax(30rem, 48rem) minmax(24.5rem, auto);
     grid-template-areas: "list map";
-    /* gap: 3rem; */
+    gap: 3rem;
     gap: clamp(1rem, 2vw, 2rem);
     margin-top: 90px;
-    /* margin-inline: 60px; */
+    margin-inline: 60px;
     margin-inline: clamp(1rem, 4vw, 40px);
-    overflow-x: hidden;
+    /* overflow-x: hidden; זו השורה שדפקה את הסטיקי*/
 }
 
 /* Left column: grid */
@@ -40,11 +40,11 @@
 
 
 /* Right column: map */
-.explore-map-wrapper,
+/* .explore-map-wrapper, */
 .wishlist-details .explore-map-wrapper {
     grid-area: map;
     position: sticky;
-    top: 80px;
+    top: 120px;
     height: calc(100vh - 100px);
     border-radius: 1rem;
     overflow: hidden;
