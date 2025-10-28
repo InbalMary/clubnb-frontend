@@ -6,7 +6,7 @@ export function LongTxt({ children, length = 100 }) {
     const isLongText = txt.length > length
     const textToShow = !isLongText ? txt : (txt.substring(0, length)) + '...'
     return (
-        <section className={`summary`}>
+        <section className={`summary-txt`}>
             <p>{textToShow}
             </p>
         </section>

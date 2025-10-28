@@ -208,10 +208,10 @@ span.link {
         .summary {
             
             padding-block-start: 2rem;
-            padding-block-end: .5rem;
             line-height: 22px;
             
-            p {
+            .summary-txt, p {
+                padding-block-end: 1rem;
                 margin: 0
             }
 
