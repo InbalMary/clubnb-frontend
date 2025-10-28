@@ -248,7 +248,10 @@ export function ReservationsPage() {
                                 {sortedOrders.map((order) => (
                                     <div key={order._id} className="reservation-card">
                                         <div className="card-image">
-                                            <img src={order.stay.imgUrl} alt={order.stay.name} />
+                                            <img
+                                                src={order.stay.imgUrls?.[0] || order.stay.imgUrl || 'https://picsum.photos/200/200?random=2'}
+                                                alt={order.stay.name}
+                                            />
                                             <div className="status-badge">
                                                 <span className={`status-dot ${order.status}`}></span>
                                                 {order.status}
