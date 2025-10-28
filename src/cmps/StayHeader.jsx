@@ -22,7 +22,7 @@ export function StayHeader({ refs, stay, onClick, startDate, endDate }) {
     return (
         <>
             {!isMobile ? (
-                <div className={`stay-header big-layout ${isWide ? 'mid-layout' : ''} ${isMobile && 'mobile'}`}>
+                <div className={`stay-details-header big-layout ${isWide ? 'mid-layout' : ''} ${isMobile && 'mobile'}`}>
                     {stickyHeader &&
 
                         <nav className='nav-bar'>
@@ -38,7 +38,7 @@ export function StayHeader({ refs, stay, onClick, startDate, endDate }) {
                     }
                 </div>
             ) : (
-                <div className={`stay-header big-layout ${isWide ? 'mid-layout' : ''} ${isMobile && 'mobile'}`}>
+                <div className={`stay-details-header big-layout ${isWide ? 'mid-layout' : ''} ${isMobile && 'mobile'}`}>
 
                     <MiniStickyContainer stay={stay} startDate={startDate} endDate={endDate} onClick={onClick} />
                 </div>

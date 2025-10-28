@@ -139,7 +139,7 @@
     }
 }
 
-.stay-preview .stay-name {
+.stay-name {
     color: var(--gray3);
     font-family: cereal-medium;
     font-weight: 500;

@@ -1,11 +1,10 @@
 
-.stay-details>* {
+.stay-details {
     font-size: 1rem;
     line-height: 1.25rem;
     grid-template-columns: subgrid;
-}
-
-h1 {
+    
+    h1 {
     font-size: 1.625rem;
     line-height: 1.875rem;
     padding-block: 1.5rem;
@@ -54,13 +53,13 @@ span.link {
     gap: 1rem;
     display: flex;
     align-items: center;
-
+    
     .heart-icon,
     .share-icon {
         display: flex;
         align-items: center;
         gap: .2rem;
-
+        
         .link {
             font-size: .875rem;
             font-family: cereal-light;
@@ -109,13 +108,13 @@ span.link {
     gap: 8px;
     border-radius: 12px;
     overflow: hidden;
-
+    
     .img-container img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
-
+    
     .img-container.img-1 {
         grid-row: span 2;
         grid-column: span 2;
@@ -125,27 +124,27 @@ span.link {
 .details-container {
     display: grid;
     grid-template-columns: minmax(auto, 2fr) minmax(auto, .3fr) minmax(auto, 1fr);
-
+    
     .sticky-ref {
         grid-column: 3/-1;
         width: clamp(244px, 36vw, 370px);
-
+        
     }
-
+    
     .content {
         padding-block: 2rem;
         display: grid;
         grid-template-columns: minmax(250px, 1fr);
-
+        
         .first-block {
             padding-block-end: 2rem;
-
+            
             .capacity {
                 display: flex;
                 gap: 4px;
             }
         }
-
+        
         .rating {
             font-family: cereal-medium;
             display: flex;
@@ -158,7 +157,7 @@ span.link {
             font-size: 1px;
             font-size: 1.1rem;
         }
-
+        
         .mini-host {
             display: flex;
             flex-direction: row;
@@ -199,19 +198,19 @@ span.link {
             li:last-child {
                 padding-bottom: 0;
             }
-
+            
             span {
                 font-size: .885rem;
                 line-height: 1.6rem;
             }
         }
-
+        
         .summary {
-
+            
             padding-block-start: 2rem;
             padding-block-end: .5rem;
             line-height: 22px;
-
+            
             p {
                 margin: 0
             }
@@ -221,23 +220,23 @@ span.link {
                 margin-block-end: 3rem;
             }
         }
-
+        
         .beds-container {
             padding-block: 2rem;
             position: relative;
-
+            
             h2 {
                 font-size: 1.4rem;
                 letter-spacing: -.9px;
             }
-
+            
             span.upper-comma {
                 content: ",";
                 position: absolute;
                 top: 19px;
                 left: 105px;
             }
-
+            
             .bedrooms {
                 display: flex;
                 flex-direction: row;
@@ -288,7 +287,7 @@ span.link {
             button {
                 margin: 1.5rem 0 0 0;
             }
-
+            
             .amenities-short-list {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -297,7 +296,7 @@ span.link {
 
                 &.mobile {
                     grid-template-columns: none;
-
+                    
                 }
 
                 li:nth-child(9),
@@ -313,7 +312,7 @@ span.link {
                 }
             }
         }
-
+        
     }
 }
 
@@ -321,11 +320,11 @@ span.link {
 
     .type {
         padding-bottom: 2rem;
-
+        
         h3 {
             padding-block: 1rem;
         }
-
+        
         .amenities-list .amenity {
             padding-block: 1.5rem;
             gap: 1rem;
@@ -335,17 +334,17 @@ span.link {
 
 .details-calendar {
     padding-block: 3rem 1rem;
-
+    
     .date-modal-content.single {
         .rdp-months {
             justify-content: center;
         }
-
+        
 
         td.rdp-day,
         .rdp-weekday {
             width: clamp(2rem, 89vh, 8rem);
-
+            
             .rdp-day_button {
                 height: 100%;
                 width: 100%;
@@ -354,6 +353,7 @@ span.link {
         }
 
     }
+}
 }
 
 .map-container {

@@ -1,5 +1,5 @@
 /* mobile */
-.stay-header.big-layout.mid-layout.mobile {
+.stay-details-header.big-layout.mid-layout.mobile {
     display: flex;
     align-content: center;
     position: fixed;
@@ -50,7 +50,7 @@
     }
 }
 
-.stay-header {
+.stay-details-header{
     z-index: 5;
     display: flex;
     align-content: center;
