@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 
 export function GuestSelector({ onGuestsChange, initialGuests = { adults: 0, children: 0, infants: 0, pets: 0 } }) {
     const [guests, setGuests] = useState(initialGuests);
+    const { stayId } = useParams()
+
+    console.log('stayId:', stayId)
 
     useEffect(() => {
         setGuests(initialGuests)
@@ -63,9 +67,9 @@ export function GuestSelector({ onGuestsChange, initialGuests = { adults: 0, chi
                     </div>
                     <div className="guest-controls">
                         <button
-                            className={`guest-button guest-button-minus ${guests[type] === 0 ? 'disabled' : ''}`}
+                            className={`guest-button guest-button-minus ${guests[type] === 0 ? 'disabled' : ''} ${(stayId && guests.adults === 1) ? 'disabled' : ''}`}
                             onClick={() => handleDecrement(type)}
-                            disabled={guests[type] === 0}
+                            disabled={guests[type] === 0 || stayId ? guests.adults === 1 : ''}
                             aria-label={`Decrease ${label}`}
                         >
                             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
