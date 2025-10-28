@@ -417,5 +417,16 @@
     .reservations-table tbody td {
         padding-inline-end: 0.1rem;
         font-size: 12px;
-    }    
+    }
+
+    .guest-avatar {
+        width: 1.7rem;
+        height: 1.7rem;
+        margin-top: 1.3rem;
+    }
+
+    .reservations-table thead th,
+    .reservations-table tbody td {
+        text-align: center;
+    }
 }
