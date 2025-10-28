@@ -462,8 +462,9 @@ export function TotalCount({ stay, startDate, endDate }) {
 // import './DetailsSkeleton.css';
 
 export function DetailsSkeleton() {
+    const isMobile = useIsBreakPoint(744)
     return (
-        <div className="details-skeleton main-container">
+        <div className={`details-skeleton big-layout ${isMobile ? 'mobile' : 'main-container'}`}>
             {/* Title */}
             <div className="skeleton skeleton-title"></div>
 
@@ -473,12 +474,15 @@ export function DetailsSkeleton() {
                 <div className="left-image skeleton"></div>
 
                 {/* Right Block - 4 small images */}
-                <div className="right-images">
-                    <div className="skeleton top-right"></div>
-                    <div className="skeleton top-left"></div>
-                    <div className="skeleton bottom-left"></div>
-                    <div className="skeleton bottom-right"></div>
-                </div>
+                {!isMobile &&
+                    < div className="right-images">
+                        <div className="skeleton top-right"></div>
+                        <div className="skeleton top-left"></div>
+                        <div className="skeleton bottom-left"></div>
+                        <div className="skeleton bottom-right"></div>
+                    </div>
+                }
+
             </div>
 
             {/* Text under images */}
@@ -487,6 +491,23 @@ export function DetailsSkeleton() {
                 <div className="left-text">
                     <div className="skeleton skeleton-line1"></div>
                     <div className="skeleton skeleton-line2"></div>
+
+                    <div className="skeleton border"></div>
+                    <div className="flex">
+                        <div className="skeleton skeleton-line7 circle"></div>
+                        <span>
+                            <div className="skeleton skeleton-line5"></div>
+                            <div className="skeleton skeleton-line6"></div>
+                        </span>
+                    </div>
+                    <div className="skeleton border"></div>
+                    <div className="flex">
+                        <div className="skeleton skeleton-line7 square"></div>
+                        <span>
+                            <div className="skeleton skeleton-line5"></div>
+                            <div className="skeleton skeleton-line6"></div>
+                        </span>
+                    </div>
                 </div>
 
                 {/* Right side */}
@@ -495,7 +516,7 @@ export function DetailsSkeleton() {
                     <div className="skeleton skeleton-line4"></div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

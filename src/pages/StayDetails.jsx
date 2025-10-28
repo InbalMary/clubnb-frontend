@@ -144,14 +144,6 @@ export function StayDetails() {
 
 
   function handleClick() {
-
-    // const scrollToSection = (ref) => {
-    //   ref.current?.scrollIntoView({
-    //     behavior: 'smooth',
-    //     block: 'start',
-    //     inline: 'nearest'
-    //   })
-    // }
     const scrollToSection = (ref) => {
       const el = ref.current
       if (!el) return
