@@ -23,6 +23,7 @@ import { WishlistModal } from '../cmps/WishListModal'
 import { useIsBreakPoint } from '../customHooks/useIsBreakPoint'
 import { setCurrentOrder } from '../store/actions/order.actions'
 import { calculateNights } from '../services/util.service'
+import { ShareModal } from '../cmps/ShareModal'
 
 
 
@@ -40,6 +41,7 @@ export function StayDetails() {
   const [modalType, setModalType] = useState(null)
   const [selectedReviewIdx, setSelectedReviewIdx] = useState(null)
   const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false)
 
   const reviewRefs = useMemo(() => stay?.reviews?.map(() => createRef()), [stay?.reviews])
   const amenitiesData = getAmenitiesData(amenitiesSvg, stay?.amenities)
@@ -183,6 +185,20 @@ export function StayDetails() {
     }
   }
 
+  function handleShare() {
+    const shareData = {
+      title: stay.name,
+      text: `Check out this stay on ClubNB: ${stay.name}!`,
+      url: window.location.href,
+    }
+
+    if (navigator.share) {
+      navigator.share(shareData).catch(err => console.log("Share canceled", err))
+    } else {
+      navigator.clipboard.writeText(window.location.href)
+      alert("Link copied to clipboard ✅")
+    }
+  }
 
   if (!stay) return <div className="loading-overlay"><DetailsSkeleton />  </div>
 
@@ -202,11 +218,11 @@ export function StayDetails() {
 
           <div className="btns-mobile-wrapper">
 
-            <button className='btn-back mobile'>
+            <button onClick={() => navigate('/')} className='btn-back mobile'>
               {svgControls.backArrow1}
             </button>
             <div className="flex">
-              <button className="share-btn mobile">
+              <button onClick={handleShare} className="share-btn mobile">
                 {svgControls.share}
               </button>
               <button className="save-heart-btn mobile" onClick={onToggleWishlist}>
@@ -222,7 +238,7 @@ export function StayDetails() {
             <h1 ref={refs.photoRef}>{stay?.name}</h1>
             <div className="share-btns-container flex">
 
-              <button className="share-btn">
+              <button onClick={() => setIsShareModalOpen(true)} className="share-btn">
                 <span className="share-icon">{svgControls.share}<span className="link">Share</span></span>
               </button>
               <button className="save-heart-btn" onClick={onToggleWishlist}>
@@ -233,7 +249,8 @@ export function StayDetails() {
             </div>
           </div>
         )}
-
+         <ShareModal stay={stay} isOpen={isShareModalOpen} onClose={() => setIsShareModalOpen(false)} onClick={handleShare} />
+      
         <WishlistModal
           stay={stay}
           isOpen={isWishlistModalOpen}

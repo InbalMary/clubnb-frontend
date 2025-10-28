@@ -1,0 +1,70 @@
+.modal-popup.share-modal {
+    width: 40vw;
+    height: fit-content;
+
+    header {
+        min-height: 3rem;
+        padding: 0;
+    }
+
+    .main-modal .share-modal {
+        img {
+            height: 8.5vh;
+            aspect-ratio: 1/1;
+        }
+
+        .mini-stay-preview {
+            padding-block: 2rem;
+
+            span {
+                font-size: .9rem;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            gap:1.5rem;
+
+            .capacity {
+                display: flex;
+                gap: .3rem;
+            }
+
+            .rating {
+                display: flex;
+                align-items: center;
+                gap: .3rem;
+
+                .light {
+                    color: var(--gray3);
+                }
+            }
+        }
+
+        .btn {
+            width: 100%;
+            background-color: transparent;
+            outline: 1px solid var(--gray6);
+
+            .btn-share-wrapper {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            &:last-child {
+                padding: .5rem 1rem;
+
+                .btn-share-wrapper logo-svg {
+                    height: 2vh;
+                }
+
+            }
+        }
+
+    }
+
+
+
+}
