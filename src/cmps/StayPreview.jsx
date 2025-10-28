@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { formatStayDates, calculateNights } from '../services/util.service.js'
 import { svgControls, statSvgs } from './Svgs.jsx'
@@ -8,6 +8,12 @@ import { SingleImgCarousel } from './SingleImgCarousel.jsx'
 export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, onToggleWishlist, hideDetails, isInactive, fromWishlist }) {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    const adults = searchParams.get('adults')
+    const children = searchParams.get('children')
+    const infants = searchParams.get('infants')
+    const pets = searchParams.get('pets')
 
     const isAddedToWishlist = wishlists.some(wl =>
         wl.stays.some(stayInList => stayInList._id === stay._id)
@@ -43,8 +49,7 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
     return <article className={`stay-preview ${isBig ? 'big' : ''} ${isFocused ? 'at-focus' : ''}`}>
         <div className='stay-image-wrapper'>
 
-            <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}
-            &adults=${filterBy.adults || 1}&children=${filterBy?.children || ''}&infants=${filterBy?.infants}`
+            <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}&adults=${filterBy.adults || adults || 1}&children=${filterBy?.children || children}&infants=${filterBy?.infants || infants}&pets=${filterBy?.pets || pets}`
             }
                 className='stay-link'
             >

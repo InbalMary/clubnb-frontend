@@ -186,7 +186,7 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
 
     const hasGuestValues = guests.adults > 0 || guests.children > 0 || guests.infants > 0 || guests.pets > 0
 
-
+ 
     return (
         <div ref={containerRef} className="sticky-container-wrap">
 

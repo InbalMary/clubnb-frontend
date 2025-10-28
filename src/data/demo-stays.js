@@ -70,11 +70,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Izumi",
+            "fullname": "Izumi",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/12.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -84,7 +84,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Ami", "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -104,8 +104,8 @@ export const demoStays = [
                 "at": "2024-05-11T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
-                    "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "fullname": "Bella",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/57.jpg",
                     "id": "10711825"
                 },
                 "txt": "Fantastic location near Shibuya — clean, modern, and perfect for a short stay.",
@@ -125,11 +125,11 @@ export const demoStays = [
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "John",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/45.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "Izumi was a great host — super responsive and helpful with local tips.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -196,14 +196,14 @@ export const demoStays = [
         ],
         "highlights": [
             {
-                "main": "Central Shibuya Location",
-                "sub": "Steps away from the iconic Shibuya Crossing and top restaurants.",
-                "imgUrl": "location.center"
-            },
-            {
                 "main": "Compact and Modern",
                 "sub": "Thoughtfully designed for maximum comfort in a small space.",
                 "imgUrl": "outdoor.privatePatio"
+            },
+            {
+                "main": "Central Shibuya Location",
+                "sub": "Steps away from the iconic Shibuya Crossing and top restaurants.",
+                "imgUrl": "location.center"
             },
             {
                 "main": "Perfect for couples",
@@ -270,7 +270,7 @@ export const demoStays = [
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
                     "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/57.jpg",
                     "id": "10711826"
                 },
                 "txt": "Takumi was a great host — super responsive and helpful with local tips.",
@@ -344,24 +344,24 @@ export const demoStays = [
                 "imgUrl": "location.center"
             },
             {
+                "main": "Perfect for couples",
+                "sub": "Guests rated this space highly for its convenience and privacy.",
+                "imgUrl": "family.crib"
+            },
+            {
                 "main": "Compact and Modern",
                 "sub": "Thoughtfully designed for maximum comfort in a small space.",
                 "imgUrl": "outdoor.privatePatio"
             },
-            {
-                "main": "Perfect for couples",
-                "sub": "Guests rated this space highly for its convenience and privacy.",
-                "imgUrl": "family.crib"
-            }
         ],
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Aiko",
+            "fullname": "Aiko",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/12.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -371,7 +371,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/74.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -391,11 +391,32 @@ export const demoStays = [
                 "at": "2024-05-11T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
+                    "fullname": "Bob",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/59.jpg",
+                    "id": "10711825"
+                },
+                "txt": "Fantastic location near Ginza — clean, modern, and perfect for a short stay.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.7
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-05-11T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc004",
                     "fullname": "Sophie",
                     "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
                     "id": "10711825"
                 },
-                "txt": "Fantastic location near Ginza — clean, modern, and perfect for a short stay.",
+                "txt": "Fantastic location near Shibuya — clean, modern, and perfect for a short stay.",
                 "rate": {
                     "cleanliness": 4.9,
                     "communication": 5.0,
@@ -416,7 +437,28 @@ export const demoStays = [
                     "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "The host was very responsive and helped us figure out train routes. She even left a small snack gift for us when we arrived — such a sweet touch.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Ron",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/25.jpg",
+                    "id": "10711826"
+                },
+                "txt": "We absolutely loved this apartment! It’s spotless, modern, and has everything a traveler needs — even a washing machine which was super helpful. The bed was really comfortable and the AC kept the room cool during hot days.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -501,11 +543,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Aki",
+            "fullname": "Aki",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/23.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -515,7 +557,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Kaya", "imgUrl": "https://randomuser.me/api/portraits/women/45.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -536,7 +578,7 @@ export const demoStays = [
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
                     "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/50.jpg",
                     "id": "10711825"
                 },
                 "txt": "Fantastic location near Akasuka — clean, modern, and perfect for a short stay.",
@@ -553,14 +595,35 @@ export const demoStays = [
                 "withPet": false
             },
             {
+                "at": "2024-05-11T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc004",
+                    "fullname": "Carol",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/76.jpg",
+                    "id": "10711825"
+                },
+                "txt": "For the price, we couldn’t believe the quality. The place isn’t huge, but it’s laid out so efficiently. There’s storage everywhere and the bathroom is surprisingly spacious.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.7
+                },
+                "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Mark",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/89.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "The kitchenette made breakfast easy, and we enjoyed our coffee with a view before heading out. Everything in the apartment is clearly labeled and easy to use.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -572,7 +635,29 @@ export const demoStays = [
                 "nights": 5,
                 "withKids": false,
                 "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Ben",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/75.jpg",
+                    "id": "10711826"
+                },
+                "txt": "We absolutely loved this apartment! It’s spotless, modern, and has everything a traveler needs — even a washing machine which was super helpful. The bed was really comfortable and the AC kept the room cool during hot days.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 7,
+                "withKids": false,
+                "withPet": false
             }
+
         ],
         "likedByUsers": [],
         "availableFrom": "2025-12-01",
@@ -644,11 +729,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Kaito",
+            "fullname": "Kaito",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/92.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -658,7 +743,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Becca", "imgUrl": "https://randomuser.me/api/portraits/women/24.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -678,11 +763,11 @@ export const demoStays = [
                 "at": "2024-05-11T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
-                    "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "fullname": "Jenny",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/47.jpg",
                     "id": "10711825"
                 },
-                "txt": "Fantastic location near Roppongi — clean, modern, and perfect for a short stay.",
+                "txt": "The neighborhood has incredible ramen and sushi spots — we tried three different places in one block! Already missing it.",
                 "rate": {
                     "cleanliness": 4.9,
                     "communication": 5.0,
@@ -699,11 +784,11 @@ export const demoStays = [
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Jerry",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/27.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "The subway is extremely close, making it simple to visit all major spots. We especially enjoyed Senso-ji and Tokyo Skytree.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -713,6 +798,27 @@ export const demoStays = [
                     "value": 4.8
                 },
                 "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Guy",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/76.jpg",
+                    "id": "10711826"
+                },
+                "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 7,
                 "withKids": false,
                 "withPet": false
             }
@@ -787,11 +893,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Masami",
+            "fullname": "Masami",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/90.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -801,7 +907,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/94.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -818,35 +924,14 @@ export const demoStays = [
         },
         "reviews": [
             {
-                "at": "2024-05-11T00:00:00.000Z",
-                "by": {
-                    "_id": "622f3407e36c59e6164fc004",
-                    "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
-                    "id": "10711825"
-                },
-                "txt": "Fantastic location near Shibuya — clean, modern, and perfect for a short stay.",
-                "rate": {
-                    "cleanliness": 4.9,
-                    "communication": 5.0,
-                    "checkIn": 4.8,
-                    "accuracy": 4.8,
-                    "location": 5.0,
-                    "value": 4.7
-                },
-                "nights": 4,
-                "withKids": false,
-                "withPet": false
-            },
-            {
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Jerayah",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/22.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "The subway is extremely close, making it simple to visit all major spots. We especially enjoyed Senso-ji and Tokyo Skytree.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -856,6 +941,48 @@ export const demoStays = [
                     "value": 4.8
                 },
                 "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Sintia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/76.jpg",
+                    "id": "10711826"
+                },
+                "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 7,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Karl",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/35.jpg",
+                    "id": "10711826"
+                },
+                "txt": "Masami was a great host — super responsive and helpful with local tips. The bed was really comfortable and the AC kept the room cool during hot days.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 9,
                 "withKids": false,
                 "withPet": false
             }
@@ -930,11 +1057,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Nana",
+            "fullname": "Nana",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/85.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -964,11 +1091,11 @@ export const demoStays = [
                 "at": "2024-05-11T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
-                    "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "fullname": "Sophia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/16.jpg",
                     "id": "10711825"
                 },
-                "txt": "Fantastic location near Ebisu — clean, modern, and perfect for a short stay.",
+                "txt": "Our host went above and beyond. She arranged transportation for us when we landed super late and checked in every day to make sure we were okay.",
                 "rate": {
                     "cleanliness": 4.9,
                     "communication": 5.0,
@@ -985,11 +1112,53 @@ export const demoStays = [
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Sintia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/70.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 7,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Karl",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg",
+                    "id": "10711826"
+                },
+                "txt": "Nana was a great host — super responsive and helpful with local tips. The bed was really comfortable and the AC kept the room cool during hot days.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 9,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "James",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/13.jpg",
+                    "id": "10711826"
+                },
+                "txt": "Nana was a great host — super responsive and helpful with local tips.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -1077,7 +1246,7 @@ export const demoStays = [
             "fullname": "Takumi",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/98.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -1087,7 +1256,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Beth", "imgUrl": "https://randomuser.me/api/portraits/women/42.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -1108,7 +1277,7 @@ export const demoStays = [
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
                     "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/18.jpg",
                     "id": "10711825"
                 },
                 "txt": "Fantastic location near Akihabara — clean, modern, and perfect for a short stay.",
@@ -1128,8 +1297,8 @@ export const demoStays = [
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Kaleb",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/41.jpg",
                     "id": "10711826"
                 },
                 "txt": "Takumi was a great host — super responsive and helpful with local tips.",
@@ -1220,7 +1389,7 @@ export const demoStays = [
             "fullname": "Takumi",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/98.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -1264,6 +1433,27 @@ export const demoStays = [
                     "value": 4.7
                 },
                 "nights": 4,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-03-22T00:00:00.000Z",
+                "by": {
+                    "_id": "622f3407e36c59e6164fc012",
+                    "fullname": "Sintia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/60.jpg",
+                    "id": "10711826"
+                },
+                "txt": "The guidebook in the room was packed with local tips — we used it constantly. We felt taken care of start to finish. The building feels very secure and was always spotless in shared areas. Truly a stress-free stay.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.8
+                },
+                "nights": 7,
                 "withKids": false,
                 "withPet": false
             },
@@ -1359,11 +1549,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "622f3403e36c59e6164faf93",
-            "firstName": "Takumi",
-            "fullname": "Takumi",
+            "firstName": "Moriko",
+            "fullname": "Moriko",
             "location": "Tokyo, Japan",
             "about": "I love hosting travelers and helping them explore my favorite city — Tokyo.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/18.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1580515200000,
@@ -1373,7 +1563,7 @@ export const demoStays = [
             "responseRate": 98,
             "responseTime": "within an hour",
             "coHosts": [
-                { "name": "Aya", "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg" }
+                { "name": "Kiki", "imgUrl": "https://randomuser.me/api/portraits/women/94.jpg" }
             ],
             "personalFacts": [
                 { "icon": "born", "text": "Born in Tokyo" },
@@ -1394,7 +1584,7 @@ export const demoStays = [
                 "by": {
                     "_id": "622f3407e36c59e6164fc004",
                     "fullname": "Sophie",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/56.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/33.jpg",
                     "id": "10711825"
                 },
                 "txt": "Fantastic location near Meguro — clean, modern, and perfect for a short stay.",
@@ -1414,11 +1604,11 @@ export const demoStays = [
                 "at": "2024-03-22T00:00:00.000Z",
                 "by": {
                     "_id": "622f3407e36c59e6164fc012",
-                    "fullname": "James",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg",
+                    "fullname": "Karl",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/58.jpg",
                     "id": "10711826"
                 },
-                "txt": "Takumi was a great host — super responsive and helpful with local tips.",
+                "txt": "We loved the keyless entry and smart home features — lights, AC, everything was so easy. Charging ports everywhere was a lifesaver.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 5.0,
@@ -1509,11 +1699,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Jules",
+            "fullname": "Jules",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/31.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -1543,7 +1733,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2001",
                     "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/38.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -1564,7 +1754,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2002",
                     "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/31.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -1585,7 +1775,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2003",
                     "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -1712,8 +1902,8 @@ export const demoStays = [
                 "at": "2024-07-14T00:00:00.000Z",
                 "by": {
                     "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "fullname": "Colette",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -1733,8 +1923,50 @@ export const demoStays = [
                 "at": "2023-11-02T00:00:00.000Z",
                 "by": {
                     "_id": "r-2002",
+                    "fullname": "Andre",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2024-07-14T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2001",
+                    "fullname": "Chloé",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/18.jpg",
+                    "id": "20711825"
+                },
+                "txt": "Très charmant !We loved how central the apartment was. We could walk to the Louvre in 10 minutes and Notre-Dame in 15. Transportation couldn’t be easier.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
                     "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/43.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -1755,10 +1987,31 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2003",
                     "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg",
                     "id": "20711827"
                 },
-                "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
+                "txt": "The moment we walked in, we were in love — tall windows, vintage decor, and that classic Paris balcony. It felt straight out of a movie.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.4
+                },
+                "nights": 2,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-05-20T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2003",
+                    "fullname": "Ana",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/17.jpg",
+                    "id": "20711827"
+                },
+                "txt": "Staying here made Paris feel familiar. The host was warm and very communicative, and check-in was quick and simple.",
                 "rate": {
                     "cleanliness": 4.9,
                     "communication": 5.0,
@@ -1849,11 +2102,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Charlotte",
+            "fullname": "Charlotte",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/61.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -1879,32 +2132,11 @@ export const demoStays = [
         ,
         "reviews": [
             {
-                "at": "2024-07-14T00:00:00.000Z",
-                "by": {
-                    "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
-                    "id": "20711825"
-                },
-                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
-                "rate": {
-                    "cleanliness": 5.0,
-                    "communication": 5.0,
-                    "checkIn": 4.9,
-                    "accuracy": 4.8,
-                    "location": 5.0,
-                    "value": 4.6
-                },
-                "nights": 5,
-                "withKids": false,
-                "withPet": false
-            },
-            {
                 "at": "2023-11-02T00:00:00.000Z",
                 "by": {
                     "_id": "r-2002",
-                    "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "fullname": "Rafael",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/44.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -1925,7 +2157,70 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2003",
                     "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/74.jpg",
+                    "id": "20711827"
+                },
+                "txt": "The moment we walked in, we were in love — tall windows, vintage decor, and that classic Paris balcony. It felt straight out of a movie.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.4
+                },
+                "nights": 2,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-05-20T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2003",
+                    "fullname": "Clair",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/57.jpg",
+                    "id": "20711827"
+                },
+                "txt": "Staying here made Paris feel familiar. The host was warm and very communicative, and check-in was quick and simple.",
+                "rate": {
+                    "cleanliness": 4.9,
+                    "communication": 5.0,
+                    "checkIn": 4.8,
+                    "accuracy": 4.7,
+                    "location": 5.0,
+                    "value": 4.4
+                },
+                "nights": 2,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
+                    "fullname": "Liam",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Not a generic hotel — this place has personality. Beautiful wooden floors, art on the walls, and a tiny café right downstairs where the barista greeted us every morning.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-05-20T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2003",
+                    "fullname": "Ana",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/11.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -2019,11 +2314,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Mark",
+            "fullname": "Mark",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/21.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -2073,8 +2368,8 @@ export const demoStays = [
                 "at": "2023-11-02T00:00:00.000Z",
                 "by": {
                     "_id": "r-2002",
-                    "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "fullname": "Gabe",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -2189,11 +2484,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Ambre",
+            "fullname": "Ambre",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/29.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -2219,23 +2514,23 @@ export const demoStays = [
         ,
         "reviews": [
             {
-                "at": "2024-07-14T00:00:00.000Z",
+                "at": "2023-05-20T00:00:00.000Z",
                 "by": {
-                    "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
-                    "id": "20711825"
+                    "_id": "r-2003",
+                    "fullname": "Clair",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/57.jpg",
+                    "id": "20711827"
                 },
-                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+                "txt": "Staying here made Paris feel familiar. The host was warm and very communicative, and check-in was quick and simple.",
                 "rate": {
-                    "cleanliness": 5.0,
+                    "cleanliness": 4.9,
                     "communication": 5.0,
-                    "checkIn": 4.9,
-                    "accuracy": 4.8,
+                    "checkIn": 4.8,
+                    "accuracy": 4.7,
                     "location": 5.0,
-                    "value": 4.6
+                    "value": 4.4
                 },
-                "nights": 5,
+                "nights": 2,
                 "withKids": false,
                 "withPet": false
             },
@@ -2244,10 +2539,10 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2002",
                     "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/70.jpg",
                     "id": "20711826"
                 },
-                "txt": "Great place for a couple — elegant and centrally located.",
+                "txt": "Not a generic hotel — this place has personality. Beautiful wooden floors, art on the walls, and a tiny café right downstairs where the barista greeted us every morning.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 4.9,
@@ -2264,11 +2559,11 @@ export const demoStays = [
                 "at": "2023-05-20T00:00:00.000Z",
                 "by": {
                     "_id": "r-2003",
-                    "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "fullname": "Beth",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/91.jpg",
                     "id": "20711827"
                 },
-                "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
+                "txt": "There are so many restaurants nearby — we barely scratched the surface. We want to come back with family next time.",
                 "rate": {
                     "cleanliness": 4.9,
                     "communication": 5.0,
@@ -2392,8 +2687,8 @@ export const demoStays = [
                 "at": "2024-07-14T00:00:00.000Z",
                 "by": {
                     "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "fullname": "Mark",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -2413,11 +2708,11 @@ export const demoStays = [
                 "at": "2023-11-02T00:00:00.000Z",
                 "by": {
                     "_id": "r-2002",
-                    "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "fullname": "Ben",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/10.jpg",
                     "id": "20711826"
                 },
-                "txt": "Great place for a couple — elegant and centrally located.",
+                "txt": "There are so many restaurants nearby — we barely scratched the surface. We want to come back with family next time.",
                 "rate": {
                     "cleanliness": 4.8,
                     "communication": 4.9,
@@ -2434,8 +2729,8 @@ export const demoStays = [
                 "at": "2023-05-20T00:00:00.000Z",
                 "by": {
                     "_id": "r-2003",
-                    "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "fullname": "Norah",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -2601,26 +2896,47 @@ export const demoStays = [
                 "withPet": false
             },
             {
-                "at": "2023-05-20T00:00:00.000Z",
+                "at": "2024-07-14T00:00:00.000Z",
                 "by": {
-                    "_id": "r-2003",
-                    "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
-                    "id": "20711827"
+                    "_id": "r-2001",
+                    "fullname": "Colette",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg",
+                    "id": "20711825"
                 },
-                "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
+                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
                 "rate": {
-                    "cleanliness": 4.9,
+                    "cleanliness": 5.0,
                     "communication": 5.0,
-                    "checkIn": 4.8,
-                    "accuracy": 4.7,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
                     "location": 5.0,
-                    "value": 4.4
+                    "value": 4.6
                 },
-                "nights": 2,
+                "nights": 5,
                 "withKids": false,
                 "withPet": false
-            }
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
+                    "fullname": "Andre",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
         ],
         "likedByUsers": [],
         "availableFrom": "2025-11-20",
@@ -2699,11 +3015,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Maine",
+            "fullname": "Maine",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/42.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -2733,7 +3049,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2001",
                     "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/14.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -2774,7 +3090,7 @@ export const demoStays = [
                 "at": "2023-05-20T00:00:00.000Z",
                 "by": {
                     "_id": "r-2003",
-                    "fullname": "Ana",
+                    "fullname": "Keren",
                     "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
                     "id": "20711827"
                 },
@@ -2790,7 +3106,49 @@ export const demoStays = [
                 "nights": 2,
                 "withKids": false,
                 "withPet": false
-            }
+            },
+            {
+                "at": "2024-07-14T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2001",
+                    "fullname": "Colette",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg",
+                    "id": "20711825"
+                },
+                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
+                    "fullname": "Andre",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
         ],
         "likedByUsers": [],
         "availableFrom": "2025-11-20",
@@ -2869,11 +3227,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Lore",
+            "fullname": "Lore",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/26.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -2903,7 +3261,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2001",
                     "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/64.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -2923,8 +3281,8 @@ export const demoStays = [
                 "at": "2023-11-02T00:00:00.000Z",
                 "by": {
                     "_id": "r-2002",
-                    "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "fullname": "Ken",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/73.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -2945,7 +3303,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2003",
                     "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/62.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -2960,7 +3318,49 @@ export const demoStays = [
                 "nights": 2,
                 "withKids": false,
                 "withPet": false
-            }
+            },
+            {
+                "at": "2024-07-14T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2001",
+                    "fullname": "Colette",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/59.jpg",
+                    "id": "20711825"
+                },
+                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
+                    "fullname": "Andre",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/29.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
         ],
         "likedByUsers": [],
         "availableFrom": "2025-11-20",
@@ -3039,11 +3439,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Hugo",
+            "fullname": "Hugo",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/women/95.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -3072,8 +3472,8 @@ export const demoStays = [
                 "at": "2024-07-14T00:00:00.000Z",
                 "by": {
                     "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "fullname": "Jean",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -3094,7 +3494,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2002",
                     "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -3114,8 +3514,8 @@ export const demoStays = [
                 "at": "2023-05-20T00:00:00.000Z",
                 "by": {
                     "_id": "r-2003",
-                    "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "fullname": "Etienne",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/72.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -3209,11 +3609,11 @@ export const demoStays = [
         "roomType": "Entire home/apt",
         "host": {
             "_id": "host-city-2",
-            "firstName": "Élodie",
-            "fullname": "Élodie",
+            "firstName": "Alexis",
+            "fullname": "Alexis",
             "location": "Paris, France",
             "about": "Art lover and baker — I enjoy curating a charming Paris experience for guests. I can recommend the best pastry spots.",
-            "pictureUrl": "https://randomuser.me/api/portraits/women/21.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/60.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1483228800000,
@@ -3242,8 +3642,8 @@ export const demoStays = [
                 "at": "2024-07-14T00:00:00.000Z",
                 "by": {
                     "_id": "r-2001",
-                    "fullname": "Chloé",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "fullname": "Remi",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/54.jpg",
                     "id": "20711825"
                 },
                 "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
@@ -3264,7 +3664,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2002",
                     "fullname": "Liam",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/32.jpg",
                     "id": "20711826"
                 },
                 "txt": "Great place for a couple — elegant and centrally located.",
@@ -3285,7 +3685,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-2003",
                     "fullname": "Ana",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/16.jpg",
                     "id": "20711827"
                 },
                 "txt": "Lovingly decorated — perfect for a romantic weekend in Paris.",
@@ -3300,7 +3700,49 @@ export const demoStays = [
                 "nights": 2,
                 "withKids": false,
                 "withPet": false
-            }
+            },
+            {
+                "at": "2024-07-14T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2001",
+                    "fullname": "Colette",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/33.jpg",
+                    "id": "20711825"
+                },
+                "txt": "Très charmant ! The loft felt like a small Parisian dream — Élodie left delightful tips.",
+                "rate": {
+                    "cleanliness": 5.0,
+                    "communication": 5.0,
+                    "checkIn": 4.9,
+                    "accuracy": 4.8,
+                    "location": 5.0,
+                    "value": 4.6
+                },
+                "nights": 5,
+                "withKids": false,
+                "withPet": false
+            },
+            {
+                "at": "2023-11-02T00:00:00.000Z",
+                "by": {
+                    "_id": "r-2002",
+                    "fullname": "Andre",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/23.jpg",
+                    "id": "20711826"
+                },
+                "txt": "Our host surprised us with a small bottle of champagne — it meant so much to us.",
+                "rate": {
+                    "cleanliness": 4.8,
+                    "communication": 4.9,
+                    "checkIn": 4.7,
+                    "accuracy": 4.6,
+                    "location": 5.0,
+                    "value": 4.5
+                },
+                "nights": 3,
+                "withKids": false,
+                "withPet": false
+            },
         ],
         "likedByUsers": [],
         "availableFrom": "2025-11-20",
@@ -3374,7 +3816,7 @@ export const demoStays = [
             "fullname": "Balázs Kovács",
             "location": "Budapest, Hungary",
             "about": "Local designer and music lover who enjoys helping guests explore Budapest’s creative side.",
-            "pictureUrl": "https://randomuser.me/api/portraits/men/47.jpg",
+            "pictureUrl": "https://randomuser.me/api/portraits/men/27.jpg",
             "isSuperhost": true,
             "isVerified": true,
             "signupDate": 1572566400000,
@@ -3403,7 +3845,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-3101",
                     "fullname": "Zsófia",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg"
+                    "imgUrl": "https://randomuser.me/api/portraits/women/27.jpg"
                 },
                 "txt": "Fantastic location near the ruin bars and metro! The apartment was spotless and comfortable.",
                 "rate": {
@@ -3423,7 +3865,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-3102",
                     "fullname": "David",
-                    "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg"
+                    "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg"
                 },
                 "txt": "Perfect stay for exploring Budapest — loved the mix of history and style. Great host!",
                 "rate": {
@@ -3443,7 +3885,7 @@ export const demoStays = [
                 "by": {
                     "_id": "r-3103",
                     "fullname": "Elena",
-                    "imgUrl": "https://randomuser.me/api/portraits/women/40.jpg"
+                    "imgUrl": "https://randomuser.me/api/portraits/women/88.jpg"
                 },
                 "txt": "Charming, bright, and close to everything. I’d definitely return.",
                 "rate": {
