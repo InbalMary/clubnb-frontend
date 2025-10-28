@@ -4,7 +4,7 @@
     .main-container {
 
         display: grid;
-        grid-template-columns: minmax(1.8rem, 1fr) minmax(auto, 909px) minmax(1.8rem, 1fr);
+        grid-template-columns: 1rem minmax(250px, 100vw) 1rem;
 
         >* {
             grid-column: 2;
@@ -61,7 +61,7 @@
         grid-template-columns: minmax(2.5rem, 1fr) minmax(auto, 1352px) minmax(2.5rem, 1fr);
 
         &.big-layout {
-            grid-template-columns: minmax(auto, 1fr) minmax(auto, 1110px) minmax(2.3rem, 1fr);
+            grid-template-columns: minmax(2.3rem, 1fr) minmax(auto, 1110px) minmax(2.3rem, 1fr);
         }
     }
 

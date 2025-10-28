@@ -2,15 +2,17 @@ import verified from '../assets/svgs/verified.svg'
 import superhost from '../assets/svgs/superhost.svg'
 import shield from '../assets/svgs/shield.svg'
 import { hostSvgs, statSvgs } from './Svgs'
+import { useIsBreakPoint } from '../customHooks/useIsBreakPoint'
 
 export function HostInfo({ host }) {
     if (!host) return null
+    const isMobile = useIsBreakPoint(744)
     const fallbackImgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
 
     return (
         <section className="host-info">
 
-            <div className="host-layout">
+            <div className={`host-layout ${isMobile ? 'mobile' : ''}`}>
                 <h2>Meet your host</h2>
                 {/*Left column*/}
                 <div className="host-left">

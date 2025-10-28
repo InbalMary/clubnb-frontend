@@ -12,6 +12,18 @@
     height: 39rem;
 }
 
+.rare-find-wrapper.mobile .cash-per-night {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 0;
+
+    span {
+        font-size: .7rem;
+    }
+
+}
+
 .rare-find_sticky {
     box-shadow: 3px 6px 20px 0px var(--gray6);
     border-radius: 12px;
@@ -39,12 +51,20 @@ h2.add-dates_sticky {
     align-items: center;
     font-family: cereal-light;
     font-weight: 600;
+    font-size: .9rem;
     line-height: 1.5rem;
     padding-block: .5rem 1.3rem;
     gap: .3rem;
 
     .cash_sticky {
         font-size: 1.5rem;
+
+        &.bold {
+            line-height: 1rem;
+            font-family: cereal-bold;
+            font-size: 1rem;
+            text-decoration: underline;
+        }
     }
 }
 
@@ -166,9 +186,11 @@ h2.add-dates_sticky {
         &.small.med.big {
             left: -30%;
         }
+
         &.med.big {
             left: -20%;
         }
+
         &.big {
             left: -8%;
         }

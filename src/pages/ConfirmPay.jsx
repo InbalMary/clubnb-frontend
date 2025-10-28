@@ -15,6 +15,7 @@ export function ConfirmPay() { //later send order as a prop from a parent
     const [selectedPaymentTiming, setselectedPaymentTiming] = useState('full')
     const [selectedMethod, setSelectedMethod] = useState(null)
     const navigate = useNavigate()
+    const loggedinUser = useSelector(storeState => storeState.userModule.user)
 
     if (!order) return <p>No reservation found</p>
 
@@ -40,24 +41,30 @@ export function ConfirmPay() { //later send order as a prop from a parent
     }
 
     async function handleReserveClick() {
+        if (!loggedinUser) {
+            console.error('User must be logged in to make a reservation')
+            return
+        }
+
         const reservedOrder = {
             ...order,
             hostId: host._id,
             guest: {
-                _id: 'test-user-1',
-                fullname: 'Demo Guest'
+                _id: loggedinUser._id,
+                fullname: loggedinUser.fullname
             },
+            guestId: loggedinUser._id,
             status: 'pending',
             msgs: [],
         }
+
         try {
-            // console.log('Reserved order before saving:', reservedOrder)
+            console.log('Reserved order before saving:', reservedOrder)
             await addOrder(reservedOrder)
             navigate('/trips')
         } catch (err) {
             console.error('Cannot reserve stay:', err)
         }
-
     }
 
     return (

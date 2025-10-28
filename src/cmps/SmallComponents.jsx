@@ -1,11 +1,12 @@
 import { Link } from "react-router"
 import { amenitiesSvg } from "./Svgs"
-import { calculateNights, capitalizeFirst, debounce } from "../services/util.service"
+import { calculateNights, capitalizeFirst, debounce, getAvgRate } from "../services/util.service"
 import { getRandomItems } from "../services/util.service"
 import { useEffect, useRef, useState } from "react"
 import diamond from "../assets/svgs/diamond.png"
 import { SingleImgCarousel } from "./SingleImgCarousel"
 import { useIsBreakPoint } from "../customHooks/useIsBreakPoint"
+import { Carousel } from "./Carousel"
 
 export function Highlights({ stay }) {
     if (!stay?.highlights || !Array.isArray(stay?.highlights)) return null
@@ -48,18 +49,20 @@ export function Capacity({ stay }) {
 }
 
 export function StayImgs({ stay }) {
-
-    // <section className="details-imgs">
-    //     {stay.imgUrls.map((url, idx) =>
-    //         <div key={idx + 1} className={`img-container img-${idx + 1}`}><img src={url} /></div>
-    //     )}
-    // </section>
     const isMobile = useIsBreakPoint(743)
     if (!stay?.imgUrls?.length) return null
     return (
         <section className={`details-imgs ${isMobile ? 'mobile' : 'desktop'}`}>
             {isMobile ? (
-                <SingleImgCarousel images={stay.imgUrls} />
+                <Carousel>
+                    <>
+                        {stay.imgUrls.map((url, idx) => (
+                            <li key={idx} className={`img-container img-${idx + 1}`}>
+                                <img src={url} alt={`Stay ${idx + 1}`} />
+                            </li>
+                        ))
+                        }</>
+                </Carousel>
             ) : (
                 stay.imgUrls.map((url, idx) => (
                     <div key={idx} className={`img-container img-${idx + 1}`}>
@@ -76,14 +79,17 @@ export function StayImgs({ stay }) {
 export function AmenitiesShortList({ amenitiesData }) {
 
     const randomAmenitiesRef = useRef(null)
+    const isMobile = useIsBreakPoint(744)
+    const numAmenities = isMobile ? 7 : 10
 
     if (!randomAmenitiesRef.current) {
         randomAmenitiesRef.current = getRandomItems(amenitiesData, 10)
     }
-    const randomAmenities = randomAmenitiesRef.current
+
+    const randomAmenities = randomAmenitiesRef.current.slice(0, numAmenities)
 
     return (
-        <ul className="amenities-short-list">
+        <ul className={`amenities-short-list ${isMobile ? 'mobile' : ''}`}>
             {
                 randomAmenities.map(amenity => {
                     return (
@@ -194,23 +200,7 @@ export function CalendarStayDates({ stay, startDate, endDate }) {
 }
 
 export function SmallRating({ stay, onClick, readOnly = false }) {
-    function getAvgRate(reviews) {
-        let totalSum = 0
-        let totalReviews = 0
 
-        reviews.forEach((review) => {
-            const rates = Object.values(review.rate).reduce((sum, currentValue) => sum + currentValue, 0)
-
-            const avgRateForReview = rates / Object.values(review.rate).length
-
-            totalSum += avgRateForReview
-            totalReviews += 1
-        })
-        const avgRate = totalSum / totalReviews
-        const roundedAverage = avgRate.toFixed(2)
-        if (isNaN(roundedAverage)) return 0
-        return roundedAverage
-    }
 
     return (<div className="rating">
         <span className="rate">{amenitiesSvg.rate}</span>
@@ -312,6 +302,7 @@ export function HomeMarkerIcon({ size = 48, fill = '#fefefe' }) {
 
 export function MiniStickyContainer({ stay, startDate, endDate, onClick }) {
     const isMobile = useIsBreakPoint(743)
+
     return (
         <div className={`mini-sticky-container ${isMobile ? 'mobile' : ''}`}>
             <div className={`mini-rating-wrapper ${isMobile ? 'mobile' : ''}`}>
@@ -321,7 +312,9 @@ export function MiniStickyContainer({ stay, startDate, endDate, onClick }) {
                     startDate={startDate}
                     endDate={endDate}
                     debounceDisplay={false} />
-                <SmallRating readOnly={true} stay={stay} />
+                {!isMobile &&
+                    <SmallRating readOnly={true} stay={stay} />
+                }
             </div>
             <div className="button-wrapper">
                 <FancyButton onClick={onClick}>
@@ -334,8 +327,22 @@ export function MiniStickyContainer({ stay, startDate, endDate, onClick }) {
     )
 }
 
+export function BigRating({ reviews }) {
+    return (
+        <div className="rating big">
+            <span className="rate bold">{amenitiesSvg.bigRate}</span>
+            <span className="avg bold">{getAvgRate(reviews)} </span>
+            <span className="dot bold" />
+            <span className="bold"> {reviews.length} {reviews.length === 1 ? 'review' : 'reviews'}</span>
+        </div>
+    )
+}
+
 export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, startDate, endDate, debounceDisplay = true }) {
     const [showRareFind, setShowRareFind] = useState(false);
+    const price = stay.price
+    const numNights = calculateNights(startDate, endDate)
+    const totalPrice = price * numNights
 
     const debouncedShowRef = useRef(
         debounce(() => {
@@ -361,8 +368,10 @@ export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, start
         }
     }, [startDate, endDate, debounceDisplay])
 
+    const isMobile = useIsBreakPoint(744)
+
     return (
-        <div>
+        <div className={`rare-find-wrapper ${isMobile ? 'mobile' : ''}`}>
             {showRareFind && showRareMsg &&
                 <h3 className="rare-find_sticky">{<img src={diamond} style={{ width: '30px' }} />} Rare find! This place is usually booked</h3>
             }
@@ -370,10 +379,35 @@ export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, start
                 <>
                     {showRareFind ? (
                         <span className="cash-per-night" >
-                            <h2 className="cash_sticky">{`$ ${stay.price}`}</h2><span>night</span>
+                            {isMobile ? <span className="wrapper">
+                                <h2 className="cash_sticky bold">{`$ ${totalPrice.toLocaleString('en-US')}`}</h2><span className="light">{numNights === 1 ? 'night' : `for ${numNights} nights`} </span>
+                                <span className="dot light"></span> <span className="dates light"></span>
+                                <>
+                                    <span className="light">{new Date(startDate).toLocaleString('en-US', { month: 'short', day: 'numeric' })} - </span>
+                                    <span className="light">{new Date(endDate).toLocaleString('en-US', { month: 'short', day: 'numeric' })}</span>
+                                </>
+                            </span>
+                                :
+                                <>
+                                    <h2 className={`cash_sticky`}>{`$ ${totalPrice.toLocaleString('en-US')}`}</h2><span>{numNights === 1 ? 'night' : `for ${numNights} nights`} </span>
+                                </>
+                            }
                         </span>
                     ) : (
-                        <h2 className="add-dates_sticky">Add dates for prices</h2>
+                        <>
+                            {isMobile ? (
+                                <span className="dates_sticky mobile">
+
+                                    <h2 className="add-dates_sticky">Add dates for prices</h2>
+                                    <span className="mini-sticky">
+                                        <span className="rate">{amenitiesSvg.rate}</span>
+                                        <span className="avg">{getAvgRate(stay.reviews)}</span>
+                                    </span>
+                                </span>
+                            ) : (
+                                <h2 className="add-dates_sticky">Add dates for prices</h2>
+                            )}
+                        </>
                     )
                     }
                 </>
@@ -383,11 +417,53 @@ export function RareFind({ showRareMsg = true, showPriceInfo = true, stay, start
 }
 
 
+
+export function TotalCount({ stay, startDate, endDate }) {
+    const price = stay.price
+    const numNights = calculateNights(startDate, endDate)
+    const totalPrice = price * numNights
+
+    return (
+        <div className="payment-summary">
+
+            <div className="total price-calc">
+                <span className="link"> {`$ ${stay.price}`} X {numNights} {numNights === 1 ? 'night' : 'nights'} </span>
+                <span>
+                    ${totalPrice}
+                </span>
+            </div>
+
+
+            {stay?.cleaningFee &&
+                <div className="total clean-calc">
+                    <span className="link ">
+                        Cleaning fee
+                    </span>
+                    <span>
+                        ${stay.cleaningFee}
+                    </span>
+                </div>
+            }
+            <div className="border"></div>
+
+            <div className="total total-calc">
+                <span className="bold">
+                    Total
+                </span>
+                <span className="bold">
+                    ${(stay.cleaningFee || 0) + (totalPrice || 0)}
+
+                </span>
+            </div>
+        </div>
+    )
+}
+
 // import './DetailsSkeleton.css';
 
 export function DetailsSkeleton() {
     return (
-        <div className="details-skeleton main-content">
+        <div className="details-skeleton main-container">
             {/* Title */}
             <div className="skeleton skeleton-title"></div>
 

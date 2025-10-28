@@ -11,7 +11,7 @@ import { Modal } from '../cmps/Modal'
 import { DateRangePicker } from '../cmps/DateRangePicker'
 import { StayRating } from '../cmps/StayRating'
 import { StayReviewList } from '../cmps/StayReviewList'
-import { AmenitiesLongList, AmenitiesShortList, CalendarStayDates, Capacity, DetailsSkeleton, Highlights, MiniHost, MiniStickyContainer, SleepingRooms, SmallRating, StayImgs } from '../cmps/SmallComponents'
+import { AmenitiesLongList, AmenitiesShortList, BigRating, CalendarStayDates, Capacity, DetailsSkeleton, Highlights, MiniHost, MiniStickyContainer, SleepingRooms, SmallRating, StayImgs } from '../cmps/SmallComponents'
 import { getAmenitiesData } from '../services/stay/stay.service.local'
 import { StickyContainer } from '../cmps/StickyContainer'
 import { HostInfo } from '../cmps/HostInfo'
@@ -23,6 +23,7 @@ import { WishlistModal } from '../cmps/WishListModal'
 import { useIsBreakPoint } from '../customHooks/useIsBreakPoint'
 import { setCurrentOrder } from '../store/actions/order.actions'
 import { calculateNights } from '../services/util.service'
+
 
 
 export function StayDetails() {
@@ -52,8 +53,9 @@ export function StayDetails() {
 
 
   useEffect(() => {
-    if (stayId)
+    if (stayId) {
       loadStay(stayId)
+    }
 
   }, [stayId])
 
@@ -103,7 +105,8 @@ export function StayDetails() {
     amenitiesRef: useRef(null),
     reviewRef: useRef(null),
     locationRef: useRef(null),
-    stickyContainerRef: useRef(null)
+    stickyContainerRef: useRef(null),
+    calendarRef: useRef(null)
   }
 
   const handleDateComplete = (newRange) => {
@@ -142,8 +145,21 @@ export function StayDetails() {
 
   function handleClick() {
 
+    // const scrollToSection = (ref) => {
+    //   ref.current?.scrollIntoView({
+    //     behavior: 'smooth',
+    //     block: 'start',
+    //     inline: 'nearest'
+    //   })
+    // }
     const scrollToSection = (ref) => {
-      ref.current?.scrollIntoView({ behavior: 'smooth' })
+      const el = ref.current
+      if (!el) return
+
+      el.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
     }
 
     const from = startDate
@@ -170,17 +186,16 @@ export function StayDetails() {
       setCurrentOrder(order)
       navigate(`/stay/${stay._id}/confirm-pay`, { state: { order } })
     } else {
-      scrollToSection(refs.stickyContainerRef)
+      isMobile ? scrollToSection(refs.calendarRef) :
+        scrollToSection(refs.stickyContainerRef)
     }
   }
-
 
 
   if (!stay) return <div className="loading-overlay"><DetailsSkeleton />  </div>
 
   return (
-    // <div className="main-page">
-    <section className={`stay-details ${isMiddle ? '' : 'main-container'} 
+    <section className={`stay-details ${isMiddle ? 'mobile' : 'main-container'} 
     ${isBigLayout ? 'big-layout' : ''}`}>
 
       {(!stay || isLoading) && (
@@ -190,22 +205,6 @@ export function StayDetails() {
       )}
 
       <div className="main-content">
-        {/* <div className="share-wishlist flex justify-between">
-          <h1 ref={refs.photoRef}>{stay?.name}</h1>
-        
-          <div className="share-btns-container flex">
-            <button className="share-btn">
-              <span className="share-icon">{svgControls.share}<span className="link">Share</span></span>
-            </button>
-
-            <button className="save-heart-btn" onClick={onToggleWishlist}>
-              <span className={`heart-icon ${isAddedToWishlist ? 'active' : ''}`}>{svgControls.heart}
-                <span className="link">{isAddedToWishlist ? 'Saved' : 'Save'}</span>
-              </span>
-            </button>
-          </div>
-
-        </div> */}
 
         {isMobile ? (
 
@@ -251,14 +250,9 @@ export function StayDetails() {
         />
         <StayImgs stay={stay} />
 
-        {!isMobile &&
-          <StayHeader refs={refs} stay={stay} onClick={handleClick} startDate={startDate} endDate={endDate} />
-        }
-        {/* <StayHeader refs={refs} stay={stay} guests={guests} startDate={startDate} endDate={endDate} /> */}
+        <StayHeader refs={refs} stay={stay} onClick={handleClick} startDate={startDate} endDate={endDate} />
         <div className="details-container">
           <div className="content">
-
-            {/* <section className="main-info"> */}
 
             <div className="first-block">
               <h2 className="stay-name">{stay?.roomType} in {stay?.loc?.city},  {stay?.loc?.country}</h2>
@@ -280,7 +274,7 @@ export function StayDetails() {
               <span className="summary">
                 <LongTxt children={stay?.summary} length={250} />
                 {stay?.summary.length > 250 &&
-                  <button className="open-modal" onClick={() => setModalType('summary')}>
+                  <button className={`open-modal ${isMobile && 'mobile'}`} onClick={() => setModalType('summary')}>
                     Show more
                   </button>
                 }
@@ -298,7 +292,7 @@ export function StayDetails() {
                   <h2>What this place offers</h2>
                   <AmenitiesShortList amenitiesData={amenitiesData} />
 
-                  <button onClick={() => setModalType('amenities')} className="open-modal">Show all {amenitiesData.length} amenities</button>
+                  <button onClick={() => setModalType('amenities')} className={`open-modal ${isMobile && 'mobile'}`}>Show all {amenitiesData.length} amenities</button>
                 </div>
               }
             </div>
@@ -345,7 +339,9 @@ export function StayDetails() {
 
             <div className="border"></div>
 
-            <div className="details-calendar" >
+            <div
+              ref={refs.calendarRef}
+              className="details-calendar" >
               <CalendarStayDates stay={stay} startDate={startDate} endDate={endDate} />
               {isCalendarBreakPoint ? (
                 <DateRangePicker
@@ -365,41 +361,44 @@ export function StayDetails() {
               )}
             </div>
 
-            {/* </section> */}
           </div>
 
 
-          {isMobile ?
-
-            <MiniStickyContainer stay={stay} startDate={startDate} endDate={endDate} onClick={handleClick} />
-            :
+          {!isMobile &&
             <div ref={refs.stickyContainerRef} className="sticky-ref">
               <StickyContainer stay={stay}
                 dateRange={dateRange}
                 setDateRange={setDateRange} />
             </div>
           }
-          {/* <div ref={refs.stickyContainerRef} className="sticky-ref">
-
-            <StickyContainer stay={stay}
-              dateRange={dateRange}
-              setDateRange={setDateRange} />
-          </div> */}
-
 
         </div>
 
         <div className="border"></div>
 
-        <div ref={refs.reviewRef} className="review-section">
-          <StayRating reviews={stay?.reviews} />
-          <div className="border"></div>
-          {!stay?.reviews?.length && <h2 className="no-reviews">No reviews yet...</h2>}
-          <StayReviewList reviews={stay?.reviews} isModal={false} onClick={handleShowMoreClick} />
-          {!!stay?.reviews?.length &&
-            <button onClick={() => setModalType('reviews')} className="open-modal">Show all {stay?.reviews?.length} reviews</button>
-          }
-        </div>
+        {isMobile ? (
+          <div className="review-section mobile">
+            <BigRating reviews={stay?.reviews} />
+            {!stay?.reviews?.length && <h2 className="no-reviews">No reviews yet...</h2>}
+            <StayReviewList reviews={stay?.reviews} isModal={false} onClick={handleShowMoreClick} />
+            {!!stay?.reviews?.length &&
+              <button onClick={() => setModalType('reviews')} className={`open-modal ${isMobile && 'mobile'}`}>Show all {stay?.reviews?.length} reviews</button>
+            }
+          </div>
+
+        ) : (
+
+          <div ref={refs.reviewRef} className="review-section">
+            <StayRating reviews={stay?.reviews} />
+            <div className="border"></div>
+            {!stay?.reviews?.length && <h2 className="no-reviews">No reviews yet...</h2>}
+            <StayReviewList reviews={stay?.reviews} isModal={false} onClick={handleShowMoreClick} />
+            {!!stay?.reviews?.length &&
+              <button onClick={() => setModalType('reviews')} className={`open-modal ${isMobile && 'mobile'}`}>Show all {stay?.reviews?.length} reviews</button>
+            }
+          </div>
+        )}
+
         <div className="border"></div>
 
 

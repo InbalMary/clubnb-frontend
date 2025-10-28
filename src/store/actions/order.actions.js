@@ -40,6 +40,12 @@ export async function addOrder(order) {
     try {
         const savedOrder = await orderService.save(order)
         store.dispatch(getCmdAddOrder(savedOrder))
+        
+        const filterBy = store.getState().orderModule.filterBy
+        if (filterBy.guestId) {
+            await loadOrders(filterBy)
+        }
+        
         return savedOrder
     } catch (err) {
         console.log('Cannot add order', err)

@@ -1,3 +1,6 @@
+import { useIsBreakPoint } from '../customHooks/useIsBreakPoint'
+import { getAvgRate } from '../services/util.service'
+import { BigRating } from './SmallComponents'
 import { amenitiesSvg, reviewSvgs } from './Svgs'
 
 export function StayRating({ reviews }) {
@@ -60,24 +63,6 @@ export function StayRating({ reviews }) {
         return { avgRateArr, overallRatingCounts }
     }
 
-    function getAvgRate(reviews) {
-        if (!reviews?.length) return 0
-        let totalSum = 0
-        let totalReviews = 0
-
-        reviews.forEach((review) => {
-            const rates = Object.values(review.rate).reduce((sum, currentValue) => sum + currentValue, 0)
-
-            const avgRateForReview = rates / Object.values(review.rate).length
-
-            totalSum += avgRateForReview
-            totalReviews += 1
-        })
-        const avgRate = totalSum / totalReviews
-        const roundedAverage = avgRate.toFixed(2)
-        return roundedAverage
-    }
-
     const { overallRatingCounts } = getAvgRateForCtgs(reviews, reviewSvgs)
     const totalCounts = Object.values(overallRatingCounts).reduce((sum, count) => sum + count, 0)
 
@@ -88,17 +73,12 @@ export function StayRating({ reviews }) {
 
 
     })
+
+    const isMobile = useIsBreakPoint(744)
     return (
 
         <div className="rate-wrapper">
-
-            <div className="rating big">
-                <span className="rate bold">{amenitiesSvg.bigRate}</span>
-                <span className="avg bold">{getAvgRate(reviews)} </span>
-                <span className="dot bold" />
-                <span className="bold"> {reviews.length} {reviews.length === 1 ? 'review' : 'reviews'}</span>
-            </div>
-
+            <BigRating reviews={reviews} />
             <ul className="rating-categories">
 
                 <ul className="overall-rating">
