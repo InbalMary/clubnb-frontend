@@ -6,6 +6,7 @@ import { DotsLoader } from '../cmps/SmallComponents';
 import { Modal } from '../cmps/Modal';
 import { appHeaderSvg } from '../cmps/Svgs';
 import confetti from 'canvas-confetti';
+import { socketService } from '../services/socket.service.js';
 
 export function ReservationsPage() {
     const [activeTab, setActiveTab] = useState('all')
@@ -19,10 +20,40 @@ export function ReservationsPage() {
 
     useEffect(() => {
         if (loggedInUser?._id) {
-            // console.log('Loading orders for hostId:', loggedInUser._id)
             loadOrders({ hostId: loggedInUser._id })
         }
-    }, [loggedInUser, orders?.length])
+    }, [loggedInUser])
+
+    useEffect(() => {
+        if (!loggedInUser) return
+
+        socketService.on('new-order-created', (newOrder) => {
+            console.log('New order received:', newOrder)
+
+            const isMyOrder = newOrder.host?._id?.toString() === loggedInUser._id.toString() ||
+                newOrder.hostId?.toString() === loggedInUser._id.toString()
+
+            if (isMyOrder) {
+                loadOrders({ hostId: loggedInUser._id })
+            }
+        })
+
+        socketService.on('update-guest-orders', (updatedOrder) => {
+            console.log('Order updated:', updatedOrder)
+
+            const isMyOrder = updatedOrder.host?._id?.toString() === loggedInUser._id.toString() ||
+                updatedOrder.hostId?.toString() === loggedInUser._id.toString()
+
+            if (isMyOrder) {
+                loadOrders({ hostId: loggedInUser._id })
+            }
+        })
+
+        return () => {
+            socketService.off('new-order-created')
+            socketService.off('update-guest-orders')
+        }
+    }, [loggedInUser])
 
     const hostOrders = useMemo(() => {
         if (!orders) {
