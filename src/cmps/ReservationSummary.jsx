@@ -1,6 +1,6 @@
 
 import { statSvgs, badgesSvgs } from '../cmps/Svgs'
-import { formatStayDates } from '../services/util.service'
+import { formatStayDates, getDateBefore } from '../services/util.service'
 
 export function ReservationSummary({ order }) {
 
@@ -8,6 +8,7 @@ export function ReservationSummary({ order }) {
     const totalFees = order.cleaningFee + order.serviceFee
     const totalPrice = order.totalPrice
     const pricePerNight = order.pricePerNight
+    const dateBefore = getDateBefore(order.startDate)
 
     const { adults, children, infants } = order.guests
     const year = new Date(order.startDate).getFullYear()
@@ -37,7 +38,7 @@ export function ReservationSummary({ order }) {
                 <div className='cancellation-policy'>
                     <p>Free cancellation</p>
                     <p className='cancel-inline'>
-                        Cancel before [date TBD] for a full refund.{' '}
+                        Cancel before {dateBefore} for a full refund.{' '}
                         <button className='btn btn-link cancel-link'>Full policy</button>
                     </p> {/*Implement this function*/}
                 </div>
