@@ -311,7 +311,7 @@ export function StayDetails() {
               isOpen={modalType !== null}
               onClose={() => setModalType(null)}
               closePosition='left'
-              className={`${modalType === 'reviews' ? 'reviews-rating-modal' : 'modal-popup'}`}>
+              className={`${modalType === 'reviews' ? 'reviews-rating-modal' : 'modal-popup'}  ${isMobile ? 'mobile' : ''}`}>
 
               {modalType === 'reviews' &&
                 <div className="reviews-in-modal">

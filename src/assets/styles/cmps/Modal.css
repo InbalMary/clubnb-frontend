@@ -5,6 +5,16 @@
     z-index: 12;
 }
 
+/* mobile */
+.modal-popup.mobile {
+    width: 100vw;
+    height: 97%;
+
+}
+
+
+
+
 .modal-popup {
     z-index: 200;
 
