@@ -6,6 +6,7 @@ import { PaymentMethod } from '../cmps/PaymentMethod'
 import { ReservationSummary } from '../cmps/ReservationSummary'
 import { FancyButton } from '../cmps/SmallComponents'
 import { addOrder } from '../store/actions/order.actions'
+import { getDateBefore } from '../services/util.service'
 
 export function ConfirmPay() { //later send order as a prop from a parent
     const order = useSelector(storeState => storeState.orderModule.currentOrder)
@@ -18,6 +19,7 @@ export function ConfirmPay() { //later send order as a prop from a parent
 
     if (!order) return <p>No reservation found</p>
 
+    const payLaterDate = getDateBefore(order.startDate)
     const totalFees = order.cleaningFee + order.serviceFee
     const totalPrice = order.totalPrice
     const payNow = +(totalPrice * 0.2).toFixed(2)
@@ -110,7 +112,7 @@ export function ConfirmPay() { //later send order as a prop from a parent
                                                 <span className='payment-checkmark'></span>
                                             </div>
                                             <p className='split-pay'>
-                                                ${payNow} now, ${payLater} charged on [date TBD]. No extra fees.  {/*TODO: decide how many days before startDate to charge the second payment*/}
+                                                ${payNow} now, ${payLater} charged on {payLaterDate}. No extra fees.  {/*TODO: decide how many days before startDate to charge the second payment*/}
                                                 <button className='btn btn-link more-info'>More info</button>
                                             </p>
                                         </label>

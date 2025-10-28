@@ -225,3 +225,14 @@ export function getSuggestedStayRange(stay, nights = 5) {
         end: end.toISOString().split('T')[0]
     }
 }
+
+export function getDateBefore(startDateStr, daysBefore = 7) {
+    if (!startDateStr) return ''
+    const startDate = new Date(startDateStr)
+    startDate.setDate(startDate.getDate() - daysBefore)
+
+    return startDate.toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric'
+    })
+}
