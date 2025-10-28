@@ -304,6 +304,13 @@
     display: block;
 }
 
+.reservations-container .modal-popup {
+    max-width: 80%;
+    max-height: 70%;
+    padding-inline: 1rem;
+    padding-block: 2rem;
+}
+
 .card-actions {
     display: flex;
     align-items: center;
