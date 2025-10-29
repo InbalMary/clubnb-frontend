@@ -47,7 +47,7 @@ async function save(wishlist) {
             const wishlistToSave = {
                 ...wishlist,
                 byUser: loggedinUser,
-                createdAt: Date.now(),
+                createdAt: wishlist.createdAt || Date.now() - 1000 * 60 * 60 * 24 * 7,
                 title: wishlist.title || `${wishlist.city}, ${wishlist.country} ${year}`,
                 stays: (wishlist.stays || []).map(stay => ({
                     ...stay,
