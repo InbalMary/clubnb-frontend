@@ -71,6 +71,14 @@ export function ReservationsPage() {
         })
     }, [orders, loggedInUser])
 
+    const pendingCount = useMemo(() => {
+        const now = new Date()
+        return hostOrders.filter(order =>
+            order.status === 'pending' &&
+            new Date(order.startDate) > now
+        ).length
+    }, [hostOrders])
+    
     const filteredOrders = useMemo(() => {
         const now = new Date()
 
@@ -149,7 +157,13 @@ export function ReservationsPage() {
         <div className="reservations-container">
             <div className="reservations-content">
                 <div className="reservations-header">
-                    <h1 className="page-title">Reservations</h1>
+                    {/* add badge */}
+                    <div className="header-with-badge">
+                        <h1 className="page-title">Reservations</h1>
+                        {pendingCount > 0 && (
+                            <span className="pending-badge">{pendingCount}</span>
+                        )}
+                    </div>
 
                     <div className="view-toggle">
                         <button
@@ -363,7 +377,6 @@ export function ReservationsPage() {
                         <p className="confirm-message">
                             Are you sure you want to {confirmModal.action === 'approve' ? 'approve' : 'reject'} this booking?
                         </p>
-
 
                         <div className="confirm-actions">
                             <button
