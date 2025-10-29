@@ -22,30 +22,27 @@ export function StayHeader({ refs, stay, onClick, startDate, endDate }) {
     return (
         <>
             {!isMobile ? (
-                <div className={`stay-details-header big-layout ${isWide ? 'mid-layout' : ''} ${isMobile && 'mobile'}`}>
-                    {stickyHeader &&
+                <>
+                    {stickyHeader && (
+                        <div className={`stay-details-header big-layout ${isWide ? 'mid-layout' : ''}`}>
+                            <nav className='nav-bar'>
+                                <span className="span-nav" onClick={() => scrollToSection(refs.photoRef)}>Photos<div className="border-bot"></div></span>
+                                <span className="span-nav" onClick={() => scrollToSection(refs.amenitiesRef)}>Amenities<div className="border-bot"></div></span>
+                                <span className="span-nav" onClick={() => scrollToSection(refs.reviewRef)}>Reviews<div className="border-bot"></div></span>
+                                <span className="span-nav" onClick={() => scrollToSection(refs.locationRef)}>Location<div className="border-bot"></div></span>
 
-                        <nav className='nav-bar'>
-                            <span className="span-nav" onClick={() => scrollToSection(refs.photoRef)}>Photos <div className="border-bot"></div></span>
-                            <span className="span-nav" onClick={() => scrollToSection(refs.amenitiesRef)}>Amenities <div className="border-bot"></div></span>
-                            <span className="span-nav" onClick={() => scrollToSection(refs.reviewRef)}>Reviews <div className="border-bot"></div></span>
-                            <span className="span-nav" onClick={() => scrollToSection(refs.locationRef)}>Location <div className="border-bot"></div></span>
-
-                            {stickyReserve &&
-                                <MiniStickyContainer stay={stay} startDate={startDate} endDate={endDate} onClick={onClick} />
-                            }
-                        </nav>
-                    }
-                </div>
+                                {stickyReserve && (
+                                    <MiniStickyContainer stay={stay} startDate={startDate} endDate={endDate} onClick={onClick} />
+                                )}
+                            </nav>
+                        </div>
+                    )}
+                </>
             ) : (
-                <div className={`stay-details-header big-layout ${isWide ? 'mid-layout' : ''} ${isMobile && 'mobile'}`}>
-
+                <div className={`stay-details-header big-layout mobile ${isWide ? 'mid-layout' : ''}`}>
                     <MiniStickyContainer stay={stay} startDate={startDate} endDate={endDate} onClick={onClick} />
                 </div>
-
             )}
-
         </>
-
     )
 }
