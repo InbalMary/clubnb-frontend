@@ -472,7 +472,7 @@
     min-width: 24px;
     height: 24px;
     padding: 0 8px;
-    background-color: var(--pending, var(--primary-clr));
+    background-color: var(--primary-clr);
     color: var(--white);
     border-radius: 12px;
     font-size: 13px;
