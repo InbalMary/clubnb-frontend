@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { StayPreview } from '../cmps/StayPreview'
@@ -16,6 +16,7 @@ export function WishlistDetails() {
 
     const isLoading = useSelector(storeState => storeState.wishlistModule.isLoading)
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
+    const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
     const wishlist = wishlists.find(wl => wl._id === id)
 
     const [hoveredId, setHoveredId] = useState(null)
@@ -79,8 +80,9 @@ export function WishlistDetails() {
     }))
 
     if (isLoading) return <WishlistDetailsSkeleton />
-    console.log(svgControls.heart)
 
+    const start = filterBy.startDate || wishlist?.stay?.suggestedRange?.start || wishlist?.stay?.availableFrom
+    const end = filterBy.endDate || wishlist?.stay?.suggestedRange?.end || wishlist?.stay?.availableUntil
     return (
         <section className="wishlist-details full">
             <div className="wishlist-items-wrapper">
@@ -106,22 +108,29 @@ export function WishlistDetails() {
 
                 <div className="wishlist-details-grid">
                     {stays.map(stay => (
-                        <div
-                            key={stay._id}
-                            className="wishlist-stay-card"
-                            onMouseEnter={() => setHoveredId(stay._id)}
-                            onMouseLeave={() => setHoveredId(null)}
+
+                        <Link to={`/stay/${stay._id}?startDate=${filterBy.startDate || stay?.suggestedRange?.start}&endDate=${filterBy.endDate || stay?.suggestedRange?.end}
+            &adults=${filterBy.adults || 1}&children=${filterBy?.children || ''}&infants=${filterBy?.infants}`
+                        }
+                            className='stay-link'
                         >
 
-                            <StayPreview
-                                stay={stay}
-                                isBig={true}
-                                onToggleWishlist={onToggleHeart}
-                                isInactive={inactiveHearts.includes(stay._id)}
-                                hideDetails={true}
-                            />
-                        </div>
+                            <div
+                                key={stay._id}
+                                className="wishlist-stay-card"
+                                onMouseEnter={() => setHoveredId(stay._id)}
+                                onMouseLeave={() => setHoveredId(null)}
+                            >
 
+                                <StayPreview
+                                    stay={stay}
+                                    isBig={true}
+                                    onToggleWishlist={onToggleHeart}
+                                    isInactive={inactiveHearts.includes(stay._id)}
+                                    hideDetails={true}
+                                />
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>
