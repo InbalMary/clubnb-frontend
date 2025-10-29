@@ -7,7 +7,7 @@
 }
 
 .modal-popup.login-signup-modal {
-
+height:fit-content;
     header {
         position: sticky;
         flex: 0 0 auto;
