@@ -69,7 +69,6 @@
 
 .guest-button:hover:not(.disabled) {
     border-color: var(--gray3);
-    transform: scale(1.05);
 }
 
 .guest-button.disabled {
