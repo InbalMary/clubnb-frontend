@@ -32,12 +32,12 @@
         .dates_sticky.mobile {
             display: flex;
             flex-direction: column;
-            
+
             .add-dates_sticky {
                 font-size: 1rem;
                 padding-block: 0;
             }
-            
+
             .mini-sticky {
                 font-size: .8rem;
                 display: flex;
@@ -50,10 +50,10 @@
     }
 }
 
-.stay-details-header{
+.stay-details-header {
+    display: grid;
+    grid-template-columns: .5fr 1110px .5fr;
     z-index: 5;
-    display: flex;
-    align-content: center;
     height: 5rem;
     position: fixed;
     top: 0;
@@ -71,6 +71,7 @@
     }
 
     .nav-bar {
+        grid-column: 2;
         display: grid;
         grid-template-columns: repeat(4, auto) 1fr;
         width: 100%;
