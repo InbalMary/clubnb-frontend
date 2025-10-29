@@ -4882,7 +4882,7 @@
       {
         "at": "2024-09-07T00:00:00.000Z",
         "by": {
-          "_id": "r-4001",
+          "_id": "r-4103",
           "fullname": "Anastasia",
           "imgUrl": "https://randomuser.me/api/portraits/women/43.jpg"
         },
@@ -4902,7 +4902,7 @@
       {
         "at": "2023-10-22T00:00:00.000Z",
         "by": {
-          "_id": "r-4002",
+          "_id": "r-4201",
           "fullname": "Dominic",
           "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg"
         },
@@ -4922,7 +4922,7 @@
       {
         "at": "2023-04-16T00:00:00.000Z",
         "by": {
-          "_id": "r-4003",
+          "_id": "r-4302",
           "fullname": "Sophie",
           "imgUrl": "https://randomuser.me/api/portraits/women/36.jpg"
         },
@@ -5040,7 +5040,7 @@
       {
         "at": "2024-06-01T00:00:00.000Z",
         "by": {
-          "_id": "r-4001",
+          "_id": "r-4104",
           "fullname": "Yossi",
           "imgUrl": "https://randomuser.me/api/portraits/men/58.jpg",
           "id": "40711825"
@@ -8401,7 +8401,7 @@
       {
         "roomType": "loft",
         "bedType": "king bed",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-29273928-unapproved/original/31be006e-cc37-4faa-aafa-1f2709a4993b.JPEG?im_w=480"
       }
     ],
     "guests": 2,
@@ -8465,6 +8465,106 @@
           "value": 4.7
         },
         "nights": 4
+      },
+      {
+        "at": "2024-07-08T00:00:00.000Z",
+        "by": {
+          "_id": "r-5059",
+          "fullname": "Louis",
+          "imgUrl": "https://randomuser.me/api/portraits/men/57.jpg"
+        },
+        "txt": "The apartment was just right. Clean, cozy, and close to good restaurants.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 4.9,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-04-15T00:00:00.000Z",
+        "by": {
+          "_id": "r-5058",
+          "fullname": "Amira",
+          "imgUrl": "https://randomuser.me/api/portraits/women/5.jpg"
+        },
+        "txt": "Loved the calm surroundings. Spotlessly clean and very welcoming space.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": true,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-29T00:00:00.000Z",
+        "by": {
+          "_id": "r-5057",
+          "fullname": "Ethan",
+          "imgUrl": "https://randomuser.me/api/portraits/men/60.jpg"
+        },
+        "txt": "Quiet and comfortable stay. Everything was neat and exactly as shown.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-05-25T00:00:00.000Z",
+        "by": {
+          "_id": "r-5056",
+          "fullname": "Tara",
+          "imgUrl": "https://randomuser.me/api/portraits/women/50.jpg"
+        },
+        "txt": "Very relaxing stay. Loved the balcony area and comfortable sofa.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-02-17T00:00:00.000Z",
+        "by": {
+          "_id": "r-5055",
+          "fullname": "Omar",
+          "imgUrl": "https://randomuser.me/api/portraits/men/26.jpg"
+        },
+        "txt": "Spacious and clean. The bathroom could use brighter lighting, otherwise perfect.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.8,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
       }
     ],
     "availableFrom": "2025-10-15",
@@ -8488,7 +8588,7 @@
       {
         "roomType": "apartment",
         "bedType": "queen bed",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-53567688/original/03d53766-1d60-45f9-aff7-cb6d6e76373c.jpeg?im_w=480"
       }
     ],
     "guests": 3,
@@ -8552,6 +8652,106 @@
           "value": 4.9
         },
         "nights": 5
+      },
+      {
+        "at": "2023-10-07T00:00:00.000Z",
+        "by": {
+          "_id": "r-5054",
+          "fullname": "Maya",
+          "imgUrl": "https://randomuser.me/api/portraits/women/15.jpg"
+        },
+        "txt": "Perfect location, clean apartment, and comfy bed. Would stay again!",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-09-03T00:00:00.000Z",
+        "by": {
+          "_id": "r-5053",
+          "fullname": "Kenji",
+          "imgUrl": "https://randomuser.me/api/portraits/men/49.jpg"
+        },
+        "txt": "Really good stay overall. Very clean, organized, and easy to reach.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": true
+      },
+      {
+        "at": "2024-06-14T00:00:00.000Z",
+        "by": {
+          "_id": "r-5052",
+          "fullname": "Lina",
+          "imgUrl": "https://randomuser.me/api/portraits/women/11.jpg"
+        },
+        "txt": "The apartment was bright and spotless. A little noise from outside, but nothing major.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.7,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-08-20T00:00:00.000Z",
+        "by": {
+          "_id": "r-5051",
+          "fullname": "Rami",
+          "imgUrl": "https://randomuser.me/api/portraits/men/51.jpg"
+        },
+        "txt": "Functional and clean apartment. Perfect for a business trip.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.8,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-05-08T00:00:00.000Z",
+        "by": {
+          "_id": "r-5050",
+          "fullname": "Sophie",
+          "imgUrl": "https://randomuser.me/api/portraits/women/4.jpg"
+        },
+        "txt": "Absolutely loved the decor. Spotless and cozy with a great kitchen setup.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 5
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
       }
     ],
     "availableFrom": "2025-12-10",
@@ -8575,7 +8775,7 @@
       {
         "roomType": "penthouse",
         "bedType": "king bed",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/5f7c644c-a0e0-4a22-aaae-1dca07dc7886.jpg?im_w=480"
       }
     ],
     "guests": 4,
@@ -8639,6 +8839,126 @@
           "value": 4.8
         },
         "nights": 4
+      },
+      {
+        "at": "2024-07-23T00:00:00.000Z",
+        "by": {
+          "_id": "r-5047",
+          "fullname": "Andrés",
+          "imgUrl": "https://randomuser.me/api/portraits/men/13.jpg"
+        },
+        "txt": "Very tidy apartment, nice layout. The AC could have been a bit stronger though.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.7
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": true
+      },
+      {
+        "at": "2024-02-06T00:00:00.000Z",
+        "by": {
+          "_id": "r-5048",
+          "fullname": "Marta",
+          "imgUrl": "https://randomuser.me/api/portraits/women/26.jpg"
+        },
+        "txt": "Charming space. It was clean and quiet, exactly what I was looking for.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-10T00:00:00.000Z",
+        "by": {
+          "_id": "r-5049",
+          "fullname": "Oliver",
+          "imgUrl": "https://randomuser.me/api/portraits/men/17.jpg"
+        },
+        "txt": "Clean and comfortable apartment. Wi-Fi was a little slow at times, but fine overall.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.7
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-05-08T00:00:00.000Z",
+        "by": {
+          "_id": "r-5050",
+          "fullname": "Sophie",
+          "imgUrl": "https://randomuser.me/api/portraits/women/4.jpg"
+        },
+        "txt": "Absolutely loved the decor. Spotless and cozy with a great kitchen setup.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 5
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-08-20T00:00:00.000Z",
+        "by": {
+          "_id": "r-5051",
+          "fullname": "Rami",
+          "imgUrl": "https://randomuser.me/api/portraits/men/51.jpg"
+        },
+        "txt": "Functional and clean apartment. Perfect for a business trip.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.8,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-04-27T00:00:00.000Z",
+        "by": {
+          "_id": "r-5046",
+          "fullname": "Sara",
+          "imgUrl": "https://randomuser.me/api/portraits/women/6.jpg"
+        },
+        "txt": "Great apartment. Clean, well furnished, and close to public transport.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
       }
     ],
     "availableFrom": "2025-11-10",
@@ -8763,6 +9083,66 @@
         },
         "nights": 5,
         "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-08-05T00:00:00.000Z",
+        "by": {
+          "_id": "r-5043",
+          "fullname": "Jonas",
+          "imgUrl": "https://randomuser.me/api/portraits/men/29.jpg"
+        },
+        "txt": "Bright apartment with great natural light. Everything was as shown in the photos.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-01-18T00:00:00.000Z",
+        "by": {
+          "_id": "r-5044",
+          "fullname": "Chiara",
+          "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg"
+        },
+        "txt": "Everything was well organized. The bed was a bit firm for my taste, but overall a lovely stay.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.7
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-09-30T00:00:00.000Z",
+        "by": {
+          "_id": "r-5045",
+          "fullname": "Mateusz",
+          "imgUrl": "https://randomuser.me/api/portraits/men/43.jpg"
+        },
+        "txt": "Simple, comfortable, and clean. Great communication and easy access.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.8,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": true,
         "withPet": false
       },
       {
@@ -8983,6 +9363,66 @@
         "nights": 5,
         "withKids": false,
         "withPet": false
+      },
+      {
+        "at": "2023-12-23T00:00:00.000Z",
+        "by": {
+          "_id": "r-5042",
+          "fullname": "Amina",
+          "imgUrl": "https://randomuser.me/api/portraits/women/37.jpg"
+        },
+        "txt": "Loved the minimal design and calm atmosphere. Everything was spotless.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": true
+      },
+      {
+        "at": "2024-03-29T00:00:00.000Z",
+        "by": {
+          "_id": "r-5041",
+          "fullname": "Elliot",
+          "imgUrl": "https://randomuser.me/api/portraits/men/10.jpg"
+        },
+        "txt": "Nice apartment, very clean. A bit smaller than expected but comfortable overall.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.8,
+          "location": 4.7,
+          "value": 4.7
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-11T00:00:00.000Z",
+        "by": {
+          "_id": "r-5040",
+          "fullname": "Greta",
+          "imgUrl": "https://randomuser.me/api/portraits/women/19.jpg"
+        },
+        "txt": "Cozy, clean, and very quiet. Perfect for a short solo trip.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
       }
     ],
     "likedByUsers": [],
@@ -9108,6 +9548,86 @@
         },
         "nights": 6,
         "withKids": true,
+        "withPet": false
+      },
+      {
+        "at": "2024-08-14T00:00:00.000Z",
+        "by": {
+          "_id": "r-5036",
+          "fullname": "Tanya",
+          "imgUrl": "https://randomuser.me/api/portraits/women/35.jpg"
+        },
+        "txt": "Spotless apartment and great lighting. The atmosphere was peaceful and pleasant.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.8,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-04-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-5037",
+          "fullname": "Lorenzo",
+          "imgUrl": "https://randomuser.me/api/portraits/men/31.jpg"
+        },
+        "txt": "Quiet and well equipped. Great place for a few nights of rest.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": true
+      },
+      {
+        "at": "2023-09-10T00:00:00.000Z",
+        "by": {
+          "_id": "r-5038",
+          "fullname": "Iris",
+          "imgUrl": "https://randomuser.me/api/portraits/women/8.jpg"
+        },
+        "txt": "Everything was lovely. Clean rooms, comfortable bed, and good communication.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-06-27T00:00:00.000Z",
+        "by": {
+          "_id": "r-5039",
+          "fullname": "Owen",
+          "imgUrl": "https://randomuser.me/api/portraits/men/56.jpg"
+        },
+        "txt": "Clean, bright, and very comfortable. Would definitely stay again.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
         "withPet": false
       },
       {
@@ -9256,6 +9776,86 @@
           "value": 4.8
         },
         "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-01-28T00:00:00.000Z",
+        "by": {
+          "_id": "r-5034",
+          "fullname": "Eva",
+          "imgUrl": "https://randomuser.me/api/portraits/women/10.jpg"
+        },
+        "txt": "Lovely stay, very clean and well equipped. Check-in was quick and smooth.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-21T00:00:00.000Z",
+        "by": {
+          "_id": "r-5035",
+          "fullname": "Noam",
+          "imgUrl": "https://randomuser.me/api/portraits/men/8.jpg"
+        },
+        "txt": "Very clean, organized, and well maintained. The bed was super comfortable.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-09-04T00:00:00.000Z",
+        "by": {
+          "_id": "r-5032",
+          "fullname": "Camille",
+          "imgUrl": "https://randomuser.me/api/portraits/women/28.jpg"
+        },
+        "txt": "Wonderful apartment with all amenities. Calm and comfortable environment.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": true,
+        "withPet": false
+      },
+      {
+        "at": "2024-05-06T00:00:00.000Z",
+        "by": {
+          "_id": "r-5033",
+          "fullname": "Daniel",
+          "imgUrl": "https://randomuser.me/api/portraits/men/53.jpg"
+        },
+        "txt": "Clean, quiet, and just the right size. Everything was ready on arrival.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.7
+        },
+        "nights": 2,
         "withKids": false,
         "withPet": false
       },
@@ -9654,6 +10254,86 @@
         "withPet": false
       },
       {
+        "at": "2023-10-17T00:00:00.000Z",
+        "by": {
+          "_id": "r-5028",
+          "fullname": "Hanna",
+          "imgUrl": "https://randomuser.me/api/portraits/women/55.jpg"
+        },
+        "txt": "The apartment was spotless and well located. Highly recommended.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-25T00:00:00.000Z",
+        "by": {
+          "_id": "r-5029",
+          "fullname": "Marco",
+          "imgUrl": "https://randomuser.me/api/portraits/men/18.jpg"
+        },
+        "txt": "Quiet apartment with nice lighting and everything we needed for a few days.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": true
+      },
+      {
+        "at": "2024-02-15T00:00:00.000Z",
+        "by": {
+          "_id": "r-5030",
+          "fullname": "Sofia",
+          "imgUrl": "https://randomuser.me/api/portraits/women/29.jpg"
+        },
+        "txt": "Cozy and welcoming. Loved the small design details and spotless kitchen.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-08-26T00:00:00.000Z",
+        "by": {
+          "_id": "r-5031",
+          "fullname": "Isaac",
+          "imgUrl": "https://randomuser.me/api/portraits/men/16.jpg"
+        },
+        "txt": "Spacious and bright apartment. Everything was well organized and comfortable.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
         "_id": "r-bcn-602",
         "at": "2024-02-15T00:00:00.000Z",
         "by": {
@@ -10013,6 +10693,106 @@
         "nights": 5,
         "withKids": false,
         "withPet": false
+      },
+      {
+        "at": "2024-04-08T00:00:00.000Z",
+        "by": {
+          "_id": "r-5027",
+          "fullname": "Raj",
+          "imgUrl": "https://randomuser.me/api/portraits/men/41.jpg"
+        },
+        "txt": "Clean, peaceful, and well furnished. Felt very comfortable from the start.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-09-22T00:00:00.000Z",
+        "by": {
+          "_id": "r-5025",
+          "fullname": "Milo",
+          "imgUrl": "https://randomuser.me/api/portraits/men/44.jpg"
+        },
+        "txt": "Very tidy and comfortable. Smooth communication and easy self check-in.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-05-30T00:00:00.000Z",
+        "by": {
+          "_id": "r-5026",
+          "fullname": "Helena",
+          "imgUrl": "https://randomuser.me/api/portraits/women/38.jpg"
+        },
+        "txt": "Loved staying here! The flat was spotless and very close to everything. Highly recommend.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": true,
+        "withPet": false
+      },
+      {
+        "at": "2024-01-09T00:00:00.000Z",
+        "by": {
+          "_id": "r-5024",
+          "fullname": "Clara",
+          "imgUrl": "https://randomuser.me/api/portraits/women/7.jpg"
+        },
+        "txt": "The place was beautiful and spotless. Everything worked perfectly.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.7
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-18T00:00:00.000Z",
+        "by": {
+          "_id": "r-5023",
+          "fullname": "Lars",
+          "imgUrl": "https://randomuser.me/api/portraits/men/32.jpg"
+        },
+        "txt": "Cozy, clean, and well equipped. Great value for a short getaway.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": true
       }
     ],
     "likedByUsers": [],
@@ -10133,6 +10913,26 @@
           "value": 4.9
         },
         "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-12-05T00:00:00.000Z",
+        "by": {
+          "_id": "r-5022",
+          "fullname": "Nadia",
+          "imgUrl": "https://randomuser.me/api/portraits/women/42.jpg"
+        },
+        "txt": "Bright and inviting apartment. The layout was functional and very tidy.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 2,
         "withKids": false,
         "withPet": false
       },
@@ -10332,6 +11132,106 @@
         "nights": 5,
         "withKids": false,
         "withPet": false
+      },
+      {
+        "at": "2024-09-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-5017",
+          "fullname": "Ethan",
+          "imgUrl": "https://randomuser.me/api/portraits/men/47.jpg"
+        },
+        "txt": "Quiet, clean, and very comfortable. Great spot for a few nights away.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-01T00:00:00.000Z",
+        "by": {
+          "_id": "r-5018",
+          "fullname": "Maya",
+          "imgUrl": "https://randomuser.me/api/portraits/women/6.jpg"
+        },
+        "txt": "Bright and beautiful apartment. Loved the small balcony and open design.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 4.8,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-04-11T00:00:00.000Z",
+        "by": {
+          "_id": "r-5019",
+          "fullname": "Oskar",
+          "imgUrl": "https://randomuser.me/api/portraits/men/55.jpg"
+        },
+        "txt": "Nice clean apartment in a quiet area. Great communication and easy arrival.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-06-12T00:00:00.000Z",
+        "by": {
+          "_id": "r-5021",
+          "fullname": "Victor",
+          "imgUrl": "https://randomuser.me/api/portraits/men/24.jpg"
+        },
+        "txt": "Very comfortable stay. Clean, quiet, and close to everything we needed.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-08-01T00:00:00.000Z",
+        "by": {
+          "_id": "r-5020",
+          "fullname": "Eliza",
+          "imgUrl": "https://randomuser.me/api/portraits/women/25.jpg"
+        },
+        "txt": "Modern and spotless apartment with cozy touches. Everything was simple and easy.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
       }
     ],
     "likedByUsers": [],
@@ -10457,6 +11357,26 @@
           "value": 4.9
         },
         "nights": 7,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-10-27T00:00:00.000Z",
+        "by": {
+          "_id": "r-5016",
+          "fullname": "Nadia",
+          "imgUrl": "https://randomuser.me/api/portraits/women/34.jpg"
+        },
+        "txt": "The apartment was spotless and well equipped. Highly recommended.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 3,
         "withKids": false,
         "withPet": false
       },
@@ -10662,6 +11582,26 @@
         },
         "nights": 5,
         "withKids": true,
+        "withPet": false
+      },
+      {
+        "at": "2024-06-23T00:00:00.000Z",
+        "by": {
+          "_id": "r-5015",
+          "fullname": "Jonah",
+          "imgUrl": "https://randomuser.me/api/portraits/men/9.jpg"
+        },
+        "txt": "Everything went smoothly. The apartment was clean and exactly as shown.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
         "withPet": false
       },
       {
@@ -10887,6 +11827,86 @@
         "withPet": false
       },
       {
+        "at": "2024-07-18T00:00:00.000Z",
+        "by": {
+          "_id": "r-5011",
+          "fullname": "Anton",
+          "imgUrl": "https://randomuser.me/api/portraits/men/34.jpg"
+        },
+        "txt": "Great value for money. The place was spotless and very comfortable.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": true
+      },
+      {
+        "at": "2024-01-06T00:00:00.000Z",
+        "by": {
+          "_id": "r-5012",
+          "fullname": "Ella",
+          "imgUrl": "https://randomuser.me/api/portraits/women/9.jpg"
+        },
+        "txt": "Very clean and quiet stay. The furniture was comfortable and practical.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-09-11T00:00:00.000Z",
+        "by": {
+          "_id": "r-5013",
+          "fullname": "Rafael",
+          "imgUrl": "https://randomuser.me/api/portraits/men/4.jpg"
+        },
+        "txt": "Nice apartment, well equipped and well maintained. We had a great time.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.8,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-29T00:00:00.000Z",
+        "by": {
+          "_id": "r-5014",
+          "fullname": "Irene",
+          "imgUrl": "https://randomuser.me/api/portraits/women/20.jpg"
+        },
+        "txt": "Clean, bright, and cozy. Loved the small design touches around the apartment.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
         "at": "2018-06-16T04:00:00.000Z",
         "by": {
           "_id": "r-202",
@@ -11029,6 +12049,46 @@
         "withPet": false
       },
       {
+        "at": "2024-02-13T00:00:00.000Z",
+        "by": {
+          "_id": "r-5009",
+          "fullname": "Marek",
+          "imgUrl": "https://randomuser.me/api/portraits/men/20.jpg"
+        },
+        "txt": "Spacious and quiet. Everything was organized and comfortable.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-03T00:00:00.000Z",
+        "by": {
+          "_id": "r-5010",
+          "fullname": "Camila",
+          "imgUrl": "https://randomuser.me/api/portraits/women/2.jpg"
+        },
+        "txt": "Comfortable stay in a clean and nicely decorated apartment.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.7
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
         "at": "2024-05-10T00:00:00.000Z",
         "by": {
           "_id": "r-402",
@@ -11045,6 +12105,46 @@
           "value": 4.9
         },
         "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-08-03T00:00:00.000Z",
+        "by": {
+          "_id": "r-5007",
+          "fullname": "Leo",
+          "imgUrl": "https://randomuser.me/api/portraits/men/61.jpg"
+        },
+        "txt": "Clean and well-kept apartment. Easy check-in and quiet at night.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-09-25T00:00:00.000Z",
+        "by": {
+          "_id": "r-5008",
+          "fullname": "Frida",
+          "imgUrl": "https://randomuser.me/api/portraits/women/27.jpg"
+        },
+        "txt": "Lovely space with lots of natural light. Great for a short city break.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 3,
         "withKids": false,
         "withPet": false
       }
@@ -11152,6 +12252,26 @@
       "lng": 34.772
     },
     "reviews": [
+      {
+        "at": "2023-10-18T00:00:00.000Z",
+        "by": {
+          "_id": "r-5006",
+          "fullname": "Aisha",
+          "imgUrl": "https://randomuser.me/api/portraits/women/10.jpg"
+        },
+        "txt": "Simple, clean, and quiet. Everything was just like in the pictures.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.8,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": true,
+        "withPet": false
+      },
       {
         "at": "2024-03-25T00:00:00.000Z",
         "by": {
@@ -11351,6 +12471,46 @@
       "lng": 34.7778
     },
     "reviews": [
+      {
+        "at": "2023-11-29T00:00:00.000Z",
+        "by": {
+          "_id": "r-5004",
+          "fullname": "Nora",
+          "imgUrl": "https://randomuser.me/api/portraits/women/30.jpg"
+        },
+        "txt": "Beautifully designed apartment, clean and peaceful. Would happily come back.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-06-10T00:00:00.000Z",
+        "by": {
+          "_id": "r-5005",
+          "fullname": "Mateo",
+          "imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
+        },
+        "txt": "Very tidy and stylish. The bed was extremely comfortable and check-in was quick.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
       {
         "at": "2024-03-15T00:00:00.000Z",
         "by": {
@@ -11556,6 +12716,86 @@
         "withPet": false
       },
       {
+        "at": "2024-05-19T00:00:00.000Z",
+        "by": {
+          "_id": "r-5000",
+          "fullname": "Lina",
+          "imgUrl": "https://randomuser.me/api/portraits/women/44.jpg"
+        },
+        "txt": "Everything was clean and modern. The space felt bright and comfortable throughout our stay.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-07T00:00:00.000Z",
+        "by": {
+          "_id": "r-5001",
+          "fullname": "Tomas",
+          "imgUrl": "https://randomuser.me/api/portraits/men/7.jpg"
+        },
+        "txt": "Nice apartment with good facilities. Everything worked and was easy to find.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.8,
+          "location": 4.8,
+          "value": 4.7
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-12-14T00:00:00.000Z",
+        "by": {
+          "_id": "r-5002",
+          "fullname": "Yuki",
+          "imgUrl": "https://randomuser.me/api/portraits/women/39.jpg"
+        },
+        "txt": "Cozy and peaceful stay. The apartment had everything needed for a relaxing visit.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-04-26T00:00:00.000Z",
+        "by": {
+          "_id": "r-5003",
+          "fullname": "Ben",
+          "imgUrl": "https://randomuser.me/api/portraits/men/23.jpg"
+        },
+        "txt": "A comfortable place to unwind after busy days. Clean and functional.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": true
+      },
+      {
         "at": "2024-05-10T00:00:00.000Z",
         "by": {
           "_id": "r-802",
@@ -11598,7 +12838,7 @@
       {
         "roomType": "bedroom",
         "bedType": "queen bed",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/27aab2fb-b20d-41c2-a36b-161ce5eb90a9.jpg?im_w=480"
       }
     ],
     "guests": 3,
@@ -11675,6 +12915,86 @@
     },
     "reviews": [
       {
+        "at": "2024-08-09T00:00:00.000Z",
+        "by": {
+          "_id": "r-4039",
+          "fullname": "Clara",
+          "imgUrl": "https://randomuser.me/api/portraits/women/50.jpg"
+        },
+        "txt": "Lovely and peaceful apartment. Everything was sparkling clean and well kept.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-09-27T00:00:00.000Z",
+        "by": {
+          "_id": "r-4040",
+          "fullname": "George",
+          "imgUrl": "https://randomuser.me/api/portraits/men/27.jpg"
+        },
+        "txt": "Clean, modern, and comfortable. Excellent communication and easy check-in.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-12-18T00:00:00.000Z",
+        "by": {
+          "_id": "r-4220",
+          "fullname": "Summer",
+          "imgUrl": "https://randomuser.me/api/portraits/women/19.jpg"
+        },
+        "txt": "Enjoyed our stay! Clean, cozy, and exactly as shown in the pictures. Definietly come back on our next vacation",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-07T00:00:00.000Z",
+        "by": {
+          "_id": "r-4019",
+          "fullname": "Jack",
+          "imgUrl": "https://randomuser.me/api/portraits/men/18.jpg"
+        },
+        "txt": "Nice balcony views, quiet and relaxing space with modern amenities. Everything worked perfectly.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
         "at": "2024-03-15T00:00:00.000Z",
         "by": {
           "_id": "r-9001",
@@ -11737,7 +13057,7 @@
       {
         "roomType": "bedroom",
         "bedType": "two single beds",
-        "imgUrl": ""
+        "imgUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIxNDk4NjczOTk0NDIzMzk3NQ%3D%3D/original/417dec08-bd3e-4062-b746-de2dd67239c7.jpeg?im_w=480"
       }
     ],
     "guests": 2,
@@ -11957,12 +13277,12 @@
     "rooms": [
       {
         "roomType": "living room",
-        "imgUrl": "",
+        "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-1388300692263601656/original/7940c282-01e7-47c2-bfdf-d08d6d1f797d.jpeg?im_w=480",
         "bedType": "sofa bed"
       },
       {
         "roomType": "bedroom",
-        "imgUrl": "",
+        "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-1388300692263601656/original/2ac42371-8f72-4c17-a113-e2baa19a9c1a.jpeg?im_w=480",
         "bedType": "double bed"
       }
     ],
@@ -12060,6 +13380,26 @@
         },
         "nights": 5,
         "withKids": true,
+        "withPet": false
+      },
+      {
+        "at": "2024-02-04T00:00:00.000Z",
+        "by": {
+          "_id": "r-4038",
+          "fullname": "Adam",
+          "imgUrl": "https://randomuser.me/api/portraits/men/58.jpg"
+        },
+        "txt": "Comfortable stay with great amenities. The bed was especially nice after a long day.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 4,
+        "withKids": false,
         "withPet": false
       },
       {
@@ -12265,6 +13605,86 @@
         "withPet": false
       },
       {
+        "at": "2023-08-25T00:00:00.000Z",
+        "by": {
+          "_id": "r-4034",
+          "fullname": "Miguel",
+          "imgUrl": "https://randomuser.me/api/portraits/men/35.jpg"
+        },
+        "txt": "Everything was clean and functional. Great stay for a few nights.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-22T00:00:00.000Z",
+        "by": {
+          "_id": "r-4035",
+          "fullname": "Anya",
+          "imgUrl": "https://randomuser.me/api/portraits/women/21.jpg"
+        },
+        "txt": "Stylish apartment and quiet surroundings. Enjoyed every moment of our stay.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-10-10T00:00:00.000Z",
+        "by": {
+          "_id": "r-4036",
+          "fullname": "Elias",
+          "imgUrl": "https://randomuser.me/api/portraits/men/11.jpg"
+        },
+        "txt": "Very tidy and modern. The atmosphere was relaxed and the apartment well-designed.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-04-17T00:00:00.000Z",
+        "by": {
+          "_id": "r-4037",
+          "fullname": "Nora",
+          "imgUrl": "https://randomuser.me/api/portraits/women/48.jpg"
+        },
+        "txt": "Quiet and spotless apartment. Everything was as expected and well prepared.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.8,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
         "at": "2024-06-14T00:00:00.000Z",
         "by": {
           "_id": "r-t002",
@@ -12409,6 +13829,86 @@
         "withPet": false
       },
       {
+        "at": "2023-11-11T00:00:00.000Z",
+        "by": {
+          "_id": "r-4030",
+          "fullname": "Pavel",
+          "imgUrl": "https://randomuser.me/api/portraits/men/49.jpg"
+        },
+        "txt": "The apartment was comfortable, bright, and very quiet. Perfect for resting.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-01-20T00:00:00.000Z",
+        "by": {
+          "_id": "r-4031",
+          "fullname": "Carla",
+          "imgUrl": "https://randomuser.me/api/portraits/women/10.jpg"
+        },
+        "txt": "Everything was just like the photos. Neat, modern, and easy to access.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": true
+      },
+      {
+        "at": "2024-09-05T00:00:00.000Z",
+        "by": {
+          "_id": "r-4032",
+          "fullname": "Theo",
+          "imgUrl": "https://randomuser.me/api/portraits/men/14.jpg"
+        },
+        "txt": "Simple, elegant, and very clean. Check-in was fast and communication was easy.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-08T00:00:00.000Z",
+        "by": {
+          "_id": "r-4033",
+          "fullname": "Jade",
+          "imgUrl": "https://randomuser.me/api/portraits/women/13.jpg"
+        },
+        "txt": "Beautifully decorated and calm environment. Felt like a home away from home.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.8,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
         "at": "2024-05-10T00:00:00.000Z",
         "by": {
           "_id": "r-802",
@@ -12438,7 +13938,7 @@
     "type": "Beach stays",
     "price": 210,
     "cleaningFee": 40,
-    "summary": "Cozy studio in the heart of the city, steps from cafes and nightlife.",
+    "summary": "Cozy studio in the heart of Barcelona, steps from cafés, tapas bars, and the sandy beach. Featuring tall windows, airy décor, and a small balcony with city views, it offers the ideal mix of comfort and charm. Perfect for travelers wanting easy access to both nightlife and seaside relaxation.",
     "beds": 2,
     "bedrooms": 1,
     "bathrooms": 1,
@@ -12475,15 +13975,19 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "u501",
+      "firstName": "Maria",
       "fullname": "Maria López",
       "location": "Barcelona, Spain",
       "pictureUrl": "https://randomuser.me/api/portraits/women/65.jpg",
       "isSuperhost": true,
       "isVerified": true,
+      "signupDate": 1628500000000,
+      "yearsHosting": 6,
       "rating": 4.78,
       "numReviews": 74,
       "responseRate": 98,
       "responseTime": "within an hour",
+      "coHosts": [],
       "personalFacts": [
         {
           "icon": "born",
@@ -12548,6 +14052,86 @@
           "value": 4.7
         },
         "nights": 3
+      },
+      {
+        "at": "2024-07-04T00:00:00.000Z",
+        "by": {
+          "_id": "r-4026",
+          "fullname": "Viktor",
+          "imgUrl": "https://randomuser.me/api/portraits/men/40.jpg"
+        },
+        "txt": "Very comfortable bed and quiet surroundings. Slept better than at home!",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.7
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-12-19T00:00:00.000Z",
+        "by": {
+          "_id": "r-4027",
+          "fullname": "Mila",
+          "imgUrl": "https://randomuser.me/api/portraits/women/40.jpg"
+        },
+        "txt": "Nicely furnished apartment with great attention to detail. Would stay again.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-14T00:00:00.000Z",
+        "by": {
+          "_id": "r-4028",
+          "fullname": "Jon",
+          "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg"
+        },
+        "txt": "Clean, comfortable, and well designed. Great value for the price.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 5
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-05-30T00:00:00.000Z",
+        "by": {
+          "_id": "r-4029",
+          "fullname": "Lea",
+          "imgUrl": "https://randomuser.me/api/portraits/women/12.jpg"
+        },
+        "txt": "Cozy place with a great vibe. The apartment was spotless and comfortable.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 4.8,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 5,
+        "withKids": true,
+        "withPet": false
       }
     ],
     "likedByUsers": [],
@@ -12559,7 +14143,7 @@
     "type": "City stays",
     "price": 260,
     "cleaningFee": 45,
-    "summary": "Bright seaside apartment with panoramic ocean views and a private balcony overlooking Barcelona’s Old Town.",
+    "summary": "Bright seaside apartment nestled in Barcelona’s Old Town with panoramic ocean views and a private balcony. Spacious interiors, modern kitchen, and colorful local artwork create a warm Mediterranean feel. Minutes from the harbor, market streets, and lively tapas scene.",
     "beds": 2,
     "bedrooms": 1,
     "bathrooms": 1,
@@ -12598,15 +14182,19 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "u502",
+      "firstName": "Carlos",
       "fullname": "Carlos Martín",
       "location": "Barcelona, Spain",
       "pictureUrl": "https://randomuser.me/api/portraits/men/42.jpg",
       "isSuperhost": true,
       "isVerified": true,
+      "yearsHosting": 5,
+      "signupDate": 1644000000000,
       "rating": 4.7,
       "numReviews": 58,
       "responseRate": 97,
       "responseTime": "within a few hours",
+      "coHosts": [],
       "personalFacts": [
         {
           "icon": "born",
@@ -12655,6 +14243,46 @@
         "nights": 5
       },
       {
+        "at": "2024-02-28T00:00:00.000Z",
+        "by": {
+          "_id": "r-4025",
+          "fullname": "Sophie",
+          "imgUrl": "https://randomuser.me/api/portraits/women/8.jpg"
+        },
+        "txt": "Charming and minimalist apartment. The space was very well maintained.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.9,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-09-04T00:00:00.000Z",
+        "by": {
+          "_id": "r-4022",
+          "fullname": "Marc",
+          "imgUrl": "https://randomuser.me/api/portraits/men/43.jpg"
+        },
+        "txt": "Lovely, quiet apartment with a comfortable bed and well-equipped kitchen.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
         "at": "2024-08-02T00:00:00.000Z",
         "by": {
           "_id": "u304",
@@ -12671,6 +14299,46 @@
           "value": 4.7
         },
         "nights": 4
+      },
+      {
+        "at": "2024-08-15T00:00:00.000Z",
+        "by": {
+          "_id": "r-4023",
+          "fullname": "Tara",
+          "imgUrl": "https://randomuser.me/api/portraits/women/52.jpg"
+        },
+        "txt": "Modern and clean space, perfect for a short break. Everything worked perfectly.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-10-22T00:00:00.000Z",
+        "by": {
+          "_id": "r-4024",
+          "fullname": "Kamil",
+          "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg"
+        },
+        "txt": "Everything was neat and organized. We had a peaceful and relaxing stay.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.8,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": true
       }
     ],
     "likedByUsers": [],
@@ -12682,7 +14350,7 @@
     "type": "City stays",
     "price": 320,
     "cleaningFee": 60,
-    "summary": "Midtown velvet escape — a modern loft in the heart of New York with floor-to-ceiling windows and skyline views.",
+    "summary": "Midtown velvet escape — a stylish open-plan loft with high ceilings, exposed brick, and floor-to-ceiling windows that flood the space with light. Enjoy a quiet coffee corner, designer kitchen, and quick access to theaters, Central Park, and the best restaurants in the city.",
     "beds": 2,
     "bedrooms": 1,
     "bathrooms": 1,
@@ -12721,15 +14389,21 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "u503",
+      "firstName": "Jonathan",
       "fullname": "Jonathan Reed",
       "location": "New York, USA",
       "pictureUrl": "https://randomuser.me/api/portraits/men/14.jpg",
       "isSuperhost": true,
       "isVerified": true,
+      "signupDate": {
+        "$numberLong": "1659500000000"
+      },
+      "yearsHosting": 3,
       "rating": 4.7,
       "numReviews": 63,
       "responseRate": 99,
       "responseTime": "within an hour",
+      "coHosts": [],
       "personalFacts": [
         {
           "icon": "work",
@@ -12760,6 +14434,26 @@
     ],
     "reviews": [
       {
+        "at": "2024-06-26T00:00:00.000Z",
+        "by": {
+          "_id": "r-4021",
+          "fullname": "Elena",
+          "imgUrl": "https://randomuser.me/api/portraits/women/15.jpg"
+        },
+        "txt": "The apartment was bright, spotless, and comfortable. Check-in was very smooth.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
         "at": "2024-06-14T00:00:00.000Z",
         "by": {
           "_id": "u305",
@@ -12776,6 +14470,66 @@
           "value": 4.6
         },
         "nights": 3
+      },
+      {
+        "at": "2023-11-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-4819",
+          "fullname": "Danielle",
+          "imgUrl": "https://randomuser.me/api/portraits/women/23.jpg"
+        },
+        "txt": "Bright, airy, and very clean. The stay exceeded our expectations.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-07T00:00:00.000Z",
+        "by": {
+          "_id": "r-4919",
+          "fullname": "Roger",
+          "imgUrl": "https://randomuser.me/api/portraits/men/18.jpg"
+        },
+        "txt": "Quiet and relaxing space with modern amenities. Everything worked perfectly.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-12-18T00:00:00.000Z",
+        "by": {
+          "_id": "r-4221",
+          "fullname": "Alex",
+          "imgUrl": "https://randomuser.me/api/portraits/women/19.jpg"
+        },
+        "txt": "Great stay! Clean, cozy, and exactly as shown in the pictures.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
       },
       {
         "at": "2024-08-09T00:00:00.000Z",
@@ -12805,7 +14559,7 @@
     "type": "City stays",
     "price": 380,
     "cleaningFee": 65,
-    "summary": "Modern loft with exposed brick and skyline views, perfect for couples or small families looking to experience Manhattan in style.",
+    "summary": "Modern loft with exposed brick and skyline views, perfect for couples or small families. The open kitchen and spacious living area overlook Central Park, offering a peaceful retreat within walking distance of galleries, cafés, and vibrant nightlife.",
     "beds": 3,
     "bedrooms": 2,
     "bathrooms": 1,
@@ -12844,15 +14598,21 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "u504",
+      "firstName": "Ava",
       "fullname": "Ava Thompson",
       "location": "New York, USA",
       "pictureUrl": "https://randomuser.me/api/portraits/women/58.jpg",
       "isSuperhost": true,
       "isVerified": true,
+      "signupDate": {
+        "$numberLong": "1675000000000"
+      },
+      "yearsHosting": 3,
       "rating": 4.65,
       "numReviews": 51,
       "responseRate": 97,
       "responseTime": "within a few hours",
+      "coHosts": [],
       "personalFacts": [
         {
           "icon": "born",
@@ -12901,6 +14661,86 @@
         "nights": 4
       },
       {
+        "at": "2024-05-01T00:00:00.000Z",
+        "by": {
+          "_id": "r-4718",
+          "fullname": "Eve",
+          "imgUrl": "https://randomuser.me/api/portraits/women/11.jpg"
+        },
+        "txt": "Lovely decor and spotless space. The apartment had everything we needed for a great stay.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-09-09T00:00:00.000Z",
+        "by": {
+          "_id": "r-4014",
+          "fullname": "Noah",
+          "imgUrl": "https://randomuser.me/api/portraits/men/36.jpg"
+        },
+        "txt": "Comfortable bed, good amenities, and peaceful surroundings. Would recommend.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.7
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-06-03T00:00:00.000Z",
+        "by": {
+          "_id": "r-4015",
+          "fullname": "Isabelle",
+          "imgUrl": "https://randomuser.me/api/portraits/women/64.jpg"
+        },
+        "txt": "The apartment was spotless and quiet. We appreciated the fast communication.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": true
+      },
+      {
+        "at": "2023-09-15T00:00:00.000Z",
+        "by": {
+          "_id": "r-4616",
+          "fullname": "Ronny",
+          "imgUrl": "https://randomuser.me/api/portraits/men/52.jpg"
+        },
+        "txt": "Well-furnished and peaceful. Everything was as described and easy to access.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
         "at": "2024-07-03T00:00:00.000Z",
         "by": {
           "_id": "u308",
@@ -12928,7 +14768,7 @@
     "type": "City stays",
     "price": 290,
     "cleaningFee": 50,
-    "summary": "Charming rooftop apartment with a spacious terrace and outdoor dining area, offering stunning Tel Aviv skyline views.",
+    "summary": "Charming rooftop apartment with a private terrace overlooking Tel Aviv’s skyline. Features a cozy living room, lush garden corner, and fully equipped kitchen. Ideal for couples or digital nomads wanting a central yet peaceful urban retreat near the beach.",
     "beds": 2,
     "bedrooms": 1,
     "bathrooms": 1,
@@ -12968,15 +14808,21 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "u505",
+      "firstName": "Noa",
       "fullname": "Noa Levi",
       "location": "Tel Aviv-Yafo, Israel",
       "pictureUrl": "https://randomuser.me/api/portraits/women/68.jpg",
       "isSuperhost": true,
       "isVerified": true,
+      "signupDate": {
+        "$numberLong": "1690500000000"
+      },
+      "yearsHosting": 2,
       "rating": 4.88,
       "numReviews": 89,
       "responseRate": 99,
       "responseTime": "within an hour",
+      "coHosts": [],
       "personalFacts": [
         {
           "icon": "born",
@@ -13025,6 +14871,26 @@
         "nights": 4
       },
       {
+        "at": "2023-08-18T00:00:00.000Z",
+        "by": {
+          "_id": "r-4313",
+          "fullname": "Hadas",
+          "imgUrl": "https://randomuser.me/api/portraits/women/5.jpg"
+        },
+        "txt": "Very clean and comfortable. Loved the thoughtful touches and cozy atmosphere.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": true,
+        "withPet": false
+      },
+      {
         "at": "2024-09-10T00:00:00.000Z",
         "by": {
           "_id": "u310",
@@ -13041,6 +14907,66 @@
           "value": 4.8
         },
         "nights": 3
+      },
+      {
+        "at": "2023-10-12T00:00:00.000Z",
+        "by": {
+          "_id": "r-4110",
+          "fullname": "Ohad",
+          "imgUrl": "https://randomuser.me/api/portraits/men/59.jpg"
+        },
+        "txt": "Very pleasant and clean apartment. The living space felt open and bright.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-02-09T00:00:00.000Z",
+        "by": {
+          "_id": "r-4011",
+          "fullname": "Nina",
+          "imgUrl": "https://randomuser.me/api/portraits/women/31.jpg"
+        },
+        "txt": "Bright and cozy apartment. Everything was spotless and comfortable.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-07-30T00:00:00.000Z",
+        "by": {
+          "_id": "r-4212",
+          "fullname": "Yonatan",
+          "imgUrl": "https://randomuser.me/api/portraits/men/25.jpg"
+        },
+        "txt": "The apartment felt welcoming from the first moment. Excellent communication throughout.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
       }
     ],
     "likedByUsers": [],
@@ -13052,7 +14978,7 @@
     "type": "City stays",
     "price": 450,
     "cleaningFee": 80,
-    "summary": "Luxury Bauhaus-style apartment with an infinity pool and spacious terrace overlooking the bay, blending modern comfort with Tel Aviv’s iconic architecture.",
+    "summary": "Luxury Bauhaus-style apartment blending modern design with historic Tel Aviv charm. Enjoy three airy bedrooms, a full gourmet kitchen, and a sunny terrace overlooking Rothschild Boulevard. Perfect for families or friends seeking space, sophistication, and proximity to the beach and cafés.",
     "beds": 3,
     "bedrooms": 2,
     "bathrooms": 2,
@@ -13094,15 +15020,21 @@
     "roomType": "Entire home/apt",
     "host": {
       "_id": "u506",
+      "firstName": "Amit",
       "fullname": "Amit Cohen",
       "location": "Tel Aviv-Yafo, Israel",
       "pictureUrl": "https://randomuser.me/api/portraits/men/33.jpg",
       "isSuperhost": true,
       "isVerified": true,
+      "yearsHosting": 4,
+      "signupDate": {
+        "$numberLong": "1706000000000"
+      },
       "rating": 4.75,
       "numReviews": 67,
       "responseRate": 98,
       "responseTime": "within an hour",
+      "coHosts": [],
       "personalFacts": [
         {
           "icon": "music",
@@ -13167,6 +15099,86 @@
           "value": 4.8
         },
         "nights": 4
+      },
+      {
+        "at": "2023-09-28T00:00:00.000Z",
+        "by": {
+          "_id": "r-4600",
+          "fullname": "Meira",
+          "imgUrl": "https://randomuser.me/api/portraits/women/47.jpg"
+        },
+        "txt": "The apartment was well-equipped and peaceful. Would definitely stay here again.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.8,
+          "location": 4.9,
+          "value": 4.7
+        },
+        "nights": 3,
+        "withKids": true,
+        "withPet": false
+      },
+      {
+        "at": "2024-01-15T00:00:00.000Z",
+        "by": {
+          "_id": "r-4007",
+          "fullname": "Dan",
+          "imgUrl": "https://randomuser.me/api/portraits/men/45.jpg"
+        },
+        "txt": "Everything was tidy and comfortable. Great stay for a weekend getaway.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 4.8,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": true
+      },
+      {
+        "at": "2023-11-20T00:00:00.000Z",
+        "by": {
+          "_id": "r-4800",
+          "fullname": "Iris",
+          "imgUrl": "https://randomuser.me/api/portraits/women/62.jpg"
+        },
+        "txt": "Charming and quiet place with lovely interior details. Felt right at home.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-04-05T00:00:00.000Z",
+        "by": {
+          "_id": "r-4009",
+          "fullname": "Yaara",
+          "imgUrl": "https://randomuser.me/api/portraits/women/17.jpg"
+        },
+        "txt": "Great stay! Everything was clean and well-maintained. Smooth check-in and checkout.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.8,
+          "location": 4.8,
+          "value": 4.7
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
       }
     ],
     "likedByUsers": [],
@@ -13178,7 +15190,7 @@
     "type": "City stays",
     "price": 240,
     "cleaningFee": 45,
-    "summary": "Minimalist downtown apartment, walking distance to all major attractions and cafés in central Paris.",
+    "summary": "Minimalist downtown apartment within walking distance of the Louvre and Notre Dame. Inside, tall windows, herringbone floors, and elegant décor create the quintessential Parisian vibe. Perfect for travelers seeking comfort, charm, and the full Left Bank experience.",
     "beds": 1,
     "bedrooms": 1,
     "bathrooms": 1,
@@ -13217,15 +15229,21 @@
     "roomType": "Entire apartment",
     "host": {
       "_id": "u507",
+      "firstName": "Camille",
       "fullname": "Camille Dubois",
       "location": "Paris, France",
       "pictureUrl": "https://randomuser.me/api/portraits/women/47.jpg",
       "isSuperhost": true,
       "isVerified": true,
+      "signupDate": {
+        "$numberLong": "1721500000000"
+      },
+      "yaersHosting": 5,
       "rating": 4.5,
       "numReviews": 45,
       "responseRate": 96,
       "responseTime": "within a few hours",
+      "coHosts": [],
       "personalFacts": [
         {
           "icon": "born",
@@ -13290,6 +15308,106 @@
           "value": 4.7
         },
         "nights": 2
+      },
+      {
+        "at": "2024-08-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-4100",
+          "fullname": "Lucas",
+          "imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
+        },
+        "txt": "Beautiful apartment with everything we needed. Quiet at night and easy to get around.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.8,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-06-14T00:00:00.000Z",
+        "by": {
+          "_id": "r-4200",
+          "fullname": "Marta",
+          "imgUrl": "https://randomuser.me/api/portraits/women/54.jpg"
+        },
+        "txt": "The place was spotless and tastefully decorated. Everything matched the photos perfectly.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.7
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-05-23T00:00:00.000Z",
+        "by": {
+          "_id": "r-4300",
+          "fullname": "Ken",
+          "imgUrl": "https://randomuser.me/api/portraits/men/67.jpg"
+        },
+        "txt": "Cozy and modern with everything we needed for a short stay. Check-in was easy and smooth.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-12-07T00:00:00.000Z",
+        "by": {
+          "_id": "r-4004",
+          "fullname": "Emily",
+          "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg"
+        },
+        "txt": "Stylish space with comfortable bedding. The atmosphere was warm and welcoming.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.7
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-11T00:00:00.000Z",
+        "by": {
+          "_id": "r-4500",
+          "fullname": "Laurence",
+          "imgUrl": "https://randomuser.me/api/portraits/men/21.jpg"
+        },
+        "txt": "A clean, modern apartment with a great layout. The bed was very comfortable.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
       }
     ],
     "likedByUsers": [],
@@ -13301,7 +15419,7 @@
     "type": "Historic stays",
     "price": 310,
     "cleaningFee": 55,
-    "summary": "Elegant suite in a historic Parisian building, blending classic architecture with modern comfort and a charming rooftop terrace.",
+    "summary": "Elegant suite atop a historic Haussmann building, combining old-world charm with modern comfort. The rooftop terrace offers sweeping Paris skyline views, while inside you’ll find vintage furnishings, soft lighting, and a peaceful bedroom retreat just minutes from Montmartre and the Opera.",
     "beds": 1,
     "bedrooms": 1,
     "bathrooms": 1,
@@ -13341,15 +15459,21 @@
     "roomType": "Entire suite",
     "host": {
       "_id": "u508",
+      "firstName": "Étienne",
       "fullname": "Étienne Laurent",
       "location": "Paris, France",
       "pictureUrl": "https://randomuser.me/api/portraits/men/52.jpg",
       "isSuperhost": true,
       "isVerified": true,
+      "yearsHosting": 4,
+      "signupDate": {
+        "$numberLong": "1737000000000"
+      },
       "rating": 4.2,
       "numReviews": 38,
       "responseRate": 95,
       "responseTime": "within a few hours",
+      "coHosts": [],
       "personalFacts": [
         {
           "icon": "school",
@@ -13379,6 +15503,26 @@
       "https://a0.muscache.com/im/pictures/hosting/Hosting-1231991186372791293/original/2095d94f-adcd-4b2d-a696-be7ff10a6b66.jpeg?im_w=960"
     ],
     "reviews": [
+      {
+        "at": "2024-05-01T00:00:00.000Z",
+        "by": {
+          "_id": "r-4017",
+          "fullname": "Laura",
+          "imgUrl": "https://randomuser.me/api/portraits/women/11.jpg"
+        },
+        "txt": "Lovely decor and spotless space. The apartment had everything we needed for a great stay.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
       {
         "at": "2024-06-22T00:00:00.000Z",
         "by": {
@@ -13414,6 +15558,66 @@
           "value": 4.6
         },
         "nights": 2
+      },
+      {
+        "at": "2023-12-18T00:00:00.000Z",
+        "by": {
+          "_id": "r-4020",
+          "fullname": "Sasha",
+          "imgUrl": "https://randomuser.me/api/portraits/women/19.jpg"
+        },
+        "txt": "Great stay! Clean, cozy, and exactly as shown in the pictures.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-07T00:00:00.000Z",
+        "by": {
+          "_id": "r-4920",
+          "fullname": "John",
+          "imgUrl": "https://randomuser.me/api/portraits/men/18.jpg"
+        },
+        "txt": "Quiet and relaxing space with modern amenities. Everything worked perfectly.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-4018",
+          "fullname": "Sarah",
+          "imgUrl": "https://randomuser.me/api/portraits/women/23.jpg"
+        },
+        "txt": "Bright, airy, and very clean. The stay exceeded our expectations.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
       }
     ],
     "likedByUsers": [],
@@ -13433,7 +15637,7 @@
     ],
     "price": 180,
     "cleaningFee": 30,
-    "summary": "Beachfront bungalow with hammock, barbecue, and direct sand access — the perfect tropical retreat for couples.",
+    "summary": "Beachfront bungalow with hammock, barbecue, and direct sand access. Wake up to ocean breezes, relax on the shaded deck, and enjoy sunset dinners under palm trees. A tranquil hideaway blending rustic design with tropical comfort, just minutes from local cafés and surf spots.",
     "rooms": [
       {
         "roomType": "bungalow",
@@ -13485,7 +15689,9 @@
       "pictureUrl": "https://randomuser.me/api/portraits/women/56.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1613000000000,
+      "signupDate": {
+        "$numberLong": "1613000000000"
+      },
       "rating": 4.3,
       "numReviews": 72,
       "yearsHosting": 3,
@@ -13512,6 +15718,46 @@
       "lng": 115.131
     },
     "reviews": [
+      {
+        "at": "2023-12-07T00:00:00.000Z",
+        "by": {
+          "_id": "r-4400",
+          "fullname": "Emma",
+          "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg"
+        },
+        "txt": "Stylish space with comfortable bedding. The atmosphere was warm and welcoming.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.7
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-05-23T00:00:00.000Z",
+        "by": {
+          "_id": "r-4301",
+          "fullname": "Kenji",
+          "imgUrl": "https://randomuser.me/api/portraits/men/67.jpg"
+        },
+        "txt": "Cozy and modern with everything we needed for a week stay. Check-in was easy and smooth.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
       {
         "at": "2024-07-12T00:00:00.000Z",
         "by": {
@@ -13549,6 +15795,46 @@
           "value": 4.6
         },
         "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-08-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-4101",
+          "fullname": "Jacob",
+          "imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
+        },
+        "txt": "Beautiful apartment with everything we needed. Quiet at night and easy to get around.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.8,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-06-14T00:00:00.000Z",
+        "by": {
+          "_id": "r-4200",
+          "fullname": "Marta",
+          "imgUrl": "https://randomuser.me/api/portraits/women/54.jpg"
+        },
+        "txt": "The place was spotless and tastefully decorated. Everything matched the photos perfectly.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.7
+        },
+        "nights": 2,
         "withKids": false,
         "withPet": false
       }
@@ -13687,6 +15973,86 @@
         "nights": 5,
         "withKids": true,
         "withPet": false
+      },
+      {
+        "at": "2023-11-20T00:00:00.000Z",
+        "by": {
+          "_id": "r-4801",
+          "fullname": "Michelle",
+          "imgUrl": "https://randomuser.me/api/portraits/women/62.jpg"
+        },
+        "txt": "Spacious and beautifully kept. Perfect getaway for couples visiting Bali.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-09-28T00:00:00.000Z",
+        "by": {
+          "_id": "r-4006",
+          "fullname": "Amira",
+          "imgUrl": "https://randomuser.me/api/portraits/women/47.jpg"
+        },
+        "txt": "The place was well-equipped and peaceful. Wonderful views. Would definitely stay here again.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.8,
+          "location": 4.9,
+          "value": 4.7
+        },
+        "nights": 3,
+        "withKids": true,
+        "withPet": false
+      },
+      {
+        "at": "2024-03-11T00:00:00.000Z",
+        "by": {
+          "_id": "r-4005",
+          "fullname": "Lorenzo",
+          "imgUrl": "https://randomuser.me/api/portraits/men/21.jpg"
+        },
+        "txt": "A clean, beautifully kept with a relaxing front blacony. The bed was very comfortable. Very friendly host, thank you for the hospitality",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-01-15T00:00:00.000Z",
+        "by": {
+          "_id": "r-4700",
+          "fullname": "Diego",
+          "imgUrl": "https://randomuser.me/api/portraits/men/45.jpg"
+        },
+        "txt": "Everything was tidy and comfortable. Amazing and relaxing atmosphere. Great stay for a few days or a week of getaway.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 4.8,
+          "accuracy": 4.9,
+          "location": 4.8,
+          "value": 4.8
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": true
       }
     ],
     "likedByUsers": [],
@@ -13784,6 +16150,26 @@
     },
     "reviews": [
       {
+        "at": "2023-07-30T00:00:00.000Z",
+        "by": {
+          "_id": "r-4012",
+          "fullname": "Jonas",
+          "imgUrl": "https://randomuser.me/api/portraits/men/25.jpg"
+        },
+        "txt": "The loft felt welcoming from the first moment. Freindly host, excellent communication throughout.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
         "at": "2024-08-03T00:00:00.000Z",
         "by": {
           "_id": "r-303",
@@ -13798,6 +16184,66 @@
           "accuracy": 4.9,
           "location": 5,
           "value": 4.7
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-02-09T00:00:00.000Z",
+        "by": {
+          "_id": "r-4011",
+          "fullname": "Nina",
+          "imgUrl": "https://randomuser.me/api/portraits/women/31.jpg"
+        },
+        "txt": "Bright and cozy loft. Everything was spotless and comfortable.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-20T00:00:00.000Z",
+        "by": {
+          "_id": "r-4008",
+          "fullname": "Olivia",
+          "imgUrl": "https://randomuser.me/api/portraits/women/62.jpg"
+        },
+        "txt": "Charming and quiet place with lovely interior details. Felt right at home.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 4,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-10-12T00:00:00.000Z",
+        "by": {
+          "_id": "r-4010",
+          "fullname": "Felix",
+          "imgUrl": "https://randomuser.me/api/portraits/men/59.jpg"
+        },
+        "txt": "Very pleasant and clean loft. The living space felt open and bright.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.8
         },
         "nights": 3,
         "withKids": false,
@@ -13918,6 +16364,86 @@
     },
     "reviews": [
       {
+        "at": "2023-07-30T00:00:00.000Z",
+        "by": {
+          "_id": "r-4012",
+          "fullname": "Jonas",
+          "imgUrl": "https://randomuser.me/api/portraits/men/25.jpg"
+        },
+        "txt": "The bunaglow felt welcoming from the first moment. Excellent communication throughout.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-08-18T00:00:00.000Z",
+        "by": {
+          "_id": "r-4013",
+          "fullname": "Chiara",
+          "imgUrl": "https://randomuser.me/api/portraits/women/5.jpg"
+        },
+        "txt": "Very clean and comfortable. Loved the thoughtful touches and cozy atmosphere.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 4,
+        "withKids": true,
+        "withPet": false
+      },
+      {
+        "at": "2024-09-09T00:00:00.000Z",
+        "by": {
+          "_id": "r-4014",
+          "fullname": "Noah",
+          "imgUrl": "https://randomuser.me/api/portraits/men/36.jpg"
+        },
+        "txt": "Comfortable bed, good amenities, and peaceful surroundings. Would recommend.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 5,
+          "checkIn": 4.9,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.7
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-06-03T00:00:00.000Z",
+        "by": {
+          "_id": "r-4015",
+          "fullname": "Isabelle",
+          "imgUrl": "https://randomuser.me/api/portraits/women/64.jpg"
+        },
+        "txt": "The bungalow was spotless and quiet. We appreciated the fast communication.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 4.8,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": true
+      },
+      {
         "at": "2024-05-22T00:00:00.000Z",
         "by": {
           "_id": "r-305",
@@ -13956,6 +16482,26 @@
         "nights": 4,
         "withKids": false,
         "withPet": false
+      },
+      {
+        "at": "2023-09-15T00:00:00.000Z",
+        "by": {
+          "_id": "r-4016",
+          "fullname": "Omar",
+          "imgUrl": "https://randomuser.me/api/portraits/men/52.jpg"
+        },
+        "txt": "Well-furnished and peaceful. Everything was as described and easy to access.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 4.8,
+          "location": 5,
+          "value": 4.9
+        },
+        "nights": 2,
+        "withKids": false,
+        "withPet": false
       }
     ],
     "likedByUsers": [],
@@ -13975,7 +16521,7 @@
     ],
     "price": 210,
     "cleaningFee": 35,
-    "summary": "Tropical-style bungalow surrounded by palms, with an open deck and cozy hammock — perfect for lazy beach mornings.",
+    "summary": "Tropical-style bungalow surrounded by palms, with an open deck and cozy hammock — perfect for lazy beach mornings. Nestled just 100 m from a tranquile private beach, this rustic bungalow offers a true island escape.",
     "rooms": [
       {
         "roomType": "bungalow",
@@ -14028,10 +16574,12 @@
       "pictureUrl": "https://randomuser.me/api/portraits/men/53.jpg",
       "isSuperhost": true,
       "isVerified": true,
-      "signupDate": 1613000000000,
+      "signupDate": {
+        "$numberLong": "1613000000000"
+      },
+      "yearsHosting": 4,
       "rating": 4.8,
       "numReviews": 64,
-      "yearsHosting": 4,
       "responseRate": 99,
       "responseTime": "within an hour",
       "coHosts": [],
@@ -14055,6 +16603,26 @@
       "lng": 115.168
     },
     "reviews": [
+      {
+        "at": "2023-12-18T00:00:00.000Z",
+        "by": {
+          "_id": "r-4020",
+          "fullname": "Sasha",
+          "imgUrl": "https://randomuser.me/api/portraits/women/19.jpg"
+        },
+        "txt": "Great stay! Clean, cozy, and exactly as shown in the pictures.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 4.9,
+          "value": 4.9
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
       {
         "at": "2024-07-18T00:00:00.000Z",
         "by": {
@@ -14092,6 +16660,66 @@
           "value": 4.8
         },
         "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-07-07T00:00:00.000Z",
+        "by": {
+          "_id": "r-4921",
+          "fullname": "Hugo",
+          "imgUrl": "https://randomuser.me/api/portraits/men/18.jpg"
+        },
+        "txt": "Quiet and relaxing space with modern amenities. Everything worked perfectly.",
+        "rate": {
+          "cleanliness": 4.9,
+          "communication": 5,
+          "checkIn": 5,
+          "accuracy": 4.9,
+          "location": 5,
+          "value": 4.8
+        },
+        "nights": 3,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2023-11-02T00:00:00.000Z",
+        "by": {
+          "_id": "r-4818",
+          "fullname": "Daniela",
+          "imgUrl": "https://randomuser.me/api/portraits/women/23.jpg"
+        },
+        "txt": "Bright, airy, and very clean. The stay exceeded our expectations.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.8,
+          "checkIn": 4.9,
+          "accuracy": 5,
+          "location": 4.8,
+          "value": 4.9
+        },
+        "nights": 5,
+        "withKids": false,
+        "withPet": false
+      },
+      {
+        "at": "2024-05-01T00:00:00.000Z",
+        "by": {
+          "_id": "r-4717",
+          "fullname": "Eva",
+          "imgUrl": "https://randomuser.me/api/portraits/women/11.jpg"
+        },
+        "txt": "Lovely decor and spotless space. The bungalow had everything we needed for a great stay.",
+        "rate": {
+          "cleanliness": 5,
+          "communication": 4.9,
+          "checkIn": 5,
+          "accuracy": 5,
+          "location": 4.9,
+          "value": 4.8
+        },
+        "nights": 4,
         "withKids": false,
         "withPet": false
       }
