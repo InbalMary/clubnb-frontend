@@ -257,10 +257,16 @@ function GoogleLoginButton({ onClose, children }) {
         try {
             const decoded = jwtDecode(credentialResponse.credential)
 
+            // Check if Google provided a real profile picture
+            const hasRealPicture = decoded.picture &&
+                decoded.picture !== '' &&
+                !decoded.picture.includes('default') &&
+                decoded.picture.startsWith('http')
+
             const googleUser = {
                 username: decoded.email,
                 fullname: decoded.name,
-                imgUrl: decoded.picture,
+                imgUrl: hasRealPicture ? decoded.picture : '',
                 password: decoded.sub, // unique Google ID from Google
             }
 

@@ -6,7 +6,7 @@ import { SearchBar } from './SearchBar'
 import { CompactHeader } from './CompactHeader'
 import { HamburgerMenu } from './HamburgerMenu.jsx'
 import { AppHeaderSkeleton } from './AppHeaderSkeleton'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useClickOutside } from '../customHooks/useClickOutside.js'
 import { useEscapeKey } from '../customHooks/useEscapeKey.js'
 import { useIsBreakPoint } from '../customHooks/useIsBreakPoint.js'
@@ -19,7 +19,8 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	const isIndexPage = location.pathname === '/' || location.pathname === ''
 	const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
 	const isHostPage = location.pathname.includes("hosting")
-    const isMobile = useIsBreakPoint(768)
+	const isMobile = useIsBreakPoint(768)
+	const [imgError, setImgError] = useState(false)
 
 	const to = isHostPage ? "/" : "/hosting/reservations"
 	const text = isHostPage ? "Switch to traveling" : "Switch to hosting"
@@ -45,6 +46,11 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	const containerClass = isCompact ? 'compact-header-content' : 'nav-bar'
 
 	if (isMobile && isStayDetailsPage) return null
+
+	function handleImageError() {
+		console.log('img failed to load:', user?.imgUrl)
+		setImgError(true)
+	}
 
 	return (
 		<header className={headerClass} ref={headerRef}>
@@ -72,7 +78,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 							to="/hosting/dashboard"
 							className={({ isActive }) => `host-nav-item ${isActive ? 'active' : ''}`}
 						>
-							Dashboared
+							Dashboard
 						</NavLink>
 					</nav>
 				)}
@@ -97,9 +103,18 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 						<span className="host-link">{user ? text : "Become a host"}</span>
 					</NavLink>
 
-					{user && user.imgUrl ? (
+					{user && user.imgUrl && !imgError ? (
 						<button className='profile-icon'>
-							<img src={user.imgUrl} alt={user.fullname} />
+							<img
+								src={user.imgUrl}
+								alt={user.fullname}
+								onError={handleImageError}
+								referrerPolicy="no-referrer"
+							/>
+						</button>
+					) : user ? (
+						<button className='profile-icon profile-initials'>
+							{user.fullname?.[0]?.toUpperCase() || 'U'}
 						</button>
 					) : (
 						<button aria-label="Choose language">
@@ -112,7 +127,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 			</div>
 
 			{/* Mobile compact header - uses SearchBar like expanded */}
-			{isCompact && !isHostPage && !isTripsPage &&(
+			{isCompact && !isHostPage && !isTripsPage && (
 				<div className="mobile-compact-search">
 					<SearchBar initialModal={initialModal} onCollapse={onCollapse} />
 				</div>
