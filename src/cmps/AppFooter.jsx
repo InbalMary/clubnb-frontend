@@ -7,7 +7,9 @@ export function AppFooter({ isIndexPage, isStayDetailsPage }) {
 	// const user = useSelector(storeState => storeState.userModule.user)
 	// const location = useLocation()
 	const showMobileHeaderFooter = isIndexPage || isStayDetailsPage;
-
+	
+	if (isStayDetailsPage) return null
+	
 	return (
 		<footer className="app-footer full">
 			{/* Desktop Footer */}

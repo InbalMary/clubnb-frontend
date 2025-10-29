@@ -9,6 +9,7 @@ import { AppHeaderSkeleton } from './AppHeaderSkeleton'
 import { useRef } from 'react'
 import { useClickOutside } from '../customHooks/useClickOutside.js'
 import { useEscapeKey } from '../customHooks/useEscapeKey.js'
+import { useIsBreakPoint } from '../customHooks/useIsBreakPoint.js'
 
 export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, isSticky, isTripsPage, isWishlistPage, isWishlistDetailsPage }) {
 	const user = useSelector(storeState => storeState.userModule.user)
@@ -18,6 +19,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	const isIndexPage = location.pathname === '/' || location.pathname === ''
 	const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
 	const isHostPage = location.pathname.includes("hosting")
+    const isMobile = useIsBreakPoint(768)
 
 	const to = isHostPage ? "/" : "/hosting/reservations"
 	const text = isHostPage ? "Switch to traveling" : "Switch to hosting"
@@ -41,6 +43,8 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 		: `app-header full ${isIndexPage ? 'index-page' : ''}`
 
 	const containerClass = isCompact ? 'compact-header-content' : 'nav-bar'
+
+	if (isMobile && isStayDetailsPage) return null
 
 	return (
 		<header className={headerClass} ref={headerRef}>
@@ -108,7 +112,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 			</div>
 
 			{/* Mobile compact header - uses SearchBar like expanded */}
-			{isCompact && !isHostPage && (
+			{isCompact && !isHostPage && !isTripsPage &&(
 				<div className="mobile-compact-search">
 					<SearchBar initialModal={initialModal} onCollapse={onCollapse} />
 				</div>
