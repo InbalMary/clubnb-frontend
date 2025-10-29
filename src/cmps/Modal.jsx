@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react"
 import { useKeyListener } from "../customHooks/useKeyListener"
 import { svgControls } from "./Svgs"
 import { Footer } from "react-day-picker"
+import { useIsBreakPoint } from "../customHooks/useIsBreakPoint"
 
 export function Modal({ header, footer, children, isOpen, onClose, closePosition = 'left', className, useBackdrop = true, showCloseBtn = true }) {
     const [isVisible, setIsVisible] = useState(false)
