@@ -283,6 +283,10 @@ body:has(.app-header) .stay-index {
 
 body:has(.compact-header) .main-container .stay-details {
     margin-block-start: 96px;
+    &.mobile{
+        margin-block-start: 120px;
+
+    }
 }
 
 @media (max-width: 768px) {

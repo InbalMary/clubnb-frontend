@@ -24,36 +24,48 @@ export function HostDashboard() {
     const loggedInUser = useSelector(state => state.userModule.user)
 
     useEffect(() => {
-        loadOrders()
-    }, [])
+        if (loggedInUser?._id) {
+            loadOrders({ hostId: loggedInUser._id })
+        }
+    }, [loggedInUser])
+
+    const hostOrders = useMemo(() => {
+        if (!orders || !loggedInUser) return []
+
+        return orders.filter(order => {
+            const hostId = order.host?._id?.toString() || order.hostId?.toString()
+            const userId = loggedInUser._id.toString()
+            return hostId === userId
+        })
+    }, [orders, loggedInUser])
 
     // Calculate statistics
     const stats = useMemo(() => {
-        if (!orders || orders.length === 0) return null
+        if (!hostOrders || hostOrders.length === 0) return null
 
-        const approvedOrders = orders.filter(o => o.status === 'approved')
+        const approvedOrders = hostOrders.filter(o => o.status === 'approved')
         const totalRevenue = approvedOrders.reduce((sum, o) => sum + o.totalPrice, 0)
         const avgBookingValue = approvedOrders.length > 0 ? totalRevenue / approvedOrders.length : 0
 
         const now = new Date()
-        const upcomingOrders = orders.filter(order =>
+        const upcomingOrders = hostOrders.filter(order =>
             new Date(order.startDate) > now && order.status === 'approved'
         )
 
         return {
             totalRevenue,
-            totalBookings: orders.length,
+            totalBookings: hostOrders.length,
             approvedBookings: approvedOrders.length,
             upcomingBookings: upcomingOrders.length,
             avgBookingValue,
-            pendingBookings: orders.filter(order => order.status === 'pending').length,
-            rejectedBookings: orders.filter(order => order.status === 'rejected').length,
+            pendingBookings: hostOrders.filter(order => order.status === 'pending').length,
+            rejectedBookings: hostOrders.filter(order => order.status === 'rejected').length,
         }
-    }, [orders])
+    }, [hostOrders])
 
     // Revenue Over Time (Last 6 months)
     const revenueChartData = useMemo(() => {
-        if (!orders) return null
+        if (!hostOrders) return null
 
         const months = []
         const revenue = []
@@ -64,7 +76,7 @@ export function HostDashboard() {
             const monthName = date.toLocaleString('default', { month: 'short' })
             months.push(monthName)
 
-            const monthRevenue = orders
+            const monthRevenue = hostOrders
                 .filter(o => {
                     const orderDate = new Date(o.startDate)
                     return orderDate.getMonth() === date.getMonth() &&
@@ -89,7 +101,7 @@ export function HostDashboard() {
                 },
             ],
         }
-    }, [orders])
+    }, [hostOrders])
 
     // Booking Status Distribution
     const statusChartData = useMemo(() => {
@@ -118,10 +130,10 @@ export function HostDashboard() {
 
     // Bookings by Property
     const propertyChartData = useMemo(() => {
-        if (!orders) return null
+        if (!hostOrders) return null
 
         const propertyStats = {}
-        orders.forEach(order => {
+        hostOrders.forEach(order => {
             const name = order.stay.name
             if (!propertyStats[name]) {
                 propertyStats[name] = 0
@@ -157,11 +169,11 @@ export function HostDashboard() {
                 },
             ],
         }
-    }, [orders])
+    }, [hostOrders])
 
     // Guest Count Distribution
     const guestChartData = useMemo(() => {
-        if (!orders) return null
+        if (!hostOrders) return null
 
         const guestRanges = {
             '1-2': 0,
@@ -171,7 +183,7 @@ export function HostDashboard() {
             '9+': 0,
         }
 
-        orders.forEach(order => {
+        hostOrders.forEach(order => {
             const total = order.guests.adults + order.guests.children
             if (total <= 2) guestRanges['1-2']++
             else if (total <= 4) guestRanges['3-4']++
@@ -203,7 +215,7 @@ export function HostDashboard() {
                 },
             ],
         }
-    }, [orders])
+    }, [hostOrders])
 
     const chartOptions = {
         responsive: true,

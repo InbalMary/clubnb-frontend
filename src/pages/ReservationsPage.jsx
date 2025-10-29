@@ -6,43 +6,91 @@ import { DotsLoader } from '../cmps/SmallComponents';
 import { Modal } from '../cmps/Modal';
 import { appHeaderSvg } from '../cmps/Svgs';
 import confetti from 'canvas-confetti';
+import { socketService } from '../services/socket.service.js';
 
 export function ReservationsPage() {
     const [activeTab, setActiveTab] = useState('all')
     const [sortDirection, setSortDirection] = useState('asc')
     const [viewMode, setViewMode] = useState('table')
     const [confirmModal, setConfirmModal] = useState({ isOpen: false, order: null, action: null })
+    const [showGuestMsg, setShowGuestMsg] = useState({ isOpen: false, order: null })
 
     const loggedInUser = useSelector((state) => state.userModule.user)
     const orders = useSelector(storeState => storeState.orderModule.orders)
     const isLoading = useSelector(storeState => storeState.orderModule.isLoading)
 
     useEffect(() => {
-        loadOrders()
-    }, [])
+        if (loggedInUser?._id) {
+            loadOrders({ hostId: loggedInUser._id })
+        }
+    }, [loggedInUser])
+
+    useEffect(() => {
+        if (!loggedInUser) return
+
+        socketService.on('new-order-created', (newOrder) => {
+            console.log('New order received:', newOrder)
+
+            const isMyOrder = newOrder.host?._id?.toString() === loggedInUser._id.toString() ||
+                newOrder.hostId?.toString() === loggedInUser._id.toString()
+
+            if (isMyOrder) {
+                loadOrders({ hostId: loggedInUser._id })
+            }
+        })
+
+        socketService.on('update-guest-orders', (updatedOrder) => {
+            console.log('Order updated:', updatedOrder)
+
+            const isMyOrder = updatedOrder.host?._id?.toString() === loggedInUser._id.toString() ||
+                updatedOrder.hostId?.toString() === loggedInUser._id.toString()
+
+            if (isMyOrder) {
+                loadOrders({ hostId: loggedInUser._id })
+            }
+        })
+
+        return () => {
+            socketService.off('new-order-created')
+            socketService.off('update-guest-orders')
+        }
+    }, [loggedInUser])
 
     const hostOrders = useMemo(() => {
         if (!orders) {
             console.log('No orders available')
             return []
         }
-        // console.log('Total orders:', orders.length)
-        // For now, return all orders..
-        return orders
 
-        // if (!loggedInUser) return []
-        // return orders.filter(order => order.host._id === loggedInUser._id)
+        if (!loggedInUser) return []
+
+        // Filter orders where the logged in user is the host
+        return orders.filter(order => {
+            const hostId = order.host?._id?.toString() || order.hostId?.toString()
+            const userId = loggedInUser._id.toString()
+            return hostId === userId
+        })
     }, [orders, loggedInUser])
 
+    const pendingCount = useMemo(() => {
+        const now = new Date()
+        return hostOrders.filter(order =>
+            order.status === 'pending' &&
+            new Date(order.startDate) > now
+        ).length
+    }, [hostOrders])
+    
     const filteredOrders = useMemo(() => {
         const now = new Date()
 
         switch (activeTab) {
             case 'upcoming':
-                return hostOrders.filter(order =>
+                const upcoming = hostOrders.filter(order =>
                     new Date(order.startDate) > now &&
                     (order.status === 'approved' || order.status === 'pending')
                 )
+                // console.log('Upcoming orders:', upcoming)
+                return upcoming
             case 'completed':
                 return hostOrders.filter(order =>
                     new Date(order.endDate) < now &&
@@ -70,6 +118,9 @@ export function ReservationsPage() {
 
     const handleStatusAction = (order, action) => {
         setConfirmModal({ isOpen: true, order, action })
+    }
+    const handleOrderMsg = (order, msg) => {
+        setShowGuestMsg({ isOpen: true, order })
     }
 
     const confirmStatusChange = async () => {
@@ -110,7 +161,13 @@ export function ReservationsPage() {
         <div className="reservations-container">
             <div className="reservations-content">
                 <div className="reservations-header">
-                    <h1 className="page-title">Reservations</h1>
+                    {/* add badge */}
+                    <div className="header-with-badge">
+                        <h1 className="page-title">Reservations</h1>
+                        {pendingCount > 0 && (
+                            <span className="pending-badge">{pendingCount}</span>
+                        )}
+                    </div>
 
                     <div className="view-toggle">
                         <button
@@ -240,7 +297,10 @@ export function ReservationsPage() {
                                 {sortedOrders.map((order) => (
                                     <div key={order._id} className="reservation-card">
                                         <div className="card-image">
-                                            <img src={order.stay.imgUrl} alt={order.stay.name} />
+                                            <img
+                                                src={order.stay.imgUrls?.[0] || order.stay.imgUrl || 'https://picsum.photos/200/200?random=2'}
+                                                alt={order.stay.name}
+                                            />
                                             <div className="status-badge">
                                                 <span className={`status-dot ${order.status}`}></span>
                                                 {order.status}
@@ -285,19 +345,30 @@ export function ReservationsPage() {
                                             {order.status === 'pending' && (
                                                 <div className="card-actions">
                                                     <button
-                                                        className="action-btn approve-btn btn btn-pill"
+                                                        className="action-btn approve-btn btn"
                                                         onClick={() => handleStatusAction(order, 'approve')}
                                                     >
                                                         Approve
                                                     </button>
                                                     <button
-                                                        className="action-btn reject-btn btn btn-pill"
+                                                        className="action-btn reject-btn btn"
                                                         onClick={() => handleStatusAction(order, 'reject')}
                                                     >
                                                         Reject
                                                     </button>
                                                 </div>
                                             )}
+
+
+                                            {!!order.msgs?.length &&
+
+                                                <div className="guest-msg">
+                                                    {/* <div className="border" /> */}
+                                                    <button onClick={() => setShowGuestMsg({ isOpen: true, order })} className="btn open-modal">
+                                                        View message
+                                                    </button>
+                                                </div>
+                                            }
                                         </div>
                                     </div>
                                 ))}
@@ -306,32 +377,47 @@ export function ReservationsPage() {
                     </div>
                 )}
 
+                {/* Guest msg modal */}
+                <Modal
+                    isOpen={showGuestMsg.isOpen}
+                    onClose={() => setShowGuestMsg({ isOpen: false, order: null })}
+                    closePosition='right'
+                    header={<h3 >{showGuestMsg?.order?.guest.fullname}'s Message</h3>}
+                    className="guest-msg-modal"
+                >
+                    {showGuestMsg?.order?.msgs?.map(msg =>
+                        <p key={msg.id}>
+                            {msg.txt}
+                        </p>)}
+                </Modal>
+
                 {/* Confirmation Modal */}
                 <Modal
                     isOpen={confirmModal.isOpen}
                     onClose={() => setConfirmModal({ isOpen: false, order: null, action: null })}
+                    closePosition='right'
                     header={
-                        <h2 className="modal-title">
+                        <h3 className="modal-title">
                             {confirmModal.action === 'approve' ? 'Confirm Approval' : 'Confirm Rejection'}
-                        </h2>
+                        </h3>
                     }
                     className="confirm-modal"
                 >
                     <div className="confirm-content">
-                        <p className="confirm-message">
+                        <h4 className="confirm-message">
                             Are you sure you want to {confirmModal.action === 'approve' ? 'approve' : 'reject'} this booking?
-                        </p>
-                       
+                        </h4>
+
 
                         <div className="confirm-actions">
                             <button
-                                className="action-btn btn btn-pill cancel-btn"
+                                className="action-btn btn  cancel-btn"
                                 onClick={() => setConfirmModal({ isOpen: false, order: null, action: null })}
                             >
                                 Cancel
                             </button>
                             <button
-                                className={`action-btn btn btn-pill confirm-btn ${confirmModal.action === 'approve' ? 'approve-confirm-btn' : 'reject-confirm-btn'}`}
+                                className={`action-btn btn confirm-btn ${confirmModal.action === 'approve' ? 'approve-confirm-btn' : 'reject-confirm-btn'}`}
                                 onClick={confirmStatusChange}
                             >
                                 {confirmModal.action === 'approve' ? 'Approve Booking' : 'Reject Booking'}
@@ -339,7 +425,7 @@ export function ReservationsPage() {
                         </div>
                     </div>
                 </Modal>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }

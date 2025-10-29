@@ -7,7 +7,9 @@ export function AppFooter({ isIndexPage, isStayDetailsPage }) {
 	// const user = useSelector(storeState => storeState.userModule.user)
 	// const location = useLocation()
 	const showMobileHeaderFooter = isIndexPage || isStayDetailsPage;
-
+	
+	if (isStayDetailsPage) return null
+	
 	return (
 		<footer className="app-footer full">
 			{/* Desktop Footer */}
@@ -52,11 +54,11 @@ export function AppFooter({ isIndexPage, isStayDetailsPage }) {
 						</NavLink>
 
 						<NavLink
-							to="/calendar"
+							to="/hosting/dashboard"
 							className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
 						>
-							<span className="footer-icon">{appHeaderSvg.calendar}</span>
-							<span>Calendar</span>
+							<span className="footer-icon">{appHeaderSvg.dashboard}</span>
+							<span>Dashboard</span>
 						</NavLink>
 
 						<NavLink

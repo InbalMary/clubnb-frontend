@@ -3,6 +3,8 @@ import { loadOrders } from "../store/actions/order.actions.js"
 import { useEffect, useState } from "react"
 import { TripList } from '../cmps/TripList'
 import { DotsLoader } from "../cmps/SmallComponents.jsx"
+import { socketService } from "../services/socket.service.js"
+import confetti from 'canvas-confetti'
 
 export function TripIndex() {
     const [activeTab, setActiveTab] = useState('upcoming')
@@ -13,6 +15,32 @@ export function TripIndex() {
     useEffect(() => {
         if (loggedinUser) {
             loadOrders({ guestId: loggedinUser._id })
+        }
+    }, [loggedinUser])
+
+    useEffect(() => {
+        if (!loggedinUser) return
+
+        socketService.on('update-guest-orders', (updatedOrder) => {
+            console.log('Order status updated:', updatedOrder)
+
+            const isMyOrder = updatedOrder.guest?._id?.toString() === loggedinUser._id.toString() ||
+                updatedOrder.guestId?.toString() === loggedinUser._id.toString()
+
+            if (isMyOrder && updatedOrder.status === 'approved') {
+                confetti({
+                    particleCount: 150,
+                    spread: 90,
+                    origin: { y: 0.6 },
+                    colors: ['#FF385C', '#00A699', '#FFB400', '#8B5CF6', '#EC4899']
+                })
+            }
+
+            loadOrders({ guestId: loggedinUser._id })
+        })
+
+        return () => {
+            socketService.off('update-guest-orders')
         }
     }, [loggedinUser])
 

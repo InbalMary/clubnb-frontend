@@ -6,8 +6,10 @@ import { StepLocation } from "../cmps/StepLocation"
 import { WelcomeStep, StepIntro, PlaceTypeStep, PrivacyTypeStep, StepAddressForm, StepBasics, StepStandOutIntro, StepAmenities, StepPhoto, StepTitle, StepDescription, StepFinishIntro, StepPrice } from '../cmps/EditSteps.jsx'
 import { loadStay } from "../store/actions/stay.actions.js"
 import { StepMapConfirm } from "../cmps/StepMapConfirm.jsx"
+import { useSelector } from "react-redux"
 
 export function StayEdit() {
+    const loggedInUser = useSelector((state) => state.userModule.user)
     const navigate = useNavigate()
     const { id } = useParams()
     const location = useLocation()
@@ -178,7 +180,12 @@ export function StayEdit() {
                 imgUrls: photos,
                 name: title,
                 summary: currentStep === 14 ? description : `[IN_PROGRESS]${description || ''}`,
-                price
+                price,
+                host: {
+                    _id: stayData.host?._id || loggedInUser._id,
+                    fullname: stayData.host?.fullname || loggedInUser.fullname,
+                    imgUrl: stayData.host?.imgUrl || loggedInUser.imgUrl || null
+                }
             }
 
             const savedStay = await stayService.save(stayId ? { ...updatedStay, _id: stayId } : updatedStay)
@@ -265,7 +272,12 @@ export function StayEdit() {
                 imgUrls: photos,
                 name: title,
                 summary: `[IN_PROGRESS:${savedPath}]${description || ''}`,
-                price
+                price,
+                host: {
+                    _id: stayData.host?._id || loggedInUser._id,
+                    fullname: stayData.host?.fullname || loggedInUser.fullname,
+                    imgUrl: stayData.host?.imgUrl || loggedInUser.imgUrl || null
+                }
             })
             showSuccessMsg('Progress saved')
             navigate('/hosting/listings')

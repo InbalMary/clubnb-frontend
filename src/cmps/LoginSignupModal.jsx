@@ -236,7 +236,6 @@ function GoogleLoginButton({ onClose }) {
             }
 
             let user = await login(googleUser)
-
             if (!user) {
                 user = await signup(googleUser)
             }

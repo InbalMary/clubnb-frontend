@@ -1,9 +1,9 @@
 /* mobile */
-.stay-details-header.big-layout.mid-layout.mobile {
+.stay-details-header.mobile {
     display: flex;
     align-content: center;
     position: fixed;
-    bottom: 50px;
+    bottom: 0px;
     top: auto;
     left: 0;
     right: 0;
