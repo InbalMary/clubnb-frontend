@@ -1,5 +1,6 @@
 .modal-popup.share-modal {
     width: 40vw;
+    min-width:425px;
     height: fit-content;
 
     header {

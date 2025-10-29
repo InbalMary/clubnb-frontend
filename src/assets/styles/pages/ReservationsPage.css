@@ -308,11 +308,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2rem;
+}
+
+.guest-msg .btn {
+    width: 100%;
 }
 
 .action-btn {
     color: var(--white);
     font-size: 1.125rem;
+    padding: 10px 24px;
+    width: 100%;
 
     &.approve-btn {
         background-color: var(--confirmed);
@@ -336,9 +343,36 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 2rem;
+    gap: 1rem;
     justify-content: space-between;
 }
+
+.modal-popup {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Confirm modal */
+    &.confirm-modal {
+        width: clamp(20rem, 30vw, 30rem);
+        height: fit-content;
+
+        .main-modal {
+            h4 {
+                padding: 0 1rem 2rem 1rem;
+            }
+        }
+    }
+
+    /* Guest msg modal */
+    &.guest-msg-modal {
+        width: clamp(20rem, 30vw, 30rem);
+        height: fit-content;
+    }
+}
+
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -410,5 +444,5 @@
     .reservations-table tbody td {
         padding-inline-end: 0.1rem;
         font-size: 12px;
-    }    
+    }
 }

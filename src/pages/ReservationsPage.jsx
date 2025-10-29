@@ -12,6 +12,7 @@ export function ReservationsPage() {
     const [sortDirection, setSortDirection] = useState('asc')
     const [viewMode, setViewMode] = useState('table')
     const [confirmModal, setConfirmModal] = useState({ isOpen: false, order: null, action: null })
+    const [showGuestMsg, setShowGuestMsg] = useState({ isOpen: false, order: null })
 
     const loggedInUser = useSelector((state) => state.userModule.user)
     const orders = useSelector(storeState => storeState.orderModule.orders)
@@ -70,6 +71,9 @@ export function ReservationsPage() {
 
     const handleStatusAction = (order, action) => {
         setConfirmModal({ isOpen: true, order, action })
+    }
+    const handleOrderMsg = (order, msg) => {
+        setShowGuestMsg({ isOpen: true, order })
     }
 
     const confirmStatusChange = async () => {
@@ -285,19 +289,30 @@ export function ReservationsPage() {
                                             {order.status === 'pending' && (
                                                 <div className="card-actions">
                                                     <button
-                                                        className="action-btn approve-btn btn btn-pill"
+                                                        className="action-btn approve-btn btn"
                                                         onClick={() => handleStatusAction(order, 'approve')}
                                                     >
                                                         Approve
                                                     </button>
                                                     <button
-                                                        className="action-btn reject-btn btn btn-pill"
+                                                        className="action-btn reject-btn btn"
                                                         onClick={() => handleStatusAction(order, 'reject')}
                                                     >
                                                         Reject
                                                     </button>
                                                 </div>
                                             )}
+
+
+                                            {!!order.msgs?.length &&
+
+                                                <div className="guest-msg">
+                                                    {/* <div className="border" /> */}
+                                                    <button onClick={() => setShowGuestMsg({ isOpen: true, order })} className="btn open-modal">
+                                                        View message
+                                                    </button>
+                                                </div>
+                                            }
                                         </div>
                                     </div>
                                 ))}
@@ -306,32 +321,47 @@ export function ReservationsPage() {
                     </div>
                 )}
 
+                {/* Guest msg modal */}
+                <Modal
+                    isOpen={showGuestMsg.isOpen}
+                    onClose={() => setShowGuestMsg({ isOpen: false, order: null })}
+                    closePosition='right'
+                    header={<h3 >{showGuestMsg?.order?.guest.fullname}'s Message</h3>}
+                    className="guest-msg-modal"
+                >
+                    {showGuestMsg?.order?.msgs?.map(msg =>
+                        <p key={msg.id}>
+                            {msg.txt}
+                        </p>)}
+                </Modal>
+
                 {/* Confirmation Modal */}
                 <Modal
                     isOpen={confirmModal.isOpen}
                     onClose={() => setConfirmModal({ isOpen: false, order: null, action: null })}
+                    closePosition='right'
                     header={
-                        <h2 className="modal-title">
+                        <h3 className="modal-title">
                             {confirmModal.action === 'approve' ? 'Confirm Approval' : 'Confirm Rejection'}
-                        </h2>
+                        </h3>
                     }
                     className="confirm-modal"
                 >
                     <div className="confirm-content">
-                        <p className="confirm-message">
+                        <h4 className="confirm-message">
                             Are you sure you want to {confirmModal.action === 'approve' ? 'approve' : 'reject'} this booking?
-                        </p>
-                       
+                        </h4>
+
 
                         <div className="confirm-actions">
                             <button
-                                className="action-btn btn btn-pill cancel-btn"
+                                className="action-btn btn  cancel-btn"
                                 onClick={() => setConfirmModal({ isOpen: false, order: null, action: null })}
                             >
                                 Cancel
                             </button>
                             <button
-                                className={`action-btn btn btn-pill confirm-btn ${confirmModal.action === 'approve' ? 'approve-confirm-btn' : 'reject-confirm-btn'}`}
+                                className={`action-btn btn confirm-btn ${confirmModal.action === 'approve' ? 'approve-confirm-btn' : 'reject-confirm-btn'}`}
                                 onClick={confirmStatusChange}
                             >
                                 {confirmModal.action === 'approve' ? 'Approve Booking' : 'Reject Booking'}
@@ -339,7 +369,7 @@ export function ReservationsPage() {
                         </div>
                     </div>
                 </Modal>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }

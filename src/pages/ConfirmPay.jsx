@@ -1,12 +1,13 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { svgControls, appHeaderSvg, paymentSvgs } from '../cmps/Svgs'
 import { PaymentMethod } from '../cmps/PaymentMethod'
 import { ReservationSummary } from '../cmps/ReservationSummary'
 import { FancyButton } from '../cmps/SmallComponents'
 import { addOrder } from '../store/actions/order.actions'
-import { getDateBefore } from '../services/util.service'
+import { getDateBefore, makeId } from '../services/util.service'
 
 export function ConfirmPay() { //later send order as a prop from a parent
     const order = useSelector(storeState => storeState.orderModule.currentOrder)
@@ -15,8 +16,9 @@ export function ConfirmPay() { //later send order as a prop from a parent
     const [selectedPaymentTiming, setselectedPaymentTiming] = useState('full')
     const [selectedMethod, setSelectedMethod] = useState(null)
     const navigate = useNavigate()
-    const loggedinUser = useSelector(storeState => storeState.userModule.user)
+    const [guestMsg, setGuestMsg] = useState('')
 
+    const loggedinUser = useSelector(storeState => storeState.userModule.user)
     if (!order) return <p>No reservation found</p>
 
     const payLaterDate = getDateBefore(order.startDate)
@@ -43,6 +45,7 @@ export function ConfirmPay() { //later send order as a prop from a parent
     async function handleReserveClick() {
         if (!loggedinUser) {
             console.error('User must be logged in to make a reservation')
+            showErrorMsg('User must be logged in in order to place a reservation')
             return
         }
 
@@ -51,11 +54,17 @@ export function ConfirmPay() { //later send order as a prop from a parent
             hostId: host._id,
             guest: {
                 _id: loggedinUser._id,
-                fullname: loggedinUser.fullname
+                fullname: loggedinUser.fullname,
+                imgUrl: loggedinUser.imgUrl
             },
             guestId: loggedinUser._id,
             status: 'pending',
-            msgs: [],
+            msgs: guestMsg ? [{
+                id: makeId(),
+                txt: guestMsg,
+                by: loggedinUser._id,
+                at: new Date().toISOString()
+            }] : [],
         }
 
         try {
@@ -63,6 +72,7 @@ export function ConfirmPay() { //later send order as a prop from a parent
             await addOrder(reservedOrder)
             navigate('/trips')
         } catch (err) {
+            showErrorMsg('Had a problem placing order...')
             console.error('Cannot reserve stay:', err)
         }
     }
@@ -188,6 +198,8 @@ export function ConfirmPay() { //later send order as a prop from a parent
                                             className='msg-host-textarea'
                                             placeholder={`Hi ${host.firstName}! I'll be visiting...`}
                                             rows={4}
+                                            value={guestMsg}
+                                            onChange={(e) => setGuestMsg(e.target.value)}
                                         />
                                     </div>
                                 )}
