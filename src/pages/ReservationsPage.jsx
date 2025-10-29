@@ -6,6 +6,7 @@ import { DotsLoader } from '../cmps/SmallComponents';
 import { Modal } from '../cmps/Modal';
 import { appHeaderSvg } from '../cmps/Svgs';
 import confetti from 'canvas-confetti';
+import { socketService } from '../services/socket.service.js';
 
 export function ReservationsPage() {
     const [activeTab, setActiveTab] = useState('all')
@@ -19,31 +20,77 @@ export function ReservationsPage() {
     const isLoading = useSelector(storeState => storeState.orderModule.isLoading)
 
     useEffect(() => {
-        loadOrders()
-    }, [])
+        if (loggedInUser?._id) {
+            loadOrders({ hostId: loggedInUser._id })
+        }
+    }, [loggedInUser])
+
+    useEffect(() => {
+        if (!loggedInUser) return
+
+        socketService.on('new-order-created', (newOrder) => {
+            console.log('New order received:', newOrder)
+
+            const isMyOrder = newOrder.host?._id?.toString() === loggedInUser._id.toString() ||
+                newOrder.hostId?.toString() === loggedInUser._id.toString()
+
+            if (isMyOrder) {
+                loadOrders({ hostId: loggedInUser._id })
+            }
+        })
+
+        socketService.on('update-guest-orders', (updatedOrder) => {
+            console.log('Order updated:', updatedOrder)
+
+            const isMyOrder = updatedOrder.host?._id?.toString() === loggedInUser._id.toString() ||
+                updatedOrder.hostId?.toString() === loggedInUser._id.toString()
+
+            if (isMyOrder) {
+                loadOrders({ hostId: loggedInUser._id })
+            }
+        })
+
+        return () => {
+            socketService.off('new-order-created')
+            socketService.off('update-guest-orders')
+        }
+    }, [loggedInUser])
 
     const hostOrders = useMemo(() => {
         if (!orders) {
             console.log('No orders available')
             return []
         }
-        // console.log('Total orders:', orders.length)
-        // For now, return all orders..
-        return orders
 
-        // if (!loggedInUser) return []
-        // return orders.filter(order => order.host._id === loggedInUser._id)
+        if (!loggedInUser) return []
+
+        // Filter orders where the logged in user is the host
+        return orders.filter(order => {
+            const hostId = order.host?._id?.toString() || order.hostId?.toString()
+            const userId = loggedInUser._id.toString()
+            return hostId === userId
+        })
     }, [orders, loggedInUser])
 
+    const pendingCount = useMemo(() => {
+        const now = new Date()
+        return hostOrders.filter(order =>
+            order.status === 'pending' &&
+            new Date(order.startDate) > now
+        ).length
+    }, [hostOrders])
+    
     const filteredOrders = useMemo(() => {
         const now = new Date()
 
         switch (activeTab) {
             case 'upcoming':
-                return hostOrders.filter(order =>
+                const upcoming = hostOrders.filter(order =>
                     new Date(order.startDate) > now &&
                     (order.status === 'approved' || order.status === 'pending')
                 )
+                // console.log('Upcoming orders:', upcoming)
+                return upcoming
             case 'completed':
                 return hostOrders.filter(order =>
                     new Date(order.endDate) < now &&
@@ -114,7 +161,13 @@ export function ReservationsPage() {
         <div className="reservations-container">
             <div className="reservations-content">
                 <div className="reservations-header">
-                    <h1 className="page-title">Reservations</h1>
+                    {/* add badge */}
+                    <div className="header-with-badge">
+                        <h1 className="page-title">Reservations</h1>
+                        {pendingCount > 0 && (
+                            <span className="pending-badge">{pendingCount}</span>
+                        )}
+                    </div>
 
                     <div className="view-toggle">
                         <button
@@ -244,7 +297,10 @@ export function ReservationsPage() {
                                 {sortedOrders.map((order) => (
                                     <div key={order._id} className="reservation-card">
                                         <div className="card-image">
-                                            <img src={order.stay.imgUrl} alt={order.stay.name} />
+                                            <img
+                                                src={order.stay.imgUrls?.[0] || order.stay.imgUrl || 'https://picsum.photos/200/200?random=2'}
+                                                alt={order.stay.name}
+                                            />
                                             <div className="status-badge">
                                                 <span className={`status-dot ${order.status}`}></span>
                                                 {order.status}

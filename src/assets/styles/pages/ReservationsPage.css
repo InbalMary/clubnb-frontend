@@ -304,6 +304,13 @@
     display: block;
 }
 
+.reservations-container .modal-popup {
+    max-width: 80%;
+    max-height: 70%;
+    padding-inline: 1rem;
+    padding-block: 2rem;
+}
+
 .card-actions {
     display: flex;
     align-items: center;
@@ -444,5 +451,53 @@
     .reservations-table tbody td {
         padding-inline-end: 0.1rem;
         font-size: 12px;
+    }
+
+    .guest-avatar {
+        width: 1.7rem;
+        height: 1.7rem;
+        margin-top: 1.3rem;
+    }
+
+    .reservations-table thead th,
+    .reservations-table tbody td {
+        text-align: center;
+    }
+}
+
+/* Header with badge */
+.header-with-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.pending-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 8px;
+    background-color: var(--pending, var(--primary-clr));
+    color: var(--white);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    animation: pulseBudge 2s infinite;
+}
+
+@keyframes pulseBudge {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
     }
 }

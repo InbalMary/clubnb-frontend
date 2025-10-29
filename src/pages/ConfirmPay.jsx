@@ -55,7 +55,7 @@ export function ConfirmPay() { //later send order as a prop from a parent
             guest: {
                 _id: loggedinUser._id,
                 fullname: loggedinUser.fullname,
-                imgUrl: loggedinUser.imgUrl
+                imgUrl: loggedinUser.imgUrl || null
             },
             guestId: loggedinUser._id,
             status: 'pending',
