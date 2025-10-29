@@ -38,6 +38,9 @@
     border-radius: 1.25rem;
 }
 
+.wishlist-details .stay-link {
+    text-decoration: none;
+}
 
 /* Right column: map */
 /* .explore-map-wrapper, */
