@@ -419,6 +419,7 @@
     .main-content {
         display: flex;
         flex-direction: column;
+        margin-block-start: 50px;
 
         .details-imgs.mobile {
             scroll-snap-align: center;
@@ -443,10 +444,10 @@
             justify-content: space-between;
             padding-inline-end: 1rem;
             background-color: rgb(255, 255, 255);
-            width: 99vw;
+            width: 97vw;
             height: 2rem;
             position: absolute;
-            top: 100px;
+            top: 10px;
             z-index: 3;
 
             .share-btn.mobile,
