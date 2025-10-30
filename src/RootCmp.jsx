@@ -74,17 +74,10 @@ export function RootCmp() {
                     />
                 </div>
             )}
-            {/* <AppHeader /> */}
             <UserMsg />
             <main className="main-container">
                 <Routes>
-                    {/* <Route path="" element={<HomePage />} />
-                    <Route path="about" element={<AboutUs />}>
-                        <Route path="team" element={<AboutTeam />} />
-                        <Route path="vision" element={<AboutVision />} />
-                    </Route> */}
                     <Route path="" element={<StayIndex />} />
-                    {/* <Route path="explore/type/:type" element={<Explore />} /> */}
                     <Route path="explore/city/:city" element={<Explore />} />
                     <Route path="stay/edit" element={<StayEdit />} />
                     <Route path="stay/edit/:stayId" element={<StayEdit />} />
