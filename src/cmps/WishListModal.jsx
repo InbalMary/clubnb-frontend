@@ -5,6 +5,7 @@ import { svgControls } from '../cmps/Svgs'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from "react-redux"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
+import { createWishlistFromStay } from "../services/wishlist/wishlist.helper"
 
 export function WishlistModal({ stay, isOpen, onClose }) {
     const navigate = useNavigate()
@@ -17,30 +18,10 @@ export function WishlistModal({ stay, isOpen, onClose }) {
 
     async function onCreateWishlist() {
         try {
-            const year = new Date().getFullYear()
-            const title = newTitle?.trim() ? newTitle : `${stay.loc.city}, ${stay.loc.country} ${year}`
-
-            const newWishlist = {
-                title,
-                city: stay.loc.city,
-                country: stay.loc.country,
-                stays: [
-                    {
-                        _id: stay._id,
-                        name: stay.name,
-                        imgUrl: stay.imgUrls?.[0],
-                    },
-                ],
-                createdAt: Date.now(),
-            }
-
-            const savedWishlist = await addWishlist(newWishlist)
-            showSuccessMsg(`Created wishlist ${savedWishlist.title}`, stay.imgUrls?.[0])
-            // navigate('/wishlists') // optional
+            await createWishlistFromStay(stay, newTitle)
             resetModalState()
         } catch (err) {
-            console.error('Cannot create wishlist', err)
-            showErrorMsg('Could not create wishlist, please try again.')
+            // handled inside helper (toast + log)
         }
     }
 

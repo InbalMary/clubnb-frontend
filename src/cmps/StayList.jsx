@@ -119,7 +119,9 @@ export function StayList() {
                             >
                                 {svgControls.backArrow}
                             </button>
-                            <span className='creat-wishlist-modal-title'>Create wishlist</span>
+                            <span className='creat-wishlist-modal-title'>{wishlists.length === 0
+                                ? 'Create your first wishlist'
+                                : 'Create wishlist'}</span>
                         </>
                     }
                     isOpen={wm.isCreateWishlistModalOpen}

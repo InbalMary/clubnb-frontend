@@ -11,6 +11,8 @@ export const wishlistService = {
 
 async function query(filterBy = { userId: '' }) {
     try {
+        const loggedinUser = userService.getLoggedinUser()
+        const filterBy = { userId: loggedinUser?._id || '' }
         return await httpService.get(`wishlist`, filterBy)
     } catch (err) {
         console.error('wishlistService: Cannot load wishlists', err)

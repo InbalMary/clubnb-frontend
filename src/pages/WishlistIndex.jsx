@@ -3,23 +3,45 @@ import { useEffect } from 'react'
 import { Link } from "react-router-dom"
 import { loadWishlists, removeWishlist } from "../store/actions/wishlist.actions"
 import { svgControls } from "../cmps/Svgs"
-import { showSuccessMsg } from "../services/event-bus.service"
+import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service"
 import { WishlistIndexSkeleton } from "../cmps/WishlistIndexSkeleton"
+import { userService } from "../services/user"
 
 export function WishlistIndex() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const isLoading = useSelector(storeState => storeState.wishlistModule.isLoading)
 
     useEffect(() => {
-        loadWishlists()
+        const loggedinUser = userService.getLoggedinUser()
+        if (loggedinUser?._id) {
+            loadWishlists(loggedinUser._id)
+        } else {
+            showErrorMsg('Please sign in to view your wishlists.')
+        }
     }, [])
 
-    function onRemoveWishlist(wishlist) {
-        removeWishlist(wishlist._id)
-        showSuccessMsg(`Wishlist ${wishlist.title} deleted`, wishlist.stays?.[0]?.imgUrls?.[0])
+
+    async function onRemoveWishlist(wishlist) {
+        try {
+            await removeWishlist(wishlist._id)
+            showSuccessMsg(`Wishlist ${wishlist.title} deleted`, wishlist.stays?.[0]?.imgUrls?.[0])
+        } catch (err) {
+            console.error('Failed to delete wishlist:', err)
+            showErrorMsg('Could not delete wishlist, please try again.')
+        }
     }
 
     if (isLoading) return <WishlistIndexSkeleton />
+
+    if (!wishlists?.length)
+        return (
+            <section className="wishlists-index empty">
+                <div className="wishlist-page-container">
+                    <h1 className="wishlists-index-title">Wishlists</h1>
+                    <p>No wishlists yet — start saving your favorite stays!</p>
+                </div>
+            </section>
+        )
 
     return (
         <section className="wishlists-index">
@@ -28,8 +50,6 @@ export function WishlistIndex() {
                 <ul className="wishlist-list">
                     {wishlists.map(wishlist => {
                         const firstStay = wishlist.stays?.[0]
-
-
                         return (
                             <li key={wishlist._id} className="wishlist-preview">
                                 <button
