@@ -1,0 +1,351 @@
+@media (max-width: 768px) {
+    .edit-header {
+        padding: 1rem 1.5rem;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .logo-black-container,
+    .logo-black-icon {
+        display: none;
+    }
+
+    .header-actions {
+        gap: 0.5rem;
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+
+    .save-exit-button,
+    .questions-button {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+        height: 36px;
+    }
+
+    .step-container,
+    .step-location-content {
+        padding: 5rem 1.5rem 6rem;
+        max-width: 100%;
+    }
+
+    /* Welcome screen */
+    .welcome-content {
+        flex-direction: column;
+        gap: 2rem;
+        margin-block-end: 1rem;
+    }
+
+    .welcome-left,
+    .welcome-right {
+        width: 100%;
+    }
+
+    .welcome-title {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .step-title,
+    .address-form-title,
+    .selection-header-wrapper .step-title {
+        font-size: 36px;
+        max-width: 100%;
+        text-align: start;
+        margin-block-end: 0.75rem;
+    }
+
+    .welcome-steps {
+        gap: 1.5rem;
+    }
+
+    .welcome-step {
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .step-info {
+        flex-direction: row;
+        flex: 1;
+    }
+
+    .step-illustration {
+        width: 76px;
+        height: 76px;
+        flex-shrink: 0;
+    }
+
+    .step-illustration img {
+        width: 76px;
+        height: 76px;
+    }
+
+    /* Step intros */
+    .step-intro-content,
+    .finish-intro-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .step-intro-content.step-container,
+    .step-main-content.step-container,
+    .step-finish-intro-content {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .step-left,
+    .step-right,
+    .intro-text-section,
+    .intro-media-section,
+    .finish-intro-text-section {
+        max-width: 100%;
+        gap: 1rem;
+    }
+
+    .step-main-description,
+    .intro-description,
+    .step-subtitle,
+    .location-subtitle {
+        font-size: 1rem;
+    }
+
+    .step-subtitle {
+        margin-block-end: 1.5rem;
+    }
+
+    .step-video {
+        max-width: 100%;
+    }
+
+    .get-started-button {
+        width: 100%;
+    }
+
+    /* Place types & amenities */
+    .place-types-grid,
+    .step-selection-content .selection-header-wrapper,
+    .step-selection-content .step-selection-grid .place-types-grid {
+        max-width: 100%;
+    }
+
+    .place-types-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .place-type-card {
+        padding: 0.875rem;
+        min-height: auto;
+    }
+
+    .place-icon {
+        font-size: 1.5rem;
+    }
+
+    .place-label,
+    .cur-loc {
+        font-size: 0.875rem;
+    }
+
+    .selection-section-title {
+        font-size: 1.125rem;
+    }
+
+    .selection-title {
+        font-size: 22px;
+    }
+
+    .selection-subtitle.step-subtitle {
+        margin-block-end: 1rem;
+    }
+
+    /* Privacy types */
+    .privacy-types-list {
+        max-width: 100%;
+    }
+
+    .privacy-type-card {
+        padding: 1rem 1.25rem;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .privacy-content {
+        order: 2;
+    }
+
+    .privacy-icon {
+        order: 1;
+        margin-left: 0;
+        align-self: flex-start;
+    }
+
+    .privacy-label,
+    .basics-label {
+        font-size: 1rem;
+    }
+
+    .privacy-description {
+        font-size: 0.875rem;
+    }
+
+    .step3-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    /* Address form & basics */
+    .address-form-content,
+    .basics-header,
+    .basics-list {
+        max-width: 100%;
+    }
+
+    .basics-item {
+        padding: 1.25rem 0;
+    }
+
+    .counter-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    /* Step photos */
+    .step-photo-content,
+    .step-title-content,
+    .step-description-content,
+    .step-price-content {
+        max-width: 100%;
+    }
+
+    .photo-upload-area {
+        padding: 3rem 1.5rem;
+        min-height: 20rem;
+    }
+
+    .camera-icon {
+        width: 8rem;
+    }
+
+    .preview-image {
+        width: 5.5rem;
+        height: 5.5rem;
+    }
+
+    .upload-modal-header .header-modal-action-icons {
+        width: auto;
+    }
+
+    .title-textarea {
+        min-height: 9rem;
+        font-size: 1rem;
+    }
+
+    .description-textarea {
+        min-height: 12rem;
+    }
+
+    .price-input,
+    .dolar-sign {
+        font-size: 3rem;
+    }
+
+    /* Maps */
+    .location-header {
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .location-title {
+        font-size: 1.75rem;
+    }
+
+    .step-location-content .location-map-wrapper {
+        width: 100vw;
+        height: 70vh;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+    }
+
+    .step-location-content .location-search-box {
+        top: 1rem;
+        left: 1rem;
+        transform: none;
+        width: calc(100% - 2rem);
+        max-width: none;
+        padding: 0.875rem 1rem;
+    }
+
+    .step-location-content .location-icon {
+        font-size: 1.25rem;
+        margin-right: 0.75rem;
+    }
+
+    .step-location-content .step4-icon {
+        height: 20px;
+        width: 20px;
+    }
+
+    .step-location-content .location-input {
+        font-size: 0.875rem;
+    }
+
+    .location-dropdown {
+        top: 70px;
+        left: 1rem;
+        width: calc(100% - 2rem);
+        max-width: none;
+    }
+
+    .location-dropdown-item {
+        height: 4rem;
+        padding: 0.5rem 1rem;
+        gap: 12px;
+    }
+
+    .loc-icon-wrap {
+        height: 40px;
+        width: 40px;
+    }
+
+    .location-dropdown-item .step4-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .step-location-content .map-container,
+    .map-drag-hint {
+        max-width: 100%;
+        height: 24rem;
+        border-radius: 0.5rem;
+        padding-block-end: 0;
+    }
+
+    /* Footer */
+    .step-footer,
+    .step-footer.welcome-footer {
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+    }
+
+    .progress-bar-container {
+        padding: 0 1.5rem;
+        gap: 4px;
+    }
+
+    .back-button,
+    .next-button {
+        font-size: 1rem;
+    }
+
+    .back-button {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .next-button {
+        padding: 0.75rem 1.5rem;
+    }
+}

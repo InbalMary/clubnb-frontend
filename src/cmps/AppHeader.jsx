@@ -19,6 +19,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	const isIndexPage = location.pathname === '/' || location.pathname === ''
 	const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
 	const isHostPage = location.pathname.includes("hosting")
+	const isEditPage = location.pathname.includes("edit")
 	const isMobile = useIsBreakPoint(768)
 	const [imgError, setImgError] = useState(false)
 
@@ -46,6 +47,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	const containerClass = isCompact ? 'compact-header-content' : 'nav-bar'
 
 	if (isMobile && isStayDetailsPage) return null
+	if (isMobile && isEditPage) return null
 
 	function handleImageError() {
 		console.log('img failed to load:', user?.imgUrl)
