@@ -58,9 +58,9 @@ export function SearchBar({ initialModal = null, onCollapse }) {
             description: "For its bustling nightlife",
         },
         {
-            icon: 'istanbul',
-            name: 'Istanbul, Türkiye',
-            description: "For its top-notch dining",
+            icon: 'new_york',
+            name: 'New York, NY, USA',
+            description: "For its iconic skyline and endless energy",
         },
         {
             icon: 'rome',
@@ -78,9 +78,14 @@ export function SearchBar({ initialModal = null, onCollapse }) {
             description: "Popular beach destination",
         },
         {
-            icon: 'vienna',
-            name: 'Vienna, Austria',
-            description: "Fot its top notch dining",
+            icon: 'tokyo',
+            name: 'Tokyo, Japan',
+            description: "Fot its futuristic vibes and ancient charm",
+        },
+        {
+            icon: 'denpasar',
+            name: 'Denpasar, Denpasar City, Bali, Indonesia',
+            description: "Fot its tropical beaches and Balinese charm",
         },
     ]
 
@@ -144,7 +149,7 @@ export function SearchBar({ initialModal = null, onCollapse }) {
         if (guests.children) params.set('children', guests.children.toString())
         if (guests.infants) params.set('infants', guests.infants.toString())
         if (guests.pets) params.set('pets', guests.pets.toString())
-        
+
         if (!window.location.pathname.includes('/explore/city')) {
             setSearchParams(params, { replace: true })
         }
@@ -167,16 +172,16 @@ export function SearchBar({ initialModal = null, onCollapse }) {
 
     const handleSearch = () => {
         setActiveModal(null)
-        
+
         const totalGuests = guests.adults + guests.children
-        
+
         const filterParams = {
             destination: destination?.name || null,
             startDate: dateRange.from ? formatDate(dateRange.from) : null,
             endDate: dateRange.to ? formatDate(dateRange.to) : null,
             guests: totalGuests > 0 ? totalGuests : null,
         }
-        
+
         setFilterBy(filterParams)
 
         if (destination?.name) {
@@ -203,7 +208,7 @@ export function SearchBar({ initialModal = null, onCollapse }) {
             if (guests.infants) params.set('infants', guests.infants.toString())
             if (guests.pets) params.set('pets', guests.pets.toString())
             setSearchParams(params, { replace: true })
-            loadStays(filterParams) 
+            loadStays(filterParams)
             if (onCollapse) onCollapse()
         } else {
             loadStays(filterParams)

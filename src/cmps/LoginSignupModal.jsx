@@ -186,7 +186,9 @@ export function LoginSignupModal({ isOpen, onClose }) {
             <div className="login-options">
                 <button onClick={handleToggleType} className="btn">{modalType === 'login' ? 'Signup' : 'Login'}</button>
                 <button onClick={onGuestLogin} className="btn">Login as a guest</button>
-                <GoogleLoginButton onClose={onClose} />
+                <GoogleLoginButton onClose={onClose} >
+                    {modalType === 'signup' ? 'Sign up with Google' : 'Login with Google'}
+                </GoogleLoginButton>
             </div>
 
         </Modal >
@@ -194,10 +196,12 @@ export function LoginSignupModal({ isOpen, onClose }) {
 }
 
 
-function GoogleLoginButton({ onClose }) {
+function GoogleLoginButton({ onClose, children }) {
 
     const navigate = useNavigate()
     let tokenClient
+    const isSignup = location.pathname.includes('signup')
+
 
     useEffect(() => {
         const script = document.createElement("script")
@@ -225,27 +229,71 @@ function GoogleLoginButton({ onClose }) {
         }
     }, [])
 
+    // async function handleGoogleLogin(credentialResponse) {
+    //     try {
+    //         const decoded = jwtDecode(credentialResponse.credential)
+    //         const googleUser = {
+    //             username: decoded.email,
+    //             fullname: decoded.name,
+    //             imgUrl: decoded.picture,
+    //             password: decoded.sub, // unique Google ID
+    //         }
+
+    //         let user = await login(googleUser)
+    //         if (!user) {
+    //             user = await signup(googleUser)
+    //         }
+
+    //         showSuccessMsg(`Welcome, ${user.fullname}!`)
+    //         onClose?.()
+    //         navigate('/')
+    //     } catch (err) {
+    //         console.error('Google login failed:', err)
+    //         showErrorMsg('Google login failed. Please try again.')
+    //     }
+    // }
+
     async function handleGoogleLogin(credentialResponse) {
         try {
             const decoded = jwtDecode(credentialResponse.credential)
+
+            // Check if Google provided a real profile picture
+            const hasRealPicture = decoded.picture &&
+                decoded.picture !== '' &&
+                !decoded.picture.includes('default') &&
+                decoded.picture.startsWith('http')
+
             const googleUser = {
                 username: decoded.email,
                 fullname: decoded.name,
-                imgUrl: decoded.picture,
-                password: decoded.sub, // unique Google ID
+                imgUrl: hasRealPicture ? decoded.picture : '',
+                password: decoded.sub, // unique Google ID from Google
             }
 
-            let user = await login(googleUser)
-            if (!user) {
-                user = await signup(googleUser)
+            let user
+
+            try {
+                // Try logging in
+                user = await login(googleUser)
+            } catch (loginErr) {
+                console.warn('Login failed, trying signup...', loginErr)
+
+                // Attempt signup if login fails
+                try {
+                    user = await signup(googleUser)
+                } catch (signupErr) {
+                    console.error('Signup failed:', signupErr)
+                    throw new Error('Unable to authenticate user.')
+                }
             }
 
             showSuccessMsg(`Welcome, ${user.fullname}!`)
             onClose?.()
             navigate('/')
+
         } catch (err) {
-            console.error('Google login failed:', err)
-            showErrorMsg('Google login failed. Please try again.')
+            console.error('Google auth flow failed:', err)
+            showErrorMsg('Google authentication failed. Please try again.')
         }
     }
 
@@ -258,6 +306,6 @@ function GoogleLoginButton({ onClose }) {
     return (
         <button onClick={handleLoginClick} className="btn google">
             <span className="logo">{logoSvgs.google}</span>
-            Continue with Google</button>
+            {children}</button> //<= maybe render children here?
     )
 }
