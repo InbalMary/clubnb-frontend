@@ -27,6 +27,7 @@ import { Explore } from './pages/Explore.jsx'
 import { WishlistIndex } from './pages/WishlistIndex.jsx'
 import { WishlistDetails } from './pages/WishlistDetails.jsx'
 import { HostDashboard } from './pages/HostDashboard.jsx'
+import { userService } from './services/user'
 
 export function RootCmp() {
     const {
