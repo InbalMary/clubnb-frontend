@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import { useEffect } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { loadWishlists, removeWishlist } from "../store/actions/wishlist.actions"
 import { svgControls } from "../cmps/Svgs"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service"
@@ -10,6 +10,7 @@ import { userService } from "../services/user"
 export function WishlistIndex() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const isLoading = useSelector(storeState => storeState.wishlistModule.isLoading)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const loggedinUser = userService.getLoggedinUser()
@@ -38,7 +39,11 @@ export function WishlistIndex() {
             <section className="wishlists-index empty">
                 <div className="wishlist-page-container">
                     <h1 className="wishlists-index-title">Wishlists</h1>
-                    <p>No wishlists yet — start saving your favorite stays!</p>
+                    <p>No wishlists yet. Start saving your favorite stays!</p>
+                    <button className="btn btn-gray back-to-prev" onClick={() => navigate(-1)}>
+                        <span className="icon">{svgControls.backArrow}</span>
+                        Back
+                    </button>
                 </div>
             </section>
         )

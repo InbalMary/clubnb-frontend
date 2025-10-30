@@ -114,7 +114,7 @@ export function StayList() {
                             <button className='btn btn-transparent btn-round back'
                                 onClick={() => {
                                     wm.setIsCreateWishlistModalOpen(false)
-                                    wm.setIsWishlistModalOpen(true)
+                                    if (wishlists.length) wm.setIsWishlistModalOpen(true)
                                 }}
                             >
                                 {svgControls.backArrow}
@@ -127,7 +127,7 @@ export function StayList() {
                     isOpen={wm.isCreateWishlistModalOpen}
                     onClose={() => {
                         wm.setIsCreateWishlistModalOpen(false)
-                        wm.setIsWishlistModalOpen(true)
+                        if (wishlists.length) wm.setIsWishlistModalOpen(true)
                     }}
                     className="create-wishlist-modal"
                     showCloseBtn={false}
@@ -136,7 +136,7 @@ export function StayList() {
                             <button className='btn create-cancel-btn btn-transparent'
                                 onClick={() => {
                                     wm.setIsCreateWishlistModalOpen(false)
-                                    wm.setIsWishlistModalOpen(true)
+                                    if (wishlists.length) wm.setIsWishlistModalOpen(true)
                                 }}>
                                 Cancel
                             </button>
@@ -158,7 +158,7 @@ export function StayList() {
                                     wm.setShowInputClearBtn(false)
                                 }
                             }}
-                            placeholder="Name"
+                            placeholder="Name your wishlist"
                         />
                         {wm.showInputClearBtn && wm.newTitle && (
                             <button

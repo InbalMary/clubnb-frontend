@@ -42,7 +42,8 @@
 .modal-popup.wishlist-modal {
     width: auto;
     max-width: 520px;
-    height: 80vh;
+    height: auto;
+    max-height: 80vh;
     overflow: hidden;
 }
 

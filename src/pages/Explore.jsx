@@ -157,18 +157,22 @@ export function Explore() {
                             <button className='btn btn-transparent btn-round back'
                                 onClick={() => {
                                     wm.setIsCreateWishlistModalOpen(false)
-                                    wm.setIsWishlistModalOpen(true)
+                                    if (wishlists.length) wm.setIsWishlistModalOpen(true)
                                 }}
                             >
                                 {svgControls.backArrow}
                             </button>
-                            <span className='creat-wishlist-modal-title'>Create wishlist</span>
+                            <span className='creat-wishlist-modal-title'>
+                                {wishlists.length === 0
+                                    ? 'Create your first wishlist'
+                                    : 'Create wishlist'}
+                            </span>
                         </>
                     }
                     isOpen={wm.isCreateWishlistModalOpen}
                     onClose={() => {
                         wm.setIsCreateWishlistModalOpen(false)
-                        wm.setIsWishlistModalOpen(true)
+                        if (wishlists.length) wm.setIsWishlistModalOpen(true)
                     }}
                     className="create-wishlist-modal"
                     showCloseBtn={false}
@@ -177,7 +181,7 @@ export function Explore() {
                             <button className='btn create-cancel-btn btn-transparent'
                                 onClick={() => {
                                     wm.setIsCreateWishlistModalOpen(false)
-                                    wm.setIsWishlistModalOpen(true)
+                                    if (wishlists.length) wm.setIsWishlistModalOpen(true)
                                 }}>
                                 Cancel
                             </button>
@@ -187,7 +191,32 @@ export function Explore() {
                             </button>
                         </div>
                     }
-                ></Modal>
+                >
+                    <div className="rename-input-wrapper">
+                        <input
+                            className="rename-input"
+                            type="text"
+                            value={wm.newTitle}
+                            onChange={(ev) => {
+                                wm.setNewTitle(ev.target.value)
+                                wm.setShowInputClearBtn(ev.target.value !== '')
+                            }}
+                            placeholder="Name your wishlist"
+                        />
+                        {wm.newTitle && (
+                            <button
+                                type="button"
+                                className="btn btn-gray btn-round clear-input-btn"
+                                onClick={() => {
+                                    wm.setNewTitle('')
+                                    wm.setShowInputClearBtn(false)
+                                }}
+                            >
+                                {svgControls.closeModal}
+                            </button>
+                        )}
+                    </div>
+                </Modal>
             )}
         </section >
     )
