@@ -68,7 +68,7 @@ export function LoginSignupModal({ isOpen, onClose }) {
                 showSuccessMsg('Signed in successfully')
             } else {
                 await login(credentials)
-                showSuccessMsg('Logged in successfully')
+                showSuccessMsg(`Welcome, ${credentials.fullname}!`)
             }
             clearState()
             onClose()
@@ -100,7 +100,7 @@ export function LoginSignupModal({ isOpen, onClose }) {
 
             setCredentials(guestCreds)
             await login(guestCreds)
-            showSuccessMsg('Logged in successfully')
+            showSuccessMsg(`Welcome, ${guestUser.fullname}!`)
             onClose()
             navigate('/')
 
@@ -186,7 +186,7 @@ export function LoginSignupModal({ isOpen, onClose }) {
             <div className="login-options">
                 <button onClick={handleToggleType} className="btn">{modalType === 'login' ? 'Signup' : 'Login'}</button>
                 <button onClick={onGuestLogin} className="btn">Login as a guest</button>
-                <GoogleLoginButton onClose={onClose} >
+                <GoogleLoginButton modalType={modalType} onLogin={onLogin} onClose={onClose} >
                     {modalType === 'signup' ? 'Sign up with Google' : 'Login with Google'}
                 </GoogleLoginButton>
             </div>
@@ -196,7 +196,7 @@ export function LoginSignupModal({ isOpen, onClose }) {
 }
 
 
-function GoogleLoginButton({ onClose, children }) {
+function GoogleLoginButton({modalType,onLogin ,onClose, children }) {
 
     const navigate = useNavigate()
     let tokenClient
@@ -229,83 +229,36 @@ function GoogleLoginButton({ onClose, children }) {
         }
     }, [])
 
-    // async function handleGoogleLogin(credentialResponse) {
-    //     try {
-    //         const decoded = jwtDecode(credentialResponse.credential)
-    //         const googleUser = {
-    //             username: decoded.email,
-    //             fullname: decoded.name,
-    //             imgUrl: decoded.picture,
-    //             password: decoded.sub, // unique Google ID
-    //         }
-
-    //         let user = await login(googleUser)
-    //         if (!user) {
-    //             user = await signup(googleUser)
-    //         }
-
-    //         showSuccessMsg(`Welcome, ${user.fullname}!`)
-    //         onClose?.()
-    //         navigate('/')
-    //     } catch (err) {
-    //         console.error('Google login failed:', err)
-    //         showErrorMsg('Google login failed. Please try again.')
-    //     }
-    // }
-
     async function handleGoogleLogin(credentialResponse) {
         try {
             const decoded = jwtDecode(credentialResponse.credential)
 
-            // Check if Google provided a real profile picture
-            const hasRealPicture = decoded.picture &&
-                decoded.picture !== '' &&
-                !decoded.picture.includes('default') &&
-                decoded.picture.startsWith('http')
-
             const googleUser = {
                 username: decoded.email,
                 fullname: decoded.name,
-                imgUrl: hasRealPicture ? decoded.picture : '',
-                password: decoded.sub, // unique Google ID from Google
+                imgUrl: decoded.picture,
+                password: decoded.sub
             }
 
-            let user
-
-            try {
-                // Try logging in
-                user = await login(googleUser)
-            } catch (loginErr) {
-                console.warn('Login failed, trying signup...', loginErr)
-
-                // Attempt signup if login fails
-                try {
-                    user = await signup(googleUser)
-                } catch (signupErr) {
-                    console.error('Signup failed:', signupErr)
-                    throw new Error('Unable to authenticate user.')
-                }
-            }
-
-            showSuccessMsg(`Welcome, ${user.fullname}!`)
-            onClose?.()
-            navigate('/')
+            //  Let existing login logic handle storage + UI + modal closing
+            await onLogin(googleUser)
 
         } catch (err) {
-            console.error('Google auth flow failed:', err)
-            showErrorMsg('Google authentication failed. Please try again.')
+            console.error('Google login failed:', err)
+            showErrorMsg('Google login failed. Please try again.')
         }
     }
 
     const handleLoginClick = () => {
         // Step 1: Force account selection
-        if (!tokenClient) return showErrorMsg("Google client not loaded yet.")
+        if (!tokenClient) return showErrorMsg("Google client not loaded yet. Please close the window and try again.")
         tokenClient.requestAccessToken({ prompt: "select_account" })
     }
 
     return (
         <button onClick={handleLoginClick} className="btn google">
             <span className="logo">{logoSvgs.google}</span>
-            {children}</button> //<= maybe render children here?
+            {children}</button> 
     )
 }
+

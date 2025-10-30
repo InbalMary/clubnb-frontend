@@ -2,14 +2,18 @@ import { useSelector } from 'react-redux';
 import { appHeaderSvg } from './Svgs';
 import { NavLink, useLocation } from 'react-router';
 import { HamburgerMenu } from './HamburgerMenu';
+import { useIsBreakPoint } from '../customHooks/useIsBreakPoint.js'
 
 export function AppFooter({ isIndexPage, isStayDetailsPage }) {
 	// const user = useSelector(storeState => storeState.userModule.user)
-	// const location = useLocation()
+	const location = useLocation()
 	const showMobileHeaderFooter = isIndexPage || isStayDetailsPage;
-	
+	const isEditPage = location.pathname.includes("edit")
+	const isMobile = useIsBreakPoint(768)
+
 	if (isStayDetailsPage) return null
-	
+	if (isMobile && isEditPage) return null
+
 	return (
 		<footer className="app-footer full">
 			{/* Desktop Footer */}

@@ -263,3 +263,42 @@
   align-items: center;
   justify-content: space-between;
 }
+
+@media (max-width: 768px) {
+  .listing-container {
+    padding-top: 0;
+  }
+
+  .listings-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--gray6);
+    z-index: 100;
+  }
+
+  .main {
+    padding: 5rem 1.5rem 2rem;
+  }
+
+  .title {
+    font-size: 1.375rem;
+    margin: 0;
+  }
+
+  .listing-preview-list {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .listing-card {
+    max-width: 100%;
+  }
+
+  .empty-state {
+    padding: 3rem 1.25rem;
+  }
+}
