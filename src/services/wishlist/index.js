@@ -1,4 +1,5 @@
 const { DEV, VITE_LOCAL } = import.meta.env
+console.log('DEV =', DEV, 'VITE_LOCAL =', VITE_LOCAL)
 
 import { wishlistService as local } from './wishlist.service.local'
 import { wishlistService as remote } from './wishlist.service.remote'

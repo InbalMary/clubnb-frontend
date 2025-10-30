@@ -48,8 +48,14 @@ export function RootCmp() {
         if (isExpanded && initialModal) handleCollapse()
     })
     useEffect(() => {
-        loadWishlists()
+        const user = userService.getLoggedinUser()
+        if (user?._id) {
+            loadWishlists(user._id)
+        } else {
+            console.log('Skipping wishlist load — no user logged in')
+        }
     }, [])
+
 
     return (
         <div>
@@ -110,7 +116,7 @@ export function RootCmp() {
                     <Route path="hosting" element={<BecomeHostForm />} />
                     <Route path="hosting/reservations" element={<ReservationsPage />} />
                     <Route path="hosting/listings" element={<ListingsPage />} />
-                    <Route path="hosting/dashboard" element={<HostDashboard  />} />
+                    <Route path="hosting/dashboard" element={<HostDashboard />} />
                     <Route path="hosting/add-listing-about" element={<ListingEdit />} />
                     <Route path="host" element={<HostDetails />} />
 

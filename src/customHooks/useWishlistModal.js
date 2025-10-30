@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { addWishlist, addStayToWishlist, removeWishlist, removeStayFromWishlist, updateWishlist } from '../store/actions/wishlist.actions.js'
-import { useNavigate } from 'react-router-dom'
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
+import { removeWishlist, removeStayFromWishlist, updateWishlist } from '../store/actions/wishlist.actions.js'
+import { createWishlistFromStay, addStayToExistingWishlist } from '../services/wishlist/wishlist.helper.js'
 
 export function useWishlistModal(wishlists) {
     const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
@@ -12,7 +12,6 @@ export function useWishlistModal(wishlists) {
     const [activeStay, setActiveStay] = useState(null)
     const [newTitle, setNewTitle] = useState('')
     const [showInputClearBtn, setShowInputClearBtn] = useState(true)
-    const navigate = useNavigate()
 
     async function onToggleWishlist(stay) {
         console.log('heart clicked')
@@ -20,7 +19,6 @@ export function useWishlistModal(wishlists) {
         const isAddedToWishlist = wishlists.some(wl =>
             wl.stays.some(stayInList => stayInList._id === stay._id)
         )
-
         try {
             if (isAddedToWishlist) {
                 const wishlistWithStay = wishlists.find(wishlist =>
@@ -40,7 +38,14 @@ export function useWishlistModal(wishlists) {
 
             } else {
                 setActiveStay(stay)
+
+                if (!wishlists?.length) {
+                    console.log('No wishlists yet — opening Create modal')
+                    setIsCreateWishlistModalOpen(true)
+                    return
+                }
                 setIsWishlistModalOpen(true)
+
             }
         } catch (err) {
             console.error('Error toggling wishlist:', err)
@@ -51,49 +56,56 @@ export function useWishlistModal(wishlists) {
     async function onSelectWishlistFromModal(wishlist) {
         if (!activeStay) return
         try {
-            const updatedWishlist = await addStayToWishlist(wishlist, activeStay)
+            await addStayToExistingWishlist(wishlist, activeStay)
             setIsWishlistModalOpen(false)
-            showSuccessMsg(`Added to wishlist ${updatedWishlist.title}`, activeStay.imgUrls?.[0])
-            navigate('/wishlists') //Temporary navigate
         } catch (err) {
-            console.error('Cannot add stay to wishlist', err)
-            showErrorMsg('Could not add to wishlist, please try again.')
+            // handled inside helper
         }
     }
 
-
     async function onCreateWishlist() {
         try {
-            const year = new Date().getFullYear()
-            const title = newTitle?.trim() ? newTitle : `${activeStay.loc.city}, ${activeStay.loc.country} ${year}`
-            const newWishlist = {
-                title,
-                city: activeStay.loc.city,
-                country: activeStay.loc.country,
-                stays: [
-                    {
-                        _id: activeStay._id,
-                        name: activeStay.name,
-                        imgUrls: activeStay.imgUrls || [],
-                        summary: activeStay.summary,
-                        beds: activeStay.beds,
-                        rating: activeStay.host?.rating
-                    }
-                ],
-                createdAt: Date.now(),
-            }
-            const savedWishlist = await addWishlist(newWishlist)
-            console.log(`${activeStay.name} was added to wishlist ${savedWishlist.title}`)
-            showSuccessMsg(`Created wishlist ${savedWishlist.title}`, activeStay.imgUrls?.[0])
-            navigate('/wishlists') //Temporary navigate
+            await createWishlistFromStay(activeStay, newTitle)
             setIsCreateWishlistModalOpen(false)
             setNewTitle('')
             setShowInputClearBtn(false)
         } catch (err) {
-            console.error('Cannot create wishlist', err)
-            showErrorMsg('Could not create wishlist, please try again.')
+            // handled inside helper (toast + log)
         }
     }
+
+    // async function onCreateWishlist() {
+    //     try {
+    //         const year = new Date().getFullYear()
+    //         const title = newTitle?.trim() ? newTitle : `${activeStay.loc.city}, ${activeStay.loc.country} ${year}`
+    //         const newWishlist = {
+    //             title,
+    //             city: activeStay.loc.city,
+    //             country: activeStay.loc.country,
+    //             stays: [
+    //                 {
+    //                     _id: activeStay._id,
+    //                     name: activeStay.name,
+    //                     imgUrls: activeStay.imgUrls || [],
+    //                     summary: activeStay.summary,
+    //                     beds: activeStay.beds,
+    //                     rating: activeStay.host?.rating
+    //                 }
+    //             ],
+    //             createdAt: Date.now(),
+    //         }
+    //         const savedWishlist = await addWishlist(newWishlist)
+    //         console.log(`${activeStay.name} was added to wishlist ${savedWishlist.title}`)
+    //         showSuccessMsg(`Created wishlist ${savedWishlist.title}`, activeStay.imgUrls?.[0])
+    //         // navigate('/wishlists') //Temporary navigate
+    //         setIsCreateWishlistModalOpen(false)
+    //         setNewTitle('')
+    //         setShowInputClearBtn(false)
+    //     } catch (err) {
+    //         console.error('Cannot create wishlist', err)
+    //         showErrorMsg('Could not create wishlist, please try again.')
+    //     }
+    // }
 
     async function onRenameWishlist(wishlistId, newTitle) {
         try {
