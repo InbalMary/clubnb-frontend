@@ -1,15 +1,19 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { DayPicker } from "react-day-picker"
 import { enUS } from 'date-fns/locale'
 import { appHeaderSvg } from "./Svgs"
 import { GuestSelector } from "./GuestSelector"
 import { formatDate, formatGuestsText } from '../services/util.service'
 
-export function SearchBarMobile({ destinations, dateRange, setDateRange, guests, setGuests, destination, setDestination, onSearch }) {
+export function SearchBarMobile({ destinations, dateRange, setDateRange, guests, setGuests, destination, setDestination, onSearch, onOpenChange }) {
     const [isOpen, setIsOpen] = useState(false)
     const [activeSection, setActiveSection] = useState(null) // 'where', 'dates', 'guests'
     const [whereQuery, setWhereQuery] = useState(destination?.name || "")
     const [suggestions, setSuggestions] = useState(destinations)
+
+    useEffect(() => {
+        onOpenChange?.(isOpen)
+    }, [isOpen, onOpenChange])
 
     const handleOpen = () => {
         setIsOpen(true)

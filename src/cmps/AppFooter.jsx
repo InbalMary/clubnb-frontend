@@ -5,7 +5,7 @@ import { HamburgerMenu } from './HamburgerMenu';
 import { useIsBreakPoint } from '../customHooks/useIsBreakPoint.js';
 import { useFooterVisibility } from '../customHooks/useFooterVisibility.js';
 
-export function AppFooter({ isIndexPage, isStayDetailsPage }) {
+export function AppFooter({ isIndexPage, isStayDetailsPage, isSearchOpen }) {
 	// const user = useSelector(storeState => storeState.userModule.user)
 	const location = useLocation()
 	const isEditPage = location.pathname.includes("edit")
@@ -23,7 +23,7 @@ export function AppFooter({ isIndexPage, isStayDetailsPage }) {
 	if (isMobile && isEditPage) return null
 
 	const footerClasses = isMobile && isGuestPage
-		? `app-footer full footer-index ${isFooterVisible ? 'visible' : 'hidden'}`
+		? `app-footer full footer-index ${isFooterVisible && !isSearchOpen ? 'visible' : 'hidden'}`
 		: 'app-footer full'
 
 	return (
