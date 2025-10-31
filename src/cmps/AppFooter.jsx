@@ -16,7 +16,8 @@ export function AppFooter({ isIndexPage, isStayDetailsPage }) {
 		location.pathname === '/wishlists' ||
 		location.pathname === '/trips' ||
 		location.pathname === '/messages' ||
-		location.pathname === '/explore';
+		location.pathname === '/explore' ||
+		location.pathname.startsWith('/explore/')
 
 	if (isStayDetailsPage) return null
 	if (isMobile && isEditPage) return null
@@ -49,7 +50,10 @@ export function AppFooter({ isIndexPage, isStayDetailsPage }) {
 					<div className="nav-items">
 						<NavLink
 							to="/"
-							className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+							className={({ isActive }) => {
+								const isExploreActive = isActive || location.pathname.startsWith('/explore')
+								return `nav-item ${isExploreActive ? 'active' : ''}`
+							}}
 						>
 							<span className="footer-icon">{appHeaderSvg.search}</span>
 							<span>Explore</span>

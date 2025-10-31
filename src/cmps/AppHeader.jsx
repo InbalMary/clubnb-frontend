@@ -20,6 +20,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
 	const isHostPage = location.pathname.includes("hosting")
 	const isEditPage = location.pathname.includes("edit")
+	const isExplorePage = location.pathname.includes("explore")
 	const isMobile = useIsBreakPoint(768)
 	const [imgError, setImgError] = useState(false)
 
@@ -129,7 +130,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 			</div>
 
 			{/* Mobile compact header - uses SearchBar like expanded */}
-			{isCompact && !isHostPage && !isTripsPage && (
+			{isCompact && !isHostPage && !isTripsPage && !isExplorePage && (
 				<div className="mobile-compact-search">
 					<SearchBar initialModal={initialModal} onCollapse={onCollapse} />
 				</div>
