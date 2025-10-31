@@ -1,21 +1,32 @@
 import { useSelector } from 'react-redux';
-import { appHeaderSvg } from './Svgs';
+import { appHeaderSvg, svgControls } from './Svgs';
 import { NavLink, useLocation } from 'react-router';
 import { HamburgerMenu } from './HamburgerMenu';
-import { useIsBreakPoint } from '../customHooks/useIsBreakPoint.js'
+import { useIsBreakPoint } from '../customHooks/useIsBreakPoint.js';
+import { useFooterVisibility } from '../customHooks/useFooterVisibility.js';
 
 export function AppFooter({ isIndexPage, isStayDetailsPage }) {
 	// const user = useSelector(storeState => storeState.userModule.user)
 	const location = useLocation()
-	const showMobileHeaderFooter = isIndexPage || isStayDetailsPage;
 	const isEditPage = location.pathname.includes("edit")
 	const isMobile = useIsBreakPoint(768)
+	const isFooterVisible = useFooterVisibility()
+
+	const isGuestPage = isIndexPage ||
+		location.pathname === '/wishlists' ||
+		location.pathname === '/trips' ||
+		location.pathname === '/messages' ||
+		location.pathname === '/explore';
 
 	if (isStayDetailsPage) return null
 	if (isMobile && isEditPage) return null
 
+	const footerClasses = isMobile && isGuestPage
+		? `app-footer full footer-index ${isFooterVisible ? 'visible' : 'hidden'}`
+		: 'app-footer full'
+
 	return (
-		<footer className="app-footer full">
+		<footer className={footerClasses}>
 			{/* Desktop Footer */}
 			<div className="footer-desktop">
 				<p>&copy; Clubnb, Inc.</p>
@@ -32,21 +43,55 @@ export function AppFooter({ isIndexPage, isStayDetailsPage }) {
 				</div>
 			</div>
 
-			{/* Mobile Header-Style Footer - for index and details pages- temporary */}
-			{showMobileHeaderFooter && (
-				<div className="footer-mobile-header">
-					<NavLink to="/" className="logo-header">
-						<span className="icon">{appHeaderSvg.logo}</span>
-					</NavLink>
+			{/* Mobile footer for guest pages (index, wishlists, trips, msgs, explore) */}
+			{isMobile && isGuestPage && (
+				<nav className="footer-mobile-nav">
+					<div className="nav-items">
+						<NavLink
+							to="/"
+							className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+						>
+							<span className="footer-icon">{appHeaderSvg.search}</span>
+							<span>Explore</span>
+						</NavLink>
 
-					<div className="header-actions">
-						<HamburgerMenu />
+						<NavLink
+							to="/wishlists"
+							className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+						>
+							<span className="footer-icon">{svgControls.heartOutline}</span>
+							<span>Wishlists</span>
+						</NavLink>
+
+						<NavLink
+							to="/trips"
+							className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+						>
+							<span className="footer-icon">{appHeaderSvg.logo}</span>
+							<span>Trips</span>
+						</NavLink>
+
+						<NavLink
+							to="/messages"
+							className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+						>
+							<span className="footer-icon">{appHeaderSvg.msgs}</span>
+							<span>Messages</span>
+						</NavLink>
+
+						<NavLink /*will be replaced with profile page */
+							to="/menu"
+							className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+						>
+							<span className="footer-icon menu-footer-icon">{appHeaderSvg.menu}</span>
+							<span>Menu</span>
+						</NavLink>
 					</div>
-				</div>
+				</nav>
 			)}
 
-			{/* Mobile Navigation Footer - for all other pages- for presenting host reservations on mobile..*/}
-			{!showMobileHeaderFooter && (
+			{/* Mobile footer for hosting pages */}
+			{isMobile && !isGuestPage && (
 				<nav className="footer-mobile-nav">
 					<div className="nav-items">
 						<NavLink

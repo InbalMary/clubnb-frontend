@@ -171,4 +171,33 @@
         fill: var(--primary-clr);
         stroke: var(--primary-clr);
     }
+
+    .app-footer.footer-index {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transform: translateY(0);
+        opacity: 1;
+        z-index: 100;
+    }
+
+    .app-footer.footer-index.hidden {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    .app-footer.footer-index.visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .app-footer.footer-index * {
+        pointer-events: auto;
+    }
+
+    .app-footer.footer-index.hidden * {
+        pointer-events: none;
+    }
 }
