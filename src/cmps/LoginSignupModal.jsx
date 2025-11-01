@@ -59,19 +59,18 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
     }
 
     async function onLogin(credentials, selectedType = modalType) {
-        onClose() // close early to prevent flicker during login success transition
+        onClose() // close early to prevent flicker 
         try {
+            let user
             if (selectedType === 'signup') {
-                await signup(credentials)
+                user = await signup(credentials)
                 showSuccessMsg('Signed in successfully')
             } else {
-                await login(credentials)
-                showSuccessMsg(`Welcome, ${credentials?.fullname || 'guest'}!`)
+                user = await login(credentials)
+                showSuccessMsg(`Welcome, ${user.fullname || 'guest'}!`)
             }
+
             clearState()
-            if (loggedinUser?._id) {
-                await loadWishlists(loggedinUser._id)
-            }
 
             if (onLoginSuccess) {
                 setTimeout(() => {
@@ -88,6 +87,37 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
             console.error('Login error:', err)
         }
     }
+
+    // async function onLogin(credentials, selectedType = modalType) {
+    //     onClose() // close early to prevent flicker 
+    //     try {
+    //         if (selectedType === 'signup') {
+    //             await signup(credentials)
+    //             showSuccessMsg('Signed in successfully')
+    //         } else {
+    //             await login(credentials)
+    //             showSuccessMsg(`Welcome, ${credentials?.fullname || 'guest'}!`)
+    //         }
+    //         clearState()
+    //         if (loggedinUser?._id) {
+    //             await loadWishlists(loggedinUser._id)
+    //         }
+
+    //         if (onLoginSuccess) {
+    //             setTimeout(() => {
+    //                 onLoginSuccess()
+    //             }, 100)
+    //         } else {
+    //             onClose()
+    //         }
+    //     } catch (err) {
+    //         const msg = selectedType === 'signup'
+    //             ? 'Had a problem signing up'
+    //             : 'Had a problem logging in'
+    //         showErrorMsg(msg)
+    //         console.error('Login error:', err)
+    //     }
+    // }
 
     function onUploaded(imgUrl) {
         setCredentials({ ...credentials, imgUrl })

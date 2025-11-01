@@ -1,7 +1,8 @@
 import { Routes, Route, useLocation } from 'react-router'
 import { useEffect, useState } from 'react'
-
+import { useSelector } from 'react-redux'
 import { loadWishlists } from './store/actions/wishlist.actions.js'
+import { userService } from './services/user'
 import { StayIndex } from './pages/StayIndex.jsx'
 import { MsgIndex } from './pages/MsgIndex.jsx'
 import { ChatApp } from './pages/Chat.jsx'
@@ -27,7 +28,7 @@ import { Explore } from './pages/Explore.jsx'
 import { WishlistIndex } from './pages/WishlistIndex.jsx'
 import { WishlistDetails } from './pages/WishlistDetails.jsx'
 import { HostDashboard } from './pages/HostDashboard.jsx'
-import { userService } from './services/user'
+
 import { MobileProfile } from './cmps/MobileProfile.jsx'
 
 export function RootCmp() {
@@ -52,14 +53,15 @@ export function RootCmp() {
     useClickOutside([headerRef], () => {
         if (isExpanded && initialModal) handleCollapse()
     })
+
+    const user = useSelector(storeState => storeState.userModule.user)
     useEffect(() => {
-        const user = userService.getLoggedinUser()
         if (user?._id) {
             loadWishlists(user._id)
         } else {
             console.log('Skipping wishlist load — no user logged in')
         }
-    }, [])
+    }, [user])
 
 
     return (

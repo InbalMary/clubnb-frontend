@@ -1,7 +1,7 @@
 import { userService } from '../../services/user'
 import { socketService } from '../../services/socket.service'
 import { store } from '../store'
-
+import { wishlistService } from '../../services/wishlist/wishlist.service.remote'
 import { showErrorMsg } from '../../services/event-bus.service'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER, SET_IS_LOADING } from '../reducers/user.reducer'
@@ -32,12 +32,16 @@ export async function login(credentials) {
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     try {
         const user = await userService.login(credentials)
+        const wishlists = await wishlistService.query({ userId: user._id })
+        const userWithWishlists = { ...user, wishlists }
+
         store.dispatch({
             type: SET_USER,
-            user
+            user: userWithWishlists
         })
+        userService.saveLoggedinUser(userWithWishlists)
         // socketService.login(user._id)
-        return user
+        return userWithWishlists
     } catch (err) {
         console.log('Cannot login', err)
         throw err
@@ -50,12 +54,14 @@ export async function signup(credentials) {
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     try {
         const user = await userService.signup(credentials)
+        const userWithWishlists = { ...user, wishlists: [] }
         store.dispatch({
             type: SET_USER,
-            user
+            user: userWithWishlists
         })
         // socketService.login(user._id)
-        return user
+        userService.saveLoggedinUser(userWithWishlists)
+        return userWithWishlists
     } catch (err) {
         console.log('Cannot signup', err)
         throw err
@@ -63,6 +69,43 @@ export async function signup(credentials) {
         store.dispatch({ type: SET_IS_LOADING, isLoading: false })
     }
 }
+
+// export async function login(credentials) {
+//     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
+//     try {
+//         const user = await userService.login(credentials)
+//         store.dispatch({
+//             type: SET_USER,
+//             user
+//         })
+//         // socketService.login(user._id)
+//         return user
+//     } catch (err) {
+//         console.log('Cannot login', err)
+//         throw err
+//     } finally {
+//         store.dispatch({ type: SET_IS_LOADING, isLoading: false })
+//     }
+// }
+
+
+// export async function signup(credentials) {
+//     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
+//     try {
+//         const user = await userService.signup(credentials)
+//         store.dispatch({
+//             type: SET_USER,
+//             user
+//         })
+//         // socketService.login(user._id)
+//         return user
+//     } catch (err) {
+//         console.log('Cannot signup', err)
+//         throw err
+//     } finally {
+//         store.dispatch({ type: SET_IS_LOADING, isLoading: false })
+//     }
+// }
 
 export async function logout() {
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
