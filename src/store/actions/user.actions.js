@@ -5,6 +5,7 @@ import { store } from '../store'
 import { showErrorMsg } from '../../services/event-bus.service'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER, SET_IS_LOADING } from '../reducers/user.reducer'
+import { CLEAR_WISHLISTS } from '../reducers/wishlist.reducer'
 
 export async function loadUsers() {
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
@@ -71,6 +72,7 @@ export async function logout() {
             type: SET_USER,
             user: null
         })
+        store.dispatch({ type: CLEAR_WISHLISTS })
         // socketService.logout()
     } catch (err) {
         console.log('Cannot logout', err)

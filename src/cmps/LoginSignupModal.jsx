@@ -2,7 +2,7 @@ import { Modal } from './Modal'
 import { ImgUploader } from './ImgUploader'
 import { useState, useEffect, useImperativeHandle, forwardRef, useRef } from 'react'
 
-import { userService } from '../services/user'
+import { userService } from '../services/user/user.service.remote'
 import { login, signup } from '../store/actions/user.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { useLocation, useNavigate } from 'react-router'
@@ -11,8 +11,9 @@ import { FancyButton } from './SmallComponents'
 import { useSelector } from 'react-redux'
 import { useScrollLock } from '../customHooks/useScrollLock'
 import { jwtDecode } from 'jwt-decode'
+import { loadWishlists } from '../store/actions/wishlist.actions'
 
-export function LoginSignupModal({ isOpen, onClose }) {
+export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up', subtitle = 'Welcome to Clubnb', onLoginSuccess }) {
 
     const [modalType, setModalType] = useState('login')
     const [credentials, setCredentials] = useState(userService.getEmptyUser())
@@ -62,6 +63,7 @@ export function LoginSignupModal({ isOpen, onClose }) {
     }
 
     async function onLogin(credentials) {
+        onClose()
         try {
             if (modalType === 'signup') {
                 await signup(credentials)
@@ -71,8 +73,20 @@ export function LoginSignupModal({ isOpen, onClose }) {
                 showSuccessMsg(`Welcome, ${credentials.fullname}!`)
             }
             clearState()
-            onClose()
-            navigate('/')
+            const loggedinUser = userService.getLoggedinUser()
+            if (loggedinUser?._id) {
+                await loadWishlists(loggedinUser._id)
+            }
+
+            if (onLoginSuccess) {
+                setTimeout(() => {
+                    onLoginSuccess()
+                    // onClose()
+                }, 100)
+            } else {
+                onClose()
+            }
+            // navigate('/')
         } catch (err) {
             const msg = modalType === 'signup'
                 ? 'Had a problem signing up'
@@ -101,8 +115,15 @@ export function LoginSignupModal({ isOpen, onClose }) {
             setCredentials(guestCreds)
             await login(guestCreds)
             showSuccessMsg(`Welcome, ${guestUser.fullname}!`)
-            onClose()
-            navigate('/')
+            if (onLoginSuccess) {
+                setTimeout(() => {
+                    onLoginSuccess()
+                    onClose()
+                }, 100)
+            } else {
+                onClose()
+            }
+            // navigate('/') 
 
         } catch (err) {
             showErrorMsg('Had problem logging guest')
@@ -118,14 +139,14 @@ export function LoginSignupModal({ isOpen, onClose }) {
     return (
 
         <Modal
-            header="Log in or sign up"
+            header={title}
             isOpen={isOpen}
             onClose={onClose}
             closePosition='left'
             useBackdrop={true}
             className='login-signup-modal'
         >
-            <h2>Welcome to Clubnb</h2>
+            <h2 className="login-modal-subtitle">{subtitle}</h2>
             {modalType === 'signup' &&
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <input
@@ -186,7 +207,7 @@ export function LoginSignupModal({ isOpen, onClose }) {
             <div className="login-options">
                 <button onClick={handleToggleType} className="btn">{modalType === 'login' ? 'Signup' : 'Login'}</button>
                 <button onClick={onGuestLogin} className="btn">Login as a guest</button>
-                <GoogleLoginButton modalType={modalType} onLogin={onLogin} onClose={onClose} >
+                <GoogleLoginButton modalType={modalType} onLogin={onLogin} onLoginSuccess={onLoginSuccess} onClose={onClose} >
                     {modalType === 'signup' ? 'Sign up with Google' : 'Login with Google'}
                 </GoogleLoginButton>
             </div>
@@ -196,7 +217,7 @@ export function LoginSignupModal({ isOpen, onClose }) {
 }
 
 
-function GoogleLoginButton({modalType,onLogin ,onClose, children }) {
+function GoogleLoginButton({ modalType, onLogin, onLoginSuccess, onClose, children }) {
 
     const navigate = useNavigate()
     let tokenClient
@@ -242,9 +263,11 @@ function GoogleLoginButton({modalType,onLogin ,onClose, children }) {
 
             //  Let existing login logic handle storage + UI + modal closing
             await onLogin(googleUser)
+            if (onLoginSuccess) onLoginSuccess()
 
         } catch (err) {
             console.error('Google login failed:', err)
+
             showErrorMsg('Google login failed. Please try again.')
         }
     }
@@ -258,7 +281,7 @@ function GoogleLoginButton({modalType,onLogin ,onClose, children }) {
     return (
         <button onClick={handleLoginClick} className="btn google">
             <span className="logo">{logoSvgs.google}</span>
-            {children}</button> 
+            {children}</button>
     )
 }
 

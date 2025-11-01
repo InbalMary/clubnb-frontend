@@ -35,7 +35,7 @@
 	margin-block-start: 14rem;
 
 
-	> a {
+	>a {
 		font-size: 0.8em;
 		color: var(--clr4);
 
@@ -48,4 +48,9 @@
 			color: var(--clr2);
 		}
 	}
+}
+
+.login-signup-modal .login-modal-subtitle {
+	font-size: 1rem;
+	font-weight: 400;
 }
