@@ -11,7 +11,7 @@ import { useClickOutside } from '../customHooks/useClickOutside.js'
 import { useEscapeKey } from '../customHooks/useEscapeKey.js'
 import { useIsBreakPoint } from '../customHooks/useIsBreakPoint.js'
 
-export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, isSticky, isTripsPage, isWishlistPage, isWishlistDetailsPage }) {
+export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, isSticky, isTripsPage, isWishlistPage, isWishlistDetailsPage, onMobileSearchOpenChange }) {
 	const user = useSelector(storeState => storeState.userModule.user)
 	const isLoading = useSelector(storeState => storeState.userModule.isLoading)
 	const headerRef = useRef(null)
@@ -20,6 +20,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	const isStayDetailsPage = location.pathname.startsWith('/stay/') && location.pathname.split('/').length === 3
 	const isHostPage = location.pathname.includes("hosting")
 	const isEditPage = location.pathname.includes("edit")
+	const isExplorePage = location.pathname.includes("explore")
 	const isMobile = useIsBreakPoint(768)
 	const [imgError, setImgError] = useState(false)
 
@@ -129,16 +130,24 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 			</div>
 
 			{/* Mobile compact header - uses SearchBar like expanded */}
-			{isCompact && !isHostPage && !isTripsPage && (
+			{isCompact && !isHostPage && !isTripsPage && !isExplorePage && (
 				<div className="mobile-compact-search">
-					<SearchBar initialModal={initialModal} onCollapse={onCollapse} />
+					<SearchBar
+						initialModal={initialModal}
+						onCollapse={onCollapse}
+						onMobileSearchOpenChange={onMobileSearchOpenChange}
+					/>
 				</div>
 			)}
 
 			{/* Desktop expanded header */}
 			{!isCompact && (
 				<div className="expanded-header-search">
-					<SearchBar initialModal={initialModal} onCollapse={onCollapse} />
+					<SearchBar
+						initialModal={initialModal}
+						onCollapse={onCollapse}
+						onMobileSearchOpenChange={onMobileSearchOpenChange}
+					/>
 				</div>
 			)}
 		</header>
