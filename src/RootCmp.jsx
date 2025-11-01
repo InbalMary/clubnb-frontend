@@ -28,6 +28,7 @@ import { WishlistIndex } from './pages/WishlistIndex.jsx'
 import { WishlistDetails } from './pages/WishlistDetails.jsx'
 import { HostDashboard } from './pages/HostDashboard.jsx'
 import { userService } from './services/user'
+import { MobileProfile } from './cmps/MobileProfile.jsx'
 
 export function RootCmp() {
     const {
@@ -110,6 +111,7 @@ export function RootCmp() {
                     <Route path="wishlists" element={<WishlistIndex />} />
                     <Route path="wishlists/:id" element={<WishlistDetails />} />
                     <Route path="messages" element={<MsgIndex />} />
+                    <Route path="mobile-profile-menu" element={<MobileProfile />} />
                     {/* <Route path="chat" element={<ChatApp />} /> */}
                     <Route path="hosting" element={<BecomeHostForm />} />
                     <Route path="hosting/reservations" element={<ReservationsPage />} />

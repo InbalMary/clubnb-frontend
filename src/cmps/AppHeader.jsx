@@ -21,6 +21,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	const isHostPage = location.pathname.includes("hosting")
 	const isEditPage = location.pathname.includes("edit")
 	const isExplorePage = location.pathname.includes("explore")
+	const isMobileProfilePage = location.pathname.includes("mobile-profile-menu")
 	const isMobile = useIsBreakPoint(768)
 	const [imgError, setImgError] = useState(false)
 
@@ -29,6 +30,16 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 
 	useClickOutside([headerRef], onCollapse)
 	useEscapeKey(onCollapse)
+
+	const headerClass = isCompact
+		? `compact-header full ${!isSticky ? 'no-sticky main-content' : ''} ${isIndexPage ? 'index-page' : ''}`
+		: `app-header full ${isIndexPage ? 'index-page' : ''}`
+
+	const containerClass = isCompact ? 'compact-header-content' : 'nav-bar'
+
+	if (isMobile && isStayDetailsPage) return null
+	if (isMobile && isEditPage) return null
+	if (isMobileProfilePage) return null
 
 	// Show skeleton only during initial loading
 	if (isLoading) {
@@ -40,16 +51,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 			isSticky={isSticky}
 		/>
 	}
-
-	const headerClass = isCompact
-		? `compact-header full ${!isSticky ? 'no-sticky main-content' : ''} ${isIndexPage ? 'index-page' : ''}`
-		: `app-header full ${isIndexPage ? 'index-page' : ''}`
-
-	const containerClass = isCompact ? 'compact-header-content' : 'nav-bar'
-
-	if (isMobile && isStayDetailsPage) return null
-	if (isMobile && isEditPage) return null
-
+	
 	function handleImageError() {
 		console.log('img failed to load:', user?.imgUrl)
 		setImgError(true)

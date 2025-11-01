@@ -17,7 +17,8 @@ export function AppFooter({ isIndexPage, isStayDetailsPage, isSearchOpen }) {
 		location.pathname === '/trips' ||
 		location.pathname === '/messages' ||
 		location.pathname === '/explore' ||
-		location.pathname.startsWith('/explore/')
+		location.pathname.startsWith('/explore/') || 
+		location.pathname === '/mobile-profile-menu'
 
 	if (isStayDetailsPage) return null
 	if (isMobile && isEditPage) return null
@@ -84,11 +85,11 @@ export function AppFooter({ isIndexPage, isStayDetailsPage, isSearchOpen }) {
 						</NavLink>
 
 						<NavLink /*will be replaced with profile page */
-							to="/menu"
+							to="/mobile-profile-menu"
 							className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
 						>
-							<span className="footer-icon menu-footer-icon">{appHeaderSvg.menu}</span>
-							<span>Menu</span>
+							<span className="footer-icon menu-footer-icon">{svgControls.profile}</span>
+							<span>Profile</span>
 						</NavLink>
 					</div>
 				</nav>
