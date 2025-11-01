@@ -12,7 +12,8 @@ import { useSelector } from 'react-redux'
 import { useScrollLock } from '../customHooks/useScrollLock'
 import { jwtDecode } from 'jwt-decode'
 
-export function LoginSignupModal({ isOpen, onClose }) {
+// export function LoginSignupModal({ isOpen, onClose }) {
+export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up', subtitle = 'Welcome to Clubnb', onLoginSuccess }) {
 
     const [modalType, setModalType] = useState('signup')
     const [credentials, setCredentials] = useState(userService.getEmptyUser())
@@ -57,17 +58,32 @@ export function LoginSignupModal({ isOpen, onClose }) {
         setCredentials({ username: '', password: '', fullname: '', imgUrl: '' })
     }
 
-    async function onLogin(credentials,selectedType = modalType) {
+    async function onLogin(credentials, selectedType = modalType) {
         try {
             if (selectedType === 'signup') {
                 await signup(credentials)
                 showSuccessMsg('Signed in successfully')
             } else {
                 await login(credentials)
-                showSuccessMsg(`Welcome, ${credentials.fullname}!`)
+                // const loggedinUser = userService.getLoggedinUser()
+                showSuccessMsg(`Welcome, ${credentials?.fullname || 'guest'}!`)
+                // showSuccessMsg(`Welcome, ${loggedinUser?.fullname || loggedinUser?.username || 'guest'}!`)
             }
             clearState()
-            onClose()
+            // const loggedinUser = userService.getLoggedinUser()
+            if (loggedinUser?._id) {
+                await loadWishlists(loggedinUser._id)
+            }
+
+            if (onLoginSuccess) {
+                setTimeout(() => {
+                    onLoginSuccess()
+                    // onClose() skipped to avoid reopening flicker
+                }, 100)
+            } else {
+                onClose()
+            }
+            // navigate('/')
         } catch (err) {
             const msg = selectedType === 'signup'
                 ? 'Had a problem signing up'
@@ -110,14 +126,19 @@ export function LoginSignupModal({ isOpen, onClose }) {
     return (
 
         <Modal
-            header="Log in or sign up"
+            // header="Log in or sign up"
+            header={title}
+
             isOpen={isOpen}
             onClose={onClose}
             closePosition='left'
             useBackdrop={true}
             className='login-signup-modal'
         >
-            <h2>Welcome to Clubnb</h2>
+            <h2 className="login-modal-subtitle">{subtitle}</h2>
+
+
+            {/* <h2>Welcome to Clubnb</h2> */}
             {modalType === 'signup' &&
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <input
