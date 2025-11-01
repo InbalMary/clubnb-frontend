@@ -109,28 +109,22 @@ export function WishlistDetails() {
                 <div className="wishlist-details-grid">
                     {stays.map(stay => (
 
-                        <Link to={`/stay/${stay._id}?startDate=${filterBy.startDate || stay?.suggestedRange?.start}&endDate=${filterBy.endDate || stay?.suggestedRange?.end}
-            &adults=${filterBy.adults || 1}&children=${filterBy?.children || ''}&infants=${filterBy?.infants}`
-                        }
-                            className='stay-link'
+                        <div
+                            key={stay._id}
+                            className="wishlist-stay-card"
+                            onMouseEnter={() => setHoveredId(stay._id)}
+                            onMouseLeave={() => setHoveredId(null)}
                         >
 
-                            <div
-                                key={stay._id}
-                                className="wishlist-stay-card"
-                                onMouseEnter={() => setHoveredId(stay._id)}
-                                onMouseLeave={() => setHoveredId(null)}
-                            >
+                            <StayPreview
+                                stay={stay}
+                                isBig={true}
+                                onToggleWishlist={onToggleHeart}
+                                isInactive={inactiveHearts.includes(stay._id)}
+                                hideDetails={true}
+                            />
+                        </div>
 
-                                <StayPreview
-                                    stay={stay}
-                                    isBig={true}
-                                    onToggleWishlist={onToggleHeart}
-                                    isInactive={inactiveHearts.includes(stay._id)}
-                                    hideDetails={true}
-                                />
-                            </div>
-                        </Link>
                     ))}
                 </div>
             </div>

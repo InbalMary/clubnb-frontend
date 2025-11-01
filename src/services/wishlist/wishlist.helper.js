@@ -1,17 +1,9 @@
 import { addWishlist, addStayToWishlist } from "../../store/actions/wishlist.actions"
 import { showSuccessMsg, showErrorMsg } from "../event-bus.service"
 
-/**
- * Creates a new wishlist based on a stay and optional title.
- * Returns the saved wishlist if successful.
- */
 export async function createWishlistFromStay(stay, newTitle = '') {
     try {
-        const year = new Date().getFullYear()
-        const title = newTitle?.trim()
-            ? newTitle
-            : `${stay.loc.city}, ${stay.loc.country} ${year}`
-
+        const title = getDefaultWishlistTitle(stay, newTitle)
         const newWishlist = {
             title,
             city: stay.loc.city,
@@ -38,6 +30,15 @@ export async function createWishlistFromStay(stay, newTitle = '') {
         throw err
     }
 }
+
+export function getDefaultWishlistTitle(stay, newTitle = '') {
+    const year = new Date().getFullYear()
+    if (newTitle?.trim()) return newTitle
+    if (stay?.loc?.city && stay?.loc?.country)
+        return `${stay.loc.city}, ${stay.loc.country} ${year}`
+    return 'My wishlist'
+}
+
 
 export async function addStayToExistingWishlist(wishlist, stay) {
     try {

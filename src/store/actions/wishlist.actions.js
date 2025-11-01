@@ -1,6 +1,6 @@
 import { store } from '../../store/store'
 import { wishlistService } from '../../services/wishlist'
-import { ADD_WISHLIST, REMOVE_WISHLIST, SET_WISHLISTS, SET_WISHLIST, UPDATE_WISHLIST, SET_IS_LOADING } from '../reducers/wishlist.reducer'
+import { ADD_WISHLIST, REMOVE_WISHLIST, SET_WISHLISTS, SET_WISHLIST, UPDATE_WISHLIST, SET_WISHLIST_UI_STATE, SET_IS_LOADING } from '../reducers/wishlist.reducer'
 import { getSuggestedStayRange } from '../../services/util.service'
 
 export async function loadWishlists(userId) {
@@ -98,4 +98,9 @@ export async function removeStayFromWishlist(wishlist, stayId) {
         console.error('Cannot remove stay from wishlist', err)
         throw err
     }
+}
+
+
+export function setWishlistUIState(ui) {
+    store.dispatch({ type: SET_WISHLIST_UI_STATE, ui })
 }

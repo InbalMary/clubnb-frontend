@@ -6,11 +6,22 @@ export const ADD_WISHLIST = 'ADD_WISHLIST'
 export const UPDATE_WISHLIST = 'UPDATE_WISHLIST'
 export const REMOVE_WISHLIST = 'REMOVE_WISHLIST'
 export const SET_IS_LOADING = 'SET_IS_LOADING'
+export const CLEAR_WISHLISTS = 'CLEAR_WISHLISTS'
+export const SET_WISHLIST_UI_STATE = 'SET_WISHLIST_UI_STATE'
 
 const initialState = {
     wishlists: [],
     wishlist: null, //current wishlist
     isLoading: false,
+    ui: {
+        isWishlistModalOpen: false,
+        isCreateWishlistModalOpen: false,
+        isSignupModalOpen: false,
+        activeStay: null,
+        pendingAfterLogin: false,
+        newTitle: '',
+        showInputClearBtn: false,
+    }
 }
 
 export function wishlistReducer(state = initialState, action = {}) {
@@ -41,6 +52,23 @@ export function wishlistReducer(state = initialState, action = {}) {
             newState = {
                 ...state,
                 wishlists: state.wishlists.filter(wl => wl._id !== action.wishlistId)
+            }
+            break
+
+        case CLEAR_WISHLISTS:
+            newState = {
+                ...state,
+                wishlists: [],
+                wishlist: null,
+                isLoading: false,
+            }
+            break
+
+
+        case SET_WISHLIST_UI_STATE:
+            newState = {
+                ...state,
+                ui: { ...state.ui, ...action.ui }
             }
             break
 

@@ -9,11 +9,11 @@ export const wishlistService = {
     remove,
 }
 
-async function query(filterBy = { userId: '' }) {
+async function query() {
     try {
         const loggedinUser = userService.getLoggedinUser()
-        const filterBy = { userId: loggedinUser?._id || '' }
-        return await httpService.get(`wishlist`, filterBy)
+        const userId = loggedinUser?._id || ''
+        return await httpService.get(`wishlist?userId=${userId}`)
     } catch (err) {
         console.error('wishlistService: Cannot load wishlists', err)
         throw err
@@ -46,9 +46,14 @@ async function save(wishlist) {
             const loggedinUser = userService.getLoggedinUser()
             const year = new Date().getFullYear()
 
+            if (!loggedinUser) throw new Error('No logged-in user found')
+
             const wishlistToSave = {
                 ...wishlist,
-                byUser: loggedinUser,
+                byUser: {
+                    _id: loggedinUser._id,
+                    fullname: loggedinUser.fullname
+                },
                 createdAt: wishlist.createdAt || Date.now() - 1000 * 60 * 60 * 24 * 7,
                 title: wishlist.title || `${wishlist.city}, ${wishlist.country} ${year}`,
                 stays: (wishlist.stays || []).map(stay => ({
