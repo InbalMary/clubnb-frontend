@@ -63,14 +63,15 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
     }
 
     async function onLogin(credentials) {
-        onClose()
+        onClose() // close early to prevent flicker during login success transition
         try {
             if (modalType === 'signup') {
                 await signup(credentials)
                 showSuccessMsg('Signed in successfully')
             } else {
                 await login(credentials)
-                showSuccessMsg(`Welcome, ${credentials.fullname}!`)
+                const loggedinUser = userService.getLoggedinUser()
+                showSuccessMsg(`Welcome, ${loggedinUser?.fullname || loggedinUser?.username || 'guest'}!`)
             }
             clearState()
             const loggedinUser = userService.getLoggedinUser()
@@ -81,7 +82,7 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
             if (onLoginSuccess) {
                 setTimeout(() => {
                     onLoginSuccess()
-                    // onClose()
+                    // onClose() skipped to avoid reopening flicker
                 }, 100)
             } else {
                 onClose()
