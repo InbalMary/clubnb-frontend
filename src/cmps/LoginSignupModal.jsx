@@ -1,6 +1,6 @@
 import { Modal } from './Modal'
 import { ImgUploader } from './ImgUploader'
-import { useState, useEffect, useImperativeHandle, forwardRef, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import { userService } from '../services/user/user.service.remote'
 import { login, signup } from '../store/actions/user.actions'
