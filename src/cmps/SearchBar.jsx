@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import { setFilterBy, loadStays } from '../store/actions/stay.actions.js'
 import { useClickOutside } from "../customHooks/useClickOutside.js";
 
-export function SearchBar({ initialModal = null, onCollapse }) {
+export function SearchBar({ initialModal = null, onCollapse, onMobileSearchOpenChange }) {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
     const navigate = useNavigate()
 
@@ -229,6 +229,7 @@ export function SearchBar({ initialModal = null, onCollapse }) {
                 destination={destination}
                 setDestination={setDestination}
                 onSearch={handleSearch}
+                onOpenChange={onMobileSearchOpenChange}
             />
 
             {/* Desktop Search Bar */}

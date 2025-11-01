@@ -15,6 +15,7 @@
 
 .wishlist-modal-img {
     aspect-ratio: 1/1;
+    object-fit: cover;
     border-radius: 1.25rem;
     margin-bottom: 0.5rem;
     box-shadow: 6px 6px 11px rgb(0 0 0 / 11%),

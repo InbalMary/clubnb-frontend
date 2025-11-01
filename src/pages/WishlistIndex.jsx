@@ -1,25 +1,17 @@
 import { useSelector } from "react-redux"
-import { useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom"
-import { loadWishlists, removeWishlist } from "../store/actions/wishlist.actions"
+import { removeWishlist } from "../store/actions/wishlist.actions"
 import { svgControls } from "../cmps/Svgs"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service"
 import { WishlistIndexSkeleton } from "../cmps/WishlistIndexSkeleton"
-import { userService } from "../services/user"
+import { useWishlistModal } from "../customHooks/useWishlistModal"
+import { LoginSignupModal } from "../cmps/LoginSignupModal"
 
 export function WishlistIndex() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const isLoading = useSelector(storeState => storeState.wishlistModule.isLoading)
     const navigate = useNavigate()
-
-    useEffect(() => {
-        const loggedinUser = userService.getLoggedinUser()
-        if (loggedinUser?._id) {
-            loadWishlists(loggedinUser._id)
-        } else {
-            showErrorMsg('Please sign in to view your wishlists.')
-        }
-    }, [])
+    const wm = useWishlistModal(wishlists)
 
 
     async function onRemoveWishlist(wishlist) {
@@ -34,55 +26,67 @@ export function WishlistIndex() {
 
     if (isLoading) return <WishlistIndexSkeleton />
 
-    if (!wishlists?.length)
-        return (
-            <section className="wishlists-index empty">
-                <div className="wishlist-page-container">
-                    <h1 className="wishlists-index-title">Wishlists</h1>
-                    <p>No wishlists yet. Start saving your favorite stays!</p>
-                    <button className="btn btn-gray back-to-prev" onClick={() => navigate(-1)}>
-                        <span className="icon">{svgControls.backArrow}</span>
-                        Back
-                    </button>
-                </div>
-            </section>
-        )
-
     return (
-        <section className="wishlists-index">
-            <div className="wishlist-page-container">
-                <h1 className="wishlists-index-title">Wishlists</h1>
-                <ul className="wishlist-list">
-                    {wishlists.map(wishlist => {
-                        const firstStay = wishlist.stays?.[0]
-                        return (
-                            <li key={wishlist._id} className="wishlist-preview">
-                                <button
-                                    className="btn wishlist-delete"
-                                    onClick={(ev) => {
-                                        ev.preventDefault()
-                                        ev.stopPropagation()
-                                        onRemoveWishlist(wishlist)
-                                    }}
-                                >{svgControls.closeModal}</button>
-                                <Link to={`/wishlists/${wishlist._id}`}
-                                    state={{ wishlist }}
-                                >
-                                    <img
-                                        src={firstStay?.imgUrls?.[0]}
-                                        alt={firstStay?.name || 'Wishlist preview'}
-                                        className="wishlist-stay-img"
-                                    />
-                                    <div className="wishlist-info">
-                                        <h4>{wishlist.title}</h4>
-                                        <p>{wishlist.stays?.length || 0} saved</p>
-                                    </div>
-                                </Link>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
-        </section>
+        <>
+            {!wishlists?.length ? (
+                <section className="wishlists-index empty">
+                    <div className="wishlist-page-container">
+                        <h1 className="wishlists-index-title">Wishlists</h1>
+                        <p>No wishlists yet. Start saving your favorite stays!</p>
+                        <button className="btn btn-gray back-to-prev" onClick={() => navigate(-1)}>
+                            <span className="icon">{svgControls.backArrow}</span>
+                            Back
+                        </button>
+                    </div>
+                </section>
+            ) : (
+                <section className="wishlists-index">
+                    <div className="wishlist-page-container">
+                        <h1 className="wishlists-index-title">Wishlists</h1>
+                        <ul className="wishlist-list">
+                            {wishlists.map(wishlist => {
+                                const firstStay = wishlist.stays?.[0]
+                                return (
+                                    <li key={wishlist._id} className="wishlist-preview">
+                                        <button
+                                            className="btn wishlist-delete"
+                                            onClick={(ev) => {
+                                                ev.preventDefault()
+                                                ev.stopPropagation()
+                                                onRemoveWishlist(wishlist)
+                                            }}
+                                        >{svgControls.closeModal}</button>
+                                        <Link to={`/wishlists/${wishlist._id}`}
+                                            state={{ wishlist }}
+                                        >
+                                            <img
+                                                src={firstStay?.imgUrls?.[0]}
+                                                alt={firstStay?.name || 'Wishlist preview'}
+                                                className="wishlist-stay-img"
+                                            />
+                                            <div className="wishlist-info">
+                                                <h4>{wishlist.title}</h4>
+                                                <p>{wishlist.stays?.length || 0} saved</p>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                </section>
+            )}
+
+            {wm.isSignupModalOpen && (
+                <LoginSignupModal
+                    isOpen={wm.isSignupModalOpen}
+                    onClose={() => wm.setIsSignupModalOpen(false)}
+                    className="signup-invite-modal"
+                    title={wm.signupModalProps.title}
+                    subtitle={wm.signupModalProps.subtitle}
+                    onLoginSuccess={wm.handlePostLoginFlow}
+                />
+            )}
+        </>
     )
 }

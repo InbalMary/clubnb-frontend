@@ -11,15 +11,15 @@ export function StayReviewList({ reviewRefs, reviews, isModal, onClick }) {
     return (
         <section className={`reviews-section ${isMobile && 'mobile'}`}>
             {isMobile ? (
-                
-                
+
+
                 <Carousel>
-                        <div className={`review-list ${isMobile && 'mobile'}`}>
+                    <div className={`review-list ${isMobile && 'mobile'}`}>
                         {(!isModal ? reviews.slice(0, 6) : reviews).map((review, idx) =>
                             <li
                                 ref={isModal ? reviewRefs[idx] : null}
                                 className="stay-review"
-                                key={review.by.fullname}
+                                key={idx}
                             >
                                 <StayReviewPreview review={review} isModal={isModal} />
                                 {!isModal && (
@@ -29,12 +29,12 @@ export function StayReviewList({ reviewRefs, reviews, isModal, onClick }) {
                                 )}
                             </li>
                         )}
-                 </div>
-                    </Carousel>
+                    </div>
+                </Carousel>
             ) : (
                 <ul className={`review-list ${isMobile && 'mobile'}`}>
                     {(!isModal ? reviews.slice(0, 6) : reviews).map((review, idx) =>
-                        <li ref={isModal ? reviewRefs[idx] : null} className="stay-review" key={review.by.fullname}>
+                        <li ref={isModal ? reviewRefs[idx] : null} className="stay-review" key={idx}>
                             <StayReviewPreview review={review} isModal={isModal} />
                             {!isModal && <span onClick={() => onClick(idx)} className="link bold">Show more</span>}
                         </li>

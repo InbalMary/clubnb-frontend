@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { loadWishlists } from './store/actions/wishlist.actions.js'
 import { StayIndex } from './pages/StayIndex.jsx'
@@ -45,6 +45,9 @@ export function RootCmp() {
         handleCollapse
     } = useHeaderState()
 
+    const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false)
+    const isSearchOpen = (isExpanded && initialModal !== null) || isMobileSearchOpen
+
     useClickOutside([headerRef], () => {
         if (isExpanded && initialModal) handleCollapse()
     })
@@ -72,6 +75,7 @@ export function RootCmp() {
                         isTripsPage={isTripsPage}
                         isWishlistPage={isWishlistPage}
                         isWishlistDetailsPage={isWishlistDetailsPage}
+                        onMobileSearchOpenChange={setIsMobileSearchOpen}
                     />
                 </div>
             )}
@@ -122,7 +126,9 @@ export function RootCmp() {
             </main>
             <AppFooter
                 isIndexPage={isIndexPage}
-                isStayDetailsPage={isStayDetailsPage} />
+                isStayDetailsPage={isStayDetailsPage}
+                isSearchOpen={isSearchOpen}
+            />
         </div>
     )
 }

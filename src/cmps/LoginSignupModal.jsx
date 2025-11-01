@@ -2,7 +2,7 @@ import { Modal } from './Modal'
 import { ImgUploader } from './ImgUploader'
 import { useState, useEffect, useImperativeHandle, forwardRef, useRef } from 'react'
 
-import { userService } from '../services/user'
+import { userService } from '../services/user/user.service.remote'
 import { login, signup } from '../store/actions/user.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { useLocation, useNavigate } from 'react-router'
@@ -11,8 +11,8 @@ import { FancyButton } from './SmallComponents'
 import { useSelector } from 'react-redux'
 import { useScrollLock } from '../customHooks/useScrollLock'
 import { jwtDecode } from 'jwt-decode'
+import { loadWishlists } from '../store/actions/wishlist.actions'
 
-// export function LoginSignupModal({ isOpen, onClose }) {
 export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up', subtitle = 'Welcome to Clubnb', onLoginSuccess }) {
 
     const [modalType, setModalType] = useState('signup')
@@ -59,18 +59,16 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
     }
 
     async function onLogin(credentials, selectedType = modalType) {
+        onClose() // close early to prevent flicker during login success transition
         try {
             if (selectedType === 'signup') {
                 await signup(credentials)
                 showSuccessMsg('Signed in successfully')
             } else {
                 await login(credentials)
-                // const loggedinUser = userService.getLoggedinUser()
                 showSuccessMsg(`Welcome, ${credentials?.fullname || 'guest'}!`)
-                // showSuccessMsg(`Welcome, ${loggedinUser?.fullname || loggedinUser?.username || 'guest'}!`)
             }
             clearState()
-            // const loggedinUser = userService.getLoggedinUser()
             if (loggedinUser?._id) {
                 await loadWishlists(loggedinUser._id)
             }
@@ -78,12 +76,10 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
             if (onLoginSuccess) {
                 setTimeout(() => {
                     onLoginSuccess()
-                    // onClose() skipped to avoid reopening flicker
                 }, 100)
             } else {
                 onClose()
             }
-            // navigate('/')
         } catch (err) {
             const msg = selectedType === 'signup'
                 ? 'Had a problem signing up'
@@ -112,7 +108,14 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
             setCredentials(guestCreds)
             await login(guestCreds)
             showSuccessMsg(`Welcome, ${guestUser.fullname}!`)
-            onClose()
+            if (onLoginSuccess) {
+                setTimeout(() => {
+                    onLoginSuccess()
+                    onClose()
+                }, 100)
+            } else {
+                onClose()
+            }
         } catch (err) {
             showErrorMsg('Had problem logging guest')
             console.error('Login error:', err)
@@ -126,7 +129,7 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
     return (
 
         <Modal
-            // header="Log in or sign up"
+            // header={title}
             header={title}
 
             isOpen={isOpen}
@@ -138,7 +141,7 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
             <h2 className="login-modal-subtitle">{subtitle}</h2>
 
 
-            {/* <h2>Welcome to Clubnb</h2> */}
+            {/* <h2 className="login-modal-subtitle">{subtitle}</h2> */}
             {modalType === 'signup' &&
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <input

@@ -6,12 +6,15 @@ import { svgControls } from './Svgs'
 import { StayListSkeleton } from './StayListSkeleton'
 import { Modal } from './Modal.jsx'
 import { useWishlistModal } from '../customHooks/useWishlistModal.js'
+import { LoginSignupModal } from './LoginSignupModal.jsx'
 
 export function StayList() {
     const navigate = useNavigate()
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const { stays, isLoading } = useSelector(storeState => storeState.stayModule)
     const wm = useWishlistModal(wishlists)
+    console.log('StayList mounted')
+
 
     const groups = [...new Set(stays.map(stay => stay.loc.city))]
     if (isLoading) return <StayListSkeleton categories={groups} />
@@ -176,6 +179,16 @@ export function StayList() {
 
                 </Modal>
             )}
+            {wm.isSignupModalOpen && (
+                <LoginSignupModal
+                    isOpen={wm.isSignupModalOpen}
+                    onClose={() => wm.setIsSignupModalOpen(false)}
+                    title={wm.signupModalProps.title}
+                    subtitle={wm.signupModalProps.subtitle}
+                    onLoginSuccess={wm.handlePostLoginFlow}
+                />
+            )}
+
         </section >
     )
 }
