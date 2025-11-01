@@ -6,7 +6,7 @@ import { SearchBar } from './SearchBar'
 import { CompactHeader } from './CompactHeader'
 import { HamburgerMenu } from './HamburgerMenu.jsx'
 import { AppHeaderSkeleton } from './AppHeaderSkeleton'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { useClickOutside } from '../customHooks/useClickOutside.js'
 import { useEscapeKey } from '../customHooks/useEscapeKey.js'
 import { useIsBreakPoint } from '../customHooks/useIsBreakPoint.js'
@@ -14,6 +14,7 @@ import { useIsBreakPoint } from '../customHooks/useIsBreakPoint.js'
 export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, isSticky, isTripsPage, isWishlistPage, isWishlistDetailsPage, onMobileSearchOpenChange }) {
 	const user = useSelector(storeState => storeState.userModule.user)
 	const isLoading = useSelector(storeState => storeState.userModule.isLoading)
+	const [isInitialLoad, setIsInitialLoad] = useState(true)
 	const headerRef = useRef(null)
 	const location = useLocation()
 	const isIndexPage = location.pathname === '/' || location.pathname === ''
@@ -31,18 +32,11 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	useClickOutside([headerRef], onCollapse)
 	useEscapeKey(onCollapse)
 
-	const headerClass = isCompact
-		? `compact-header full ${!isSticky ? 'no-sticky main-content' : ''} ${isIndexPage ? 'index-page' : ''}`
-		: `app-header full ${isIndexPage ? 'index-page' : ''}`
+	useEffect(() => {
+		setIsInitialLoad(false)
+	}, [])
 
-	const containerClass = isCompact ? 'compact-header-content' : 'nav-bar'
-
-	if (isMobile && isStayDetailsPage) return null
-	if (isMobile && isEditPage) return null
-	if (isMobileProfilePage) return null
-
-	// Show skeleton only during initial loading
-	if (isLoading) {
+	if (isLoading && !isInitialLoad) {
 		return <AppHeaderSkeleton
 			isCompact={isCompact}
 			isIndexPage={isIndexPage}
@@ -51,7 +45,17 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 			isSticky={isSticky}
 		/>
 	}
-	
+
+	if (isMobile && isStayDetailsPage) return null
+	if (isMobile && isEditPage) return null
+	if (isMobileProfilePage) return null
+
+	const headerClass = isCompact
+		? `compact-header full ${!isSticky ? 'no-sticky main-content' : ''} ${isIndexPage ? 'index-page' : ''}`
+		: `app-header full ${isIndexPage ? 'index-page' : ''}`
+
+	const containerClass = isCompact ? 'compact-header-content' : 'nav-bar'
+
 	function handleImageError() {
 		console.log('img failed to load:', user?.imgUrl)
 		setImgError(true)
