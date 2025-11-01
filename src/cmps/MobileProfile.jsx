@@ -83,7 +83,7 @@ export function MobileProfile() {
                 >
                     <span className="profile-menu-icon">{svgControls.settings}</span>
                     <span className="profile-menu-text">Account settings</span>
-                    <span className="profile-menu-arrow">›</span>
+                    <span className="profile-menu-arrow">{svgControls.arrowRight}</span>
                 </button>
 
                 <button
@@ -92,7 +92,7 @@ export function MobileProfile() {
                 >
                     <span className="profile-menu-icon">{svgControls.profileInSetting}</span>
                     <span className="profile-menu-text">View profile</span>
-                    <span className="profile-menu-arrow">›</span>
+                    <span className="profile-menu-arrow">{svgControls.arrowRight}</span>
                 </button>
 
                 <button
@@ -101,7 +101,7 @@ export function MobileProfile() {
                 >
                     <span className="profile-menu-icon">{svgControls.privacy}</span>
                     <span className="profile-menu-text">Privacy</span>
-                    <span className="profile-menu-arrow">›</span>
+                    <span className="profile-menu-arrow">{svgControls.arrowRight}</span>
                 </button>
 
                 <button
@@ -110,7 +110,7 @@ export function MobileProfile() {
                 >
                     <span className="profile-menu-icon">{svgControls.help}</span>
                     <span className="profile-menu-text">Get help</span>
-                    <span className="profile-menu-arrow">›</span>
+                    <span className="profile-menu-arrow">{svgControls.arrowRight}</span>
                 </button>
 
                 <div className="profile-divider" />
@@ -121,7 +121,7 @@ export function MobileProfile() {
                 >
                     <span className="profile-menu-icon">{svgControls.referHost}</span>
                     <span className="profile-menu-text">Refer a host</span>
-                    <span className="profile-menu-arrow">›</span>
+                    <span className="profile-menu-arrow">{svgControls.arrowRight}</span>
                 </button>
 
                 <button
@@ -130,7 +130,7 @@ export function MobileProfile() {
                 >
                     <span className="profile-menu-icon">{svgControls.findCoHost}</span>
                     <span className="profile-menu-text">Find a co-host</span>
-                    <span className="profile-menu-arrow">›</span>
+                    <span className="profile-menu-arrow">{svgControls.arrowRight}</span>
                 </button>
 
                 <button
@@ -139,7 +139,7 @@ export function MobileProfile() {
                 >
                     <span className="profile-menu-icon">{svgControls.giftcard}</span>
                     <span className="profile-menu-text">Gift cards</span>
-                    <span className="profile-menu-arrow">›</span>
+                    <span className="profile-menu-arrow">{svgControls.arrowRight}</span>
                 </button>
 
                 <button
@@ -148,7 +148,7 @@ export function MobileProfile() {
                 >
                     <span className="profile-menu-icon">{svgControls.legal}</span>
                     <span className="profile-menu-text">Legal</span>
-                    <span className="profile-menu-arrow">›</span>
+                    <span className="profile-menu-arrow">{svgControls.arrowRight}</span>
                 </button>
 
                 <div className="profile-divider" />
@@ -160,7 +160,7 @@ export function MobileProfile() {
                     >
                         <span className="profile-menu-icon">{svgControls.logout}</span>
                         <span className="profile-menu-text">Log out</span>
-                        <span className="profile-menu-arrow">›</span>
+                        <span className="profile-menu-arrow">{svgControls.arrowRight}</span>
                     </button>
                 ) : (
                     <button
@@ -169,7 +169,7 @@ export function MobileProfile() {
                     >
                         <span className="profile-menu-icon">{svgControls.profile}</span>
                         <span className="profile-menu-text">Log in or sign up</span>
-                        <span className="profile-menu-arrow">›</span>
+                        <span className="profile-menu-arrow">{svgControls.arrowRight}</span>
                     </button>
                 )}
             </div>

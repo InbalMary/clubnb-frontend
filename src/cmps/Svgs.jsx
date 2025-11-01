@@ -540,6 +540,16 @@ export const svgControls = {
     >
         <path d="M25 1a2 2 0 0 1 2 1.85V29h2v2H3v-2h2V3a2 2 0 0 1 1.85-2H7zm0 2H7v26h18zm-3 12a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
     </svg>,
+    arrowRight: <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        style={{ display: "block", fill: "none", height: "1rem", width: "1rem", stroke: "currentColor", strokeWidth: 3, overflow: "visible" }}
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+    >
+        <path d="M12 4 L23.3 15.3 A1 1 0 0 1 23.3 16.7 L12 28" />
+    </svg>,
 
 }
 
