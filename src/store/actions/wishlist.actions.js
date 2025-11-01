@@ -1,12 +1,13 @@
 import { store } from '../../store/store'
 import { wishlistService } from '../../services/wishlist'
+import { userService } from '../../services/user/user.service.remote'
 import { ADD_WISHLIST, REMOVE_WISHLIST, SET_WISHLISTS, SET_WISHLIST, UPDATE_WISHLIST, SET_WISHLIST_UI_STATE, SET_IS_LOADING } from '../reducers/wishlist.reducer'
 import { getSuggestedStayRange } from '../../services/util.service'
 
 export async function loadWishlists(userId) {
     try {
         store.dispatch({ type: SET_IS_LOADING, isLoading: true })
-        const wishlists = await wishlistService.query(userId)
+        const wishlists = await wishlistService.query({ userId })
         store.dispatch({ type: SET_WISHLISTS, wishlists })
         return wishlists
     } catch (err) {
@@ -35,13 +36,18 @@ export async function addWishlist(wishlist) {
     try {
         const savedWishlist = await wishlistService.save(wishlist)
         store.dispatch({ type: ADD_WISHLIST, wishlist: savedWishlist })
+        const loggedinUser = userService.getLoggedinUser()
+        if (loggedinUser) {
+            loggedinUser.wishlists = loggedinUser.wishlists || []
+            loggedinUser.wishlists.push(savedWishlist._id)
+            userService.saveLoggedinUser(loggedinUser)
+        }
         return savedWishlist
     } catch (err) {
         console.error('Cannot add wishlist', err)
         throw err
     }
 }
-
 
 export async function updateWishlist(wishlist) {
     try {
