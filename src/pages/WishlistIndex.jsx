@@ -1,33 +1,18 @@
 import { useSelector } from "react-redux"
-import { useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom"
-import { store } from "../store/store"
-import { loadWishlists, removeWishlist } from "../store/actions/wishlist.actions"
+import { removeWishlist } from "../store/actions/wishlist.actions"
 import { svgControls } from "../cmps/Svgs"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service"
 import { WishlistIndexSkeleton } from "../cmps/WishlistIndexSkeleton"
-import { userService } from "../services/user/user.service.remote"
 import { useWishlistModal } from "../customHooks/useWishlistModal"
 import { LoginSignupModal } from "../cmps/LoginSignupModal"
 
 export function WishlistIndex() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const isLoading = useSelector(storeState => storeState.wishlistModule.isLoading)
-    const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
     const navigate = useNavigate()
     const wm = useWishlistModal(wishlists)
 
-    useEffect(() => {
-        if (!loggedinUser?._id) return
-
-        const existingWishlists = store.getState().wishlistModule.wishlists
-        if (!existingWishlists?.length) {
-            console.log('WishlistIndex: no wishlists in store, loading...')
-            loadWishlists(loggedinUser._id)
-        } else {
-            console.log('WishlistIndex: using wishlists already in store')
-        }
-    }, [loggedinUser?._id])
 
     async function onRemoveWishlist(wishlist) {
         try {
