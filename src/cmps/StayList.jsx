@@ -97,15 +97,22 @@ export function StayList() {
                     }
                 >
                     <ul className='wishlist-modal-list'>
-                        {wishlists.map(wishlist => (
-                            <li
-                                key={wishlist._id}
-                                onClick={() => wm.onSelectWishlistFromModal(wishlist)}
-                            >
-                                <img src={wishlist.stays?.[0].imgUrls?.[0]} alt={wishlist.title} className="wishlist-modal-img" />
-                                <span className="stay-name">{wishlist.title}</span>
-                            </li>
-                        ))}
+                        {wishlists.map(wishlist => {
+                            console.log('Wishlist stays:', wishlist.stays)
+                            return (
+                                <li
+                                    key={wishlist._id}
+                                    onClick={() => wm.onSelectWishlistFromModal(wishlist)}
+                                >
+                                    <img src={wishlist?.stays?.[0]?.imgUrls?.[0] ||
+                                        "https://a0.muscache.com/im/pictures/hosting/Hosting-1499241797877148255/original/578a39ea-267c-4f72-82ec-5e80156e7ee5.jpeg?im_w=480}"
+                                    }
+                                        alt={wishlist.title} className="wishlist-modal-img" />
+                                    <span className="stay-name">{wishlist.title}</span>
+                                </li>
+                            )
+                        })}
+
                     </ul>
 
                 </Modal>
