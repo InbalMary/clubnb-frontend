@@ -13,7 +13,7 @@ import { useScrollLock } from '../customHooks/useScrollLock'
 import { jwtDecode } from 'jwt-decode'
 import { loadWishlists } from '../store/actions/wishlist.actions'
 
-export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up', subtitle = 'Welcome to Clubnb', onLoginSuccess }) {
+export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up', subtitle = 'Welcome to Clubnb', onLoginSuccess, isFromWishlist }) {
 
     const [modalType, setModalType] = useState('signup')
     const [credentials, setCredentials] = useState(userService.getEmptyUser())
@@ -159,19 +159,16 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
     return (
 
         <Modal
-            // header={title}
             header={title}
-
             isOpen={isOpen}
             onClose={onClose}
             closePosition='left'
             useBackdrop={true}
             className='login-signup-modal'
         >
-            <h2 className="login-modal-subtitle">{subtitle}</h2>
-
-
-            {/* <h2 className="login-modal-subtitle">{subtitle}</h2> */}
+            <h2 className={isFromWishlist ? 'login-modal-subtitle' : ''}>
+                {subtitle}
+            </h2>
             {modalType === 'signup' &&
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <input

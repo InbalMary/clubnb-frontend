@@ -192,6 +192,7 @@ export function StayList() {
                     title={wm.signupModalProps.title}
                     subtitle={wm.signupModalProps.subtitle}
                     onLoginSuccess={wm.handlePostLoginFlow}
+                    isFromWishlist={true}
                 />
             )}
 
