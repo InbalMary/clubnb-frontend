@@ -71,24 +71,28 @@ export function TripIndex() {
 
     return (
         <section className="trip-index">
-            <div className="trip-container">
-                <h1 className="trip-title">Trips</h1>
+            <div className="trip-sticky-header">
+                <div className="trip-container">
+                    <h1 className="trip-title">Trips</h1>
 
-                <div className="trip-tabs">
-                    <button
-                        className={`tab ${activeTab === 'upcoming' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('upcoming')}
-                    >
-                        Upcoming
-                    </button>
-                    <button
-                        className={`tab ${activeTab === 'past' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('past')}
-                    >
-                        Past
-                    </button>
+                    <div className="trip-tabs">
+                        <button
+                            className={`tab ${activeTab === 'upcoming' ? 'active' : ''}`}
+                            onClick={() => setActiveTab('upcoming')}
+                        >
+                            Upcoming
+                        </button>
+                        <button
+                            className={`tab ${activeTab === 'past' ? 'active' : ''}`}
+                            onClick={() => setActiveTab('past')}
+                        >
+                            Past
+                        </button>
+                    </div>
                 </div>
+            </div>
 
+            <div className="trip-container">
                 <div className="trip-content">
                     {isLoading ? (
                         <DotsLoader />
