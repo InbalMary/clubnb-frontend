@@ -3,11 +3,9 @@ import { useParams } from 'react-router';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 
-export function GuestSelector({ onGuestsChange, initialGuests = { adults: 0, children: 0, infants: 0, pets: 0 } }) {
+export function GuestSelector({ stayId, onGuestsChange, initialGuests = { adults: 0, children: 0, infants: 0, pets: 0 } }) {
     const [guests, setGuests] = useState(initialGuests);
-    const { stayId } = useParams()
-
-    console.log('stayId:', stayId)
+    // const { stayId } = useParams()
 
     useEffect(() => {
         setGuests(initialGuests)

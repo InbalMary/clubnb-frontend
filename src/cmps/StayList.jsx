@@ -13,8 +13,7 @@ export function StayList() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const { stays, isLoading } = useSelector(storeState => storeState.stayModule)
     const wm = useWishlistModal(wishlists)
-    console.log('StayList mounted')
-
+    // console.log('StayList mounted')
 
     const groups = [...new Set(stays.map(stay => stay.loc.city))]
     if (isLoading) return <StayListSkeleton categories={groups} />
