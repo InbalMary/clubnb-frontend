@@ -208,10 +208,7 @@ export function SearchBar({ initialModal = null, onCollapse, onMobileSearchOpenC
             if (guests.infants) params.set('infants', guests.infants.toString())
             if (guests.pets) params.set('pets', guests.pets.toString())
             setSearchParams(params, { replace: true })
-            loadStays(filterParams)
             if (onCollapse) onCollapse()
-        } else {
-            loadStays(filterParams)
         }
     }
 
