@@ -253,7 +253,7 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
                         </>
                     }
                     {modalType === "who" && (
-                        <GuestSelector stayId={stay?._id} onGuestsChange={setGuests} initialGuests={guests} />
+                        <GuestSelector onGuestsChange={setGuests} initialGuests={guests} />
                     )}
 
                 </Modal>
