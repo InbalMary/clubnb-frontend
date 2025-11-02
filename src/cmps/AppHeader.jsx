@@ -22,6 +22,7 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	const isHostPage = location.pathname.includes("hosting")
 	const isEditPage = location.pathname.includes("edit")
 	const isExplorePage = location.pathname.includes("explore")
+	const isWishlistePage = location.pathname.includes("wishlists")
 	const isMobileProfilePage = location.pathname.includes("mobile-profile-menu")
 	const isMobile = useIsBreakPoint(768)
 	const [imgError, setImgError] = useState(false)
@@ -48,6 +49,8 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 
 	if (isMobile && isStayDetailsPage) return null
 	if (isMobile && isEditPage) return null
+	if (isMobile && isTripsPage) return null
+	if (isMobile && isWishlistePage) return null
 	if (isMobileProfilePage) return null
 
 	const headerClass = isCompact
