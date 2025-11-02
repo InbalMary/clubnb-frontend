@@ -44,6 +44,9 @@ export function Explore() {
 
         loadStays(filterParams)
 
+    }, [city, searchParams]) 
+
+    useEffect(() => {
         return () => {
             const isNavigatingHome = window.location.pathname === '/' || window.location.pathname === ''
             if (isNavigatingHome) {
@@ -55,17 +58,18 @@ export function Explore() {
                 })
             }
         }
-    }, [city, searchParams])
-
+    }, [])
 
     const filteredStays = stays?.filter(stay => {
         if (stay.summary?.includes('[IN_PROGRESS:')) {
             return false
         }
 
-        const guestsParam = searchParams.get('guests')
-        if (guestsParam) {
-            const requestedGuests = parseInt(guestsParam)
+        const adultsParam = searchParams.get('adults')
+        const childrenParam = searchParams.get('children')
+
+        if (adultsParam || childrenParam) {
+            const requestedGuests = parseInt(adultsParam || 0) + parseInt(childrenParam || 0)
             const stayCapacity = stay.capacity || 0
 
             if (stayCapacity < requestedGuests) {
@@ -79,8 +83,9 @@ export function Explore() {
     return (
         <section className="explore-page full">
             {isLoading ? (
-                <div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
-
+                <div className="loading-overlay">
+                    <ExploreSkeleton stays={stays} />
+                </div>
             ) : (
                 <>
                     <div className="items-wrapper">
@@ -89,14 +94,14 @@ export function Explore() {
                         {/* grid of stays */}
                         <div className="explore-grid">
                             {filteredStays?.map(stay => (
-                                <div className="div-for-focus"
+                                <div
+                                    className="div-for-focus"
                                     key={stay._id}
                                     onMouseEnter={() => setHoveredId(stay._id)}
                                     onMouseLeave={() => setHoveredId(null)}
-
                                     tabIndex={0}
                                 >
-                                    <StayPreview key={stay._id}
+                                    <StayPreview
                                         stay={stay}
                                         isBig={true}
                                         onToggleWishlist={wm.onToggleWishlist}
