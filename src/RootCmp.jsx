@@ -56,11 +56,7 @@ export function RootCmp() {
 
     const user = useSelector(storeState => storeState.userModule.user)
     useEffect(() => {
-        if (user?._id) {
-            loadWishlists(user._id)
-        } else {
-            console.log('Skipping wishlist load — no user logged in')
-        }
+        if (user?._id) loadWishlists(user._id)
     }, [user])
 
 

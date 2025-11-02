@@ -53,7 +53,7 @@ export function useWishlistModal(wishlists) {
 
         // If user not logged in - open signup modal
         if (!loggedinUser?._id) {
-            console.log('User not logged in, opening signup modal')
+            // console.log('User not logged in, opening signup modal')
             setSignupModalProps({
                 title: 'Welcome to Clubnb',
                 subtitle: 'Log in or sign up to save and organize your favorite stays.'
@@ -78,11 +78,11 @@ export function useWishlistModal(wishlists) {
 
                 if (wishlistWithStay.stays.length === 1) {
                     await removeWishlist(wishlistWithStay._id)
-                    console.log('Removed entire wishlist', wishlistWithStay._id)
+                    // console.log('Removed entire wishlist', wishlistWithStay._id)
                     showSuccessMsg(`Wishlist ${wishlistWithStay.title} deleted`, stay.imgUrls?.[0])
                 } else {
                     await removeStayFromWishlist(wishlistWithStay, stay._id)
-                    console.log(stay._id, 'removed from wishlist')
+                    // console.log(stay._id, 'removed from wishlist')
                     showSuccessMsg(`Removed from wishlist ${wishlistWithStay.title}`, stay.imgUrls?.[0])
                 }
                 return
@@ -98,7 +98,7 @@ export function useWishlistModal(wishlists) {
                 setIsCreateWishlistModalOpen(true)
                 return
             }
-            console.log('Opening Save-to-existing modal')
+            // console.log('Opening Save-to-existing modal')
             setIsWishlistModalOpen(true)
         } catch (err) {
             console.error('Error toggling wishlist:', err)
@@ -107,28 +107,28 @@ export function useWishlistModal(wishlists) {
     }
     // AFTER LOGIN SUCCESS
     async function handlePostLoginFlow() {
-        console.log('handlePostLoginFlow CALLED')
+        // console.log('handlePostLoginFlow CALLED')
 
         const loggedinUser = userService.getLoggedinUser()
         const { activeStay, pendingAfterLogin } = store.getState().wishlistModule.ui
 
         if (!loggedinUser?._id || !pendingAfterLogin || !activeStay) {
-            console.log('No pending wishlist action, skipping post-login flow')
+            // console.log('No pending wishlist action, skipping post-login flow')
             return
         }
-        console.log('Logged in, resuming wishlist flow')
+        // console.log('Logged in, resuming wishlist flow')
         setPendingAfterLogin(false)
 
         const latestWishlists = store.getState().wishlistModule.wishlists
 
         if (!latestWishlists?.length) {
-            console.log('Opening Create-your-first-wishlist modal')
+            // console.log('Opening Create-your-first-wishlist modal')
             const defaultTitle = getDefaultWishlistTitle(activeStay)
             setNewTitle(defaultTitle)
             setShowInputClearBtn(true)
             setTimeout(() => setIsCreateWishlistModalOpen(true), 50)
         } else {
-            console.log('Opening Save-to-existing modal')
+            // console.log('Opening Save-to-existing modal')
             setIsWishlistModalOpen(true)
         }
     }

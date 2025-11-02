@@ -44,7 +44,7 @@ export function Explore() {
 
         loadStays(filterParams)
 
-    }, [city, searchParams]) 
+    }, [city, searchParams])
 
     useEffect(() => {
         return () => {
@@ -108,7 +108,7 @@ export function Explore() {
                                         isFocused={focusedStayId === stay._id}
                                         // onRequestFocus={() => setFocusedStayId(stay._id)}
                                         onRequestFocus={() => {
-                                            console.log('Focus requested for', stay._id)
+                                            // console.log('Focus requested for', stay._id)
                                             setFocusedStayId(stay._id)
                                         }}
                                     />
