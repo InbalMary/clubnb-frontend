@@ -7,8 +7,6 @@ export function GuestSelector({ stayId, onGuestsChange, initialGuests = { adults
     const [guests, setGuests] = useState(initialGuests);
     // const { stayId } = useParams()
 
-    console.log('stayId:', stayId)
-
     useEffect(() => {
         setGuests(initialGuests)
     }, [initialGuests])
