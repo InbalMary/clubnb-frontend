@@ -49,7 +49,7 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
     return <article className={`stay-preview ${isBig ? 'big' : ''} ${isFocused ? 'at-focus' : ''}`}>
         <div className='stay-image-wrapper'>
 
-            <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}&adults=${filterBy.adults || adults || 1}&children=${filterBy?.children || children}&infants=${filterBy?.infants || infants}&pets=${filterBy?.pets || pets}`
+            <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}&adults=${filterBy.adults || adults || 1}&children=${filterBy.children || children}&infants=${filterBy.infants || infants}&pets=${filterBy.pets || pets}`
             }
                 className='stay-link'
             >
@@ -95,8 +95,7 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
             ) : (
                 // Default layout (non-Explore)
                 <header>
-                    <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}
-                    &adults=${filterBy.adults || 1}&children=${filterBy?.children || ''}&infants=${filterBy?.infants}`
+                    <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}&adults=${filterBy.adults || adults || 1}&children=${filterBy.children || children}&infants=${filterBy.infants || infants}&pets=${filterBy.pets || pets}`
                     } className="stay-name">
                         {stay.name}
                     </Link>

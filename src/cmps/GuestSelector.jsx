@@ -5,7 +5,6 @@ import 'simplebar-react/dist/simplebar.min.css';
 
 export function GuestSelector({ onGuestsChange, initialGuests = { adults: 0, children: 0, infants: 0, pets: 0 } }) {
     const [guests, setGuests] = useState(initialGuests);
-    const { stayId } = useParams()
 
     useEffect(() => {
         setGuests(initialGuests)
@@ -65,9 +64,9 @@ export function GuestSelector({ onGuestsChange, initialGuests = { adults: 0, chi
                     </div>
                     <div className="guest-controls">
                         <button
-                            className={`guest-button guest-button-minus ${guests[type] === 0 ? 'disabled' : ''} ${(stayId && guests.adults === 1) ? 'disabled' : ''}`}
+                            className={`guest-button guest-button-minus ${guests[type] === 0 ? 'disabled' : ''}`}
                             onClick={() => handleDecrement(type)}
-                            disabled={guests[type] === 0 || stayId ? guests.adults === 1 : ''}
+                            disabled={guests[type] === 0}
                             aria-label={`Decrease ${label}`}
                         >
                             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">

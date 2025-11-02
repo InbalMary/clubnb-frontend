@@ -10,11 +10,13 @@ import { Modal } from "./Modal"
 import { svgControls } from "./Svgs"
 import { setCurrentOrder } from "../store/actions/order.actions"
 import { useIsBreakPoint } from "../customHooks/useIsBreakPoint"
+import { useSelector } from "react-redux"
 
 export function StickyContainer({ stay, dateRange, setDateRange }) {
 
     const [modalType, setModalType] = useState(null)
     const [userCleared, setUserCleared] = useState(false)
+    const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
 
 
     const [searchParams, setSearchParams] = useSearchParams()
@@ -60,10 +62,10 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
         if (adults || children || infants || pets) {
 
             setGuests({
-                adults: parseInt(adults) || 0,
-                children: parseInt(children) || 0,
-                infants: parseInt(infants) || 0,
-                pets: parseInt(pets) || 0,
+                adults: parseInt(adults) || filterBy.adults || 0,
+                children: parseInt(children) || filterBy.children || 0,
+                infants: parseInt(infants) || filterBy.infants || 0,
+                pets: parseInt(pets) || filterBy.pets || 0,
             })
         }
 
