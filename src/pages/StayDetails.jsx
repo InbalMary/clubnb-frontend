@@ -24,8 +24,8 @@ import { useIsBreakPoint } from '../customHooks/useIsBreakPoint'
 import { setCurrentOrder } from '../store/actions/order.actions'
 import { calculateNights } from '../services/util.service'
 import { ShareModal } from '../cmps/ShareModal'
-
-
+import { useWishlistModal } from '../customHooks/useWishlistModal'
+import { LoginSignupModal } from '../cmps/LoginSignupModal'
 
 export function StayDetails() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -40,7 +40,8 @@ export function StayDetails() {
   const { dateRange, setDateRange } = useDateRange()
   const [modalType, setModalType] = useState(null)
   const [selectedReviewIdx, setSelectedReviewIdx] = useState(null)
-  const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
+  // const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
+  const wm = useWishlistModal(wishlists)
   const [isShareModalOpen, setIsShareModalOpen] = useState(false)
 
   const reviewRefs = useMemo(() => stay?.reviews?.map(() => createRef()), [stay?.reviews])
@@ -77,30 +78,30 @@ export function StayDetails() {
     )
     : false
 
-  async function onToggleWishlist(ev) {
-    ev.stopPropagation()
-    try {
-      if (isAddedToWishlist) {
-        const wishlistWithStay = wishlists.find(wishlist =>
-          wishlist.stays.some(stayInList => stayInList._id === stay._id)
-        )
-        if (wishlistWithStay) {
-          if (wishlistWithStay.stays.length === 1) {
-            await removeWishlist(wishlistWithStay._id)
-            showSuccessMsg(`Wishlist ${wishlistWithStay.title} deleted`, stay.imgUrls?.[0])
-          } else {
-            await removeStayFromWishlist(wishlistWithStay, stay._id)
-            showSuccessMsg(`Removed from wishlist ${wishlistWithStay.title}`, stay.imgUrls?.[0])
-          }
-        }
-      } else {
-        setIsWishlistModalOpen(true)
-      }
-    } catch (err) {
-      console.error('Error toggling wishlist:', err)
-      showErrorMsg('Could not update wishlist, please try again.')
-    }
-  }
+  // async function onToggleWishlist(ev) {
+  //   ev.stopPropagation()
+  //   try {
+  //     if (isAddedToWishlist) {
+  //       const wishlistWithStay = wishlists.find(wishlist =>
+  //         wishlist.stays.some(stayInList => stayInList._id === stay._id)
+  //       )
+  //       if (wishlistWithStay) {
+  //         if (wishlistWithStay.stays.length === 1) {
+  //           await removeWishlist(wishlistWithStay._id)
+  //           showSuccessMsg(`Wishlist ${wishlistWithStay.title} deleted`, stay.imgUrls?.[0])
+  //         } else {
+  //           await removeStayFromWishlist(wishlistWithStay, stay._id)
+  //           showSuccessMsg(`Removed from wishlist ${wishlistWithStay.title}`, stay.imgUrls?.[0])
+  //         }
+  //       }
+  //     } else {
+  //       setIsWishlistModalOpen(true)
+  //     }
+  //   } catch (err) {
+  //     console.error('Error toggling wishlist:', err)
+  //     showErrorMsg('Could not update wishlist, please try again.')
+  //   }
+  // }
 
   const refs = {
     photoRef: useRef(null),
@@ -241,7 +242,8 @@ export function StayDetails() {
               <button onClick={() => setIsShareModalOpen(true)} className="share-btn">
                 <span className="share-icon">{svgControls.share}<span className="link">Share</span></span>
               </button>
-              <button className="save-heart-btn" onClick={onToggleWishlist}>
+              <button className="save-heart-btn" onClick={() => wm.onToggleWishlist(stay)}>
+                {/* <button className="save-heart-btn" onClick={onToggleWishlist}> */}
                 <span className={`heart-icon ${isAddedToWishlist ? 'active' : ''}`}>{svgControls.heart}
                   <span className="link">{isAddedToWishlist ? 'Saved' : 'Save'}</span>
                 </span>
@@ -249,14 +251,131 @@ export function StayDetails() {
             </div>
           </div>
         )}
-         <ShareModal stay={stay} isOpen={isShareModalOpen} onClose={() => setIsShareModalOpen(false)} onClick={handleShare} />
-      
-        <WishlistModal
+        <ShareModal stay={stay} isOpen={isShareModalOpen} onClose={() => setIsShareModalOpen(false)} onClick={handleShare} />
+        {wm.isWishlistModalOpen && wm.activeStay && (
+          <Modal
+            header="Save to wishlist"
+            isOpen={wm.isWishlistModalOpen}
+            onClose={() => wm.setIsWishlistModalOpen(false)}
+            closePosition="right"
+            className="wishlist-modal"
+            footer={
+              <button
+                className='create-wishlist-btn'
+                onClick={() => {
+                  wm.setIsWishlistModalOpen(false)
+                  wm.setNewTitle(`${wm.activeStay.loc.city}, ${wm.activeStay.loc.country} ${new Date().getFullYear()}`)
+                  wm.setShowInputClearBtn(true)
+                  wm.setIsCreateWishlistModalOpen(true)
+                }}
+              >
+                Create new wishlist
+              </button>
+            }
+          >
+            <ul className='wishlist-modal-list'>
+              {wishlists.map(wishlist => (
+                <li key={wishlist._id} onClick={() => wm.onSelectWishlistFromModal(wishlist)}>
+                  <img
+                    src={
+                      wishlist?.stays?.[0]?.imgUrls?.[0] ||
+                      "https://a0.muscache.com/im/pictures/hosting/Hosting-1499241797877148255/original/578a39ea-267c-4f72-82ec-5e80156e7ee5.jpeg?im_w=480"
+                    }
+                    alt={wishlist.title}
+                    className="wishlist-modal-img"
+                  />
+                  <span className="stay-name">{wishlist.title}</span>
+                </li>
+              ))}
+            </ul>
+          </Modal>
+        )}
+
+        {wm.isCreateWishlistModalOpen && (
+          <Modal
+            header={
+              <>
+                <button
+                  className='btn btn-transparent btn-round back'
+                  onClick={() => {
+                    wm.setIsCreateWishlistModalOpen(false)
+                    if (wishlists.length) wm.setIsWishlistModalOpen(true)
+                  }}
+                >
+                  {svgControls.backArrow}
+                </button>
+                <span className='creat-wishlist-modal-title'>
+                  {wishlists.length === 0 ? 'Create your first wishlist' : 'Create wishlist'}
+                </span>
+              </>
+            }
+            isOpen={wm.isCreateWishlistModalOpen}
+            onClose={() => {
+              wm.setIsCreateWishlistModalOpen(false)
+              if (wishlists.length) wm.setIsWishlistModalOpen(true)
+            }}
+            className="create-wishlist-modal"
+            showCloseBtn={false}
+            footer={
+              <div className="create-footer-actions">
+                <button
+                  className='btn create-cancel-btn btn-transparent'
+                  onClick={() => {
+                    wm.setIsCreateWishlistModalOpen(false)
+                    if (wishlists.length) wm.setIsWishlistModalOpen(true)
+                  }}
+                >
+                  Cancel
+                </button>
+                <button className='btn create-btn btn-black' onClick={wm.onCreateWishlist}>
+                  Create
+                </button>
+              </div>
+            }
+          >
+            <div className='rename-input-wrapper'>
+              <input
+                className='rename-input'
+                type="text"
+                value={wm.newTitle}
+                onChange={(ev) => {
+                  wm.setNewTitle(ev.target.value)
+                  if (ev.target.value !== '') wm.setShowInputClearBtn(false)
+                }}
+                placeholder="Name your wishlist"
+              />
+              {wm.showInputClearBtn && wm.newTitle && (
+                <button
+                  type="button"
+                  className="btn btn-gray btn-round clear-input-btn"
+                  onClick={() => {
+                    wm.setNewTitle('')
+                    wm.setShowInputClearBtn(false)
+                  }}
+                >
+                  {svgControls.closeModal}
+                </button>
+              )}
+            </div>
+          </Modal>
+        )}
+
+        {wm.isSignupModalOpen && (
+          <LoginSignupModal
+            isOpen={wm.isSignupModalOpen}
+            onClose={() => wm.setIsSignupModalOpen(false)}
+            title={wm.signupModalProps.title}
+            subtitle={wm.signupModalProps.subtitle}
+            onLoginSuccess={wm.handlePostLoginFlow}
+          />
+        )}
+
+        {/* <WishlistModal
           stay={stay}
           isOpen={isWishlistModalOpen}
           isAddedToWishlist={isAddedToWishlist}
           onClose={() => setIsWishlistModalOpen(false)}
-        />
+        /> */}
         <StayImgs stay={stay} />
 
         <StayHeader refs={refs} stay={stay} onClick={handleClick} startDate={startDate} endDate={endDate} />
