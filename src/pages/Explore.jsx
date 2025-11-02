@@ -9,6 +9,7 @@ import { useClickOutside } from '../customHooks/useClickOutside'
 import { useWishlistModal } from '../customHooks/useWishlistModal'
 import { Modal } from '../cmps/Modal'
 import { svgControls } from '../cmps/Svgs'
+import { LoginSignupModal } from '../cmps/LoginSignupModal'
 
 export function Explore() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
@@ -35,8 +36,8 @@ export function Explore() {
         const adults = searchParams.get('adults') || null
         const children = searchParams.get('children') || null
 
-        const totalGuests = (adults || children) 
-            ? (parseInt(adults || 0) + parseInt(children || 0)) 
+        const totalGuests = (adults || children)
+            ? (parseInt(adults || 0) + parseInt(children || 0))
             : null
 
         const filterParams = {
@@ -230,7 +231,22 @@ export function Explore() {
                     </div>
                 </Modal>
             )}
+            {wm.isSignupModalOpen && (
+                <LoginSignupModal
+                    isOpen={wm.isSignupModalOpen}
+                    onClose={() => wm.setIsSignupModalOpen(false)}
+                    title={wm.signupModalProps.title}
+                    subtitle={wm.signupModalProps.subtitle}
+                    onLoginSuccess={() => {
+                        console.log('✅ Login success from Explore, calling post-login flow')
+                        wm.handlePostLoginFlow()
+                    }}
+                    isFromWishlist={true}
+                />
+            )}
+
         </section >
+
     )
 }
 

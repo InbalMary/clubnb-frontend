@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { store } from '../store/store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { removeWishlist, removeStayFromWishlist, updateWishlist, setWishlistUIState } from '../store/actions/wishlist.actions.js'
+import { loadWishlists, removeWishlist, removeStayFromWishlist, updateWishlist, setWishlistUIState } from '../store/actions/wishlist.actions.js'
 import { createWishlistFromStay, addStayToExistingWishlist, getDefaultWishlistTitle } from '../services/wishlist/wishlist.helper.js'
 import { userService } from '../services/user/user.service.remote.js'
 
@@ -107,28 +107,34 @@ export function useWishlistModal(wishlists) {
     }
     // AFTER LOGIN SUCCESS
     async function handlePostLoginFlow() {
-        // console.log('handlePostLoginFlow CALLED')
+        console.log('handlePostLoginFlow CALLED')
 
         const loggedinUser = userService.getLoggedinUser()
         const { activeStay, pendingAfterLogin } = store.getState().wishlistModule.ui
 
         if (!loggedinUser?._id || !pendingAfterLogin || !activeStay) {
-            // console.log('No pending wishlist action, skipping post-login flow')
+            console.log('No pending wishlist action, skipping post-login flow')
             return
         }
-        // console.log('Logged in, resuming wishlist flow')
-        setPendingAfterLogin(false)
+        console.log('Reloading wishlists for user:', loggedinUser._id)
+        await loadWishlists(loggedinUser._id)
+
+        // wait for Redux to update
+        await new Promise(res => setTimeout(res, 150))
 
         const latestWishlists = store.getState().wishlistModule.wishlists
+        console.log('Updated wishlists length:', latestWishlists?.length)
+
+        setPendingAfterLogin(false)
 
         if (!latestWishlists?.length) {
-            // console.log('Opening Create-your-first-wishlist modal')
+            console.log('Opening Create-your-first-wishlist modal')
             const defaultTitle = getDefaultWishlistTitle(activeStay)
             setNewTitle(defaultTitle)
             setShowInputClearBtn(true)
             setTimeout(() => setIsCreateWishlistModalOpen(true), 50)
         } else {
-            // console.log('Opening Save-to-existing modal')
+            console.log('Opening Save-to-existing modal')
             setIsWishlistModalOpen(true)
         }
     }

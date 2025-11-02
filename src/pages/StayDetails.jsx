@@ -226,7 +226,7 @@ export function StayDetails() {
               <button onClick={handleShare} className="share-btn mobile">
                 {svgControls.share}
               </button>
-              <button className="save-heart-btn mobile" onClick={onToggleWishlist}>
+              <button className="save-heart-btn mobile" onClick={wm.onToggleWishlist}>
                 <span className={`heart-icon ${isAddedToWishlist ? 'active' : ''}`}>{svgControls.heart}
                 </span>
               </button>
@@ -367,6 +367,7 @@ export function StayDetails() {
             title={wm.signupModalProps.title}
             subtitle={wm.signupModalProps.subtitle}
             onLoginSuccess={wm.handlePostLoginFlow}
+            isFromWishlist={true}
           />
         )}
 
