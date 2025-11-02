@@ -83,7 +83,7 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
                 <div className="stay-header">
                     <span className="stay-name">{stay.name}</span>
                     <span className="stay-rating">
-                        {statSvgs.starSmall}{stay.rating}
+                        {statSvgs.starSmall}{stay.host.rating}
                         {!hideDetails && (
                             <>
                                 <span className="gap" />
