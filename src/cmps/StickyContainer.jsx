@@ -45,12 +45,21 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
             setDateRange({ from, to })
         }
 
-        setGuests({
-            adults: parseInt(adults) ,
-            children: parseInt(children) ,
-            infants: parseInt(infants) ,
-            pets: parseInt(pets) ,
-        })
+        // setGuests({
+        //     adults: parseInt(adults) ,
+        //     children: parseInt(children) ,
+        //     infants: parseInt(infants) ,
+        //     pets: parseInt(pets) ,
+        // })
+        if (adults || children || infants || pets) {
+
+            setGuests({
+                adults: parseInt(adults) || filterBy.adults || 0,
+                children: parseInt(children) || filterBy.children || 0,
+                infants: parseInt(infants) || filterBy.infants || 0,
+                pets: parseInt(pets) || filterBy.pets || 0,
+            })
+        }
     }, [stay, userCleared])
 
 
