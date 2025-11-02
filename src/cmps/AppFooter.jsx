@@ -56,7 +56,7 @@ export function AppFooter({ isIndexPage, isStayDetailsPage, isSearchOpen }) {
 								return `nav-item ${isExploreActive ? 'active' : ''}`
 							}}
 						>
-							<span className="footer-icon">{appHeaderSvg.search}</span>
+							<span className="footer-icon search-footer-icon">{appHeaderSvg.search}</span>
 							<span>Explore</span>
 						</NavLink>
 

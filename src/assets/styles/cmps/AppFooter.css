@@ -200,4 +200,8 @@
     .app-footer.footer-index.hidden * {
         pointer-events: none;
     }
+
+    .app-footer .footer-mobile-nav .search-footer-icon svg {
+        stroke-width: 3 !important;
+    }
 }
