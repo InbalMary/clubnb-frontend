@@ -35,13 +35,18 @@ export function Explore() {
         const adults = searchParams.get('adults') || null
         const children = searchParams.get('children') || null
 
+        const totalGuests = (adults || children) 
+            ? (parseInt(adults || 0) + parseInt(children || 0)) 
+            : null
+
         const filterParams = {
             city: city || null,
             startDate,
             endDate,
-            guests: (adults || children) ? (parseInt(adults || 0) + parseInt(children || 0)) : null
+            guests: totalGuests  // sends the actual number of guests..
         }
 
+        // console.log('Loading stays with filter:', filterParams)
         loadStays(filterParams)
 
     }, [city, searchParams])
@@ -70,7 +75,9 @@ export function Explore() {
 
         if (adultsParam || childrenParam) {
             const requestedGuests = parseInt(adultsParam || 0) + parseInt(childrenParam || 0)
-            const stayCapacity = stay.capacity || 0
+            const stayCapacity = stay.capacity || stay.guests || 0
+
+            console.log(`Stay ${stay.name}: capacity=${stayCapacity}, requested=${requestedGuests}`)
 
             if (stayCapacity < requestedGuests) {
                 return false
