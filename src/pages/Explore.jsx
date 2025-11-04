@@ -10,6 +10,7 @@ import { useWishlistModal } from '../customHooks/useWishlistModal'
 import { Modal } from '../cmps/Modal'
 import { svgControls } from '../cmps/Svgs'
 import { LoginSignupModal } from '../cmps/LoginSignupModal'
+import { getTruthyValues } from '../services/util.service'
 
 export function Explore() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
@@ -31,40 +32,45 @@ export function Explore() {
     // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
     useEffect(() => {
+           console.count('explore render')
+
+        const destination = searchParams.get('destination') || null
         const startDate = searchParams.get('startDate') || null
         const endDate = searchParams.get('endDate') || null
         const adults = searchParams.get('adults') || null
         const children = searchParams.get('children') || null
+        const infants = searchParams.get('infants') || null
+        const pets = searchParams.get('pets') || null
 
-        const totalGuests = (adults || children)
-            ? (parseInt(adults || 0) + parseInt(children || 0))
-            : null
-
-        const filterParams = {
+        // prefer explicit adult/child counts instead of a single totalGuests
+        const filterParams = getTruthyValues({
+            destination: filterBy?.destination ?? (destination || null),
             city: city || null,
             startDate,
             endDate,
-            guests: totalGuests  // sends the actual number of guests..
-        }
+            adults: adults ? Number(adults) : null,
+            children: children ? Number(children) : null,
+            infants: infants ? Number(infants) : null,
+            pets: pets ? Number(pets) : null,
+        })
+
+
+        // const totalGuests = (adults || children)
+        //     ? (parseInt(adults || 0) + parseInt(children || 0))
+        //     : null
+
+        // const filterParams = {
+        //     city: city || null,
+        //     startDate,
+        //     endDate,
+        //     guests: totalGuests  // sends the actual number of guests..
+        // }
 
         // console.log('Loading stays with filter:', filterParams)
         loadStays(filterParams)
 
     }, [city, searchParams])
 
-    useEffect(() => {
-        return () => {
-            const isNavigatingHome = window.location.pathname === '/' || window.location.pathname === ''
-            if (isNavigatingHome) {
-                setFilterBy({
-                    destination: null,
-                    startDate: null,
-                    endDate: null,
-                    guests: null
-                })
-            }
-        }
-    }, [])
 
     const filteredStays = stays?.filter(stay => {
         if (stay.summary?.includes('[IN_PROGRESS:')) {
