@@ -1,6 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { formatStayDates, calculateNights } from '../services/util.service.js'
+import { formatStayDates, calculateNights, toUrlDate, getTruthyValues } from '../services/util.service.js'
 import { svgControls, statSvgs } from './Svgs.jsx'
 import { SingleImgCarousel } from './SingleImgCarousel.jsx'
 
@@ -42,15 +42,31 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
         numNights = 2
     }
 
-    const start = filterBy.startDate || stay.suggestedRange?.start || stay.availableFrom
-    const end = filterBy.endDate || stay.suggestedRange?.end || stay.availableUntil
+    // const start = filterBy.startDate || stay.suggestedRange?.start || stay.availableFrom
+    // const end = filterBy.endDate || stay.suggestedRange?.end || stay.availableUntil
+    const startRaw = filterBy.startDate || stay.suggestedRange?.start || stay.availableFrom
+    const endRaw = filterBy.endDate || stay.suggestedRange?.end || stay.availableUntil
+    const start = startRaw ? toUrlDate(startRaw) : ''
+    const end = endRaw ? toUrlDate(endRaw) : ''
+
+    const paramsObj = {
+        startDate: start,
+        endDate: end,
+        adults: (filterBy?.adults ?? (adults ? Number(adults) : 1)) || 1,
+        children: (filterBy?.children ?? (children ? Number(children) : null)) || null,
+        infants: (filterBy?.infants ?? (infants ? Number(infants) : null)) || null,
+        pets: (filterBy?.pets ?? (pets ? Number(pets) : null)) || null,
+    }
+
+    const query = new URLSearchParams(getTruthyValues(paramsObj)).toString()
+    const to = `/stay/${stay._id}${query ? '?' + query : ''}`
 
 
     return <article className={`stay-preview ${isBig ? 'big' : ''} ${isFocused ? 'at-focus' : ''}`}>
         <div className='stay-image-wrapper'>
 
-            <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}&adults=${filterBy.adults || adults || 1}&children=${filterBy.children || children}&infants=${filterBy.infants || infants}&pets=${filterBy.pets || pets}`
-            }
+            {/* <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}&adults=${filterBy.adults || adults || 1}&children=${filterBy.children || children}&infants=${filterBy.infants || infants}&pets=${filterBy.pets || pets}` */}
+            <Link to={to}
                 className='stay-link'
             >
                 {isBig ? (
@@ -95,8 +111,10 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
             ) : (
                 // Default layout (non-Explore)
                 <header>
-                    <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}&adults=${filterBy.adults || adults || 1}&children=${filterBy.children || children}&infants=${filterBy.infants || infants}&pets=${filterBy.pets || pets}`
-                    } className="stay-name">
+                    {/* <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}&adults=${filterBy.adults || adults || 1}&children=${filterBy.children || children}&infants=${filterBy.infants || infants}&pets=${filterBy.pets || pets}`
+                    }  */}
+                    <Link to={to}
+                        className="stay-name">
                         {stay.name}
                     </Link>
                 </header>
