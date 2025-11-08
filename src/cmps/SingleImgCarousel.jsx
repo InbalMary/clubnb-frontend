@@ -37,7 +37,7 @@ export function SingleImgCarousel({ images = [], onRequestFocus }) {
                             ev.stopPropagation()
                             ev.preventDefault()
                             scroll(-1)
-                            onRequestFocus?.()
+                            // onRequestFocus?.()
                         }}
                     >
                         <span className='preview-carousel-icon'>{svgControls.chevronLeft}</span>
@@ -49,7 +49,7 @@ export function SingleImgCarousel({ images = [], onRequestFocus }) {
                             ev.stopPropagation()
                             ev.preventDefault()
                             scroll(1)
-                            onRequestFocus?.()
+                            // onRequestFocus?.()
                         }
                         }
                     >
