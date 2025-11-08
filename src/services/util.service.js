@@ -90,7 +90,7 @@ export function calculateNights(startDate, endDate) {
     const end = new Date(endDate)
     const diffInMs = end - start
     //convert Ms to days
-    return diffInMs / (1000 * 60 * 60 * 24) // res: number of nights
+    return Math.ceil(diffInMs / (1000 * 60 * 60 * 24)) // res: number of nights
 }
 
 export function getRandomItems(array, length) {
@@ -125,29 +125,46 @@ export function capitalizeFirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
- export function getAvgRate(reviews) {
-        let totalSum = 0
-        let totalReviews = 0
-
-        reviews.forEach((review) => {
-            const rates = Object.values(review.rate).reduce((sum, currentValue) => sum + currentValue, 0)
-
-            const avgRateForReview = rates / Object.values(review.rate).length
-
-            totalSum += avgRateForReview
-            totalReviews += 1
-        })
-        const avgRate = totalSum / totalReviews
-        const roundedAverage = avgRate.toFixed(2)
-        if (isNaN(roundedAverage)) return 0
-        return roundedAverage
+export function getTruthyValues(obj) {
+    const newObj = {}
+    for (const key in obj) {
+        const value = obj[key]
+        if (value) {
+            newObj[key] = value
+        }
     }
+    return newObj
+}
+
+export function toUrlDate(date) {
+    if (!date) return ''
+    const d = (date instanceof Date) ? date : new Date(date)
+    return d.toISOString().split('T')[0] // "YYYY-MM-DD"
+}
+
+export function getAvgRate(reviews) {
+    let totalSum = 0
+    let totalReviews = 0
+
+    reviews.forEach((review) => {
+        const rates = Object.values(review.rate).reduce((sum, currentValue) => sum + currentValue, 0)
+
+        const avgRateForReview = rates / Object.values(review.rate).length
+
+        totalSum += avgRateForReview
+        totalReviews += 1
+    })
+    const avgRate = totalSum / totalReviews
+    const roundedAverage = avgRate.toFixed(2)
+    if (isNaN(roundedAverage)) return 0
+    return roundedAverage
+}
 
 export function formatGuestsText(guests) {
     const counts = [
-        { count: guests.adults + guests.children, label: 'guest' },
-        { count: guests.infants, label: 'infant' },
-        { count: guests.pets, label: 'pet' },
+        { count: guests?.adults + guests?.children, label: 'guest' },
+        { count: guests?.infants, label: 'infant' },
+        { count: guests?.pets, label: 'pet' },
     ]
 
     const parts = counts

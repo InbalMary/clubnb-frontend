@@ -211,10 +211,6 @@
     position: absolute;
 }
 
-.compact-header.no-sticky .header-menu {
-    right: 200px;
-}
-
 .compact-header-content {
     max-width: 1760px;
     margin: 0 auto;

@@ -9,6 +9,8 @@ import { useClickOutside } from '../customHooks/useClickOutside'
 import { useWishlistModal } from '../customHooks/useWishlistModal'
 import { Modal } from '../cmps/Modal'
 import { svgControls } from '../cmps/Svgs'
+import { LoginSignupModal } from '../cmps/LoginSignupModal'
+import { getTruthyValues } from '../services/util.service'
 
 export function Explore() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
@@ -30,31 +32,43 @@ export function Explore() {
     // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
     useEffect(() => {
+           console.count('explore render')
+
+        const destination = searchParams.get('destination') || null
         const startDate = searchParams.get('startDate') || null
         const endDate = searchParams.get('endDate') || null
         const adults = searchParams.get('adults') || null
         const children = searchParams.get('children') || null
+        const infants = searchParams.get('infants') || null
+        const pets = searchParams.get('pets') || null
 
-        const filterParams = {
+        // prefer explicit adult/child counts instead of a single totalGuests
+        const filterParams = getTruthyValues({
+            destination: filterBy?.destination ?? (destination || null),
             city: city || null,
             startDate,
             endDate,
-            guests: (adults || children) ? (parseInt(adults || 0) + parseInt(children || 0)) : null
-        }
+            adults: adults ? Number(adults) : null,
+            children: children ? Number(children) : null,
+            infants: infants ? Number(infants) : null,
+            pets: pets ? Number(pets) : null,
+        })
 
+
+        // const totalGuests = (adults || children)
+        //     ? (parseInt(adults || 0) + parseInt(children || 0))
+        //     : null
+
+        // const filterParams = {
+        //     city: city || null,
+        //     startDate,
+        //     endDate,
+        //     guests: totalGuests  // sends the actual number of guests..
+        // }
+
+        // console.log('Loading stays with filter:', filterParams)
         loadStays(filterParams)
 
-        return () => {
-            const isNavigatingHome = window.location.pathname === '/' || window.location.pathname === ''
-            if (isNavigatingHome) {
-                setFilterBy({
-                    destination: null,
-                    startDate: null,
-                    endDate: null,
-                    guests: null
-                })
-            }
-        }
     }, [city, searchParams])
 
 
@@ -63,10 +77,14 @@ export function Explore() {
             return false
         }
 
-        const guestsParam = searchParams.get('guests')
-        if (guestsParam) {
-            const requestedGuests = parseInt(guestsParam)
-            const stayCapacity = stay.capacity || 0
+        const adultsParam = searchParams.get('adults')
+        const childrenParam = searchParams.get('children')
+
+        if (adultsParam || childrenParam) {
+            const requestedGuests = parseInt(adultsParam || 0) + parseInt(childrenParam || 0)
+            const stayCapacity = stay.capacity || stay.guests || 0
+
+            console.log(`Stay ${stay.name}: capacity=${stayCapacity}, requested=${requestedGuests}`)
 
             if (stayCapacity < requestedGuests) {
                 return false
@@ -79,8 +97,9 @@ export function Explore() {
     return (
         <section className="explore-page full">
             {isLoading ? (
-                <div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
-
+                <div className="loading-overlay">
+                    <ExploreSkeleton stays={stays} />
+                </div>
             ) : (
                 <>
                     <div className="items-wrapper">
@@ -89,21 +108,21 @@ export function Explore() {
                         {/* grid of stays */}
                         <div className="explore-grid">
                             {filteredStays?.map(stay => (
-                                <div className="div-for-focus"
+                                <div
+                                    className="div-for-focus"
                                     key={stay._id}
                                     onMouseEnter={() => setHoveredId(stay._id)}
                                     onMouseLeave={() => setHoveredId(null)}
-
                                     tabIndex={0}
                                 >
-                                    <StayPreview key={stay._id}
+                                    <StayPreview
                                         stay={stay}
                                         isBig={true}
                                         onToggleWishlist={wm.onToggleWishlist}
                                         isFocused={focusedStayId === stay._id}
                                         // onRequestFocus={() => setFocusedStayId(stay._id)}
                                         onRequestFocus={() => {
-                                            console.log('Focus requested for', stay._id)
+                                            // console.log('Focus requested for', stay._id)
                                             setFocusedStayId(stay._id)
                                         }}
                                     />
@@ -218,7 +237,22 @@ export function Explore() {
                     </div>
                 </Modal>
             )}
+            {wm.isSignupModalOpen && (
+                <LoginSignupModal
+                    isOpen={wm.isSignupModalOpen}
+                    onClose={() => wm.setIsSignupModalOpen(false)}
+                    title={wm.signupModalProps.title}
+                    subtitle={wm.signupModalProps.subtitle}
+                    onLoginSuccess={() => {
+                        console.log('✅ Login success from Explore, calling post-login flow')
+                        wm.handlePostLoginFlow()
+                    }}
+                    isFromWishlist={true}
+                />
+            )}
+
         </section >
+
     )
 }
 

@@ -1,8 +1,18 @@
 .trip-index {
     max-width: 1760px;
-    /* margin: 0 auto; */
-    /* padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 6vw, 5rem); */
     margin-block-start: 6.5rem;
+}
+
+.trip-container {
+    padding: 0 clamp(1.5rem, 6vw, 5rem);
+}
+
+.trip-sticky-header {
+    background-color: var(--white);
+    
+    .trip-container {
+        padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    }
 }
 
 .trip-title {
@@ -15,7 +25,7 @@
 .trip-tabs {
     display: flex;
     gap: clamp(1.5rem, 2.5vw, 2rem);
-    border-bottom: 1px solid var(--gray6);
+    /* border-bottom: 1px solid var(--gray6); */
     margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
@@ -167,8 +177,8 @@
 }
 
 @media (max-width: 1128px) {
-    .trip-index {
-        padding: clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 4vw, 2.5rem);
+    .trip-container {
+        padding: 0 clamp(1.5rem, 4vw, 2.5rem);
     }
 
     .trip-preview-list {
@@ -179,8 +189,28 @@
 
 @media (max-width: 744px) {
     .trip-index {
-        padding: 1.5rem;
-        margin-block-start: 120px;
+        margin-block-start: 0;
+    }
+
+    .trip-sticky-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: var(--white);
+        
+        .trip-container {
+            padding: 1.5rem 1.5rem 0;
+        }
+
+        .trip-tabs {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 1rem;
+        }
+    }
+
+    .trip-container {
+        padding: 0 1.5rem;
     }
 
     .trip-title {
@@ -190,7 +220,10 @@
 
     .trip-tabs {
         gap: 1.5rem;
-        margin-bottom: 1.5rem;
+    }
+
+    .trip-content {
+        padding-top: 1.5rem;
     }
 
     .trip-preview-list {
@@ -208,8 +241,14 @@
 }
 
 @media (max-width: 480px) {
-    .trip-index {
-        padding: 1rem;
+    .trip-sticky-header {
+        .trip-container {
+            padding: 1rem 1rem 0;
+        }
+    }
+
+    .trip-container {
+        padding: 0 1rem;
     }
 
     .trip-title {

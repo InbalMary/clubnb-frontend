@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { store } from '../store/store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { removeWishlist, removeStayFromWishlist, updateWishlist, setWishlistUIState } from '../store/actions/wishlist.actions.js'
+import { loadWishlists, removeWishlist, removeStayFromWishlist, updateWishlist, setWishlistUIState } from '../store/actions/wishlist.actions.js'
 import { createWishlistFromStay, addStayToExistingWishlist, getDefaultWishlistTitle } from '../services/wishlist/wishlist.helper.js'
 import { userService } from '../services/user/user.service.remote.js'
 
@@ -53,7 +53,7 @@ export function useWishlistModal(wishlists) {
 
         // If user not logged in - open signup modal
         if (!loggedinUser?._id) {
-            console.log('User not logged in, opening signup modal')
+            // console.log('User not logged in, opening signup modal')
             setSignupModalProps({
                 title: 'Welcome to Clubnb',
                 subtitle: 'Log in or sign up to save and organize your favorite stays.'
@@ -78,11 +78,11 @@ export function useWishlistModal(wishlists) {
 
                 if (wishlistWithStay.stays.length === 1) {
                     await removeWishlist(wishlistWithStay._id)
-                    console.log('Removed entire wishlist', wishlistWithStay._id)
+                    // console.log('Removed entire wishlist', wishlistWithStay._id)
                     showSuccessMsg(`Wishlist ${wishlistWithStay.title} deleted`, stay.imgUrls?.[0])
                 } else {
                     await removeStayFromWishlist(wishlistWithStay, stay._id)
-                    console.log(stay._id, 'removed from wishlist')
+                    // console.log(stay._id, 'removed from wishlist')
                     showSuccessMsg(`Removed from wishlist ${wishlistWithStay.title}`, stay.imgUrls?.[0])
                 }
                 return
@@ -98,7 +98,7 @@ export function useWishlistModal(wishlists) {
                 setIsCreateWishlistModalOpen(true)
                 return
             }
-            console.log('Opening Save-to-existing modal')
+            // console.log('Opening Save-to-existing modal')
             setIsWishlistModalOpen(true)
         } catch (err) {
             console.error('Error toggling wishlist:', err)
@@ -116,10 +116,16 @@ export function useWishlistModal(wishlists) {
             console.log('No pending wishlist action, skipping post-login flow')
             return
         }
-        console.log('Logged in, resuming wishlist flow')
-        setPendingAfterLogin(false)
+        console.log('Reloading wishlists for user:', loggedinUser._id)
+        await loadWishlists(loggedinUser._id)
+
+        // wait for Redux to update
+        await new Promise(res => setTimeout(res, 150))
 
         const latestWishlists = store.getState().wishlistModule.wishlists
+        console.log('Updated wishlists length:', latestWishlists?.length)
+
+        setPendingAfterLogin(false)
 
         if (!latestWishlists?.length) {
             console.log('Opening Create-your-first-wishlist modal')

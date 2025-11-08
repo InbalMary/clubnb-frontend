@@ -6,14 +6,16 @@ import { SearchBar } from './SearchBar'
 import { CompactHeader } from './CompactHeader'
 import { HamburgerMenu } from './HamburgerMenu.jsx'
 import { AppHeaderSkeleton } from './AppHeaderSkeleton'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { useClickOutside } from '../customHooks/useClickOutside.js'
 import { useEscapeKey } from '../customHooks/useEscapeKey.js'
 import { useIsBreakPoint } from '../customHooks/useIsBreakPoint.js'
+import { setFilterBy } from '../store/actions/order.actions.js'
 
 export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, isSticky, isTripsPage, isWishlistPage, isWishlistDetailsPage, onMobileSearchOpenChange }) {
 	const user = useSelector(storeState => storeState.userModule.user)
 	const isLoading = useSelector(storeState => storeState.userModule.isLoading)
+	const [isInitialLoad, setIsInitialLoad] = useState(true)
 	const headerRef = useRef(null)
 	const location = useLocation()
 	const isIndexPage = location.pathname === '/' || location.pathname === ''
@@ -21,6 +23,8 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	const isHostPage = location.pathname.includes("hosting")
 	const isEditPage = location.pathname.includes("edit")
 	const isExplorePage = location.pathname.includes("explore")
+	const isWishlistePage = location.pathname.includes("wishlists")
+	const isMobileProfilePage = location.pathname.includes("mobile-profile-menu")
 	const isMobile = useIsBreakPoint(768)
 	const [imgError, setImgError] = useState(false)
 
@@ -30,8 +34,11 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	useClickOutside([headerRef], onCollapse)
 	useEscapeKey(onCollapse)
 
-	// Show skeleton only during initial loading
-	if (isLoading) {
+	useEffect(() => {
+		setIsInitialLoad(false)
+	}, [])
+
+	if (isLoading && !isInitialLoad) {
 		return <AppHeaderSkeleton
 			isCompact={isCompact}
 			isIndexPage={isIndexPage}
@@ -41,14 +48,17 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 		/>
 	}
 
+	if (isMobile && isStayDetailsPage) return null
+	if (isMobile && isEditPage) return null
+	if (isMobile && isTripsPage) return null
+	if (isMobile && isWishlistePage) return null
+	if (isMobileProfilePage) return null
+
 	const headerClass = isCompact
 		? `compact-header full ${!isSticky ? 'no-sticky main-content' : ''} ${isIndexPage ? 'index-page' : ''}`
 		: `app-header full ${isIndexPage ? 'index-page' : ''}`
 
 	const containerClass = isCompact ? 'compact-header-content' : 'nav-bar'
-
-	if (isMobile && isStayDetailsPage) return null
-	if (isMobile && isEditPage) return null
 
 	function handleImageError() {
 		console.log('img failed to load:', user?.imgUrl)
@@ -58,7 +68,15 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	return (
 		<header className={headerClass} ref={headerRef}>
 			<div className={containerClass}>
-				<NavLink to="/" className="logo-header">
+				<NavLink onClick={() =>
+					setFilterBy({
+						destination: null,
+						city: null,
+						startDate: null,
+						endDate: null,
+						guests: null
+					})
+				} to="/" className="logo-header">
 					<span className="icon">{appHeaderSvg.logo}</span>
 					<span className="brand">clubnb</span>
 				</NavLink>

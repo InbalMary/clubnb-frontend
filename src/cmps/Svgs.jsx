@@ -377,7 +377,180 @@ export const svgControls = {
     </svg>,
     heartOutline: <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{ display: 'block', fill: 'none', height: '24px', width: '24px', stroke: 'currentcolor', strokeWidth: 3, overflow: 'visible' }}>
         <path d="m15.9998 28.6668c7.1667-4.8847 14.3334-10.8844 14.3334-18.1088 0-1.84951-.6993-3.69794-2.0988-5.10877-1.3996-1.4098-3.2332-2.11573-5.0679-2.11573-1.8336 0-3.6683.70593-5.0668 2.11573l-2.0999 2.11677-2.0988-2.11677c-1.3995-1.4098-3.2332-2.11573-5.06783-2.11573-1.83364 0-3.66831.70593-5.06683 2.11573-1.39955 1.41083-2.09984 3.25926-2.09984 5.10877 0 7.2244 7.16667 13.2241 14.3333 18.1088z"></path>
-    </svg>
+    </svg>,
+    profile: <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        style={{
+            display: 'block',
+            fill: 'none',
+            height: '24px',
+            width: '24px',
+            stroke: 'currentColor',
+            strokeWidth: 2.66667,
+            overflow: 'visible',
+        }}
+    >
+        <g fill="none">
+            <circle cx="16" cy="16" r="14" />
+            <path d="m26.46 25.62c-1.58-2.81-4.26-4.9-7.46-5.73v-.72c1.79-1.04 3-2.96 3-5.17 0-3.31-2.69-6-6-6s-6 2.69-6 6c0 2.22 1.21 4.14 3 5.17v.72c-3.16.82-5.83 2.87-7.42 5.64" />
+        </g>
+    </svg>,
+    settings: <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        style={{
+            display: 'block',
+            fill: 'none',
+            height: '24px',
+            width: '24px',
+            stroke: 'currentColor',
+            strokeWidth: 2,
+            overflow: 'visible',
+        }}
+    >
+        <path
+            fill="none"
+            d="M19.38 27a4.14 4.14 0 0 1 3.05-2.54 4.06 4.06 0 0 1 3.17.71 1 1 0 0 0 1.47-.33l2.11-3.64a1 1 0 0 0-.46-1.44 4.1 4.1 0 0 1 0-7.48 1 1 0 0 0 .46-1.44l-2.11-3.66a1 1 0 0 0-1.47-.33 4.07 4.07 0 0 1-3.17.71A4.14 4.14 0 0 1 19.38 5a4 4 0 0 1-.27-1.87 1 1 0 0 0-1-1.15h-4.2a1 1 0 0 0-1 1.15 4.11 4.11 0 0 1-3.34 4.43 4.06 4.06 0 0 1-3.17-.71 1 1 0 0 0-1.47.33l-2.11 3.64a1 1 0 0 0 .46 1.44 4.1 4.1 0 0 1 0 7.48 1 1 0 0 0-.46 1.44l2.11 3.64a1 1 0 0 0 1.47.33 4.06 4.06 0 0 1 3.17-.71 4.1 4.1 0 0 1 3 2.53 4 4 0 0 1 .28 1.88 1 1 0 0 0 1 1.15h4.18a1 1 0 0 0 1-1.15 4 4 0 0 1 .35-1.85zM12 16a4 4 0 1 1 4 4 4 4 0 0 1-4-4z"
+        />
+    </svg>,
+    profileInSetting: <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        style={{
+            display: 'block',
+            height: '24px',
+            width: '24px',
+            fill: 'currentColor',
+        }}
+    >
+        <path d="m16 19c6.1471 0 11.297 4.2667 12.6514 10h-2.0694c-1.3062-4.6165-5.5473-8-10.582-8s-9.27583 3.3835-10.58203 8h-2.06934c1.35439-5.7333 6.50427-10 12.65137-10zm0-13c3.0376 0 5.5 2.46244 5.5 5.5 0 3.0376-2.4624 5.5-5.5 5.5s-5.5-2.4624-5.5-5.5c0-3.03757 2.4624-5.5 5.5-5.5zm0 2c-1.933 0-3.5 1.567-3.5 3.5s1.567 3.5 3.5 3.5 3.5-1.567 3.5-3.5-1.567-3.5-3.5-3.5z" />
+    </svg>,
+    privacy: <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        style={{
+            display: 'block',
+            height: '24px',
+            width: '24px',
+            fill: 'currentColor',
+        }}
+    >
+        <path d="M16 2a3 3 0 0 1 2.9 2.21c.28-.12.6-.19.92-.2L20 4h.18A3 3 0 0 1 23 6.82v.35c.2-.07.4-.12.61-.14l.22-.02L24 7a3 3 0 0 1 3 2.82v10.81l-.03.1v.1a10 10 0 0 1-9.41 9.15l-.28.02H17a9.99 9.99 0 0 1-8.13-4.18l-.1-.14-.05-.05-.07-.1-1.34-2.17L3.67 16a3 3 0 0 1 5.1-3.15l.1.15.13.23V7a3 3 0 0 1 2.65-2.98l.17-.01L12 4c.39 0 .76.07 1.1.21A3 3 0 0 1 16 2zm0 2a1 1 0 0 0-1 .88V15h-2V7a1 1 0 0 0-2-.12v9.19a7 7 0 0 1 6 6.69V23h-2a5 5 0 0 0-4.78-5H9.43l-2.3-4a1 1 0 0 0-1.36-.37 1 1 0 0 0-.4 1.31l.06.12 3.63 7.33 1.2 1.95.09.1a8 8 0 0 0 14.62-3.74l.02-.25.01-.11V10a1 1 0 0 0-.77-.97L24.12 9 24 9a1 1 0 0 0-1 1v5h-2V7a1 1 0 0 0-.88-1h-.24a1 1 0 0 0-.87.88L19 7v8h-2V5a1 1 0 0 0-1-1z" />
+    </svg>,
+    help: <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        style={{
+            display: 'block',
+            height: '24px',
+            width: '24px',
+            fill: 'currentColor',
+        }}
+    >
+        <path d="M16 1a15 15 0 1 0 15 15A15.02 15.02 0 0 0 16 1zm0 28a13 13 0 1 1 13-13 13.01 13.01 0 0 1-13 13zm1.5-5.5A1.5 1.5 0 1 1 16 22a1.5 1.5 0 0 1 1.5 1.5zM21.58 12c0 2.53-1.7 4.58-4.57 5.59L17 20h-2l.01-3.91.74-.2c1.15-.32 3.83-1.32 3.83-3.89a3.19 3.19 0 0 0-3.45-3.17 3.68 3.68 0 0 0-3.53 2.72L10.67 11a5.66 5.66 0 0 1 5.46-4.17A5.2 5.2 0 0 1 21.58 12z" />
+    </svg>,
+    referHost: <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        style={{
+            display: 'block',
+            height: '24px',
+            width: '24px',
+            fill: 'currentColor',
+        }}
+    >
+        <path d="m17.207 19.293 4.293 4.2929c.7809.7811.7809 2.0471 0 2.8282l-4.293 4.2929-1.414-1.414 3.2929-3.293h-9.0859v-2h9.0859l-3.2929-3.293zm-1.207-5.293c6.1471 0 11.297 4.2667 12.6514 10h-2.0694c-1.3062-4.6165-5.5473-8-10.582-8s-9.27583 3.3835-10.58203 8h-2.06934c1.35439-5.7333 6.50427-10 12.65137-10zm0-13c3.0376 0 5.5 2.46244 5.5 5.5 0 3.03761-2.4624 5.5-5.5 5.5s-5.5-2.46239-5.5-5.5c0-3.03757 2.4624-5.5 5.5-5.5zm0 2c-1.933 0-3.5 1.567-3.5 3.5 0 1.93303 1.567 3.5 3.5 3.5s3.5-1.56696 3.5-3.5c0-1.933-1.567-3.5-3.5-3.5z" />
+    </svg>,
+    findCoHost: <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        style={{
+            display: 'block',
+            height: '24px',
+            width: '24px',
+            fill: 'currentColor',
+        }}
+    >
+        <path d="M11 31v-9.07a8 8 0 0 1 1.75-14.6 4 4 0 1 1 6.73-.35A6 6 0 0 0 25 1.23V1h2a8 8 0 0 1-7.75 8H17V6.73a2 2 0 1 0-2 0V9a6 6 0 0 0-4 10.47V13h2v16h2v-9h2v9h2V13h2v18H11z" />
+    </svg>,
+    giftcard: <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        style={{
+            display: 'block',
+            height: '24px',
+            width: '24px',
+            fill: 'currentColor',
+        }}
+    >
+        <path d="M29 5a2 2 0 0 1 2 1.85V25a2 2 0 0 1-1.85 2H3a2 2 0 0 1-2-1.85V7a2 2 0 0 1 1.85-2H3zM13.59 17H3v8h12v-6.59l-4.3 4.3-1.4-1.42zM29 17H18.41l4.3 4.3-1.42 1.4L17 18.42V25h12zM15 7H3v8h4.54a4 4 0 0 1 6.28-4.84c.29.28.68.85 1.18 1.74zm6 4c-.53 0-.98.17-1.42.6-.21.2-.63.87-1.22 1.98l-.25.47-.5.95H21a2 2 0 0 0 1.98-1.7l.01-.15L23 13a2 2 0 0 0-2-2zm8-4H17v4.9c.47-.82.83-1.37 1.12-1.67l.06-.07A4 4 0 0 1 24.46 15H29zm-18 4a2 2 0 0 0-2 2v.15A2 2 0 0 0 11 15h3.38l-.49-.95-.36-.69c-.54-.98-.91-1.58-1.1-1.76-.45-.43-.9-.6-1.43-.6z" />
+    </svg>,
+    legal: <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        style={{
+            display: 'block',
+            height: '24px',
+            width: '24px',
+            fill: 'currentColor',
+        }}
+    >
+        <path d="M28.41 10 20 1.59A2.01 2.01 0 0 0 18.59 1H8a5 5 0 0 0-5 5v20a5 5 0 0 0 5 5h16a5 5 0 0 0 5-5V11.41a1.99 1.99 0 0 0-.59-1.41ZM19 3.41 26.59 11H22a3 3 0 0 1-3-3ZM27 26a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h9v5a5 5 0 0 0 5 5h5Z" />
+    </svg>,
+    logout: <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+        style={{
+            display: 'block',
+            height: '24px',
+            width: '24px',
+            fill: 'currentColor',
+        }}
+    >
+        <path d="M25 1a2 2 0 0 1 2 1.85V29h2v2H3v-2h2V3a2 2 0 0 1 1.85-2H7zm0 2H7v26h18zm-3 12a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+    </svg>,
+    arrowRight: <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        style={{ display: "block", fill: "none", height: "1rem", width: "1rem", stroke: "currentColor", strokeWidth: 3, overflow: "visible" }}
+        aria-hidden="true"
+        role="presentation"
+        focusable="false"
+    >
+        <path d="M12 4 L23.3 15.3 A1 1 0 0 1 23.3 16.7 L12 28" />
+    </svg>,
+
 }
 
 

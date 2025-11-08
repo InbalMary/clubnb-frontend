@@ -15,7 +15,7 @@ const initialState = {
     user: userService.getLoggedinUser() || null,
     users: [],
     watchedUser: null,
-    isLoading: true,
+    isLoading: false,
 }
 
 export function userReducer(state = initialState, action) {

@@ -170,22 +170,29 @@ export function SearchBar({ initialModal = null, onCollapse, onMobileSearchOpenC
         setTimeout(() => setActiveModal('checkin'), 0)
     }
 
+    const extractCityName = (destinationName) => {
+        if (!destinationName) return null
+        return destinationName.split(',')[0].trim()
+    }
+
     const handleSearch = () => {
         setActiveModal(null)
 
         const totalGuests = guests.adults + guests.children
+        const cityName = extractCityName(destination?.name)
 
         const filterParams = {
             destination: destination?.name || null,
+            city: cityName,
             startDate: dateRange.from ? formatDate(dateRange.from) : null,
             endDate: dateRange.to ? formatDate(dateRange.to) : null,
             guests: totalGuests > 0 ? totalGuests : null,
         }
 
+        console.log('🔍 SearchBar handleSearch - filterParams:', filterParams)
         setFilterBy(filterParams)
 
         if (destination?.name) {
-            const cityName = destination.name.split(',')[0].trim()
             const encodedCity = encodeURIComponent(cityName)
 
             const params = new URLSearchParams()
@@ -208,10 +215,7 @@ export function SearchBar({ initialModal = null, onCollapse, onMobileSearchOpenC
             if (guests.infants) params.set('infants', guests.infants.toString())
             if (guests.pets) params.set('pets', guests.pets.toString())
             setSearchParams(params, { replace: true })
-            loadStays(filterParams)
             if (onCollapse) onCollapse()
-        } else {
-            loadStays(filterParams)
         }
     }
 

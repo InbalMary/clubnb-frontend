@@ -1,6 +1,6 @@
 import { Modal } from './Modal'
 import { ImgUploader } from './ImgUploader'
-import { useState, useEffect, useImperativeHandle, forwardRef, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import { userService } from '../services/user/user.service.remote'
 import { login, signup } from '../store/actions/user.actions'
@@ -13,25 +13,21 @@ import { useScrollLock } from '../customHooks/useScrollLock'
 import { jwtDecode } from 'jwt-decode'
 import { loadWishlists } from '../store/actions/wishlist.actions'
 
-export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up', subtitle = 'Welcome to Clubnb', onLoginSuccess }) {
+export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up', subtitle = 'Welcome to Clubnb', onLoginSuccess, isFromWishlist }) {
 
-    const [modalType, setModalType] = useState('login')
+    const [modalType, setModalType] = useState('signup')
     const [credentials, setCredentials] = useState(userService.getEmptyUser())
     const loggedinUser = useSelector(storeState => storeState.loggedinUser)
     const [guestUser, setGuestUser] = useState(null)
 
     const navigate = useNavigate()
-    const location = useLocation()
-    const isSignup = location.pathname.includes('signup')
 
     useEffect(() => {
         loadGuestUser()
     }, [])
-    useScrollLock(isOpen)
 
-    useEffect(() => {
-        setModalType(isSignup ? 'signup' : 'login')
-    }, [isSignup])
+
+    useScrollLock(isOpen)
 
     async function loadGuestUser() {
         try {
@@ -62,40 +58,66 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
         setCredentials({ username: '', password: '', fullname: '', imgUrl: '' })
     }
 
-    async function onLogin(credentials) {
-        onClose() // close early to prevent flicker during login success transition
+    async function onLogin(credentials, selectedType = modalType) {
+        onClose() // close early to prevent flicker 
         try {
-            if (modalType === 'signup') {
-                await signup(credentials)
+            let user
+            if (selectedType === 'signup') {
+                user = await signup(credentials)
                 showSuccessMsg('Signed in successfully')
             } else {
-                await login(credentials)
-                const loggedinUser = userService.getLoggedinUser()
-                showSuccessMsg(`Welcome, ${loggedinUser?.fullname || loggedinUser?.username || 'guest'}!`)
+                user = await login(credentials)
+                showSuccessMsg(`Welcome, ${user.fullname || 'guest'}!`)
             }
+
             clearState()
-            const loggedinUser = userService.getLoggedinUser()
-            if (loggedinUser?._id) {
-                await loadWishlists(loggedinUser._id)
-            }
 
             if (onLoginSuccess) {
                 setTimeout(() => {
                     onLoginSuccess()
-                    // onClose() skipped to avoid reopening flicker
                 }, 100)
             } else {
                 onClose()
             }
-            // navigate('/')
         } catch (err) {
-            const msg = modalType === 'signup'
+            const msg = selectedType === 'signup'
                 ? 'Had a problem signing up'
                 : 'Had a problem logging in'
             showErrorMsg(msg)
             console.error('Login error:', err)
         }
     }
+
+    // async function onLogin(credentials, selectedType = modalType) {
+    //     onClose() // close early to prevent flicker 
+    //     try {
+    //         if (selectedType === 'signup') {
+    //             await signup(credentials)
+    //             showSuccessMsg('Signed in successfully')
+    //         } else {
+    //             await login(credentials)
+    //             showSuccessMsg(`Welcome, ${credentials?.fullname || 'guest'}!`)
+    //         }
+    //         clearState()
+    //         if (loggedinUser?._id) {
+    //             await loadWishlists(loggedinUser._id)
+    //         }
+
+    //         if (onLoginSuccess) {
+    //             setTimeout(() => {
+    //                 onLoginSuccess()
+    //             }, 100)
+    //         } else {
+    //             onClose()
+    //         }
+    //     } catch (err) {
+    //         const msg = selectedType === 'signup'
+    //             ? 'Had a problem signing up'
+    //             : 'Had a problem logging in'
+    //         showErrorMsg(msg)
+    //         console.error('Login error:', err)
+    //     }
+    // }
 
     function onUploaded(imgUrl) {
         setCredentials({ ...credentials, imgUrl })
@@ -124,13 +146,10 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
             } else {
                 onClose()
             }
-            // navigate('/') 
-
         } catch (err) {
             showErrorMsg('Had problem logging guest')
             console.error('Login error:', err)
         }
-
     }
 
     function handleToggleType() {
@@ -147,7 +166,9 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
             useBackdrop={true}
             className='login-signup-modal'
         >
-            <h2 className="login-modal-subtitle">{subtitle}</h2>
+            <h2 className={isFromWishlist ? 'login-modal-subtitle' : ''}>
+                {subtitle}
+            </h2>
             {modalType === 'signup' &&
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <input
@@ -207,8 +228,8 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
             <div className="border"><div>or</div></div>
             <div className="login-options">
                 <button onClick={handleToggleType} className="btn">{modalType === 'login' ? 'Signup' : 'Login'}</button>
-                <button onClick={onGuestLogin} className="btn">Login as a guest</button>
-                <GoogleLoginButton modalType={modalType} onLogin={onLogin} onLoginSuccess={onLoginSuccess} onClose={onClose} >
+                {modalType === 'login' && <button onClick={onGuestLogin} className="btn">Login as a guest</button>}
+                <GoogleLoginButton modalType={modalType} onLogin={onLogin}>
                     {modalType === 'signup' ? 'Sign up with Google' : 'Login with Google'}
                 </GoogleLoginButton>
             </div>
@@ -218,65 +239,69 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
 }
 
 
-function GoogleLoginButton({ modalType, onLogin, onLoginSuccess, onClose, children }) {
-
-    const navigate = useNavigate()
-    let tokenClient
-    const isSignup = location.pathname.includes('signup')
-
+function GoogleLoginButton({ modalType, onLogin, children }) {
+    const modalTypeRef = useRef(modalType)
 
     useEffect(() => {
-        const script = document.createElement("script")
-        script.src = "https://accounts.google.com/gsi/client"
-        script.async = true
-        script.onload = () => {
-            tokenClient = google.accounts.oauth2.initTokenClient({
-                client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-                scope: "openid email profile",
-                callback: (tokenResponse) => {
-                    // Step 2: After choosing account, trigger ID token sign-in
-                    google.accounts.id.initialize({
-                        client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-                        callback: handleGoogleLogin,
-                        auto_select: true,
-                    })
-                    google.accounts.id.prompt() // Step 3: show the ID token popup
-                }
-            })
-        }
-        document.body.appendChild(script)
+        modalTypeRef.current = modalType
+    }, [modalType])
 
-        return () => {
-            document.body.removeChild(script)
+    // let tokenClient
+    const tokenClientRef = useRef(null)
+
+    useEffect(() => {
+        // Check if the script already exists (avoid duplicates)
+        if (!document.getElementById("google-client-script")) {
+            const script = document.createElement("script")
+            script.src = "https://accounts.google.com/gsi/client"
+            script.id = "google-client-script"
+            script.async = true
+            script.defer = true
+            script.onload = initGoogleClient
+            document.body.appendChild(script)
+        } else {
+            initGoogleClient()
         }
     }, [])
+
+    function initGoogleClient() {
+        // Initialize only once
+        if (tokenClientRef.current) return
+
+        tokenClientRef.current = google.accounts.oauth2.initTokenClient({
+            client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+            scope: "openid email profile",
+            callback: (tokenResponse) => {
+                google.accounts.id.initialize({
+                    client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+                    callback: handleGoogleLogin,
+                    auto_select: true,
+                })
+                google.accounts.id.prompt()
+            },
+        })
+    }
 
     async function handleGoogleLogin(credentialResponse) {
         try {
             const decoded = jwtDecode(credentialResponse.credential)
-
             const googleUser = {
                 username: decoded.email,
                 fullname: decoded.name,
                 imgUrl: decoded.picture,
-                password: decoded.sub
+                password: decoded.sub,
             }
-
-            //  Let existing login logic handle storage + UI + modal closing
-            await onLogin(googleUser)
-            if (onLoginSuccess) onLoginSuccess()
-
+            await onLogin(googleUser, modalTypeRef.current)
         } catch (err) {
-            console.error('Google login failed:', err)
-
-            showErrorMsg('Google login failed. Please try again.')
+            console.error("Google login failed:", err)
+            showErrorMsg("Google login failed. Please try again.")
         }
     }
 
     const handleLoginClick = () => {
         // Step 1: Force account selection
-        if (!tokenClient) return showErrorMsg("Google client not loaded yet. Please close the window and try again.")
-        tokenClient.requestAccessToken({ prompt: "select_account" })
+        if (!tokenClientRef.current) return showErrorMsg("Google client not loaded yet. Please close the window and try again.")
+        tokenClientRef.current.requestAccessToken({ prompt: "select_account" })
     }
 
     return (

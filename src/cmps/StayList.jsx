@@ -13,8 +13,7 @@ export function StayList() {
     const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
     const { stays, isLoading } = useSelector(storeState => storeState.stayModule)
     const wm = useWishlistModal(wishlists)
-    console.log('StayList mounted')
-
+    // console.log('StayList mounted')
 
     const groups = [...new Set(stays.map(stay => stay.loc.city))]
     if (isLoading) return <StayListSkeleton categories={groups} />
@@ -102,10 +101,14 @@ export function StayList() {
                                 key={wishlist._id}
                                 onClick={() => wm.onSelectWishlistFromModal(wishlist)}
                             >
-                                <img src={wishlist.stays?.[0].imgUrls?.[0]} alt={wishlist.title} className="wishlist-modal-img" />
+                                <img src={wishlist?.stays?.[0]?.imgUrls?.[0] ||
+                                    "https://a0.muscache.com/im/pictures/hosting/Hosting-1499241797877148255/original/578a39ea-267c-4f72-82ec-5e80156e7ee5.jpeg?im_w=480"
+                                }
+                                    alt={wishlist.title} className="wishlist-modal-img" />
                                 <span className="stay-name">{wishlist.title}</span>
                             </li>
-                        ))}
+                        )
+                        )}
                     </ul>
 
                 </Modal>
@@ -186,6 +189,7 @@ export function StayList() {
                     title={wm.signupModalProps.title}
                     subtitle={wm.signupModalProps.subtitle}
                     onLoginSuccess={wm.handlePostLoginFlow}
+                    isFromWishlist={true}
                 />
             )}
 
