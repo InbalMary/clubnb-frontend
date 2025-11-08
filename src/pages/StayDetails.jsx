@@ -1,4 +1,4 @@
-import { createRef, Fragment, useEffect, useMemo, useRef, useState } from 'react'
+import { createRef, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -18,35 +18,42 @@ import { HostInfo } from '../cmps/HostInfo'
 import { StayMap } from '../cmps/StayMap'
 import { StayHeader } from '../cmps/StayHeader'
 import { useDateRange } from '../customHooks/useDateRange'
-import { removeStayFromWishlist, removeWishlist } from '../store/actions/wishlist.actions'
 import { WishlistModal } from '../cmps/WishListModal'
 import { useIsBreakPoint } from '../customHooks/useIsBreakPoint'
 import { setCurrentOrder } from '../store/actions/order.actions'
-import { calculateNights } from '../services/util.service'
+import { calculateNights, getTruthyValues, toUrlDate } from '../services/util.service'
 import { ShareModal } from '../cmps/ShareModal'
 import { useWishlistModal } from '../customHooks/useWishlistModal'
 import { LoginSignupModal } from '../cmps/LoginSignupModal'
 
 export function StayDetails() {
+  console.count('StayDetails render')
   const [searchParams, setSearchParams] = useSearchParams()
   const { stayId } = useParams()
 
   const startDate = searchParams.get('startDate')
   const endDate = searchParams.get('endDate')
-  let stay = useSelector(storeState => storeState.stayModule.stay)
-  const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
+  const adults = searchParams.get('adults')
+  const children = searchParams.get('children')
+  const infants = searchParams.get('infants')
+  const pets = searchParams.get('pets')
 
+  const stay = useSelector(storeState => storeState.stayModule.stay)
+  const wishlists = useSelector(storeState => storeState.wishlistModule.wishlists)
+  const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
   const isLoading = useSelector(storeState => storeState.stayModule.isLoading)
+
+
+  const wm = useWishlistModal(wishlists)
+
   const { dateRange, setDateRange } = useDateRange()
   const [modalType, setModalType] = useState(null)
   const [selectedReviewIdx, setSelectedReviewIdx] = useState(null)
-  // const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
-  const wm = useWishlistModal(wishlists)
   const [isShareModalOpen, setIsShareModalOpen] = useState(false)
+  // const [isWishlistModalOpen, setIsWishlistModalOpen] = useState(false)
 
   const reviewRefs = useMemo(() => stay?.reviews?.map(() => createRef()), [stay?.reviews])
   const amenitiesData = getAmenitiesData(amenitiesSvg, stay?.amenities)
-  const guests = getGuestsFromParams(searchParams)
 
   const isMobile = useIsBreakPoint(744);
   const isMiddle = useIsBreakPoint(1130);
@@ -55,12 +62,97 @@ export function StayDetails() {
   const navigate = useNavigate()
 
 
+  const [guests, setGuests] = useState(() => {
+    const adults = searchParams.get('adults')
+    const children = searchParams.get('children')
+    const infants = searchParams.get('infants')
+    const pets = searchParams.get('pets')
+    const minAdults = stayId ? 1 : 0
+    return {
+      adults: adults ? Number(adults) : minAdults,
+      children: children ? Number(children) : 0,
+      infants: infants ? Number(infants) : 0,
+      pets: pets ? Number(pets) : 0,
+    }
+  })
+
+  const [userCleared, setUserCleared] = useState(false)
+
   useEffect(() => {
-    if (stayId) {
-      loadStay(stayId)
+    if (userCleared) return
+
+    if (startDate && endDate) {
+      setDateRange({ from: new Date(startDate), to: new Date(endDate) })
+      setUserCleared(false)
     }
 
+    if (adults || children || infants || pets) {
+
+      setGuests({
+        adults: filterBy.adults || parseInt(adults) || 1,
+        children: filterBy.children || parseInt(children) || 0,
+        infants: filterBy.infants || parseInt(infants) || 0,
+        pets: filterBy.pets || parseInt(pets) || 0,
+      })
+    }
+
+  }, [startDate, endDate, adults,
+    children,
+    infants,
+    pets])
+
+  useEffect(() => {
+    // merge local dateRange/guests into existing URL params (do not clobber other keys)
+    const timeout = setTimeout(() => {
+      // read current live search params from location so we don't
+      //  depend on the hook value and cause loops
+      const merged = new URLSearchParams(window.location.search)
+
+      const formattedFrom = dateRange?.from ? toUrlDate(dateRange.from) : null
+      const formattedTo = dateRange?.to ? toUrlDate(dateRange.to) : null
+
+      if (formattedFrom) merged.set('startDate', formattedFrom)
+      else if (userCleared) merged.delete('startDate')
+
+      if (formattedTo) merged.set('endDate', formattedTo)
+      else if (userCleared) merged.delete('endDate')
+
+      const setOrDelete = (key, value) => {
+        if (value != null && value !== '' && Number(value) > 0) merged.set(key, String(value))
+        else if (userCleared) merged.delete(key)
+      }
+
+      setOrDelete('adults', guests?.adults)
+      setOrDelete('children', guests?.children)
+      setOrDelete('infants', guests?.infants)
+      setOrDelete('pets', guests?.pets)
+
+      const newString = merged.toString()
+      // only write if changed
+      if (newString !== (new URLSearchParams(window.location.search)).toString()) {
+        setSearchParams(merged, { replace: true })
+      }
+    }, 250)
+
+    return () => clearTimeout(timeout)
+  }, [dateRange, guests, userCleared])
+
+  function handleOnClear() {
+    setUserCleared(true)
+    setDateRange({ from: null, to: null })
+    const params = new URLSearchParams(searchParams)
+    params.delete('startDate')
+    params.delete('endDate')
+    setSearchParams(params, { replace: true })
+  }
+
+  useEffect(() => {
+    //  if (stayId) {
+
+    loadStay(stayId)
+    //  }
   }, [stayId])
+
 
   useEffect(() => {
     if (isLoading) {
@@ -497,7 +589,11 @@ export function StayDetails() {
             <div ref={refs.stickyContainerRef} className="sticky-ref">
               <StickyContainer stay={stay}
                 dateRange={dateRange}
-                setDateRange={setDateRange} />
+                setDateRange={setDateRange}
+                guests={guests}
+                setGuests={setGuests}
+                handleOnClear={handleOnClear}
+              />
             </div>
           }
 
