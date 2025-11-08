@@ -5,125 +5,149 @@ import { useClickOutside } from "../customHooks/useClickOutside"
 import { CalendarStayDates, FancyButton, RareFind, TotalCount } from "./SmallComponents"
 import { useNavigate, useParams, useSearchParams } from "react-router-dom"
 import { GuestSelector } from "./GuestSelector"
-import { calculateNights, formatDate, formatGuestsText } from "../services/util.service"
+import { calculateNights, formatDate, formatGuestsText, toUrlDate } from "../services/util.service"
 import { Modal } from "./Modal"
 import { svgControls } from "./Svgs"
 import { setCurrentOrder } from "../store/actions/order.actions"
 import { useIsBreakPoint } from "../customHooks/useIsBreakPoint"
 import { useSelector } from "react-redux"
 
-export function StickyContainer({ stay, dateRange, setDateRange }) {
+export function StickyContainer({ stay, dateRange, setDateRange, guests, setGuests, handleOnClear }) {
 
     const [modalType, setModalType] = useState(null)
-    const [userCleared, setUserCleared] = useState(false)
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
 
 
     const [searchParams, setSearchParams] = useSearchParams()
-    const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
     const navigate = useNavigate()
     const { stayId } = useParams()
-
-    const startDate = searchParams.get('startDate')
-    const endDate = searchParams.get('endDate')
-    const adults = searchParams.get('adults')
-    const children = searchParams.get('children')
-    const infants = searchParams.get('infants')
-    const pets = searchParams.get('pets')
-
-    useEffect(() => {
-        if (userCleared) return
-        const clearedFlag = stayId && sessionStorage.getItem(`datesClearedForStay_${stayId}`)
-        if (clearedFlag) return
-
-        const hasStartDate = !!startDate
-        const hasEndDate = !!endDate
-
-        if (!hasStartDate && !hasEndDate && stay?.startDate && stay?.endDate) {
-            const from = new Date(stay.startDate)
-            const to = new Date(stay.endDate)
-            setDateRange({ from, to })
-        }
-
-        // setGuests({
-        //     adults: parseInt(adults) ,
-        //     children: parseInt(children) ,
-        //     infants: parseInt(infants) ,
-        //     pets: parseInt(pets) ,
-        // })
-        if (adults || children || infants || pets) {
-
-            setGuests({
-                adults: parseInt(adults) || filterBy.adults || 0,
-                children: parseInt(children) || filterBy.children || 0,
-                infants: parseInt(infants) || filterBy.infants || 0,
-                pets: parseInt(pets) || filterBy.pets || 0,
-            })
-        }
-    }, [stay, userCleared])
+    const startDate = dateRange.from
+    const endDate = dateRange.to
 
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     if (userCleared) return
+    //     const clearedFlag = stayId && sessionStorage.getItem(`datesClearedForStay_${stayId}`)
+    //     if (clearedFlag) return
 
-        if (startDate && endDate) {
-            setDateRange({ from: new Date(startDate), to: new Date(endDate) })
-        }
-        if (adults || children || infants || pets) {
+    //     const hasStartDate = !!startDate
+    //     const hasEndDate = !!endDate
 
-            setGuests({
-                adults: parseInt(adults) || filterBy.adults || 0,
-                children: parseInt(children) || filterBy.children || 0,
-                infants: parseInt(infants) || filterBy.infants || 0,
-                pets: parseInt(pets) || filterBy.pets || 0,
-            })
-        }
+    //     if (!hasStartDate && !hasEndDate && stay?.startDate && stay?.endDate) {
+    //         const from = new Date(stay.startDate)
+    //         const to = new Date(stay.endDate)
+    //         setDateRange({ from, to })
+    //     }
 
-    }, [startDate, endDate, adults,
-        children,
-        infants,
-        pets])
+    //     if (adults || children || infants || pets) {
+
+    //         setGuests({
+    //             adults: parseInt(adults) || filterBy.adults || 1,
+    //             children: parseInt(children) || filterBy.children || 0,
+    //             infants: parseInt(infants) || filterBy.infants || 0,
+    //             pets: parseInt(pets) || filterBy.pets || 0,
+    //         })
+    //     }
+    // }, [stay, userCleared, filterBy])
 
 
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            const params = new URLSearchParams(searchParams)
-            let changed = false
+    // useEffect(() => {
+    //     if (userCleared) return
+    //     const clearedFlag = stayId && sessionStorage.getItem(`datesClearedForStay_${stayId}`)
+    //     if (clearedFlag) return
 
-            if (dateRange.from && startDate !== formatDate(dateRange.from)) {
-                params.set('startDate', formatDate(dateRange.from))
-                changed = true
-            } else if (!dateRange.from && userCleared && params.has('startDate')) {
-                params.delete('startDate')
-                changed = true
-            }
+    //     if (startDate && endDate) {
+    //         setDateRange({ from: new Date(startDate), to: new Date(endDate) })
+    //     }
+    //     if (adults || children || infants || pets) {
 
-            if (dateRange.to && endDate !== formatDate(dateRange.to)) {
-                params.set('endDate', formatDate(dateRange.to))
-                changed = true
-            } else if (!dateRange.to && userCleared && params.has('endDate')) {
-                params.delete('endDate')
-                changed = true
-            }
-            const updateGuestParam = (key, value) => {
-                if (value > 0) {
-                    params.set(key, value.toString())
-                } else {
-                    params.delete(key)
-                }
-                changed = true
-            }
+    //         setGuests({
+    //             adults: filterBy.adults || 1,
+    //             children: filterBy.children || parseInt(children) || 0,
+    //             infants: filterBy.infants || parseInt(infants) || 0,
+    //             pets: filterBy.pets || parseInt(pets) || 0,
+    //         })
+    //     }
 
-            updateGuestParam('adults', guests.adults)
-            updateGuestParam('children', guests.children)
-            updateGuestParam('infants', guests.infants)
-            updateGuestParam('pets', guests.pets)
+    // }, [startDate, endDate, adults,
+    //     children,
+    //     infants,
+    //     pets])
 
-            if (changed) setSearchParams(params, { replace: true })
-        }, 300)
+    // useEffect(() => {
+    //     // merge local dateRange/guests into existing URL params (do not clobber other keys)
+    //     const timeout = setTimeout(() => {
+    //         // read current live search params from location so we don't depend on the hook value and cause loops
+    //         const merged = new URLSearchParams(window.location.search)
 
-        return () => clearTimeout(timeout)
+    //         const formattedFrom = dateRange?.from ? toUrlDate(dateRange.from) : null
+    //         const formattedTo = dateRange?.to ? toUrlDate(dateRange.to) : null
 
-    }, [dateRange, guests, userCleared])
+    //         if (formattedFrom) merged.set('startDate', formattedFrom)
+    //         else if (userCleared) merged.delete('startDate')
+
+    //         if (formattedTo) merged.set('endDate', formattedTo)
+    //         else if (userCleared) merged.delete('endDate')
+
+    //         const setOrDelete = (key, value) => {
+    //             if (value != null && value !== '' && Number(value) > 0) merged.set(key, String(value))
+    //             else if (userCleared) merged.delete(key)
+    //         }
+
+    //         setOrDelete('adults', guests?.adults)
+    //         setOrDelete('children', guests?.children)
+    //         setOrDelete('infants', guests?.infants)
+    //         setOrDelete('pets', guests?.pets)
+
+    //         const newString = merged.toString()
+    //         // only write if changed
+    //         if (newString !== (new URLSearchParams(window.location.search)).toString()) {
+    //             setSearchParams(merged, { replace: true })
+    //         }
+    //     }, 250)
+
+    //     return () => clearTimeout(timeout)
+    // }, [dateRange, guests, userCleared])
+    // useEffect(() => {
+    //     const timeout = setTimeout(() => {
+    //         const params = new URLSearchParams(searchParams)
+    //         let changed = false
+
+    //         if (dateRange.from && startDate !== formatDate(dateRange.from)) {
+    //             params.set('startDate', formatDate(dateRange.from))
+    //             changed = true
+    //         } else if (!dateRange.from && userCleared && params.has('startDate')) {
+    //             params.delete('startDate')
+    //             changed = true
+    //         }
+
+    //         if (dateRange.to && endDate !== formatDate(dateRange.to)) {
+    //             params.set('endDate', formatDate(dateRange.to))
+    //             changed = true
+    //         } else if (!dateRange.to && userCleared && params.has('endDate')) {
+    //             params.delete('endDate')
+    //             changed = true
+    //         }
+    //         const updateGuestParam = (key, value) => {
+    //             if (value > 0) {
+    //                 params.set(key, value.toString())
+    //             } else {
+    //                 params.delete(key)
+    //             }
+    //             changed = true
+    //         }
+
+    //         updateGuestParam('adults', guests.adults)
+    //         updateGuestParam('children', guests.children)
+    //         updateGuestParam('infants', guests.infants)
+    //         updateGuestParam('pets', guests.pets)
+
+    //         if (changed) setSearchParams(params, { replace: true })
+    //     }, 300)
+
+    //     return () => clearTimeout(timeout)
+
+    // }, [dateRange, guests, userCleared])
 
     const containerRef = useRef()
     const modalRef = useRef()
@@ -147,25 +171,13 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
         }
     }
 
-    function handleOnClear() {
-        setUserCleared(true)
-        setDateRange({ from: null, to: null })
-        // sessionStorage.removeItem(`savedParams_${stayId}`)
-        const params = new URLSearchParams(searchParams)
-        params.delete('startDate')
-        params.delete('endDate')
-        setSearchParams(params, { replace: true })
-        if (stayId) sessionStorage.setItem(`datesClearedForStay_${stayId}`, 'true')
-    }
-
     useClickOutside([containerRef, modalRef], () => {
         setModalType(null)
     })
 
     function handleClick() {
-        // sessionStorage.setItem(`savedParams_${stay._id}`, params)
-        const from = dateRange.from || startDate
-        const to = dateRange.to || endDate
+        const from = dateRange.from
+        const to = dateRange.to
 
         if (from && to) {
             const numNights = calculateNights(from, to)
@@ -195,7 +207,7 @@ export function StickyContainer({ stay, dateRange, setDateRange }) {
     const isMed = useIsBreakPoint(880)
     const isBig = useIsBreakPoint(960)
 
-    const hasGuestValues = guests.adults > 0 || guests.children > 0 || guests.infants > 0 || guests.pets > 0
+    const hasGuestValues = guests?.adults > 0 || guests?.children > 0 || guests?.infants > 0 || guests?.pets > 0
 
 
     return (
