@@ -55,7 +55,6 @@ export function ReservationSummary({ order }) {
                     </p>
                 </div>
                 <div className='reservation-price'>
-                    {/* TODO: replace static values with dynamic calculation */}
                     <p>Price details</p>
                     <div className="price-details">
                         <div className='reservation-total-nights'>

@@ -1,0 +1,70 @@
+/*TABLET*/
+@media (min-width: 744px) and (max-width: 949px) {
+    .main-container {
+        grid-template-columns:
+            minmax(2rem, 1fr) minmax(0, min(909px, 100% - 4rem)) minmax(2rem, 1fr);
+    }
+
+    .confirm-pay-page>.btn.back,
+    .confirm-pay-page>.confirm-pay-title {
+        display: none;
+        /* hide desktop title */
+    }
+
+    .brand {
+        display: none;
+        /* hide logo title */
+    }
+
+    .confirm-pay-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0.6rem;
+    }
+
+    .confirm-pay-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 480px;
+        max-width: 90%;
+        order: -1;
+    }
+
+    .confirm-pay-header .btn.back {
+        margin-left: -4.3rem;
+        margin-right: 0.5rem;
+    }
+
+    .confirm-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: center;
+    }
+
+    .reservation-summary-wrapper {
+        order: -1;
+    }
+
+    .confirm-main,
+    .reservation-summary-wrapper {
+        width: 480px;
+        max-width: 90%;
+    }
+
+    .reservation-summary-wrapper .reservation-summary {
+        width: 100%;
+        max-width: 480px;
+    }
+
+
+    .rare-find {
+        border: 1px solid var(--gray6);
+        border-radius: 20px;
+        padding: 1.5rem;
+        margin-bottom: 0.6rem;
+    }
+
+}

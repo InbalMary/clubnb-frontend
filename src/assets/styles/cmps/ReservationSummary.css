@@ -21,6 +21,7 @@
     width: 104px;
     height: 104px;
     border-radius: 8px;
+
     aspect-ratio: 1 / 1;
     object-fit: cover;
 }
