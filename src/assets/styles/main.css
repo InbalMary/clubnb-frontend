@@ -24,6 +24,7 @@
 @import "./pages/ListingsPage.css";
 @import "./pages/Explore.css";
 @import "./pages/ConfirmPay.css";
+@import "./pages/ConfirmPay.mq.css";
 @import "./pages/WishlistIndex.css";
 @import "./pages/WishlistDetails.css";
 @import "./pages/HostDashboard.css";

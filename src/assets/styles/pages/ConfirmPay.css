@@ -66,6 +66,12 @@
     }
 }
 
+.confirm-pay-header {
+    display: none;
+    /* hidden on desktop */
+}
+
+
 /*LEFT COLUMN*/
 .confirm-layout {
     display: flex;
@@ -79,8 +85,6 @@
     width: 540px;
     gap: 1.5rem;
 
-
-
     >.payment-timing,
     >.payment-method,
     >.host-message {
@@ -88,7 +92,6 @@
         border-radius: 20px;
         padding: 1.5rem;
     }
-
 }
 
 .section-title {
