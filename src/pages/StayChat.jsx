@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { debounce } from '../services/util.service.js'
 import { addStayMsg, removeStayMsg } from '../store/actions/stay.actions'
+import { store } from '../store/store.js'
 import { 
     socketService, 
     SOCKET_EMIT_STAY_SET_TOPIC, 
@@ -14,13 +15,13 @@ import {
 
 export function StayChat({ stay, onClose }) {
     const [msg, setMsg] = useState({ txt: '' })
-    const [msgs, setMsgs] = useState([])
     const [typingUsers, setTypingUsers] = useState([])
 
     const msgsRef = useRef()
     const { stayId } = useParams()
 
     const user = useSelector(storeState => storeState.userModule.user)
+    const stayMsgs = useSelector(storeState => storeState.stayModule.stayMsgs)
     const currentUserName = user ? user.fullname : 'Guest'
 
     const debouncedStopTyping = useRef(
@@ -40,22 +41,17 @@ export function StayChat({ stay, onClose }) {
                 behavior: 'smooth',
             })
         }
-    }, [msgs])
+    }, [stayMsgs])
 
     useEffect(() => {
-        // Load existing messages
-        if (stay?.msgs) {
-            setMsgs(stay.msgs)
-        }
-
-        socketService.on(SOCKET_EVENT_STAY_ADD_MSG, addMsg)
+        socketService.on(SOCKET_EVENT_STAY_ADD_MSG, handleSocketMsg)
         socketService.on(SOCKET_EVENT_STAY_USER_TYPING, handleTypingEvent)
 
         return () => {
-            socketService.off(SOCKET_EVENT_STAY_ADD_MSG, addMsg)
+            socketService.off(SOCKET_EVENT_STAY_ADD_MSG, handleSocketMsg)
             socketService.off(SOCKET_EVENT_STAY_USER_TYPING, handleTypingEvent)
         }
-    }, [stay])
+    }, [])
 
     useEffect(() => {
         if (stayId) {
@@ -66,8 +62,9 @@ export function StayChat({ stay, onClose }) {
         }
     }, [stayId, currentUserName])
 
-    function addMsg(newMsg) {
-        setMsgs(prevMsgs => [...prevMsgs, newMsg])
+    function handleSocketMsg(newMsg) {
+        // Dispatch to Redux store - the reducer will handle duplicates
+        store.dispatch({ type: 'ADD_STAY_MSG', msg: newMsg })
     }
 
     function handleTypingEvent({ userName, isTyping }) {
@@ -132,6 +129,11 @@ export function StayChat({ stay, onClose }) {
         return msgFrom.fullname || 'Guest'
     }
 
+    const getUserImage = (userObj) => {
+        console.log('userObj', userObj)
+        return userObj?.imgUrl || userObj?.pictureUrl || 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
+    }
+
     const isHost = stay?.host?._id === user?._id
 
     return (
@@ -139,7 +141,7 @@ export function StayChat({ stay, onClose }) {
             <div className="chat-header">
                 <div className="chat-header-info">
                     <img 
-                        src={stay?.host?.pictureUrl || stay?.host?.imgUrl} 
+                        src={getUserImage(stay?.host)} 
                         alt={stay?.host?.firstName || stay?.host?.fullname} 
                         className="host-avatar-small"
                     />
@@ -154,14 +156,14 @@ export function StayChat({ stay, onClose }) {
             </div>
 
             <div ref={msgsRef} className="chat-messages">
-                {msgs.map((m, idx) => (
+                {stayMsgs.map((m, idx) => (
                     <div 
                         key={m.id ? `${m.id}-${idx}` : `msg-${idx}`} 
                         className={`message ${m.from?._id === user?._id ? 'user' : 'other'}`}
                     >
                         <div className="message-header">
                             <img 
-                                src={m.from?.imgUrl || 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'} 
+                                src={getUserImage(m.from)} 
                                 alt={m.from?.fullname || 'User'} 
                                 className="msg-avatar"
                             />

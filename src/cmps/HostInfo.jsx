@@ -124,7 +124,7 @@ export function HostInfo({ host, stay }) {
                     </div>
                     
                     <button 
-                        className="btn btn-gray message-host-btn" 
+                        className="btn btn-gray" 
                         onClick={() => setIsChatOpen(true)}
                     >
                         Message host

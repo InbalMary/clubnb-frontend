@@ -79,6 +79,13 @@ export function stayReducer(state = initialState, action) {
             break
 
         case ADD_STAY_MSG:
+            const msgExists = state.stayMsgs.some(m =>
+                m.id === action.msg.id ||
+                (m.txt === action.msg.txt &&
+                    m.timestamp === action.msg.timestamp &&
+                    m.from?._id === action.msg.from?._id)
+            )
+            if (msgExists) { return state }
             newState = {
                 ...state,
                 stayMsgs: [...state.stayMsgs, action.msg],
