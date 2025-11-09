@@ -637,7 +637,7 @@ export function StayDetails() {
           </div>
         </div>
 
-        <HostInfo host={stay?.host} />
+        <HostInfo host={stay?.host} stay={stay} />
       </div >
 
     </section >

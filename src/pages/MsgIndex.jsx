@@ -10,7 +10,7 @@ import { ChatApp } from './Chat'
 
 export function MsgIndex() {
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
-    const msgs = useSelector(storeState => storeState.msgModule.msgs)
+    const msgs = useSelector(storeState => storeState.msgModule?.msgs || [])
 
     const dispatch = useDispatch()
 

@@ -1,11 +1,16 @@
 import { httpService } from '../http.service'
 
+const STORAGE_KEY = 'stay'
+
 export const stayService = {
     query,
     getById,
     save,
     remove,
-    addStayReview
+    addStayReview,
+    getStayMsgs,
+    addStayMsg,
+    removeStayMsg
 }
 
 async function query(filterBy = { txt: '', minPrice: 0 }) {
@@ -32,4 +37,18 @@ async function save(stay) {
 async function addStayReview(stayId, txt) {
     const savedReview = await httpService.post(`stay/${stayId}/review`, {txt})
     return savedReview
+}
+
+
+async function getStayMsgs(stayId) {
+    return httpService.get(`${STORAGE_KEY}/${stayId}/msg`)
+}
+
+async function addStayMsg(stayId, txt) {
+    const savedMsg = await httpService.post(`${STORAGE_KEY}/${stayId}/msg`, { txt })
+    return savedMsg
+}
+
+async function removeStayMsg(stayId, msgId) {
+    return httpService.delete(`${STORAGE_KEY}/${stayId}/msg/${msgId}`)
 }

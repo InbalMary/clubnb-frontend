@@ -10,7 +10,7 @@ const initialState = {
 export function msgReducer(state = initialState, action = {}) {
   switch (action.type) {
     case SET_MSGS:
-      return { ...state, msgs: action.msgs }
+      return { ...state, msgs: Array.isArray(action.msgs) ? action.msgs : [] }      
     case ADD_MSG:
       return { ...state, msgs: [...state.msgs, action.msg] }
     case REMOVE_MSG:
