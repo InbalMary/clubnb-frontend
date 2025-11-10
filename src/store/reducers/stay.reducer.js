@@ -7,51 +7,109 @@ export const ADD_STAY_REVIEW = 'ADD_STAY_REVIEW'
 export const SET_FILTERBY = 'SET_FILTERBY'
 export const SET_IS_LOADING = 'SET_IS_LOADING'
 
+// Message actions
+export const SET_STAY_MSGS = 'SET_STAY_MSGS'
+export const ADD_STAY_MSG = 'ADD_STAY_MSG'
+export const REMOVE_STAY_MSG = 'REMOVE_STAY_MSG'
+
 const initialState = {
     stays: [],
     stay: null,
     filterBy: {},
     isLoading: false,
+    stayMsgs: [] // Messages for current stay
 }
 
 export function stayReducer(state = initialState, action) {
     var newState = state
     var stays
+
     switch (action.type) {
         case SET_STAYS:
             newState = { ...state, stays: action.stays }
             break
+
         case SET_IS_LOADING:
             newState = {
                 ...state,
                 isLoading: action.isLoading
             }
             break
+
         case SET_STAY:
-            newState = { ...state, stay: action.stay }
+            newState = {
+                ...state,
+                stay: action.stay,
+                stayMsgs: action.stay?.msgs || [] // Load msgs when stay loads
+            }
             break
+
         case SET_FILTERBY:
             newState = { ...state, filterBy: { ...state.filterBy, ...action.filterBy }, }
             break
+
         case REMOVE_STAY:
             const lastRemovedStay = state.stays.find(stay => stay._id === action.stayId)
             stays = state.stays.filter(stay => stay._id !== action.stayId)
             newState = { ...state, stays, lastRemovedStay }
             break
+
         case ADD_STAY:
             newState = { ...state, stays: [...state.stays, action.stay] }
             break
+
         case UPDATE_STAY:
             stays = state.stays.map(stay => (stay._id === action.stay._id) ? action.stay : stay)
             newState = { ...state, stays }
             break
+
         case ADD_STAY_REVIEW:
             if (action.review && state.stay) {
                 newState = { ...state, stay: { ...state.stay, reviews: [...state.stay.reviews || [], action.review] } }
-                break
             }
+            break
+
+        // MESSAGE REDUCERS 
+
+        case SET_STAY_MSGS:
+            newState = {
+                ...state,
+                stayMsgs: action.msgs
+            }
+            break
+
+        case ADD_STAY_MSG:
+            const msgExists = state.stayMsgs.some(m =>
+                m.id === action.msg.id ||
+                (m.txt === action.msg.txt &&
+                    m.timestamp === action.msg.timestamp &&
+                    m.from?._id === action.msg.from?._id)
+            )
+            if (msgExists) { return state }
+            newState = {
+                ...state,
+                stayMsgs: [...state.stayMsgs, action.msg],
+                stay: state.stay ? {
+                    ...state.stay,
+                    msgs: [...(state.stay.msgs || []), action.msg]
+                } : state.stay
+            }
+            break
+
+        case REMOVE_STAY_MSG:
+            newState = {
+                ...state,
+                stayMsgs: state.stayMsgs.filter(msg => msg.id !== action.msgId),
+                stay: state.stay ? {
+                    ...state.stay,
+                    msgs: (state.stay.msgs || []).filter(msg => msg.id !== action.msgId)
+                } : state.stay
+            }
+            break
+
         default:
     }
+
     return newState
 }
 

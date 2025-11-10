@@ -4,10 +4,24 @@ const { VITE_LOCAL, DEV } = import.meta.env
 
 export const SOCKET_EMIT_SEND_MSG = 'chat-send-msg'
 export const SOCKET_EMIT_SET_TOPIC = 'chat-set-topic'
-export const SOCKET_EMIT_USER_WATCH = 'user-watch'
+export const SOCKET_EMIT_TYPING = 'chat-typing'
 export const SOCKET_EVENT_ADD_MSG = 'chat-add-msg'
+export const SOCKET_EVENT_TYPING = 'chat-user-typing'
 
+// Stay chat events
+export const SOCKET_EMIT_STAY_SET_TOPIC = 'stay-set-topic'
+export const SOCKET_EMIT_STAY_SEND_MSG = 'stay-send-msg'
+export const SOCKET_EMIT_STAY_TYPING = 'stay-typing'
+export const SOCKET_EMIT_STAY_MSG_READ = 'stay-msg-read'
+export const SOCKET_EVENT_STAY_ADD_MSG = 'stay-add-msg'
+export const SOCKET_EVENT_STAY_USER_TYPING = 'stay-user-typing'
+export const SOCKET_EVENT_STAY_MSG_READ = 'stay-msg-read-status'
+
+// User events
+export const SOCKET_EMIT_USER_WATCH = 'user-watch'
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
+
+// Review events
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added'
 export const SOCKET_EVENT_REVIEW_REMOVED = 'review-removed'
 export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you'

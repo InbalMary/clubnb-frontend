@@ -1,13 +1,17 @@
+import { useState } from 'react'
 import verified from '../assets/svgs/verified.svg'
 import superhost from '../assets/svgs/superhost.svg'
 import shield from '../assets/svgs/shield.svg'
 import { hostSvgs, statSvgs } from './Svgs'
 import { useIsBreakPoint } from '../customHooks/useIsBreakPoint'
+import { StayChat } from '../pages/StayChat'
 
-export function HostInfo({ host }) {
-    if (!host) return null
+export function HostInfo({ host, stay }) {
+    const [isChatOpen, setIsChatOpen] = useState(false)
     const isMobile = useIsBreakPoint(744)
     const fallbackImgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
+
+    if (!host) return null
 
     return (
         <section className="host-info">
@@ -118,7 +122,14 @@ export function HostInfo({ host }) {
                         <p>Response rate: {host.responseRate || 100} %</p>
                         <p>Responds {host.responseTime || 'within an hour'}</p>
                     </div>
-                    <button className="btn btn-gray">Message host</button>
+                    
+                    <button 
+                        className="btn btn-gray" 
+                        onClick={() => setIsChatOpen(true)}
+                    >
+                        Message host
+                    </button>
+                    
                     <div className="safety-note">
                         <span className="shield-icon">
                             <img src={shield} alt="Safety note" />
@@ -129,9 +140,17 @@ export function HostInfo({ host }) {
                             and communicate with hosts.
                         </p>
                     </div>
-                </div >
-            </div >
+                </div>
+            </div>
 
-        </section >
+            {/* Chat Modal */}
+            {isChatOpen && (
+                <div className="chat-modal-overlay" onClick={() => setIsChatOpen(false)}>
+                    <div className="chat-modal" onClick={(ev) => ev.stopPropagation()}>
+                        <StayChat stay={stay} onClose={() => setIsChatOpen(false)} />
+                    </div>
+                </div>
+            )}
+        </section>
     )
 }
