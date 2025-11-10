@@ -24,7 +24,7 @@
 @import "./pages/ListingsPage.css";
 @import "./pages/Explore.css";
 @import "./pages/ConfirmPay.css";
-@import "./pages/ConfirmPay.mq.css";
+
 @import "./pages/WishlistIndex.css";
 @import "./pages/WishlistDetails.css";
 @import "./pages/HostDashboard.css";
@@ -44,7 +44,6 @@
 @import "cmps/stay/StayList";
 @import "cmps/stay/StayPreview";
 @import "cmps/stay/StayFilter";
-
 @import "cmps/msg/MsgEdit";
 @import "cmps/msg/MsgList";
 @import "cmps/msg/MsgPreview";
@@ -83,5 +82,5 @@
 
 
 
-
+@import "./pages/ConfirmPay.mq.css";
 @import "setup/MQ.css";

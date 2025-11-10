@@ -1,5 +1,54 @@
+/*TODO: fix the left shift between 1440 and 1244*/
+
+@media (max-width: 1439px) and (min-width: 1128px) {
+    .confirm-pay-page {
+        justify-content: center;
+        grid-template-columns:
+            3rem minmax(auto, 1084px) 3rem;
+    }
+
+    .confirm-main {
+        width: 500px;
+        flex-shrink: 0;
+    }
+
+    .reservation-summary-wrapper {
+        flex-shrink: 0;
+    }
+
+    .reservation-summary-wrapper .reservation-summary {
+        width: 360px;
+    }
+}
+
+@media (max-width: 1127px) and (min-width: 950px) {
+    .confirm-pay-page {
+        grid-template-columns:
+            minmax(4rem, 1fr) minmax(auto, 900px) minmax(4rem, 1fr);
+        justify-content: center;
+    }
+
+    .confirm-layout {
+        gap: 60px;
+    }
+
+    .confirm-main {
+        width: 460px;
+        flex-shrink: 0;
+    }
+
+    .reservation-summary-wrapper {
+        flex-shrink: 0;
+    }
+
+    .reservation-summary-wrapper .reservation-summary {
+        width: 340px;
+    }
+
+}
+
 /*TABLET*/
-@media (min-width: 744px) and (max-width: 949px) {
+@media (max-width: 949px) {
     .main-container {
         grid-template-columns:
             minmax(2rem, 1fr) minmax(0, min(909px, 100% - 4rem)) minmax(2rem, 1fr);
@@ -8,12 +57,10 @@
     .confirm-pay-page>.btn.back,
     .confirm-pay-page>.confirm-pay-title {
         display: none;
-        /* hide desktop title */
     }
 
     .brand {
         display: none;
-        /* hide logo title */
     }
 
     .confirm-pay-page {
@@ -67,4 +114,38 @@
         margin-bottom: 0.6rem;
     }
 
+}
+
+/*MOBILE temporary*/
+@media (max-width: 744px) {
+
+    .confirm-pay-header,
+    .confirm-main,
+    .reservation-summary-wrapper {
+        max-width: 420px;
+        width: 95%;
+    }
+
+    .confirm-pay-header .btn.back {
+        margin-left: -1.5rem;
+    }
+
+    .confirm-pay-header {
+        gap: 1rem;
+    }
+
+    .reservation-summary-order {
+        .reservation-summary-title {
+            font-size: 1rem;
+        }
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+
+    .btn-reserve-small {
+        width: 100%;
+        align-self: stretch;
+    }
 }

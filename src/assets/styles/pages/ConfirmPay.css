@@ -35,11 +35,13 @@
 /*PAGE*/
 .confirm-pay-page {
     display: grid;
-    grid-template-columns: minmax(3rem, 1fr) minmax(auto, 1000px) minmax(3rem, 1fr);
+    grid-template-columns: 3rem minmax(auto, 1352px) 3rem;
     grid-template-rows: auto 1fr;
     align-items: start;
     padding: 32px 0 64px;
     min-height: 100vh;
+    margin-inline: auto;
+    max-width: 1440px;
 
     >* {
         grid-column: 2;
