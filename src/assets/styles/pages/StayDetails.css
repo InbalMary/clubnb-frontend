@@ -1,8 +1,8 @@
 .stay-details {
     font-size: 1rem;
     line-height: 1.25rem;
-    grid-template-columns: subgrid;
-
+    /* grid-template-columns: subgrid; */
+grid-template-columns:  auto minmax(auto, 1128px) auto;
     h1 {
         font-size: 1.625rem;
         line-height: 1.875rem;
