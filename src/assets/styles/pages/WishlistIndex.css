@@ -1,24 +1,31 @@
 .wishlists-index {
-    padding: 80px;
-    margin: 104px auto;
+    padding-block: 80px;
+    margin-block: 104px;
 }
 
-.page-container {
-    margin-inline: 107px;
+.wishlist-page-container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    justify-content: center;
+    width: 100%;
+    max-width: 1352px;
+    margin-inline: auto;
+    padding-inline: 0;
 }
 
 .wishlists-index-title {
     color: var(--gray3);
     font-weight: bolder;
     margin-bottom: 32px;
+    justify-self: start;
 }
 
 .wishlist-list {
     display: grid;
-    grid-template-columns: repeat(4, 300px);
-    column-gap: 24px;
-    row-gap: 40px;
-    justify-content: start;
+    grid-template-columns: repeat(4, minmax(240px, 1fr));
+    gap: 40px 24px;
+    width: 100%;
+    justify-items: center;
 }
 
 .wishlist-preview {
@@ -68,9 +75,7 @@
 /*Card*/
 .wishlist-stay-img {
     width: 100%;
-    max-width: 300px;
-    max-height: 290px;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1.048 / 1;
     border-radius: 20px;
     overflow: hidden;
     object-fit: cover;
