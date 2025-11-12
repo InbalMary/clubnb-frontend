@@ -9,12 +9,12 @@ export function StayReviewList({ reviewRefs, reviews, isModal, onClick }) {
 
     const isMobile = useIsBreakPoint(744)
     return (
-        <section className={`reviews-section ${isMobile && 'mobile'}`}>
+        <section className={`reviews-section ${isMobile ? 'mobile' : ''}`}>
             {isMobile ? (
 
 
                 <Carousel>
-                    <div className={`review-list ${isMobile && 'mobile'}`}>
+                    <div className={`review-list ${isMobile ? 'mobile' : ''}`}>
                         {(!isModal ? reviews.slice(0, 6) : reviews).map((review, idx) =>
                             <li
                                 ref={isModal ? reviewRefs[idx] : null}
@@ -32,7 +32,7 @@ export function StayReviewList({ reviewRefs, reviews, isModal, onClick }) {
                     </div>
                 </Carousel>
             ) : (
-                <ul className={`review-list ${isMobile && 'mobile'}`}>
+                <ul className={`review-list ${isMobile ? 'mobile' : ''}`}>
                     {(!isModal ? reviews.slice(0, 6) : reviews).map((review, idx) =>
                         <li ref={isModal ? reviewRefs[idx] : null} className="stay-review" key={idx}>
                             <StayReviewPreview review={review} isModal={isModal} />
