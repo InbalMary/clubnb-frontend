@@ -606,7 +606,7 @@ export function StayDetails() {
             <BigRating reviews={stay?.reviews} />
             {!stay?.reviews?.length && <h2 className="no-reviews">No reviews yet...</h2>}
             <StayReviewList reviews={stay?.reviews} isModal={false} onClick={handleShowMoreClick} />
-            {!!stay?.reviews?.length &&
+            {stay?.reviews?.length > 6 &&
               <button onClick={() => setModalType('reviews')} className={`open-modal ${isMobile && 'mobile'}`}>Show all {stay?.reviews?.length} reviews</button>
             }
           </div>
