@@ -1,9 +1,11 @@
+import { useRef } from 'react'
 import { useIsBreakPoint } from '../customHooks/useIsBreakPoint'
 import { getAvgRate } from '../services/util.service'
+import { Carousel } from './Carousel'
 import { BigRating } from './SmallComponents'
-import { amenitiesSvg, reviewSvgs } from './Svgs'
+import { amenitiesSvg, reviewSvgs, svgControls } from './Svgs'
 
-export function StayRating({ reviews }) {
+export function StayRating({ reviews, isModal = false }) {
     function formatName(str) {
         return str
             .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // Add space between lowercase and uppercase letters
@@ -74,53 +76,109 @@ export function StayRating({ reviews }) {
 
     })
 
+    const ratingCategoriesList = (
+        <ul className="rating-categories">
+
+            <ul className="overall-rating">
+                <span className="h">Overall rating</span>
+                {
+                    barSegments.map((segment, idx) => (
+
+                        <li className="overall-rating-bar" key={idx}>
+                            <span className="num">{segment.rating}</span>
+
+                            <div className="bar-segment" >
+                                <div className="bar-fill" style={{ width: `${segment.percent}%` }}></div>
+                            </div>
+
+                        </li >
+                    )
+                    )
+                }
+            </ul>
+
+
+            {getAvgRateForCtgs(reviews, reviewSvgs).avgRateArr.map((item, index) => {
+                return (
+
+                    <li className="icons-rating" key={index}>
+                        <span className="rate-wrapper1">
+
+                            <span className="review-category">
+                                {item.formattedName}
+                            </span>
+                            <h4 className="avg-value">{item.avg}</h4>
+                        </span>
+
+                        {item.svg && <span className="svg-rate-icon">{item.svg}</span>}
+                    </li>
+                )
+            }
+            )}
+        </ul>
+    )
+
     const isMobile = useIsBreakPoint(744)
+    const isMiddle = useIsBreakPoint(1127)
+    const carouselWrapRef = useRef(null)
+
+
     return (
 
         <div className="rate-wrapper">
             <BigRating reviews={reviews} />
-            <ul className="rating-categories">
 
-                <ul className="overall-rating">
-                    <span className="h">Overall rating</span>
-                    {
-                        barSegments.map((segment, idx) => (
+            {isModal && isMiddle ? (
+                <div ref={carouselWrapRef} className="rating-carousel-wrapper">
 
-                            <li className="overall-rating-bar" key={idx}>
-                                <span className="num">{segment.rating}</span>
+                    <Carousel
+                        renderControls={({ scrollState }) => {
+                            const getRow = () => carouselWrapRef.current?.querySelector('.carousel-list')
+                            const scrollToStart = () => {
+                                const row = getRow()
+                                if (!row) return
+                                row.scrollTo({ left: 0, behavior: 'smooth' })
+                            }
+                            const scrollToEnd = () => {
+                                const row = getRow()
+                                if (!row) return
+                                row.scrollTo({ left: row.scrollWidth - row.clientWidth, behavior: 'smooth' })
+                            }
 
-                                <div className="bar-segment" >
-                                    <div className="bar-fill" style={{ width: `${segment.percent}%` }}></div>
+                            return (
+                                <div className="preview-carousel-controls">
+                                    <button
+                                        disabled={scrollState.atStart}
+                                        onClick={scrollToStart}
+                                        className={`preview-carousel-btn left ${scrollState.atStart ? 'hide-carousel-btn' : ''}`}
+                                    >
+                                        <span className='carousel-icon'>{svgControls.chevronLeft}</span>
+                                    </button>
+
+                                    <button
+                                        disabled={scrollState.atEnd}
+                                        onClick={scrollToEnd}
+                                        className={`preview-carousel-btn right ${scrollState.atEnd ? 'hide-carousel-btn' : ''}`}
+                                    >
+                                        <span className='carousel-icon'>{svgControls.chevronRight}</span>
+                                    </button>
                                 </div>
+                            )
+                        }}>
 
-                            </li >
-                        )
-                        )
-                    }
-                </ul>
+                        <>
+                            {ratingCategoriesList}
+                        </>
 
+                    </Carousel>
+                </div>
+            ) : (
+                <>
+                    {ratingCategoriesList}
+                </>
+            )}
 
-                {getAvgRateForCtgs(reviews, reviewSvgs).avgRateArr.map((item, index) => {
-                    return (
-
-                        <li className="icons-rating" key={index}>
-                            <span className="rate-wrapper1">
-
-                                <span className="review-category">
-                                    {item.formattedName}
-                                </span>
-                                <h4 className="avg-value">{item.avg}</h4>
-                            </span>
-
-                            {item.svg && <span className="svg-rate-icon">{item.svg}</span>}
-                        </li>
-                    )
-                }
-                )}
-            </ul>
-
-
-        </div>
+        </div >
     )
 }
 

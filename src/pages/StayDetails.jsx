@@ -56,7 +56,7 @@ export function StayDetails() {
   const amenitiesData = getAmenitiesData(amenitiesSvg, stay?.amenities)
 
   const isMobile = useIsBreakPoint(744);
-  const isMiddle = useIsBreakPoint(1130);
+  const isMiddle = useIsBreakPoint(1127);
   const isBigLayout = useIsBreakPoint(1600)
   const isCalendarBreakPoint = useIsBreakPoint(1220)
   const navigate = useNavigate()
@@ -523,11 +523,11 @@ export function StayDetails() {
               isOpen={modalType !== null}
               onClose={() => setModalType(null)}
               closePosition='left'
-              className={`${modalType === 'reviews' ? 'reviews-rating-modal' : 'modal-popup'}  ${isMobile ? 'mobile' : ''}`}>
+              className={`${modalType === 'reviews' ? 'reviews-rating-modal' : 'modal-popup'} ${isMiddle ? 'mid-layout' : ''} ${isMobile ? 'mobile' : ''}`}>
 
               {modalType === 'reviews' &&
                 <div className="reviews-in-modal">
-                  <StayRating reviews={stay.reviews} />
+                  <StayRating reviews={stay.reviews} isModal={true} />
                   <StayReviewList reviewRefs={reviewRefs} reviews={stay.reviews} isModal={true} />
                 </div>
               }
