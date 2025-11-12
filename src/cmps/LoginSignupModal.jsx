@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux'
 import { useScrollLock } from '../customHooks/useScrollLock'
 import { jwtDecode } from 'jwt-decode'
 import { loadWishlists } from '../store/actions/wishlist.actions'
+import { useIsBreakPoint } from '../customHooks/useIsBreakPoint'
 
 export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up', subtitle = 'Welcome to Clubnb', onLoginSuccess, isFromWishlist }) {
 
@@ -156,6 +157,8 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
         setModalType(prev => (prev === 'login' ? 'signup' : 'login'))
     }
 
+    const isMobile = useIsBreakPoint(744)
+
     return (
 
         <Modal
@@ -164,7 +167,7 @@ export function LoginSignupModal({ isOpen, onClose, title = 'Log in or sign up',
             onClose={onClose}
             closePosition='left'
             useBackdrop={true}
-            className='login-signup-modal'
+            className={`login-signup-modal ${isMobile ? 'mobile' : ''}`}
         >
             <h2 className={isFromWishlist ? 'login-modal-subtitle' : ''}>
                 {subtitle}

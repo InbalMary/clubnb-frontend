@@ -133,7 +133,6 @@ export function HostInfo({ host, stay }) {
                     <div className="safety-note">
                         <span className="shield-icon">
                             <img src={shield} alt="Safety note" />
-                            {/*TODO: change to svg if possible*/}
                         </span>
                         <p>
                             To help protect your payment, always use Clubnb to send money
