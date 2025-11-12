@@ -1,8 +1,7 @@
-/* mobile */
+/* mobile Details page*/
 
 .reviews-section.mobile {
     padding-block-start: 2.5rem;
-
 
     .carousel-list {
         grid-auto-columns: min(100vw, 744px);

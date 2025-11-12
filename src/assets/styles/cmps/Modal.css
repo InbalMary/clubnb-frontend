@@ -9,11 +9,7 @@
 .modal-popup.mobile {
     width: 100vw;
     height: 97%;
-
 }
-
-
-
 
 .modal-popup {
     z-index: 200;
@@ -119,13 +115,12 @@
     right: .9rem;
 }
 
-.reviews-rating-modal {
-    max-width: 1023px;
-    width: 80%;
+.modal-popup.reviews-rating-modal {
+    max-width: 1032px;
+    width: 90%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    padding-inline-start: 2rem;
 
     >header {
         min-height: 3rem;
@@ -133,8 +128,6 @@
 
     .main-modal {
         flex: 1;
-        display: flex;
-        overflow: hidden;
         padding: 0;
 
         .reviews-in-modal {
@@ -144,9 +137,8 @@
             gap: .875rem;
             width: 100%;
 
-
             .rate-wrapper {
-                padding-inline-start: 2rem;
+                padding-inline-start: 4rem;
                 padding-inline-end: 2rem;
                 grid-area: rating;
                 overflow-y: auto;
@@ -181,6 +173,81 @@
                         padding-block-start: .5rem;
                     }
                 }
+            }
+        }
+    }
+
+    /* ====REVIEWS MODAL BREAKING POINT */
+    &.mid-layout {
+        header {
+            background-color: var(--gray8);
+        }
+
+        .main-modal .reviews-in-modal {
+            display: flex;
+            flex-direction: column;
+
+            .rate-wrapper {
+                display: flex;
+                flex-direction: column;
+                background-color: var(--gray8);
+                border-bottom: 1px solid var(--gray6);
+                padding-inline-end: 0;
+                padding-inline-start: 2rem;
+                height: 75%;
+
+                .carousel .preview-carousel-controls {
+                    display: flex;
+                    visibility: visible;
+
+                    .preview-carousel-btn {
+                        top: 33%;
+                        background-color: var(--white);
+
+                        &.left {
+                            left: 0;
+                        }
+
+                        &.hide-carousel-btn {
+                            visibility: hidden;
+                        }
+                    }
+                }
+
+                .rating-categories {
+                    display: grid;
+                    grid-template-columns: repeat(7, minmax(100px, 195px));
+                    width: min(100vw, 940px);
+                    padding-block-end: 1.5rem;
+
+                    li.icons-rating:not(:last-child) {
+                        border-right: 1px solid var(--gray6) !important;
+                        border-bottom: none !important;
+                    }
+
+                    .overall-rating {
+                        padding-inline-end: 1rem;
+                        border-right: 1px solid var(--gray6);
+                        padding-block-end: 0;
+                    }
+
+                    li.icons-rating {
+                        padding: 0;
+                        padding-inline: 1.5rem 3.5rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: start;
+
+                        .rate-wrapper1 {
+                            flex-direction: column;
+                        }
+                    }
+                }
+            }
+
+            .reviews-section {
+                padding: 2rem;
             }
         }
     }
