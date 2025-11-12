@@ -72,7 +72,6 @@
             border-right: none;
             width: 100%;
             padding-inline: 0px;
-            /* gap: 4px; */
             padding-block-end: .5rem;
 
             li {
@@ -233,6 +232,16 @@
                     transition: width 0.3s ease;
                 }
             }
+        }
+    }
+
+    &.mobile {
+        .rating.big {
+            display: flex;
+            align-items: end;
+            gap: .2rem;
+            font-size: 1.5rem;
+            padding-top: 1rem;
         }
     }
 }

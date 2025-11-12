@@ -301,7 +301,6 @@
 
                     &.mobile {
                         grid-template-columns: none;
-
                     }
 
                     li:nth-child(9),
@@ -419,7 +418,7 @@
     .main-content {
         display: flex;
         flex-direction: column;
-        margin-block-start: 50px;
+        margin-block-start: 65px;
 
         .details-imgs.mobile {
             scroll-snap-align: center;
@@ -427,9 +426,11 @@
             .carousel-list {
                 display: grid;
                 grid-auto-flow: column;
-                grid-auto-columns: 100%;
+                grid-auto-columns: 103%;
                 scroll-snap-type: x mandatory;
                 scroll-behavior: smooth;
+                padding-inline: 12px;
+                scroll-padding-left: 12px;
             }
 
             img {
@@ -512,7 +513,4 @@
     button.open-modal.mobile {
         width: 100%;
     }
-
-    .details-header {}
-
 }

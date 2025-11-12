@@ -196,13 +196,12 @@
                 padding-inline-start: 2rem;
                 height: 75%;
 
-                /* overflow-y: hidden; */
                 .carousel .preview-carousel-controls {
                     display: flex;
                     visibility: visible;
 
                     .preview-carousel-btn {
-                        top: 10%;
+                        top: 33%;
                         background-color: var(--white);
 
                         &.left {
@@ -252,17 +251,6 @@
             }
         }
     }
-}
-
-.modal-popup.reviews-rating-modal .rate-wrapper .carousel .carousel-list {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: calc((100% - (3 * .5rem)) / 4);
-    gap: 0.5rem;
-    overflow-x: auto;                 /* allow horizontal scroll */
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch; /* momentum on iOS */
-    scroll-behavior: smooth;
 }
 
 .modal-popup.calendar {
