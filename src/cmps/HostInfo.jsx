@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import verified from '../assets/svgs/verified.svg'
 import superhost from '../assets/svgs/superhost.svg'
 import shield from '../assets/svgs/shield.svg'
@@ -9,13 +10,16 @@ import { StayChat } from '../pages/StayChat'
 export function HostInfo({ host, stay }) {
     const [isChatOpen, setIsChatOpen] = useState(false)
     const isMobile = useIsBreakPoint(744)
+    const user = useSelector(storeState => storeState.userModule.user)
     const fallbackImgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
 
     if (!host) return null
 
+    const isHost = user?._id === host._id
+    const guestId = isHost ? null : host._id
+
     return (
         <section className="host-info">
-
             <div className={`host-layout ${isMobile ? 'mobile' : ''}`}>
                 <h2>Meet your host</h2>
                 {/*Left column*/}
@@ -29,7 +33,6 @@ export function HostInfo({ host, stay }) {
                                 {host.isVerified && (
                                     <span className="verified-badge">
                                         <img src={verified} alt="Verified" />
-                                        {/*TODO: change to svg if possible*/}
                                     </span>
                                 )}
                             </div>
@@ -39,7 +42,6 @@ export function HostInfo({ host, stay }) {
                                     <h3>{host.firstName || host.fullname || 'John'}</h3>
                                     {host.isSuperhost && (
                                         <span className="superhost-badge">
-                                            {/*TODO: change to svg if possible*/}
                                             <img src={superhost} alt="Superhost" />
                                             Superhost
                                         </span>
@@ -91,7 +93,7 @@ export function HostInfo({ host, stay }) {
                 </div>
 
                 {/*Right Column*/}
-                < div className="host-right" >
+                <div className="host-right">
                     <div className='superhost-details'>
                         {host.isSuperhost && (
                             <>
@@ -117,23 +119,25 @@ export function HostInfo({ host, stay }) {
                             </ul>
                         </div>
                     )}
+
                     <div className="host-contact">
                         <h3>Host details</h3>
-                        <p>Response rate: {host.responseRate || 100} %</p>
+                        <p>Response rate: {host.responseRate || 100}%</p>
                         <p>Responds {host.responseTime || 'within an hour'}</p>
                     </div>
-                    
-                    <button 
-                        className="btn btn-gray" 
-                        onClick={() => setIsChatOpen(true)}
-                    >
-                        Message host
-                    </button>
-                    
+
+                    {user && !isHost && (
+                        <button
+                            className="btn btn-gray"
+                            onClick={() => setIsChatOpen(true)}
+                        >
+                            Message host
+                        </button>
+                    )}
+
                     <div className="safety-note">
                         <span className="shield-icon">
                             <img src={shield} alt="Safety note" />
-                            {/*TODO: change to svg if possible*/}
                         </span>
                         <p>
                             To help protect your payment, always use Clubnb to send money
@@ -147,7 +151,11 @@ export function HostInfo({ host, stay }) {
             {isChatOpen && (
                 <div className="chat-modal-overlay" onClick={() => setIsChatOpen(false)}>
                     <div className="chat-modal" onClick={(ev) => ev.stopPropagation()}>
-                        <StayChat stay={stay} onClose={() => setIsChatOpen(false)} />
+                        <StayChat
+                            stay={stay}
+                            guestId={guestId}
+                            onClose={() => setIsChatOpen(false)}
+                        />
                     </div>
                 </div>
             )}

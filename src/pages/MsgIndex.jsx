@@ -1,63 +1,111 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadMsgs, removeMsg, getActionAddMsg, getActionRemoveMsg } from '../store/actions/msg.actions'
-import { loadUsers } from '../store/actions/user.actions'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { socketService, SOCKET_EVENT_REVIEW_ADDED, SOCKET_EVENT_REVIEW_REMOVED } from '../services/socket.service'
-import { MsgList } from '../cmps/MsgList'
-import { MsgEdit } from '../cmps/MsgEdit'
-import { ChatApp } from './Chat'
+
+import { stayService } from '../services/stay'
+import { ConversationList } from '../cmps/ConversationList'
+import { StayChat } from './StayChat'
 
 export function MsgIndex() {
+    const [conversations, setConversations] = useState([])
+    const [selectedConversation, setSelectedConversation] = useState(null)
+    const [selectedStay, setSelectedStay] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
+    
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
-    const msgs = useSelector(storeState => storeState.msgModule?.msgs || [])
-
-    const dispatch = useDispatch()
 
     useEffect(() => {
-        loadMsgs()
-        loadUsers()
+        loadConversations()
+    }, [loggedInUser])
 
-        socketService.on(SOCKET_EVENT_REVIEW_ADDED, msg => {
-            console.log('GOT from socket', msg)
-            dispatch(getActionAddMsg(msg))
-        })
-
-        socketService.on(SOCKET_EVENT_REVIEW_REMOVED, msgId => {
-            console.log('GOT from socket', msgId)
-            dispatch(getActionRemoveMsg(msgId))
-        })
-
-        return () => {
-            socketService.off(SOCKET_EVENT_REVIEW_ADDED)
-            socketService.off(SOCKET_EVENT_REVIEW_REMOVED)
-        }
-    }, [])
-
-    async function onRemoveMsg(msgId) {
+    async function loadConversations() {
+        if (!loggedInUser) return
+        
         try {
-            await removeMsg(msgId)
-            showSuccessMsg('Msg removed')
+            setIsLoading(true)
+            const userConversations = await stayService.getUserConversations()
+            setConversations(userConversations)
         } catch (err) {
-            showErrorMsg('Cannot remove')
+            console.error('Failed to load conversations', err)
+        } finally {
+            setIsLoading(false)
         }
     }
 
-    return <div className="msg-index">
-        <h2>Msgs </h2>
-        {/* {loggedInUser && <MsgEdit />} */}
-        <section className="flex justify-evenly">
-            <div className="inbox-list">
-                <span>inbox column list</span>
-                <MsgList
-                    msgs={msgs}
-                    onRemoveMsg={onRemoveMsg} />
-            </div>
-            <div className="chat">
-                <span>Chat</span>
-                <ChatApp/>
+    async function handleConversationClick(conversation) {
+        try {
+            // Load full stay data for chat
+            const stay = await stayService.getById(conversation.stayId)
+            setSelectedStay(stay)
+            setSelectedConversation(conversation)
+        } catch (err) {
+            console.error('Failed to load stay', err)
+        }
+    }
+
+    function handleCloseChat() {
+        setSelectedConversation(null)
+        setSelectedStay(null)
+        loadConversations() // Refresh conversations after closing chat
+    }
+
+    if (!loggedInUser) {
+        return (
+            <div className="msg-index">
+                <div className="empty-state">
+                    <h2>Please log in to view your messages</h2>
                 </div>
-            <div className="mini-order-details">mini order details</div>
-        </section>
-    </div>
+            </div>
+        )
+    }
+
+    return (
+        <div className="msg-index">
+            <div className="msg-layout">
+                {/* Left: Conversations List */}
+                <div className="conversations-sidebar">
+                    <div className="conversations-header">
+                        <h2>Messages</h2>
+                        {conversations.length > 0 && (
+                            <span className="conversation-count">
+                                {conversations.length} conversation{conversations.length !== 1 ? 's' : ''}
+                            </span>
+                        )}
+                    </div>
+                    
+                    {isLoading ? (
+                        <div className="loading-state">Loading conversations...</div>
+                    ) : conversations.length === 0 ? (
+                        <div className="empty-conversations">
+                            <p>No messages yet</p>
+                            <p className="subtitle">Start a conversation by messaging a host!</p>
+                        </div>
+                    ) : (
+                        <ConversationList 
+                            conversations={conversations}
+                            selectedConversation={selectedConversation}
+                            onConversationClick={handleConversationClick}
+                        />
+                    )}
+                </div>
+
+                {/* Right: Chat Window */}
+                <div className="chat-area">
+                    {selectedConversation && selectedStay ? (
+                        <StayChat 
+                            stay={selectedStay}
+                            guestId={selectedConversation.partnerId}
+                            onClose={handleCloseChat}
+                        />
+                    ) : (
+                        <div className="no-conversation-selected">
+                            <div className="placeholder-content">
+                                <h3>Select a conversation</h3>
+                                <p>Choose a conversation from the list to start messaging</p>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    )
 }

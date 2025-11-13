@@ -79,13 +79,20 @@ export function stayReducer(state = initialState, action) {
             break
 
         case ADD_STAY_MSG:
-            const msgExists = state.stayMsgs.some(m =>
-                m.id === action.msg.id ||
-                (m.txt === action.msg.txt &&
-                    m.timestamp === action.msg.timestamp &&
-                    m.from?._id === action.msg.from?._id)
-            )
-            if (msgExists) { return state }
+            const msgExists = state.stayMsgs.some(m => {
+                if (m.id === action.msg.id) return true
+                
+                const isSameContent = m.txt === action.msg.txt && m.from?._id === action.msg.from?._id
+                if (!isSameContent) return false
+                
+                const timeDiff = Math.abs(new Date(m.timestamp).getTime() - new Date(action.msg.timestamp).getTime())
+                return timeDiff < 1000
+            })
+            
+            if (msgExists) { 
+                return state 
+            }
+            
             newState = {
                 ...state,
                 stayMsgs: [...state.stayMsgs, action.msg],

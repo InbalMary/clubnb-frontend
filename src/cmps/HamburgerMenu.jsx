@@ -114,7 +114,7 @@ export function HamburgerMenu() {
                             <button className="menu-row" role="menuitem" onClick={() => handleNavigation('/trips')}>
                                 <span ><img className="svg-icon" src="/img/trips.svg" alt="" /></span>Trips
                             </button>
-                            <button className="menu-row" role="menuitem" onClick={() => handleNavigation('/Messages')}>
+                            <button className="menu-row" role="menuitem" onClick={() => handleNavigation('/messages')}>
                                 <span ><img className="svg-icon" src="/img/msgs.svg" alt="" /></span>Messages
                             </button>
                             <button className="menu-row" role="menuitem" onClick={() => handleNavigation(`/user/${user._id}`)}>

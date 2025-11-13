@@ -10,7 +10,8 @@ export const stayService = {
     addStayReview,
     getStayMsgs,
     addStayMsg,
-    removeStayMsg
+    removeStayMsg,
+    getUserConversations,
 }
 
 async function query(filterBy = { txt: '', minPrice: 0 }) {
@@ -35,18 +36,32 @@ async function save(stay) {
 }
 
 async function addStayReview(stayId, txt) {
-    const savedReview = await httpService.post(`stay/${stayId}/review`, {txt})
+    const savedReview = await httpService.post(`stay/${stayId}/review`, { txt })
     return savedReview
 }
 
-
-async function getStayMsgs(stayId) {
-    return httpService.get(`${STORAGE_KEY}/${stayId}/msg`)
+async function addStayMsg(stayId, msgData) {
+    try {
+        const msg = await httpService.post(`${STORAGE_KEY}/${stayId}/msg`, msgData)
+        return msg
+    } catch (err) {
+        console.error('Failed to add stay message:', err)
+        throw err
+    }
 }
 
-async function addStayMsg(stayId, txt) {
-    const savedMsg = await httpService.post(`${STORAGE_KEY}/${stayId}/msg`, { txt })
-    return savedMsg
+async function getStayMsgs(stayId) {
+    try {
+        const stay = await getById(stayId)
+        return stay.msgs || []
+    } catch (err) {
+        console.error('Failed to get stay messages:', err)
+        throw err
+    }
+}
+
+async function getUserConversations() {
+    return httpService.get(`${STORAGE_KEY}/user/conversations`)
 }
 
 async function removeStayMsg(stayId, msgId) {

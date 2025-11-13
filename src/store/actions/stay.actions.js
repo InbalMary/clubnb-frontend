@@ -106,11 +106,15 @@ export async function loadStayMsgs(stayId) {
     }
 }
 
-export async function addStayMsg(stayId, txt) {
+export async function addStayMsg(stayId, txt, toUserId = null) {
     try {
-        // console.log('Sending message to:', stayId, 'Text:', txt) 
-        const msg = await stayService.addStayMsg(stayId, txt)
-        // console.log('Message saved:', msg) 
+        const msgData = { txt }
+        
+        if (toUserId) {
+            msgData.toUserId = toUserId
+        }
+        
+        const msg = await stayService.addStayMsg(stayId, msgData)
         store.dispatch(getCmdAddStayMsg(msg))
         return msg
     } catch (err) {
