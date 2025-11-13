@@ -52,7 +52,7 @@
 
 .stay-details-header {
     display: grid;
-    grid-template-columns: .5fr 1110px .5fr;
+    grid-template-columns: auto minmax(auto, 1110px) auto;
     z-index: 5;
     height: 5rem;
     position: fixed;

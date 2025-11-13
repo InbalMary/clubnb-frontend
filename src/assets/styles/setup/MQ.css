@@ -27,7 +27,6 @@
         padding-inline: 22px;
     }
 
-    /* hide chevrons */
     .carousel-controls {
         display: none;
     }
@@ -82,8 +81,6 @@
     }
 }
 
-/* ≥1600px -> 7 cards */
-
 @media (min-width: 1440px) {
     main.main-container {
         grid-template-columns: 1fr minmax(auto, 1352px) 1fr;
@@ -94,13 +91,14 @@
     }
 }
 
-/* 
-@media (min-width: 1600px) {
-    main .main-container {
-        grid-template-columns: 1fr minmax(auto, 1353px) 1fr;
+@media (min-width: 1900px) {
+    .carousel-list {
+        grid-auto-columns: calc((100% - (6 * 0.5rem)) / 7);
     }
 
-    /* main .main-container {
-        grid-template-columns: minmax(auto, 3.4rem) minmax(1353px, 1fr) minmax(auto, 3.4rem);
-    } 
-} */
+    .stay-preview {
+        width: auto;
+        max-width: none;
+        flex: 1;
+    }
+}

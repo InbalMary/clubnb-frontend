@@ -2,14 +2,8 @@
     display: grid;
     /* grid-template-columns: minmax(1.8rem, 1fr) minmax(auto, 909px) minmax(1.8rem, 1fr); */
     min-height: 100vh;
-    /* Base layout for all screens */
     grid-template-columns:
-        minmax(3rem, 1fr)
-        /* left margin */
-        minmax(auto, 100%)
-        /* main content */
-        minmax(3rem, 1fr);
-    /* right margin */
+        minmax(3rem, 1fr) minmax(auto, 100%) minmax(3rem, 1fr);
 
     >* {
         grid-column: 2;
