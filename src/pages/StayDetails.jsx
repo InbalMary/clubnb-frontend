@@ -318,7 +318,7 @@ export function StayDetails() {
               <button onClick={handleShare} className="share-btn mobile">
                 {svgControls.share}
               </button>
-              <button className="save-heart-btn mobile" onClick={wm.onToggleWishlist}>
+              <button className="save-heart-btn mobile" onClick={() => wm.onToggleWishlist(stay)}>
                 <span className={`heart-icon ${isAddedToWishlist ? 'active' : ''}`}>{svgControls.heart}
                 </span>
               </button>
