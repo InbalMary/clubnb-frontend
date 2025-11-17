@@ -121,22 +121,23 @@
 }
 
 /*map cards*/
-.wishlist-details .single-img-carousel,
+.wishlist-details .single-img-carousel {
+    width: 100%;
+    aspect-ratio: 1.025 / 1;
+    overflow: hidden;
+}
+
 .wishlist-details .carousel-window,
 .wishlist-details .carousel-track,
 .wishlist-details .carousel-slide {
     width: 100%;
-    aspect-ratio: 1.025 / 1;
-    height: auto;
-    min-height: 0;
-    overflow: hidden;
+    height: 100%;
 }
 
 .wishlist-details .carousel-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
 .wishlist-details .gm-style .stay-preview.big .single-img-carousel,
