@@ -52,12 +52,7 @@ export function MsgIndex() {
     }
 
     const handleCloseChat = () => {
-        if (window.innerWidth <= 768) {
-            setShowChat(false)
-        } else {
-            setSelectedConversation(null)
-            setSelectedStay(null)
-        }
+        setShowChat(false)
     }
 
     if (!loggedInUser) {
@@ -72,6 +67,13 @@ export function MsgIndex() {
 
     return (
         <div className="msg-index">
+
+            <div className="messages-header-wrapper">
+                <div className="messages-page-header">
+                    <h1>Messages</h1>
+                </div>
+            </div>
+
             <div className="msg-layout">
                 {/* Left: Conversations List */}
                 <div className={`conversations-sidebar ${showChat ? 'hide-mobile' : ''}`}>
