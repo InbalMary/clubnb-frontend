@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { stayService } from '../services/stay'
 import { ConversationList } from '../cmps/ConversationList'
@@ -10,7 +10,7 @@ export function MsgIndex() {
     const [selectedConversation, setSelectedConversation] = useState(null)
     const [selectedStay, setSelectedStay] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
-    
+    const [showChat, setShowChat] = useState(false)
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
 
     useEffect(() => {
@@ -18,11 +18,14 @@ export function MsgIndex() {
     }, [loggedInUser])
 
     async function loadConversations() {
-        if (!loggedInUser) return
-        
+        if (!loggedInUser) {
+            setIsLoading(false)
+            return
+        }
+
         try {
             setIsLoading(true)
-            const userConversations = await stayService.getUserConversations()
+            const userConversations = await stayService.getUserConversations(loggedInUser._id)
             setConversations(userConversations)
         } catch (err) {
             console.error('Failed to load conversations', err)
@@ -31,28 +34,32 @@ export function MsgIndex() {
         }
     }
 
-    async function handleConversationClick(conversation) {
-        try {
-            // Load full stay data for chat
-            const stay = await stayService.getById(conversation.stayId)
-            setSelectedStay(stay)
-            setSelectedConversation(conversation)
-        } catch (err) {
-            console.error('Failed to load stay', err)
+    const handleConversationClick = async (conversation) => {
+        setSelectedConversation(conversation)
+
+        if (!conversation.stay) {
+            try {
+                const stay = await stayService.getById(conversation.stayId)
+                setSelectedStay(stay)
+            } catch (err) {
+                console.error('Failed to load stay', err)
+            }
+        } else {
+            setSelectedStay(conversation.stay)
         }
+
+        setShowChat(true)
     }
 
-    function handleCloseChat() {
-        setSelectedConversation(null)
-        setSelectedStay(null)
-        loadConversations() // Refresh conversations after closing chat
+    const handleCloseChat = () => {
+        setShowChat(false)
     }
 
     if (!loggedInUser) {
         return (
             <div className="msg-index">
                 <div className="empty-state">
-                    <h2>Please log in to view your messages</h2>
+                    <p>Please log in to view your messages</p>
                 </div>
             </div>
         )
@@ -60,9 +67,16 @@ export function MsgIndex() {
 
     return (
         <div className="msg-index">
+
+            <div className="messages-header-wrapper">
+                <div className="messages-page-header">
+                    <h1>Messages</h1>
+                </div>
+            </div>
+
             <div className="msg-layout">
                 {/* Left: Conversations List */}
-                <div className="conversations-sidebar">
+                <div className={`conversations-sidebar ${showChat ? 'hide-mobile' : ''}`}>
                     <div className="conversations-header">
                         <h2>Messages</h2>
                         {conversations.length > 0 && (
@@ -71,7 +85,7 @@ export function MsgIndex() {
                             </span>
                         )}
                     </div>
-                    
+
                     {isLoading ? (
                         <div className="loading-state">Loading conversations...</div>
                     ) : conversations.length === 0 ? (
@@ -80,7 +94,7 @@ export function MsgIndex() {
                             <p className="subtitle">Start a conversation by messaging a host!</p>
                         </div>
                     ) : (
-                        <ConversationList 
+                        <ConversationList
                             conversations={conversations}
                             selectedConversation={selectedConversation}
                             onConversationClick={handleConversationClick}
@@ -89,9 +103,9 @@ export function MsgIndex() {
                 </div>
 
                 {/* Right: Chat Window */}
-                <div className="chat-area">
+                <div className={`chat-area ${!showChat ? 'hide-mobile' : ''}`}>
                     {selectedConversation && selectedStay ? (
-                        <StayChat 
+                        <StayChat
                             stay={selectedStay}
                             guestId={selectedConversation.partnerId}
                             onClose={handleCloseChat}
