@@ -259,12 +259,12 @@
 @media (max-width: 768px) {
     .msg-index {
         padding: 1rem;
-        margin-top: 100px;
+        margin-top: 0;
     }
 
     .msg-layout {
         grid-template-columns: 1fr;
-        height: calc(100vh - 8rem);
+        height: 100vh;
     }
 
     /* Hide sidebar when chat is open on mobile */
