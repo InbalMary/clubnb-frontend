@@ -4,9 +4,9 @@
 
 A modern, full-stack home rental platform built with React, Redux, and real-time socket communication. Think Airbnb meets cutting-edge web technology.
 
-<video src="public/img/clubnb_demo.mp4" controls width="700" poster="publicimgclubnb_home_page.png">
-    Your browser does not support the video tag.
-</video>
+![Home page](public/img/clubnb_home_page.png)
+
+![App demo](public/img/clubnb_demo_gif_compressed.gif)
 
 ---
 
