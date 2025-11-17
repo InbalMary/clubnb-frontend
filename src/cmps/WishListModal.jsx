@@ -30,7 +30,6 @@ export function WishlistModal({ stay, isOpen, onClose }) {
             const updatedWishlist = await addStayToWishlist(wishlist, stay)
             showSuccessMsg(`Added to wishlist ${updatedWishlist.title}`, stay.imgUrls?.[0])
             resetModalState()
-            // navigate('/wishlists') // optional
         } catch (err) {
             console.error('Cannot add stay to wishlist', err)
             showErrorMsg('Could not add to wishlist, please try again.')
