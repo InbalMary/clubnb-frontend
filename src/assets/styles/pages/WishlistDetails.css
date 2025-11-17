@@ -1,14 +1,11 @@
 /* .explore-page, */
 .wishlist-details {
     display: grid;
-    grid-template-columns: minmax(30rem, 48rem) minmax(24.5rem, auto);
+    grid-template-columns: minmax(600px, 1.6fr) minmax(380px, 1fr);
     grid-template-areas: "list map";
-    gap: 3rem;
-    gap: clamp(1rem, 2vw, 2rem);
+    gap: 1.5rem;
     margin-top: 90px;
-    margin-inline: 60px;
-    margin-inline: clamp(1rem, 4vw, 40px);
-    /* overflow-x: hidden; זו השורה שדפקה את הסטיקי*/
+    margin-inline: 1.5rem;
 }
 
 /* Left column: grid */
@@ -18,18 +15,16 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-inline: 1rem;
     padding-top: 1rem;
 }
 
-
 .wishlist-details-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 1.375rem;
     align-items: start;
     width: 100%;
-    max-width: 700px;
+    max-width: 1000px;
 }
 
 .wishlist-details-grid .stay-image-wrapper {
@@ -41,6 +36,12 @@
 .wishlist-details .stay-link {
     text-decoration: none;
 }
+
+.wishlist-details .stay-preview {
+    max-width: none;
+    width: 100%;
+}
+
 
 /* Right column: map */
 /* .explore-map-wrapper, */
@@ -125,8 +126,10 @@
 .wishlist-details .carousel-track,
 .wishlist-details .carousel-slide {
     width: 100%;
-    height: 100%;
-    min-height: 345px;
+    aspect-ratio: 1.025 / 1;
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
 }
 
 .wishlist-details .carousel-slide img {

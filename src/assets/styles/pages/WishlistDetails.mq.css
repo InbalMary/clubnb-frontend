@@ -1,0 +1,45 @@
+@media (max-width: 1239px) {
+    .wishlist-details-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 949px) {
+    .wishlist-details {
+        grid-template-columns: 1fr;
+        margin-inline: 2.25rem;
+        gap: 0;
+    }
+
+    .wishlist-details-grid {
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+    }
+
+    .wishlist-details .explore-map-wrapper {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .wishlist-details {
+        margin-inline: 1.25rem;
+    }
+
+    .wishlist-details-grid {
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+    }
+
+    .wishlist-details-header {
+        margin-top: -90px;
+    }
+
+    .wishlists-index-title {
+        font-size: 1.625rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .wishlist-details-grid {
+        grid-template-columns: minmax(300px, 1fr);
+    }
+}
