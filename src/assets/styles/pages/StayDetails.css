@@ -2,7 +2,8 @@
     font-size: 1rem;
     line-height: 1.25rem;
     /* grid-template-columns: subgrid; */
-grid-template-columns:  auto minmax(auto, 1128px) auto;
+    grid-template-columns: auto minmax(auto, 1128px) auto;
+
     h1 {
         font-size: 1.625rem;
         line-height: 1.875rem;
@@ -472,6 +473,11 @@ grid-template-columns:  auto minmax(auto, 1128px) auto;
             .save-heart-btn.mobile .heart-icon svg {
                 stroke: var(--gray3);
                 fill: none;
+            }
+
+            .save-heart-btn.mobile .heart-icon.active svg {
+                stroke: var(--primary-clr);
+                fill: var(--primary-clr);
             }
         }
 

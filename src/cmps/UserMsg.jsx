@@ -10,7 +10,6 @@ export function UserMsg() {
 		const unsubscribe = eventBus.on('show-msg', msg => {
 			setMsg(msg)
 			if (timeoutIdRef.current) {
-				timeoutIdRef.current = null
 				clearTimeout(timeoutIdRef.current)
 			}
 			timeoutIdRef.current = setTimeout(closeMsg, 3000)
@@ -33,6 +32,9 @@ export function UserMsg() {
 	function msgClass() {
 		return msg ? 'visible' : ''
 	}
+
+	if (!msg) return null
+
 	return (
 		<section className={`user-msg ${msg?.type} ${msgClass()}`}>
 			<div className='msg-main'>
