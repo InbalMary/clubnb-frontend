@@ -1,14 +1,12 @@
 # 🏠 Clubnb — Your Next Home Away From Home
 
-![build](https://github.com/InbalMary/frontend/actions/workflows/build.yml/badge.svg)
-![lint](https://github.com/InbalMary/frontend/actions/workflows/lint.yml/badge.svg)
-![license](https://img.shields.io/badge/license-MIT-blue.svg)
-
 **Live Demo:** [clubnb.onrender.com](https://clubnb.onrender.com/)
 
 A modern, full-stack home rental platform built with React, Redux, and real-time socket communication. Think Airbnb meets cutting-edge web technology.
 
-![Clubnb home page](public/img/clubnb_home_page.png)
+<video src="public/img/clubnb_demo.mp4" controls width="700" poster="publicimgclubnb_home_page.png">
+    Your browser does not support the video tag.
+</video>
 
 ---
 
