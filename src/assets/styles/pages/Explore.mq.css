@@ -1,0 +1,114 @@
+@media (max-width: 1239px) {
+    .explore-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 949px) and (min-width: 744px) {
+    .explore-page .explore-map-wrapper {
+        display: none;
+    }
+}
+
+@media (max-width: 949px) {
+    .explore-page {
+        grid-template-columns: 1fr;
+        margin-inline: 2rem;
+        padding-inline: 0;
+        gap: 0;
+    }
+
+    .stay-preview.big {
+        max-width: none;
+    }
+}
+
+@media (max-width: 743px) {
+    .explore-page .explore-map-wrapper {
+        order: -1;
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .explore-page {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: none;
+        min-height: 100vh;
+    }
+
+    .explore-grid {
+        order: 0;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+        padding-inline: 22px;
+        margin: 0;
+    }
+
+    .items-wrapper {
+        position: relative;
+        z-index: 10;
+        border-radius: 20px 20px 0 0;
+        overflow: hidden;
+        margin-top: 50vh;
+        background: white;
+    }
+
+    /* .items-wrapper {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        background: white;
+        border-radius: 20px 20px 0 0;
+        overflow: hidden;
+        height: 60vh;
+        transform: translateY(15%);
+        transition: transform 0.3s ease;
+    } */
+
+
+    .drag-handle {
+        min-height: .6rem;
+        width: 100%;
+        position: relative;
+    }
+
+    .drag-handle::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-20px);
+        width: 40px;
+        height: 4px;
+        border-radius: 4px;
+        background-color: rgba(32, 32, 32, 0.2);
+        z-index: 20;
+    }
+
+
+    .explore-title {
+        margin: 0;
+        padding-inline: 22px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 549px) {
+    .explore-grid {
+        grid-template-columns: minmax(300px, 1fr);
+    }
+}

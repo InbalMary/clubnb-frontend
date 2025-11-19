@@ -23,6 +23,7 @@ export function Explore() {
     const [hoveredId, setHoveredId] = useState(null)
     const [focusedStayId, setFocusedStayId] = useState(null)
     const previewRef = useRef(null)
+    const drawerRef = useRef(null);
 
     useClickOutside([previewRef], () => {
         setFocusedStayId(null)
@@ -32,7 +33,7 @@ export function Explore() {
     // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
     useEffect(() => {
-           console.count('explore render')
+        console.count('explore render')
 
         const destination = searchParams.get('destination') || null
         const startDate = searchParams.get('startDate') || null
@@ -102,8 +103,8 @@ export function Explore() {
                 </div>
             ) : (
                 <>
-                    <div className="items-wrapper">
-
+                    <div className="items-wrapper" ref={drawerRef}>
+                        <div className="drag-handle"></div>
                         <h4 className='explore-title'>Over {filteredStays?.length || 0} homes in {city}</h4>
                         {/* grid of stays */}
                         <div className="explore-grid">
