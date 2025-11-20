@@ -1,11 +1,14 @@
 /* Explore page mobile header */
 .explore-header-mobile {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     background: var(--white);
     border-bottom: 1px solid var(--gray6);
     padding: 12px 16px;
+    width: 100%;
 }
 
 .explore-header-content {
