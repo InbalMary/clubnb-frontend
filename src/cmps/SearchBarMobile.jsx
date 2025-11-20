@@ -98,7 +98,7 @@ export function SearchBarMobile({ destinations, dateRange, setDateRange, guests,
                 return decodeURIComponent(pathParts[cityIndex + 1])
             }
         }
-        return destination?.name || 'Anywhere'
+        return destination?.name || 'map area'
     }
 
     const getDateText = () => {
