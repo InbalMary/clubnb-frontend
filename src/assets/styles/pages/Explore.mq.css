@@ -23,7 +23,9 @@
     }
 }
 
+
 @media (max-width: 743px) {
+
     .explore-page .explore-map-wrapper {
         order: -1;
         display: block;
@@ -110,5 +112,11 @@
 @media (max-width: 549px) {
     .explore-grid {
         grid-template-columns: minmax(300px, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .compact-header.full:not(.no-sticky):not(.index-page) {
+        height: auto !important;
     }
 }
