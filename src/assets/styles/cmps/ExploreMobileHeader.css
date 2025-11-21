@@ -1,0 +1,102 @@
+/* Explore page mobile header */
+.explore-header-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray6);
+    padding: 12px 16px;
+    width: 100%;
+}
+
+.explore-header-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Back button outside search bar */
+.explore-header-mobile .explore-back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--gray3);
+    flex-shrink: 0;
+}
+
+/* Explore page mobile search bar */
+.explore-search-bar-mobile {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: var(--white);
+    border: 1px solid var(--gray6);
+    border-radius: 32px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    margin-inline-end: 56px;
+}
+
+.explore-search-display {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    min-width: 200px;
+}
+
+.explore-search-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.explore-destination-text {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: cereal-regular, Circular, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--gray3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.explore-details-text {
+    font-size: 12px;
+    font-family: cereal-regular, Circular, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--gray2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.explore-separator {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: var(--gray6);
+    flex-shrink: 0;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.explore-header-mobile .search-bar-container {
+    flex: 1;
+    min-width: 0;
+}

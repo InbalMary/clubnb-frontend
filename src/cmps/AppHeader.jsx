@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router'
 import { useSelector } from 'react-redux'
 import { appHeaderSvg } from './Svgs'
@@ -13,6 +13,7 @@ import { useIsBreakPoint } from '../customHooks/useIsBreakPoint.js'
 import { setFilterBy } from '../store/actions/order.actions.js'
 
 export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, isSticky, isTripsPage, isWishlistPage, isWishlistDetailsPage, onMobileSearchOpenChange }) {
+	const navigate = useNavigate()
 	const user = useSelector(storeState => storeState.userModule.user)
 	const isLoading = useSelector(storeState => storeState.userModule.isLoading)
 	const [isInitialLoad, setIsInitialLoad] = useState(true)
@@ -55,6 +56,29 @@ export function AppHeader({ isCompact, onSearchClick, initialModal, onCollapse, 
 	if (isMobile && isWishlistePage) return null
 	if (isMobile && isMessagesPage) return null
 	if (isMobileProfilePage) return null
+
+	// Mobile explore page - back button + SearchBar
+	if (isMobile && isExplorePage) {
+		return (
+			<header className="explore-header-mobile" ref={headerRef}>
+				<div className="explore-header-content">
+					<button
+						className="explore-back-button"
+						onClick={() => navigate('/')}
+						aria-label="Back to home"
+					>
+						<svg viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style={{ display: "block", fill: "none", height: "16px", width: "16px", stroke: "currentColor", strokeWidth: 2.5, overflow: "visible" }} > <g fill="none"> <path d="M4 16h26M15 28 3.7 16.7a1 1 0 0 1 0-1.4L15 4" /> </g> </svg>
+					</button>
+					<SearchBar
+						initialModal={initialModal}
+						onCollapse={onCollapse}
+						onMobileSearchOpenChange={onMobileSearchOpenChange}
+						isExplorePage={isExplorePage}
+					/>
+				</div>
+			</header>
+		)
+	}
 
 	const headerClass = isCompact
 		? `compact-header full ${!isSticky ? 'no-sticky main-content' : ''} ${isIndexPage ? 'index-page' : ''}`

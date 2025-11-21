@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { DayPicker } from "react-day-picker"
 import { enUS } from 'date-fns/locale'
 import { appHeaderSvg } from "./Svgs"
 import { GuestSelector } from "./GuestSelector"
 import { formatDate, formatGuestsText } from '../services/util.service'
 
-export function SearchBarMobile({ destinations, dateRange, setDateRange, guests, setGuests, destination, setDestination, onSearch, onOpenChange }) {
+export function SearchBarMobile({ destinations, dateRange, setDateRange, guests, setGuests, destination, setDestination, onSearch, onOpenChange, isExplorePage }) {
+    const params = useParams()
     const [isOpen, setIsOpen] = useState(false)
     const [activeSection, setActiveSection] = useState(null) // 'where', 'dates', 'guests'
     const [whereQuery, setWhereQuery] = useState(destination?.name || "")
@@ -86,7 +88,48 @@ export function SearchBarMobile({ destinations, dateRange, setDateRange, guests,
         setGuests({ adults: 0, children: 0, infants: 0, pets: 0 })
     }
 
+    const getDestinationText = () => {
+        if (isExplorePage) {
+            if (params.city) return params.city
+            // Fallback to try to extract from pathname
+            const pathParts = location.pathname.split('/')
+            const cityIndex = pathParts.indexOf('city')
+            if (cityIndex !== -1 && pathParts[cityIndex + 1]) {
+                return decodeURIComponent(pathParts[cityIndex + 1])
+            }
+        }
+        return destination?.name || 'map area'
+    }
+
+    const getDateText = () => {
+        return (dateRange.from && dateRange.to)
+            ? `${formatDate(dateRange.from)} - ${formatDate(dateRange.to)}`
+            : 'Any weekend'
+    }
+
     if (!isOpen) {
+        // Explore page compact view - just the search bar
+        if (isExplorePage) {
+            return (
+                <div className="explore-search-bar-mobile">
+                    <button
+                        className="explore-search-display"
+                        onClick={handleOpen}
+                    >
+                        <div className="explore-search-content">
+                            <div className="explore-destination-text">Homes in {getDestinationText()}</div>
+                            <div className="explore-details-text">
+                                <span>{getDateText()}</span>
+                                <div className="explore-separator"></div>
+                                <span>{formatGuestsText(guests)}</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            )
+        }
+
+        // Regular view
         return (
             <div className="search-bar-mobile-wrapper">
                 <div className="search-bar-mobile" onClick={handleOpen}>
