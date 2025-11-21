@@ -23,11 +23,29 @@ export function Explore() {
     const [hoveredId, setHoveredId] = useState(null)
     const [focusedStayId, setFocusedStayId] = useState(null)
     const previewRef = useRef(null)
-    const drawerRef = useRef(null);
+    const drawerRef = useRef(null)
 
     useClickOutside([previewRef], () => {
         setFocusedStayId(null)
     })
+    const [showMap, setShowMap] = useState(false)
+    const [isToggleRange, setIsToggleRange] = useState(
+        window.innerWidth <= 949 && window.innerWidth >= 744
+    )
+
+    useEffect(() => {
+        function handleResize() {
+            const inRange = window.innerWidth <= 949 && window.innerWidth >= 744
+            setIsToggleRange(inRange)
+
+            if (!inRange) {
+                setShowMap(false)
+            }
+        }
+        handleResize()
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     // if (!type || city) return <ExploreSkeleton stays={stays} />
     // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
@@ -96,44 +114,67 @@ export function Explore() {
     })
 
     return (
-        <section className="explore-page full">
+        <section className={`explore-page full ${showMap ? 'map-open' : ''}`}>
             {isLoading ? (
                 <div className="loading-overlay">
                     <ExploreSkeleton stays={stays} />
                 </div>
             ) : (
                 <>
-                    <div className="items-wrapper" ref={drawerRef}>
-                        <div className="drag-handle"></div>
-                        <h4 className='explore-title'>Over {filteredStays?.length || 0} homes in {city}</h4>
-                        {/* grid of stays */}
-                        <div className="explore-grid">
-                            {filteredStays?.map(stay => (
-                                <div
-                                    className="div-for-focus"
-                                    key={stay._id}
-                                    onMouseEnter={() => setHoveredId(stay._id)}
-                                    onMouseLeave={() => setHoveredId(null)}
-                                    tabIndex={0}
-                                >
-                                    <StayPreview
-                                        stay={stay}
-                                        isBig={true}
-                                        onToggleWishlist={wm.onToggleWishlist}
-                                        isFocused={focusedStayId === stay._id}
-                                        // onRequestFocus={() => setFocusedStayId(stay._id)}
-                                        onRequestFocus={() => {
-                                            // console.log('Focus requested for', stay._id)
-                                            setFocusedStayId(stay._id)
-                                        }}
-                                    />
-                                </div>
+                    {isToggleRange && (
+                        <button className='toggle-map-btn btn btn-black btn-pill' onClick={() => setShowMap(prev => !prev)}>
+                            {showMap ? (
+                                <>Show list {svgControls.list}</>
+                            ) : (
+                                <>Show map {svgControls.map}</>
+                            )}
+                        </button>
+                    )}
+                    {(!showMap || !isToggleRange) && (
+                        <div className="explore-items-wrapper">
+                            <div className="items-wrapper" ref={drawerRef}>
+                                <div className="drag-handle"></div>
 
-                            ))}
+                                <h4 className='explore-title'>Over {filteredStays?.length || 0} homes in {city}</h4>
+
+                                {/* grid of stays */}
+
+                                <div className="explore-grid">
+                                    {filteredStays?.map(stay => (
+                                        <div
+                                            className="div-for-focus"
+                                            key={stay._id}
+                                            onMouseEnter={() => setHoveredId(stay._id)}
+                                            onMouseLeave={() => setHoveredId(null)}
+                                            tabIndex={0}
+                                        >
+                                            <StayPreview
+                                                stay={stay}
+                                                isBig={true}
+                                                onToggleWishlist={wm.onToggleWishlist}
+                                                isFocused={focusedStayId === stay._id}
+                                                // onRequestFocus={() => setFocusedStayId(stay._id)}
+                                                onRequestFocus={() => {
+                                                    // console.log('Focus requested for', stay._id)
+                                                    setFocusedStayId(stay._id)
+                                                }}
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <ExploreMap tabIndex={0} locations={filteredStays} hoveredId={hoveredId} onToggleWishlist={wm.onToggleWishlist} />
+                    )}
+                    {(showMap || !isToggleRange) && (
+                        <ExploreMap
+                            tabIndex={0}
+                            locations={filteredStays}
+                            hoveredId={hoveredId}
+                            onToggleWishlist={wm.onToggleWishlist}
+                        />
+                    )}
                 </>
+
             )}
 
             {wm.isWishlistModalOpen && wm.activeStay && (

@@ -5,27 +5,67 @@
 }
 
 @media (max-width: 949px) and (min-width: 744px) {
-    .explore-page .explore-map-wrapper {
-        display: none;
-    }
-}
-
-@media (max-width: 949px) {
     .explore-page {
-        grid-template-columns: 1fr;
-        margin-inline: 2rem;
-        padding-inline: 0;
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        grid-template-columns: 1fr !important;
+        grid-template-areas: "list" !important;
+    }
+
+    /*MAP OPEN */
+    .explore-page.map-open {
+        width: 100vw !important;
+        height: 100vh !important;
+        overflow: hidden !important;
         gap: 0;
+    }
+
+    .explore-page.map-open .explore-map-wrapper {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100vw !important;
+        height: 100vh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    /* Hide list while in map mode */
+    .explore-page.map-open .explore-items-wrapper {
+        display: none !important;
+    }
+
+    /*  LIST OPEN (MAP CLOSED)*/
+    .explore-page:not(.map-open) .explore-items-wrapper {
+        padding-inline: 2rem;
+        margin-top: 96px;
+        display: block !important;
     }
 
     .stay-preview.big {
         max-width: none;
     }
+
+    .toggle-map-btn {
+        position: fixed;
+        bottom: 3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2000;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+    }
+
+    .explore-page.map-open .explore-items-wrapper {
+        display: none !important;
+    }
 }
 
 
 @media (max-width: 743px) {
-
     .explore-page .explore-map-wrapper {
         order: -1;
         display: block;
@@ -111,12 +151,16 @@
 
 @media (max-width: 549px) {
     .explore-grid {
-        grid-template-columns: minmax(300px, 1fr);
+        grid-template-columns: minmax(200px, 1fr);
+    }
+
+    .stay-preview.big {
+        max-width: none;
     }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .compact-header.full:not(.no-sticky):not(.index-page) {
         height: auto !important;
     }
-}
+} */
