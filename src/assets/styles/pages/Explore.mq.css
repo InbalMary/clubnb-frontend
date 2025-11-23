@@ -64,7 +64,6 @@
     }
 }
 
-
 @media (max-width: 743px) {
     .explore-page .explore-map-wrapper {
         order: -1;
@@ -73,10 +72,11 @@
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100vh;
+        height: calc(100vh - 79px);
         z-index: 1;
         margin: 0;
         border-radius: 0;
+        padding-top: 79px;
     }
 
     .explore-page {
@@ -141,11 +141,20 @@
         z-index: 20;
     }
 
-
     .explore-title {
         margin: 0;
         padding-inline: 22px;
         text-align: center;
+    }
+
+    .gm-style .gm-style-iw-c {
+        & .gm-style-iw-d {
+            & .stay-preview.big {
+                .stay-info:not(:first-child) {
+                    padding-top: 0.5rem;
+                }
+            }
+        }
     }
 }
 
@@ -158,9 +167,3 @@
         max-width: none;
     }
 }
-
-/* @media (max-width: 768px) {
-    .compact-header.full:not(.no-sticky):not(.index-page) {
-        height: auto !important;
-    }
-} */

@@ -286,7 +286,7 @@ export function Explore() {
                     title={wm.signupModalProps.title}
                     subtitle={wm.signupModalProps.subtitle}
                     onLoginSuccess={() => {
-                        console.log('✅ Login success from Explore, calling post-login flow')
+                        console.log('Login success from Explore, calling post-login flow')
                         wm.handlePostLoginFlow()
                     }}
                     isFromWishlist={true}
