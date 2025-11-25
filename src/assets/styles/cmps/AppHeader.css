@@ -279,7 +279,8 @@ body:has(.app-header) .stay-index {
 
 body:has(.compact-header) .main-container .stay-details {
     margin-block-start: 96px;
-    &.mobile{
+
+    &.mobile {
         margin-block-start: 120px;
 
     }
@@ -287,18 +288,18 @@ body:has(.compact-header) .main-container .stay-details {
 
 @media (max-width: 768px) {
 
-    /* .app-header .search-bar-wrapper, 
-    .app-header .nav-bar {
-        display: none;        
-    } */
+    body:has(.compact-header) .stay-index,
+    body:has(.app-header) .stay-index {
+        margin-block-start: 136px;
+        transition: margin-block-start 0.3s ease-in-out;
+    }
 
     .app-header.index-page .search-bar-wrapper,
     .app-header.index-page .nav-bar,
     .compact-header.index-page .compact-header-content,
     .app-header.no-sticky .search-bar-wrapper,
     .app-header.no-sticky .nav-bar,
-    .compact-header.no-sticky .compact-header-content
-     {
+    .compact-header.no-sticky .compact-header-content {
         display: none;
     }
 
