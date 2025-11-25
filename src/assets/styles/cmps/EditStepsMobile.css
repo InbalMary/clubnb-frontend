@@ -226,6 +226,10 @@
         width: 8rem;
     }
 
+    .mobile-compact-search .camera-icon {
+        width: auto;
+    }
+
     .preview-image {
         width: 5.5rem;
         height: 5.5rem;
