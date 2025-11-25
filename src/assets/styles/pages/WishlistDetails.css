@@ -11,6 +11,7 @@
 /* Left column: grid */
 .explore-list,
 .wishlist-items-wrapper {
+    position: relative;
     grid-area: list;
     display: flex;
     flex-direction: column;
@@ -42,7 +43,6 @@
     width: 100%;
 }
 
-
 /* Right column: map */
 /* .explore-map-wrapper, */
 .wishlist-details .explore-map-wrapper {
@@ -56,10 +56,47 @@
 }
 
 .wishlist-details-header {
+    position: sticky;
+    z-index: 50;
+
     display: flex;
     flex-direction: column;
     gap: 1.1rem;
     width: 100%;
+}
+
+.wishlist-details-header.scrolled {
+    height: 110px;
+    top: 95px;
+    background: var(--white);
+    padding: 0.5rem 0;
+}
+
+.wishlist-details-header.scrolled .compact-title {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.wishlist-details-header.scrolled .btn.menu-dots {
+    position: absolute;
+    right: 0;
+}
+
+.wishlist-details-header.scrolled .wishlist-header-top {
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+.wishlist-details-header.scrolled::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -1.5rem;
+    height: 0.2px;
+    width: calc(100% + 3rem);
+    background: var(--gray6);
+    z-index: -1;
 }
 
 .wishlist-marker {

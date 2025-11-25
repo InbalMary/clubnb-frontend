@@ -1,6 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { StayPreview } from '../cmps/StayPreview'
 import { ExploreMap } from '../cmps/ExploreMap'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
@@ -22,8 +22,18 @@ export function WishlistDetails() {
     const [hoveredId, setHoveredId] = useState(null)
     const [inactiveHearts, setInactiveHearts] = useState([])
     const [isDotsMenuOpen, setIsDotsMenuOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
     const wm = useWishlistModal(wishlists)
 
+    useEffect(() => {
+        function onScroll() {
+            const threshold = 80
+            setIsScrolled(window.scrollY > threshold)
+        }
+
+        window.addEventListener('scroll', onScroll)
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
     if (!wishlist) return <div>Wishlist not found</div>
 
     const stays = (wishlist.stays || []).map(stay => ({
@@ -86,7 +96,7 @@ export function WishlistDetails() {
     return (
         <section className="wishlist-details full">
             <div className="wishlist-items-wrapper">
-                <div className="wishlist-details-header">
+                <div className={`wishlist-details-header ${isScrolled ? 'scrolled' : ''}`}>
                     <div className="wishlist-header-top">
                         <button
                             className="btn btn-transparent back-chevron"
@@ -94,7 +104,9 @@ export function WishlistDetails() {
                         >
                             {svgControls.chevronLeft}
                         </button>
-
+                        {isScrolled && (
+                            <h2 className='wishlists-index-title compact-title'>{wishlist.title}</h2>
+                        )}
                         <button
                             className="btn btn-transparent menu-dots"
                             onClick={onOpenDotsMenu}
@@ -102,8 +114,10 @@ export function WishlistDetails() {
                             {svgControls.dotsHorizontal}
                         </button>
                     </div>
+                    {!isScrolled && (
+                        <h2 className='wishlists-index-title big-title'>{wishlist.title}</h2>
 
-                    <h2 className='wishlists-index-title'>{wishlist.title}</h2>
+                    )}
                 </div>
 
                 <div className="wishlist-details-grid">

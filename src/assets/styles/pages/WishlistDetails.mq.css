@@ -18,6 +18,12 @@
     .wishlist-details .explore-map-wrapper {
         display: none;
     }
+
+    .wishlist-details-header.scrolled::after {
+        width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 @media (max-width: 768px) {
@@ -33,8 +39,17 @@
         margin-top: -90px;
     }
 
+    .wishlist-details-header.scrolled {
+        top: 0;
+    }
+
+
     .wishlists-index-title {
         font-size: 1.625rem;
+    }
+
+    .wishlist-details-header.scrolled {
+        top: 0;
     }
 }
 
