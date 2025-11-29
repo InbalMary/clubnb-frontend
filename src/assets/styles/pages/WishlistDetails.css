@@ -1,11 +1,13 @@
 /* .explore-page, */
 .wishlist-details {
     display: grid;
-    grid-template-columns: minmax(600px, 1.6fr) minmax(380px, 1fr);
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    /* grid-template-columns: minmax(600px, 1.6fr) minmax(380px, 1fr); */
     grid-template-areas: "list map";
     gap: 1.5rem;
     margin-top: 90px;
-    margin-inline: 1.5rem;
+    padding-inline: 1.5rem;
+    min-width: 0;
 }
 
 /* Left column: grid */
