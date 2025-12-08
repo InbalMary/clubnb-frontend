@@ -22,8 +22,13 @@ export function Explore() {
     const [searchParams] = useSearchParams()
     const [hoveredId, setHoveredId] = useState(null)
     const [focusedStayId, setFocusedStayId] = useState(null)
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 743)
     const previewRef = useRef(null)
     const drawerRef = useRef(null)
+    const handleRef = useRef(null)
+    const dragStartYRef = useRef(0) //finger start touch
+    const drawerStartYRef = useRef(0) //drawer start pos
+    const currentDrawerYRef = useRef(0) //updated drawer pos
 
     useClickOutside([previewRef], () => {
         setFocusedStayId(null)
@@ -35,18 +40,93 @@ export function Explore() {
 
     useEffect(() => {
         function handleResize() {
-            const inRange = window.innerWidth <= 949 && window.innerWidth >= 744
-            setIsToggleRange(inRange)
-
-            if (!inRange) {
+            const width = window.innerWidth
+            setIsMobile(width <= 743)
+            setIsToggleRange(width <= 949 && width >= 744)
+            //desktop
+            if (width > 949) setShowMap(true)
+            //tablet
+            if (width >= 744 && width <= 949) {
                 setShowMap(false)
             }
+            //Mobile
+            if (width <= 743) setShowMap(true)
         }
         handleResize()
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
+    useEffect(() => {
+        if (!isMobile) {
+            dragStartYRef.current = null
+            currentDrawerYRef.current = 0
+
+            if (drawerRef.current) {
+                drawerRef.current.style.transform = 'none'
+            }
+        }
+    }, [isMobile])
+
+    function onPointerDown(ev) {
+        dragStartYRef.current = ev.clientY
+        drawerStartYRef.current = currentDrawerYRef.current
+        drawerRef.current.style.transition = 'none'
+    }
+
+    function onPointerMove(ev) {
+        if (dragStartYRef.current === null) return
+        const delta = ev.clientY - dragStartYRef.current
+
+        //enable scroll if drawer is full and user scrolls upward
+        const drawer = drawerRef.current
+        if (currentDrawerYRef.current === 0 && delta < 0) return
+
+        let newY = drawerStartYRef.current + delta
+        const vh = window.innerHeight
+        const minY = 0 //don't drag above top
+        const maxY = vh * 0.78
+
+        if (newY < minY) newY = minY
+        if (newY > maxY) newY = maxY
+        drawerRef.current.style.transform = `translateY(${newY}px)`
+        currentDrawerYRef.current = newY
+    }
+
+    function onPointerUp() {
+        dragStartYRef.current = null
+
+        const currentY = currentDrawerYRef.current //where the drawer stopped
+        const snapPoints = getSnapPoints()
+
+        let closestKey = null
+        let smallestDistance = Infinity
+
+        for (const key in snapPoints) {
+            const snapY = snapPoints[key]
+            const distance = Math.abs(currentY - snapY)
+            if (distance < smallestDistance) {
+                smallestDistance = distance
+                closestKey = key
+            }
+        }
+        const targetY = snapPoints[closestKey]
+        const drawer = drawerRef.current
+        drawer.style.transition = 'transform 0.25s ease'
+        drawer.style.transform = `translateY(${targetY}px)`
+        currentDrawerYRef.current = targetY
+    }
+
+    function getSnapPoints() {
+        const vh = window.innerHeight
+        return {
+            full: 0,
+            mid: vh * 0.40,
+            collapsed: vh * 0.78
+        }
+    }
+
+    //YULIA
     // if (!type || city) return <ExploreSkeleton stays={stays} />
     // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
@@ -132,8 +212,15 @@ export function Explore() {
                     )}
                     {(!showMap || !isToggleRange) && (
                         <div className="explore-items-wrapper">
-                            <div className="items-wrapper" ref={drawerRef}>
-                                <div className="drag-handle"></div>
+                            <div
+                                className={`items-wrapper ${isMobile ? 'drawer' : ''}`}
+                                ref={drawerRef}
+                                onPointerDown={isMobile ? onPointerDown : undefined}
+                                onPointerMove={isMobile ? onPointerMove : undefined}
+                                onPointerUp={isMobile ? onPointerUp : undefined}
+                            >
+
+                                <div className="drag-handle" ref={handleRef}></div>
 
                                 <h4 className='explore-title'>Over {filteredStays?.length || 0} homes in {city}</h4>
 

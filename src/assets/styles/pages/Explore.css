@@ -23,6 +23,11 @@
     }
 }
 
+.items-wrapper {
+    position: static;
+    height: auto;
+    transform: none;
+}
 
 .explore-grid {
     display: grid;
@@ -70,8 +75,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    font-family: cereal-light;
-    font-weight: 700;
+    font-weight: 500;
     overflow: hidden;
 
     .stay-name {
@@ -87,6 +91,7 @@
     display: flex;
     align-items: center;
     color: var(--gray3);
+    font-family: cereal-regular;
 }
 
 .star-icon-sm {
