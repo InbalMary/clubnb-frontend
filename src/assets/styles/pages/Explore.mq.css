@@ -97,15 +97,6 @@
         margin: 0;
     }
 
-    /* .items-wrapper {
-        position: relative;
-        z-index: 10;
-        border-radius: 20px 20px 0 0;
-        overflow: hidden;
-        margin-top: 50vh;
-        background: white;
-    } */
-
     .items-wrapper {
         position: fixed;
         left: 0;
@@ -114,15 +105,20 @@
         z-index: 10;
         background: white;
         border-radius: 20px 20px 0 0;
-        height: calc(100vh - 80px);
-        touch-action: none;
+        height: calc(100vh - 79px);
+        overflow-y: hidden;
     }
 
+    .items-wrapper.can-scroll {
+        overflow-y: auto;
+        touch-action: pan-y;
+    }
 
     .drag-handle {
         min-height: .6rem;
         width: 100%;
         position: relative;
+        touch-action: none;
     }
 
     .drag-handle::before {
@@ -141,7 +137,7 @@
 
     .explore-title {
         margin: 0;
-        padding-inline: 22px;
+        padding: 28px 22px;
         text-align: center;
     }
 

@@ -23,10 +23,11 @@ export function Explore() {
     const [hoveredId, setHoveredId] = useState(null)
     const [focusedStayId, setFocusedStayId] = useState(null)
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 743)
+    const [drawerSnap, setDrawerSnap] = useState('collapsed')
+
     const previewRef = useRef(null)
     const drawerRef = useRef(null)
-    const handleRef = useRef(null)
-    const dragStartYRef = useRef(0) //finger start touch
+    const dragStartYRef = useRef(null) //finger start touch
     const drawerStartYRef = useRef(0) //drawer start pos
     const currentDrawerYRef = useRef(0) //updated drawer pos
 
@@ -69,6 +70,7 @@ export function Explore() {
     }, [isMobile])
 
     function onPointerDown(ev) {
+        ev.currentTarget.setPointerCapture(ev.pointerId)
         dragStartYRef.current = ev.clientY
         drawerStartYRef.current = currentDrawerYRef.current
         drawerRef.current.style.transition = 'none'
@@ -93,7 +95,8 @@ export function Explore() {
         currentDrawerYRef.current = newY
     }
 
-    function onPointerUp() {
+    function onPointerUp(ev) {
+        ev.currentTarget.releasePointerCapture(ev.pointerId)
         dragStartYRef.current = null
 
         const currentY = currentDrawerYRef.current //where the drawer stopped
@@ -115,6 +118,8 @@ export function Explore() {
         drawer.style.transition = 'transform 0.25s ease'
         drawer.style.transform = `translateY(${targetY}px)`
         currentDrawerYRef.current = targetY
+
+        setDrawerSnap(closestKey)
     }
 
     function getSnapPoints() {
@@ -212,18 +217,17 @@ export function Explore() {
                     )}
                     {(!showMap || !isToggleRange) && (
                         <div className="explore-items-wrapper">
-                            <div
-                                className={`items-wrapper ${isMobile ? 'drawer' : ''}`}
-                                ref={drawerRef}
-                                onPointerDown={isMobile ? onPointerDown : undefined}
-                                onPointerMove={isMobile ? onPointerMove : undefined}
-                                onPointerUp={isMobile ? onPointerUp : undefined}
-                            >
-
-                                <div className="drag-handle" ref={handleRef}></div>
-
-                                <h4 className='explore-title'>Over {filteredStays?.length || 0} homes in {city}</h4>
-
+                            <div className={`items-wrapper drawer ${drawerSnap === 'full' ? 'can-scroll' : ''}`} ref={drawerRef}>
+                                <div
+                                    className="drawer-top"
+                                    onPointerDown={isMobile ? onPointerDown : undefined}
+                                    onPointerMove={isMobile ? onPointerMove : undefined}
+                                    onPointerUp={isMobile ? onPointerUp : undefined}
+                                >
+                                    <div className="drag-handle">
+                                        <h4 className='explore-title'>Over {filteredStays?.length || 0} homes in {city}</h4>
+                                    </div>
+                                </div>
                                 {/* grid of stays */}
 
                                 <div className="explore-grid">
@@ -261,124 +265,129 @@ export function Explore() {
                         />
                     )}
                 </>
-
-            )}
-
-            {wm.isWishlistModalOpen && wm.activeStay && (
-                <Modal
-                    header="Save to wishlist"
-                    isOpen={wm.isWishlistModalOpen}
-                    onClose={() => wm.setIsWishlistModalOpen(false)}
-                    closePosition="right"
-                    className="wishlist-modal"
-                    footer={
-                        <button className='create-wishlist-btn'
-                            onClick={() => {
-                                wm.setIsWishlistModalOpen(false)
-                                wm.setNewTitle(`${wm.activeStay.loc.city}, ${wm.activeStay.loc.country} ${new Date().getFullYear()}`)
-                                wm.setShowInputClearBtn(true)
-                                wm.setIsCreateWishlistModalOpen(true)
-                            }}
-                        >
-                            Create new wishlist
-                        </button>
-                    }
-                >
-                    <ul className='wishlist-modal-list'>
-                        {wishlists.map(wishlist => (
-                            <li
-                                key={wishlist._id}
-                                onClick={() => wm.onSelectWishlistFromModal(wishlist)}
-                            >
-                                <img src={wishlist.stays?.[0].imgUrls?.[0]} alt={wishlist.title} className="wishlist-modal-img" />
-                                <span className="stay-name">{wishlist.title}</span>
-                            </li>
-                        ))}
-                    </ul>
-
-                </Modal>
-            )}
-            {wm.isCreateWishlistModalOpen && (
-                <Modal
-                    header={
-                        <>
-                            <button className='btn btn-transparent btn-round back'
+            )
+            }
+            {
+                wm.isWishlistModalOpen && wm.activeStay && (
+                    <Modal
+                        header="Save to wishlist"
+                        isOpen={wm.isWishlistModalOpen}
+                        onClose={() => wm.setIsWishlistModalOpen(false)}
+                        closePosition="right"
+                        className="wishlist-modal"
+                        footer={
+                            <button className='create-wishlist-btn'
                                 onClick={() => {
-                                    wm.setIsCreateWishlistModalOpen(false)
-                                    if (wishlists.length) wm.setIsWishlistModalOpen(true)
+                                    wm.setIsWishlistModalOpen(false)
+                                    wm.setNewTitle(`${wm.activeStay.loc.city}, ${wm.activeStay.loc.country} ${new Date().getFullYear()}`)
+                                    wm.setShowInputClearBtn(true)
+                                    wm.setIsCreateWishlistModalOpen(true)
                                 }}
                             >
-                                {svgControls.backArrow}
+                                Create new wishlist
                             </button>
-                            <span className='creat-wishlist-modal-title'>
-                                {wishlists.length === 0
-                                    ? 'Create your first wishlist'
-                                    : 'Create wishlist'}
-                            </span>
-                        </>
-                    }
-                    isOpen={wm.isCreateWishlistModalOpen}
-                    onClose={() => {
-                        wm.setIsCreateWishlistModalOpen(false)
-                        if (wishlists.length) wm.setIsWishlistModalOpen(true)
-                    }}
-                    className="create-wishlist-modal"
-                    showCloseBtn={false}
-                    footer={
-                        <div className="create-footer-actions">
-                            <button className='btn create-cancel-btn btn-transparent'
-                                onClick={() => {
-                                    wm.setIsCreateWishlistModalOpen(false)
-                                    if (wishlists.length) wm.setIsWishlistModalOpen(true)
-                                }}>
-                                Cancel
-                            </button>
-                            <button className='btn create-btn btn-black'
-                                onClick={wm.onCreateWishlist}>
-                                Create
-                            </button>
+                        }
+                    >
+                        <ul className='wishlist-modal-list'>
+                            {wishlists.map(wishlist => (
+                                <li
+                                    key={wishlist._id}
+                                    onClick={() => wm.onSelectWishlistFromModal(wishlist)}
+                                >
+                                    <img src={wishlist.stays?.[0].imgUrls?.[0]} alt={wishlist.title} className="wishlist-modal-img" />
+                                    <span className="stay-name">{wishlist.title}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                    </Modal>
+                )
+            }
+            {
+                wm.isCreateWishlistModalOpen && (
+                    <Modal
+                        header={
+                            <>
+                                <button className='btn btn-transparent btn-round back'
+                                    onClick={() => {
+                                        wm.setIsCreateWishlistModalOpen(false)
+                                        if (wishlists.length) wm.setIsWishlistModalOpen(true)
+                                    }}
+                                >
+                                    {svgControls.backArrow}
+                                </button>
+                                <span className='creat-wishlist-modal-title'>
+                                    {wishlists.length === 0
+                                        ? 'Create your first wishlist'
+                                        : 'Create wishlist'}
+                                </span>
+                            </>
+                        }
+                        isOpen={wm.isCreateWishlistModalOpen}
+                        onClose={() => {
+                            wm.setIsCreateWishlistModalOpen(false)
+                            if (wishlists.length) wm.setIsWishlistModalOpen(true)
+                        }}
+                        className="create-wishlist-modal"
+                        showCloseBtn={false}
+                        footer={
+                            <div className="create-footer-actions">
+                                <button className='btn create-cancel-btn btn-transparent'
+                                    onClick={() => {
+                                        wm.setIsCreateWishlistModalOpen(false)
+                                        if (wishlists.length) wm.setIsWishlistModalOpen(true)
+                                    }}>
+                                    Cancel
+                                </button>
+                                <button className='btn create-btn btn-black'
+                                    onClick={wm.onCreateWishlist}>
+                                    Create
+                                </button>
+                            </div>
+                        }
+                    >
+                        <div className="rename-input-wrapper">
+                            <input
+                                className="rename-input"
+                                type="text"
+                                value={wm.newTitle}
+                                onChange={(ev) => {
+                                    wm.setNewTitle(ev.target.value)
+                                    wm.setShowInputClearBtn(ev.target.value !== '')
+                                }}
+                                placeholder="Name your wishlist"
+                            />
+                            {wm.newTitle && (
+                                <button
+                                    type="button"
+                                    className="btn btn-gray btn-round clear-input-btn"
+                                    onClick={() => {
+                                        wm.setNewTitle('')
+                                        wm.setShowInputClearBtn(false)
+                                    }}
+                                >
+                                    {svgControls.closeModal}
+                                </button>
+                            )}
                         </div>
-                    }
-                >
-                    <div className="rename-input-wrapper">
-                        <input
-                            className="rename-input"
-                            type="text"
-                            value={wm.newTitle}
-                            onChange={(ev) => {
-                                wm.setNewTitle(ev.target.value)
-                                wm.setShowInputClearBtn(ev.target.value !== '')
-                            }}
-                            placeholder="Name your wishlist"
-                        />
-                        {wm.newTitle && (
-                            <button
-                                type="button"
-                                className="btn btn-gray btn-round clear-input-btn"
-                                onClick={() => {
-                                    wm.setNewTitle('')
-                                    wm.setShowInputClearBtn(false)
-                                }}
-                            >
-                                {svgControls.closeModal}
-                            </button>
-                        )}
-                    </div>
-                </Modal>
-            )}
-            {wm.isSignupModalOpen && (
-                <LoginSignupModal
-                    isOpen={wm.isSignupModalOpen}
-                    onClose={() => wm.setIsSignupModalOpen(false)}
-                    title={wm.signupModalProps.title}
-                    subtitle={wm.signupModalProps.subtitle}
-                    onLoginSuccess={() => {
-                        console.log('Login success from Explore, calling post-login flow')
-                        wm.handlePostLoginFlow()
-                    }}
-                    isFromWishlist={true}
-                />
-            )}
+                    </Modal>
+                )
+            }
+            {
+                wm.isSignupModalOpen && (
+                    <LoginSignupModal
+                        isOpen={wm.isSignupModalOpen}
+                        onClose={() => wm.setIsSignupModalOpen(false)}
+                        title={wm.signupModalProps.title}
+                        subtitle={wm.signupModalProps.subtitle}
+                        onLoginSuccess={() => {
+                            console.log('Login success from Explore, calling post-login flow')
+                            wm.handlePostLoginFlow()
+                        }}
+                        isFromWishlist={true}
+                    />
+                )
+            }
 
         </section >
 
