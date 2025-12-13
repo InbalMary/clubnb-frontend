@@ -23,7 +23,7 @@ export function Explore() {
     const [hoveredId, setHoveredId] = useState(null)
     const [focusedStayId, setFocusedStayId] = useState(null)
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 743)
-    const [drawerSnap, setDrawerSnap] = useState('collapsed')
+    const [drawerSnap, setDrawerSnap] = useState('mid')
 
     const previewRef = useRef(null)
     const drawerRef = useRef(null)
@@ -131,7 +131,27 @@ export function Explore() {
         }
     }
 
-    //YULIA
+    const showMobileMapToggle = isMobile && drawerSnap === 'full'
+
+    function onShowMapFromDrawer() {
+        const { collapsed } = getSnapPoints()
+        setShowMap(true)
+        setDrawerSnap('collapsed')
+
+        if (drawerRef.current) {
+            drawerRef.current.scrollTop = 0
+        }
+
+        currentDrawerYRef.current = collapsed
+        drawerStartYRef.current = collapsed
+        dragStartYRef.current = null
+
+        if (drawerRef.current) {
+            drawerRef.current.style.transition = 'transform 0.25s ease'
+            drawerRef.current.style.transform = `translateY(${collapsed}px)`
+        }
+    }
+
     // if (!type || city) return <ExploreSkeleton stays={stays} />
     // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
@@ -199,14 +219,22 @@ export function Explore() {
     })
 
     return (
-        <section className={`explore-page full ${showMap ? 'map-open' : ''}`}>
+        <section className={`explore-page full ${!isMobile && showMap ? 'map-open' : ''}`}>
             {isLoading ? (
                 <div className="loading-overlay">
                     <ExploreSkeleton stays={stays} />
                 </div>
             ) : (
                 <>
-                    {isToggleRange && (
+                    {isMobile && showMobileMapToggle && (
+                        <button
+                            className="toggle-map-btn mobile-toggle btn btn-black btn-pill"
+                            onClick={onShowMapFromDrawer}
+                        >
+                            <>Map {svgControls.map}</>
+                        </button>
+                    )}
+                    {isToggleRange && !isMobile && (
                         <button className='toggle-map-btn btn btn-black btn-pill' onClick={() => setShowMap(prev => !prev)}>
                             {showMap ? (
                                 <>Show list {svgControls.list}</>
@@ -218,6 +246,7 @@ export function Explore() {
                     {(!showMap || !isToggleRange) && (
                         <div className="explore-items-wrapper">
                             <div className={`items-wrapper drawer ${drawerSnap === 'full' ? 'can-scroll' : ''}`} ref={drawerRef}>
+
                                 <div
                                     className="drawer-top"
                                     onPointerDown={isMobile ? onPointerDown : undefined}

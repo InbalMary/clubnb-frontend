@@ -106,6 +106,7 @@
         background: white;
         border-radius: 20px 20px 0 0;
         height: calc(100vh - 79px);
+        transform: translateY(40vh);
         overflow-y: hidden;
     }
 
@@ -140,6 +141,18 @@
         padding: 28px 22px;
         text-align: center;
     }
+
+    .toggle-map-btn.mobile-toggle {
+        position: fixed;
+        bottom: 5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2001;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        pointer-events: auto;
+    }
+
 
     .gm-style .gm-style-iw-c {
         & .gm-style-iw-d {
