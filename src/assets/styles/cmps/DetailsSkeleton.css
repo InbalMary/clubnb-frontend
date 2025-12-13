@@ -22,7 +22,7 @@
 
 /* Mobile details skeleton */
 .details-skeleton.mobile {
-    padding:0;
+    padding: 0;
     padding-inline: 15px;
     pointer-events: none;
 
@@ -220,7 +220,8 @@
     }
 }
 
-/* === Layout Mimic === */
+/* Explore Skeleton Base Layout */
+
 .skeleton-explore-page {
     display: grid;
     grid-template-columns: minmax(auto, 49rem) minmax(24.5rem, auto);
@@ -233,6 +234,10 @@
 .skeleton.skeleton-title-block {
     margin-bottom: 1rem;
     width: 30%;
+}
+
+.skeleton-title-wrapper {
+    padding-bottom: 1rem;
 }
 
 /* === Skeleton Grid (Cards) === */

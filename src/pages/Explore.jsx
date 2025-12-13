@@ -81,7 +81,6 @@ export function Explore() {
         const delta = ev.clientY - dragStartYRef.current
 
         //enable scroll if drawer is full and user scrolls upward
-        const drawer = drawerRef.current
         if (currentDrawerYRef.current === 0 && delta < 0) return
 
         let newY = drawerStartYRef.current + delta

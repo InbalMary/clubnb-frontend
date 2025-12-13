@@ -88,4 +88,5 @@
 @import "./pages/ConfirmPay.mq.css";
 @import "./pages/WishlistIndex.mq.css";
 @import "./pages/WishlistDetails.mq.css";
+@import "./cmps/ExploreSkeleton.mq.css";
 @import "setup/MQ.css";
