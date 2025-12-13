@@ -42,8 +42,6 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
         numNights = 2
     }
 
-    // const start = filterBy.startDate || stay.suggestedRange?.start || stay.availableFrom
-    // const end = filterBy.endDate || stay.suggestedRange?.end || stay.availableUntil
     const startRaw = filterBy.startDate || stay.suggestedRange?.start || stay.availableFrom
     const endRaw = filterBy.endDate || stay.suggestedRange?.end || stay.availableUntil
     const start = startRaw ? toUrlDate(startRaw) : ''
@@ -65,7 +63,6 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
     return <article className={`stay-preview ${isBig ? 'big' : ''} ${isFocused ? 'at-focus' : ''}`}>
         <div className='stay-image-wrapper'>
 
-            {/* <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}&adults=${filterBy.adults || adults || 1}&children=${filterBy.children || children}&infants=${filterBy.infants || infants}&pets=${filterBy.pets || pets}` */}
             <Link to={to}
                 className='stay-link'
             >
@@ -93,9 +90,11 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
                 <div className='guest-favorite-badge'>Guest favorite</div>
             )}
         </div>
-        <div className="stay-info">
-            {isBig ? (
-                // Explore layout: name + rating on one line
+
+        {isBig ? (
+            // Explore layout: name + rating on one line
+            <Link to={to} className="stay-info stay-info-link">
+                {/* HEADER */}
                 <div className="stay-header">
                     <span className="stay-name">{stay.name}</span>
                     <span className="stay-rating">
@@ -109,85 +108,76 @@ export function StayPreview({ stay, isBig = false, isFocused, onRequestFocus, on
                         )}
                     </span>
                 </div>
-            ) : (
-                // Default layout (non-Explore)
-                <header>
-                    {/* <Link to={`/stay/${stay._id}?startDate=${start}&endDate=${end}&adults=${filterBy.adults || adults || 1}&children=${filterBy.children || children}&infants=${filterBy.infants || infants}&pets=${filterBy.pets || pets}`
-                    }  */}
-                    <Link to={to}
-                        className="stay-name">
-                        {stay.name}
-                    </Link>
-                </header>
-            )}
-
-            {isBig && (
-                <>
-                    <p className="stay-summary" title={stay.summary}>{stay.summary}</p>
-                    <p className='stay-card-details'>
-                        {!hideDetails && (
-                            <>
-                                {stay.bedrooms} {stay.bedrooms === 1 ? 'bedroom' : 'bedrooms'}
-                                <span className='separator'>{' '}•</span>
-                            </>
-                        )}
-                        {' '}{stay.beds} {stay.beds === 1 ? 'bed' : 'beds'}
-                    </p>
-                </>
-            )}
-            {!hideDetails && (
-                // if small card and user selected dates - show them
-                !isBig && hasSelectedDates ? (
-                    <p className="stay-card-dates">
-                        {formatStayDates(filterBy.startDate, filterBy.endDate)}
-                    </p>
-                ) : (
-                    //  if Explore and no selected dates - show suggested range
-                    isBig && !hasSelectedDates && formattedDates ? (
-                        <p className="stay-card-dates">{formattedDates}</p>
-                    ) : (
-                        //small cards, no selected dates - show 2-night default range
-                        !isBig && !hasSelectedDates && formattedDates && (
-                            <p className="stay-card-dates">{formattedDates}</p>
-                        )
-                    )
-                )
-            )}
-
-            <div className='stay-card-details'>
-                {!hideDetails && (
-                    isBig ? (
-                        hasPrice && (
-                            <div className="stay-price-wrap">
-                                <span className="stay-price">
-                                    <span className="price-number">
-                                        ${(stay.price * numNights).toLocaleString()}
-                                    </span>
-                                    <span className="price-text">
-                                        {` for ${numNights} ${numNights === 1 ? 'night' : 'nights'}`}
-                                    </span>
-                                </span>
-                            </div>
-                        )
-                    ) : (
-                        <div className="stay-price-rating">
-
-                            <span className='stay-price'>
+                {/* SUMMARY + BED DETAILS */}
+                <p className="stay-summary" title={stay.summary}>{stay.summary}</p>
+                <p className='stay-card-details'>
+                    {!hideDetails && (
+                        <>
+                            {stay.bedrooms} {stay.bedrooms === 1 ? 'bedroom' : 'bedrooms'}
+                            <span className='separator'>{' '}•</span>
+                        </>
+                    )}
+                    {' '}{stay.beds} {stay.beds === 1 ? 'bed' : 'beds'}
+                </p>
+                {/* DATES  */}
+                {!hideDetails && !hasSelectedDates && formattedDates && (
+                    <p className="stay-card-dates">{formattedDates}</p>
+                )}
+                {/* PRICE */}
+                {!hideDetails && hasPrice && (
+                    <div className="stay-price-wrap">
+                        <span className="stay-price">
+                            <span className="price-number">
                                 ${(stay.price * numNights).toLocaleString()}
+                            </span>
+                            <span className="price-text">
                                 {` for ${numNights} ${numNights === 1 ? 'night' : 'nights'}`}
                             </span>
-                            <span className='separator'>{' '}•</span>
-                            <span className='stay-rating'>
-                                <span className='star-icon-xs'>{statSvgs.starXSmall}</span>
-                                <span>{stay.host?.rating || 4.85}</span>
-                            </span>
+                        </span>
+                    </div>
+                )}
+                {/* CANCELLATION*/}
+                {!hideDetails && stay.freeCancellation && (
+                    <p className="explore-cancellation-policy">Free cancellation</p>
+                )}
+            </Link>
+        ) : (
+            // Default layout (non-Explore)
+            <>
+                <div className="stay-info">
+                    <header>
+                        <Link to={to}
+                            className="stay-name">
+                            {stay.name}
+                        </Link>
+                    </header>
+                    {/* SMALL CARD DATES */}
+                    {!hideDetails && hasSelectedDates && ( // if small card and user selected dates - show them
+                        <p className="stay-card-dates">
+                            {formatStayDates(filterBy.startDate, filterBy.endDate)}
+                        </p>
+                    )}
+                    {!hideDetails && !hasSelectedDates && formattedDates && (//small cards, no selected dates - show 2-night default range
+                        <p className="stay-card-dates">{formattedDates}</p>
+                    )}
+                    {/* SMALL CARD PRICE */}
+                    {!hideDetails && (
+                        <div className="stay-card-details">
+                            <div className="stay-price-rating">
+                                <span className='stay-price'>
+                                    ${(stay.price * numNights).toLocaleString()}
+                                    {` for ${numNights} ${numNights === 1 ? 'night' : 'nights'}`}
+                                </span>
+                                <span className='separator'>{' '}•</span>
+                                <span className='stay-rating'>
+                                    <span className='star-icon-xs'>{statSvgs.starXSmall}</span>
+                                    <span>{stay.host?.rating || 4.85}</span>
+                                </span>
+                            </div>
                         </div>
-                    ))}
-
-            </div>
-            {isBig && !hideDetails && stay.freeCancellation && (
-                <p className='explore-cancellation-policy'>Free cancellation</p>
-            )}
-        </div>
+                    )}
+                </div>
+            </>
+        )}
     </article>
 }

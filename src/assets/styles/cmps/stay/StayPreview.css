@@ -178,6 +178,10 @@
     gap: 0.1rem;
 }
 
+.stay-info.stay-info-link {
+    text-decoration: none;
+}
+
 .guest-favorite-badge {
     position: absolute;
     top: 0.7rem;
