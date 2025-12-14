@@ -311,7 +311,7 @@ export function StayDetails() {
 
           <div className="btns-mobile-wrapper">
 
-            <button onClick={() => navigate('/')} className='btn-back mobile'>
+            <button onClick={() => navigate(-1)} className='btn-back mobile'>
               {svgControls.backArrow1}
             </button>
             <div className="flex">
