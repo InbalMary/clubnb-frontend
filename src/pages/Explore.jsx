@@ -24,6 +24,8 @@ export function Explore() {
     const [focusedStayId, setFocusedStayId] = useState(null)
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 743)
     const [drawerSnap, setDrawerSnap] = useState('mid')
+    const [mobilePreviewOpen, setMobilePreviewOpen] = useState(false)
+
 
     const previewRef = useRef(null)
     const drawerRef = useRef(null)
@@ -155,8 +157,6 @@ export function Explore() {
     // if (stays) return<div className="loading-overlay"> <ExploreSkeleton stays={stays} /></div>
 
     useEffect(() => {
-        console.count('explore render')
-
         const destination = searchParams.get('destination') || null
         const startDate = searchParams.get('startDate') || null
         const endDate = searchParams.get('endDate') || null
@@ -177,19 +177,6 @@ export function Explore() {
             pets: pets ? Number(pets) : null,
         })
 
-
-        // const totalGuests = (adults || children)
-        //     ? (parseInt(adults || 0) + parseInt(children || 0))
-        //     : null
-
-        // const filterParams = {
-        //     city: city || null,
-        //     startDate,
-        //     endDate,
-        //     guests: totalGuests  // sends the actual number of guests..
-        // }
-
-        // console.log('Loading stays with filter:', filterParams)
         loadStays(filterParams)
 
     }, [city, searchParams])
@@ -242,7 +229,9 @@ export function Explore() {
                             )}
                         </button>
                     )}
-                    {(!showMap || !isToggleRange) && (
+                    {/* { (!showMap || !isToggleRange) &&  ( */}
+                    {/*Conditional rendering of the drawer - mobilePreviewOpen ? drawer hidden : shown */}
+                     {(!mobilePreviewOpen && (!showMap || !isToggleRange)) &&  (
                         <div className="explore-items-wrapper">
                             <div className={`items-wrapper drawer ${drawerSnap === 'full' ? 'can-scroll' : ''}`} ref={drawerRef}>
 
@@ -290,6 +279,8 @@ export function Explore() {
                             locations={filteredStays}
                             hoveredId={hoveredId}
                             onToggleWishlist={wm.onToggleWishlist}
+                            mobilePreviewOpen={mobilePreviewOpen}
+                            setMobilePreviewOpen={setMobilePreviewOpen}
                         />
                     )}
                 </>

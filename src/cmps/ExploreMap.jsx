@@ -4,19 +4,20 @@ import { Modal } from './Modal'
 import { StayPreview } from './StayPreview'
 import { useClickOutside } from '../customHooks/useClickOutside'
 
-export function ExploreMap({ locations, hoveredId, onToggleWishlist, customMarker, isWishlistMap = false }) {
+export function ExploreMap({ locations, hoveredId, onToggleWishlist, customMarker, isWishlistMap = false, mobilePreviewOpen, setMobilePreviewOpen }) {
 
     const [activeLocation, setActiveLocation] = useState(null)
+    // const [mobilePreviewOpen, setMobilePreviewOpen] = useState(false)
+    const [hoverMarker, setHoverMarker] = useState(null)
+    const [center, setCenter] = useState(null)
+    const [focusedStayId, setFocusedStayId] = useState(null)
 
     const mapRef = useRef(null)
     const markerRefs = useRef({})
     const modalRef = useRef(null)
 
-    const [hoverMarker, setHoverMarker] = useState(null)
     const attachedMarkers = useRef(new Set())
-    const [center, setCenter] = useState(null)
     const [zoom, setZoom] = useState(10)
-    const [focusedStayId, setFocusedStayId] = useState(null)
 
     const previewRef = useRef(null)
 
@@ -46,8 +47,8 @@ export function ExploreMap({ locations, hoveredId, onToggleWishlist, customMarke
 
     }, [locations])
 
-    // Opening modal on click
 
+    // Opening modal on click
     useEffect(() => {
         attachMarkerListeners()
     }, [locations])
@@ -57,6 +58,14 @@ export function ExploreMap({ locations, hoveredId, onToggleWishlist, customMarke
         if (hoveredId) updateMarkerZIndexes({ hoverId: hoveredId })
 
     }, [hoveredId])
+
+    useEffect(() => {
+        const onResize = () => {
+            if (window.innerWidth > 743 && mobilePreviewOpen) setMobilePreviewOpen(false)
+        }
+        window.addEventListener('resize', onResize)
+        return () => window.removeEventListener('resize', onResize)
+    }, [mobilePreviewOpen])
 
     const handleMouseEnter = (id) => {
         setHoverMarker(id)
@@ -92,9 +101,15 @@ export function ExploreMap({ locations, hoveredId, onToggleWishlist, customMarke
 
         setActiveLocation(location)
         updateMarkerZIndexes({ activeId: id })
-    }
-    // Locations center for map
 
+        // Mobile behavior: open custom modal instead of InfoWindow
+        if (typeof window !== 'undefined' && window.innerWidth <= 743) {
+            setMobilePreviewOpen(true)
+            return
+        }
+    }
+
+    // Locations center for map
     function getLocationsCenter(locations) {
         if (locations?.length) {
 
@@ -223,13 +238,15 @@ export function ExploreMap({ locations, hoveredId, onToggleWishlist, customMarke
                                     </span>
                                 </div>
                             )}
-                            {activeLocation && (
+
+                            {activeLocation && activeLocation._id === location._id && (
                                 <InfoWindow
                                     options={{
                                         disableDefaultUI: true
                                     }}
+                                    className={`${mobilePreviewOpen ? 'mobile' : ''}`}
                                     position={{ lat: activeLocation.loc.lat, lng: activeLocation.loc.lng }}
-                                    onCloseClick={() => setActiveLocation(null)}
+                                    onCloseClick={() => { setActiveLocation(null); setMobilePreviewOpen(false) }}
                                 >
                                     <StayPreview
                                         key={activeLocation._id}
@@ -240,6 +257,7 @@ export function ExploreMap({ locations, hoveredId, onToggleWishlist, customMarke
                                         isFocused={focusedStayId === activeLocation._id}
                                         onRequestFocus={() => setFocusedStayId(activeLocation._id)} />
                                 </InfoWindow>)}
+
                         </AdvancedMarker>
                     )
                     )}

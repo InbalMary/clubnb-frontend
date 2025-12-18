@@ -153,14 +153,26 @@
         pointer-events: auto;
     }
 
-
     .gm-style .gm-style-iw-c {
-        & .gm-style-iw-d {
-            & .stay-preview.big {
+        max-width: calc(100vw - 32px) !important;
+
+        .gm-style-iw-d {
+            width: calc(100vw - 32px);
+
+            .stay-preview.big {
+                aspect-ratio: none;
+                max-height: clamp(320px, 60vw, 400px);
+                max-width: 100%;
+
                 .stay-info:not(:first-child) {
                     padding-top: 0.5rem;
                 }
             }
+        }
+
+        &:has(div.mobile) {
+            position: fixed;
+            top: 41dvh !important;
         }
     }
 }
