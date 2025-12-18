@@ -172,7 +172,7 @@
 
         &:has(div.mobile) {
             position: fixed;
-            top: 41dvh !important;
+            top: 40dvh !important;
         }
     }
 }
